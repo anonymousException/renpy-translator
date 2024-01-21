@@ -2,7 +2,7 @@
 
 # <div align=center>Renpy Translator</div>
 
-<div align=center>Chinese READ_ME can is <a href = ''>here</a> </div>
+<div align=center>Chinese READ_ME is <a href = 'https://github.com/anonymousException/renpy-translator/blob/main/README_zh.md'>here</a> </div>
 
 <div align=center>A free and open-source translator for ren'py</div>
 
