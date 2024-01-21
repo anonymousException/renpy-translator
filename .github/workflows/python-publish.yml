@@ -26,7 +26,7 @@ jobs:
     - uses: actions/upload-artifact@v4
       with:
         name: Action-Build
-        path:
+        path: |
           src/dist/windows/
           src/source.rst
           src/target.rst
