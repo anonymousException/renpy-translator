@@ -19,6 +19,9 @@ jobs:
       uses: JackMcKew/pyinstaller-action-windows@main
       with:
         path: src
+        pypi_url: https://pypi.org
+        pypi_index_url: https://pypi.org/simple
+        spec: "main.spec"
 
     - uses: actions/upload-artifact@v2
       with:
