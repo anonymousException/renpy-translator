@@ -1,0 +1,3 @@
+Pyside6==6.6.1
+pygtrans==1.5.3
+pyinstaller-hooks-contrib==2024.0
