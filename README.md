@@ -40,11 +40,11 @@ An unpacked ren‘py game (for what you can find .rpa files under the game direc
 
 ![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/unpacked.png)
 
-You can try to translate [the tutorial game]() following the tutorial
+You can try to translate [the tutorial game](https://github.com/anonymousException/renpy-translator/blob/main/docs/demo_game/DemoGame-1.0-win.zip) following the tutorial
 
 if not you can try to unpack it
 
-I usually use [UnRen-ultrahack.bat]() from https://f95zone.to/ to unpack the game
+I usually use [UnRen-ultrahack.bat](https://github.com/anonymousException/renpy-translator/blob/main/docs/tool/UnRen-ultrahack.bat) from https://f95zone.to/ to unpack the game
 
 It's **strongly not recommended** for translators to make translation through unpack and then deliver a translated version without the original author's permission. Please **respect** the original author
 
