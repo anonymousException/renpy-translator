@@ -14,6 +14,10 @@
 
 ------
 
+## Download
+
+You can download the latest version through https://github.com/anonymousException/renpy-translator/releases/latest
+
 ## Features
 
 - Completely free and open-source,

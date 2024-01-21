@@ -12,6 +12,10 @@
 
 ------
 
+## 下载
+
+你可以通过 https://github.com/anonymousException/renpy-translator/releases/latest 下载最新版本
+
 ## 特性
 
 - 完全免费且开源
