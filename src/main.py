@@ -6,7 +6,7 @@ import time
 import traceback
 import webbrowser
 
-from PySide6.QtCore import QThread, Signal
+from PySide6.QtCore import QThread, Signal, Qt
 from PySide6.QtGui import QTextCursor, QIcon
 from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog
 from PySide6.QtWidgets import QDialog
@@ -26,8 +26,16 @@ class MyCopyrightForm(QDialog, Ui_Dialog):
     def __init__(self, parent=None):
         super(MyCopyrightForm, self).__init__(parent)
         self.setupUi(self)
+        self.url_label.setStyleSheet(
+                            "QLabel::hover"
+                            "{"
+                            "background-color : lightgreen;"
+                            "}"
+                            )
         self.url_label.setStyleSheet("color:blue")
         self.url_label.mousePressEvent = self.open_url
+
+        self.url_label.setCursor(Qt.PointingHandCursor)
 
     def open_url(self, event):
         webbrowser.open(self.url_label.text())
