@@ -1,14 +1,14 @@
-![logo](https://www.renpy.org/static/index-logo.png)
+<div align=center><img src = "https://www.renpy.org/static/index-logo.png"></div>
 
 # Renpy Translator
 
-<center>A free and open-source translator for ren'py</center>
+<div align=center>A free and open-source translator for ren'py</div>
 
-![python version](https://camo.githubusercontent.com/60c21c6ef57c61b0a329f621af32f87c9b4ffe0283eeebe8a453e60de2675c51/68747470733a2f2f696d672e736869656c64732e696f2f707970692f707976657273696f6e732f6c616d612d636c65616e6572)
+<div align=center><img src= "https://camo.githubusercontent.com/60c21c6ef57c61b0a329f621af32f87c9b4ffe0283eeebe8a453e60de2675c51/68747470733a2f2f696d672e736869656c64732e696f2f707970692f707976657273696f6e732f6c616d612d636c65616e6572"></div>
 
 ------
 
-![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/interface.png)
+<div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/interface.png"></div>
 
 ------
 
