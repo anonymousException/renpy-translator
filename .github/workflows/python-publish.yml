@@ -22,10 +22,10 @@ jobs:
         pypi_url: https://pypi.org
         pypi_index_url: https://pypi.org/simple
         spec: "main.spec"
-    - run:
-        cp src/source.rst src/dist/windows/source.rst
-        cp src/target.rst src/dist/windows/target.rst
-        cp src/main.ico src/dist/windows/main.ico
+
+    - run: cp src/source.rst src/dist/windows/source.rst
+    - run: cp src/target.rst src/dist/windows/target.rst
+    - run: cp src/main.ico src/dist/windows/main.ico
 
     - uses: actions/upload-artifact@v4
       with:
