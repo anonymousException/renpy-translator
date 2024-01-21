@@ -214,3 +214,9 @@ Update-Translation is quite easy, directly refers to the [Official Extract](#jum
 After extraction ,  just input the directory generated during [Official Extract](#jump_official_extract) and choose the target , font can leave empty because it has been replaced before
 
 ![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/renpy_translator_update_translate.png)
+
+## Development
+
+If you are willing to develop based on this project. You will need to have a python3 environment.
+
+And install the following packages ：[requirements.txt](https://github.com/anonymousException/renpy-translator/blob/main/src/requirements.txt)
