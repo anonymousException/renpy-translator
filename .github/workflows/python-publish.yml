@@ -23,7 +23,11 @@ jobs:
         pypi_index_url: https://pypi.org/simple
         spec: "main.spec"
 
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v4
       with:
-        name: name-of-artifact
-        path: src/dist/windows
+        name: Action-Build
+        path:
+          src/dist/windows/
+          src/source.rst
+          src/target.rst
+          src/main.ico
