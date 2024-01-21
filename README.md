@@ -36,9 +36,11 @@ A good network environment , if not you may not able to translate words through 
 
 ------
 
-A unpacked ren‘py game (for what you can find .rpa files under the game directory)  like this:
+An unpacked ren‘py game (for what you can find .rpa files under the game directory)  like this:
 
 ![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/unpacked.png)
+
+You can try to translate [the tutorial game]() following the tutorial
 
 if not you can try to unpack it
 
