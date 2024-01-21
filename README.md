@@ -1,6 +1,6 @@
 <div align=center><img src = "https://www.renpy.org/static/index-logo.png"></div>
 
-# Renpy Translator
+# <div align=center>Renpy Translator</div>
 
 <div align=center>A free and open-source translator for ren'py</div>
 
