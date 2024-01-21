@@ -125,6 +125,12 @@ class Ui_MainWindow(object):
         self.tlNameText = QTextEdit(self.widget_2)
         self.tlNameText.setObjectName(u"tlNameText")
         self.tlNameText.setGeometry(QRect(70, 180, 491, 41))
+        self.versionLabel = QLabel(self.centralwidget)
+        self.versionLabel.setObjectName(u"versionLabel")
+        self.versionLabel.setGeometry(QRect(10, 640, 91, 16))
+        self.copyrightLabel = QLabel(self.centralwidget)
+        self.copyrightLabel.setObjectName(u"copyrightLabel")
+        self.copyrightLabel.setGeometry(QRect(1140, 640, 241, 16))
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
@@ -174,6 +180,8 @@ class Ui_MainWindow(object):
         self.extractBtn.setText(QCoreApplication.translate("MainWindow", u"extract", None))
         self.label_8.setText(QCoreApplication.translate("MainWindow", u"tl name", None))
         self.tlNameText.setPlaceholderText(QCoreApplication.translate("MainWindow", u"only needs in file(s) mode,if you input the directory , just fill nothing.                   input the directory name under game\\tl  Example: japanese or chinese  or  german", None))
+        self.versionLabel.setText(QCoreApplication.translate("MainWindow", u"Version 1.0.0", None))
+        self.copyrightLabel.setText(QCoreApplication.translate("MainWindow", u"\u00a92024 Last moment,All rights reserved.", None))
         self.aboutMenu.setTitle(QCoreApplication.translate("MainWindow", u"about", None))
     # retranslateUi
 

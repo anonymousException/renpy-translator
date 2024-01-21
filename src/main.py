@@ -55,6 +55,8 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.selectDirBtn_2.clicked.connect(self.select_directory2)
         self.extractBtn.clicked.connect(self.extract)
         self.init_combobox()
+        self.versionLabel.setStyleSheet("color:grey")
+        self.copyrightLabel.setStyleSheet("color:grey")
         self.actioncopyright.triggered.connect(lambda: self.show_copyright_form())
         _thread.start_new_thread(self.update_log, ())
 
