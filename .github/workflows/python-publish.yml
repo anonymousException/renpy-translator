@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
     - name: Package Application
       uses: JackMcKew/pyinstaller-action-windows@python3-10-pyinstaller-5-3
@@ -27,7 +27,7 @@ jobs:
       with:
         name: Action-Build
         path: |
-          src/dist/windows/
+          src/dist/windows/main.exe
           src/source.rst
           src/target.rst
           src/main.ico
