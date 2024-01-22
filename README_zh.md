@@ -123,8 +123,6 @@
 
 ![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/renpy_folder.png)
 
-低
-
 在右下角点击 "preferences"  (设置)
 
 ![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/renpy_interface.png)
