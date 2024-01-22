@@ -70,23 +70,15 @@ You can download the latest version through https://github.com/anonymousExceptio
 
 Translate Files:
 
-```html
-<video width="320" height="240" controls>
-    <source src="https://github.com/anonymousException/renpy-translator/blob/main/docs/video/translate_files.mp4" type="video/mp4">
-</video>
-```
+<video src="https://github.com/anonymousException/renpy-translator/blob/main/docs/video/translate_files.mp4" width="320" height="240" controls="controls"></video>
 
 Translate Directory:
 
-<video width="320" height="240" controls>
-      <source id="mp4" src="https://github.com/anonymousException/renpy-translator/blob/main/docs/video/translate_directory.mp4" type="video/mp4">
-</video>
+<video src="https://github.com/anonymousException/renpy-translator/blob/main/docs/video/translate_directory.mp4" width="320" height="240" controls="controls"></video>
 
 Replace fonts:
 
-<video width="320" height="240" controls>
-      <source id="mp4" src="https://github.com/anonymousException/renpy-translator/blob/main/docs/video/copy_font.mp4" type="video/mp4">
-</video>
+<video src="https://github.com/anonymousException/renpy-translator/blob/main/docs/video/copy_font.mp4" width="320" height="240" controls="controls"></video>
 
 ## Tutorial
 
@@ -143,9 +135,7 @@ It's recommended to use [Offical Extract](#jump_official_extract) first and then
 
 #### <span id = "jump_official_extract">Official Extract(Recommend) </span>
 
-<video id="video" controls="" preload="none">
-      <source id="mp4" src="https://github.com/anonymousException/renpy-translator/blob/main/docs/video/official_extract.mp4" type="video/mp4">
-</videos>
+<video src="https://github.com/anonymousException/renpy-translator/blob/main/docs/video/official_extract.mp4" width="320" height="240" controls="controls"></video>
 
 you can forward to https://www.renpy.org/ and then download the latest version
 
@@ -197,9 +187,7 @@ Quite easy, right ? That's why I made this tool.
 
 #### Add Entry
 
-<video width="320" height="240" controls>
-      <source id="mp4" src="https://github.com/anonymousException/renpy-translator/blob/main/docs/video/add_entry.mp4" type="video/mp4">
-</video>
+<video src="https://github.com/anonymousException/renpy-translator/blob/main/docs/video/add_entry.mp4" width="320" height="240" controls="controls"></video>
 
 You need to add an entry to change the language in game
 
@@ -249,9 +237,7 @@ After the file saved,open the game and make sure the preference show the content
 
 #### Translation
 
-<video width="320" height="240" controls>
-      <source id="mp4" src="https://github.com/anonymousException/renpy-translator/blob/main/docs/video/copy_font.mp4" type="video/mp4">
-</video>
+<video src="https://github.com/anonymousException/renpy-translator/blob/main/docs/video/copy_font.mp4" width="320" height="240" controls="controls"></video>
 
 Before translation you need to get the font file (.*ttf or .otf) you want to translate
 
