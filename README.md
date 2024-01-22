@@ -1,3 +1,4 @@
+
 <div align=center><img src = "https://www.renpy.org/static/index-logo.png"></div>
 
 # <div align=center>Renpy Translator</div>
@@ -70,15 +71,16 @@ You can download the latest version through https://github.com/anonymousExceptio
 
 Translate Files:
 
-<video src="https://github.com/anonymousException/renpy-translator/blob/main/docs/video/translate_files.mp4" width="320" height="240" controls="controls"></video>
+https://github.com/anonymousException/renpy-translator/assets/157234942/495be06c-9751-4966-b22c-84602fb3dc0a
 
 Translate Directory:
 
-<video src="https://github.com/anonymousException/renpy-translator/blob/main/docs/video/translate_directory.mp4" width="320" height="240" controls="controls"></video>
+https://github.com/anonymousException/renpy-translator/assets/157234942/0034bbaa-d1fc-4981-b228-9bde62423367
 
 Replace fonts:
 
-<video src="https://github.com/anonymousException/renpy-translator/blob/main/docs/video/copy_font.mp4" width="320" height="240" controls="controls"></video>
+https://github.com/anonymousException/renpy-translator/assets/157234942/5cbe0c94-8791-4906-a5d0-853bf9e5750c
+
 
 ## Tutorial
 
@@ -135,7 +137,7 @@ It's recommended to use [Offical Extract](#jump_official_extract) first and then
 
 #### <span id = "jump_official_extract">Official Extract(Recommend) </span>
 
-<video src="https://github.com/anonymousException/renpy-translator/blob/main/docs/video/official_extract.mp4" width="320" height="240" controls="controls"></video>
+https://github.com/anonymousException/renpy-translator/assets/157234942/b032480f-fc2f-4438-9730-611b3e219556
 
 you can forward to https://www.renpy.org/ and then download the latest version
 
@@ -187,7 +189,7 @@ Quite easy, right ? That's why I made this tool.
 
 #### Add Entry
 
-<video src="https://github.com/anonymousException/renpy-translator/blob/main/docs/video/add_entry.mp4" width="320" height="240" controls="controls"></video>
+https://github.com/anonymousException/renpy-translator/assets/157234942/a0316ab5-f912-4e25-8423-19b82b7fbfbe
 
 You need to add an entry to change the language in game
 
@@ -237,7 +239,7 @@ After the file saved,open the game and make sure the preference show the content
 
 #### Translation
 
-<video src="https://github.com/anonymousException/renpy-translator/blob/main/docs/video/copy_font.mp4" width="320" height="240" controls="controls"></video>
+https://github.com/anonymousException/renpy-translator/assets/157234942/9b1c0b9f-7f90-4a90-9876-6588994d0658
 
 Before translation you need to get the font file (.*ttf or .otf) you want to translate
 
