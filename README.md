@@ -71,22 +71,22 @@ You can download the latest version through https://github.com/anonymousExceptio
 Translate Files:
 
 ```html
-<video id="video" controls="" preload="none">
-      <source id="mp4" src="https://github.com/anonymousException/renpy-translator/blob/main/docs/video/translate_files.mp4" type="video/mp4">
-</videos>
+<video width="320" height="240" controls>
+    <source src="https://github.com/anonymousException/renpy-translator/blob/main/docs/video/translate_files.mp4" type="video/mp4">
+</video>
 ```
 
 Translate Directory:
 
-<video id="video" controls="" preload="none">
+<video width="320" height="240" controls>
       <source id="mp4" src="https://github.com/anonymousException/renpy-translator/blob/main/docs/video/translate_directory.mp4" type="video/mp4">
-</videos>
+</video>
 
 Replace fonts:
 
-<video id="video" controls="" preload="none">
+<video width="320" height="240" controls>
       <source id="mp4" src="https://github.com/anonymousException/renpy-translator/blob/main/docs/video/copy_font.mp4" type="video/mp4">
-</videos>
+</video>
 
 ## Tutorial
 
@@ -197,9 +197,9 @@ Quite easy, right ? That's why I made this tool.
 
 #### Add Entry
 
-<video id="video" controls="" preload="none">
+<video width="320" height="240" controls>
       <source id="mp4" src="https://github.com/anonymousException/renpy-translator/blob/main/docs/video/add_entry.mp4" type="video/mp4">
-</videos>
+</video>
 
 You need to add an entry to change the language in game
 
@@ -249,9 +249,9 @@ After the file saved,open the game and make sure the preference show the content
 
 #### Translation
 
-<video id="video" controls="" preload="none">
+<video width="320" height="240" controls>
       <source id="mp4" src="https://github.com/anonymousException/renpy-translator/blob/main/docs/video/copy_font.mp4" type="video/mp4">
-</videos>
+</video>
 
 Before translation you need to get the font file (.*ttf or .otf) you want to translate
 
