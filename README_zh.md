@@ -12,6 +12,24 @@
 
 ------
 
+<div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/interface.png"></div>
+
+------
+
+## 目的
+
+正如你所见上方翻译后的内容，在翻译后被翻译的原文也会被保留
+
+如果要被翻译的内容缺少原内容(在"#"后作为注释)，那么这些内容将被跳过不被翻译
+
+我做这个工具的目的不是为了替代人工翻译，而是帮助
+
+翻译的内容通常因为机翻而不够准确
+
+因此这时原文的作用就来了，你可以根据原文重写翻译，并且你修改后的内容也不会在后面的翻译里再被替换掉
+
+本工具也处理了被翻译文本种包含特殊符号的场景，像 "{}"  "[]" 和 "<>" ，具体可以前往  [特性的第 2 点](#jump_features)
+
 ## 下载
 
 你可以通过 https://github.com/anonymousException/renpy-translator/releases/latest 下载最新版本

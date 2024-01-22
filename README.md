@@ -10,7 +10,23 @@
 
 <div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/interface.png"></div>
 
+<div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/interface.png"></div>
+
 ------
+
+## Target
+
+As you see the above translated contents. The original contents will be remained after translation.
+
+If the contents are short of the original contents(behind the "#" as comment) , translation will not take effect on them
+
+The reason why I made this tool is not to replace the real translator's work , but to help.
+
+The translated contents will be not accurate enough due to auto google translation. 
+
+So the original contents will do the effect. You can re-translate the translated contents according to the original contents. And what you modified will not be replaced during next translation.
+
+This tool also take care of the special symbols like "{}"  "[]" and "<>"   in untranslated contents , for detail you can see it on the [Features point 2](#jump_features)
 
 ## Another Docs
 
@@ -22,7 +38,7 @@
 
 You can download the latest version through https://github.com/anonymousException/renpy-translator/releases/latest
 
-## Features
+## <span id ="jump_features">Features</span>
 
 - Completely free and open-source
 - Support **special symbols** in untranslated contents like "{}"  "[]" and "<>"  , the contents in special symbols will not be translated.  Example:
