@@ -10,7 +10,7 @@
 
 <div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/interface.png"></div>
 
-<div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/interface.png"></div>
+<div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/translated_contents.png"></div>
 
 ------
 
