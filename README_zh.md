@@ -62,6 +62,24 @@
 
 ------
 
+## 用法
+
+翻译(多)文件:
+
+https://github.com/anonymousException/renpy-translator/assets/157234942/495be06c-9751-4966-b22c-84602fb3dc0a
+
+翻译整个文件夹:
+
+https://github.com/anonymousException/renpy-translator/assets/157234942/0034bbaa-d1fc-4981-b228-9bde62423367
+
+替换字体:
+
+https://github.com/anonymousException/renpy-translator/assets/157234942/5cbe0c94-8791-4906-a5d0-853bf9e5750c
+
+抽取文件夹:
+
+https://github.com/anonymousException/renpy-translator/assets/157234942/817c6e9c-2fa2-48a3-914f-85765c0b64c3
+
 ## 使用教程
 
 ### 事前准备
@@ -117,6 +135,8 @@
 
 #### <span id = "jump_official_extract">官方抽取(推荐) </span>
 
+https://github.com/anonymousException/renpy-translator/assets/157234942/b032480f-fc2f-4438-9730-611b3e219556
+
 你可以前往 https://www.renpy.org/ 去下载最新版本的 ren'py 引擎
 
 解压你下载的 ren'py 引擎
@@ -167,6 +187,8 @@ F:\Games\RenPy\DemoGame\game\tl\japanese
 
 #### 添加入口
 
+https://github.com/anonymousException/renpy-translator/assets/157234942/a0316ab5-f912-4e25-8423-19b82b7fbfbe
+
 你需要在游戏里添加一个用来切换语言的入口
 
 打开游戏文件夹，然后再进入子目录 "game" ，打开 "screen.rpy" 文件 （可以用记事本打开）
@@ -214,6 +236,8 @@ textbutton "LanguageName" action Language("The Tag you fill in official Extract"
 ------
 
 #### 翻译
+
+https://github.com/anonymousException/renpy-translator/assets/157234942/9b1c0b9f-7f90-4a90-9876-6588994d0658
 
 翻译前你需要有一个能够正常显示你想要翻译的语言字体文件 (.*ttf or .otf)
 
