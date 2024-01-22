@@ -2,8 +2,6 @@
 
 # <div align=center>Renpy Translator</div>
 
-<div align=center>中文版 README 在 <a href = 'https://github.com/anonymousException/renpy-translator/blob/main/README_zh.md'>这里</a> </div>
-
 <div align=center>A free and open-source translator for ren'py</div>
 
 <div align=center><img src= "https://camo.githubusercontent.com/60c21c6ef57c61b0a329f621af32f87c9b4ffe0283eeebe8a453e60de2675c51/68747470733a2f2f696d672e736869656c64732e696f2f707970692f707976657273696f6e732f6c616d612d636c65616e6572"></div>
@@ -13,6 +11,12 @@
 <div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/interface.png"></div>
 
 ------
+
+## Another Docs
+
+### Chinese
+
+<div align=center>中文版 README 在 <a href = 'https://github.com/anonymousException/renpy-translator/blob/main/README_zh.md'>这里</a> </div>
 
 ## Download
 
