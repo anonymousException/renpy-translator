@@ -14,6 +14,12 @@
 
 ------
 
+## Another Docs
+
+### Chinese
+
+<div align=center>中文版 README 在 <a href = 'https://github.com/anonymousException/renpy-translator/blob/main/README_zh.md'>这里</a> </div>
+
 ## Target
 
 As you see the above translated contents. The original contents will be remained after translation.
@@ -27,12 +33,6 @@ The translated contents will be not accurate enough due to auto google translati
 So the original contents will do the effect. You can re-translate the translated contents according to the original contents. And what you modified will not be replaced during next translation.
 
 This tool also take care of the special symbols like "{}"  "[]" and "<>"   in untranslated contents , for detail you can see it on the [Features point 2](#jump_features)
-
-## Another Docs
-
-### Chinese
-
-<div align=center>中文版 README 在 <a href = 'https://github.com/anonymousException/renpy-translator/blob/main/README_zh.md'>这里</a> </div>
 
 ## Download
 
