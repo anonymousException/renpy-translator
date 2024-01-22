@@ -34,7 +34,7 @@
 
 你可以通过 https://github.com/anonymousException/renpy-translator/releases/latest 下载最新版本
 
-## 特性
+## <span id = "jump_features">特性</span>
 
 - 完全免费且开源
 - 支持要翻译的文本中包含特殊符号，像 "{}"  "[]" 和 "<>"  , 特殊符号里的内容不会被翻译，例子：
