@@ -191,7 +191,7 @@ textbutton "LanguageName" action Language("The Tag you fill in official Extract"
 
 对于日语，我一般是用 [hanazomefont](https://www.asterism-m.com/font/hanazomefont/) 这个字体
 
-对于中文，我一般是用 SourceHanSansSC-VF.otf](https://github.com/adobe-fonts/source-han-sans/raw/release/Variable/OTF/SourceHanSansSC-VF.otf) 这个字体
+对于中文，我一般是用 [SourceHanSansSC-VF.otf](https://github.com/adobe-fonts/source-han-sans/raw/release/Variable/OTF/SourceHanSansSC-VF.otf) 这个字体
 
 对于其它语言，你可以很简单地在网上搜到相关的字体
 
