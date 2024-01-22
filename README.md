@@ -81,6 +81,9 @@ Replace fonts:
 
 https://github.com/anonymousException/renpy-translator/assets/157234942/5cbe0c94-8791-4906-a5d0-853bf9e5750c
 
+Extract Directory:
+
+https://github.com/anonymousException/renpy-translator/assets/157234942/817c6e9c-2fa2-48a3-914f-85765c0b64c3
 
 ## Tutorial
 
