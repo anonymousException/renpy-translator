@@ -26,6 +26,7 @@ jobs:
     - run: cp src/source.rst src/dist/windows/source.rst
     - run: cp src/target.rst src/dist/windows/target.rst
     - run: cp src/main.ico src/dist/windows/main.ico
+    - run: cp src/cacert.pem src/dist/cacert.pem
 
     - uses: actions/upload-artifact@v4
       with:

@@ -18,6 +18,8 @@ from renpy_fonts import GenGuiFonts
 from renpy_translate import translateThread, translate_threads
 from ui import Ui_MainWindow
 
+os.environ['REQUESTS_CA_BUNDLE'] =  os.path.join(os.path.dirname(sys.argv[0]), 'cacert.pem')
+
 targetDic = dict()
 sourceDic = dict()
 
