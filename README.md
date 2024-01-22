@@ -25,7 +25,18 @@ You can download the latest version through https://github.com/anonymousExceptio
 ## Features
 
 - Completely free and open-source
-- Support **special symbols** in untranslated contents like "{}"  "[]" and "<>"  , the contents in special symbols will not be translated
+- Support **special symbols** in untranslated contents like "{}"  "[]" and "<>"  , the contents in special symbols will not be translated.  Example:
+- ```python
+  # untranslated contents:
+  # "Your name is [povname], right?"
+  
+  # Chinese translated:
+  "你的名字是 [povname] ，对吗？"
+  
+  # Japanese translated:
+  "あなたの名前は [povname] ですよね?"
+  ```
+
 - Support  extract the untranslated words ren'py engine has not discovered
 - Support input,brower and drag the file(s) and directory
 - Support translate/extract for single rpy file
