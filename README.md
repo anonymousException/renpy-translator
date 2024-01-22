@@ -66,6 +66,28 @@ You can download the latest version through https://github.com/anonymousExceptio
 
 ------
 
+## Usage
+
+Translate Files:
+
+```html
+<video id="video" controls="" preload="none">
+      <source id="mp4" src="https://github.com/anonymousException/renpy-translator/blob/main/docs/video/translate_files.mp4" type="video/mp4">
+</videos>
+```
+
+Translate Directory:
+
+<video id="video" controls="" preload="none">
+      <source id="mp4" src="https://github.com/anonymousException/renpy-translator/blob/main/docs/video/translate_directory.mp4" type="video/mp4">
+</videos>
+
+Replace fonts:
+
+<video id="video" controls="" preload="none">
+      <source id="mp4" src="https://github.com/anonymousException/renpy-translator/blob/main/docs/video/copy_font.mp4" type="video/mp4">
+</videos>
+
 ## Tutorial
 
 ### Prerequisite
@@ -121,6 +143,10 @@ It's recommended to use [Offical Extract](#jump_official_extract) first and then
 
 #### <span id = "jump_official_extract">Official Extract(Recommend) </span>
 
+<video id="video" controls="" preload="none">
+      <source id="mp4" src="https://github.com/anonymousException/renpy-translator/blob/main/docs/video/official_extract.mp4" type="video/mp4">
+</videos>
+
 you can forward to https://www.renpy.org/ and then download the latest version
 
 Unzip the ren'py engine you download
@@ -171,6 +197,10 @@ Quite easy, right ? That's why I made this tool.
 
 #### Add Entry
 
+<video id="video" controls="" preload="none">
+      <source id="mp4" src="https://github.com/anonymousException/renpy-translator/blob/main/docs/video/add_entry.mp4" type="video/mp4">
+</videos>
+
 You need to add an entry to change the language in game
 
 Open the game directory and then enter subfolder "game", open the "screens.rpy" file (you can use notepad to open it)
@@ -218,6 +248,10 @@ After the file saved,open the game and make sure the preference show the content
 ------
 
 #### Translation
+
+<video id="video" controls="" preload="none">
+      <source id="mp4" src="https://github.com/anonymousException/renpy-translator/blob/main/docs/video/copy_font.mp4" type="video/mp4">
+</videos>
 
 Before translation you need to get the font file (.*ttf or .otf) you want to translate
 
