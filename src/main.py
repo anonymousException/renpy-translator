@@ -55,12 +55,36 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.selectFontBtn.clicked.connect(self.select_font)
         self.selectFilesBtn_2.clicked.connect(self.select_file2)
         self.selectDirBtn_2.clicked.connect(self.select_directory2)
+        self.selectDirBtn_3.clicked.connect(self.select_directory3)
         self.extractBtn.clicked.connect(self.extract)
+        self.replaceFontBtn.clicked.connect(self.replaceFont)
+        self.openFontStyleBtn.clicked.connect(self.openFontStyleFile)
         self.init_combobox()
         self.versionLabel.setStyleSheet("color:grey")
         self.copyrightLabel.setStyleSheet("color:grey")
         self.actioncopyright.triggered.connect(lambda: self.show_copyright_form())
         _thread.start_new_thread(self.update_log, ())
+
+    def replaceFont(self):
+        select_dir = self.selectDirText_3.toPlainText()
+        if len(select_dir) > 0:
+            select_dir = select_dir.replace('file:///', '')
+            if not os.path.exists(select_dir):
+                log_print(select_dir + ' directory does not exist!')
+            else:
+                if select_dir[len(select_dir) - 1] != '/' and select_dir[len(select_dir) - 1] != '\\':
+                    select_dir = select_dir + '/'
+                font_path = self.selectFontText.toPlainText()
+                font_path = font_path.replace('file:///', '')
+                GenGuiFonts(select_dir, font_path)
+
+    def openFontStyleFile(self):
+        select_dir = self.selectDirText_3.toPlainText()
+        if len(select_dir) > 0:
+            select_dir = select_dir.replace('file:///', '')
+            if select_dir[len(select_dir) - 1] != '/' and select_dir[len(select_dir) - 1] != '\\':
+                select_dir = select_dir + '/'
+            os.system('notepad ' + select_dir + 'gui.rpy')
 
     def show_copyright_form(self):
         copyright_form = MyCopyrightForm(parent=self)
@@ -166,6 +190,10 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
             self.update_date.emit(f.read())
             f.close()
 
+    def select_directory3(self):
+        directory = QFileDialog.getExistingDirectory(self, 'select the directory you want to extract')
+        self.selectDirText_3.setText(directory)
+
     def select_file2(self):
         files, filetype = QFileDialog.getOpenFileNames(self,
                                                        "select the file(s) you want to extract",
@@ -215,9 +243,6 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
                 else:
                     if select_dir[len(select_dir) - 1] != '/' and select_dir[len(select_dir) - 1] != '\\':
                         select_dir = select_dir + '/'
-                    font_path = self.selectFontText.toPlainText()
-                    font_path = font_path.replace('file:///', '')
-                    GenGuiFonts(select_dir, font_path)
                     paths = os.walk(select_dir)
                     for path, dir_lst, file_lst in paths:
                         for file_name in file_lst:
