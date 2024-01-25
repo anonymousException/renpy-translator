@@ -79,7 +79,7 @@ https://github.com/anonymousException/renpy-translator/assets/157234942/0034bbaa
 
 Replace fonts:
 
-https://github.com/anonymousException/renpy-translator/assets/157234942/5cbe0c94-8791-4906-a5d0-853bf9e5750c
+https://github.com/anonymousException/renpy-translator/assets/157234942/46e524d7-14ef-472e-8426-ac47d923bef0
 
 Extract Directory:
 
