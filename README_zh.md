@@ -86,6 +86,10 @@ https://github.com/anonymousException/renpy-translator/assets/157234942/817c6e9c
 
 一个好的网络环境，如果网络不好，可能无法正常调用谷歌翻译来翻译
 
+当你发现无法正常访问谷歌翻译时，可以试试：https://github.com/GoodCoder666/GoogleTranslate_IPFinder
+
+使用工具替换完 host 以后再尝试翻译
+
 ------
 
 一个未被打包的 ren'py 游戏 (能够在游戏文件夹底下找到 .rpa 文件) ，如：
