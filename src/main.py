@@ -30,10 +30,7 @@ modelUrlDic = dict()
 device_mode = 'auto'
 
 def is_empty_folder(folder_path):
-    # 使用 os.listdir 获取文件夹中的所有文件和文件夹列表
     contents = os.listdir(folder_path)
-
-    # 判断列表是否为空
     if not contents:
         return True
     else:
