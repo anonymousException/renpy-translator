@@ -236,6 +236,8 @@ def TranslateFile(p,lang_target,lang_source):
                 continue
         else:
             isLastFiltered = False
+        if line_index >0 and not _read_line[line_index - 1].strip().startswith('#') and not _read_line[line_index - 1].strip().startswith('old '):
+            continue
         d = EncodeBracketContent(line_content, '"', '"')
         if('oriList' in d.keys() and len(d['oriList']) > 0):
             # print(d['oriList'])
@@ -279,6 +281,8 @@ def TranslateFile(p,lang_target,lang_source):
                 continue
         else:
             isLastFiltered = False
+        if line_index >0 and not _read_line[line_index - 1].strip().startswith('#') and not  _read_line[line_index - 1].strip().startswith('old '):
+            continue
         d = EncodeBracketContent(line_content, '"', '"')
         if('oriList' in d.keys() and len(d['oriList']) > 0):
             for i in d['oriList']:
