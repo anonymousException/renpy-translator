@@ -6,23 +6,38 @@ import time
 import traceback
 import webbrowser
 
+import dl_translate
+import torch
 from PySide6.QtCore import QThread, Signal, Qt
 from PySide6.QtGui import QTextCursor, QIcon
-from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog
+from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog, QMessageBox
 from PySide6.QtWidgets import QDialog
+from pygtrans import Translate
 
 from copyright import Ui_Dialog
 from my_log import log_print, log_path
 from renpy_extract import extractThread, extract_threads, ExtractAllFilesInDir
 from renpy_fonts import GenGuiFonts
-from renpy_translate import translateThread, translate_threads
+from renpy_translate import translateThread, translate_threads, clientDic
 from ui import Ui_MainWindow
 
 os.environ['REQUESTS_CA_BUNDLE'] =  os.path.join(os.path.dirname(sys.argv[0]), 'cacert.pem')
+os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 
 targetDic = dict()
 sourceDic = dict()
+modelUrlDic = dict()
+device_mode = 'auto'
 
+def is_empty_folder(folder_path):
+    # 使用 os.listdir 获取文件夹中的所有文件和文件夹列表
+    contents = os.listdir(folder_path)
+
+    # 判断列表是否为空
+    if not contents:
+        return True
+    else:
+        return False
 
 class MyCopyrightForm(QDialog, Ui_Dialog):
     def __init__(self, parent=None):
@@ -63,7 +78,86 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.versionLabel.setStyleSheet("color:grey")
         self.copyrightLabel.setStyleSheet("color:grey")
         self.actioncopyright.triggered.connect(lambda: self.show_copyright_form())
+        self.checkEnableAIBox.clicked.connect(self.check_enableAI)
+        self.aiModelComboBox.currentIndexChanged.connect(self.aiModelComboBoxChanged)
+        self.aiRunningModeComboBox.currentIndexChanged.connect(self.aiRunningModeComboBoxChanged)
         _thread.start_new_thread(self.update_log, ())
+
+    def aiRunningModeComboBoxChanged(self,event):
+        mode = self.aiRunningModeComboBox.currentText()
+        device_mode = mode
+        clientDic.clear()
+        ori_target_index = self.targetComboBox.currentIndex()
+        ori_source_index = self.sourceComboBox.currentIndex()
+        self.fresh_language_combobox()
+        self.targetComboBox.setCurrentIndex(ori_target_index)
+        self.sourceComboBox.setCurrentIndex(ori_source_index)
+
+    def aiModelComboBoxChanged(self, event):
+        if not self.checkEnableAIBox.isChecked():
+            return
+        model = self.aiModelComboBox.currentText()
+        self.targetComboBox.clear()
+        self.sourceComboBox.clear()
+        if (model == ''):
+            return
+        self.targetComboBox.addItem('loading')
+        self.sourceComboBox.addItem('loading')
+        self.targetComboBox.setDisabled(True)
+        self.sourceComboBox.setDisabled(True)
+        model = self.aiModelComboBox.currentText()
+        if (model == ''):
+            return
+        modelPath = os.getcwd() + '/' + model
+        if (not os.path.exists(modelPath) or is_empty_folder(modelPath)):
+            reply = QMessageBox.question(self, 'Notice', 'AI-Model is not detected in '+modelPath+'! Would you like to download it?', QMessageBox.Yes | QMessageBox.No,
+                                         QMessageBox.No)
+            if reply == QMessageBox.Yes:
+                log_print('Please copy all the files to:\n' + modelPath)
+                QMessageBox.information(self,'Tips','Opening brower to download the model. After all files downloaded,please copy all the files to ' + modelPath + ' (You can copy the path from log)')
+                if (not os.path.exists(modelPath)):
+                    os.mkdir(modelPath)
+                webbrowser.open(modelUrlDic[model])
+            self.aiModelComboBox.setCurrentIndex(0)
+            return
+        _thread.start_new_thread(self.fresh_language_combobox, ())
+
+
+    def fresh_language_combobox(self):
+        model = self.aiModelComboBox.currentText()
+        if(model == ''):
+            return
+        modelPath = os.getcwd()+'/'+model
+        if(os.path.exists(modelPath)):
+            if model in clientDic:
+                 client = clientDic[model]
+            else:
+                client = dl_translate.TranslationModel(modelPath, device=device_mode,model_family=model)
+                clientDic[model] = client
+            self.targetComboBox.clear()
+            self.sourceComboBox.clear()
+            for i in client.available_languages():
+                self.targetComboBox.addItem(i)
+                self.sourceComboBox.addItem(i)
+            self.targetComboBox.setCurrentIndex(0)
+            self.sourceComboBox.setCurrentIndex(0)
+            self.targetComboBox.setEnabled(True)
+            self.sourceComboBox.setEnabled(True)
+
+
+    def check_enableAI(self):
+        if self.checkEnableAIBox.isChecked():
+            self.aiModelComboBox.setEnabled(True)
+            self.batchSizeComboBox.setEnabled(True)
+            self.aiRunningModeComboBox.setEnabled(True)
+            self.aiModelComboBoxChanged(None)
+            self.targetComboBox.clear()
+            self.sourceComboBox.clear()
+        else:
+            self.aiModelComboBox.setDisabled(True)
+            self.batchSizeComboBox.setDisabled(True)
+            self.aiRunningModeComboBox.setDisabled(True)
+            self.init_combobox()
 
     def replaceFont(self):
         select_dir = self.selectDirText_3.toPlainText()
@@ -105,6 +199,8 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         return ret_l
 
     def init_combobox(self):
+        self.targetComboBox.clear()
+        self.sourceComboBox.clear()
         target_l = self.get_combobox_content('target.rst', targetDic)
         for i in target_l:
             self.targetComboBox.addItem(i)
@@ -112,6 +208,34 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         for i in source_l:
             self.sourceComboBox.addItem(i)
         self.sourceComboBox.setCurrentIndex(source_l.index('Auto Detect'))
+
+        if self.aiModelComboBox.count() > 0:
+            pass
+        else:
+            ai_models = ['','mbart50','m2m100','nllb200']
+            ai_models_urls = ['','https://huggingface.co/facebook/mbart-large-50-many-to-many-mmt/tree/main','https://huggingface.co/facebook/m2m100_418M/tree/main','https://huggingface.co/facebook/nllb-200-distilled-600M/tree/main']
+            for i,e in enumerate(ai_models):
+                self.aiModelComboBox.addItem(e)
+                modelUrlDic[e] = ai_models_urls[i]
+
+        if self.batchSizeComboBox.count() > 0:
+            pass
+        else:
+            batch_sizes = [1,2,4,8,16,32]
+            for i,e in enumerate(batch_sizes):
+                self.batchSizeComboBox.addItem(str(e))
+            self.batchSizeComboBox.setCurrentIndex(3)
+            self.batchSizeComboBox.setDisabled(True)
+
+        if self.aiRunningModeComboBox.count()>0:
+            pass
+        else:
+            modes = ['auto','cpu','gpu']
+            for i in modes:
+                self.aiRunningModeComboBox.addItem(i)
+                self.aiRunningModeComboBox.setDisabled(True)
+
+
 
     def extract(self):
         # noinspection PyBroadException
@@ -225,14 +349,24 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
     def translate(self):
         # noinspection PyBroadException
         try:
+            if self.checkEnableAIBox.isChecked():
+                if self.aiModelComboBox.currentIndex() == 0:
+                    return
+                else:
+                    currentClient = clientDic[self.aiModelComboBox.currentText()]
+                    target_language = self.targetComboBox.currentText()
+                    source_language = self.sourceComboBox.currentText()
+            else:
+                currentClient = Translate()
+                target_language = targetDic[self.targetComboBox.currentText()]
+                source_language = sourceDic[self.sourceComboBox.currentText()]
             select_files = self.selectFilesText.toPlainText().split('\n')
-            target_language = targetDic[self.targetComboBox.currentText()]
-            source_language = sourceDic[self.sourceComboBox.currentText()]
+            batch_size = int(self.batchSizeComboBox.currentText())
             cnt = 0
             for i in select_files:
                 i = i.replace('file:///', '')
                 if len(i) > 0:
-                    t = translateThread(cnt, i, target_language, source_language)
+                    t = translateThread(cnt, currentClient,i, target_language, source_language,batch_size)
                     t.start()
                     translate_threads.append(t)
             select_dir = self.selectDirText.toPlainText()
@@ -249,8 +383,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
                             i = os.path.join(path, file_name)
                             if not file_name.endswith("rpy"):
                                 continue
-                            # _thread.start_new_thread(TranslateFile,(i,))
-                            t = translateThread(cnt, i, target_language, source_language)
+                            t = translateThread(cnt,currentClient, i, target_language, source_language,batch_size)
                             t.start()
                             translate_threads.append(t)
                             cnt = cnt + 1

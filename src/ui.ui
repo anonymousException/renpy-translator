@@ -57,14 +57,14 @@
       <x>10</x>
       <y>10</y>
       <width>571</width>
-      <height>271</height>
+      <height>301</height>
      </rect>
     </property>
     <widget class="QPushButton" name="translateBtn">
      <property name="geometry">
       <rect>
        <x>240</x>
-       <y>240</y>
+       <y>270</y>
        <width>75</width>
        <height>24</height>
       </rect>
@@ -221,12 +221,100 @@
       </rect>
      </property>
     </widget>
+    <widget class="QCheckBox" name="checkEnableAIBox">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>273</y>
+       <width>133</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Enale AI Translate</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="aiModelComboBox">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>460</x>
+       <y>240</y>
+       <width>101</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_13">
+     <property name="geometry">
+      <rect>
+       <x>400</x>
+       <y>243</y>
+       <width>54</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>AI Model</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="batchSizeComboBox">
+     <property name="geometry">
+      <rect>
+       <x>310</x>
+       <y>240</y>
+       <width>71</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_14">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>240</y>
+       <width>301</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>(set a lower value if out of memory ) ai_batch_size:</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="aiRunningModeComboBox">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>460</x>
+       <y>270</y>
+       <width>101</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_15">
+     <property name="geometry">
+      <rect>
+       <x>350</x>
+       <y>273</y>
+       <width>111</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>AI Running Mode</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="widget_2" native="true">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>290</y>
+      <y>310</y>
       <width>571</width>
       <height>271</height>
      </rect>
@@ -383,7 +471,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Version 1.2.2</string>
+     <string>Version 2.0.0</string>
     </property>
    </widget>
    <widget class="QLabel" name="copyrightLabel">
