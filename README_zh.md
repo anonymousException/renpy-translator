@@ -16,6 +16,14 @@
 
 ------
 
+## 其他文档
+
+### AI 版
+
+如果你想要使用离线 AI 翻译，请前往：
+
+https://github.com/anonymousException/renpy-translator/blob/feature/ai-translate/README_zh.md
+
 ## 目的
 
 正如你所见上方翻译后的内容，在翻译后被翻译的原文也会被保留

@@ -17,6 +17,12 @@
 
 ## Another Docs
 
+## AI Version
+
+If you want to use offline ai translation, you can refer to :
+
+https://github.com/anonymousException/renpy-translator/blob/feature/ai-translate/README.md
+
 ### Chinese
 
 <div align=center>中文版 README 在 <a href = 'https://github.com/anonymousException/renpy-translator/blob/main/README_zh.md'>这里</a> </div>
