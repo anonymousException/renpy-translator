@@ -46,6 +46,6 @@ Advantage:
 
 Disadvantage:
 
-- Heavy : the tool becomes very larege to run ai model and will consume computer performance to run. Gpu mode only supported under cuda (NVIDIA only)
+- Heavy : the tool becomes very large to run ai model and will consume computer performance to run. Gpu mode only supported under cuda (NVIDIA only)
 - Slow : slower than google because the speed depends on your local-machine
 - Stiff : not support special symbols like "{}" "[]" and "<>" , you may need to re-translate it with google translation mode
