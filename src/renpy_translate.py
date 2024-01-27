@@ -338,7 +338,7 @@ def TranslateFile(p, lang_target, lang_source):
                         i, dd)
                 except:
                     log_print(
-                        'Error in ' + p + '\n' + i + '\n' + d['encoded'].strip('"') + ' Error' + '\n' + translated)
+                        'Error in line:' + str(line_index) + ' '+ p + '\n' + i + '\n' + d['encoded'].strip('"') + ' Error' + '\n' + translated)
 
     f = io.open(p + '.bak', 'w', encoding='utf-8')
     f.write(_read)
