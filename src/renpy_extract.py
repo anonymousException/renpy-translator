@@ -207,7 +207,16 @@ def ExtractFromFile(p, isOpenFilter):
     f.close()
     # print(_read)
     _read_line = _read.split('\n')
+    is_in_condition_switch = False
     for line_content in _read_line:
+        if 'ConditionSwitch(' in line_content:
+            is_in_condition_switch = True
+            continue
+        if _read_line[-1] == ')':
+            is_in_condition_switch = False
+            continue
+        if is_in_condition_switch:
+            continue
         if(isOpenFilter):
             if(line_content.strip().startswith('#') or len(line_content.strip()) == 0):
                 continue

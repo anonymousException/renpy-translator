@@ -342,6 +342,7 @@ def TranslateFile(client, p, lang_target, lang_source,batch_size):
                 translated = translated.replace('"', '\"')
                 translated = translated.replace('【', '[')
                 translated = translated.replace('】', ']')
+                translated = translated.rstrip('\\')
                 translated = '"' + translated + '"'
                 try:
                     dd = DecodeBrackets(
