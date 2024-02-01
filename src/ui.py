@@ -203,7 +203,7 @@ class Ui_MainWindow(object):
         self.extractBtn.setText(QCoreApplication.translate("MainWindow", u"extract", None))
         self.label_8.setText(QCoreApplication.translate("MainWindow", u"tl name", None))
         self.tlNameText.setPlaceholderText(QCoreApplication.translate("MainWindow", u"only needs in file(s) mode,if you input the directory , just fill nothing.                   input the directory name under game\\tl  Example: japanese or chinese  or  german", None))
-        self.versionLabel.setText(QCoreApplication.translate("MainWindow", u"Version 1.2.4", None))
+        self.versionLabel.setText(QCoreApplication.translate("MainWindow", u"Version 1.2.5", None))
         self.copyrightLabel.setText(QCoreApplication.translate("MainWindow", u"\u00a92024 Last moment,All rights reserved.", None))
         self.label_11.setText(QCoreApplication.translate("MainWindow", u"font", None))
         self.selectFontText.setPlaceholderText(QCoreApplication.translate("MainWindow", u"input or choose or drag the font which supports the language after translation. Example : DejaVuSans.ttf (ren'py 's default font)", None))
