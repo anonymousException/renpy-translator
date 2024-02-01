@@ -335,7 +335,7 @@ def TranslateFile(p, lang_target, lang_source):
                     dd = dd['decoded']
                     dd = dd.replace('&gt;', '>')
                     dd = dd.replace('&#39;', "'")
-                    dd = dd.replace('&quot;', '\"')
+                    dd = dd.replace('&quot;', '\\"')
                     _read_line[line_index] = _read_line[line_index].replace(
                         i, dd)
                 except:
