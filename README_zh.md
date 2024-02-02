@@ -8,7 +8,7 @@
 
 ------
 
-<div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/interface_v1.2.0.png"></div>
+<div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/interface_v1.3.0.png"></div>
 
 ------
 
