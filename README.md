@@ -69,6 +69,7 @@ You can download the latest version through https://github.com/anonymousExceptio
 - Support **108** kinds of language , you can view the [support source](https://github.com/anonymousException/renpy-translator/blob/main/src/source.rst?plain=1) and the [support target](https://github.com/anonymousException/renpy-translator/blob/main/src/target.rst?plain=1)
 - Support **remain the original words as comments** after translation
 - Support **real-time log output** , you can check the progress about the translation
+- Support **local-proxy** , if you can not access google , you can use a vpn tool like v2ray and set local proxy
 - Based on Google Translation from [pygtrans](https://github.com/foyoux/pygtrans/tree/main)
 
 ------
@@ -96,6 +97,16 @@ https://github.com/anonymousException/renpy-translator/assets/157234942/817c6e9c
 ### Prerequisite
 
 A good network environment , if not you may not able to translate words through ***Google Translate***
+
+If you can not access google , you can try use vpn tool like v2ray and set local-proxy
+
+before:
+
+![proxy_fail](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/proxy_fail.png)
+
+usage:
+
+![proxy_setting](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/proxy_setting.png)
 
 ------
 

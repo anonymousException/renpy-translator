@@ -65,7 +65,8 @@ https://github.com/anonymousException/renpy-translator/blob/feature/ai-translate
 - **兼容**未被该工具的翻译的翻译过的游戏 已经翻译过的原文会被保留，只翻译未翻译的内容
 - 支持 **108 种**语言，具体的语言列表可参考： [源语言](https://github.com/anonymousException/renpy-translator/blob/main/src/source.rst?plain=1) 和 [目标(翻译后)的语言](https://github.com/anonymousException/renpy-translator/blob/main/src/target.rst?plain=1)
 - 支持**保留**未被翻译的原本作为**注释**
-- 支持 **实时日志输出** , 你可以随时观察当前的翻译进度
+- 支持**实时日志输出** , 你可以随时观察当前的翻译进度
+- 支持**本地代理**，如果你不能正常访问谷歌，可以尝试使用 VPN (如 V2ray) 并配置本地代理
 - 基于 Google 翻译 ，来源于 [pygtrans](https://github.com/foyoux/pygtrans/tree/main)
 
 ------
@@ -97,6 +98,16 @@ https://github.com/anonymousException/renpy-translator/assets/157234942/817c6e9c
 当你发现无法正常访问谷歌翻译时，可以试试：https://github.com/GoodCoder666/GoogleTranslate_IPFinder
 
 使用工具替换完 host 以后再尝试翻译
+
+或者使用本地代理功能：
+
+使用前：
+
+![proxy_fail](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/proxy_fail.png)
+
+使用：
+
+![proxy_setting](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/proxy_setting.png)
 
 ------
 
