@@ -1,5 +1,6 @@
 import _thread
 import io
+import json
 import os.path
 import sys
 import time
@@ -14,7 +15,8 @@ from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog, QMessageBo
 from PySide6.QtWidgets import QDialog
 from pygtrans import Translate
 
-from copyright import Ui_Dialog
+from copyright import Ui_CopyrightDialog
+from proxy import Ui_ProxyDialog
 from my_log import log_print, log_path
 from renpy_extract import extractThread, extract_threads, ExtractAllFilesInDir
 from renpy_fonts import GenGuiFonts
@@ -36,7 +38,24 @@ def is_empty_folder(folder_path):
     else:
         return False
 
-class MyCopyrightForm(QDialog, Ui_Dialog):
+class MyProxyForm(QDialog, Ui_ProxyDialog):
+    def __init__(self, parent=None):
+        super(MyProxyForm, self).__init__(parent)
+        self.setupUi(self)
+        if  os.path.isfile('proxy.txt'):
+            with open('proxy.txt', 'r') as json_file:
+                loaded_data = json.load(json_file)
+                self.proxyEdit.setText(loaded_data['proxy'])
+                self.checkBox.setChecked((loaded_data['enable']))
+        self.confirmButton.clicked.connect(self.confirm)
+    def confirm(self):
+        f = io.open('proxy.txt', 'w', encoding='utf-8')
+        data = {"proxy":self.proxyEdit.text(),"enable":self.checkBox.isChecked()}
+        json.dump(data, f)
+        f.close()
+        self.close()
+
+class MyCopyrightForm(QDialog, Ui_CopyrightDialog):
     def __init__(self, parent=None):
         super(MyCopyrightForm, self).__init__(parent)
         self.setupUi(self)
@@ -75,10 +94,15 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.versionLabel.setStyleSheet("color:grey")
         self.copyrightLabel.setStyleSheet("color:grey")
         self.actioncopyright.triggered.connect(lambda: self.show_copyright_form())
+        self.proxySettings.triggered.connect(lambda: self.showProxySettings())
         self.checkEnableAIBox.clicked.connect(self.check_enableAI)
         self.aiModelComboBox.currentIndexChanged.connect(self.aiModelComboBoxChanged)
         self.aiRunningModeComboBox.currentIndexChanged.connect(self.aiRunningModeComboBoxChanged)
         _thread.start_new_thread(self.update_log, ())
+
+    def showProxySettings(self):
+        proxy_form = MyProxyForm(parent=self)
+        proxy_form.exec()
 
     def aiRunningModeComboBoxChanged(self,event):
         mode = self.aiRunningModeComboBox.currentText()
@@ -179,7 +203,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
 
     def show_copyright_form(self):
         copyright_form = MyCopyrightForm(parent=self)
-        copyright_form.show()
+        copyright_form.exec()
 
     @staticmethod
     def get_combobox_content(p, d):
@@ -355,6 +379,10 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
                     source_language = self.sourceComboBox.currentText()
             else:
                 currentClient = Translate()
+                with open('proxy.txt', 'r') as json_file:
+                    loaded_data = json.load(json_file)
+                    if loaded_data['enable']:
+                        currentClient = Translate(proxies={'https': loaded_data['proxy']})
                 target_language = targetDic[self.targetComboBox.currentText()]
                 source_language = sourceDic[self.sourceComboBox.currentText()]
             select_files = self.selectFilesText.toPlainText().split('\n')
