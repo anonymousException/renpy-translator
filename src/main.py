@@ -5,17 +5,19 @@ import sys
 import time
 import traceback
 import webbrowser
+import json
 
 from PySide6.QtCore import QThread, Signal, Qt
 from PySide6.QtGui import QTextCursor, QIcon
 from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog
 from PySide6.QtWidgets import QDialog
 
-from copyright import Ui_Dialog
+from copyright import Ui_CopyrightDialog
 from my_log import log_print, log_path
 from renpy_extract import extractThread, extract_threads, ExtractAllFilesInDir
 from renpy_fonts import GenGuiFonts
 from renpy_translate import translateThread, translate_threads
+from proxy import Ui_ProxyDialog
 from ui import Ui_MainWindow
 
 os.environ['REQUESTS_CA_BUNDLE'] =  os.path.join(os.path.dirname(sys.argv[0]), 'cacert.pem')
@@ -23,8 +25,24 @@ os.environ['REQUESTS_CA_BUNDLE'] =  os.path.join(os.path.dirname(sys.argv[0]), '
 targetDic = dict()
 sourceDic = dict()
 
+class MyProxyForm(QDialog, Ui_ProxyDialog):
+    def __init__(self, parent=None):
+        super(MyProxyForm, self).__init__(parent)
+        self.setupUi(self)
+        if  os.path.isfile('proxy.txt'):
+            with open('proxy.txt', 'r') as json_file:
+                loaded_data = json.load(json_file)
+                self.proxyEdit.setText(loaded_data['proxy'])
+                self.checkBox.setChecked((loaded_data['enable']))
+        self.confirmButton.clicked.connect(self.confirm)
+    def confirm(self):
+        f = io.open('proxy.txt', 'w', encoding='utf-8')
+        data = {"proxy":self.proxyEdit.text(),"enable":self.checkBox.isChecked()}
+        json.dump(data, f)
+        f.close()
+        self.close()
 
-class MyCopyrightForm(QDialog, Ui_Dialog):
+class MyCopyrightForm(QDialog, Ui_CopyrightDialog):
     def __init__(self, parent=None):
         super(MyCopyrightForm, self).__init__(parent)
         self.setupUi(self)
@@ -63,7 +81,13 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.versionLabel.setStyleSheet("color:grey")
         self.copyrightLabel.setStyleSheet("color:grey")
         self.actioncopyright.triggered.connect(lambda: self.show_copyright_form())
+        self.proxySettings.triggered.connect(lambda: self.showProxySettings())
         _thread.start_new_thread(self.update_log, ())
+
+    def showProxySettings(self):
+        proxy_form = MyProxyForm(parent=self)
+        proxy_form.exec()
+
 
     def replaceFont(self):
         select_dir = self.selectDirText_3.toPlainText()
@@ -88,7 +112,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
 
     def show_copyright_form(self):
         copyright_form = MyCopyrightForm(parent=self)
-        copyright_form.show()
+        copyright_form.exec()
 
     @staticmethod
     def get_combobox_content(p, d):

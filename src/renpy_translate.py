@@ -1,3 +1,4 @@
+import json
 import string
 import sys
 import io
@@ -226,6 +227,10 @@ def isAllPunctuations(s):
 
 def TranslateFile(p, lang_target, lang_source):
     client = Translate()
+    with open('proxy.txt', 'r') as json_file:
+        loaded_data = json.load(json_file)
+        if loaded_data['enable']:
+            client = Translate(proxies={'https':loaded_data['proxy']})
     transList = []
     try:
         f = io.open(p, 'r+', encoding='utf-8')
