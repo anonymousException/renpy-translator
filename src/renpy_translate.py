@@ -226,7 +226,7 @@ def isAllPunctuations(s):
 
 
 def TranslateFile(p, lang_target, lang_source):
-    client = Translate()
+    client = Translate(fmt = 'text')
     with open('proxy.txt', 'r') as json_file:
         loaded_data = json.load(json_file)
         if loaded_data['enable']:
