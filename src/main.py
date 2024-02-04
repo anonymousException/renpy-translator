@@ -378,11 +378,11 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
                     target_language = self.targetComboBox.currentText()
                     source_language = self.sourceComboBox.currentText()
             else:
-                currentClient = Translate()
+                currentClient = Translate(fmt='text')
                 with open('proxy.txt', 'r') as json_file:
                     loaded_data = json.load(json_file)
                     if loaded_data['enable']:
-                        currentClient = Translate(proxies={'https': loaded_data['proxy']})
+                        currentClient = Translate(fmt='text',proxies={'https': loaded_data['proxy']})
                 target_language = targetDic[self.targetComboBox.currentText()]
                 source_language = sourceDic[self.sourceComboBox.currentText()]
             select_files = self.selectFilesText.toPlainText().split('\n')
