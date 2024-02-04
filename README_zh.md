@@ -14,7 +14,7 @@
 
 ## 下载
 
-你可以通过 [https://github.com/anonymousException/renpy-translator/releases/tag/v2.1.0-alpha](https://github.com/anonymousException/renpy-translator/releases/tag/v2.1.0-alpha) 下载 AI 版本
+你可以通过 [https://github.com/anonymousException/renpy-translator/releases/tag/v2.1.1-alpha](https://github.com/anonymousException/renpy-translator/releases/tag/v2.1.1-alpha) 下载 AI 版本
 
 ## 其它文档
 
