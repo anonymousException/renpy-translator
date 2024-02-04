@@ -303,3 +303,58 @@ source：默认 Auto Detect (自动检测) 就行
 如果你想要基于本项目开发，你需要有一个 python3 的环境
 
 然后安装的包体可以参考：[requirements.txt](https://github.com/anonymousException/renpy-translator/blob/main/src/requirements.txt)
+
+## 问题和解答
+
+### 为什么翻译全都被跳过了?
+
+![skip](https://private-user-images.githubusercontent.com/110087661/302013716-8e12e480-2393-42d6-be60-a99ab51bd7a5.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MDcwMTE1MDIsIm5iZiI6MTcwNzAxMTIwMiwicGF0aCI6Ii8xMTAwODc2NjEvMzAyMDEzNzE2LThlMTJlNDgwLTIzOTMtNDJkNi1iZTYwLWE5OWFiNTFiZDdhNS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwMjA0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDIwNFQwMTQ2NDJaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1mM2I5NjdkZGM1ZmQ4NTUwZWNmZTNkYzZjOGYxMjdlOTRmNDA5OGQxYzUwNTBkYzJjMzllZDRkOWJkM2JiY2VmJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.VNslL0MuZMG0umDqMNiXeGbA4hierjv0zdtTuT6VBDU)
+
+确保在 [官方抽取](#jump_official_extract) 环节, 对于 "Generate Translations" (生成翻译) 选项, 不要勾选 "Generate empty strings for translations"(为翻译生成空子串)
+
+翻译只会在满足下面格式时生效:
+
+```python
+# game/script.rpy:553
+translate schinese naming_0f7b6e71:
+	# r "Do name yourself like that and I'll break your face..."
+	r "Do name yourself like that and I'll break your face..."
+```
+
+or
+
+```python
+    # game/script.rpy:30886
+    old "Win or Lose?"
+    new "Win or Lose?"
+```
+
+------
+
+注意原始文本(在 # 或 old 后) 应该和未翻译的文本(在非 # 或 new 后)**完全一样**
+
+------
+
+### 有些错误导致某些行无法被翻译
+
+你可能会遇到像这样的错误 :
+
+```python
+2024-01-30 14:55:19 Error in line:1320 D:\Download\Nova-Pasta\SunshineLoveCH2-1.01-pc\game\tl\Portugues/10_week10_00.rpy
+"It’s [s_name]. And [y_name]."
+It’s [0] . And [1] . Error
+"É [0] . E 1] ."
+```
+
+这取决于翻译的结果，为了跳过翻译特殊符号像  '[]' '{}' '<>'  , 这个工具将用按顺序的数字替换特殊字符
+举个例子:
+"It’s [s_name]. And [y_name]."
+将会被替换为
+"It’s [0] . And [1] ."
+
+通常来说，这种格式将不会被翻译且会保留  '[0]' 和  '[1]' ，并且这个工具将会根据这个有序数字还原原本的内容
+
+然而，有时这种格式会在翻译后被破坏，正如前面提到的： "É [0] . E 1] ."
+你会发现  '['  丢了，所以本工具无法还原原本的内容，因此这行文本不会被翻译
+你可能需要手动修正这些行
+幸运的是这种情况很少发生，你不会花费很多时间在修正这些行上

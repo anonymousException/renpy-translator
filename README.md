@@ -302,3 +302,56 @@ After extraction ,  just input the directory generated during [Official Extract]
 If you are willing to develop based on this project. You will need to have a python3 environment.
 
 And install the following packages ：[requirements.txt](https://github.com/anonymousException/renpy-translator/blob/main/src/requirements.txt)
+
+## FAQ
+
+### Why all the translation skip?
+
+![skip](https://private-user-images.githubusercontent.com/110087661/302013716-8e12e480-2393-42d6-be60-a99ab51bd7a5.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MDcwMTE1MDIsIm5iZiI6MTcwNzAxMTIwMiwicGF0aCI6Ii8xMTAwODc2NjEvMzAyMDEzNzE2LThlMTJlNDgwLTIzOTMtNDJkNi1iZTYwLWE5OWFiNTFiZDdhNS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwMjA0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDIwNFQwMTQ2NDJaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1mM2I5NjdkZGM1ZmQ4NTUwZWNmZTNkYzZjOGYxMjdlOTRmNDA5OGQxYzUwNTBkYzJjMzllZDRkOWJkM2JiY2VmJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.VNslL0MuZMG0umDqMNiXeGbA4hierjv0zdtTuT6VBDU)
+
+Make sure when you in [Official Extract](#jump_official_extract) step , for "Generate Translations" option , do not tick the "Generate empty strings for translations"
+
+The translation will only do effect when the format like this:
+
+```python
+# game/script.rpy:553
+translate schinese naming_0f7b6e71:
+	# r "Do name yourself like that and I'll break your face..."
+	r "Do name yourself like that and I'll break your face..."
+```
+
+or
+
+```python
+    # game/script.rpy:30886
+    old "Win or Lose?"
+    new "Win or Lose?"
+```
+
+------
+
+Notice that the original text (behind # or old) should be **the same with** untranslated text (behind no # or new)
+
+------
+
+### Some errors made it impossible to translate certain lines
+
+you may meet errors like this:
+
+```python
+2024-01-30 14:55:19 Error in line:1320 D:\Download\Nova-Pasta\SunshineLoveCH2-1.01-pc\game\tl\Portugues/10_week10_00.rpy
+"It’s [s_name]. And [y_name]."
+It’s [0] . And [1] . Error
+"É [0] . E 1] ."
+```
+
+It's depend on the translation result. In order to skip translate special symbols like '[]' '{}' '<>' , this tool will replace the contents in special symbols in order nums.
+For example :
+"It’s [s_name]. And [y_name]."
+will be replaced to
+"It’s [0] . And [1] ."
+Normally, this format will not be translated and will remain '[0]' and '[1]' , and the tool will restore the orginal contents with the ordered nums.
+However , sometimes this format may be destroyed after translation. As mentioned ： "É [0] . E 1] ."
+You can found that one '[' is missing , so this tool can't restore the original contents. And will not translate this line.
+You may need to modify these certain lines manually.
+Fortunately this situation occurs rarely , you need not to spend too much time to modify these certain lines.
