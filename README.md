@@ -346,12 +346,21 @@ It’s [0] . And [1] . Error
 ```
 
 It's depend on the translation result. In order to skip translate special symbols like '[]' '{}' '<>' , this tool will replace the contents in special symbols in order nums.
+
 For example :
+
 "It’s [s_name]. And [y_name]."
+
 will be replaced to
+
 "It’s [0] . And [1] ."
+
 Normally, this format will not be translated and will remain '[0]' and '[1]' , and the tool will restore the orginal contents with the ordered nums.
+
 However , sometimes this format may be destroyed after translation. As mentioned ： "É [0] . E 1] ."
+
 You can found that one '[' is missing , so this tool can't restore the original contents. And will not translate this line.
+
 You may need to modify these certain lines manually.
+
 Fortunately this situation occurs rarely , you need not to spend too much time to modify these certain lines.
