@@ -230,7 +230,7 @@ def TranslateFile(p, lang_target, lang_source):
     with open('proxy.txt', 'r') as json_file:
         loaded_data = json.load(json_file)
         if loaded_data['enable']:
-            client = Translate(proxies={'https':loaded_data['proxy']})
+            client = Translate(fmt = 'text',proxies={'https':loaded_data['proxy']})
     transList = []
     try:
         f = io.open(p, 'r+', encoding='utf-8')
