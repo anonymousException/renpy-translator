@@ -305,7 +305,7 @@ And install the following packages ：[requirements.txt](https://github.com/anon
 
 ## FAQ
 
-### Why all the translation skip?
+### All the translation skip
 
 ![skip](https://private-user-images.githubusercontent.com/110087661/302013716-8e12e480-2393-42d6-be60-a99ab51bd7a5.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MDcwMTE1MDIsIm5iZiI6MTcwNzAxMTIwMiwicGF0aCI6Ii8xMTAwODc2NjEvMzAyMDEzNzE2LThlMTJlNDgwLTIzOTMtNDJkNi1iZTYwLWE5OWFiNTFiZDdhNS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwMjA0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDIwNFQwMTQ2NDJaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1mM2I5NjdkZGM1ZmQ4NTUwZWNmZTNkYzZjOGYxMjdlOTRmNDA5OGQxYzUwNTBkYzJjMzllZDRkOWJkM2JiY2VmJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.VNslL0MuZMG0umDqMNiXeGbA4hierjv0zdtTuT6VBDU)
 
@@ -364,3 +364,9 @@ You can found that one '[' is missing , so this tool can't restore the original 
 You may need to modify these certain lines manually.
 
 Fortunately this situation occurs rarely , you need not to spend too much time to modify these certain lines.
+
+### Anti-virus software report viruses
+
+This program is packed by pyinstaller and with file operation (open read write) ， so may cause false detection
+
+If you are worried about this , you can download the source code and run the program yourself
