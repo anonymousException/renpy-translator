@@ -1,9 +1,6 @@
 import concurrent.futures
 import deepl
 
-from src.my_log import log_print
-
-
 def split_strings(strings, max_length=5000):
     result = []
     current_string = []

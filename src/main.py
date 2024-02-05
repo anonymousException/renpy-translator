@@ -18,7 +18,7 @@ from renpy_extract import extractThread, extract_threads, ExtractAllFilesInDir
 from renpy_fonts import GenGuiFonts
 from renpy_translate import translateThread, translate_threads, engineList
 from proxy import Ui_ProxyDialog
-from src.engine import Ui_EngineDialog
+from engine import Ui_EngineDialog
 from ui import Ui_MainWindow
 
 os.environ['REQUESTS_CA_BUNDLE'] = os.path.join(os.path.dirname(sys.argv[0]), 'cacert.pem')

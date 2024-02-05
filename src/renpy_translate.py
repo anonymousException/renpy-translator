@@ -9,8 +9,8 @@ import traceback
 from pygtrans import Translate, ApiKeyTranslate
 
 from my_log import log_print
-from src.deepl_translate import DeeplTranslate
-from src.youdao_translate import YoudaoTranslate
+from deepl_translate import DeeplTranslate
+from youdao_translate import YoudaoTranslate
 
 engineList = ['Google(Free)','Google(Token Required)','YouDao(Token Required)','DeepL(Token Required)']
 translate_threads = []
