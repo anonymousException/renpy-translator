@@ -75,18 +75,19 @@ class MyEngineForm(QDialog, Ui_EngineDialog):
         else:
             self.keyEdit.setDisabled(True)
             self.secretEdit.setDisabled(True)
-        with open('engine.txt', 'r') as json_file:
-            loaded_data = json.load(json_file)
-            key = str(self.engineComboBox.currentIndex())+'_key'
-            secret = str(self.engineComboBox.currentIndex()) + '_secret'
-            if key in loaded_data:
-                self.keyEdit.setText(loaded_data[key])
-            else:
-                self.keyEdit.setText('')
-            if secret in loaded_data:
-                self.secretEdit.setText(loaded_data[secret])
-            else:
-                self.secretEdit.setText('')
+        if os.path.isfile('engine.txt'):
+            with open('engine.txt', 'r') as json_file:
+                loaded_data = json.load(json_file)
+                key = str(self.engineComboBox.currentIndex())+'_key'
+                secret = str(self.engineComboBox.currentIndex()) + '_secret'
+                if key in loaded_data:
+                    self.keyEdit.setText(loaded_data[key])
+                else:
+                    self.keyEdit.setText('')
+                if secret in loaded_data:
+                    self.secretEdit.setText(loaded_data[secret])
+                else:
+                    self.secretEdit.setText('')
 
     def confirm(self):
         if not os.path.isfile('engine.txt'):
@@ -177,12 +178,16 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         engine_form = MyEngineForm(parent=self)
         ori = None
         now = None
-        with open('engine.txt', 'r') as json_file:
-            ori = json.load(json_file)
+        if os.path.isfile('engine.txt'):
+            with open('engine.txt', 'r') as json_file:
+                ori = json.load(json_file)
         engine_form.exec()
-        with open('engine.txt', 'r') as json_file:
-            now = json.load(json_file)
-        if now != None and now['engine'] != ori['engine']:
+        if os.path.isfile('engine.txt'):
+            with open('engine.txt', 'r') as json_file:
+                now = json.load(json_file)
+        if now is not None and ori is not None and now['engine'] != ori['engine']:
+            self.init_combobox()
+        if now is None and ori is None:
             self.init_combobox()
 
     def show_proxy_settings(self):

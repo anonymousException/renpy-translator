@@ -233,10 +233,11 @@ def isAllPunctuations(s):
 
 def TranslateFile(p, lang_target, lang_source):
     proxies = None
-    with open('proxy.txt', 'r') as json_file:
-        loaded_data = json.load(json_file)
-        if loaded_data['enable']:
-            proxies = {'https': loaded_data['proxy']}
+    if os.path.isfile('proxy.txt'):
+        with open('proxy.txt', 'r') as json_file:
+            loaded_data = json.load(json_file)
+            if loaded_data['enable']:
+                proxies = {'https': loaded_data['proxy']}
     if os.path.isfile('engine.txt'):
         with open('engine.txt', 'r') as json_file:
             loaded_data = json.load(json_file)
