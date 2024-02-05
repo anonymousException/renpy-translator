@@ -9,7 +9,7 @@
 
 ------
 
-<div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/interface_v1.3.0.png"></div>
+<div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/interface_v1.4.0.png"></div>
 
 <div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/translated_contents.png"></div>
 
@@ -35,7 +35,7 @@ If the contents are short of the original contents(behind the "#" as comment) , 
 
 The reason why I made this tool is not to replace the real translator's work , but to help.
 
-The translated contents will be not accurate enough due to auto google translation. 
+The translated contents will be not accurate enough due to auto google | youdao | deepl translation. 
 
 So the original contents will do the effect. You can re-translate the translated contents according to the original contents. And what you modified will not be replaced during next translation.
 
@@ -70,7 +70,7 @@ You can download the latest version through https://github.com/anonymousExceptio
 - Support **remain the original words as comments** after translation
 - Support **real-time log output** , you can check the progress about the translation
 - Support **local-proxy** , if you can not access google , you can use a vpn tool like v2ray and set local proxy
-- Based on Google Translation from [pygtrans](https://github.com/foyoux/pygtrans/tree/main)
+- Support **multi** translation engine : Google Translation from [pygtrans](https://github.com/foyoux/pygtrans/tree/main) , YouDao Translation , DeepL Translation
 
 ------
 
@@ -96,9 +96,9 @@ https://github.com/anonymousException/renpy-translator/assets/157234942/817c6e9c
 
 ### Prerequisite
 
-A good network environment , if not you may not able to translate words through ***Google Translate***
+A good network environment , if not you may not able to translate words through ***Google Translate | YouDao Translate | Deepl Translate***
 
-If you can not access google , you can try use vpn tool like v2ray and set local-proxy
+If you can not access the translate engine, you can try use vpn tool like v2ray and set local-proxy
 
 before:
 

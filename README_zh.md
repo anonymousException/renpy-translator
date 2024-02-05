@@ -8,7 +8,7 @@
 
 ------
 
-<div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/interface_v1.3.0.png"></div>
+<div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/interface_v1.4.0.png"></div>
 
 ------
 
@@ -66,8 +66,8 @@ https://github.com/anonymousException/renpy-translator/blob/feature/ai-translate
 - 支持 **108 种**语言，具体的语言列表可参考： [源语言](https://github.com/anonymousException/renpy-translator/blob/main/src/source.rst?plain=1) 和 [目标(翻译后)的语言](https://github.com/anonymousException/renpy-translator/blob/main/src/target.rst?plain=1)
 - 支持**保留**未被翻译的原本作为**注释**
 - 支持**实时日志输出** , 你可以随时观察当前的翻译进度
-- 支持**本地代理**，如果你不能正常访问谷歌，可以尝试使用 VPN (如 V2ray) 并配置本地代理
-- 基于 Google 翻译 ，来源于 [pygtrans](https://github.com/foyoux/pygtrans/tree/main)
+- 支持**本地代理**，如果你不能正常访问谷歌|有道|Deepl，可以尝试使用 VPN (如 V2ray) 并配置本地代理
+- 支持**多种**翻译引擎 ：谷歌来源于 [pygtrans](https://github.com/foyoux/pygtrans/tree/main) , 有道翻译,DeepL 翻译
 
 ------
 
@@ -93,7 +93,7 @@ https://github.com/anonymousException/renpy-translator/assets/157234942/817c6e9c
 
 ### 事前准备
 
-一个好的网络环境，如果网络不好，可能无法正常调用谷歌翻译来翻译
+一个好的网络环境，如果网络不好，可能无法正常调用**谷歌|有道|Deepl**来翻译
 
 当你发现无法正常访问谷歌翻译时，可以试试：https://github.com/GoodCoder666/GoogleTranslate_IPFinder
 
