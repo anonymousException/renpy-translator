@@ -383,7 +383,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Version 1.3.1</string>
+     <string>Version 1.4.0</string>
     </property>
    </widget>
    <widget class="QLabel" name="copyrightLabel">
@@ -553,8 +553,15 @@
     </property>
     <addaction name="proxySettings"/>
    </widget>
+   <widget class="QMenu" name="translationEngineMenu">
+    <property name="title">
+     <string>translation engine</string>
+    </property>
+    <addaction name="engineSettings"/>
+   </widget>
    <addaction name="aboutMenu"/>
    <addaction name="proxyMenu"/>
+   <addaction name="translationEngineMenu"/>
   </widget>
   <action name="actioncopyright">
    <property name="text">
@@ -564,6 +571,11 @@
   <action name="proxySettings">
    <property name="text">
     <string>proxy settings</string>
+   </property>
+  </action>
+  <action name="engineSettings">
+   <property name="text">
+    <string>engine settings</string>
    </property>
   </action>
  </widget>

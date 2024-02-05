@@ -29,6 +29,8 @@ class Ui_MainWindow(object):
         self.actioncopyright.setObjectName(u"actioncopyright")
         self.proxySettings = QAction(MainWindow)
         self.proxySettings.setObjectName(u"proxySettings")
+        self.engineSettings = QAction(MainWindow)
+        self.engineSettings.setObjectName(u"engineSettings")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayoutWidget = QWidget(self.centralwidget)
@@ -167,12 +169,16 @@ class Ui_MainWindow(object):
         self.aboutMenu.setObjectName(u"aboutMenu")
         self.proxyMenu = QMenu(self.menubar)
         self.proxyMenu.setObjectName(u"proxyMenu")
+        self.translationEngineMenu = QMenu(self.menubar)
+        self.translationEngineMenu.setObjectName(u"translationEngineMenu")
         MainWindow.setMenuBar(self.menubar)
 
         self.menubar.addAction(self.aboutMenu.menuAction())
         self.menubar.addAction(self.proxyMenu.menuAction())
+        self.menubar.addAction(self.translationEngineMenu.menuAction())
         self.aboutMenu.addAction(self.actioncopyright)
         self.proxyMenu.addAction(self.proxySettings)
+        self.translationEngineMenu.addAction(self.engineSettings)
 
         self.retranslateUi(MainWindow)
 
@@ -183,6 +189,7 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Ren'py Translator", None))
         self.actioncopyright.setText(QCoreApplication.translate("MainWindow", u"copyright", None))
         self.proxySettings.setText(QCoreApplication.translate("MainWindow", u"proxy settings", None))
+        self.engineSettings.setText(QCoreApplication.translate("MainWindow", u"engine settings", None))
         self.clearLogBtn.setText(QCoreApplication.translate("MainWindow", u"clear log", None))
         self.translateBtn.setText(QCoreApplication.translate("MainWindow", u"translate", None))
         self.selectFilesBtn.setText(QCoreApplication.translate("MainWindow", u"...", None))
@@ -210,7 +217,7 @@ class Ui_MainWindow(object):
         self.extractBtn.setText(QCoreApplication.translate("MainWindow", u"extract", None))
         self.label_8.setText(QCoreApplication.translate("MainWindow", u"tl name", None))
         self.tlNameText.setPlaceholderText(QCoreApplication.translate("MainWindow", u"only needs in file(s) mode,if you input the directory , just fill nothing.                   input the directory name under game\\tl  Example: japanese or chinese  or  german", None))
-        self.versionLabel.setText(QCoreApplication.translate("MainWindow", u"Version 1.3.1", None))
+        self.versionLabel.setText(QCoreApplication.translate("MainWindow", u"Version 1.4.0", None))
         self.copyrightLabel.setText(QCoreApplication.translate("MainWindow", u"\u00a92024 Last moment,All rights reserved.", None))
         self.label_11.setText(QCoreApplication.translate("MainWindow", u"font", None))
         self.selectFontText.setPlaceholderText(QCoreApplication.translate("MainWindow", u"input or choose or drag the font which supports the language after translation. Example : DejaVuSans.ttf (ren'py 's default font)", None))
@@ -223,5 +230,6 @@ class Ui_MainWindow(object):
         self.selectDirBtn_3.setText(QCoreApplication.translate("MainWindow", u"...", None))
         self.aboutMenu.setTitle(QCoreApplication.translate("MainWindow", u"about", None))
         self.proxyMenu.setTitle(QCoreApplication.translate("MainWindow", u"proxy", None))
+        self.translationEngineMenu.setTitle(QCoreApplication.translate("MainWindow", u"translation engine", None))
     # retranslateUi
 

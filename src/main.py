@@ -16,42 +16,130 @@ from copyright import Ui_CopyrightDialog
 from my_log import log_print, log_path
 from renpy_extract import extractThread, extract_threads, ExtractAllFilesInDir
 from renpy_fonts import GenGuiFonts
-from renpy_translate import translateThread, translate_threads
+from renpy_translate import translateThread, translate_threads, engineList
 from proxy import Ui_ProxyDialog
+from src.engine import Ui_EngineDialog
 from ui import Ui_MainWindow
 
-os.environ['REQUESTS_CA_BUNDLE'] =  os.path.join(os.path.dirname(sys.argv[0]), 'cacert.pem')
-
+os.environ['REQUESTS_CA_BUNDLE'] = os.path.join(os.path.dirname(sys.argv[0]), 'cacert.pem')
 targetDic = dict()
 sourceDic = dict()
+
+
+class MyEngineForm(QDialog, Ui_EngineDialog):
+    def __init__(self, parent=None):
+        super(MyEngineForm, self).__init__(parent)
+        self.setupUi(self)
+        self.detailLabel.setStyleSheet(
+            "QLabel::hover"
+            "{"
+            "background-color : lightgreen;"
+            "}"
+        )
+        self.detailLabel.setStyleSheet("color:blue")
+
+        for i in engineList:
+            self.engineComboBox.addItem(i)
+        if os.path.isfile('engine.txt'):
+            with open('engine.txt', 'r') as json_file:
+                loaded_data = json.load(json_file)
+                for i, e in enumerate(engineList):
+                    if e == loaded_data['engine']:
+                        self.engineComboBox.setCurrentIndex(i)
+                        break
+                self.keyEdit.setText(loaded_data['key'])
+                self.secretEdit.setText((loaded_data['secret']))
+        if self.engineComboBox.currentIndex() == 0:
+            self.keyEdit.setDisabled(True)
+            self.secretEdit.setDisabled(True)
+        if self.engineComboBox.currentIndex() == 1 or self.engineComboBox.currentIndex() == 3:
+            self.secretEdit.setEnabled(False)
+        self.confirmButton.clicked.connect(self.confirm)
+        self.engineComboBox.currentIndexChanged.connect(self.on_combobox_change)
+        self.detailLabel.mousePressEvent = self.open_url
+
+        self.detailLabel.setCursor(Qt.PointingHandCursor)
+
+    def open_url(self, event):
+        engineInfoList = ['https://cloud.google.com/translate/docs/quickstarts',
+                          'https://cloud.google.com/translate/docs/quickstarts', 'https://ai.youdao.com/doc.s#guide',
+                          'https://www.deepl.com/account/?utm_source=github&utm_medium=github-python-readme']
+        webbrowser.open(engineInfoList[self.engineComboBox.currentIndex()])
+
+    def on_combobox_change(self):
+        if self.engineComboBox.currentIndex() != 0:
+            self.keyEdit.setEnabled(True)
+            self.secretEdit.setEnabled(True)
+            if self.engineComboBox.currentIndex() == 1 or self.engineComboBox.currentIndex() == 3:
+                self.secretEdit.setEnabled(False)
+        else:
+            self.keyEdit.setDisabled(True)
+            self.secretEdit.setDisabled(True)
+        with open('engine.txt', 'r') as json_file:
+            loaded_data = json.load(json_file)
+            key = str(self.engineComboBox.currentIndex())+'_key'
+            secret = str(self.engineComboBox.currentIndex()) + '_secret'
+            if key in loaded_data:
+                self.keyEdit.setText(loaded_data[key])
+            else:
+                self.keyEdit.setText('')
+            if secret in loaded_data:
+                self.secretEdit.setText(loaded_data[secret])
+            else:
+                self.secretEdit.setText('')
+
+    def confirm(self):
+        if not os.path.isfile('engine.txt'):
+            f = io.open('engine.txt', 'w', encoding='utf-8')
+            data = {"engine": self.engineComboBox.currentText(), "key": self.keyEdit.text(),
+                    "secret": self.secretEdit.text(),str(self.engineComboBox.currentIndex())+'_key':self.keyEdit.text(),
+                    str(self.engineComboBox.currentIndex())+'_secret':self.secretEdit.text()}
+            json.dump(data, f)
+            f.close()
+        else:
+            f = io.open('engine.txt', 'r', encoding='utf-8')
+            loaded_data = json.load(f)
+            f.close()
+            f = io.open('engine.txt', 'w', encoding='utf-8')
+            loaded_data['engine'] = self.engineComboBox.currentText()
+            loaded_data['key'] = self.keyEdit.text()
+            loaded_data['secret'] = self.secretEdit.text()
+            loaded_data[str(self.engineComboBox.currentIndex())+'_key'] = self.keyEdit.text()
+            loaded_data[str(self.engineComboBox.currentIndex())+'_secret'] = self.secretEdit.text()
+            json.dump(loaded_data, f)
+            f.close()
+        self.close()
+
 
 class MyProxyForm(QDialog, Ui_ProxyDialog):
     def __init__(self, parent=None):
         super(MyProxyForm, self).__init__(parent)
         self.setupUi(self)
-        if  os.path.isfile('proxy.txt'):
+        if os.path.isfile('proxy.txt'):
             with open('proxy.txt', 'r') as json_file:
                 loaded_data = json.load(json_file)
                 self.proxyEdit.setText(loaded_data['proxy'])
                 self.checkBox.setChecked((loaded_data['enable']))
         self.confirmButton.clicked.connect(self.confirm)
+
     def confirm(self):
         f = io.open('proxy.txt', 'w', encoding='utf-8')
-        data = {"proxy":self.proxyEdit.text(),"enable":self.checkBox.isChecked()}
+        data = {"proxy": self.proxyEdit.text(), "enable": self.checkBox.isChecked()}
         json.dump(data, f)
         f.close()
         self.close()
+
 
 class MyCopyrightForm(QDialog, Ui_CopyrightDialog):
     def __init__(self, parent=None):
         super(MyCopyrightForm, self).__init__(parent)
         self.setupUi(self)
         self.url_label.setStyleSheet(
-                            "QLabel::hover"
-                            "{"
-                            "background-color : lightgreen;"
-                            "}"
-                            )
+            "QLabel::hover"
+            "{"
+            "background-color : lightgreen;"
+            "}"
+        )
         self.url_label.setStyleSheet("color:blue")
         self.url_label.mousePressEvent = self.open_url
 
@@ -81,13 +169,25 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.versionLabel.setStyleSheet("color:grey")
         self.copyrightLabel.setStyleSheet("color:grey")
         self.actioncopyright.triggered.connect(lambda: self.show_copyright_form())
-        self.proxySettings.triggered.connect(lambda: self.showProxySettings())
+        self.proxySettings.triggered.connect(lambda: self.show_proxy_settings())
+        self.engineSettings.triggered.connect(lambda: self.show_engine_settings())
         _thread.start_new_thread(self.update_log, ())
 
-    def showProxySettings(self):
+    def show_engine_settings(self):
+        engine_form = MyEngineForm(parent=self)
+        ori = None
+        now = None
+        with open('engine.txt', 'r') as json_file:
+            ori = json.load(json_file)
+        engine_form.exec()
+        with open('engine.txt', 'r') as json_file:
+            now = json.load(json_file)
+        if now != None and now['engine'] != ori['engine']:
+            self.init_combobox()
+
+    def show_proxy_settings(self):
         proxy_form = MyProxyForm(parent=self)
         proxy_form.exec()
-
 
     def replaceFont(self):
         select_dir = self.selectDirText_3.toPlainText()
@@ -129,10 +229,29 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         return ret_l
 
     def init_combobox(self):
-        target_l = self.get_combobox_content('target.rst', targetDic)
+        self.targetComboBox.clear()
+        self.sourceComboBox.clear()
+        target = 'google.target.rst'
+        source = 'google.source.rst'
+        if os.path.isfile('engine.txt'):
+            with open('engine.txt', 'r') as json_file:
+                loaded_data = json.load(json_file)
+                if loaded_data['engine'] == engineList[0] or loaded_data['engine'] == engineList[1]:
+                    pass
+                else:
+                    if loaded_data['engine'] == engineList[2]:
+                        target = 'youdao.target.rst'
+                        source = 'youdao.source.rst'
+                    elif loaded_data['engine'] == engineList[3]:
+                        target = 'deepl.target.rst'
+                        source = 'deepl.source.rst'
+                    else:
+                        return
+
+        target_l = self.get_combobox_content(target, targetDic)
         for i in target_l:
             self.targetComboBox.addItem(i)
-        source_l = self.get_combobox_content('source.rst', sourceDic)
+        source_l = self.get_combobox_content(source, sourceDic)
         for i in source_l:
             self.sourceComboBox.addItem(i)
         self.sourceComboBox.setCurrentIndex(source_l.index('Auto Detect'))

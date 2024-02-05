@@ -6,10 +6,13 @@ import os
 import threading
 import traceback
 
-from pygtrans import Translate
+from pygtrans import Translate, ApiKeyTranslate
 
 from my_log import log_print
+from src.deepl_translate import DeeplTranslate
+from src.youdao_translate import YoudaoTranslate
 
+engineList = ['Google(Free)','Google(Token Required)','YouDao(Token Required)','DeepL(Token Required)']
 translate_threads = []
 
 
@@ -32,9 +35,12 @@ class translateThread(threading.Thread):
 
 def TranslateToList(cli, inList, lang_target, lang_source):
     dic = dict()
-    texts = cli.translate(inList, lang_target, lang_source)
-    for i, e in enumerate(texts):
-        dic[inList[i]] = e.translatedText
+    texts = cli.translate(inList, target=lang_target, source=lang_source)
+    if isinstance(texts, list):
+        for i, e in enumerate(texts):
+            dic[inList[i]] = e.translatedText
+    else:
+        raise Exception('translate error:'+str(texts))
     return dic
 
 
@@ -226,11 +232,24 @@ def isAllPunctuations(s):
 
 
 def TranslateFile(p, lang_target, lang_source):
-    client = Translate(fmt = 'text')
+    proxies = None
     with open('proxy.txt', 'r') as json_file:
         loaded_data = json.load(json_file)
         if loaded_data['enable']:
-            client = Translate(fmt = 'text',proxies={'https':loaded_data['proxy']})
+            proxies = {'https': loaded_data['proxy']}
+    if os.path.isfile('engine.txt'):
+        with open('engine.txt', 'r') as json_file:
+            loaded_data = json.load(json_file)
+            if loaded_data['engine'] == engineList[0]:
+                client = Translate(fmt = 'text',proxies=proxies)
+            elif loaded_data['engine'] == engineList[1]:
+                client = ApiKeyTranslate(fmt = 'text',proxies=proxies,api_key=loaded_data['key'])
+            elif loaded_data['engine'] == engineList[2]:
+                client=YoudaoTranslate(app_key=loaded_data['key'],app_secret=loaded_data['secret'],proxies=proxies)
+            elif loaded_data['engine'] == engineList[3]:
+                client = DeeplTranslate(app_key=loaded_data['key'], proxies=proxies)
+            else:
+                return
     transList = []
     try:
         f = io.open(p, 'r+', encoding='utf-8')
@@ -326,7 +345,7 @@ def TranslateFile(p, lang_target, lang_source):
                 translated = trans_dic[d['encoded'].strip('"')]
                 translated = translated.replace('\u200b', '')
                 translated = translated.replace('\u200b1', '')
-                translated = translated.replace('"', '\"')
+                translated = translated.replace('"', '\\"')
                 translated = translated.replace('【','[')
                 translated = translated.replace('】', ']')
                 translated = translated.rstrip('\\')
