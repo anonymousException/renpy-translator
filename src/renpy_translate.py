@@ -339,7 +339,7 @@ def TranslateFile(client, p, lang_target, lang_source,batch_size):
                 translated = trans_dic[d['encoded'].strip('"')]
                 translated = translated.replace('\u200b', '')
                 translated = translated.replace('\u200b1', '')
-                translated = translated.replace('"', '\"')
+                translated = translated.replace('"', '\\"')
                 translated = translated.replace('【', '[')
                 translated = translated.replace('】', ']')
                 translated = translated.rstrip('\\')
