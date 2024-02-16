@@ -337,10 +337,11 @@ def WriteExtracted(p, extractedSet):
             if(len(eDiff) > 0):
                 f = io.open(i, 'a+', encoding='utf-8')
                 f.write('\ntranslate '+ tl+' strings:\n')
-                rdm = random.random()
-                timestamp = '"old:' + str(time.time()) + '_' +  str(rdm) + '"'
+                rdm = str(random.random())
+                tm = str(time.time())
+                timestamp = '"old:' + tm + '_' +  rdm + '"'
                 head = '    old ' + timestamp + '\n    '
-                timestamp = '"new:' + str(time.time()) + '_' +  str(rdm) + '"'
+                timestamp = '"new:' + tm + '_' +  rdm + '"'
                 head = head + 'new ' + timestamp + '\n\n'
                 f.write(head)
                 for j in eDiff:
