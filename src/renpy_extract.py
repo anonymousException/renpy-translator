@@ -6,6 +6,7 @@ import threading
 import time
 import re
 import traceback
+import pathlib
 
 from my_log import log_print
 
@@ -273,7 +274,7 @@ def CreateEmptyFileIfNotExsit(p):
             target = p + i[len(p + '/../../'):]
             targetDir = os.path.dirname(target)
             if os.path.exists(targetDir) == False:
-                os.mkdir(targetDir)
+                pathlib.Path(targetDir).mkdir(parents=True, exist_ok=True)
             if os.path.isfile(target) == False:
                 open(target, 'w').close()
 
