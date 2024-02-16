@@ -15,7 +15,7 @@
 
 ## Download
 
-You can download from [https://github.com/anonymousException/renpy-translator/releases/tag/v2.1.3-alpha](https://github.com/anonymousException/renpy-translator/releases/tag/v2.1.3-alpha)
+You can download from [https://github.com/anonymousException/renpy-translator/releases/tag/v2.1.5-alpha](https://github.com/anonymousException/renpy-translator/releases/tag/v2.1.5-alpha)
 
 ## Another Docs
 
