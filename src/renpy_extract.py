@@ -1,5 +1,6 @@
 #-*- coding: utf-8
 import io
+import random
 import sys
 import os
 import threading
@@ -250,9 +251,20 @@ def ExtractFromFile(p, isOpenFilter):
                         elif(len(_strip_i) < 8):
                             # log_print(len(strip_i),i)
                             continue
-
-                        if(i.strip('"').startswith('#') == False and i.strip('"').endswith('.ogg') == False and i.strip('"').endswith('.webp') == False and i.strip('"').endswith('.png') == False and i.strip('"').endswith('.ttf') == False and i.strip('"').endswith('.otf') == False):
-                            i = i.replace('\\\'',"'")
+                        cmp_i = i.lower().strip('"')
+                        suffix_list = ['.ogg', '.webp', '.png', '.ttf', '.otf', '.webm', '.svg', '.gif', '.jpg', '.wav',
+                                       '.mp3']
+                        skip = False
+                        if cmp_i.startswith('#'):
+                            skip = True
+                        for suffix in suffix_list:
+                            if cmp_i.endswith(suffix) == False:
+                                continue
+                            else:
+                                skip = True
+                                break
+                        if skip == False:
+                            i = i.replace('\\\'', "'")
                             e.add(i)
                     else:
                         e.add(i)
@@ -326,9 +338,11 @@ def WriteExtracted(p, extractedSet):
             if(len(eDiff) > 0):
                 f = io.open(i, 'a+', encoding='utf-8')
                 f.write('\ntranslate '+ tl+' strings:\n')
-                timestamp = '"old:' + str(time.time()) + '"'
+                rdm = str(random.random())
+                tm = str(time.time())
+                timestamp = '"old:' + tm + '_' + rdm + '"'
                 head = '    old ' + timestamp + '\n    '
-                timestamp = '"new:' + str(time.time()) + '"'
+                timestamp = '"new:' + tm + '_' + rdm + '"'
                 head = head + 'new ' + timestamp + '\n\n'
                 f.write(head)
                 for j in eDiff:
