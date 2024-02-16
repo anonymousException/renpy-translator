@@ -265,7 +265,7 @@ Before translation you need to get the font file (.*ttf or .otf) you want to tra
 
 For japanese, I usually use the [hanazomefont](https://www.asterism-m.com/font/hanazomefont/)
 
-For chinese, I usally use the [SourceHanSansSC-VF.otf](https://github.com/adobe-fonts/source-han-sans/raw/release/Variable/OTF/SourceHanSansSC-VF.otf)
+For chinese, I usally use the [SourceHanSansCN](https://github.com/CyanoHao/WFM-Free-Font/tree/master/SourceHanSansCN)
 
 For other language , you can find relative font files using search engine easily
 
