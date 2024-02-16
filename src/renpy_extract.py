@@ -10,6 +10,7 @@ import traceback
 import pathlib
 
 from my_log import log_print
+from string_tool import remove_upprintable_chars
 
 extract_threads = []
 
@@ -220,11 +221,12 @@ def ExtractFromFile(p, isOpenFilter):
         if is_in_condition_switch:
             continue
         if(isOpenFilter):
-            if(line_content.strip().startswith('#') or len(line_content.strip()) == 0):
+            cmp_line_content = remove_upprintable_chars(line_content.strip())
+            if cmp_line_content.startswith('#') or len(line_content.strip()) == 0:
                 continue
-            if(line_content.strip().startswith('label ')):
+            if cmp_line_content.startswith('label '):
                 continue
-            if(line_content.strip().startswith('define ')):
+            if cmp_line_content.startswith('define '):
                 continue
             # if(line_content.strip().startswith('default ')):
             # 	continue
@@ -392,9 +394,11 @@ def ExtractWriteFile(p,tl_name):
     if(len(eDiff) > 0):
         f = io.open(target, 'a+', encoding='utf-8')
         f.write('\ntranslate '+ tl_name +' strings:\n')
-        timestamp = '"old:' + str(time.time()) + '"'
+        rdm = str(random.random())
+        tm = str(time.time())
+        timestamp = '"old:' + tm + '_' + rdm + '"'
         head = '    old ' + timestamp + '\n    '
-        timestamp = '"new:' + str(time.time()) + '"'
+        timestamp = '"new:' + tm + '_' + rdm + '"'
         head = head + 'new ' + timestamp + '\n\n'
         f.write(head)
         for j in eDiff:
