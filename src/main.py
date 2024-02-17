@@ -166,7 +166,11 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.extractBtn.clicked.connect(self.extract)
         self.replaceFontBtn.clicked.connect(self.replaceFont)
         self.openFontStyleBtn.clicked.connect(self.openFontStyleFile)
-        self.init_combobox()
+        try:
+            self.init_combobox()
+        except Exception as e:
+            msg = traceback.format_exc()
+            log_print(msg)
         self.versionLabel.setStyleSheet("color:grey")
         self.copyrightLabel.setStyleSheet("color:grey")
         self.actioncopyright.triggered.connect(lambda: self.show_copyright_form())

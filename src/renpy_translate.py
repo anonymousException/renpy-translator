@@ -246,11 +246,16 @@ def TranslateFile(p, lang_target, lang_source):
             elif loaded_data['engine'] == engineList[1]:
                 client = ApiKeyTranslate(fmt = 'text',proxies=proxies,api_key=loaded_data['key'])
             elif loaded_data['engine'] == engineList[2]:
-                client=YoudaoTranslate(app_key=loaded_data['key'],app_secret=loaded_data['secret'],proxies=proxies)
+                client = YoudaoTranslate(app_key=loaded_data['key'],app_secret=loaded_data['secret'],proxies=proxies)
             elif loaded_data['engine'] == engineList[3]:
                 client = DeeplTranslate(app_key=loaded_data['key'], proxies=proxies)
             else:
+                log_print('engine.txt' + ' file format error!')
+                msg = traceback.format_exc()
+                log_print(msg)
                 return
+    else:
+        client = Translate(fmt='text', proxies=proxies)
     transList = []
     try:
         f = io.open(p, 'r+', encoding='utf-8')
