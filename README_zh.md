@@ -364,3 +364,92 @@ It’s [0] . And [1] . Error
 这个软件是用 pyinstaller 打包的，且因为有文件操作(打开 读 写) ，因此可能会有误检测
 
 如果你对此表示担忧，你可以自己下载源码并运行
+
+### 运行翻译后的游戏报错
+
+当你翻译完游戏运行后可以会遇到类似下面的报错
+
+![error_after_translation](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/error_after_translation.png)
+
+![error_after_translation_source](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/error_after_translation_source.png)
+
+不难发现在翻译过后 "[[XXXX]" 被翻译成了"[ [XXXX]" , 多了个空格  (你遇到的可能是其它形式的错误，但重点在于在翻译后**特殊符号的结构被破坏**了)
+
+这个结果是翻译引擎翻译导致的 , 有时翻译引擎对特殊符号像 '[]' '<>' ... **不太友好** 特别是当特殊符号叠加使用时
+
+但仍然有个好消息 , 通常这种情况不会很频繁发生，你只需要手动处理这些错误的句子 (对于我在上面提到的这个案例 , 只需要删除多余的空格即可)
+
+### 有些句子在翻译过后好像没生效
+
+#### tooltip
+
+对于在 **tooltip** 里的特殊文本，明明翻译了却没生效
+
+原始的代码看起来像这样 :
+
+```python
+tooltip "this is a tooltip"
+```
+
+参考来自 https://f95zone.to/threads/translation-of-text-in-screen.90781/ 的教程
+
+只需要打开 rpy 文件 (随便一个在 tl 文件夹底下的或你可以自己创一个) 并添加以下代码
+
+```python
+#如果是自己创建的话，需要补上下面这行去掉 # , tl_name 填 tl 目录下的文件夹名称如 schinese
+#translate tl_name strings:
+    old "[tooltip]"
+    new "[tooltip!t]"
+```
+
+#### notify
+
+对于在 **notify** 里的特殊文本 ，明明翻译了却没生效
+
+你需要定位没被翻译的句子在原本代码里的位置 (不是在翻译的 tl 文件夹下)
+
+你将会找到看起来像这样的原始代码 :
+
+```python
+show screen notify(_("Find old Man Gibson"), None)
+```
+
+------
+
+替换为
+
+```python
+show screen notify(__("Find old Man Gibson"), None)
+```
+
+操作只是在notify( 后添加 '_'
+
+很简单对吧? 然后翻译就能生效了
+
+#### 其它
+
+可能会有其它情况，有些句子在翻译后仍然没生效
+
+这取决于原始的代码，抽取可能不能完全覆盖如果原始代码写得不是那么得对翻译友好
+
+为了避免多余的无效抽取，本工具的抽取功能不会抽取满足以下格式的句子：
+
+句子长度小于 8 (空格和特殊符号长度被记为 0)
+
+举个例子 :
+
+```
+"I know [special symbol]"
+```
+
+实际有效的内容是：
+
+```
+Iknow
+```
+
+长度只有 5 , 所以它不会被本工具的抽取功能抽取
+
+------
+
+除此之外，在 [ConditionSwitch()](https://www.renpy.org/doc/html/displayables.html#ConditionSwitch)  里的内容同样不会被翻译， 因为分支选择的代码可能会被包含在里面

@@ -370,3 +370,93 @@ Fortunately this situation occurs rarely , you need not to spend too much time t
 This program is packed by pyinstaller and with file operation (open read write) ， so may cause false detection
 
 If you are worried about this , you can download the source code and run the program yourself
+
+### Some errors occur after running the translated game
+
+you may meet errors after running the translated game like this :
+
+![error_after_translation](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/error_after_translation.png)
+
+![error_after_translation_source](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/error_after_translation_source.png)
+
+You can found that after translation "[[XXXX]" was translated into "[ [XXXX]" , an extra space was added  (you may meet other error format but the important point is that after translation **the structure of the special symbols destroyed**)
+
+The result is translated by translate engine , sometimes translation engine **is not friendly to** special symbols like '[]' '<>' ... especially when the special symbols used repeatedly
+
+But there still remains good news , normally the case will not happen frequently , you only need to modify the error sentences manually (For the case mentioned above , just remove the extra space)
+
+### Some sentences seem not to be translated after translation
+
+#### tooltip
+
+For special text in **tooltip** is actually translated but seems not work
+
+the original code looks like this :
+
+```python
+tooltip "this is a tooltip"
+```
+
+Following the tutorial from https://f95zone.to/threads/translation-of-text-in-screen.90781/
+
+Just open the rpy file (any one under tl folder else if you can create a new one) and add the following code :
+
+```python
+# if you choose to create a new one，you need to add the next line remove header # and relace tl_name with the directory name under tl folder like japanese
+#translate tl_name strings:
+	old "[tooltip]"
+    new "[tooltip!t]"
+```
+
+#### notify
+
+For special text in **notify** is actually translated but seems not work
+
+You need to locate the sentence on the orginal code (not the translation tl folder)
+
+You will found the original code looks like this :
+
+```python
+show screen notify(_("Find old Man Gibson"), None)
+```
+
+------
+
+replace it with
+
+```python
+show screen notify(__("Find old Man Gibson"), None)
+```
+
+the operation is just to add '_' after notify(
+
+quite easy right? And then the translation will do the effect
+
+#### other
+
+It probably remains other case that some sentences seem not to be translated after translation
+
+It depends on the original code , extraction may not completely covered if the original code is not quite translation-friendly
+
+To avoid extra useless extraction , the extraction function in this tool will not extract sentences match the following style :
+
+the length of sentences (space and special synbol will be counted as zero length)  lower than 8 
+
+for example :
+
+```
+"I know [special symbol]"
+```
+
+the actual effect content is
+
+```
+Iknow
+```
+
+the length is only 5 , so it will not be extracted by the extraction from the tool
+
+------
+
+Besides the contents in [ConditionSwitch()](https://www.renpy.org/doc/html/displayables.html#ConditionSwitch) will also not be translated due to switch code may contained in it
+
