@@ -88,6 +88,10 @@ Replace fonts:
 
 https://github.com/anonymousException/renpy-translator/assets/157234942/46e524d7-14ef-472e-8426-ac47d923bef0
 
+Extract File(s):
+
+https://github.com/anonymousException/renpy-translator/assets/157234942/7d1efbfd-7152-407f-9896-c63a98538f02
+
 Extract Directory:
 
 https://github.com/anonymousException/renpy-translator/assets/157234942/817c6e9c-2fa2-48a3-914f-85765c0b64c3
