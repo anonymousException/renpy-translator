@@ -8,6 +8,8 @@
 
 ------
 
+<div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/interface_v1.5.0.png"></div>
+
 <div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/interface_v1.4.0.png"></div>
 
 ------
@@ -67,7 +69,7 @@ https://github.com/anonymousException/renpy-translator/blob/feature/ai-translate
 - 支持**保留**未被翻译的原本作为**注释**
 - 支持**实时日志输出** , 你可以随时观察当前的翻译进度
 - 支持**本地代理**，如果你不能正常访问谷歌|有道|Deepl，可以尝试使用 VPN (如 V2ray) 并配置本地代理
-- 支持**多种**翻译引擎 ：谷歌来源于 [pygtrans](https://github.com/foyoux/pygtrans/tree/main) , 有道翻译,DeepL 翻译
+- 支持**多种**翻译引擎 ：谷歌来源于 [pygtrans](https://github.com/foyoux/pygtrans/tree/main) , 有道翻译,DeepL 翻译,OpenAI 翻译
 
 ------
 
@@ -457,3 +459,20 @@ Iknow
 ------
 
 除此之外，在 [ConditionSwitch()](https://www.renpy.org/doc/html/displayables.html#ConditionSwitch)  里的内容同样不会被翻译， 因为分支选择的代码可能会被包含在里面
+
+### OpenAI
+
+你可以在 : [rate-limits](https://platform.openai.com/account/rate-limits)  查看速率限制并设置一个合理的限制
+
+如果是 OpenAI 新用户，每分钟请求数最多 3 个，基本无法使用
+
+默认设置就算针对这种情况 ，如果你不在意多花点时间 ,你可以使用默认设置
+
+对于更高权限的用户 , 推荐提高配置 推荐配置如下
+
+| 参数                       | 推荐                                                         |
+| -------------------------- | ------------------------------------------------------------ |
+| RPM(requests per minute)   | 200                                                          |
+| RPS(requests per second)   | 5                                                            |
+| TPM(requests token limits) | [rate-limits](https://platform.openai.com/account/rate-limits) |
+| model                      | gpt-4                                                        |

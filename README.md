@@ -9,6 +9,8 @@
 
 ------
 
+<div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/interface_v1.5.0.png"></div>
+
 <div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/interface_v1.4.0.png"></div>
 
 <div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/translated_contents.png"></div>
@@ -70,7 +72,7 @@ You can download the latest version through https://github.com/anonymousExceptio
 - Support **remain the original words as comments** after translation
 - Support **real-time log output** , you can check the progress about the translation
 - Support **local-proxy** , if you can not access google , you can use a vpn tool like v2ray and set local proxy
-- Support **multi** translation engine : Google Translation from [pygtrans](https://github.com/foyoux/pygtrans/tree/main) , YouDao Translation , DeepL Translation
+- Support **multi** translation engine : Google Translation from [pygtrans](https://github.com/foyoux/pygtrans/tree/main) , YouDao Translation , DeepL Translation , OpenAI Translation
 
 ------
 
@@ -464,3 +466,19 @@ the length is only 5 , so it will not be extracted by the extraction from the to
 
 Besides the contents in [ConditionSwitch()](https://www.renpy.org/doc/html/displayables.html#ConditionSwitch) will also not be translated due to switch code may contained in it
 
+### OpenAI
+
+You can view your rate-limits on : [rate-limits](https://platform.openai.com/account/rate-limits)  and set a reasonable limit
+
+There are great restrictions for a new user of openai , can only post max 3 requests in per minute. almost **unusable** to translate
+
+The default setting is for this situation , If you don't pay much attention to the time cost , you can try it with the default config
+
+For higher-level user , it's recommended to turn up the setting. A suggested config is :
+
+| parameter                  | recommend                                                    |
+| -------------------------- | ------------------------------------------------------------ |
+| RPM(requests per minute)   | 200                                                          |
+| RPS(requests per second)   | 5                                                            |
+| TPM(requests token limits) | [rate-limits](https://platform.openai.com/account/rate-limits) |
+| model                      | gpt-4                                                        |
