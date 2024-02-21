@@ -475,4 +475,4 @@ Iknow
 | RPM(requests per minute)   | 200                                                          |
 | RPS(requests per second)   | 5                                                            |
 | TPM(requests token limits) | [rate-limits](https://platform.openai.com/account/rate-limits) |
-| model                      | gpt-4                                                        |
+| model                      | gpt-4-turbo-preview                                          |
