@@ -68,8 +68,8 @@ class OpenAITranslate(object):
                 client = OpenAI(
                     # This is the default and can be omitted
                     api_key=self.app_key,
+                    base_url=self.base_url,
                     http_client=httpx.Client(
-                        base_url=self.base_url,
                         proxies=self.proxies,
                         transport=httpx.HTTPTransport(local_address="0.0.0.0"))
                 )
@@ -132,7 +132,7 @@ class OpenAITranslate(object):
                              f'Next you will receive the text that needs to be translated into {target}. \n' + \
                              f'{js}'
                     #prompt = f'You are a meticulous translator who translates any given content.Remember that json:{js} Be faithful or accurate in translation.Make the translation readable or intelligible. Be elegant or natural in translation.Make sure each translated text returned in original order.Translate the content from {source} into {target}.'
-                    chat_completion = client.with_options(timeout= 60 * 1000).chat.completions.create(
+                    chat_completion = client.with_options(timeout= 300 * 1000).chat.completions.create(
                         messages=[
                             {
                                 "role": "user",
@@ -157,7 +157,7 @@ class OpenAITranslate(object):
                              f'Next you will receive the text that needs to be translated into {target}. \n' + \
                              f'{js}'
                     #prompt = f'You are a meticulous translator who translates any given content.Remember that json:{js} Be faithful or accurate in translation.Make the translation readable or intelligible. Be elegant or natural in translation.Never merge the translation result.Make sure each translated text returned in original order.Translate the content into {target}.'
-                    chat_completion = client.with_options(timeout= 60 * 1000).chat.completions.create(
+                    chat_completion = client.with_options(timeout= 300 * 1000).chat.completions.create(
                         messages=[
                             {
                                 "role": "user",
