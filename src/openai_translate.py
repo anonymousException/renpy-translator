@@ -64,7 +64,7 @@ class OpenAITranslate(object):
 
     def translate_limit(self, data, id, source, target):
         try:
-            if self.base_url is not None:
+            if self.base_url is not None and self.base_url != "" and len(self.base_url)>0:
                 client = OpenAI(
                     # This is the default and can be omitted
                     api_key=self.app_key,

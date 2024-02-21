@@ -94,15 +94,15 @@ class Ui_EngineDialog(object):
         self.secretEdit.setText("")
         self.confirmButton.setText(QCoreApplication.translate("EngineDialog", u"Confirm", None))
         self.detailLabel.setText(QCoreApplication.translate("EngineDialog", u"detail information", None))
-        self.rpmEdit.setText(QCoreApplication.translate("EngineDialog", u"5", None))
+        self.rpmEdit.setText(QCoreApplication.translate("EngineDialog", u"3", None))
         self.label_4.setText(QCoreApplication.translate("EngineDialog", u"RPM (requests per minute):", None))
         self.label_5.setText(QCoreApplication.translate("EngineDialog", u"RPS (requests per second):", None))
-        self.rpsEdit.setText(QCoreApplication.translate("EngineDialog", u"5", None))
+        self.rpsEdit.setText(QCoreApplication.translate("EngineDialog", u"3", None))
         self.label_6.setText(QCoreApplication.translate("EngineDialog", u"TPM (requests token limits):", None))
         self.tpmEdit.setText(QCoreApplication.translate("EngineDialog", u"40000", None))
         self.label_7.setText(QCoreApplication.translate("EngineDialog", u"model:", None))
         self.label_8.setText(QCoreApplication.translate("EngineDialog", u"base_url:", None))
         self.baseUrlEdit.setText("")
-        self.baseUrlEdit.setPlaceholderText(QCoreApplication.translate("EngineDialog", u"https://api.xeduapi.com/v1", None))
+        self.baseUrlEdit.setPlaceholderText(QCoreApplication.translate("EngineDialog", u"http://my.test.server.example.com:8083", None))
     # retranslateUi
 
