@@ -117,7 +117,13 @@ class MyEngineForm(QDialog, Ui_EngineDialog):
             data = {"engine": self.engineComboBox.currentText(), "key": self.keyEdit.text(),
                     "secret": self.secretEdit.text(),
                     str(self.engineComboBox.currentIndex()) + '_key': self.keyEdit.text(),
-                    str(self.engineComboBox.currentIndex()) + '_secret': self.secretEdit.text()}
+                    str(self.engineComboBox.currentIndex()) + '_secret': self.secretEdit.text(),
+                    "rpm":self.rpmEdit.text(),
+                    "rps":self.rpsEdit.text(),
+                    "tpm":self.tpmEdit.text(),
+                    "openai_model":self.modelComboBox.currentText(),
+                    "openai_base_url":self.baseUrlEdit.text(),
+                    "openai_model_index":self.modelComboBox.currentIndex()}
             json.dump(data, f)
             f.close()
         else:
