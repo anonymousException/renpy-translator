@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import concurrent.futures
+import os
 import sys
 import traceback
 import uuid
@@ -126,6 +127,8 @@ class YoudaoTranslate(object):
         except Exception as e:
             msg = traceback.format_exc()
             log_print(msg)
+            if os.path.isfile('translating'):
+                os.remove('translating')
 
     def encrypt(self, signStr):
         hash_algorithm = hashlib.sha256()

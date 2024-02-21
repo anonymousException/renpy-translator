@@ -32,6 +32,8 @@ class translateThread(threading.Thread):
         except Exception as e:
             msg = traceback.format_exc()
             log_print(msg)
+            if os.path.isfile('translating'):
+                os.remove('translating')
 
 
 def TranslateToList(cli, inList, lang_target, lang_source):
@@ -252,6 +254,9 @@ def TranslateFile(p, lang_target, lang_source):
                 client = DeeplTranslate(app_key=loaded_data['key'], proxies=proxies)
             elif loaded_data['engine'] == engineList[4]:
                 base_url = ''
+                if proxies == None:
+                    proxies = dict()
+                    proxies['https'] = None
                 if 'openai_base_url' in loaded_data and len(loaded_data['openai_base_url']) > 0:
                     base_url = loaded_data['openai_base_url']
                 client = OpenAITranslate(app_key=loaded_data['key'],rpm=loaded_data['rpm'],rps=loaded_data['rps'],tpm=loaded_data['tpm'],model=loaded_data['openai_model'],base_url=base_url ,proxies=proxies['https'])

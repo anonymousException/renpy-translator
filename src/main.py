@@ -460,6 +460,8 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         except Exception:
             msg = traceback.format_exc()
             log_print(msg)
+            if os.path.isfile('translating'):
+                os.remove('translating')
 
     @staticmethod
     def translate_threads_over():

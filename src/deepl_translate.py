@@ -1,4 +1,5 @@
 import concurrent.futures
+import os
 import traceback
 
 import deepl
@@ -62,3 +63,5 @@ class DeeplTranslate(object):
         except Exception as e:
             msg = traceback.format_exc()
             log_print(msg)
+            if os.path.isfile('translating'):
+                os.remove('translating')

@@ -200,6 +200,8 @@ class OpenAITranslate(object):
         except Exception as e:
             msg = traceback.format_exc()
             log_print(msg)
+            if os.path.isfile('translating'):
+                os.remove('translating')
 
 def split_strings(strings, max_length=5000):
     result = []
