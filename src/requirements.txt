@@ -3,3 +3,4 @@ pygtrans==1.5.3
 pyinstaller==6.3.0
 pyinstaller-hooks-contrib==2024.0
 deepl==1.16.1
+openai==1.12.0

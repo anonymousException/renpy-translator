@@ -9,7 +9,7 @@ import json
 
 from PySide6.QtCore import QThread, Signal, Qt
 from PySide6.QtGui import QTextCursor, QIcon
-from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog
+from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog, QComboBox
 from PySide6.QtWidgets import QDialog
 
 from copyright import Ui_CopyrightDialog
@@ -37,9 +37,10 @@ class MyEngineForm(QDialog, Ui_EngineDialog):
             "}"
         )
         self.detailLabel.setStyleSheet("color:blue")
-
+        self.setFixedHeight(200)
         for i in engineList:
             self.engineComboBox.addItem(i)
+        self.init_openai_model_combobox()
         if os.path.isfile('engine.txt'):
             with open('engine.txt', 'r') as json_file:
                 loaded_data = json.load(json_file)
@@ -49,28 +50,49 @@ class MyEngineForm(QDialog, Ui_EngineDialog):
                         break
                 self.keyEdit.setText(loaded_data['key'])
                 self.secretEdit.setText((loaded_data['secret']))
+                if "rpm" in loaded_data:
+                    self.rpmEdit.setText(loaded_data['rpm'])
+                if "rps" in loaded_data:
+                    self.rpsEdit.setText(loaded_data['rps'])
+                if "tpm" in loaded_data:
+                    self.tpmEdit.setText(loaded_data['tpm'])
+                if "openai_model_index" in loaded_data:
+                    self.modelComboBox.setCurrentIndex(loaded_data['openai_model_index'])
+                if "openai_base_url" in loaded_data:
+                    self.baseUrlEdit.setText(loaded_data['openai_base_url'])
         if self.engineComboBox.currentIndex() == 0:
             self.keyEdit.setDisabled(True)
             self.secretEdit.setDisabled(True)
-        if self.engineComboBox.currentIndex() == 1 or self.engineComboBox.currentIndex() == 3:
+        if self.engineComboBox.currentIndex() == 1 or self.engineComboBox.currentIndex() == 3 or self.engineComboBox.currentIndex() == 4:
             self.secretEdit.setEnabled(False)
+            if self.engineComboBox.currentIndex() == 4:
+                self.setFixedHeight(300)
         self.confirmButton.clicked.connect(self.confirm)
         self.engineComboBox.currentIndexChanged.connect(self.on_combobox_change)
         self.detailLabel.mousePressEvent = self.open_url
-
         self.detailLabel.setCursor(Qt.PointingHandCursor)
+
+    def init_openai_model_combobox(self):
+        if self.modelComboBox.count() == 0:
+            l = ["gpt-3.5-turbo", "gpt-4-turbo-preview", "gpt-4"]
+            for i in l:
+                self.modelComboBox.addItem(i)
 
     def open_url(self, event):
         engineInfoList = ['https://cloud.google.com/translate/docs/quickstarts',
                           'https://cloud.google.com/translate/docs/quickstarts', 'https://ai.youdao.com/doc.s#guide',
-                          'https://www.deepl.com/account/?utm_source=github&utm_medium=github-python-readme']
+                          'https://www.deepl.com/account/?utm_source=github&utm_medium=github-python-readme',
+                          'https://platform.openai.com/api-keys']
         webbrowser.open(engineInfoList[self.engineComboBox.currentIndex()])
 
     def on_combobox_change(self):
+        self.setFixedHeight(200)
+        if self.engineComboBox.currentIndex() == 4:
+            self.setFixedHeight(300)
         if self.engineComboBox.currentIndex() != 0:
             self.keyEdit.setEnabled(True)
             self.secretEdit.setEnabled(True)
-            if self.engineComboBox.currentIndex() == 1 or self.engineComboBox.currentIndex() == 3:
+            if self.engineComboBox.currentIndex() == 1 or self.engineComboBox.currentIndex() == 3 or self.engineComboBox.currentIndex() == 4:
                 self.secretEdit.setEnabled(False)
         else:
             self.keyEdit.setDisabled(True)
@@ -78,7 +100,7 @@ class MyEngineForm(QDialog, Ui_EngineDialog):
         if os.path.isfile('engine.txt'):
             with open('engine.txt', 'r') as json_file:
                 loaded_data = json.load(json_file)
-                key = str(self.engineComboBox.currentIndex())+'_key'
+                key = str(self.engineComboBox.currentIndex()) + '_key'
                 secret = str(self.engineComboBox.currentIndex()) + '_secret'
                 if key in loaded_data:
                     self.keyEdit.setText(loaded_data[key])
@@ -93,8 +115,9 @@ class MyEngineForm(QDialog, Ui_EngineDialog):
         if not os.path.isfile('engine.txt'):
             f = io.open('engine.txt', 'w', encoding='utf-8')
             data = {"engine": self.engineComboBox.currentText(), "key": self.keyEdit.text(),
-                    "secret": self.secretEdit.text(),str(self.engineComboBox.currentIndex())+'_key':self.keyEdit.text(),
-                    str(self.engineComboBox.currentIndex())+'_secret':self.secretEdit.text()}
+                    "secret": self.secretEdit.text(),
+                    str(self.engineComboBox.currentIndex()) + '_key': self.keyEdit.text(),
+                    str(self.engineComboBox.currentIndex()) + '_secret': self.secretEdit.text()}
             json.dump(data, f)
             f.close()
         else:
@@ -105,8 +128,14 @@ class MyEngineForm(QDialog, Ui_EngineDialog):
             loaded_data['engine'] = self.engineComboBox.currentText()
             loaded_data['key'] = self.keyEdit.text()
             loaded_data['secret'] = self.secretEdit.text()
-            loaded_data[str(self.engineComboBox.currentIndex())+'_key'] = self.keyEdit.text()
-            loaded_data[str(self.engineComboBox.currentIndex())+'_secret'] = self.secretEdit.text()
+            loaded_data[str(self.engineComboBox.currentIndex()) + '_key'] = self.keyEdit.text()
+            loaded_data[str(self.engineComboBox.currentIndex()) + '_secret'] = self.secretEdit.text()
+            loaded_data['rpm'] = self.rpmEdit.text()
+            loaded_data['rps'] = self.rpsEdit.text()
+            loaded_data['tpm'] = self.tpmEdit.text()
+            loaded_data['openai_model'] = self.modelComboBox.currentText()
+            loaded_data['openai_base_url'] = self.baseUrlEdit.text()
+            loaded_data['openai_model_index'] = self.modelComboBox.currentIndex()
             json.dump(loaded_data, f)
             f.close()
         self.close()
@@ -177,6 +206,8 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.proxySettings.triggered.connect(lambda: self.show_proxy_settings())
         self.engineSettings.triggered.connect(lambda: self.show_engine_settings())
         _thread.start_new_thread(self.update_log, ())
+        if os.path.isfile('translating'):
+            os.remove('translating')
 
     def show_engine_settings(self):
         engine_form = MyEngineForm(parent=self)
@@ -254,6 +285,10 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
                     elif loaded_data['engine'] == engineList[3]:
                         target = 'deepl.target.rst'
                         source = 'deepl.source.rst'
+                    elif loaded_data['engine'] == engineList[4]:
+
+                        target = 'openai.target.rst'
+                        source = 'openai.source.rst'
                     else:
                         return
 
@@ -326,6 +361,13 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         if data != self.log_text.toPlainText():
             self.log_text.setText(data)
             self.log_text.moveCursor(QTextCursor.End)
+        if os.path.isfile('translating'):
+            self.translateBtn.setText('translating...')
+            self.translateBtn.setDisabled(True)
+        else:
+            self.translateBtn.setText('translate')
+            self.translateBtn.setEnabled(True)
+
 
     class UpdateThread(QThread):
         update_date = Signal(str)
@@ -407,6 +449,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
                             translate_threads.append(t)
                             cnt = cnt + 1
             if len(translate_threads) > 0:
+                open('translating', "w")
                 _thread.start_new_thread(self.translate_threads_over, ())
         except Exception:
             msg = traceback.format_exc()
@@ -417,6 +460,8 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         for t in translate_threads:
             t.join()
         log_print('translate all complete!')
+        if os.path.isfile('translating'):
+            os.remove('translating')
 
 
 if __name__ == "__main__":

@@ -1,12 +1,16 @@
 # -*- coding: utf-8 -*-
 import concurrent.futures
 import sys
+import traceback
 import uuid
 import requests
 import hashlib
 import time
 from importlib import reload
 import json
+
+from my_log import log_print
+from string_tool import split_strings
 
 reload(sys)
 
@@ -65,6 +69,8 @@ class YoudaoTranslate(object):
             for idx, result_array in enumerate(result_arrays):
                 # print(result_array)
                 # l = self.translate_limit(result_array,source,target)
+                if len(result_array) == 0:
+                    continue
                 future = executor.submit(self.translate_limit, result_array, cnt, source, target)
                 cnt = cnt + 1
                 to_do.append(future)
@@ -73,7 +79,8 @@ class YoudaoTranslate(object):
         dic = dict()
         for future in concurrent.futures.as_completed(to_do):
             result = future.result()
-            dic[result['id']] = result['l']
+            if result is not None:
+                dic[result['id']] = result['l']
         sorted_dict_items = sorted(dic.items())
         for key, value in sorted_dict_items:
             for i in value:
@@ -81,40 +88,44 @@ class YoudaoTranslate(object):
         return ret_l
 
     def translate_limit(self, q, id, source='auto', target='zh-CHS'):
-        qArray = q
-        data = {}
-        data['from'] = source
-        data['to'] = target
-        data['signType'] = 'v3'
-        curtime = str(int(time.time()))
-        data['curtime'] = curtime
-        self.salt = str(uuid.uuid1())
-        signStr = self.app_key + self.truncate(''.join(qArray)) + self.salt + curtime + self.app_secret
-        sign = self.encrypt(signStr)
-        data['appKey'] = self.app_key
-        data['q'] = qArray
-        data['salt'] = self.salt
-        data['sign'] = sign
-        # data['vocabId'] = "您的用户词表ID"
-        response = self.do_request(data, self.proxies)
-        contentType = response.headers['Content-Type']
-        # print(contentType)
-        # print(response.content)
-        content = json.loads(response.content)
-        # print(content['translateResults'])
-        # print(content['errorCode'])
-        dic = dict()
-        l = []
-        if content['errorCode'] == '0':
-            for i in content['translateResults']:
-                translateResponse = TranslateResponse(i)
-                l.append(translateResponse)
-        else:
-            raise Exception('translate errorCode:' + str(content['errorCode']) + ' ' + errorCodeMap[
-                content['errorCode']] + '\nerror Result:' + str(content))
-        dic['l'] = l
-        dic['id'] = id
-        return dic
+        try:
+            qArray = q
+            data = {}
+            data['from'] = source
+            data['to'] = target
+            data['signType'] = 'v3'
+            curtime = str(int(time.time()))
+            data['curtime'] = curtime
+            self.salt = str(uuid.uuid1())
+            signStr = self.app_key + self.truncate(''.join(qArray)) + self.salt + curtime + self.app_secret
+            sign = self.encrypt(signStr)
+            data['appKey'] = self.app_key
+            data['q'] = qArray
+            data['salt'] = self.salt
+            data['sign'] = sign
+            # data['vocabId'] = "您的用户词表ID"
+            response = self.do_request(data, self.proxies)
+            contentType = response.headers['Content-Type']
+            # print(contentType)
+            # print(response.content)
+            content = json.loads(response.content)
+            # print(content['translateResults'])
+            # print(content['errorCode'])
+            dic = dict()
+            l = []
+            if content['errorCode'] == '0':
+                for i in content['translateResults']:
+                    translateResponse = TranslateResponse(i)
+                    l.append(translateResponse)
+            else:
+                raise Exception('translate errorCode:' + str(content['errorCode']) + ' ' + errorCodeMap[
+                    content['errorCode']] + '\nerror Result:' + str(content))
+            dic['l'] = l
+            dic['id'] = id
+            return dic
+        except Exception as e:
+            msg = traceback.format_exc()
+            log_print(msg)
 
     def encrypt(self, signStr):
         hash_algorithm = hashlib.sha256()
@@ -130,22 +141,3 @@ class YoudaoTranslate(object):
     def do_request(self, data, proxies=None):
         headers = {'Content-Type': 'application/x-www-form-urlencoded'}
         return requests.post(YOUDAO_URL, data=data, headers=headers, proxies=proxies)
-
-
-def split_strings(strings, max_length=5000):
-    result = []
-    current_string = []
-
-    for string in strings:
-        _len = 0
-        for i in current_string:
-            _len += len(i)
-        if _len + len(string) <= max_length:
-            current_string.append(string)
-        else:
-            result.append(current_string)
-            current_string = [string]
-
-    if current_string:
-        result.append(current_string)
-    return result

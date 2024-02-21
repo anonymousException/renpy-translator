@@ -10,9 +10,10 @@ from pygtrans import Translate, ApiKeyTranslate
 
 from my_log import log_print
 from deepl_translate import DeeplTranslate
+from openai_translate import OpenAITranslate
 from youdao_translate import YoudaoTranslate
 
-engineList = ['Google(Free)','Google(Token Required)','YouDao(Token Required)','DeepL(Token Required)']
+engineList = ['Google(Free)','Google(Token Required)','YouDao(Token Required)','DeepL(Token Required)','OpenAI(Token Required)']
 translate_threads = []
 
 
@@ -249,6 +250,11 @@ def TranslateFile(p, lang_target, lang_source):
                 client = YoudaoTranslate(app_key=loaded_data['key'],app_secret=loaded_data['secret'],proxies=proxies)
             elif loaded_data['engine'] == engineList[3]:
                 client = DeeplTranslate(app_key=loaded_data['key'], proxies=proxies)
+            elif loaded_data['engine'] == engineList[4]:
+                base_url = None
+                if len(loaded_data['openai_base_url']) > 0:
+                    base_url = loaded_data['openai_base_url']
+                client = OpenAITranslate(app_key=loaded_data['key'],rpm=loaded_data['rpm'],rps=loaded_data['rps'],tpm=loaded_data['tpm'],model=loaded_data['openai_model'],base_url=base_url ,proxies=proxies['https'])
             else:
                 log_print('engine.txt' + ' file format error!')
                 msg = traceback.format_exc()
@@ -347,6 +353,10 @@ def TranslateFile(p, lang_target, lang_source):
             for i in d['oriList']:
                 d = EncodeBrackets(i)
                 if (isAllPunctuations(d['encoded'].strip('"')) == True):
+                    continue
+                if d['encoded'].strip('"') not in trans_dic:
+                    log_print(
+                        'Error in line:' + str(line_index) + ' ' + p + '\n' + i + '\n' + d['encoded'].strip('"') + ' Error')
                     continue
                 translated = trans_dic[d['encoded'].strip('"')]
                 translated = translated.replace('\u200b', '')
