@@ -29,6 +29,8 @@ jobs:
     - run: cp src/deepl.target.rst src/dist/windows/deepl.target.rst
     - run: cp src/youdao.source.rst src/dist/windows/youdao.source.rst
     - run: cp src/youdao.target.rst src/dist/windows/youdao.target.rst
+    - run: cp src/youdao.source.rst src/dist/windows/openai.source.rst
+    - run: cp src/youdao.target.rst src/dist/windows/openai.target.rst
     - run: cp src/main.ico src/dist/windows/main.ico
     - run: cp src/cacert.pem src/dist/windows/cacert.pem
 
