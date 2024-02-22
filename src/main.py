@@ -74,7 +74,7 @@ class MyEngineForm(QDialog, Ui_EngineDialog):
 
     def init_openai_model_combobox(self):
         if self.modelComboBox.count() == 0:
-            l = ["gpt-3.5-turbo", "gpt-4-turbo-preview"]
+            l = ["gpt-3.5-turbo"]
             for i in l:
                 self.modelComboBox.addItem(i)
 
@@ -201,6 +201,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.extractBtn.clicked.connect(self.extract)
         self.replaceFontBtn.clicked.connect(self.replaceFont)
         self.openFontStyleBtn.clicked.connect(self.openFontStyleFile)
+        self.multiTranslateCheckBox.setChecked(True)
         try:
             self.init_combobox()
         except Exception as e:
@@ -214,7 +215,6 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         _thread.start_new_thread(self.update_log, ())
         if os.path.isfile('translating'):
             os.remove('translating')
-        self.multiTranslateCheckBox.setChecked(True)
 
     def show_engine_settings(self):
         engine_form = MyEngineForm(parent=self)
@@ -231,6 +231,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
             self.init_combobox()
         if now is None and ori is None:
             self.init_combobox()
+
 
     def show_proxy_settings(self):
         proxy_form = MyProxyForm(parent=self)
@@ -280,6 +281,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.sourceComboBox.clear()
         target = 'google.target.rst'
         source = 'google.source.rst'
+        self.multiTranslateCheckBox.setChecked(True)
         if os.path.isfile('engine.txt'):
             with open('engine.txt', 'r') as json_file:
                 loaded_data = json.load(json_file)
@@ -293,9 +295,9 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
                         target = 'deepl.target.rst'
                         source = 'deepl.source.rst'
                     elif loaded_data['engine'] == engineList[4]:
-
                         target = 'openai.target.rst'
                         source = 'openai.source.rst'
+                        self.multiTranslateCheckBox.setChecked(False)
                     else:
                         return
 
