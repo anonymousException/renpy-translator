@@ -488,3 +488,5 @@ You can re-translate the error lines with google engine (translated lines will b
 (Google translation is more friendly to the special symbols but may still remain few errors) 
 
 At last you need to modify the remained **few** error lines manually
+
+Besides if you meet errors in openai , try to disable the option Multi-Translate and re-translate (it's more stable but slower)
