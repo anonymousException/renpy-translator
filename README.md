@@ -489,4 +489,24 @@ You can re-translate the error lines with google engine (translated lines will b
 
 At last you need to modify the remained **few** error lines manually
 
-Besides if you meet errors in openai , try to disable the option Multi-Translate and re-translate (it's more stable but slower)
+Besides if you meet traceback errors in openai , try to disable the option Multi-Translate and re-translate (it's more stable but slower). 
+
+And you may meet errors like this:
+
+```python
+2024-02-22 11:18:28	Traceback (most recent call last):
+  File "openai_translate.py", line 180, in translate_limit
+  File "json\__init__.py", line 346, in loads
+  File "json\decoder.py", line 337, in decode
+  File "json\decoder.py", line 353, in raw_decode
+json.decoder.JSONDecodeError: Unterminated string starting at: line 1 column 1613 (char 1612)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "openai_translate.py", line 187, in translate_limit
+Exception: Unterminated string starting at: line 1 column 1613 (char 1612)
+```
+
+It's due to the error format data returned by openai , fortunately this will not happened frequently and will only cause partially untranslated in one file. You can re-translate the untranslated lines with other translation engine such as google translation
+

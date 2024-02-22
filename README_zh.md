@@ -484,3 +484,22 @@ OpenAI 似乎对像 '{}' '[]' 的特殊符号不太友好 , 你可能会遇到�
 最后你需要手动处理剩下的一点点错误
 
 除此之外如果你在使用 openai 时遇到 traceback 错误 ， 尝试禁用 Multi-Translate 选项，并重新翻译 (更稳定但会慢一些)
+
+你可能遇到如下错误:
+
+```python
+2024-02-22 11:18:28	Traceback (most recent call last):
+  File "openai_translate.py", line 180, in translate_limit
+  File "json\__init__.py", line 346, in loads
+  File "json\decoder.py", line 337, in decode
+  File "json\decoder.py", line 353, in raw_decode
+json.decoder.JSONDecodeError: Unterminated string starting at: line 1 column 1613 (char 1612)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "openai_translate.py", line 187, in translate_limit
+Exception: Unterminated string starting at: line 1 column 1613 (char 1612)
+```
+
+这是由于 openai 返回了错误的数据格式 , 幸运的是这并不会频繁发生并且只会导致一个文件部分内容未被成功翻译，你可以用其它翻译引擎像谷歌翻译来重新翻译这些未被翻译的行
