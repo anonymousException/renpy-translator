@@ -51,7 +51,7 @@ class OpenAITranslate(object):
         dic = dict()
         for future in concurrent.futures.as_completed(to_do):
             result = future.result()
-            if result is not None and 'l' in result.keys():
+            if result is not None and 'l' in result.keys() and 'id' in result.keys():
                 dic[result['id']] = result['l']
         sorted_dict_items = sorted(dic.items())
         for key, value in sorted_dict_items:
