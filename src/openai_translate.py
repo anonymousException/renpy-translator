@@ -15,7 +15,8 @@ from my_log import log_print
 # "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"
 limit_time_span_dic = dict()
 class TranslateResponse:
-    def __init__(self, res):
+    def __init__(self, ori,res):
+        self.untranslatedText = ori
         self.translatedText = res
 
 class OpenAITranslate(object):
@@ -98,10 +99,10 @@ class OpenAITranslate(object):
             # RPS (requests per second)
             if limit_time_span_dic[t_second] >= self.rps:
                 time.sleep(1)
-            dic = dict()
+            ori_dic = dict()
             for i, e in enumerate(data):
-                dic[i] = e
-            js = json.dumps(dic)
+                ori_dic[i] = e
+            js = json.dumps(ori_dic)
             self.count = self.count + len(js) * 1.5
             if self.count >= self.tpm:
                 log_print("TOKEN LIMITS exceed. start waiting 70 seconds...")
@@ -188,8 +189,9 @@ class OpenAITranslate(object):
             dic = dict()
             l = []
             for i in result:
-                translateResponse = TranslateResponse(result[i])
-                l.append(translateResponse)
+                if int(i) in ori_dic:
+                    translateResponse = TranslateResponse(ori_dic[int(i)],result[i])
+                    l.append(translateResponse)
             dic['l'] = l
             dic['id'] = id
             return dic

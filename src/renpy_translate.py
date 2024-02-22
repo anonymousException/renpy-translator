@@ -45,7 +45,10 @@ def TranslateToList(cli, inList, lang_target, lang_source):
     texts = cli.translate(inList, target=lang_target, source=lang_source)
     if isinstance(texts, list):
         for i, e in enumerate(texts):
-            dic[inList[i]] = e.translatedText
+            if hasattr(e,'untranslatedText'):
+                dic[e.untranslatedText] = e.translatedText
+            else:
+                dic[inList[i]] = e.translatedText
     else:
         raise Exception('translate error:'+str(texts))
     return dic
