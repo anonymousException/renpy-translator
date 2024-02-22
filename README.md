@@ -9,9 +9,7 @@
 
 ------
 
-<div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/interface_v1.5.0.png"></div>
-
-<div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/interface_v1.4.0.png"></div>
+<div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/interface_v1.5.3.png"></div>
 
 <div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/translated_contents.png"></div>
 
@@ -340,7 +338,7 @@ Notice that the original text (behind # or old) should be **the same with** untr
 
 ------
 
-### Some errors made it impossible to translate certain lines
+### <span id = "jump_error_translate_special_symbols">Some errors made it impossible to translate certain lines</span>
 
 you may meet errors like this:
 
@@ -478,7 +476,15 @@ For higher-level user , it's recommended to turn up the setting. A suggested con
 
 | parameter                  | recommend                                                    |
 | -------------------------- | ------------------------------------------------------------ |
-| RPM(requests per minute)   | 200                                                          |
-| RPS(requests per second)   | 5                                                            |
+| RPM(requests per minute)   | 250                                                          |
+| RPS(requests per second)   | 10                                                           |
 | TPM(requests token limits) | [rate-limits](https://platform.openai.com/account/rate-limits) |
 | model                      | gpt-4-turbo-preview                                          |
+
+OpenAI seems not to be friendly to special symbols like '{}' '[]' , you may meet errors mentioned before : [Some errors made it impossible to translate certain lines](#jump_error_translate_special_symbols)
+
+You can re-translate the error lines with google engine (translated lines will be **auto skipped** , just re-translate the full directory or file(s) translated before)
+
+(Google translation is more friendly to the special symbols but may still remain few errors) 
+
+At last you need to modify the remained **few** error lines manually

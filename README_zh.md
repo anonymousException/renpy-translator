@@ -8,9 +8,7 @@
 
 ------
 
-<div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/interface_v1.5.0.png"></div>
-
-<div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/interface_v1.4.0.png"></div>
+<div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/interface_v1.5.3.png"></div>
 
 ------
 
@@ -341,7 +339,7 @@ or
 
 ------
 
-### 有些错误导致某些行无法被翻译
+### <span id = "jump_error_translate_special_symbols">有些错误导致某些行无法被翻译</span>
 
 你可能会遇到像这样的错误 :
 
@@ -472,7 +470,15 @@ Iknow
 
 | 参数                       | 推荐                                                         |
 | -------------------------- | ------------------------------------------------------------ |
-| RPM(requests per minute)   | 200                                                          |
-| RPS(requests per second)   | 5                                                            |
+| RPM(requests per minute)   | 250                                                          |
+| RPS(requests per second)   | 10                                                           |
 | TPM(requests token limits) | [rate-limits](https://platform.openai.com/account/rate-limits) |
 | model                      | gpt-4-turbo-preview                                          |
+
+OpenAI 似乎对像 '{}' '[]' 的特殊符号不太友好 , 你可能会遇到前面提到的问题 : [有些错误导致某些行无法被翻译](#jump_error_translate_special_symbols)
+
+你可以用谷歌翻译重新翻译这些错误的行 (已经被翻译过的行将会被**自动跳过**，只需要重新翻译之前翻译过的整个目录或文件即可)
+
+(谷歌翻译会对这些特殊符号更友好但仍然可能留下一点点错误) 
+
+最后你需要手动处理剩下的一点点错误
