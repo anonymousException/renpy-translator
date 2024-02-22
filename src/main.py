@@ -227,11 +227,10 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         if os.path.isfile('engine.txt'):
             with open('engine.txt', 'r') as json_file:
                 now = json.load(json_file)
-        if now is not None and ori is not None and now['engine'] != ori['engine']:
+        if (now is not None and ori is not None and now['engine'] != ori['engine'])\
+                or (now is None and ori is None)\
+                or (now is not None and ori is None):
             self.init_combobox()
-        if now is None and ori is None:
-            self.init_combobox()
-
 
     def show_proxy_settings(self):
         proxy_form = MyProxyForm(parent=self)
