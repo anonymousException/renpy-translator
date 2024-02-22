@@ -510,3 +510,14 @@ Exception: Unterminated string starting at: line 1 column 1613 (char 1612)
 
 It's due to the error format data returned by openai , fortunately this will not happened frequently and will only cause partially untranslated in one file. You can re-translate the untranslated lines with other translation engine such as google translation
 
+Another problem is that openai may merge multi-translation result occasionally , such as:
+
+```
+#untranslated
+["Hello","Good"]
+#translated
+["こんにちは,良い"]
+```
+
+This can lead to mismatching of translations ， so the partial translation will not do effect , you may need to translate the untranslated lines with other translation engine
+

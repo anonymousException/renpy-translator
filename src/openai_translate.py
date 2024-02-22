@@ -182,17 +182,16 @@ class OpenAITranslate(object):
                 log_print('part translation success,still in progress,please waiting...')
                 #log_print(result)
             except Exception as e:
+                log_print('openai return an error json format')
                 log_print(chat_completion)
                 log_print(id)
                 log_print(data)
-                raise Exception(e)
             dic = dict()
             l = []
             if len(result) != len(ori_dic):
                 log_print('translated result can not match the untranslated contents')
                 log_print(result)
                 log_print(ori_dic)
-                raise Exception(e)
             for i in result:
                 if int(i) in ori_dic:
                     translateResponse = TranslateResponse(ori_dic[int(i)],result[i])
