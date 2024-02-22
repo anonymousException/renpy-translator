@@ -11,6 +11,7 @@ import concurrent.futures
 from openai.types import Model, ModelDeleted
 
 from my_log import log_print
+from string_tool import remove_upprintable_chars
 
 # "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"
 limit_time_span_dic = dict()
@@ -186,15 +187,24 @@ class OpenAITranslate(object):
                 log_print(chat_completion)
                 log_print(id)
                 log_print(data)
+                return dict()
             dic = dict()
             l = []
             if len(result) != len(ori_dic):
                 log_print('translated result can not match the untranslated contents')
                 log_print(result)
                 log_print(ori_dic)
+                return dic
             for i in result:
-                if int(i) in ori_dic:
-                    translateResponse = TranslateResponse(ori_dic[int(i)],result[i])
+                try:
+                    num = int(remove_upprintable_chars(i))
+                except Exception as e:
+                    log_print('open ai return an error id')
+                    return dic
+            for i in result:
+                num = int(remove_upprintable_chars(i))
+                if num in ori_dic:
+                    translateResponse = TranslateResponse(ori_dic[num],result[i])
                     l.append(translateResponse)
             dic['l'] = l
             dic['id'] = id
