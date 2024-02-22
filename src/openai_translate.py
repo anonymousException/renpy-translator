@@ -188,6 +188,11 @@ class OpenAITranslate(object):
                 raise Exception(e)
             dic = dict()
             l = []
+            if len(result) != len(ori_dic):
+                log_print('translated result can not match the untranslated contents')
+                log_print(result)
+                log_print(ori_dic)
+                raise Exception(e)
             for i in result:
                 if int(i) in ori_dic:
                     translateResponse = TranslateResponse(ori_dic[int(i)],result[i])
