@@ -214,6 +214,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         _thread.start_new_thread(self.update_log, ())
         if os.path.isfile('translating'):
             os.remove('translating')
+        self.multiTranslateCheckBox.setChecked(True)
 
     def show_engine_settings(self):
         engine_form = MyEngineForm(parent=self)
@@ -432,7 +433,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
             for i in select_files:
                 i = i.replace('file:///', '')
                 if len(i) > 0:
-                    t = translateThread(cnt, i, target_language, source_language)
+                    t = translateThread(cnt, i, target_language, source_language,self.multiTranslateCheckBox.isChecked())
                     t.start()
                     translate_threads.append(t)
             select_dir = self.selectDirText.toPlainText()
@@ -450,7 +451,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
                             if not file_name.endswith("rpy"):
                                 continue
                             # _thread.start_new_thread(TranslateFile,(i,))
-                            t = translateThread(cnt, i, target_language, source_language)
+                            t = translateThread(cnt, i, target_language, source_language,self.multiTranslateCheckBox.isChecked())
                             t.start()
                             translate_threads.append(t)
                             cnt = cnt + 1

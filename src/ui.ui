@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1411</width>
-    <height>856</height>
+    <height>865</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -29,7 +29,7 @@
     <property name="geometry">
      <rect>
       <x>580</x>
-      <y>35</y>
+      <y>50</y>
       <width>821</width>
       <height>761</height>
      </rect>
@@ -57,14 +57,14 @@
       <x>10</x>
       <y>10</y>
       <width>571</width>
-      <height>271</height>
+      <height>311</height>
      </rect>
     </property>
     <widget class="QPushButton" name="translateBtn">
      <property name="geometry">
       <rect>
        <x>240</x>
-       <y>240</y>
+       <y>280</y>
        <width>75</width>
        <height>24</height>
       </rect>
@@ -221,12 +221,28 @@
       </rect>
      </property>
     </widget>
+    <widget class="QCheckBox" name="multiTranslateCheckBox">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>240</y>
+       <width>561</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Multi-Translate (If disabled translation will continue after the previous file has been translated)</string>
+     </property>
+     <property name="tristate">
+      <bool>false</bool>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="widget_2" native="true">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>290</y>
+      <y>320</y>
       <width>571</width>
       <height>271</height>
      </rect>
@@ -377,20 +393,20 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>810</y>
+      <y>820</y>
       <width>91</width>
       <height>16</height>
      </rect>
     </property>
     <property name="text">
-     <string>Version 1.5.2</string>
+     <string>Version 1.5.3</string>
     </property>
    </widget>
    <widget class="QLabel" name="copyrightLabel">
     <property name="geometry">
      <rect>
       <x>1140</x>
-      <y>810</y>
+      <y>820</y>
       <width>241</width>
       <height>16</height>
      </rect>
@@ -403,7 +419,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>580</y>
+      <y>590</y>
       <width>571</width>
       <height>221</height>
      </rect>

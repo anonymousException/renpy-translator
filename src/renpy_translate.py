@@ -15,17 +15,20 @@ from youdao_translate import YoudaoTranslate
 
 engineList = ['Google(Free)','Google(Token Required)','YouDao(Token Required)','DeepL(Token Required)','OpenAI(Token Required)']
 translate_threads = []
-
+translate_lock = threading.Lock()
 
 class translateThread(threading.Thread):
-    def __init__(self, threadID, p, lang_target, lang_source):
+    def __init__(self, threadID, p, lang_target, lang_source,is_open_multi_thread):
         threading.Thread.__init__(self)
         self.threadID = threadID
         self.p = p
         self.lang_target = lang_target
         self.lang_source = lang_source
+        self.is_open_multi_thread = is_open_multi_thread
 
     def run(self):
+        if not self.is_open_multi_thread:
+            translate_lock.acquire()
         try:
             log_print(self.p + ' begin translate!')
             TranslateFile(self.p, self.lang_target, self.lang_source)
@@ -34,7 +37,8 @@ class translateThread(threading.Thread):
             log_print(msg)
             if os.path.isfile('translating'):
                 os.remove('translating')
-
+        if not self.is_open_multi_thread:
+            translate_lock.release()
 
 def TranslateToList(cli, inList, lang_target, lang_source):
     dic = dict()

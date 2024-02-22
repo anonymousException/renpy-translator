@@ -12,8 +12,6 @@ from openai.types import Model, ModelDeleted
 
 from my_log import log_print
 
-translate_lock = threading.Lock()
-
 # "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"
 limit_time_span_dic = dict()
 class TranslateResponse:
@@ -33,7 +31,6 @@ class OpenAITranslate(object):
         self.proxies = proxies
 
     def translate(self, q, source, target):
-        translate_lock.acquire()
         result_arrays = split_strings(q, 4800)
         ret_l = []
         to_do = []
@@ -59,7 +56,6 @@ class OpenAITranslate(object):
             for i in value:
                 ret_l.append(i)
         limit_time_span_dic.clear()
-        translate_lock.release()
         return ret_l
 
     def translate_limit(self, data, id, source, target):
