@@ -187,7 +187,7 @@ class OpenAITranslate(object):
                 log_print(chat_completion)
                 log_print(id)
                 log_print(data)
-                return dict()
+                return None
             dic = dict()
             l = []
             if len(result) != len(ori_dic):
@@ -200,7 +200,7 @@ class OpenAITranslate(object):
                     num = int(remove_upprintable_chars(i))
                 except Exception as e:
                     log_print('open ai return an error id')
-                    return dic
+                    return None
             for i in result:
                 num = int(remove_upprintable_chars(i))
                 if num in ori_dic:
