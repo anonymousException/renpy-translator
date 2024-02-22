@@ -66,7 +66,7 @@ You can download the latest version through https://github.com/anonymousExceptio
 - Support translate/extract for all rpy files under directory
 - Support **replace the fonts** used by translated language
 - Support **be compatible with** the translated game that not translated by this translator. The translated contents before will be remained and just translate the untranslated contents
-- Support **108** kinds of language , you can view the [support source](https://github.com/anonymousException/renpy-translator/blob/main/src/source.rst?plain=1) and the [support target](https://github.com/anonymousException/renpy-translator/blob/main/src/target.rst?plain=1)
+- Support **108** kinds of language (Default Google Translation) , you can view the [google support source](https://github.com/anonymousException/renpy-translator/blob/main/src/google.source.rst?plain=1) and the [google support target](https://github.com/anonymousException/renpy-translator/blob/main/src/google.target.rst?plain=1)
 - Support **remain the original words as comments** after translation
 - Support **real-time log output** , you can check the progress about the translation
 - Support **local-proxy** , if you can not access google , you can use a vpn tool like v2ray and set local proxy
