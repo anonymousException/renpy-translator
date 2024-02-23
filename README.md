@@ -481,6 +481,8 @@ For higher-level user , it's recommended to turn up the setting. A suggested con
 | TPM(requests token limits) | [rate-limits](https://platform.openai.com/account/rate-limits) |
 | model                      | gpt-4-turbo-preview                                          |
 
+####  [Some errors made it impossible to translate certain lines](#jump_error_translate_special_symbols)
+
 OpenAI seems not to be friendly to special symbols like '{}' '[]' , you may meet errors mentioned before : [Some errors made it impossible to translate certain lines](#jump_error_translate_special_symbols)
 
 You can re-translate the error lines with google engine (translated lines will be **auto skipped** , just re-translate the full directory or file(s) translated before)
@@ -488,6 +490,8 @@ You can re-translate the error lines with google engine (translated lines will b
 (Google translation is more friendly to the special symbols but may still remain few errors) 
 
 At last you need to modify the remained **few** error lines manually
+
+#### JSONDecodeError
 
 Besides if you meet traceback errors in openai , try to disable the option Multi-Translate and re-translate (it's more stable but slower). 
 
@@ -510,7 +514,15 @@ Exception: Unterminated string starting at: line 1 column 1613 (char 1612)
 
 It's due to the error format data returned by openai , fortunately this will not happened frequently and will only cause partially untranslated in one file. You can re-translate the untranslated lines with other translation engine such as google translation
 
-Another problem is that openai may merge multi-translation result occasionally , such as:
+#### Unmatch translated result
+
+You may meet errors like this:
+
+```python
+2024-02-23 10:19:34 translated result can not match the untranslated contents
+```
+
+The reason is that openai may merge multi-translation result occasionally , such as:
 
 ```
 #untranslated
@@ -521,3 +533,14 @@ Another problem is that openai may merge multi-translation result occasionally ,
 
 This can lead to mismatching of translations ， so the partial translation will not do effect , you may need to translate the untranslated lines with other translation engine
 
+#### ConnectError
+
+You may meet errors like this:
+
+```python
+2024-02-23 10:19:34	Another non-200-range status code was received:400 <Response [400 Bad Request]>
+2024-02-23 10:19:34	Error code: 400 - {'error': {'message': 'Connection error (request id: 20240223101928248984704uoEfBgvh)', 'type': '', 'param': '', 'code': 'connection_error'}}
+2024-02-23 10:19:34	['untranslated1','untranslated2','....']
+```
+
+It's depend on your network environment , re-translate may do effect

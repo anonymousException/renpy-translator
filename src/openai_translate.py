@@ -60,6 +60,24 @@ class OpenAITranslate(object):
         limit_time_span_dic.clear()
         return ret_l
 
+    def spilt_half_and_re_translate(self,data, id, source, target):
+        half = int(len(data) / 2)
+        data_1 = data[:half]
+        data_2 = data[half:]
+        dic1 = self.translate_limit(data_1, id, source, target)
+        dic2 = self.translate_limit(data_2, id, source, target)
+        dic = dict()
+        l = []
+        if dic1 is not None and 'l' in dic1.keys():
+            l = dic1['l']
+        if dic2 is not None and 'l' in dic2.keys():
+            l = l + dic2['l']
+        if len(l) < 0:
+            return None
+        dic['id'] = id
+        dic['l'] = l
+        return dic
+
     def translate_limit(self, data, id, source, target):
         try:
             if self.base_url is not None and self.base_url != "" and len(self.base_url)>0:
@@ -168,39 +186,58 @@ class OpenAITranslate(object):
             except openai.APIConnectionError as e:
                 log_print("The server could not be reached")
                 log_print(e.__cause__)  # an underlying Exception, likely raised within httpx.
-                raise Exception(e)
+                log_print(e)
+                log_print(data)
+                return None
             except openai.RateLimitError as e:
                 log_print("A 429 status code was received; we should back off a bit.")
                 log_print(e)
-                raise Exception(e)
+                log_print(data)
+                return None
             except openai.APIStatusError as e:
-                log_print("Another non-200-range status code was received")
-                log_print(e.status_code)
-                log_print(e.response)
-                raise Exception(e)
+                log_print(f"Another non-200-range status code was received:{e.status_code} {e.response}")
+                log_print(e)
+                log_print(data)
+                return None
             try:
                 result = json.loads(str(chat_completion.choices[0].message.content))
                 log_print('part translation success,still in progress,please waiting...')
                 #log_print(result)
             except Exception as e:
-                log_print('openai return an error json format')
-                log_print(chat_completion)
-                log_print(id)
-                log_print(data)
-                return None
+                if len(data) < 5:
+                    log_print('openai return an error json format')
+                    log_print(chat_completion)
+                    log_print(id)
+                    log_print(data)
+                    return None
+                else:
+                    return self.spilt_half_and_re_translate(data, id, source, target)
             dic = dict()
             l = []
             if len(result) != len(ori_dic):
-                log_print('translated result can not match the untranslated contents')
-                log_print(result)
-                log_print(ori_dic)
-                return dic
+                if len(data) < 5:
+                    log_print('translated result can not match the untranslated contents')
+                    log_print(result)
+                    log_print(ori_dic)
+                    return None
+                else:
+                    return self.spilt_half_and_re_translate(data, id, source, target)
+
+            isCorrectId = True
             for i in result:
                 try:
                     num = int(remove_upprintable_chars(i))
                 except Exception as e:
+                    isCorrectId = False
+                    break
+            if not isCorrectId:
+                if len(data) < 5:
                     log_print('open ai return an error id')
+                    log_print(result)
+                    log_print(ori_dic)
                     return None
+                else:
+                    return self.spilt_half_and_re_translate(data, id, source, target)
             for i in result:
                 num = int(remove_upprintable_chars(i))
                 if num in ori_dic:
