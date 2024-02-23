@@ -16,6 +16,7 @@ from youdao_translate import YoudaoTranslate
 engineList = ['Google(Free)','Google(Token Required)','YouDao(Token Required)','DeepL(Token Required)','OpenAI(Token Required)']
 translate_threads = []
 translate_lock = threading.Lock()
+client_openai = None
 
 class translateThread(threading.Thread):
     def __init__(self, threadID, p, lang_target, lang_source,is_open_multi_thread):
@@ -267,7 +268,12 @@ def TranslateFile(p, lang_target, lang_source):
                     proxies['https'] = None
                 if 'openai_base_url' in loaded_data and len(loaded_data['openai_base_url']) > 0:
                     base_url = loaded_data['openai_base_url']
-                client = OpenAITranslate(app_key=loaded_data['key'],rpm=loaded_data['rpm'],rps=loaded_data['rps'],tpm=loaded_data['tpm'],model=loaded_data['openai_model'],base_url=base_url ,proxies=proxies['https'])
+                global client_openai
+                if client_openai is None:
+                    client_openai = OpenAITranslate(app_key=loaded_data['key'],rpm=loaded_data['rpm'],rps=loaded_data['rps'],tpm=loaded_data['tpm'],model=loaded_data['openai_model'],base_url=base_url ,proxies=proxies['https'])
+                else:
+                    client_openai.reset(app_key=loaded_data['key'],rpm=loaded_data['rpm'],rps=loaded_data['rps'],tpm=loaded_data['tpm'],model=loaded_data['openai_model'],base_url=base_url ,proxies=proxies['https'])
+                client = client_openai
             else:
                 log_print('engine.txt' + ' file format error!')
                 msg = traceback.format_exc()

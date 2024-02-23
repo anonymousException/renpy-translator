@@ -1,6 +1,7 @@
 import _thread
 import io
 import os.path
+import subprocess
 import sys
 import time
 import traceback
@@ -216,6 +217,9 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         if os.path.isfile('translating'):
             os.remove('translating')
 
+    def closeEvent(self, event):
+        subprocess.call(['taskkill.exe', '/F', '/T', '/PID', str(os.getpid())])
+
     def show_engine_settings(self):
         engine_form = MyEngineForm(parent=self)
         ori = None
@@ -280,7 +284,6 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.sourceComboBox.clear()
         target = 'google.target.rst'
         source = 'google.source.rst'
-        self.multiTranslateCheckBox.setChecked(True)
         if os.path.isfile('engine.txt'):
             with open('engine.txt', 'r') as json_file:
                 loaded_data = json.load(json_file)
@@ -296,7 +299,6 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
                     elif loaded_data['engine'] == engineList[4]:
                         target = 'openai.target.rst'
                         source = 'openai.source.rst'
-                        self.multiTranslateCheckBox.setChecked(False)
                     else:
                         return
 

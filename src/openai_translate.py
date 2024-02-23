@@ -11,7 +11,7 @@ import concurrent.futures
 from openai.types import Model, ModelDeleted
 
 from my_log import log_print
-from string_tool import remove_upprintable_chars
+from string_tool import remove_upprintable_chars, split_strings
 
 # "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"
 limit_time_span_dic = dict()
@@ -32,40 +32,42 @@ class OpenAITranslate(object):
         self.base_url = base_url
         self.proxies = proxies
 
+    def reset(self, app_key,rpm,rps,tpm,model,base_url, proxies=None):
+        self.app_key = app_key
+        self.rpm = int(rpm)
+        self.rps = int(rps)
+        self.tpm = int(tpm)
+        self.model = model
+        self.base_url = base_url
+        self.proxies = proxies
+
     def translate(self, q, source, target):
         result_arrays = split_strings(q, 4800)
         ret_l = []
         to_do = []
-        cnt = 0
         with concurrent.futures.ThreadPoolExecutor() as executor:
             for idx, result_array in enumerate(result_arrays):
                 # print(result_array)
                 # l = self.translate_limit(result_array, source, target)
                 if len(result_array) == 0:
                     continue
-                future = executor.submit(self.translate_limit, result_array, cnt, source, target)
-                cnt = cnt + 1
+                future = executor.submit(self.translate_limit, result_array, source, target)
                 to_do.append(future)
                 # for i in l:
                 #     ret_l.append(i)
-        dic = dict()
         for future in concurrent.futures.as_completed(to_do):
             result = future.result()
-            if result is not None and 'l' in result.keys() and 'id' in result.keys():
-                dic[result['id']] = result['l']
-        sorted_dict_items = sorted(dic.items())
-        for key, value in sorted_dict_items:
-            for i in value:
-                ret_l.append(i)
+            if result is not None and 'l' in result.keys():
+                ret_l = ret_l + result['l']
         limit_time_span_dic.clear()
         return ret_l
 
-    def spilt_half_and_re_translate(self,data, id, source, target):
+    def spilt_half_and_re_translate(self,data, source, target):
         half = int(len(data) / 2)
         data_1 = data[:half]
         data_2 = data[half:]
-        dic1 = self.translate_limit(data_1, id, source, target)
-        dic2 = self.translate_limit(data_2, id, source, target)
+        dic1 = self.translate_limit(data_1, source, target)
+        dic2 = self.translate_limit(data_2, source, target)
         dic = dict()
         l = []
         if dic1 is not None and 'l' in dic1.keys():
@@ -74,11 +76,10 @@ class OpenAITranslate(object):
             l = l + dic2['l']
         if len(l) < 0:
             return None
-        dic['id'] = id
         dic['l'] = l
         return dic
 
-    def translate_limit(self, data, id, source, target):
+    def translate_limit(self, data, source, target):
         try:
             if self.base_url is not None and self.base_url != "" and len(self.base_url)>0:
                 client = OpenAI(
@@ -127,11 +128,10 @@ class OpenAITranslate(object):
                 log_print("TOKEN LIMITS exceed. start waiting 70 seconds...")
                 time.sleep(70)
                 limit_time_span_dic.clear()
-                self.lock.release()
                 self.count = 0
-                return self.translate_limit(data, id, source, target)
+                self.lock.release()
+                return self.translate_limit(data, source, target)
             self.lock.release()
-
             try:
                 if source is not None and source != 'AUTO':
                     source_lang_setup = f'You will receive a piece of {source} text in JSON dictionary format'
@@ -148,7 +148,7 @@ class OpenAITranslate(object):
                              f'Next you will receive the text that needs to be translated into {target}. \n' + \
                              f'{js}'
                     #prompt = f'You are a meticulous translator who translates any given content.Remember that json:{js} Be faithful or accurate in translation.Make the translation readable or intelligible. Be elegant or natural in translation.Make sure each translated text returned in original order.Translate the content from {source} into {target}.'
-                    chat_completion = client.with_options(timeout= 300 * 1000).chat.completions.create(
+                    chat_completion = client.with_options(timeout= 120 * 1000).chat.completions.create(
                         messages=[
                             {
                                 "role": "user",
@@ -173,7 +173,7 @@ class OpenAITranslate(object):
                              f'Next you will receive the text that needs to be translated into {target}. \n' + \
                              f'{js}'
                     #prompt = f'You are a meticulous translator who translates any given content.Remember that json:{js} Be faithful or accurate in translation.Make the translation readable or intelligible. Be elegant or natural in translation.Never merge the translation result.Make sure each translated text returned in original order.Translate the content into {target}.'
-                    chat_completion = client.with_options(timeout= 300 * 1000).chat.completions.create(
+                    chat_completion = client.with_options(timeout= 120 * 1000).chat.completions.create(
                         messages=[
                             {
                                 "role": "user",
@@ -207,11 +207,10 @@ class OpenAITranslate(object):
                 if len(data) < 5:
                     log_print('openai return an error json format')
                     log_print(chat_completion)
-                    log_print(id)
                     log_print(data)
                     return None
                 else:
-                    return self.spilt_half_and_re_translate(data, id, source, target)
+                    return self.spilt_half_and_re_translate(data, source, target)
             dic = dict()
             l = []
             if len(result) != len(ori_dic):
@@ -221,7 +220,7 @@ class OpenAITranslate(object):
                     log_print(ori_dic)
                     return None
                 else:
-                    return self.spilt_half_and_re_translate(data, id, source, target)
+                    return self.spilt_half_and_re_translate(data, source, target)
 
             isCorrectId = True
             for i in result:
@@ -237,35 +236,16 @@ class OpenAITranslate(object):
                     log_print(ori_dic)
                     return None
                 else:
-                    return self.spilt_half_and_re_translate(data, id, source, target)
+                    return self.spilt_half_and_re_translate(data, source, target)
             for i in result:
                 num = int(remove_upprintable_chars(i))
                 if num in ori_dic:
                     translateResponse = TranslateResponse(ori_dic[num],result[i])
                     l.append(translateResponse)
             dic['l'] = l
-            dic['id'] = id
             return dic
         except Exception as e:
             msg = traceback.format_exc()
             log_print(msg)
             if os.path.isfile('translating'):
                 os.remove('translating')
-
-def split_strings(strings, max_length=5000):
-    result = []
-    current_string = []
-
-    for string in strings:
-        _len = 0
-        for i in current_string:
-            _len += len(i)
-        if _len + len(string) <= max_length:
-            current_string.append(string)
-        else:
-            result.append(current_string)
-            current_string = [string]
-
-    if current_string:
-        result.append(current_string)
-    return result
