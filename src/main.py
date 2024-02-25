@@ -218,7 +218,8 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
             os.remove('translating')
 
     def closeEvent(self, event):
-        subprocess.call(['taskkill.exe', '/F', '/T', '/PID', str(os.getpid())])
+        CREATE_NO_WINDOW = 0x08000000
+        subprocess.call(['taskkill.exe', '/F', '/T', '/PID', str(os.getpid())], creationflags=CREATE_NO_WINDOW)
 
     def show_engine_settings(self):
         engine_form = MyEngineForm(parent=self)
