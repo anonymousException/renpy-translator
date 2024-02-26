@@ -63,6 +63,28 @@ https://github.com/anonymousException/renpy-translator/blob/feature/ai-translate
 - 支持遍历某目录下的所有 rpy 进行翻译/抽取
 - 支持**替换**要被翻译的语言的字体
 - **兼容**未被该工具的翻译的翻译过的游戏 已经翻译过的原文会被保留，只翻译未翻译的内容
+- 支持**跳过**已抽取过的内容 , 不用担心**重复**抽取
+
+  举个例子 ,如果翻译内容已经存在于 tl 目录下
+
+  如:
+
+  ```python
+  old "Hello"
+  new "こんにちは"
+  ```
+
+  或:
+
+  ```python
+  # game/xxx.rpy:1352
+  translate japanese role_lose_7489b947:
+  
+      # "Hello"
+      "こんにちは"
+  ```
+
+  那么 "Hello" 将不会再被抽取
 - 支持 **108 种**语言(默认的谷歌翻译)，具体的语言列表可参考： [谷歌源语言](https://github.com/anonymousException/renpy-translator/blob/main/src/google.source.rst?plain=1) 和 [谷歌目标(翻译后)的语言](https://github.com/anonymousException/renpy-translator/blob/main/src/google.target.rst?plain=1)
 - 支持**保留**未被翻译的原本作为**注释**
 - 支持**实时日志输出** , 你可以随时观察当前的翻译进度
