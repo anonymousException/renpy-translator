@@ -66,9 +66,9 @@ You can download the latest version through https://github.com/anonymousExceptio
 - Support translate/extract for all rpy files under directory
 - Support **replace the fonts** used by translated language
 - Support **be compatible with** the translated game that not translated by this translator. The translated contents before will be remained and just translate the untranslated contents
-- Support skip extract the extracted contents , need not to be worried about **repeat** extraction
+- Support **skip** extract the extracted contents , need not to be worried about **repeat** extraction
 
-  For example , if the translation message already exists in tl folder
+  For example , if the translation contents already exist in tl folder
   like :
 
   ```python
@@ -484,6 +484,14 @@ the length is only 5 , so it will not be extracted by the extraction from the to
 ------
 
 Besides the contents in [ConditionSwitch()](https://www.renpy.org/doc/html/displayables.html#ConditionSwitch) will also not be translated due to switch code may contained in it
+
+### 0 KB file is generated after extraction
+
+It's normal because the target file has nothing to extract
+
+Do not delete the 0 kb file , it is used to occupy position
+
+Errors may occur if the file does not exist
 
 ### OpenAI
 

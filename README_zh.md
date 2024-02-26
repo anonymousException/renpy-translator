@@ -480,6 +480,14 @@ Iknow
 
 除此之外，在 [ConditionSwitch()](https://www.renpy.org/doc/html/displayables.html#ConditionSwitch)  里的内容同样不会被翻译， 因为分支选择的代码可能会被包含在里面
 
+### 在抽取后生成了 0KB 的文件
+
+这是正常的，因为目标文件没有可抽取的内容
+
+别删除 0 KB 的文件，它被用来占位
+
+如果 0 KB 文件不存在可能会导致错误产生
+
 ### OpenAI
 
 你可以在 : [rate-limits](https://platform.openai.com/account/rate-limits)  查看速率限制并设置一个合理的限制
