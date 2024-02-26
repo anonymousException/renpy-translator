@@ -19,20 +19,21 @@ translate_lock = threading.Lock()
 client_openai = None
 
 class translateThread(threading.Thread):
-    def __init__(self, threadID, p, lang_target, lang_source,is_open_multi_thread):
+    def __init__(self, threadID, p, lang_target, lang_source,is_open_multi_thread,is_gen_bak):
         threading.Thread.__init__(self)
         self.threadID = threadID
         self.p = p
         self.lang_target = lang_target
         self.lang_source = lang_source
         self.is_open_multi_thread = is_open_multi_thread
+        self.is_gen_bak = is_gen_bak
 
     def run(self):
         if not self.is_open_multi_thread:
             translate_lock.acquire()
         try:
             log_print(self.p + ' begin translate!')
-            TranslateFile(self.p, self.lang_target, self.lang_source)
+            TranslateFile(self.p, self.lang_target, self.lang_source,self.is_gen_bak)
         except Exception as e:
             msg = traceback.format_exc()
             log_print(msg)
@@ -243,7 +244,7 @@ def isAllPunctuations(s):
     return True
 
 
-def TranslateFile(p, lang_target, lang_source):
+def TranslateFile(p, lang_target, lang_source,is_gen_bak):
     proxies = None
     if os.path.isfile('proxy.txt'):
         with open('proxy.txt', 'r') as json_file:
@@ -401,9 +402,10 @@ def TranslateFile(p, lang_target, lang_source):
                     log_print(
                         'Error in line:' + str(line_index) + ' '+ p + '\n' + i + '\n' + d['encoded'].strip('"') + ' Error' + '\n' + translated)
 
-    f = io.open(p + '.bak', 'w', encoding='utf-8')
-    f.write(_read)
-    f.close()
+    if is_gen_bak:
+        f = io.open(p + '.bak', 'w', encoding='utf-8')
+        f.write(_read)
+        f.close()
     f = io.open(p, 'w', encoding='utf-8')
     for line_content in _read_line:
         f.write(line_content + '\n')

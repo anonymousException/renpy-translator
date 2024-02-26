@@ -203,6 +203,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.replaceFontBtn.clicked.connect(self.replaceFont)
         self.openFontStyleBtn.clicked.connect(self.openFontStyleFile)
         self.multiTranslateCheckBox.setChecked(True)
+        self.backupCheckBox.setChecked(True)
         try:
             self.init_combobox()
         except Exception as e:
@@ -437,7 +438,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
             for i in select_files:
                 i = i.replace('file:///', '')
                 if len(i) > 0:
-                    t = translateThread(cnt, i, target_language, source_language,self.multiTranslateCheckBox.isChecked())
+                    t = translateThread(cnt, i, target_language, source_language,self.multiTranslateCheckBox.isChecked(),self.backupCheckBox.isChecked())
                     t.start()
                     translate_threads.append(t)
             select_dir = self.selectDirText.toPlainText()
@@ -455,7 +456,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
                             if not file_name.endswith("rpy"):
                                 continue
                             # _thread.start_new_thread(TranslateFile,(i,))
-                            t = translateThread(cnt, i, target_language, source_language,self.multiTranslateCheckBox.isChecked())
+                            t = translateThread(cnt, i, target_language, source_language,self.multiTranslateCheckBox.isChecked(),self.backupCheckBox.isChecked())
                             t.start()
                             translate_threads.append(t)
                             cnt = cnt + 1

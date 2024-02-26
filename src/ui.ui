@@ -237,6 +237,19 @@
       <bool>false</bool>
      </property>
     </widget>
+    <widget class="QCheckBox" name="backupCheckBox">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>280</y>
+       <width>231</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Generate Backup Files (xxx.rpy.bak)</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="widget_2" native="true">
     <property name="geometry">
