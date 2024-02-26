@@ -473,7 +473,7 @@ Iknow
 | RPM(requests per minute)   | 250                                                          |
 | RPS(requests per second)   | 10                                                           |
 | TPM(requests token limits) | [rate-limits](https://platform.openai.com/account/rate-limits) |
-| model                      | gpt-4-turbo-preview                                          |
+| model                      | gpt-3.5-turbo \| gpt-4 (更智能但更贵)                        |
 
 ####  [有些错误导致某些行无法被翻译](#jump_error_translate_special_symbols)
 

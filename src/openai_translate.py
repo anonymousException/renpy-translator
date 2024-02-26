@@ -156,7 +156,7 @@ class OpenAITranslate(object):
                             }
                         ],
                         model=self.model,
-                        response_format={"type": "json_object"},
+                        #response_format={"type": "json_object"},
                     )
                 else:
                     source_lang_setup = f'You will receive a piece of text in JSON dictionary format'
@@ -181,7 +181,7 @@ class OpenAITranslate(object):
                             }
                         ],
                         model=self.model,
-                        response_format={"type": "json_object"},
+                        #response_format={"type": "json_object"},
                     )
             except openai.APIConnectionError as e:
                 log_print("The server could not be reached")

@@ -75,7 +75,7 @@ class MyEngineForm(QDialog, Ui_EngineDialog):
 
     def init_openai_model_combobox(self):
         if self.modelComboBox.count() == 0:
-            l = ["gpt-3.5-turbo"]
+            l = ["gpt-3.5-turbo","gpt-4"]
             for i in l:
                 self.modelComboBox.addItem(i)
 
