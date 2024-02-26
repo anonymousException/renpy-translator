@@ -15,24 +15,19 @@ from string_tool import remove_upprintable_chars, split_strings
 
 # "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"
 limit_time_span_dic = dict()
+
+
 class TranslateResponse:
-    def __init__(self, ori,res):
+    def __init__(self, ori, res):
         self.untranslatedText = ori
         self.translatedText = res
+
 
 class OpenAITranslate(object):
     lock = threading.Lock()
     count = 0
-    def __init__(self, app_key,rpm,rps,tpm,model,base_url, proxies=None):
-        self.app_key = app_key
-        self.rpm = int(rpm)
-        self.rps = int(rps)
-        self.tpm = int(tpm)
-        self.model = model
-        self.base_url = base_url
-        self.proxies = proxies
 
-    def reset(self, app_key,rpm,rps,tpm,model,base_url, proxies=None):
+    def __init__(self, app_key, rpm, rps, tpm, model, base_url, proxies=None):
         self.app_key = app_key
         self.rpm = int(rpm)
         self.rps = int(rps)
@@ -40,6 +35,21 @@ class OpenAITranslate(object):
         self.model = model
         self.base_url = base_url
         self.proxies = proxies
+        self.timeout = 120
+        if model == 'gpt-4':
+            self.timeout = 240
+
+    def reset(self, app_key, rpm, rps, tpm, model, base_url, proxies=None):
+        self.app_key = app_key
+        self.rpm = int(rpm)
+        self.rps = int(rps)
+        self.tpm = int(tpm)
+        self.model = model
+        self.base_url = base_url
+        self.proxies = proxies
+        self.timeout = 120
+        if model == 'gpt-4':
+            self.timeout = 240
 
     def translate(self, q, source, target):
         result_arrays = split_strings(q, 4800)
@@ -62,7 +72,7 @@ class OpenAITranslate(object):
         limit_time_span_dic.clear()
         return ret_l
 
-    def spilt_half_and_re_translate(self,data, source, target):
+    def spilt_half_and_re_translate(self, data, source, target):
         half = int(len(data) / 2)
         data_1 = data[:half]
         data_2 = data[half:]
@@ -81,7 +91,7 @@ class OpenAITranslate(object):
 
     def translate_limit(self, data, source, target):
         try:
-            if self.base_url is not None and self.base_url != "" and len(self.base_url)>0:
+            if self.base_url is not None and self.base_url != "" and len(self.base_url) > 0:
                 client = OpenAI(
                     # This is the default and can be omitted
                     api_key=self.app_key,
@@ -104,7 +114,7 @@ class OpenAITranslate(object):
                 limit_time_span_dic[t_minute] = 1
             else:
                 limit_time_span_dic[t_minute] = limit_time_span_dic[t_minute] + 1
-            #RPM (requests per minute)
+            # RPM (requests per minute)
             if limit_time_span_dic[t_minute] > self.rpm:
                 log_print("RPM (requests per minute) exceed,start waiting 65 seconds")
                 time.sleep(65)
@@ -147,16 +157,16 @@ class OpenAITranslate(object):
                              'You: {"1": "Translation result for line 1", "2": "Translation result for line 2", "3": "Translation result for line 3"} \n' + \
                              f'Next you will receive the text that needs to be translated into {target}. \n' + \
                              f'{js}'
-                    #prompt = f'You are a meticulous translator who translates any given content.Remember that json:{js} Be faithful or accurate in translation.Make the translation readable or intelligible. Be elegant or natural in translation.Make sure each translated text returned in original order.Translate the content from {source} into {target}.'
-                    chat_completion = client.with_options(timeout=120,max_retries=2).chat.completions.create(
+                    # prompt = f'You are a meticulous translator who translates any given content.Remember that json:{js} Be faithful or accurate in translation.Make the translation readable or intelligible. Be elegant or natural in translation.Make sure each translated text returned in original order.Translate the content from {source} into {target}.'
+                    chat_completion = client.with_options(timeout=self.timeout, max_retries=2).chat.completions.create(
                         messages=[
                             {
                                 "role": "user",
-                                "content":prompt,
+                                "content": prompt,
                             }
                         ],
                         model=self.model,
-                        #response_format={"type": "json_object"},
+                        # response_format={"type": "json_object"},
                     )
                 else:
                     source_lang_setup = f'You will receive a piece of text in JSON dictionary format'
@@ -172,8 +182,8 @@ class OpenAITranslate(object):
                              'You: {"1": "Translation result for line 1", "2": "Translation result for line 2", "3": "Translation result for line 3"} \n' + \
                              f'Next you will receive the text that needs to be translated into {target}. \n' + \
                              f'{js}'
-                    #prompt = f'You are a meticulous translator who translates any given content.Remember that json:{js} Be faithful or accurate in translation.Make the translation readable or intelligible. Be elegant or natural in translation.Never merge the translation result.Make sure each translated text returned in original order.Translate the content into {target}.'
-                    chat_completion = client.with_options(timeout= 120,max_retries=2).chat.completions.create(
+                    # prompt = f'You are a meticulous translator who translates any given content.Remember that json:{js} Be faithful or accurate in translation.Make the translation readable or intelligible. Be elegant or natural in translation.Never merge the translation result.Make sure each translated text returned in original order.Translate the content into {target}.'
+                    chat_completion = client.with_options(timeout=self.timeout, max_retries=2).chat.completions.create(
                         messages=[
                             {
                                 "role": "user",
@@ -181,7 +191,7 @@ class OpenAITranslate(object):
                             }
                         ],
                         model=self.model,
-                        #response_format={"type": "json_object"},
+                        # response_format={"type": "json_object"},
                     )
             except openai.APIConnectionError as e:
                 log_print("The server could not be reached")
@@ -202,7 +212,7 @@ class OpenAITranslate(object):
             try:
                 result = json.loads(str(chat_completion.choices[0].message.content))
                 log_print('part translation success,still in progress,please waiting...')
-                #log_print(result)
+                # log_print(result)
             except Exception as e:
                 if len(data) < 5:
                     log_print('openai return an error json format')
@@ -240,7 +250,7 @@ class OpenAITranslate(object):
             for i in result:
                 num = int(remove_upprintable_chars(i))
                 if num in ori_dic:
-                    translateResponse = TranslateResponse(ori_dic[num],result[i])
+                    translateResponse = TranslateResponse(ori_dic[num], result[i])
                     l.append(translateResponse)
             dic['l'] = l
             return dic
