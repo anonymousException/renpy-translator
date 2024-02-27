@@ -495,6 +495,19 @@ Do not delete the 0 kb file , it is used to occupy position
 
 Errors may occur if the file does not exist
 
+### Weird content generated after extraction
+
+you can view content like this after extraction
+
+```python
+old "old:1709016761.706834_0.8853030081254853"
+new "new:1709016761.706834_0.8853030081254853"
+```
+
+it's an unique timestamp to mark the time you extract , the format is timestamp_random (random value is to make sure the generated content is unique otherwise will cause error)
+
+you can convert the part before '_' (in this example is 1709016761.706834) to readable time through https://www.epochconverter.com/ or other timestamp convert website
+
 ### OpenAI
 
 You can view your rate-limits on : [rate-limits](https://platform.openai.com/account/rate-limits)  and set a reasonable limit
