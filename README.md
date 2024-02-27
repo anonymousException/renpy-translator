@@ -9,7 +9,7 @@
 
 ------
 
-<div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/interface_v1.5.3.png"></div>
+<div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/interface_v1.6.0.png"></div>
 
 <div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/translated_contents.png"></div>
 
@@ -284,7 +284,7 @@ After the file saved,open the game and make sure the preference show the content
 
 #### Translation
 
-https://github.com/anonymousException/renpy-translator/assets/157234942/9b1c0b9f-7f90-4a90-9876-6588994d0658
+https://github.com/anonymousException/renpy-translator/assets/157234942/46e524d7-14ef-472e-8426-ac47d923bef0
 
 Before translation you need to get the font file (.*ttf or .otf) you want to translate
 
@@ -318,7 +318,11 @@ So far , the translation is done , you can open game and check it :
 
 Update-Translation is quite easy, directly use the [Official Extract](#jump_official_extract) (optional) and [Tool Extarct](#jump-tool-extract)
 
-After extraction ,  just input the directory generated during [Official Extract](#jump_official_extract) and choose the target , font can leave empty because it has been replaced before
+After extraction ,  just input the directory generated during [Official Extract](#jump_official_extract) and choose the target 
+
+As for font , if the updated game appended new special style with different fonts , you can use replace font function **without** font 
+
+path to include the appended special styles (font has been replaced before)
 
 ![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/renpy_translator_update_translate.png)
 

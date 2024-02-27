@@ -8,7 +8,7 @@
 
 ------
 
-<div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/interface_v1.5.3.png"></div>
+<div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/interface_v1.6.0.png"></div>
 
 ------
 
@@ -286,7 +286,7 @@ textbutton "LanguageName" action Language("The Tag you fill in official Extract"
 
 #### 翻译
 
-https://github.com/anonymousException/renpy-translator/assets/157234942/9b1c0b9f-7f90-4a90-9876-6588994d0658
+https://github.com/anonymousException/renpy-translator/assets/157234942/46e524d7-14ef-472e-8426-ac47d923bef0
 
 翻译前你需要有一个能够正常显示你想要翻译的语言字体文件 (.*ttf or .otf)
 
@@ -320,7 +320,9 @@ source：默认 Auto Detect (自动检测) 就行
 
 翻译更新很简单，直接使用 [官方抽取](#jump_official_extract) (可选) 和 [工具抽取](#jump-tool-extract)
 
-抽取后，只需要输入前面在[官方抽取](#jump_official_extract)里生成的文件夹和选一下要翻译的语言  , font 可以留空，因为字体之前已经替换过了
+抽取后，只需要输入前面在[官方抽取](#jump_official_extract)里生成的文件夹和选一下要翻译的语言 
+
+对于字体，如果更新后的游戏新增了特殊的 style (有不同的字体设置)  , 你可以使用字体替换功能时不输入字体的路径来涵盖新增的那部分特殊 styles （字体先前已经替换过了）
 
 ![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/renpy_translator_update_translate.png)
 
