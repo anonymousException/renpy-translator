@@ -17,7 +17,7 @@
 
 ## Another Docs
 
-## AI Version
+## Offline AI Version
 
 If you want to use offline ai translation, you can refer to :
 
