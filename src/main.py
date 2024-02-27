@@ -217,6 +217,8 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         _thread.start_new_thread(self.update_log, ())
         if os.path.isfile('translating'):
             os.remove('translating')
+        if os.path.isfile('extracting'):
+            os.remove('extracting')
 
     def closeEvent(self, event):
         CREATE_NO_WINDOW = 0x08000000
@@ -327,6 +329,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
                     t = extractThread(cnt, i, tl_name)
                     t.start()
                     extract_threads.append(t)
+                    cnt = cnt + 1
             select_dir = self.selectDirText_2.toPlainText()
             if len(select_dir) > 0:
                 select_dir = select_dir.replace('file:///', '')
@@ -335,19 +338,28 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
                 else:
                     if select_dir[len(select_dir) - 1] != '/' and select_dir[len(select_dir) - 1] != '\\':
                         select_dir = select_dir + '/'
-                    ExtractAllFilesInDir(select_dir)
-                    log_print('extract directory: ' + select_dir + ' success!')
+                    t = extractThread(cnt, None, None,select_dir)
+                    t.start()
+                    extract_threads.append(t)
+                    cnt = cnt + 1
             if len(extract_threads) > 0:
+                open('extracting', "w")
+                self.extractBtn.setText('extracting...')
+                self.extractBtn.setDisabled(True)
                 _thread.start_new_thread(self.extract_threads_over, ())
         except Exception:
             msg = traceback.format_exc()
             log_print(msg)
+            if os.path.isfile('extracting'):
+                os.remove('extracting')
 
     @staticmethod
     def extract_threads_over():
         for t in extract_threads:
             t.join()
         log_print('extract all complete!')
+        if os.path.isfile('extracting'):
+            os.remove('extracting')
 
     def select_font(self):
         file, filetype = QFileDialog.getOpenFileName(self,
@@ -380,6 +392,12 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
             self.translateBtn.setText('translate')
             self.translateBtn.setEnabled(True)
 
+        if os.path.isfile('extracting'):
+            self.extractBtn.setText('extracting...')
+            self.extractBtn.setDisabled(True)
+        else:
+            self.extractBtn.setText('extract')
+            self.extractBtn.setEnabled(True)
 
     class UpdateThread(QThread):
         update_date = Signal(str)
@@ -441,6 +459,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
                     t = translateThread(cnt, i, target_language, source_language,self.multiTranslateCheckBox.isChecked(),self.backupCheckBox.isChecked())
                     t.start()
                     translate_threads.append(t)
+                    cnt = cnt + 1
             select_dir = self.selectDirText.toPlainText()
             if len(select_dir) > 0:
                 select_dir = select_dir.replace('file:///', '')
@@ -449,7 +468,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
                 else:
                     if select_dir[len(select_dir) - 1] != '/' and select_dir[len(select_dir) - 1] != '\\':
                         select_dir = select_dir + '/'
-                    paths = os.walk(select_dir)
+                    paths = os.walk(select_dir,topdown=False)
                     for path, dir_lst, file_lst in paths:
                         for file_name in file_lst:
                             i = os.path.join(path, file_name)
@@ -462,6 +481,8 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
                             cnt = cnt + 1
             if len(translate_threads) > 0:
                 open('translating', "w")
+                self.translateBtn.setText('translating...')
+                self.translateBtn.setDisabled(True)
                 _thread.start_new_thread(self.translate_threads_over, ())
         except Exception:
             msg = traceback.format_exc()

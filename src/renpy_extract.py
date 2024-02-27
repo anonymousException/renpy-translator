@@ -15,15 +15,20 @@ from string_tool import remove_upprintable_chars
 extract_threads = []
 
 class extractThread (threading.Thread):
-    def __init__(self, threadID, p,tl_name):
+    def __init__(self, threadID, p,tl_name,dir = None):
         threading.Thread.__init__(self)
         self.threadID = threadID
         self.p = p
         self.tl_name = tl_name
+        self.dir = dir
     def run(self):
         try:
-            log_print(self.p + ' begin extract!')
-            ExtractWriteFile(self.p,self.tl_name)
+            if self.dir is not None and os.path.exists(self.dir):
+                log_print(self.dir + ' begin extract!')
+                ExtractAllFilesInDir(self.dir)
+            else:
+                log_print(self.p + ' begin extract!')
+                ExtractWriteFile(self.p, self.tl_name)
         except Exception as e:
             msg = traceback.format_exc()
             log_print(msg)
@@ -275,7 +280,7 @@ def ExtractFromFile(p, isOpenFilter):
 def CreateEmptyFileIfNotExsit(p):
     if(p[len(p) - 1] != '/' and p[len(p) - 1] != '\\'):
         p = p + '/'
-    paths = os.walk(p + '/../../')
+    paths = os.walk(p + '/../../',topdown=False)
 
     for path, dir_lst, file_lst in paths:
         for file_name in file_lst:
@@ -296,7 +301,7 @@ def GetExtractedSet(p):
     if(p[len(p) - 1] != '/' and p[len(p) - 1] != '\\'):
         p = p + '/'
     e = set()
-    paths = os.walk(p)
+    paths = os.walk(p,topdown=False)
     for path, dir_lst, file_lst in paths:
         for file_name in file_lst:
             i = os.path.join(path, file_name)
@@ -323,7 +328,7 @@ def WriteExtracted(p, extractedSet):
         log_print(p + ' no tl found2!')
         return
     tl = p[index + 3:index2]
-    paths = os.walk(p)
+    paths = os.walk(p,topdown=False)
     for path, dir_lst, file_lst in paths:
         for file_name in file_lst:
             i = os.path.join(path, file_name)
@@ -384,7 +389,10 @@ def ExtractWriteFile(p,tl_name):
     targetDir = header + 'tl/' + tl_name + '/' + subPath
     target = targetDir+ fileName
     if(os.path.exists(targetDir) == False):
-        os.makedirs(targetDir)
+        try:
+            os.makedirs(targetDir)
+        except FileExistsError:
+            pass
     if(os.path.isfile(target) == False):
         open(target, 'w').close()
     e = ExtractFromFile(p,True)

@@ -92,7 +92,7 @@ def ExtractStyleFontListFromDirectory(p):
     if (p[len(p) - 1] != '/' and p[len(p) - 1] != '\\'):
         p = p + '/'
     ret_d = dict()
-    paths = os.walk(p)
+    paths = os.walk(p,topdown=False)
     for path, dir_lst, file_lst in paths:
         for file_name in file_lst:
             i = os.path.join(path, file_name)
