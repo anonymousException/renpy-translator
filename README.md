@@ -320,9 +320,7 @@ Update-Translation is quite easy, directly use the [Official Extract](#jump_offi
 
 After extraction ,  just input the directory generated during [Official Extract](#jump_official_extract) and choose the target 
 
-As for font , if the updated game appended new special style with different fonts , you can use replace font function **without** font 
-
-path to include the appended special styles (font has been replaced before)
+As for font , if the updated game appended new special style with different font settings , you can use replace font function **without** font path to cover the appended special styles (font has been replaced before)
 
 ![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/renpy_translator_update_translate.png)
 
