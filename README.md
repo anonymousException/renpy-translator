@@ -394,9 +394,19 @@ Fortunately this situation occurs rarely , you need not to spend too much time t
 
 ### Anti-virus software report viruses
 
-This program is packed by pyinstaller and with file operation (open read write) ， so may cause false detection
+~~This program is packed by pyinstaller and with file operation (open read write) ， so may cause false detection~~
 
-If you are worried about this , you can download the source code and run the program yourself
+~~If you are worried about this , you can download the source code and run the program yourself~~
+
+Pyinstaller Build Version is easy to be detected as virus , it's false positive
+
+If you are still worried about this  , you can try the Nuitka verison (Nuitka.Build or RenpyTranslatorInstaller)
+
+| Release Package                           | Explanation                  | Advantage                                            | Disadvantage                                             |
+| ----------------------------------------- | ---------------------------- | ---------------------------------------------------- | -------------------------------------------------------- |
+| RenpyTranslator-Win.Pyinstaller.Build.zip | build by Pyinstaller         | the executable file is single and light              | may cause false positive as **virus**                    |
+| RenpyTranslator-Win.Nuitka.Build.zip      | build by Nuitka              | will not cause a false positive for most antiviruses | the executable file contain many extra support libraries |
+| RenpyTranslatorInstaller.exe              | installer for Nuitka version | make things easier                                   | need to install                                          |
 
 ### Some errors occur after running the translated game
 

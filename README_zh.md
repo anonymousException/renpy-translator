@@ -389,9 +389,19 @@ It’s [0] . And [1] . Error
 
 ### 杀毒软件报毒
 
-这个软件是用 pyinstaller 打包的，且因为有文件操作(打开 读 写) ，因此可能会有误检测
+~~这个软件是用 pyinstaller 打包的，且因为有文件操作(打开 读 写) ，因此可能会有误检测~~
 
-如果你对此表示担忧，你可以自己下载源码并运行
+~~如果你对此表示担忧，你可以自己下载源码并运行~~
+
+Pyinstaller 构建的版本很容易被误检测为病毒
+
+如果你对此表示担忧  , 可以尝试 Nuitka 构建的版本(Nuitka.Build 或 RenpyTranslatorInstaller)
+
+| 正式包                                    | 解释                | 优点                               | 缺点                       |
+| ----------------------------------------- | ------------------- | ---------------------------------- | -------------------------- |
+| RenpyTranslator-Win.Pyinstaller.Build.zip | 由 Pyinstaller 构建 | 可执行文件只有一个更轻量           | 可能会被误检测为 **病毒**  |
+| RenpyTranslator-Win.Nuitka.Build.zip      | 由 Nuitka 构建      | 不会被绝大多数杀毒软件误检测为病毒 | 可执行文件包含很多额外的库 |
+| RenpyTranslatorInstaller.exe              | Nuitka 版本的安装包 | 更易于安装使用                     | 需要安装                   |
 
 ### 运行翻译后的游戏报错
 
