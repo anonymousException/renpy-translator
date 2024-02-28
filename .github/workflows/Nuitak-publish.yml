@@ -1,0 +1,52 @@
+
+name: Package Application with Nuitka
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    # Setup Python
+    - uses: actions/setup-python@v5
+      with:
+        python-version: '3.8' # Version range or exact version of a Python version to use, using SemVer's version range syntax
+        architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
+        cache: 'pip' # caching pip dependencies
+    - run: pip install -r src/requirements.txt
+
+    # Build python script into a stand-alone exe
+    - uses: Nuitka/Nuitka-Action@main
+      with:
+        nuitka-version: main
+        script-name: src/main.py
+        onefile: false
+        disable-console: true
+        standalone: true
+        enable-plugins: pyside6
+        windows-icon-from-ico: src/main.ico
+
+    - run: mkdir dist\windows
+    - run: xcopy build\main.dist dist\windows /E
+    - run: copy src\google.source.rst dist\windows\google.source.rst
+    - run: copy src\google.target.rst dist\windows\google.target.rst
+    - run: copy src\deepl.source.rst dist\windows\deepl.source.rst
+    - run: copy src\deepl.target.rst dist\windows\deepl.target.rst
+    - run: copy src\youdao.source.rst dist\windows\youdao.source.rst
+    - run: copy src\youdao.target.rst dist\windows\youdao.target.rst
+    - run: copy src\youdao.source.rst dist\windows\openai.source.rst
+    - run: copy src\youdao.target.rst dist\windows\openai.target.rst
+    - run: copy src\cacert.pem dist\windows\cacert.pem
+    - run: copy src\main.ico dist\windows\main.ico
+
+    - uses: actions/upload-artifact@v4
+      with:
+        name: Action-Build
+        path: dist/windows
