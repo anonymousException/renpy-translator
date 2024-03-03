@@ -30,7 +30,7 @@ jobs:
         onefile: false
         disable-console: true
         standalone: true
-        enable-plugins: pyside6
+        enable-plugins: pyqt6
         windows-icon-from-ico: src/main.ico
 
     - run: mkdir dist\windows

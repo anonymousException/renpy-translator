@@ -8,10 +8,13 @@ import traceback
 import webbrowser
 import json
 
-from PySide6.QtCore import QThread, Signal, Qt
-from PySide6.QtGui import QTextCursor, QIcon
-from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog, QComboBox
-from PySide6.QtWidgets import QDialog
+from PyQt6 import QtWidgets, QtCore
+import sys
+
+from PyQt6.QtCore import Qt, QDir, QThread, pyqtSignal
+from PyQt6.QtGui import QFileSystemModel, QIcon, QIntValidator, QTextCursor
+from PyQt6.QtWidgets import QFileDialog, QListView, QAbstractItemView, QTreeView, QDialog, QPushButton, QLineEdit, \
+    QVBoxLayout, QMainWindow, QApplication
 
 from copyright import Ui_CopyrightDialog
 from my_log import log_print, log_path
@@ -71,7 +74,7 @@ class MyEngineForm(QDialog, Ui_EngineDialog):
         self.confirmButton.clicked.connect(self.confirm)
         self.engineComboBox.currentIndexChanged.connect(self.on_combobox_change)
         self.detailLabel.mousePressEvent = self.open_url
-        self.detailLabel.setCursor(Qt.PointingHandCursor)
+        self.detailLabel.setCursor(QtCore.Qt.CursorShape.PointingHandCursor)
 
     def init_openai_model_combobox(self):
         if self.modelComboBox.count() == 0:
@@ -180,10 +183,24 @@ class MyCopyrightForm(QDialog, Ui_CopyrightDialog):
         self.url_label.setStyleSheet("color:blue")
         self.url_label.mousePressEvent = self.open_url
 
-        self.url_label.setCursor(Qt.PointingHandCursor)
+        self.url_label.setCursor(QtCore.Qt.CursorShape.PointingHandCursor)
 
     def open_url(self, event):
         webbrowser.open(self.url_label.text())
+
+class DirectorySelector(QFileDialog):
+    def __init__(self):
+        super(DirectorySelector, self).__init__()
+        self.setFileMode(QFileDialog.FileMode.Directory)
+        self.setOption(QFileDialog.Option.DontUseNativeDialog, True)
+        self.setDirectory(QDir.rootPath())
+        listView = self.findChild(QListView, "listView")
+        if listView:
+            listView.setSelectionMode(QAbstractItemView.SelectionMode.ExtendedSelection)
+        treeView = self.findChild(QTreeView, "treeView")
+        if treeView:
+            treeView.setSelectionMode(QAbstractItemView.SelectionMode.ExtendedSelection)
+
 
 
 class MyMainForm(QMainWindow, Ui_MainWindow):
@@ -199,11 +216,18 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.selectFilesBtn_2.clicked.connect(self.select_file2)
         self.selectDirBtn_2.clicked.connect(self.select_directory2)
         self.selectDirBtn_3.clicked.connect(self.select_directory3)
+        self.selectDirsBtn.clicked.connect(self.select_directory4)
         self.extractBtn.clicked.connect(self.extract)
         self.replaceFontBtn.clicked.connect(self.replaceFont)
         self.openFontStyleBtn.clicked.connect(self.openFontStyleFile)
         self.multiTranslateCheckBox.setChecked(True)
         self.backupCheckBox.setChecked(True)
+        self.filterCheckBox.setChecked(True)
+        self.filterLengthLineEdit.setText('8')
+        self.filterCheckBox.stateChanged.connect(self.filter_checkbox_changed)
+        validator = QIntValidator()
+        self.filterLengthLineEdit.setValidator(validator)
+
         try:
             self.init_combobox()
         except Exception as e:
@@ -219,6 +243,12 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
             os.remove('translating')
         if os.path.isfile('extracting'):
             os.remove('extracting')
+
+    def filter_checkbox_changed(self,state):
+        if self.filterCheckBox.isChecked():
+            self.filterLengthLineEdit.setEnabled(True)
+        else:
+            self.filterLengthLineEdit.setDisabled(True)
 
     def closeEvent(self, event):
         CREATE_NO_WINDOW = 0x08000000
@@ -326,19 +356,36 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
                     if len(tl_name) == 0:
                         log_print('tl name is empty skip extract file(s)')
                         continue
-                    t = extractThread(cnt, i, tl_name)
+                    t = extractThread(threadID=cnt, p=i, tl_name=tl_name,dir=None,tl_dir=None,is_open_filter=self.filterCheckBox.isChecked(),filter_length=int(self.filterLengthLineEdit.text()))
                     t.start()
                     extract_threads.append(t)
                     cnt = cnt + 1
+            select_dirs = self.selectDirsText.toPlainText().split('\n')
+            for i in select_dirs:
+                i = i.replace('file:///', '')
+                if len(i) > 0:
+                    tl_name = self.tlNameText.toPlainText()
+                    if len(tl_name) == 0:
+                        log_print('tl name is empty skip extract directory(s)')
+                        continue
+                    t = extractThread(threadID=cnt, p=None, tl_name=tl_name, dir=i, tl_dir=None,
+                                      is_open_filter=self.filterCheckBox.isChecked(),
+                                      filter_length=int(self.filterLengthLineEdit.text()))
+                    t.start()
+                    extract_threads.append(t)
+                    cnt = cnt + 1
+                pass
+
             select_dir = self.selectDirText_2.toPlainText()
             if len(select_dir) > 0:
                 select_dir = select_dir.replace('file:///', '')
+                tl_name = self.tlNameText.toPlainText()
                 if not os.path.exists(select_dir):
                     log_print(select_dir + ' directory does not exist!')
                 else:
                     if select_dir[len(select_dir) - 1] != '/' and select_dir[len(select_dir) - 1] != '\\':
                         select_dir = select_dir + '/'
-                    t = extractThread(cnt, None, None,select_dir)
+                    t = extractThread(threadID=cnt, p=None, tl_name=tl_name,dir=None,tl_dir=select_dir,is_open_filter=self.filterCheckBox.isChecked(),filter_length=int(self.filterLengthLineEdit.text()))
                     t.start()
                     extract_threads.append(t)
                     cnt = cnt + 1
@@ -384,7 +431,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
     def update_progress(self, data):
         if data != self.log_text.toPlainText():
             self.log_text.setText(data)
-            self.log_text.moveCursor(QTextCursor.End)
+            #self.log_text.moveCursor(QTextCursor.End)
         if os.path.isfile('translating'):
             self.translateBtn.setText('translating...')
             self.translateBtn.setDisabled(True)
@@ -400,7 +447,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
             self.extractBtn.setEnabled(True)
 
     class UpdateThread(QThread):
-        update_date = Signal(str)
+        update_date = pyqtSignal(str)
 
         def __init__(self):
             super().__init__()
@@ -413,6 +460,16 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
             f = io.open(log_path, 'r+', encoding='utf-8')
             self.update_date.emit(f.read())
             f.close()
+
+    def select_directory4(self):
+        directorySelector = DirectorySelector()
+        if directorySelector.exec() == 1:
+            folders = directorySelector.selectedFiles()
+            s = ''
+            for folder in folders:
+                if os.path.isdir(folder):
+                    s = s + folder + '\n'
+            self.selectDirsText.setText(s.rstrip('\n'))
 
     def select_directory3(self):
         directory = QFileDialog.getExistingDirectory(self, 'select the directory you want to extract')
@@ -500,12 +557,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
 
 
 if __name__ == "__main__":
-    # 固定的，PyQt5程序都需要QApplication对象。sys.argv是命令行参数列表，确保程序可以双击运行
     app = QApplication(sys.argv)
-    # 初始化
     myWin = MyMainForm()
-
-    # 将窗口控件显示在屏幕上
     myWin.show()
-    # 程序运行，sys.exit方法确保程序完整退出。
     sys.exit(app.exec())

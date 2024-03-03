@@ -1,4 +1,4 @@
-#-*- coding: utf-8
+# -*- coding: utf-8
 import io
 import random
 import sys
@@ -14,24 +14,47 @@ from string_tool import remove_upprintable_chars
 
 extract_threads = []
 
-class extractThread (threading.Thread):
-    def __init__(self, threadID, p,tl_name,dir = None):
+
+class extractThread(threading.Thread):
+    def __init__(self, threadID, p, tl_name,dir, tl_dir, is_open_filter, filter_length=8):
         threading.Thread.__init__(self)
         self.threadID = threadID
         self.p = p
         self.tl_name = tl_name
         self.dir = dir
+        self.tl_dir = tl_dir
+        self.is_open_filter = is_open_filter
+        self.filter_length = filter_length
+
     def run(self):
         try:
-            if self.dir is not None and os.path.exists(self.dir):
-                log_print(self.dir + ' begin extract!')
-                ExtractAllFilesInDir(self.dir)
+            if self.tl_dir is not None and os.path.exists(self.tl_dir):
+                self.tl_dir=self.tl_dir.rstrip('/')
+                self.tl_dir=self.tl_dir.rstrip('\\')
+                if self.tl_name is not None and len(self.tl_name) > 0:
+                    ori_tl = os.path.basename(self.tl_dir)
+                    self.tl_dir = self.tl_dir[:-len(ori_tl)] + '/' + self.tl_name
+                log_print(self.tl_dir + ' begin extract!')
+                ExtractAllFilesInDir(self.tl_dir, self.is_open_filter, self.filter_length)
             else:
-                log_print(self.p + ' begin extract!')
-                ExtractWriteFile(self.p, self.tl_name)
+                if self.p is not None:
+                    log_print(self.p + ' begin extract!')
+                    ExtractWriteFile(self.p, self.tl_name, self.is_open_filter, self.filter_length)
+                if self.dir is not None:
+                    log_print(self.dir + ' begin extract!')
+                    paths = os.walk(self.dir, topdown=False)
+                    for path, dir_lst, file_lst in paths:
+                        for file_name in file_lst:
+                            i = os.path.join(path, file_name)
+                            if not file_name.endswith("rpy"):
+                                continue
+                            ExtractWriteFile(i, self.tl_name, self.is_open_filter, self.filter_length)
+
         except Exception as e:
             msg = traceback.format_exc()
             log_print(msg)
+
+
 def replace_all_blank(value):
     """
     去除value中的所有标点符号、空格、换行、下划线等
@@ -51,47 +74,47 @@ def EncodeBracketContent(s, bracketLeft, bracketRight, isAddSpace=False):
     dic = dict()
     dic["ori"] = s
     oriList = []
-    if(bracketLeft != bracketRight):
+    if (bracketLeft != bracketRight):
         matchLeftCnt = 0
         matchRightCnt = 0
         while True:
             _len = len(s)
-            if(i >= _len):
-                if(matchLeftCnt != matchRightCnt and start!=-1):
+            if (i >= _len):
+                if (matchLeftCnt != matchRightCnt and start != -1):
                     i = start + 1
                     matchLeftCnt = 0
                     matchRightCnt = 0
                     continue
                 break
-            if(s[i] == bracketLeft):
+            if (s[i] == bracketLeft):
                 matchLeftCnt = matchLeftCnt + 1
-                if(i == 0):
+                if (i == 0):
                     start = i
                 else:
-                    if(s[i - 1] == '\\'):
+                    if (s[i - 1] == '\\'):
                         i = i + 1
                         continue
                     else:
-                        if(matchLeftCnt == (matchRightCnt + 1)):
+                        if (matchLeftCnt == (matchRightCnt + 1)):
                             start = i
-            if(s[i] == bracketRight):
-                if(i == 0):
+            if (s[i] == bracketRight):
+                if (i == 0):
                     continue
                 else:
-                    if(s[i - 1] == '\\'):
+                    if (s[i - 1] == '\\'):
                         i = i + 1
                         continue
                     else:
-                        matchRightCnt = matchRightCnt +1
-                        if(start != -1):
-                            if(matchLeftCnt == matchRightCnt):
+                        matchRightCnt = matchRightCnt + 1
+                        if (start != -1):
+                            if (matchLeftCnt == matchRightCnt):
                                 end = i
-            if(start != -1 and end > start):
-                if(matchLeftCnt != matchRightCnt):
+            if (start != -1 and end > start):
+                if (matchLeftCnt != matchRightCnt):
                     continue
                 replace = ''
-                if(isAddSpace):
-                    replace = ' ' + bracketLeft  + str(cnt)  + bracketRight + ' '
+                if (isAddSpace):
+                    replace = ' ' + bracketLeft + str(cnt) + bracketRight + ' '
                 else:
                     replace = bracketLeft + str(cnt) + bracketRight
                 ori = s[start:end + 1]
@@ -108,21 +131,21 @@ def EncodeBracketContent(s, bracketLeft, bracketRight, isAddSpace=False):
     else:
         while True:
             _len = len(s)
-            if(i >= _len):
+            if (i >= _len):
                 break
-            if(s[i] == bracketLeft):
-                if(i == 0):
+            if (s[i] == bracketLeft):
+                if (i == 0):
                     start = i
                 else:
-                    if(s[i - 1] == '\\'):
+                    if (s[i - 1] == '\\'):
                         i = i + 1
                         continue
                     else:
-                        if(start > end):
+                        if (start > end):
                             end = i
                         else:
                             start = i
-            if(start != -1 and end > start):
+            if (start != -1 and end > start):
                 replace = bracketLeft + str(cnt) + bracketRight
                 ori = s[start:end + 1]
                 oriList.append(ori)
@@ -147,29 +170,28 @@ def DecodeBracketContent(s, bracketLeft, bracketRight, l):
     oriList = []
     while True:
         _len = len(s)
-        if(i >= _len):
+        if (i >= _len):
             break
-        if(s[i] == bracketLeft):
-            if(i == 0):
+        if (s[i] == bracketLeft):
+            if (i == 0):
                 start = i
             else:
-                if(s[i - 1] == '\\'):
+                if (s[i - 1] == '\\'):
                     i = i + 1
                     continue
                 else:
                     start = i
-        if(s[i] == bracketRight):
-            if(i == 0):
+        if (s[i] == bracketRight):
+            if (i == 0):
                 continue
             else:
-                if(s[i - 1] == '\\'):
+                if (s[i - 1] == '\\'):
                     i = i + 1
                     continue
                 else:
-                    if(start != -1):
+                    if (start != -1):
                         end = i
-        if(start != -1 and end > start):
-
+        if (start != -1 and end > start):
             ori = s[start:end + 1]
             index = int(ori[1:len(ori) - 1])
             # print(l[index])
@@ -208,7 +230,7 @@ def DecodeBrackets(s, en_1, en_2, en_3):
     return d6["decoded"]
 
 
-def ExtractFromFile(p, isOpenFilter):
+def ExtractFromFile(p, is_open_filter, filter_length):
     e = set()
     f = io.open(p, 'r+', encoding='utf-8')
     _read = f.read()
@@ -225,10 +247,11 @@ def ExtractFromFile(p, isOpenFilter):
             continue
         if is_in_condition_switch:
             continue
-        if(isOpenFilter):
-            cmp_line_content = remove_upprintable_chars(line_content.strip())
-            if cmp_line_content.startswith('#') or len(line_content.strip()) == 0:
-                continue
+
+        cmp_line_content = remove_upprintable_chars(line_content.strip())
+        if cmp_line_content.startswith('#') or len(line_content.strip()) == 0:
+            continue
+        if (is_open_filter):
             if cmp_line_content.startswith('label '):
                 continue
             if cmp_line_content.startswith('define '):
@@ -237,57 +260,60 @@ def ExtractFromFile(p, isOpenFilter):
             # 	continue
         # log_print(line_content)
         d = EncodeBracketContent(line_content, '"', '"')
-        if('oriList' in d.keys() and len(d['oriList']) > 0):
+        if ('oriList' in d.keys() and len(d['oriList']) > 0):
             for i in d['oriList']:
-                if(len(i) > 2):
-                    if(isOpenFilter):
-                        strip_i = ''.join(i)
-                        d2 = EncodeBrackets(i)
+                if (len(i) > 2):
+                    strip_i = ''.join(i)
+                    d2 = EncodeBrackets(i)
 
-                        for j in (d2['en_1']):
-                            strip_i = strip_i.replace(j, '')
-                        for j in (d2['en_2']):
-                            strip_i = strip_i.replace(j, '')
-                        for j in (d2['en_3']):
-                            strip_i = strip_i.replace(j, '')
+                    for j in (d2['en_1']):
+                        strip_i = strip_i.replace(j, '')
+                    for j in (d2['en_2']):
+                        strip_i = strip_i.replace(j, '')
+                    for j in (d2['en_3']):
+                        strip_i = strip_i.replace(j, '')
 
-                        diff_len = len(i) - len(strip_i)
-                        _strip_i = replace_all_blank(strip_i)
-                        if((' ' in strip_i.strip()) == False and ('.' in strip_i.strip('.')) == False and (',' in strip_i.strip(',')) == False):
+                    diff_len = len(i) - len(strip_i)
+                    _strip_i = replace_all_blank(strip_i)
+                    if ((' ' in strip_i.strip()) == False and ('.' in strip_i.strip('.')) == False and (
+                            ',' in strip_i.strip(',')) == False):
+                        continue
+                    cmp_i = i.lower().strip('"')
+                    suffix_list = ['.ogg', '.webp', '.png', '.ttf', '.otf', '.webm', '.svg', '.gif', '.jpg', '.wav',
+                                   '.mp3']
+                    skip = False
+                    if cmp_i.startswith('#'):
+                        skip = True
+                    for suffix in suffix_list:
+                        if cmp_i.endswith(suffix) == False:
                             continue
-                        elif(len(_strip_i) < 8):
+                        else:
+                            skip = True
+                            break
+                    if skip:
+                        continue
+                    if is_open_filter:
+                        if len(_strip_i) < filter_length:
                             # log_print(len(strip_i),i)
                             continue
-                        cmp_i = i.lower().strip('"')
-                        suffix_list = ['.ogg','.webp','.png','.ttf','.otf','.webm','.svg','.gif','.jpg','.wav','.mp3']
-                        skip = False
-                        if cmp_i.startswith('#'):
-                            skip = True
-                        for suffix in suffix_list:
-                            if  cmp_i.endswith(suffix) == False:
-                                continue
-                            else:
-                                skip = True
-                                break
-                        if skip == False:
-                            i = i.replace('\\\'', "'")
-                            e.add(i)
+                        i = i.replace('\\\'', "'")
+                        e.add(i)
                     else:
                         e.add(i)
     return e
 
 
 def CreateEmptyFileIfNotExsit(p):
-    if(p[len(p) - 1] != '/' and p[len(p) - 1] != '\\'):
+    if (p[len(p) - 1] != '/' and p[len(p) - 1] != '\\'):
         p = p + '/'
-    paths = os.walk(p + '/../../',topdown=False)
+    paths = os.walk(p + '/../../', topdown=False)
 
     for path, dir_lst, file_lst in paths:
         for file_name in file_lst:
             i = os.path.join(path, file_name)
-            if(i[len(p + '/../../'):][:3] == 'tl\\'):
+            if (i[len(p + '/../../'):][:3] == 'tl\\'):
                 continue
-            if(file_name.endswith("rpy") == False):
+            if (file_name.endswith("rpy") == False):
                 continue
             target = p + i[len(p + '/../../'):]
             targetDir = os.path.dirname(target)
@@ -298,22 +324,22 @@ def CreateEmptyFileIfNotExsit(p):
 
 
 def GetExtractedSet(p):
-    if(p[len(p) - 1] != '/' and p[len(p) - 1] != '\\'):
+    if (p[len(p) - 1] != '/' and p[len(p) - 1] != '\\'):
         p = p + '/'
     e = set()
-    paths = os.walk(p,topdown=False)
+    paths = os.walk(p, topdown=False)
     for path, dir_lst, file_lst in paths:
         for file_name in file_lst:
             i = os.path.join(path, file_name)
-            if(file_name.endswith("rpy") == False):
+            if (file_name.endswith("rpy") == False):
                 continue
-            extracted = ExtractFromFile(i, False)
+            extracted = ExtractFromFile(i, False, 9999)
             e = e | extracted
     return e
 
 
-def WriteExtracted(p, extractedSet):
-    if(p[len(p) - 1] != '/' and p[len(p) - 1] != '\\'):
+def WriteExtracted(p, extractedSet,is_open_filter, filter_length):
+    if (p[len(p) - 1] != '/' and p[len(p) - 1] != '\\'):
         p = p + '/'
     index = p.rfind('tl\\')
     if index == -1:
@@ -328,27 +354,27 @@ def WriteExtracted(p, extractedSet):
         log_print(p + ' no tl found2!')
         return
     tl = p[index + 3:index2]
-    paths = os.walk(p,topdown=False)
+    paths = os.walk(p, topdown=False)
     for path, dir_lst, file_lst in paths:
         for file_name in file_lst:
             i = os.path.join(path, file_name)
-            if(file_name.endswith("rpy") == False):
+            if (file_name.endswith("rpy") == False):
                 continue
             target = p + '../../' + i[len(p):]
             if os.path.isfile(target) == False:
                 log_print(target + " not exists skip!")
                 continue
 
-            e = ExtractFromFile(target, True)
+            e = ExtractFromFile(target,is_open_filter,filter_length)
             eDiff = e - extractedSet
-            if(len(eDiff) > 0):
+            if (len(eDiff) > 0):
                 f = io.open(i, 'a+', encoding='utf-8')
-                f.write('\ntranslate '+ tl+' strings:\n')
+                f.write('\ntranslate ' + tl + ' strings:\n')
                 rdm = str(random.random())
                 tm = str(time.time())
-                timestamp = '"old:' + tm + '_' +  rdm + '"'
+                timestamp = '"old:' + tm + '_' + rdm + '"'
                 head = '    old ' + timestamp + '\n    '
-                timestamp = '"new:' + tm + '_' +  rdm + '"'
+                timestamp = '"new:' + tm + '_' + rdm + '"'
                 head = head + 'new ' + timestamp + '\n\n'
                 f.write(head)
                 for j in eDiff:
@@ -358,19 +384,20 @@ def WriteExtracted(p, extractedSet):
             extractedSet = e | extractedSet
             log_print(target + ' extract success!')
 
+
 def GetHeaderPath(p):
     dic = dict()
     index = p.rfind('game/')
-    if(index == -1):
+    if index == -1:
         index = p.rfind('game//')
-    if(index==-1):
+    if index == -1:
         dic['header'] = ''
         return dic
     header = p[:index]
-    if(os.path.exists(header+'renpy')):
+    if os.path.exists(header + 'renpy'):
         dic['header'] = header + 'game/'
         dirname = os.path.dirname(p) + '/'
-        subPath = dirname[len(header)+len('game/'):]
+        subPath = dirname[len(header) + len('game/'):]
         dic['subPath'] = subPath
         dic['fileName'] = os.path.basename(p)
         return dic
@@ -378,29 +405,30 @@ def GetHeaderPath(p):
         dic['header'] = ''
         return dic
 
-def ExtractWriteFile(p,tl_name):
+
+def ExtractWriteFile(p, tl_name, is_open_filter, filter_length):
     dic = GetHeaderPath(p)
     header = dic['header']
-    if(header ==''):
+    if (header == ''):
         log_print(p + ' not in game path!')
         return dic
     subPath = dic['subPath']
     fileName = dic['fileName']
     targetDir = header + 'tl/' + tl_name + '/' + subPath
-    target = targetDir+ fileName
-    if(os.path.exists(targetDir) == False):
+    target = targetDir + fileName
+    if (os.path.exists(targetDir) == False):
         try:
             os.makedirs(targetDir)
         except FileExistsError:
             pass
-    if(os.path.isfile(target) == False):
+    if (os.path.isfile(target) == False):
         open(target, 'w').close()
-    e = ExtractFromFile(p,True)
-    extractedSet = ExtractFromFile(target, True)
+    e = ExtractFromFile(p, is_open_filter, filter_length)
+    extractedSet = ExtractFromFile(target, False, 9999)
     eDiff = e - extractedSet
-    if(len(eDiff) > 0):
+    if (len(eDiff) > 0):
         f = io.open(target, 'a+', encoding='utf-8')
-        f.write('\ntranslate '+ tl_name +' strings:\n')
+        f.write('\ntranslate ' + tl_name + ' strings:\n')
         rdm = str(random.random())
         tm = str(time.time())
         timestamp = '"old:' + tm + '_' + rdm + '"'
@@ -413,10 +441,10 @@ def ExtractWriteFile(p,tl_name):
             f.write(writeData + '\n')
         f.close()
     extractedSet = e | extractedSet
-    log_print(target +' extracted success!')
+    log_print(target + ' extracted success!')
 
 
-def ExtractAllFilesInDir(dirName):
+def ExtractAllFilesInDir(dirName, is_open_filter, filter_length):
     CreateEmptyFileIfNotExsit(dirName)
     ret = GetExtractedSet(dirName)
-    WriteExtracted(dirName, ret)
+    WriteExtracted(dirName,ret,is_open_filter, filter_length)
