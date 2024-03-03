@@ -8,12 +8,12 @@ import traceback
 import webbrowser
 import json
 
-from PyQt6 import QtWidgets, QtCore
+from PySide6 import QtWidgets, QtCore
 import sys
 
-from PyQt6.QtCore import Qt, QDir, QThread, pyqtSignal
-from PyQt6.QtGui import QFileSystemModel, QIcon, QIntValidator, QTextCursor
-from PyQt6.QtWidgets import QFileDialog, QListView, QAbstractItemView, QTreeView, QDialog, QPushButton, QLineEdit, \
+from PySide6.QtCore import Qt, QDir, QThread, Signal
+from PySide6.QtGui import  QIcon, QIntValidator, QTextCursor
+from PySide6.QtWidgets import QFileDialog, QListView, QAbstractItemView, QTreeView, QDialog, QPushButton, QLineEdit, \
     QVBoxLayout, QMainWindow, QApplication
 
 from copyright import Ui_CopyrightDialog
@@ -447,7 +447,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
             self.extractBtn.setEnabled(True)
 
     class UpdateThread(QThread):
-        update_date = pyqtSignal(str)
+        update_date = Signal(str)
 
         def __init__(self):
             super().__init__()

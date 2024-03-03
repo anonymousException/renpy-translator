@@ -1,4 +1,4 @@
-pyqt6==6.6.1
+pyside6==6.6.2
 pygtrans==1.5.3
 pyinstaller==6.3.0
 pyinstaller-hooks-contrib==2024.0
