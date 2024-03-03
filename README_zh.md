@@ -8,7 +8,7 @@
 
 ------
 
-<div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/interface_v1.6.0.png"></div>
+<div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/interface_v1.7.0.png"></div>
 
 ------
 
@@ -111,9 +111,13 @@ https://github.com/anonymousException/renpy-translator/assets/157234942/46e524d7
 
 https://github.com/anonymousException/renpy-translator/assets/157234942/7d1efbfd-7152-407f-9896-c63a98538f02
 
-抽取文件夹:
+抽取(多个)文件夹
 
-https://github.com/anonymousException/renpy-translator/assets/157234942/817c6e9c-2fa2-48a3-914f-85765c0b64c3
+https://github.com/anonymousException/renpy-translator/assets/157234942/518e34a9-12f6-4e69-9ac4-80a6b181081c
+
+抽取所有内容到整个 tl 目录并重命名(如果 tl name 为空则直接抽取到输入的 tl 目录下):
+
+https://github.com/anonymousException/renpy-translator/assets/157234942/09edf9fa-0f5c-410a-acd9-6fd219b55893
 
 ## 使用教程
 
