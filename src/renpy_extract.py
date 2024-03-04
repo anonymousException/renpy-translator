@@ -33,7 +33,7 @@ class extractThread(threading.Thread):
                 self.tl_dir=self.tl_dir.rstrip('\\')
                 if self.tl_name is not None and len(self.tl_name) > 0:
                     ori_tl = os.path.basename(self.tl_dir)
-                    self.tl_dir = self.tl_dir[:-len(ori_tl)] + '/' + self.tl_name
+                    self.tl_dir = self.tl_dir[:-len(ori_tl)] + self.tl_name
                 log_print(self.tl_dir + ' begin extract!')
                 ExtractAllFilesInDir(self.tl_dir, self.is_open_filter, self.filter_length)
             else:

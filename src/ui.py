@@ -247,7 +247,7 @@ class Ui_MainWindow(object):
         self.selectDirsBtn.setText(QCoreApplication.translate("MainWindow", u"...", None))
         self.filterCheckBox.setText(QCoreApplication.translate("MainWindow", u"Enable filter for extract", None))
         self.label_14.setText(QCoreApplication.translate("MainWindow", u"filter length less than", None))
-        self.versionLabel.setText(QCoreApplication.translate("MainWindow", u"Version 1.7.0", None))
+        self.versionLabel.setText(QCoreApplication.translate("MainWindow", u"Version 1.7.1", None))
         self.copyrightLabel.setText(QCoreApplication.translate("MainWindow", u"\u00a92024 Last moment,All rights reserved.", None))
         self.label_11.setText(QCoreApplication.translate("MainWindow", u"font", None))
         self.selectFontText.setPlaceholderText(QCoreApplication.translate("MainWindow", u"input or choose or drag the font which supports the language after translation. Example : DejaVuSans.ttf (ren'py 's default font)", None))
