@@ -14,6 +14,10 @@ from string_tool import remove_upprintable_chars
 
 extract_threads = []
 
+lock = threading.Lock()
+
+num = 0
+
 
 class extractThread(threading.Thread):
     def __init__(self, threadID, p, tl_name,dir, tl_dir, is_open_filter, filter_length,is_gen_empty):
@@ -368,11 +372,15 @@ def WriteExtracted(p, extractedSet,is_open_filter, filter_length,is_gen_empty):
             if (len(eDiff) > 0):
                 f = io.open(i, 'a+', encoding='utf-8')
                 f.write('\ntranslate ' + tl + ' strings:\n')
-                rdm = str(random.random())
+                lock.acquire()
+                global num
+                num_str = str(num)
+                num = num + 1
+                lock.release()
                 tm = str(time.time())
-                timestamp = '"old:' + tm + '_' + rdm + '"'
+                timestamp = '"old:' + tm + '_' + num_str + '"'
                 head = '    old ' + timestamp + '\n    '
-                timestamp = '"new:' + tm + '_' + rdm + '"'
+                timestamp = '"new:' + tm + '_' + num_str + '"'
                 head = head + 'new ' + timestamp + '\n\n'
                 f.write(head)
                 for j in eDiff:
@@ -430,11 +438,15 @@ def ExtractWriteFile(p, tl_name, is_open_filter, filter_length,is_gen_empty):
     if (len(eDiff) > 0):
         f = io.open(target, 'a+', encoding='utf-8')
         f.write('\ntranslate ' + tl_name + ' strings:\n')
-        rdm = str(random.random())
+        lock.acquire()
+        global num
+        num_str = str(num)
+        num = num + 1
+        lock.release()
         tm = str(time.time())
-        timestamp = '"old:' + tm + '_' + rdm + '"'
+        timestamp = '"old:' + tm + '_' + num_str + '"'
         head = '    old ' + timestamp + '\n    '
-        timestamp = '"new:' + tm + '_' + rdm + '"'
+        timestamp = '"new:' + tm + '_' + num_str + '"'
         head = head + 'new ' + timestamp + '\n\n'
         f.write(head)
         for j in eDiff:
