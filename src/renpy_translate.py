@@ -133,7 +133,7 @@ def EncodeBracketContent(s, bracketLeft, bracketRight, isAddSpace=False):
                         i = i + 1
                         continue
                     else:
-                        if (start > end):
+                        if (start >= end):
                             end = i
                         else:
                             start = i

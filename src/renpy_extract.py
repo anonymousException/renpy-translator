@@ -142,7 +142,7 @@ def EncodeBracketContent(s, bracketLeft, bracketRight, isAddSpace=False):
                         i = i + 1
                         continue
                     else:
-                        if (start > end):
+                        if (start >= end):
                             end = i
                         else:
                             start = i
@@ -276,9 +276,6 @@ def ExtractFromFile(p, is_open_filter, filter_length):
 
                     diff_len = len(i) - len(strip_i)
                     _strip_i = replace_all_blank(strip_i)
-                    if ((' ' in strip_i.strip()) == False and ('.' in strip_i.strip('.')) == False and (
-                            ',' in strip_i.strip(',')) == False):
-                        continue
                     cmp_i = i.lower().strip('"')
                     suffix_list = ['.ogg', '.webp', '.png', '.ttf', '.otf', '.webm', '.svg', '.gif', '.jpg', '.wav',
                                    '.mp3']
