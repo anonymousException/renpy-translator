@@ -16,7 +16,7 @@ extract_threads = []
 
 
 class extractThread(threading.Thread):
-    def __init__(self, threadID, p, tl_name,dir, tl_dir, is_open_filter, filter_length=8):
+    def __init__(self, threadID, p, tl_name,dir, tl_dir, is_open_filter, filter_length,is_gen_empty):
         threading.Thread.__init__(self)
         self.threadID = threadID
         self.p = p
@@ -25,6 +25,7 @@ class extractThread(threading.Thread):
         self.tl_dir = tl_dir
         self.is_open_filter = is_open_filter
         self.filter_length = filter_length
+        self.is_gen_empty = is_gen_empty
 
     def run(self):
         try:
@@ -35,11 +36,11 @@ class extractThread(threading.Thread):
                     ori_tl = os.path.basename(self.tl_dir)
                     self.tl_dir = self.tl_dir[:-len(ori_tl)] + self.tl_name
                 log_print(self.tl_dir + ' begin extract!')
-                ExtractAllFilesInDir(self.tl_dir, self.is_open_filter, self.filter_length)
+                ExtractAllFilesInDir(self.tl_dir, self.is_open_filter, self.filter_length,self.is_gen_empty)
             else:
                 if self.p is not None:
                     log_print(self.p + ' begin extract!')
-                    ExtractWriteFile(self.p, self.tl_name, self.is_open_filter, self.filter_length)
+                    ExtractWriteFile(self.p, self.tl_name, self.is_open_filter, self.filter_length,self.is_gen_empty)
                 if self.dir is not None:
                     log_print(self.dir + ' begin extract!')
                     paths = os.walk(self.dir, topdown=False)
@@ -48,7 +49,7 @@ class extractThread(threading.Thread):
                             i = os.path.join(path, file_name)
                             if not file_name.endswith("rpy"):
                                 continue
-                            ExtractWriteFile(i, self.tl_name, self.is_open_filter, self.filter_length)
+                            ExtractWriteFile(i, self.tl_name, self.is_open_filter, self.filter_length,self.is_gen_empty)
 
         except Exception as e:
             msg = traceback.format_exc()
@@ -338,7 +339,7 @@ def GetExtractedSet(p):
     return e
 
 
-def WriteExtracted(p, extractedSet,is_open_filter, filter_length):
+def WriteExtracted(p, extractedSet,is_open_filter, filter_length,is_gen_empty):
     if (p[len(p) - 1] != '/' and p[len(p) - 1] != '\\'):
         p = p + '/'
     index = p.rfind('tl\\')
@@ -378,7 +379,10 @@ def WriteExtracted(p, extractedSet,is_open_filter, filter_length):
                 head = head + 'new ' + timestamp + '\n\n'
                 f.write(head)
                 for j in eDiff:
-                    writeData = '    old ' + j + '\n    new ' + j + '\n'
+                    if not is_gen_empty:
+                        writeData = '    old ' + j + '\n    new ' + j + '\n'
+                    else:
+                        writeData = '    old ' + j + '\n    new ' + '""' + '\n'
                     f.write(writeData + '\n')
                 f.close()
             extractedSet = e | extractedSet
@@ -406,7 +410,7 @@ def GetHeaderPath(p):
         return dic
 
 
-def ExtractWriteFile(p, tl_name, is_open_filter, filter_length):
+def ExtractWriteFile(p, tl_name, is_open_filter, filter_length,is_gen_empty):
     dic = GetHeaderPath(p)
     header = dic['header']
     if (header == ''):
@@ -437,14 +441,17 @@ def ExtractWriteFile(p, tl_name, is_open_filter, filter_length):
         head = head + 'new ' + timestamp + '\n\n'
         f.write(head)
         for j in eDiff:
-            writeData = '    old ' + j + '\n    new ' + j + '\n'
+            if not is_gen_empty:
+                writeData = '    old ' + j + '\n    new ' + j + '\n'
+            else:
+                writeData = '    old ' + j + '\n    new ' + '""' + '\n'
             f.write(writeData + '\n')
         f.close()
     extractedSet = e | extractedSet
     log_print(target + ' extracted success!')
 
 
-def ExtractAllFilesInDir(dirName, is_open_filter, filter_length):
+def ExtractAllFilesInDir(dirName, is_open_filter, filter_length,is_gen_empty):
     CreateEmptyFileIfNotExsit(dirName)
     ret = GetExtractedSet(dirName)
-    WriteExtracted(dirName,ret,is_open_filter, filter_length)
+    WriteExtracted(dirName,ret,is_open_filter, filter_length,is_gen_empty)

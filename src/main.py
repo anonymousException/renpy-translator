@@ -356,7 +356,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
                     if len(tl_name) == 0:
                         log_print('tl name is empty skip extract file(s)')
                         continue
-                    t = extractThread(threadID=cnt, p=i, tl_name=tl_name,dir=None,tl_dir=None,is_open_filter=self.filterCheckBox.isChecked(),filter_length=int(self.filterLengthLineEdit.text()))
+                    t = extractThread(threadID=cnt, p=i, tl_name=tl_name,dir=None,tl_dir=None,is_open_filter=self.filterCheckBox.isChecked(),filter_length=int(self.filterLengthLineEdit.text()),is_gen_empty=self.emptyCheckBox.isChecked())
                     t.start()
                     extract_threads.append(t)
                     cnt = cnt + 1
@@ -370,7 +370,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
                         continue
                     t = extractThread(threadID=cnt, p=None, tl_name=tl_name, dir=i, tl_dir=None,
                                       is_open_filter=self.filterCheckBox.isChecked(),
-                                      filter_length=int(self.filterLengthLineEdit.text()))
+                                      filter_length=int(self.filterLengthLineEdit.text()),is_gen_empty=self.emptyCheckBox.isChecked())
                     t.start()
                     extract_threads.append(t)
                     cnt = cnt + 1
@@ -385,7 +385,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
                 else:
                     if select_dir[len(select_dir) - 1] != '/' and select_dir[len(select_dir) - 1] != '\\':
                         select_dir = select_dir + '/'
-                    t = extractThread(threadID=cnt, p=None, tl_name=tl_name,dir=None,tl_dir=select_dir,is_open_filter=self.filterCheckBox.isChecked(),filter_length=int(self.filterLengthLineEdit.text()))
+                    t = extractThread(threadID=cnt, p=None, tl_name=tl_name,dir=None,tl_dir=select_dir,is_open_filter=self.filterCheckBox.isChecked(),filter_length=int(self.filterLengthLineEdit.text()),is_gen_empty=self.emptyCheckBox.isChecked())
                     t.start()
                     extract_threads.append(t)
                     cnt = cnt + 1

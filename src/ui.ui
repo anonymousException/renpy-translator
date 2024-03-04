@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1463</width>
-    <height>909</height>
+    <height>953</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,7 +20,7 @@
       <x>630</x>
       <y>50</y>
       <width>821</width>
-      <height>801</height>
+      <height>821</height>
      </rect>
     </property>
     <property name="readOnly">
@@ -246,7 +246,7 @@
       <x>10</x>
       <y>320</y>
       <width>601</width>
-      <height>311</height>
+      <height>341</height>
      </rect>
     </property>
     <widget class="QTextEdit" name="selectFilesText_2">
@@ -355,7 +355,7 @@
      <property name="geometry">
       <rect>
        <x>270</x>
-       <y>280</y>
+       <y>310</y>
        <width>75</width>
        <height>24</height>
       </rect>
@@ -440,7 +440,7 @@
       <rect>
        <x>20</x>
        <y>280</y>
-       <width>161</width>
+       <width>91</width>
        <height>20</height>
       </rect>
      </property>
@@ -451,7 +451,7 @@
     <widget class="QLabel" name="label_14">
      <property name="geometry">
       <rect>
-       <x>380</x>
+       <x>120</x>
        <y>282</y>
        <width>131</width>
        <height>16</height>
@@ -464,11 +464,24 @@
     <widget class="QLineEdit" name="filterLengthLineEdit">
      <property name="geometry">
       <rect>
-       <x>510</x>
+       <x>250</x>
        <y>280</y>
        <width>61</width>
        <height>20</height>
       </rect>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="emptyCheckBox">
+     <property name="geometry">
+      <rect>
+       <x>330</x>
+       <y>280</y>
+       <width>271</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Generate empty strings instead of original</string>
      </property>
     </widget>
    </widget>
@@ -476,20 +489,20 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>860</y>
+      <y>880</y>
       <width>91</width>
       <height>16</height>
      </rect>
     </property>
     <property name="text">
-     <string>Version 1.7.1</string>
+     <string>Version 1.7.2</string>
     </property>
    </widget>
    <widget class="QLabel" name="copyrightLabel">
     <property name="geometry">
      <rect>
       <x>1190</x>
-      <y>860</y>
+      <y>880</y>
       <width>241</width>
       <height>16</height>
      </rect>
@@ -502,7 +515,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>630</y>
+      <y>660</y>
       <width>601</width>
       <height>221</height>
      </rect>
