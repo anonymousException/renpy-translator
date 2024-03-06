@@ -431,7 +431,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
     def update_progress(self, data):
         if data != self.log_text.toPlainText():
             self.log_text.setText(data)
-            #self.log_text.moveCursor(QTextCursor.End)
+            self.log_text.moveCursor(QTextCursor.End)
         if os.path.isfile('translating'):
             self.translateBtn.setText('translating...')
             self.translateBtn.setDisabled(True)
