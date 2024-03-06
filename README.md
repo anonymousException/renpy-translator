@@ -149,6 +149,8 @@ if not you can try to unpack it
 
 I usually use [UnRen-ultrahack.bat](https://github.com/anonymousException/renpy-translator/blob/main/docs/tool/UnRen-ultrahack.bat) from https://f95zone.to/ to unpack the game
 
+https://github.com/anonymousException/renpy-translator/assets/157234942/718b2b71-ca98-4dfd-999b-ffdc9c112102
+
 It's **strongly not recommended** for translators to make translation through unpack and then deliver a translated version without the original author's permission. Please **respect** the original author
 
 Download the  [UnRen-ultrahack.bat]() and copy it to the game directory (where game.exe locates)

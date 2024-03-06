@@ -151,6 +151,8 @@ https://github.com/anonymousException/renpy-translator/assets/157234942/09edf9fa
 
 我一般是用从  https://f95zone.to/ 整来的  [UnRen-ultrahack.bat ](https://github.com/anonymousException/renpy-translator/blob/main/docs/tool/UnRen-ultrahack.bat) 来解包
 
+https://github.com/anonymousException/renpy-translator/assets/157234942/718b2b71-ca98-4dfd-999b-ffdc9c112102
+
 **强烈不推荐**翻译者通过解包翻译后未经原作者授权就私自发布翻译包，请**尊重**原作者
 
 下载  [UnRen-ultrahack.bat]() 并把它拷贝到游戏目录底下 (里面含有 游戏名.exe)
