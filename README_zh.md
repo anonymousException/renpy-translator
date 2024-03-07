@@ -8,7 +8,7 @@
 
 ------
 
-<div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/interface_v1.7.2.png"></div>
+<div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/interface_v1.8.0.png"></div>
 
 ------
 
@@ -23,6 +23,21 @@
 如果你想要使用离线 AI 翻译，请前往：
 
 https://github.com/anonymousException/renpy-translator/blob/feature/ai-translate/README_zh.md
+
+## 支持的翻译引擎
+
+| Translator                                                   | Supported Language number | Charge                 | Service                                                      | Country | Reference                                                |
+| ------------------------------------------------------------ | ------------------------- | ---------------------- | ------------------------------------------------------------ | ------- | -------------------------------------------------------- |
+| [Google](https://cloud.google.com/translate/docs/quickstarts) | 108                       | Free \| Token Required | [ Google](https://about.google/),                            | America | [pygtrans](https://github.com/foyoux/pygtrans/tree/main) |
+| [Youdao](https://ai.youdao.com/doc.s#guide)                  | 11 \| 114                 | Free \| Token Required | [Netease](https://ir.netease.com/company-overview/corporate-profile) | China   |                                                          |
+| [Deepl](https://www.deepl.com/account/?utm_source=github&utm_medium=github-python-readme) | 29                        | Token Required         | [Deepl](https://jobs.deepl.com/l/en)                         | Germany |                                                          |
+| [OpenAI](https://platform.openai.com/api-keys)               | 108                       | Token Required         | [OpenAI](https://platform.openai.com/)                       | America | [openai-python](https://github.com/openai/openai-python) |
+| [Alibaba](https://translate.alibaba.com)                     | 214                       | Free                   | [damo](https://damo.alibaba.com/about?tab=0&language=zh)     | China   | [translators](https://github.com/UlionTse/translators)   |
+| [ModernMt](https://www.modernmt.com/translate)               | 200                       | Free                   | [Modernmt](https://github.com/modernmt) / [Translated](https://translatedlabs.com/welcome) | Italy   | [translators](https://github.com/UlionTse/translators)   |
+| [Bing](https://www.bing.com/Translator)                      | 133                       | Free                   | [Modernmt](https://github.com/modernmt) / [Translated](https://translatedlabs.com/welcome) | Italy   | [translators](https://github.com/UlionTse/translators)   |
+| [lingvanex](https://lingvanex.com/demo)                      | 109                       | Free                   | [Lingvanex](https://lingvanex.com/about-us/),                | Cyprus  | [translators](https://github.com/UlionTse/translators)   |
+| [CloudTranslation](https://www.cloudtranslation.com/#/translate) | 8                         | Free                   | [Xiamen University](http://nlp.xmu.edu.cn/) / [CloudTranslation](https://www.cloudtranslation.com/#/about) | China   | [translators](https://github.com/UlionTse/translators)   |
+| [Caiyun](https://fanyi.caiyunapp.com/)                       | 7                         | Free                   | [ColorfulClouds](http://caiyunapp.com/jobs/)                 | China   | [translators](https://github.com/UlionTse/translators)   |
 
 ## 目的
 
@@ -89,7 +104,7 @@ https://github.com/anonymousException/renpy-translator/blob/feature/ai-translate
 - 支持**保留**未被翻译的原文本作为**注释**
 - 支持**实时日志输出** , 你可以随时观察当前的翻译进度
 - 支持**本地代理**，如果你不能正常访问谷歌|有道|Deepl，可以尝试使用 VPN (如 V2ray) 并配置本地代理
-- 支持**多种**翻译引擎 ：谷歌来源于 [pygtrans](https://github.com/foyoux/pygtrans/tree/main) , 有道翻译,DeepL 翻译,OpenAI 翻译
+- 支持**多种**翻译引擎 
 
 ------
 
@@ -123,7 +138,7 @@ https://github.com/anonymousException/renpy-translator/assets/157234942/09edf9fa
 
 ### 事前准备
 
-一个好的网络环境，如果网络不好，可能无法正常调用**谷歌|有道|Deepl**来翻译
+一个好的网络环境，如果网络不好，可能无法正常调用**翻译引擎**来翻译
 
 当你发现无法正常访问谷歌翻译时，可以试试：https://github.com/GoodCoder666/GoogleTranslate_IPFinder
 

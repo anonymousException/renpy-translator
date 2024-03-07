@@ -9,7 +9,7 @@
 
 ------
 
-<div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/interface_v1.7.2.png"></div>
+<div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/interface_v1.8.0.png"></div>
 
 <div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/translated_contents.png"></div>
 
@@ -26,6 +26,21 @@ https://github.com/anonymousException/renpy-translator/blob/feature/ai-translate
 ### Chinese
 
 <div align=center>中文版 README 在 <a href = 'https://github.com/anonymousException/renpy-translator/blob/main/README_zh.md'>这里</a> </div>
+
+## Supported Translation Services
+
+| Translator                                                   | Supported Language number | Charge                 | Service                                                      | Country | Reference                                                |
+| ------------------------------------------------------------ | ------------------------- | ---------------------- | ------------------------------------------------------------ | ------- | -------------------------------------------------------- |
+| [Google](https://cloud.google.com/translate/docs/quickstarts) | 108                       | Free \| Token Required | [ Google](https://about.google/),                            | America | [pygtrans](https://github.com/foyoux/pygtrans/tree/main) |
+| [Youdao](https://ai.youdao.com/doc.s#guide)                  | 11 \| 114                 | Free \| Token Required | [Netease](https://ir.netease.com/company-overview/corporate-profile) | China   |                                                          |
+| [Deepl](https://www.deepl.com/account/?utm_source=github&utm_medium=github-python-readme) | 29                        | Token Required         | [Deepl](https://jobs.deepl.com/l/en)                         | Germany |                                                          |
+| [OpenAI](https://platform.openai.com/api-keys)               | 108                       | Token Required         | [OpenAI](https://platform.openai.com/)                       | America | [openai-python](https://github.com/openai/openai-python) |
+| [Alibaba](https://translate.alibaba.com)                     | 214                       | Free                   | [damo](https://damo.alibaba.com/about?tab=0&language=zh)     | China   | [translators](https://github.com/UlionTse/translators)   |
+| [ModernMt](https://www.modernmt.com/translate)               | 200                       | Free                   | [Modernmt](https://github.com/modernmt) / [Translated](https://translatedlabs.com/welcome) | Italy   | [translators](https://github.com/UlionTse/translators)   |
+| [Bing](https://www.bing.com/Translator)                      | 133                       | Free                   | [Modernmt](https://github.com/modernmt) / [Translated](https://translatedlabs.com/welcome) | Italy   | [translators](https://github.com/UlionTse/translators)   |
+| [lingvanex](https://lingvanex.com/demo)                      | 109                       | Free                   | [Lingvanex](https://lingvanex.com/about-us/),                | Cyprus  | [translators](https://github.com/UlionTse/translators)   |
+| [CloudTranslation](https://www.cloudtranslation.com/#/translate) | 8                         | Free                   | [Xiamen University](http://nlp.xmu.edu.cn/) / [CloudTranslation](https://www.cloudtranslation.com/#/about) | China   | [translators](https://github.com/UlionTse/translators)   |
+| [Caiyun](https://fanyi.caiyunapp.com/)                       | 7                         | Free                   | [ColorfulClouds](http://caiyunapp.com/jobs/)                 | China   | [translators](https://github.com/UlionTse/translators)   |
 
 ## Target
 
@@ -91,7 +106,7 @@ You can download the latest version through https://github.com/anonymousExceptio
 - Support **remain the original words as comments** after translation
 - Support **real-time log output** , you can check the progress about the translation
 - Support **local-proxy** , if you can not access google , you can use a vpn tool like v2ray and set local proxy
-- Support **multi** translation engine : Google Translation from [pygtrans](https://github.com/foyoux/pygtrans/tree/main) , YouDao Translation , DeepL Translation , OpenAI Translation
+- Support **multi** translation engines
 
 ------
 
@@ -125,7 +140,7 @@ https://github.com/anonymousException/renpy-translator/assets/157234942/09edf9fa
 
 ### Prerequisite
 
-A good network environment , if not you may not able to translate words through ***Google Translate | YouDao Translate | Deepl Translate***
+A good network environment , if not you may not able to translate words through **the translation engine**
 
 If you can not access the translate engine, you can try use vpn tool like v2ray and set local-proxy
 
