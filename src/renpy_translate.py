@@ -252,6 +252,16 @@ def TranslateFile(p, lang_target, lang_source,is_gen_bak):
             loaded_data = json.load(json_file)
             if loaded_data['enable']:
                 proxies = {'https': loaded_data['proxy']}
+                os.environ['HTTPS_PROXY'] = loaded_data['proxy']
+                os.environ['HTTP_PROXY'] = loaded_data['proxy']
+                if 'NO_PROXY' in os.environ.keys():
+                    del os.environ['NO_PROXY']
+            else:
+                if 'HTTPS_PROXY' in os.environ.keys():
+                    del os.environ['HTTPS_PROXY']
+                if 'HTTP_PROXY' in os.environ.keys():
+                    del os.environ['HTTP_PROXY']
+                os.environ['NO_PROXY'] = '*'
     if os.path.isfile('engine.txt'):
         with open('engine.txt', 'r') as json_file:
             loaded_data = json.load(json_file)

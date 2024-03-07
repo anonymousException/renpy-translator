@@ -20,12 +20,14 @@ from copyright import Ui_CopyrightDialog
 from my_log import log_print, log_path
 from renpy_extract import extractThread, extract_threads, ExtractAllFilesInDir
 from renpy_fonts import GenGuiFonts
+os.environ['REQUESTS_CA_BUNDLE'] = os.path.join(os.path.dirname(sys.argv[0]), 'cacert.pem')
+os.environ['NO_PROXY'] = '*'
 from renpy_translate import translateThread, translate_threads, engineList
 from proxy import Ui_ProxyDialog
 from engine import Ui_EngineDialog
 from ui import Ui_MainWindow
 
-os.environ['REQUESTS_CA_BUNDLE'] = os.path.join(os.path.dirname(sys.argv[0]), 'cacert.pem')
+
 targetDic = dict()
 sourceDic = dict()
 
