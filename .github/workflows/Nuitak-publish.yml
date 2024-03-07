@@ -35,14 +35,7 @@ jobs:
 
     - run: mkdir dist\windows
     - run: xcopy build\main.dist dist\windows /E
-    - run: copy src\google.source.rst dist\windows\google.source.rst
-    - run: copy src\google.target.rst dist\windows\google.target.rst
-    - run: copy src\deepl.source.rst dist\windows\deepl.source.rst
-    - run: copy src\deepl.target.rst dist\windows\deepl.target.rst
-    - run: copy src\youdao.source.rst dist\windows\youdao.source.rst
-    - run: copy src\youdao.target.rst dist\windows\youdao.target.rst
-    - run: copy src\youdao.source.rst dist\windows\openai.source.rst
-    - run: copy src\youdao.target.rst dist\windows\openai.target.rst
+    - run: xcopy src\supported_language dist\windows\supported_language\
     - run: copy src\cacert.pem dist\windows\cacert.pem
     - run: copy src\main.ico dist\windows\main.ico
 

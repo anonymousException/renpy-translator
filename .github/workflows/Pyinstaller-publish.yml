@@ -23,14 +23,7 @@ jobs:
         pypi_index_url: https://pypi.org/simple
         spec: "main.spec"
 
-    - run: cp src/google.source.rst src/dist/windows/main/google.source.rst
-    - run: cp src/google.target.rst src/dist/windows/main/google.target.rst
-    - run: cp src/deepl.source.rst src/dist/windows/main/deepl.source.rst
-    - run: cp src/deepl.target.rst src/dist/windows/main/deepl.target.rst
-    - run: cp src/youdao.source.rst src/dist/windows/main/youdao.source.rst
-    - run: cp src/youdao.target.rst src/dist/windows/main/youdao.target.rst
-    - run: cp src/youdao.source.rst src/dist/windows/main/openai.source.rst
-    - run: cp src/youdao.target.rst src/dist/windows/main/openai.target.rst
+    - run: cp -r src/supported_language src/dist/windows/main
     - run: cp src/main.ico src/dist/windows/main/main.ico
     - run: cp src/cacert.pem src/dist/windows/main/cacert.pem
 

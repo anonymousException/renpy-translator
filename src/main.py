@@ -64,7 +64,7 @@ class MyEngineForm(QDialog, Ui_EngineDialog):
                     self.modelComboBox.setCurrentIndex(loaded_data['openai_model_index'])
                 if "openai_base_url" in loaded_data:
                     self.baseUrlEdit.setText(loaded_data['openai_base_url'])
-        if self.engineComboBox.currentIndex() == 0:
+        if self.engineComboBox.currentIndex() == 0 or self.engineComboBox.currentIndex() >= 5:
             self.keyEdit.setDisabled(True)
             self.secretEdit.setDisabled(True)
         if self.engineComboBox.currentIndex() == 1 or self.engineComboBox.currentIndex() == 3 or self.engineComboBox.currentIndex() == 4:
@@ -84,16 +84,24 @@ class MyEngineForm(QDialog, Ui_EngineDialog):
 
     def open_url(self, event):
         engineInfoList = ['https://cloud.google.com/translate/docs/quickstarts',
-                          'https://cloud.google.com/translate/docs/quickstarts', 'https://ai.youdao.com/doc.s#guide',
+                          'https://cloud.google.com/translate/docs/quickstarts',
+                          'https://ai.youdao.com/doc.s#guide',
                           'https://www.deepl.com/account/?utm_source=github&utm_medium=github-python-readme',
-                          'https://platform.openai.com/api-keys']
+                          'https://platform.openai.com/api-keys',
+                          'https://translate.alibaba.com',
+                          'https://www.modernmt.com/translate',
+                          'https://www.bing.com/Translator',
+                          'https://lingvanex.com/demo',
+                          'https://www.cloudtranslation.com/#/translate',
+                          'https://ai.youdao.com/doc.s#guide',
+                          'https://fanyi.caiyunapp.com/']
         webbrowser.open(engineInfoList[self.engineComboBox.currentIndex()])
 
     def on_combobox_change(self):
         self.setFixedHeight(200)
         if self.engineComboBox.currentIndex() == 4:
             self.setFixedHeight(300)
-        if self.engineComboBox.currentIndex() != 0:
+        if self.engineComboBox.currentIndex() != 0 and self.engineComboBox.currentIndex() < 5:
             self.keyEdit.setEnabled(True)
             self.secretEdit.setEnabled(True)
             if self.engineComboBox.currentIndex() == 1 or self.engineComboBox.currentIndex() == 3 or self.engineComboBox.currentIndex() == 4:
@@ -308,8 +316,9 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         ret_l = []
         for i in _read_line:
             contents = i.split(':')
-            d[contents[0]] = contents[1].strip()
-            ret_l.append(contents[0])
+            d[contents[0].strip()] = contents[1].strip()
+            ret_l.append(contents[0].strip())
+        ret_l = list(set(ret_l))
         ret_l.sort()
         return ret_l
 
@@ -318,6 +327,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.sourceComboBox.clear()
         target = 'google.target.rst'
         source = 'google.source.rst'
+        header = 'supported_language/'
         if os.path.isfile('engine.txt'):
             with open('engine.txt', 'r') as json_file:
                 loaded_data = json.load(json_file)
@@ -333,16 +343,41 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
                     elif loaded_data['engine'] == engineList[4]:
                         target = 'openai.target.rst'
                         source = 'openai.source.rst'
+                    elif loaded_data['engine'] == engineList[5]:
+                        target = 'alibaba.target.rst'
+                        source = 'alibaba.source.rst'
+                    elif loaded_data['engine'] == engineList[6]:
+                        target = 'modernMt.target.rst'
+                        source = 'modernMt.source.rst'
+                    elif loaded_data['engine'] == engineList[7]:
+                        target = 'bing.target.rst'
+                        source = 'bing.source.rst'
+                    elif loaded_data['engine'] == engineList[8]:
+                        target = 'lingvanex.target.rst'
+                        source = 'lingvanex.source.rst'
+                    elif loaded_data['engine'] == engineList[9]:
+                        target = 'cloudTranslation.target.rst'
+                        source = 'cloudTranslation.source.rst'
+                    elif loaded_data['engine'] == engineList[10]:
+                        target = 'youdao_free.target.rst'
+                        source = 'youdao_free.source.rst'
+                    elif loaded_data['engine'] == engineList[11]:
+                        target = 'caiyun.target.rst'
+                        source = 'caiyun.source.rst'
                     else:
                         return
-
+        target = header + target
+        source = header + source
         target_l = self.get_combobox_content(target, targetDic)
         for i in target_l:
             self.targetComboBox.addItem(i)
         source_l = self.get_combobox_content(source, sourceDic)
         for i in source_l:
             self.sourceComboBox.addItem(i)
-        self.sourceComboBox.setCurrentIndex(source_l.index('Auto Detect'))
+        try :
+            self.sourceComboBox.setCurrentIndex(source_l.index('Auto Detect'))
+        except Exception:
+            pass
 
     def extract(self):
         # noinspection PyBroadException

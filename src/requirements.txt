@@ -4,3 +4,4 @@ pyinstaller==6.3.0
 pyinstaller-hooks-contrib==2024.0
 deepl==1.16.1
 openai==1.12.0
+translators==5.9.0

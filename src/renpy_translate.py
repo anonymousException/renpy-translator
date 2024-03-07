@@ -11,9 +11,10 @@ from pygtrans import Translate, ApiKeyTranslate
 from my_log import log_print
 from deepl_translate import DeeplTranslate
 from openai_translate import OpenAITranslate
+from translator_translate import TranslatorTranslate
 from youdao_translate import YoudaoTranslate
 
-engineList = ['Google(Free)','Google(Token Required)','YouDao(Token Required)','DeepL(Token Required)','OpenAI(Token Required)']
+engineList = ['Google(Free)','Google(Token Required)','YouDao(Token Required)','DeepL(Token Required)','OpenAI(Token Required)','Alibaba(Free)','ModernMt(Free)','Bing(Free)','Lingvanex(Free)','CloudTranslation(Free)','YouDao(Free)','Caiyun(Free)']
 translate_threads = []
 translate_lock = threading.Lock()
 client_openai = None
@@ -275,6 +276,20 @@ def TranslateFile(p, lang_target, lang_source,is_gen_bak):
                 else:
                     client_openai.reset(app_key=loaded_data['key'],rpm=loaded_data['rpm'],rps=loaded_data['rps'],tpm=loaded_data['tpm'],model=loaded_data['openai_model'],base_url=base_url ,proxies=proxies['https'])
                 client = client_openai
+            elif loaded_data['engine'] == engineList[5]:
+                client = TranslatorTranslate('alibaba', proxies=None)
+            elif loaded_data['engine'] == engineList[6]:
+                client = TranslatorTranslate('modernMt', proxies=None)
+            elif loaded_data['engine'] == engineList[7]:
+                client = TranslatorTranslate('bing', proxies=None)
+            elif loaded_data['engine'] == engineList[8]:
+                client = TranslatorTranslate('lingvanex', proxies=None)
+            elif loaded_data['engine'] == engineList[9]:
+                client = TranslatorTranslate('cloudTranslation', proxies=None)
+            elif loaded_data['engine'] == engineList[10]:
+                client = TranslatorTranslate('youdao', proxies=None)
+            elif loaded_data['engine'] == engineList[11]:
+                client = TranslatorTranslate('caiyun', proxies=None)
             else:
                 log_print('engine.txt' + ' file format error!')
                 msg = traceback.format_exc()
