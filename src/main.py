@@ -22,7 +22,7 @@ from renpy_extract import extractThread, extract_threads, ExtractAllFilesInDir
 from renpy_fonts import GenGuiFonts
 os.environ['REQUESTS_CA_BUNDLE'] = os.path.join(os.path.dirname(sys.argv[0]), 'cacert.pem')
 os.environ['NO_PROXY'] = '*'
-from renpy_translate import translateThread, translate_threads, engineList
+from renpy_translate import translateThread, translate_threads, engineList,engineDic
 from proxy import Ui_ProxyDialog
 from engine import Ui_EngineDialog
 from ui import Ui_MainWindow
@@ -44,16 +44,13 @@ class MyEngineForm(QDialog, Ui_EngineDialog):
         )
         self.detailLabel.setStyleSheet("color:blue")
         self.setFixedHeight(200)
-        for i in engineList:
+        for i in engineDic.keys():
             self.engineComboBox.addItem(i)
         self.init_openai_model_combobox()
         if os.path.isfile('engine.txt'):
             with open('engine.txt', 'r') as json_file:
                 loaded_data = json.load(json_file)
-                for i, e in enumerate(engineList):
-                    if e == loaded_data['engine']:
-                        self.engineComboBox.setCurrentIndex(i)
-                        break
+                self.engineComboBox.setCurrentIndex(self.engineComboBox.findText(loaded_data['engine']))
                 self.keyEdit.setText(loaded_data['key'])
                 self.secretEdit.setText((loaded_data['secret']))
                 if "rpm" in loaded_data:
@@ -66,12 +63,16 @@ class MyEngineForm(QDialog, Ui_EngineDialog):
                     self.modelComboBox.setCurrentIndex(loaded_data['openai_model_index'])
                 if "openai_base_url" in loaded_data:
                     self.baseUrlEdit.setText(loaded_data['openai_base_url'])
-        if self.engineComboBox.currentIndex() == 0 or self.engineComboBox.currentIndex() >= 5:
-            self.keyEdit.setDisabled(True)
-            self.secretEdit.setDisabled(True)
-        if self.engineComboBox.currentIndex() == 1 or self.engineComboBox.currentIndex() == 3 or self.engineComboBox.currentIndex() == 4:
-            self.secretEdit.setEnabled(False)
-            if self.engineComboBox.currentIndex() == 4:
+            if engineDic[self.engineComboBox.currentText()]['key_edit']:
+                self.keyEdit.setEnabled(True)
+            else:
+                self.keyEdit.setDisabled(True)
+
+            if engineDic[self.engineComboBox.currentText()]['secret_edit']:
+                self.secretEdit.setEnabled(True)
+            else:
+                self.secretEdit.setDisabled(True)
+            if self.engineComboBox.currentText() == engineList[4]:
                 self.setFixedHeight(300)
         self.confirmButton.clicked.connect(self.confirm)
         self.engineComboBox.currentIndexChanged.connect(self.on_combobox_change)
@@ -85,37 +86,26 @@ class MyEngineForm(QDialog, Ui_EngineDialog):
                 self.modelComboBox.addItem(i)
 
     def open_url(self, event):
-        engineInfoList = ['https://cloud.google.com/translate/docs/quickstarts',
-                          'https://cloud.google.com/translate/docs/quickstarts',
-                          'https://ai.youdao.com/doc.s#guide',
-                          'https://www.deepl.com/account/?utm_source=github&utm_medium=github-python-readme',
-                          'https://platform.openai.com/api-keys',
-                          'https://translate.alibaba.com',
-                          'https://www.modernmt.com/translate',
-                          'https://www.bing.com/Translator',
-                          'https://lingvanex.com/demo',
-                          'https://www.cloudtranslation.com/#/translate',
-                          'https://ai.youdao.com/doc.s#guide',
-                          'https://fanyi.caiyunapp.com/']
-        webbrowser.open(engineInfoList[self.engineComboBox.currentIndex()])
+        webbrowser.open(engineDic[self.engineComboBox.currentText()]['url'])
 
     def on_combobox_change(self):
         self.setFixedHeight(200)
-        if self.engineComboBox.currentIndex() == 4:
+        if self.engineComboBox.currentText() == engineList[4]:
             self.setFixedHeight(300)
-        if self.engineComboBox.currentIndex() != 0 and self.engineComboBox.currentIndex() < 5:
+        if engineDic[self.engineComboBox.currentText()]['key_edit']:
             self.keyEdit.setEnabled(True)
-            self.secretEdit.setEnabled(True)
-            if self.engineComboBox.currentIndex() == 1 or self.engineComboBox.currentIndex() == 3 or self.engineComboBox.currentIndex() == 4:
-                self.secretEdit.setEnabled(False)
         else:
             self.keyEdit.setDisabled(True)
+
+        if engineDic[self.engineComboBox.currentText()]['secret_edit']:
+            self.secretEdit.setEnabled(True)
+        else:
             self.secretEdit.setDisabled(True)
         if os.path.isfile('engine.txt'):
             with open('engine.txt', 'r') as json_file:
                 loaded_data = json.load(json_file)
-                key = str(self.engineComboBox.currentIndex()) + '_key'
-                secret = str(self.engineComboBox.currentIndex()) + '_secret'
+                key = str(self.engineComboBox.currentText()) + '_key'
+                secret = str(self.engineComboBox.currentText()) + '_secret'
                 if key in loaded_data:
                     self.keyEdit.setText(loaded_data[key])
                 else:
@@ -130,8 +120,8 @@ class MyEngineForm(QDialog, Ui_EngineDialog):
             f = io.open('engine.txt', 'w', encoding='utf-8')
             data = {"engine": self.engineComboBox.currentText(), "key": self.keyEdit.text(),
                     "secret": self.secretEdit.text(),
-                    str(self.engineComboBox.currentIndex()) + '_key': self.keyEdit.text(),
-                    str(self.engineComboBox.currentIndex()) + '_secret': self.secretEdit.text(),
+                    str(self.engineComboBox.currentText()) + '_key': self.keyEdit.text(),
+                    str(self.engineComboBox.currentText()) + '_secret': self.secretEdit.text(),
                     "rpm":self.rpmEdit.text(),
                     "rps":self.rpsEdit.text(),
                     "tpm":self.tpmEdit.text(),
@@ -148,8 +138,8 @@ class MyEngineForm(QDialog, Ui_EngineDialog):
             loaded_data['engine'] = self.engineComboBox.currentText()
             loaded_data['key'] = self.keyEdit.text()
             loaded_data['secret'] = self.secretEdit.text()
-            loaded_data[str(self.engineComboBox.currentIndex()) + '_key'] = self.keyEdit.text()
-            loaded_data[str(self.engineComboBox.currentIndex()) + '_secret'] = self.secretEdit.text()
+            loaded_data[str(self.engineComboBox.currentText()) + '_key'] = self.keyEdit.text()
+            loaded_data[str(self.engineComboBox.currentText()) + '_secret'] = self.secretEdit.text()
             loaded_data['rpm'] = self.rpmEdit.text()
             loaded_data['rps'] = self.rpsEdit.text()
             loaded_data['tpm'] = self.tpmEdit.text()
