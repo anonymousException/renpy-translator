@@ -12,7 +12,7 @@ from PySide6 import QtWidgets, QtCore
 import sys
 
 from PySide6.QtCore import Qt, QDir, QThread, Signal
-from PySide6.QtGui import  QIcon, QIntValidator, QTextCursor
+from PySide6.QtGui import QIcon, QIntValidator, QTextCursor
 from PySide6.QtWidgets import QFileDialog, QListView, QAbstractItemView, QTreeView, QDialog, QPushButton, QLineEdit, \
     QVBoxLayout, QMainWindow, QApplication
 
@@ -20,9 +20,10 @@ from copyright import Ui_CopyrightDialog
 from my_log import log_print, log_path
 from renpy_extract import extractThread, extract_threads, ExtractAllFilesInDir
 from renpy_fonts import GenGuiFonts
+
 os.environ['REQUESTS_CA_BUNDLE'] = os.path.join(os.path.dirname(sys.argv[0]), 'cacert.pem')
 os.environ['NO_PROXY'] = '*'
-from renpy_translate import translateThread, translate_threads, engineList,engineDic
+from renpy_translate import translateThread, translate_threads, engineList, engineDic
 from proxy import Ui_ProxyDialog
 from engine import Ui_EngineDialog
 from ui import Ui_MainWindow
@@ -81,7 +82,7 @@ class MyEngineForm(QDialog, Ui_EngineDialog):
 
     def init_openai_model_combobox(self):
         if self.modelComboBox.count() == 0:
-            l = ["gpt-3.5-turbo","gpt-4"]
+            l = ["gpt-3.5-turbo", "gpt-4"]
             for i in l:
                 self.modelComboBox.addItem(i)
 
@@ -122,12 +123,12 @@ class MyEngineForm(QDialog, Ui_EngineDialog):
                     "secret": self.secretEdit.text(),
                     str(self.engineComboBox.currentText()) + '_key': self.keyEdit.text(),
                     str(self.engineComboBox.currentText()) + '_secret': self.secretEdit.text(),
-                    "rpm":self.rpmEdit.text(),
-                    "rps":self.rpsEdit.text(),
-                    "tpm":self.tpmEdit.text(),
-                    "openai_model":self.modelComboBox.currentText(),
-                    "openai_base_url":self.baseUrlEdit.text(),
-                    "openai_model_index":self.modelComboBox.currentIndex()}
+                    "rpm": self.rpmEdit.text(),
+                    "rps": self.rpsEdit.text(),
+                    "tpm": self.tpmEdit.text(),
+                    "openai_model": self.modelComboBox.currentText(),
+                    "openai_base_url": self.baseUrlEdit.text(),
+                    "openai_model_index": self.modelComboBox.currentIndex()}
             json.dump(data, f)
             f.close()
         else:
@@ -188,6 +189,7 @@ class MyCopyrightForm(QDialog, Ui_CopyrightDialog):
     def open_url(self, event):
         webbrowser.open(self.url_label.text())
 
+
 class DirectorySelector(QFileDialog):
     def __init__(self):
         super(DirectorySelector, self).__init__()
@@ -200,7 +202,6 @@ class DirectorySelector(QFileDialog):
         treeView = self.findChild(QTreeView, "treeView")
         if treeView:
             treeView.setSelectionMode(QAbstractItemView.SelectionMode.ExtendedSelection)
-
 
 
 class MyMainForm(QMainWindow, Ui_MainWindow):
@@ -238,13 +239,17 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.actioncopyright.triggered.connect(lambda: self.show_copyright_form())
         self.proxySettings.triggered.connect(lambda: self.show_proxy_settings())
         self.engineSettings.triggered.connect(lambda: self.show_engine_settings())
+        self.customEngineSettings.triggered.connect(lambda: self.show_custom_engine_settings())
         _thread.start_new_thread(self.update_log, ())
         if os.path.isfile('translating'):
             os.remove('translating')
         if os.path.isfile('extracting'):
             os.remove('extracting')
 
-    def filter_checkbox_changed(self,state):
+    def show_custom_engine_settings(self):
+        log_print('666')
+
+    def filter_checkbox_changed(self, state):
         if self.filterCheckBox.isChecked():
             self.filterLengthLineEdit.setEnabled(True)
         else:
@@ -265,8 +270,8 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         if os.path.isfile('engine.txt'):
             with open('engine.txt', 'r') as json_file:
                 now = json.load(json_file)
-        if (now is not None and ori is not None and now['engine'] != ori['engine'])\
-                or (now is None and ori is None)\
+        if (now is not None and ori is not None and now['engine'] != ori['engine']) \
+                or (now is None and ori is None) \
                 or (now is not None and ori is None):
             self.init_combobox()
 
@@ -317,47 +322,20 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
     def init_combobox(self):
         self.targetComboBox.clear()
         self.sourceComboBox.clear()
-        target = 'google.target.rst'
-        source = 'google.source.rst'
+        target = None
+        source = None
         header = 'supported_language/'
         if os.path.isfile('engine.txt'):
             with open('engine.txt', 'r') as json_file:
                 loaded_data = json.load(json_file)
-                if loaded_data['engine'] == engineList[0] or loaded_data['engine'] == engineList[1]:
-                    pass
-                else:
-                    if loaded_data['engine'] == engineList[2]:
-                        target = 'youdao.target.rst'
-                        source = 'youdao.source.rst'
-                    elif loaded_data['engine'] == engineList[3]:
-                        target = 'deepl.target.rst'
-                        source = 'deepl.source.rst'
-                    elif loaded_data['engine'] == engineList[4]:
-                        target = 'openai.target.rst'
-                        source = 'openai.source.rst'
-                    elif loaded_data['engine'] == engineList[5]:
-                        target = 'alibaba.target.rst'
-                        source = 'alibaba.source.rst'
-                    elif loaded_data['engine'] == engineList[6]:
-                        target = 'modernMt.target.rst'
-                        source = 'modernMt.source.rst'
-                    elif loaded_data['engine'] == engineList[7]:
-                        target = 'bing.target.rst'
-                        source = 'bing.source.rst'
-                    elif loaded_data['engine'] == engineList[8]:
-                        target = 'lingvanex.target.rst'
-                        source = 'lingvanex.source.rst'
-                    elif loaded_data['engine'] == engineList[9]:
-                        target = 'cloudTranslation.target.rst'
-                        source = 'cloudTranslation.source.rst'
-                    elif loaded_data['engine'] == engineList[10]:
-                        target = 'youdao_free.target.rst'
-                        source = 'youdao_free.source.rst'
-                    elif loaded_data['engine'] == engineList[11]:
-                        target = 'caiyun.target.rst'
-                        source = 'caiyun.source.rst'
-                    else:
-                        return
+                target = engineDic[loaded_data['engine']]['target']
+                source = engineDic[loaded_data['engine']]['source']
+        if target is None or source is None:
+            log_print('target or source not found!')
+            return
+        if len(target) == 0 or len(source) == 0:
+            log_print('target or source is empty!')
+            return
         target = header + target
         source = header + source
         target_l = self.get_combobox_content(target, targetDic)
@@ -366,7 +344,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         source_l = self.get_combobox_content(source, sourceDic)
         for i in source_l:
             self.sourceComboBox.addItem(i)
-        try :
+        try:
             self.sourceComboBox.setCurrentIndex(source_l.index('Auto Detect'))
         except Exception:
             pass
@@ -383,7 +361,10 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
                     if len(tl_name) == 0:
                         log_print('tl name is empty skip extract file(s)')
                         continue
-                    t = extractThread(threadID=cnt, p=i, tl_name=tl_name,dir=None,tl_dir=None,is_open_filter=self.filterCheckBox.isChecked(),filter_length=int(self.filterLengthLineEdit.text()),is_gen_empty=self.emptyCheckBox.isChecked())
+                    t = extractThread(threadID=cnt, p=i, tl_name=tl_name, dir=None, tl_dir=None,
+                                      is_open_filter=self.filterCheckBox.isChecked(),
+                                      filter_length=int(self.filterLengthLineEdit.text()),
+                                      is_gen_empty=self.emptyCheckBox.isChecked())
                     t.start()
                     extract_threads.append(t)
                     cnt = cnt + 1
@@ -397,7 +378,8 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
                         continue
                     t = extractThread(threadID=cnt, p=None, tl_name=tl_name, dir=i, tl_dir=None,
                                       is_open_filter=self.filterCheckBox.isChecked(),
-                                      filter_length=int(self.filterLengthLineEdit.text()),is_gen_empty=self.emptyCheckBox.isChecked())
+                                      filter_length=int(self.filterLengthLineEdit.text()),
+                                      is_gen_empty=self.emptyCheckBox.isChecked())
                     t.start()
                     extract_threads.append(t)
                     cnt = cnt + 1
@@ -412,7 +394,10 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
                 else:
                     if select_dir[len(select_dir) - 1] != '/' and select_dir[len(select_dir) - 1] != '\\':
                         select_dir = select_dir + '/'
-                    t = extractThread(threadID=cnt, p=None, tl_name=tl_name,dir=None,tl_dir=select_dir,is_open_filter=self.filterCheckBox.isChecked(),filter_length=int(self.filterLengthLineEdit.text()),is_gen_empty=self.emptyCheckBox.isChecked())
+                    t = extractThread(threadID=cnt, p=None, tl_name=tl_name, dir=None, tl_dir=select_dir,
+                                      is_open_filter=self.filterCheckBox.isChecked(),
+                                      filter_length=int(self.filterLengthLineEdit.text()),
+                                      is_gen_empty=self.emptyCheckBox.isChecked())
                     t.start()
                     extract_threads.append(t)
                     cnt = cnt + 1
@@ -540,7 +525,8 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
             for i in select_files:
                 i = i.replace('file:///', '')
                 if len(i) > 0:
-                    t = translateThread(cnt, i, target_language, source_language,self.multiTranslateCheckBox.isChecked(),self.backupCheckBox.isChecked())
+                    t = translateThread(cnt, i, target_language, source_language,
+                                        self.multiTranslateCheckBox.isChecked(), self.backupCheckBox.isChecked())
                     t.start()
                     translate_threads.append(t)
                     cnt = cnt + 1
@@ -552,14 +538,16 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
                 else:
                     if select_dir[len(select_dir) - 1] != '/' and select_dir[len(select_dir) - 1] != '\\':
                         select_dir = select_dir + '/'
-                    paths = os.walk(select_dir,topdown=False)
+                    paths = os.walk(select_dir, topdown=False)
                     for path, dir_lst, file_lst in paths:
                         for file_name in file_lst:
                             i = os.path.join(path, file_name)
                             if not file_name.endswith("rpy"):
                                 continue
                             # _thread.start_new_thread(TranslateFile,(i,))
-                            t = translateThread(cnt, i, target_language, source_language,self.multiTranslateCheckBox.isChecked(),self.backupCheckBox.isChecked())
+                            t = translateThread(cnt, i, target_language, source_language,
+                                                self.multiTranslateCheckBox.isChecked(),
+                                                self.backupCheckBox.isChecked())
                             t.start()
                             translate_threads.append(t)
                             cnt = cnt + 1
