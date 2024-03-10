@@ -286,6 +286,10 @@ def isAllPunctuations(s):
 
 def TranslateFile(p, lang_target, lang_source, is_gen_bak):
     proxies = None
+    if os.path.isfile('custom.txt'):
+        f = io.open('custom.txt', 'r', encoding='utf-8')
+        customEngineDic = json.load(f)
+        f.close()
     if os.path.isfile('proxy.txt'):
         with open('proxy.txt', 'r') as json_file:
             loaded_data = json.load(json_file)
