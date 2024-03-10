@@ -21,17 +21,22 @@ from my_log import log_print, log_path
 from renpy_extract import extractThread, extract_threads, ExtractAllFilesInDir
 from renpy_fonts import GenGuiFonts
 
+
 os.environ['REQUESTS_CA_BUNDLE'] = os.path.join(os.path.dirname(sys.argv[0]), 'cacert.pem')
 os.environ['NO_PROXY'] = '*'
-from renpy_translate import translateThread, translate_threads, engineList, engineDic
+from renpy_translate import translateThread, translate_threads, engineList, engineDic, customEngineDic, language_header
 from proxy import Ui_ProxyDialog
 from engine import Ui_EngineDialog
 from ui import Ui_MainWindow
-
+from custom_engine_form import MyCustomEngineForm
 
 targetDic = dict()
 sourceDic = dict()
 
+from custom_translate import CustomTranslate
+# customTranslate = CustomTranslate('test.txt','3975l6lr5pcbvidl6jl2',None,{'http':'http://localhost:10809'},True)
+# result = customTranslate.translate(['What are you doing'],'auto','zh')
+# log_print(result)
 
 class MyEngineForm(QDialog, Ui_EngineDialog):
     def __init__(self, parent=None):
@@ -45,7 +50,13 @@ class MyEngineForm(QDialog, Ui_EngineDialog):
         )
         self.detailLabel.setStyleSheet("color:blue")
         self.setFixedHeight(200)
+        if os.path.isfile('custom.txt'):
+            f = io.open('custom.txt', 'r', encoding='utf-8')
+            customEngineDic = json.load(f)
+            f.close()
         for i in engineDic.keys():
+            self.engineComboBox.addItem(i)
+        for i in customEngineDic.keys():
             self.engineComboBox.addItem(i)
         self.init_openai_model_combobox()
         if os.path.isfile('engine.txt'):
@@ -64,6 +75,20 @@ class MyEngineForm(QDialog, Ui_EngineDialog):
                     self.modelComboBox.setCurrentIndex(loaded_data['openai_model_index'])
                 if "openai_base_url" in loaded_data:
                     self.baseUrlEdit.setText(loaded_data['openai_base_url'])
+            self.init_edit_status()
+            if self.engineComboBox.currentText() == engineList[4]:
+                self.setFixedHeight(300)
+        self.confirmButton.clicked.connect(self.confirm)
+        self.engineComboBox.currentIndexChanged.connect(self.on_combobox_change)
+        self.detailLabel.mousePressEvent = self.open_url
+        self.detailLabel.setCursor(QtCore.Qt.CursorShape.PointingHandCursor)
+
+    def init_edit_status(self):
+        if os.path.isfile('custom.txt'):
+            f = io.open('custom.txt', 'r', encoding='utf-8')
+            customEngineDic = json.load(f)
+            f.close()
+        if self.engineComboBox.currentText() in engineDic.keys():
             if engineDic[self.engineComboBox.currentText()]['key_edit']:
                 self.keyEdit.setEnabled(True)
             else:
@@ -73,12 +98,17 @@ class MyEngineForm(QDialog, Ui_EngineDialog):
                 self.secretEdit.setEnabled(True)
             else:
                 self.secretEdit.setDisabled(True)
-            if self.engineComboBox.currentText() == engineList[4]:
-                self.setFixedHeight(300)
-        self.confirmButton.clicked.connect(self.confirm)
-        self.engineComboBox.currentIndexChanged.connect(self.on_combobox_change)
-        self.detailLabel.mousePressEvent = self.open_url
-        self.detailLabel.setCursor(QtCore.Qt.CursorShape.PointingHandCursor)
+        elif self.engineComboBox.currentText() in customEngineDic.keys():
+            if customEngineDic[self.engineComboBox.currentText()]['key_edit']:
+                self.keyEdit.setEnabled(True)
+            else:
+                self.keyEdit.setDisabled(True)
+            if customEngineDic[self.engineComboBox.currentText()]['secret_edit']:
+                self.secretEdit.setEnabled(True)
+            else:
+                self.secretEdit.setDisabled(True)
+        else:
+            log_print(self.engineComboBox.currentText() + 'not in dic error!')
 
     def init_openai_model_combobox(self):
         if self.modelComboBox.count() == 0:
@@ -93,15 +123,7 @@ class MyEngineForm(QDialog, Ui_EngineDialog):
         self.setFixedHeight(200)
         if self.engineComboBox.currentText() == engineList[4]:
             self.setFixedHeight(300)
-        if engineDic[self.engineComboBox.currentText()]['key_edit']:
-            self.keyEdit.setEnabled(True)
-        else:
-            self.keyEdit.setDisabled(True)
-
-        if engineDic[self.engineComboBox.currentText()]['secret_edit']:
-            self.secretEdit.setEnabled(True)
-        else:
-            self.secretEdit.setDisabled(True)
+        self.init_edit_status()
         if os.path.isfile('engine.txt'):
             with open('engine.txt', 'r') as json_file:
                 loaded_data = json.load(json_file)
@@ -228,7 +250,6 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.filterCheckBox.stateChanged.connect(self.filter_checkbox_changed)
         validator = QIntValidator()
         self.filterLengthLineEdit.setValidator(validator)
-
         try:
             self.init_combobox()
         except Exception as e:
@@ -246,8 +267,10 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         if os.path.isfile('extracting'):
             os.remove('extracting')
 
+
     def show_custom_engine_settings(self):
-        log_print('666')
+        custom_engine_form = MyCustomEngineForm(parent=self)
+        custom_engine_form.exec()
 
     def filter_checkbox_changed(self, state):
         if self.filterCheckBox.isChecked():
@@ -324,20 +347,29 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.sourceComboBox.clear()
         target = None
         source = None
-        header = 'supported_language/'
+        if os.path.isfile('custom.txt'):
+            f = io.open('custom.txt', 'r', encoding='utf-8')
+            customEngineDic = json.load(f)
+            f.close()
         if os.path.isfile('engine.txt'):
             with open('engine.txt', 'r') as json_file:
                 loaded_data = json.load(json_file)
-                target = engineDic[loaded_data['engine']]['target']
-                source = engineDic[loaded_data['engine']]['source']
+                if loaded_data['engine'] in engineDic:
+                    target = engineDic[loaded_data['engine']]['target']
+                    source = engineDic[loaded_data['engine']]['source']
+                elif loaded_data['engine'] in customEngineDic:
+                    target = customEngineDic[loaded_data['engine']]['target']
+                    source = customEngineDic[loaded_data['engine']]['source']
+                else:
+                    log_print(loaded_data['engine'] + 'not in dic')
         if target is None or source is None:
             log_print('target or source not found!')
             return
         if len(target) == 0 or len(source) == 0:
             log_print('target or source is empty!')
             return
-        target = header + target
-        source = header + source
+        target = language_header + target
+        source = language_header + source
         target_l = self.get_combobox_content(target, targetDic)
         for i in target_l:
             self.targetComboBox.addItem(i)
@@ -467,7 +499,6 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         def __del__(self):
             self.wait()
 
-        # 处理要做的业务逻辑
         def run(self):
             f = io.open(log_path, 'r+', encoding='utf-8')
             self.update_date.emit(f.read())
@@ -490,7 +521,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
     def select_file2(self):
         files, filetype = QFileDialog.getOpenFileNames(self,
                                                        "select the file(s) you want to extract",
-                                                       '',  # 起始路径
+                                                       '',
                                                        "Rpy Files (*.rpy);;All Files (*)")
         s = ''
         for file in files:
@@ -504,7 +535,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
     def select_file(self):
         files, filetype = QFileDialog.getOpenFileNames(self,
                                                        "select the file(s) you want to translate",
-                                                       '',  # 起始路径
+                                                       '',
                                                        "Rpy Files (*.rpy);;All Files (*)")
         s = ''
         for file in files:

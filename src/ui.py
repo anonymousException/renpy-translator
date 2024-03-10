@@ -31,6 +31,8 @@ class Ui_MainWindow(object):
         self.proxySettings.setObjectName(u"proxySettings")
         self.engineSettings = QAction(MainWindow)
         self.engineSettings.setObjectName(u"engineSettings")
+        self.customEngineSettings = QAction(MainWindow)
+        self.customEngineSettings.setObjectName(u"customEngineSettings")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.log_text = QTextEdit(self.centralwidget)
@@ -202,6 +204,7 @@ class Ui_MainWindow(object):
         self.aboutMenu.addAction(self.actioncopyright)
         self.proxyMenu.addAction(self.proxySettings)
         self.translationEngineMenu.addAction(self.engineSettings)
+        self.translationEngineMenu.addAction(self.customEngineSettings)
 
         self.retranslateUi(MainWindow)
 
@@ -213,6 +216,7 @@ class Ui_MainWindow(object):
         self.actioncopyright.setText(QCoreApplication.translate("MainWindow", u"copyright", None))
         self.proxySettings.setText(QCoreApplication.translate("MainWindow", u"proxy settings", None))
         self.engineSettings.setText(QCoreApplication.translate("MainWindow", u"engine settings", None))
+        self.customEngineSettings.setText(QCoreApplication.translate("MainWindow", u"custom engine", None))
         self.clearLogBtn.setText(QCoreApplication.translate("MainWindow", u"clear log", None))
         self.translateBtn.setText(QCoreApplication.translate("MainWindow", u"translate", None))
         self.selectFilesBtn.setText(QCoreApplication.translate("MainWindow", u"...", None))
@@ -251,7 +255,7 @@ class Ui_MainWindow(object):
         self.filterCheckBox.setText(QCoreApplication.translate("MainWindow", u"Enable filter for extract", None))
         self.label_14.setText(QCoreApplication.translate("MainWindow", u"filter length less than", None))
         self.emptyCheckBox.setText(QCoreApplication.translate("MainWindow", u"Generate empty strings instead of original", None))
-        self.versionLabel.setText(QCoreApplication.translate("MainWindow", u"Version 1.8.1", None))
+        self.versionLabel.setText(QCoreApplication.translate("MainWindow", u"Version 1.8.2", None))
         self.copyrightLabel.setText(QCoreApplication.translate("MainWindow", u"\u00a92024 Last moment,All rights reserved.", None))
         self.label_11.setText(QCoreApplication.translate("MainWindow", u"font", None))
         self.selectFontText.setPlaceholderText(QCoreApplication.translate("MainWindow", u"input or choose or drag the font which supports the language after translation. Example : DejaVuSans.ttf (ren'py 's default font)", None))

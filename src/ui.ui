@@ -495,7 +495,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Version 1.8.1</string>
+     <string>Version 1.8.2</string>
     </property>
    </widget>
    <widget class="QLabel" name="copyrightLabel">
@@ -670,6 +670,7 @@
      <string>translation engine</string>
     </property>
     <addaction name="engineSettings"/>
+    <addaction name="customEngineSettings"/>
    </widget>
    <addaction name="aboutMenu"/>
    <addaction name="proxyMenu"/>
@@ -688,6 +689,11 @@
   <action name="engineSettings">
    <property name="text">
     <string>engine settings</string>
+   </property>
+  </action>
+  <action name="customEngineSettings">
+   <property name="text">
+    <string>custom engine</string>
    </property>
   </action>
  </widget>

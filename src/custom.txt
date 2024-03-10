@@ -1,0 +1,1 @@
+{"Caiyun(Token Required)": {"url": "https://fanyi.caiyunapp.com/", "key_edit": true, "secret_edit": false, "is_queue": true, "target": "caiyun.target.rst", "source": "caiyun.source.rst", "file_name": "caiyun.py"}}

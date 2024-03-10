@@ -11,38 +11,47 @@ from pygtrans import Translate, ApiKeyTranslate
 from my_log import log_print
 from deepl_translate import DeeplTranslate
 from openai_translate import OpenAITranslate
+from custom_translate import CustomTranslate
 from translator_translate import TranslatorTranslate
 from youdao_translate import YoudaoTranslate
+
+language_header = 'supported_language/'
+custom_header = 'custom_engine/'
 
 engineList = ['Google(Free)', 'Google(Token Required)', 'YouDao(Token Required)', 'DeepL(Token Required)',
               'OpenAI(Token Required)', 'Alibaba(Free)', 'ModernMt(Free)', 'Bing(Free)', 'Lingvanex(Free)',
               'CloudTranslation(Free)', 'YouDao(Free)', 'Caiyun(Free)']
+
 engineDic = {engineList[0]: {'url': 'https://cloud.google.com/translate/docs/quickstarts', 'key_edit': False,
-                             'secret_edit': False,'target':'google.target.rst','source':'google.source.rst'},
+                             'secret_edit': False, 'target': 'google.target.rst', 'source': 'google.source.rst'},
              engineList[1]: {'url': 'https://cloud.google.com/translate/docs/quickstarts', 'key_edit': True,
-                             'secret_edit': False,'target':'google.target.rst','source':'google.source.rst'},
+                             'secret_edit': False, 'target': 'google.target.rst', 'source': 'google.source.rst'},
              engineList[10]: {'url': 'https://ai.youdao.com/doc.s#guide', 'key_edit': False,
-                              'secret_edit': False,'target':'youdao_free.target.rst','source':'youdao_free.source.rst'},
+                              'secret_edit': False, 'target': 'youdao_free.target.rst',
+                              'source': 'youdao_free.source.rst'},
              engineList[2]: {'url': 'https://ai.youdao.com/doc.s#guide', 'key_edit': True,
-                             'secret_edit': True,'target':'youdao.target.rst','source':'youdao.source.rst'},
+                             'secret_edit': True, 'target': 'youdao.target.rst', 'source': 'youdao.source.rst'},
              engineList[3]: {
                  'url': 'https://www.deepl.com/account/?utm_source=github&utm_medium=github-python-readme',
-                 'key_edit': True, 'secret_edit': False,'target':'deepl.target.rst','source':'deepl.source.rst'},
+                 'key_edit': True, 'secret_edit': False, 'target': 'deepl.target.rst', 'source': 'deepl.source.rst'},
              engineList[4]: {'url': 'https://platform.openai.com/api-keys', 'key_edit': True,
-                             'secret_edit': False,'target':'openai.target.rst','source':'openai.source.rst'},
+                             'secret_edit': False, 'target': 'openai.target.rst', 'source': 'openai.source.rst'},
              engineList[5]: {'url': 'https://translate.alibaba.com', 'key_edit': False,
-                             'secret_edit': False,'target':'alibaba.target.rst','source':'alibaba.source.rst'},
+                             'secret_edit': False, 'target': 'alibaba.target.rst', 'source': 'alibaba.source.rst'},
              engineList[6]: {'url': 'https://www.modernmt.com/translate', 'key_edit': False,
-                             'secret_edit': False,'target':'modernMt.target.rst','source':'modernMt.source.rst'},
+                             'secret_edit': False, 'target': 'modernMt.target.rst', 'source': 'modernMt.source.rst'},
              engineList[7]: {'url': 'https://www.bing.com/Translator', 'key_edit': False,
-                             'secret_edit': False,'target':'bing.target.rst','source':'bing.source.rst'},
+                             'secret_edit': False, 'target': 'bing.target.rst', 'source': 'bing.source.rst'},
              engineList[8]: {'url': 'https://lingvanex.com/demo', 'key_edit': False,
-                             'secret_edit': False,'target':'lingvanex.target.rst','source':'lingvanex.source.rst'},
+                             'secret_edit': False, 'target': 'lingvanex.target.rst', 'source': 'lingvanex.source.rst'},
              engineList[9]: {'url': 'https://www.cloudtranslation.com/#/translate', 'key_edit': False,
-                             'secret_edit': False,'target':'cloudTranslation.target.rst','source':'cloudTranslation.source.rst'},
+                             'secret_edit': False, 'target': 'cloudTranslation.target.rst',
+                             'source': 'cloudTranslation.source.rst'},
              engineList[11]: {'url': 'https://fanyi.caiyunapp.com/', 'key_edit': False,
-                              'secret_edit': False,'target':'caiyun.target.rst','source':'caiyun.source.rst'},
+                              'secret_edit': False, 'target': 'caiyun.target.rst', 'source': 'caiyun.source.rst'},
              }
+
+customEngineDic = dict()
 translate_threads = []
 translate_lock = threading.Lock()
 client_openai = None
@@ -335,6 +344,9 @@ def TranslateFile(p, lang_target, lang_source, is_gen_bak):
                 client = TranslatorTranslate('youdao', proxies=None)
             elif loaded_data['engine'] == engineList[11]:
                 client = TranslatorTranslate('caiyun', proxies=None)
+            elif loaded_data['engine'] in customEngineDic.keys():
+                config = customEngineDic[loaded_data['engine']]
+                client = CustomTranslate(custom_header + config['file_name'],loaded_data['key'],loaded_data['secret'],proxies,config['is_queue'])
             else:
                 log_print('engine.txt' + ' file format error!')
                 msg = traceback.format_exc()
