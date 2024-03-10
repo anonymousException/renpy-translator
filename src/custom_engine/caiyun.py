@@ -1,7 +1,3 @@
-import json
-import requests
-import traceback
-
 # if your api can not input untranslated list such as ['Hello','World']
 # but can only accept single text input like 'Hello World'
 # use this api
@@ -13,6 +9,10 @@ def tranlate_single(app_key,app_secret,source, target,proxies,text):
 # notice that, any other function call should not be out of this function
 # you can directly include other function in this function ,like tranlate_caiyun , otherwise will cause NameError
 def tranlate_queue(app_key,app_secret,source, target,proxies,q):
+    # write import inside the function , otherwise will cause NameError
+    import json
+    import requests
+    import traceback
     def tranlate_caiyun(token, from_to, proxies, q):
         url = "http://api.interpreter.caiyunai.com/v1/translator"
         payload = {
