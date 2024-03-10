@@ -1,6 +1,6 @@
 # if your api can not input untranslated list such as ['Hello','World']
 # but can only accept single text input like 'Hello World'
-# use this api
+# use this api , the example is baidu.py
 def tranlate_single(app_key,app_secret,source, target,proxies,text):
     # return translated_text
     pass

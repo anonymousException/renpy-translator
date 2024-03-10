@@ -77,8 +77,12 @@ class MyCustomEngineForm(QDialog, Ui_CustomDialog):
             secret = self.customComboBox.currentText() + '_secret'
             if key in loaded_data.keys():
                 self.keyEdit.setText(loaded_data[key])
+            else:
+                self.keyEdit.setText('')
             if secret in loaded_data.keys():
                 self.secretEdit.setText(loaded_data[secret])
+            else:
+                self.secretEdit.setText('')
 
 
     def on_delete_button_clicked(self):
@@ -172,8 +176,8 @@ class MyCustomEngineForm(QDialog, Ui_CustomDialog):
         json.dump(dic, f)
         f.close()
         if self.saveKeySecretCheckBox.isChecked():
-            key = self.customComboBox.currentText() + '_key'
-            secret = self.customComboBox.currentText() + '_secret'
+            key = name + '_key'
+            secret = name + '_secret'
             if os.path.isfile('engine.txt'):
                 f = io.open('engine.txt', 'r', encoding='utf-8')
                 loaded_data = json.load(f)

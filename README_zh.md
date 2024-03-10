@@ -619,7 +619,7 @@ Exception: Unterminated string starting at: line 1 column 1613 (char 1612)
 
 你可以写一个提供翻译 api 的 python 脚本，并把它导入到此工具
 
-你应该参照 [caiyun.py](https://github.com/anonymousException/renpy-translator/blob/main/src/custom_engine/caiyun.py)  来写 (api 函数名必须是 tranlate_single 或 tranlate_queue)
+你应该参照 [caiyun.py](https://github.com/anonymousException/renpy-translator/blob/main/src/custom_engine/caiyun.py) 和  [baidu.py](https://github.com/anonymousException/renpy-translator/blob/main/src/custom_engine/baidu.py)   来写 (api 函数名必须是 tranlate_single 或 tranlate_queue)
 
 除此之外你还应该为 source 和 target 提供 2 个语言文件像 [caiyun.source.rst](https://github.com/anonymousException/renpy-translator/blob/main/src/supported_language/caiyun.source.rst?plain=1) 和 [caiyun.target.rst](https://github.com/anonymousException/renpy-translator/blob/main/src/supported_language/caiyun.target.rst?plain=1) 
 

@@ -624,7 +624,7 @@ It's depend on your network environment , re-translate may do effect
 
 You can write a python script which supports translation api , and import it to this tool
 
-you should write like [caiyun.py](https://github.com/anonymousException/renpy-translator/blob/main/src/custom_engine/caiyun.py) (the api name must be tranlate_single or tranlate_queue)
+you should write like [caiyun.py](https://github.com/anonymousException/renpy-translator/blob/main/src/custom_engine/caiyun.py)  and [baidu.py](https://github.com/anonymousException/renpy-translator/blob/main/src/custom_engine/baidu.py) (the api name must be tranlate_single or tranlate_queue)
 
 besides you should offer two language files for source and target like [caiyun.source.rst](https://github.com/anonymousException/renpy-translator/blob/main/src/supported_language/caiyun.source.rst?plain=1) and  [caiyun.target.rst](https://github.com/anonymousException/renpy-translator/blob/main/src/supported_language/caiyun.target.rst?plain=1) 
 

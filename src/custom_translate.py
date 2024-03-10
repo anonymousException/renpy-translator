@@ -89,6 +89,8 @@ class CustomTranslate(object):
                                 l.append(translateResponse)
                         else:
                             log_print(i + '\ntranslate fail')
+                    else:
+                        log_print(i + '\ntranslate fail')
             else:
                 # the function name should be 'translate' with 2 parameters:
                 # 1.app_key
@@ -99,11 +101,11 @@ class CustomTranslate(object):
                 # 6.untranslatedTextList
                 ret = run_dynamic_code_from_file(self.file_name, 'tranlate_queue', self.app_key, self.app_secret, source,
                                                  target, self.proxies, q)
-            if ret is None:
-                raise Exception('run_dynamic_code_from_file return None , please check your code')
-            for i in ret:
-                translateResponse = TranslateResponse(i['untranslatedText'], i['translatedText'])
-                l.append(translateResponse)
+                if ret is None:
+                    raise Exception('run_dynamic_code_from_file return None , please check your code')
+                for i in ret:
+                    translateResponse = TranslateResponse(i['untranslatedText'], i['translatedText'])
+                    l.append(translateResponse)
             dic['l'] = l
             return dic
         except Exception as e:
