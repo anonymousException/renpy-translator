@@ -37,7 +37,7 @@ https://github.com/anonymousException/renpy-translator/blob/feature/ai-translate
 |           [Bing](https://www.bing.com/Translator)            |            133            |          Free          | [Modernmt](https://github.com/modernmt) / [Translated](https://translatedlabs.com/welcome) |  Italy  |  [translators](https://github.com/UlionTse/translators)  |
 |           [lingvanex](https://lingvanex.com/demo)            |            109            |          Free          |         [Lingvanex](https://lingvanex.com/about-us/)         | Cyprus  |  [translators](https://github.com/UlionTse/translators)  |
 | [CloudTranslation](https://www.cloudtranslation.com/#/translate) |             8             |          Free          | [Xiamen University](http://nlp.xmu.edu.cn/) / [CloudTranslation](https://www.cloudtranslation.com/#/about) |  China  |  [translators](https://github.com/UlionTse/translators)  |
-|            [Caiyun](https://fanyi.caiyunapp.com/)            |             7             |          Free          |         [ColorfulClouds](http://caiyunapp.com/jobs/)         |  China  |  [translators](https://github.com/UlionTse/translators)  |
+|            [Caiyun](https://fanyi.caiyunapp.com/)            |             3             |          Free          |         [ColorfulClouds](http://caiyunapp.com/jobs/)         |  China  |  [translators](https://github.com/UlionTse/translators)  |
 
 ## 目的
 
@@ -615,3 +615,14 @@ Exception: Unterminated string starting at: line 1 column 1613 (char 1612)
 
 这取决于你的网络环境，重新翻译可能就可以了
 
+### 自定义引擎
+
+你可以写一个提供翻译 api 的 python 脚本，并把它导入到此工具
+
+你应该参照 [caiyun.py](https://github.com/anonymousException/renpy-translator/blob/main/src/custom_engine/caiyun.py)  来写 (api 函数名必须是 tranlate_single 或 tranlate_queue)
+
+除此之外你还应该为 source 和 target 提供 2 个语言文件像 [caiyun.source.rst](https://github.com/anonymousException/renpy-translator/blob/main/src/supported_language/caiyun.source.rst?plain=1) 和 [caiyun.target.rst](https://github.com/anonymousException/renpy-translator/blob/main/src/supported_language/caiyun.target.rst?plain=1) 
+
+一个好的例子看起来是这样的 :
+
+![custom_engine](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/custom_engine.png)

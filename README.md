@@ -40,7 +40,7 @@ https://github.com/anonymousException/renpy-translator/blob/feature/ai-translate
 |           [Bing](https://www.bing.com/Translator)            |            133            |          Free          | [Modernmt](https://github.com/modernmt) / [Translated](https://translatedlabs.com/welcome) |  Italy  |  [translators](https://github.com/UlionTse/translators)  |
 |           [lingvanex](https://lingvanex.com/demo)            |            109            |          Free          |         [Lingvanex](https://lingvanex.com/about-us/)         | Cyprus  |  [translators](https://github.com/UlionTse/translators)  |
 | [CloudTranslation](https://www.cloudtranslation.com/#/translate) |             8             |          Free          | [Xiamen University](http://nlp.xmu.edu.cn/) / [CloudTranslation](https://www.cloudtranslation.com/#/about) |  China  |  [translators](https://github.com/UlionTse/translators)  |
-|            [Caiyun](https://fanyi.caiyunapp.com/)            |             7             |          Free          |         [ColorfulClouds](http://caiyunapp.com/jobs/)         |  China  |  [translators](https://github.com/UlionTse/translators)  |
+|            [Caiyun](https://fanyi.caiyunapp.com/)            |             3             |  Free\|Token Required  |         [ColorfulClouds](http://caiyunapp.com/jobs/)         |  China  |  [translators](https://github.com/UlionTse/translators)  |
 
 ## Target
 
@@ -619,3 +619,15 @@ You may meet errors like this:
 ```
 
 It's depend on your network environment , re-translate may do effect
+
+### Custom Engine
+
+You can write a python script which supports translation api , and import it to this tool
+
+you should write like [caiyun.py](https://github.com/anonymousException/renpy-translator/blob/main/src/custom_engine/caiyun.py) (the api name must be tranlate_single or tranlate_queue)
+
+besides you should offer two language files for source and target like [caiyun.source.rst](https://github.com/anonymousException/renpy-translator/blob/main/src/supported_language/caiyun.source.rst?plain=1) and  [caiyun.target.rst](https://github.com/anonymousException/renpy-translator/blob/main/src/supported_language/caiyun.target.rst?plain=1) 
+
+A good example setting looks like this:
+
+![custom_engine](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/custom_engine.png)

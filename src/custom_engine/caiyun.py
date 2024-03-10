@@ -9,7 +9,9 @@ def tranlate_single(app_key,app_secret,source, target,proxies,text):
     # return translated_text
     pass
 
-#otherwise,use this api
+# otherwise,use this api
+# notice that, any other function call should not be out of this function
+# you can directly include other function in this function ,like tranlate_caiyun , otherwise will cause NameError
 def tranlate_queue(app_key,app_secret,source, target,proxies,q):
     def tranlate_caiyun(token, from_to, proxies, q):
         url = "http://api.interpreter.caiyunai.com/v1/translator"
