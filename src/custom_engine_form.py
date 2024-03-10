@@ -188,7 +188,7 @@ class MyCustomEngineForm(QDialog, Ui_CustomDialog):
                 f.close()
             else:
                 f = io.open('engine.txt', 'w', encoding='utf-8')
-                loaded_data = {key:self.keyEdit.text(),secret:self.secretEdit.text()}
+                loaded_data = {key:self.keyEdit.text(),secret:self.secretEdit.text(),'engine':name,'key':self.keyEdit.text(),'secret':self.secretEdit.text()}
                 json.dump(loaded_data, f)
                 f.close()
         self.customComboBox.clear()

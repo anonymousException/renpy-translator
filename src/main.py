@@ -78,6 +78,9 @@ class MyEngineForm(QDialog, Ui_EngineDialog):
             self.init_edit_status()
             if self.engineComboBox.currentText() == engineList[4]:
                 self.setFixedHeight(300)
+        else:
+            self.engineComboBox.setCurrentIndex(0)
+            self.on_combobox_change()
         self.confirmButton.clicked.connect(self.confirm)
         self.engineComboBox.currentIndexChanged.connect(self.on_combobox_change)
         self.detailLabel.mousePressEvent = self.open_url
@@ -345,8 +348,8 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
     def init_combobox(self):
         self.targetComboBox.clear()
         self.sourceComboBox.clear()
-        target = None
-        source = None
+        target = 'google.target.rst'
+        source = 'google.source.rst'
         if os.path.isfile('custom.txt'):
             f = io.open('custom.txt', 'r', encoding='utf-8')
             customEngineDic = json.load(f)
@@ -362,12 +365,12 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
                     source = customEngineDic[loaded_data['engine']]['source']
                 else:
                     log_print(loaded_data['engine'] + 'not in dic')
-        if target is None or source is None:
-            log_print('target or source not found!')
-            return
-        if len(target) == 0 or len(source) == 0:
-            log_print('target or source is empty!')
-            return
+            if target is None or source is None:
+                log_print('target or source not found!')
+                return
+            if len(target) == 0 or len(source) == 0:
+                log_print('target or source is empty!')
+                return
         target = language_header + target
         source = language_header + source
         target_l = self.get_combobox_content(target, targetDic)
