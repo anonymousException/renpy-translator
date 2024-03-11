@@ -25,7 +25,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1115, 952)
+        MainWindow.resize(1397, 974)
         self.actioncopyright = QAction(MainWindow)
         self.actioncopyright.setObjectName(u"actioncopyright")
         self.proxySettings = QAction(MainWindow)
@@ -42,7 +42,7 @@ class Ui_MainWindow(object):
         self.versionLabel.setObjectName(u"versionLabel")
         self.versionLabel.setMaximumSize(QSize(91, 16))
 
-        self.gridLayout.addWidget(self.versionLabel, 4, 0, 1, 1)
+        self.gridLayout.addWidget(self.versionLabel, 5, 0, 1, 1)
 
         self.widget = QWidget(self.centralwidget)
         self.widget.setObjectName(u"widget")
@@ -101,7 +101,7 @@ class Ui_MainWindow(object):
         self.copyrightLabel.setObjectName(u"copyrightLabel")
         self.copyrightLabel.setMaximumSize(QSize(240, 16))
 
-        self.gridLayout.addWidget(self.copyrightLabel, 4, 2, 1, 1)
+        self.gridLayout.addWidget(self.copyrightLabel, 5, 2, 1, 1)
 
         self.widget_3 = QWidget(self.centralwidget)
         self.widget_3.setObjectName(u"widget_3")
@@ -206,7 +206,7 @@ class Ui_MainWindow(object):
         self.clearLogBtn.setSizePolicy(sizePolicy)
         self.clearLogBtn.setMaximumSize(QSize(65535, 24))
 
-        self.gridLayout.addWidget(self.clearLogBtn, 4, 1, 1, 1)
+        self.gridLayout.addWidget(self.clearLogBtn, 4, 1, 1, 2)
 
         self.log_text = QTextEdit(self.centralwidget)
         self.log_text.setObjectName(u"log_text")
@@ -219,7 +219,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 1115, 22))
+        self.menubar.setGeometry(QRect(0, 0, 1397, 22))
         self.aboutMenu = QMenu(self.menubar)
         self.aboutMenu.setObjectName(u"aboutMenu")
         self.proxyMenu = QMenu(self.menubar)

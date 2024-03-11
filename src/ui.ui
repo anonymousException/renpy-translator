@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1115</width>
-    <height>952</height>
+    <width>1397</width>
+    <height>974</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,7 +15,7 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="4" column="0">
+    <item row="5" column="0">
      <widget class="QLabel" name="versionLabel">
       <property name="maximumSize">
        <size>
@@ -228,7 +228,7 @@
       </widget>
      </widget>
     </item>
-    <item row="4" column="2">
+    <item row="5" column="2">
      <widget class="QLabel" name="copyrightLabel">
       <property name="maximumSize">
        <size>
@@ -618,7 +618,7 @@
       </widget>
      </widget>
     </item>
-    <item row="4" column="1">
+    <item row="4" column="1" colspan="2">
      <widget class="QPushButton" name="clearLogBtn">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -663,7 +663,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1115</width>
+     <width>1397</width>
      <height>22</height>
     </rect>
    </property>
