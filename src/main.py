@@ -24,7 +24,7 @@ from renpy_fonts import GenGuiFonts
 
 os.environ['REQUESTS_CA_BUNDLE'] = os.path.join(os.path.dirname(sys.argv[0]), 'cacert.pem')
 os.environ['NO_PROXY'] = '*'
-from renpy_translate import translateThread, translate_threads, engineList, engineDic, customEngineDic, language_header
+from renpy_translate import translateThread, translate_threads, engineList, engineDic, language_header
 from proxy import Ui_ProxyDialog
 from engine import Ui_EngineDialog
 from ui import Ui_MainWindow
@@ -50,14 +50,14 @@ class MyEngineForm(QDialog, Ui_EngineDialog):
         )
         self.detailLabel.setStyleSheet("color:blue")
         self.setFixedHeight(200)
+        for i in engineDic.keys():
+            self.engineComboBox.addItem(i)
         if os.path.isfile('custom.txt'):
             f = io.open('custom.txt', 'r', encoding='utf-8')
             customEngineDic = json.load(f)
             f.close()
-        for i in engineDic.keys():
-            self.engineComboBox.addItem(i)
-        for i in customEngineDic.keys():
-            self.engineComboBox.addItem(i)
+            for i in customEngineDic.keys():
+                self.engineComboBox.addItem(i)
         self.init_openai_model_combobox()
         if os.path.isfile('engine.txt'):
             with open('engine.txt', 'r') as json_file:
@@ -87,31 +87,33 @@ class MyEngineForm(QDialog, Ui_EngineDialog):
         self.detailLabel.setCursor(QtCore.Qt.CursorShape.PointingHandCursor)
 
     def init_edit_status(self):
+        customEngineDic = dict()
+        current_text = self.engineComboBox.currentText()
         if os.path.isfile('custom.txt'):
             f = io.open('custom.txt', 'r', encoding='utf-8')
             customEngineDic = json.load(f)
             f.close()
-        if self.engineComboBox.currentText() in engineDic.keys():
-            if engineDic[self.engineComboBox.currentText()]['key_edit']:
+        if current_text in engineDic.keys():
+            if engineDic[current_text]['key_edit']:
                 self.keyEdit.setEnabled(True)
             else:
                 self.keyEdit.setDisabled(True)
 
-            if engineDic[self.engineComboBox.currentText()]['secret_edit']:
+            if engineDic[current_text]['secret_edit']:
                 self.secretEdit.setEnabled(True)
             else:
                 self.secretEdit.setDisabled(True)
-        elif self.engineComboBox.currentText() in customEngineDic.keys():
-            if customEngineDic[self.engineComboBox.currentText()]['key_edit']:
+        elif current_text in customEngineDic.keys():
+            if customEngineDic[current_text]['key_edit']:
                 self.keyEdit.setEnabled(True)
             else:
                 self.keyEdit.setDisabled(True)
-            if customEngineDic[self.engineComboBox.currentText()]['secret_edit']:
+            if customEngineDic[current_text]['secret_edit']:
                 self.secretEdit.setEnabled(True)
             else:
                 self.secretEdit.setDisabled(True)
         else:
-            log_print(self.engineComboBox.currentText() + 'not in dic error!')
+            log_print(current_text + 'not in dic error!')
 
     def init_openai_model_combobox(self):
         if self.modelComboBox.count() == 0:
@@ -120,7 +122,16 @@ class MyEngineForm(QDialog, Ui_EngineDialog):
                 self.modelComboBox.addItem(i)
 
     def open_url(self, event):
-        webbrowser.open(engineDic[self.engineComboBox.currentText()]['url'])
+        current_text = self.engineComboBox.currentText()
+        if current_text in engineDic.keys():
+            webbrowser.open(engineDic[current_text]['url'])
+        else:
+            if os.path.isfile('custom.txt'):
+                f = io.open('custom.txt', 'r', encoding='utf-8')
+                customEngineDic = json.load(f)
+                f.close()
+                if current_text in customEngineDic.keys():
+                    webbrowser.open(customEngineDic[current_text]['url'])
 
     def on_combobox_change(self):
         self.setFixedHeight(200)
@@ -350,6 +361,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.sourceComboBox.clear()
         target = 'google.target.rst'
         source = 'google.source.rst'
+        customEngineDic = dict()
         if os.path.isfile('custom.txt'):
             f = io.open('custom.txt', 'r', encoding='utf-8')
             customEngineDic = json.load(f)

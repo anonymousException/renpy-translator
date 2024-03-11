@@ -51,7 +51,6 @@ engineDic = {engineList[0]: {'url': 'https://cloud.google.com/translate/docs/qui
                               'secret_edit': False, 'target': 'caiyun.target.rst', 'source': 'caiyun.source.rst'},
              }
 
-customEngineDic = dict()
 translate_threads = []
 translate_lock = threading.Lock()
 client_openai = None
@@ -286,6 +285,7 @@ def isAllPunctuations(s):
 
 def TranslateFile(p, lang_target, lang_source, is_gen_bak):
     proxies = None
+    customEngineDic = dict()
     if os.path.isfile('custom.txt'):
         f = io.open('custom.txt', 'r', encoding='utf-8')
         customEngineDic = json.load(f)
