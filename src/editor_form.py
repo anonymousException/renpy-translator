@@ -26,6 +26,7 @@ rpy_info_dic = dict()
 translated_thread = None
 translated_dic = None
 is_need_save = False
+rpy_lock = threading.Lock()
 
 
 class CustomSortProxyModel(QSortFilterProxyModel):
@@ -794,21 +795,24 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
 
     def update_progress(self, data):
         try:
-            if os.path.isfile('rpy_info_got'):
+            rpy_lock.acquire()
+            if os.path.isfile('rpy_info_got') and os.path.getsize('rpy_info_got')>0:
                 f = io.open('rpy_info_got', 'r', encoding='utf-8')
                 select_one = f.read()
                 f.close()
-                self.treeView.model.setRootPath(select_one)
-                self.treeView.setRootIndex(
-                    self.treeView.proxy_model.mapFromSource(self.treeView.model.index(select_one)))
-                self.treeView.proxy_model.invalidateFilter()
-                self.treeView.model.setRootPath(select_one)
-                self.treeView.setRootIndex(
-                    self.treeView.proxy_model.mapFromSource(self.treeView.model.index(select_one)))
-                self.selectTableView.setEnabled(True)
-                self.treeView.setEnabled(True)
-                self.rpyCheckBox.setEnabled(True)
-                os.remove('rpy_info_got')
+                if os.path.isdir(select_one):
+                    self.treeView.model.setRootPath(select_one)
+                    self.treeView.setRootIndex(
+                        self.treeView.proxy_model.mapFromSource(self.treeView.model.index(select_one)))
+                    self.treeView.proxy_model.invalidateFilter()
+                    self.treeView.model.setRootPath(select_one)
+                    self.treeView.setRootIndex(
+                        self.treeView.proxy_model.mapFromSource(self.treeView.model.index(select_one)))
+                    self.selectTableView.setEnabled(True)
+                    self.treeView.setEnabled(True)
+                    self.rpyCheckBox.setEnabled(True)
+                    os.remove('rpy_info_got')
+            rpy_lock.release()
 
             global is_need_save
             if is_need_save:
@@ -952,13 +956,15 @@ def get_rpy_info_from_dir(select_one, is_open_filter):
     res = pool.map(get_rpy_info, jobs)
     pool.close()
     pool.join()
+    log_print('get_rpy_info finished')
     for ret, unmatch_cnt, p in res:
         p = p.replace('\\', '/')
         rpy_info_dic[p] = ret, unmatch_cnt, p
-
+    rpy_lock.acquire()
     f = io.open('rpy_info_got', 'w', encoding='utf-8')
     f.write(select_one)
     f.close()
+    rpy_lock.release()
 
 
 def get_rpy_info(p):
