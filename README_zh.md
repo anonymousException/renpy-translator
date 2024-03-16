@@ -8,6 +8,8 @@
 
 ------
 
+<div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/interface_editor.png"></div>
+
 <div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/interface_v1.8.0.png"></div>
 
 ------
@@ -60,6 +62,7 @@ https://github.com/anonymousException/renpy-translator/blob/feature/ai-translate
 ## <span id = "jump_features">特性</span>
 
 - 完全免费且开源
+- 支持编辑器模式来编辑文件
 - 支持要翻译的文本中包含特殊符号，像 "{}"  "[]" 和 "<>"  , 特殊符号里的内容不会被翻译，例子：
 
   ```python
@@ -109,6 +112,10 @@ https://github.com/anonymousException/renpy-translator/blob/feature/ai-translate
 ------
 
 ## 用法
+
+编辑器模式:
+
+ https://github.com/anonymousException/renpy-translator/assets/157234942/eb140430-2b58-4a46-b913-b2df07d1bb6d
 
 翻译(多)文件:
 

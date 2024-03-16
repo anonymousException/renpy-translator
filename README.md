@@ -9,6 +9,8 @@
 
 ------
 
+<div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/interface_editor.png"></div>
+
 <div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/interface_v1.8.0.png"></div>
 
 <div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/translated_contents.png"></div>
@@ -63,6 +65,7 @@ You can download the latest version through https://github.com/anonymousExceptio
 ## <span id ="jump_features">Features</span>
 
 - Completely free and open-source
+- Support Editor Mode to edit file
 - Support **special symbols** in untranslated contents like "{}"  "[]" and "<>"  , the contents in special symbols will not be translated.  Example:
 - ```python
   # untranslated contents:
@@ -111,6 +114,10 @@ You can download the latest version through https://github.com/anonymousExceptio
 ------
 
 ## Usage
+
+Editor Mode:
+
+https://github.com/anonymousException/renpy-translator/assets/157234942/eb140430-2b58-4a46-b913-b2df07d1bb6d
 
 Translate Files:
 
