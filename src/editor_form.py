@@ -586,6 +586,8 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
         self.changeTranslationEngineButton.clicked.connect(self.show_engine_settings)
         self.showLogButton.clicked.connect(self.on_show_log_button_checked)
         self.searchedOnlyCheckBox.stateChanged.connect(self.on_checkbox_state_changed)
+        self.is_thread_runing = True
+        self.is_thread_end = False
         _thread.start_new_thread(self.update_log, ())
 
     def on_show_log_button_checked(self):
@@ -599,6 +601,9 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
         self.parent.menubar.show()
         self.parent.actionedit.triggered.connect(lambda: self.parent.show_edit_form())
         self.parent.showNormal()
+        self.is_thread_runing = False
+        while not self.is_thread_end:
+            time.sleep(0.1)
 
     def show_engine_settings(self):
         engine_form = MyEngineForm(parent=self)
@@ -649,7 +654,7 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
                         self.tableView.verticalHeader().setSectionHidden(row, True)
                     else:
                         self.tableView.verticalHeader().setSectionHidden(row, False)
-                #log_print(f"Row: {row}, Column: {column}, Data: {data}")
+                # log_print(f"Row: {row}, Column: {column}, Data: {data}")
 
     @staticmethod
     def get_combobox_content(p, d):
@@ -789,14 +794,16 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
     def update_log(self):
         thread = self.UpdateThread()
         thread.update_date.connect(self.update_progress)
-        while True:
+        while self.is_thread_runing:
             thread.start()
             time.sleep(0.5)
+        self.is_thread_end = True
 
     def update_progress(self, data):
         try:
             rpy_lock.acquire()
-            if os.path.isfile('rpy_info_got') and os.path.getsize('rpy_info_got')>0:
+            if os.path.isfile('rpy_info_got') and os.path.getsize('rpy_info_got') > 0:
+                log_print('rpy_info_got refresh')
                 f = io.open('rpy_info_got', 'r', encoding='utf-8')
                 select_one = f.read()
                 f.close()
@@ -941,30 +948,34 @@ class getRpyInfoThread(threading.Thread):
 
 
 def get_rpy_info_from_dir(select_one, is_open_filter):
-    cpu_num = multiprocessing.cpu_count()
-    pool = multiprocessing.Pool(cpu_num)
-    paths = os.walk(select_one, topdown=False)
-    select_one = select_one.replace('\\', '/')
-    jobs = []
-    for path, dir_lst, file_lst in paths:
-        for file_name in file_lst:
-            if is_open_filter and not file_name.endswith("rpy"):
-                continue
-            i = os.path.join(path, file_name)
-            jobs.append(i)
+    try:
+        cpu_num = multiprocessing.cpu_count()
+        pool = multiprocessing.Pool(cpu_num)
+        paths = os.walk(select_one, topdown=False)
+        select_one = select_one.replace('\\', '/')
+        jobs = []
+        for path, dir_lst, file_lst in paths:
+            for file_name in file_lst:
+                if is_open_filter and not file_name.endswith("rpy"):
+                    continue
+                i = os.path.join(path, file_name)
+                jobs.append(i)
 
-    res = pool.map(get_rpy_info, jobs)
-    pool.close()
-    pool.join()
-    log_print('get_rpy_info finished')
-    for ret, unmatch_cnt, p in res:
-        p = p.replace('\\', '/')
-        rpy_info_dic[p] = ret, unmatch_cnt, p
-    rpy_lock.acquire()
-    f = io.open('rpy_info_got', 'w', encoding='utf-8')
-    f.write(select_one)
-    f.close()
-    rpy_lock.release()
+        res = pool.map(get_rpy_info, jobs)
+        pool.close()
+        pool.join()
+        log_print('get_rpy_info finished')
+        for ret, unmatch_cnt, p in res:
+            p = p.replace('\\', '/')
+            rpy_info_dic[p] = ret, unmatch_cnt, p
+        rpy_lock.acquire()
+        f = io.open('rpy_info_got', 'w', encoding='utf-8')
+        f.write(select_one)
+        f.close()
+        rpy_lock.release()
+    except:
+        msg = traceback.format_exc()
+        log_print(msg)
 
 
 def get_rpy_info(p):
