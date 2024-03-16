@@ -1,5 +1,6 @@
 import _thread
 import io
+import multiprocessing
 import os.path
 import subprocess
 import sys
@@ -487,6 +488,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
 
 
 if __name__ == "__main__":
+    multiprocessing.freeze_support()
     app = QApplication(sys.argv)
     myWin = MyMainForm()
     myWin.show()

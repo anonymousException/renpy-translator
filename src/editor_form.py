@@ -930,7 +930,6 @@ class getRpyInfoThread(threading.Thread):
 
 
 def get_rpy_info_from_dir(select_one, is_open_filter):
-    multiprocessing.freeze_support()
     cpu_num = multiprocessing.cpu_count()
     pool = multiprocessing.Pool(cpu_num)
     paths = os.walk(select_one, topdown=False)
