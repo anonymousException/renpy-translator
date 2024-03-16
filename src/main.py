@@ -21,7 +21,6 @@ from my_log import log_print, log_path
 from renpy_extract import extractThread, extract_threads, ExtractAllFilesInDir
 from renpy_fonts import GenGuiFonts
 
-
 os.environ['REQUESTS_CA_BUNDLE'] = os.path.join(os.path.dirname(sys.argv[0]), 'cacert.pem')
 os.environ['NO_PROXY'] = '*'
 from renpy_translate import translateThread, translate_threads, engineList, engineDic, language_header
@@ -29,7 +28,8 @@ from proxy import Ui_ProxyDialog
 from engine import Ui_EngineDialog
 from ui import Ui_MainWindow
 from custom_engine_form import MyCustomEngineForm
-
+from editor_form import MyEditorForm
+from engine_form import MyEngineForm
 targetDic = dict()
 sourceDic = dict()
 
@@ -37,155 +37,6 @@ from custom_translate import CustomTranslate
 # customTranslate = CustomTranslate('test.txt','3975l6lr5pcbvidl6jl2',None,{'http':'http://localhost:10809'},True)
 # result = customTranslate.translate(['What are you doing'],'auto','zh')
 # log_print(result)
-
-class MyEngineForm(QDialog, Ui_EngineDialog):
-    def __init__(self, parent=None):
-        super(MyEngineForm, self).__init__(parent)
-        self.setupUi(self)
-        self.detailLabel.setStyleSheet(
-            "QLabel::hover"
-            "{"
-            "background-color : lightgreen;"
-            "}"
-        )
-        self.detailLabel.setStyleSheet("color:blue")
-        self.setFixedHeight(200)
-        for i in engineDic.keys():
-            self.engineComboBox.addItem(i)
-        if os.path.isfile('custom.txt'):
-            f = io.open('custom.txt', 'r', encoding='utf-8')
-            customEngineDic = json.load(f)
-            f.close()
-            for i in customEngineDic.keys():
-                self.engineComboBox.addItem(i)
-        self.init_openai_model_combobox()
-        if os.path.isfile('engine.txt'):
-            with open('engine.txt', 'r') as json_file:
-                loaded_data = json.load(json_file)
-                self.engineComboBox.setCurrentIndex(self.engineComboBox.findText(loaded_data['engine']))
-                self.keyEdit.setText(loaded_data['key'])
-                self.secretEdit.setText((loaded_data['secret']))
-                if "rpm" in loaded_data:
-                    self.rpmEdit.setText(loaded_data['rpm'])
-                if "rps" in loaded_data:
-                    self.rpsEdit.setText(loaded_data['rps'])
-                if "tpm" in loaded_data:
-                    self.tpmEdit.setText(loaded_data['tpm'])
-                if "openai_model_index" in loaded_data:
-                    self.modelComboBox.setCurrentIndex(loaded_data['openai_model_index'])
-                if "openai_base_url" in loaded_data:
-                    self.baseUrlEdit.setText(loaded_data['openai_base_url'])
-            self.init_edit_status()
-            if self.engineComboBox.currentText() == engineList[4]:
-                self.setFixedHeight(300)
-        else:
-            self.engineComboBox.setCurrentIndex(0)
-            self.on_combobox_change()
-        self.confirmButton.clicked.connect(self.confirm)
-        self.engineComboBox.currentIndexChanged.connect(self.on_combobox_change)
-        self.detailLabel.mousePressEvent = self.open_url
-        self.detailLabel.setCursor(QtCore.Qt.CursorShape.PointingHandCursor)
-
-    def init_edit_status(self):
-        customEngineDic = dict()
-        current_text = self.engineComboBox.currentText()
-        if os.path.isfile('custom.txt'):
-            f = io.open('custom.txt', 'r', encoding='utf-8')
-            customEngineDic = json.load(f)
-            f.close()
-        if current_text in engineDic.keys():
-            if engineDic[current_text]['key_edit']:
-                self.keyEdit.setEnabled(True)
-            else:
-                self.keyEdit.setDisabled(True)
-
-            if engineDic[current_text]['secret_edit']:
-                self.secretEdit.setEnabled(True)
-            else:
-                self.secretEdit.setDisabled(True)
-        elif current_text in customEngineDic.keys():
-            if customEngineDic[current_text]['key_edit']:
-                self.keyEdit.setEnabled(True)
-            else:
-                self.keyEdit.setDisabled(True)
-            if customEngineDic[current_text]['secret_edit']:
-                self.secretEdit.setEnabled(True)
-            else:
-                self.secretEdit.setDisabled(True)
-        else:
-            log_print(current_text + 'not in dic error!')
-
-    def init_openai_model_combobox(self):
-        if self.modelComboBox.count() == 0:
-            l = ["gpt-3.5-turbo", "gpt-4"]
-            for i in l:
-                self.modelComboBox.addItem(i)
-
-    def open_url(self, event):
-        current_text = self.engineComboBox.currentText()
-        if current_text in engineDic.keys():
-            webbrowser.open(engineDic[current_text]['url'])
-        else:
-            if os.path.isfile('custom.txt'):
-                f = io.open('custom.txt', 'r', encoding='utf-8')
-                customEngineDic = json.load(f)
-                f.close()
-                if current_text in customEngineDic.keys():
-                    webbrowser.open(customEngineDic[current_text]['url'])
-
-    def on_combobox_change(self):
-        self.setFixedHeight(200)
-        if self.engineComboBox.currentText() == engineList[4]:
-            self.setFixedHeight(300)
-        self.init_edit_status()
-        if os.path.isfile('engine.txt'):
-            with open('engine.txt', 'r') as json_file:
-                loaded_data = json.load(json_file)
-                key = str(self.engineComboBox.currentText()) + '_key'
-                secret = str(self.engineComboBox.currentText()) + '_secret'
-                if key in loaded_data:
-                    self.keyEdit.setText(loaded_data[key])
-                else:
-                    self.keyEdit.setText('')
-                if secret in loaded_data:
-                    self.secretEdit.setText(loaded_data[secret])
-                else:
-                    self.secretEdit.setText('')
-
-    def confirm(self):
-        if not os.path.isfile('engine.txt'):
-            f = io.open('engine.txt', 'w', encoding='utf-8')
-            data = {"engine": self.engineComboBox.currentText(), "key": self.keyEdit.text(),
-                    "secret": self.secretEdit.text(),
-                    str(self.engineComboBox.currentText()) + '_key': self.keyEdit.text(),
-                    str(self.engineComboBox.currentText()) + '_secret': self.secretEdit.text(),
-                    "rpm": self.rpmEdit.text(),
-                    "rps": self.rpsEdit.text(),
-                    "tpm": self.tpmEdit.text(),
-                    "openai_model": self.modelComboBox.currentText(),
-                    "openai_base_url": self.baseUrlEdit.text(),
-                    "openai_model_index": self.modelComboBox.currentIndex()}
-            json.dump(data, f)
-            f.close()
-        else:
-            f = io.open('engine.txt', 'r', encoding='utf-8')
-            loaded_data = json.load(f)
-            f.close()
-            f = io.open('engine.txt', 'w', encoding='utf-8')
-            loaded_data['engine'] = self.engineComboBox.currentText()
-            loaded_data['key'] = self.keyEdit.text()
-            loaded_data['secret'] = self.secretEdit.text()
-            loaded_data[str(self.engineComboBox.currentText()) + '_key'] = self.keyEdit.text()
-            loaded_data[str(self.engineComboBox.currentText()) + '_secret'] = self.secretEdit.text()
-            loaded_data['rpm'] = self.rpmEdit.text()
-            loaded_data['rps'] = self.rpsEdit.text()
-            loaded_data['tpm'] = self.tpmEdit.text()
-            loaded_data['openai_model'] = self.modelComboBox.currentText()
-            loaded_data['openai_base_url'] = self.baseUrlEdit.text()
-            loaded_data['openai_model_index'] = self.modelComboBox.currentIndex()
-            json.dump(loaded_data, f)
-            f.close()
-        self.close()
 
 
 class MyProxyForm(QDialog, Ui_ProxyDialog):
@@ -275,12 +126,25 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.proxySettings.triggered.connect(lambda: self.show_proxy_settings())
         self.engineSettings.triggered.connect(lambda: self.show_engine_settings())
         self.customEngineSettings.triggered.connect(lambda: self.show_custom_engine_settings())
+        self.actionedit.triggered.connect(lambda: self.show_edit_form())
         _thread.start_new_thread(self.update_log, ())
         if os.path.isfile('translating'):
             os.remove('translating')
         if os.path.isfile('extracting'):
             os.remove('extracting')
 
+    def show_edit_form(self):
+        self.hide()
+        self.widget.hide()
+        self.widget_2.hide()
+        self.widget_3.hide()
+        self.menubar.hide()
+        self.versionLabel.hide()
+        editor_form = MyEditorForm(parent=None)
+        editor_form.parent = self
+        editor_form.show()
+        self.actionedit.triggered.disconnect()
+        #self.show()
 
     def show_custom_engine_settings(self):
         custom_engine_form = MyCustomEngineForm(parent=self)
@@ -293,6 +157,11 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
             self.filterLengthLineEdit.setDisabled(True)
 
     def closeEvent(self, event):
+        if self.menubar.isHidden():
+            self.hide()
+            event.ignore()
+            return
+
         CREATE_NO_WINDOW = 0x08000000
         subprocess.call(['taskkill.exe', '/F', '/T', '/PID', str(os.getpid())], creationflags=CREATE_NO_WINDOW)
 
@@ -485,7 +354,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         thread.update_date.connect(self.update_progress)
         while True:
             thread.start()
-            time.sleep(1)
+            time.sleep(0.1)
 
     def update_progress(self, data):
         if data != self.log_text.toPlainText():

@@ -686,9 +686,16 @@
     <addaction name="engineSettings"/>
     <addaction name="customEngineSettings"/>
    </widget>
+   <widget class="QMenu" name="editorMenu">
+    <property name="title">
+     <string>editor</string>
+    </property>
+    <addaction name="actionedit"/>
+   </widget>
    <addaction name="aboutMenu"/>
    <addaction name="proxyMenu"/>
    <addaction name="translationEngineMenu"/>
+   <addaction name="editorMenu"/>
   </widget>
   <action name="actioncopyright">
    <property name="text">
@@ -708,6 +715,11 @@
   <action name="customEngineSettings">
    <property name="text">
     <string>custom engine</string>
+   </property>
+  </action>
+  <action name="actionedit">
+   <property name="text">
+    <string>edit from rpy</string>
    </property>
   </action>
  </widget>

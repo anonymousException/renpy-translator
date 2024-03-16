@@ -34,6 +34,8 @@ class Ui_MainWindow(object):
         self.engineSettings.setObjectName(u"engineSettings")
         self.customEngineSettings = QAction(MainWindow)
         self.customEngineSettings.setObjectName(u"customEngineSettings")
+        self.actionedit = QAction(MainWindow)
+        self.actionedit.setObjectName(u"actionedit")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.gridLayout = QGridLayout(self.centralwidget)
@@ -226,15 +228,19 @@ class Ui_MainWindow(object):
         self.proxyMenu.setObjectName(u"proxyMenu")
         self.translationEngineMenu = QMenu(self.menubar)
         self.translationEngineMenu.setObjectName(u"translationEngineMenu")
+        self.editorMenu = QMenu(self.menubar)
+        self.editorMenu.setObjectName(u"editorMenu")
         MainWindow.setMenuBar(self.menubar)
 
         self.menubar.addAction(self.aboutMenu.menuAction())
         self.menubar.addAction(self.proxyMenu.menuAction())
         self.menubar.addAction(self.translationEngineMenu.menuAction())
+        self.menubar.addAction(self.editorMenu.menuAction())
         self.aboutMenu.addAction(self.actioncopyright)
         self.proxyMenu.addAction(self.proxySettings)
         self.translationEngineMenu.addAction(self.engineSettings)
         self.translationEngineMenu.addAction(self.customEngineSettings)
+        self.editorMenu.addAction(self.actionedit)
 
         self.retranslateUi(MainWindow)
 
@@ -247,6 +253,7 @@ class Ui_MainWindow(object):
         self.proxySettings.setText(QCoreApplication.translate("MainWindow", u"proxy settings", None))
         self.engineSettings.setText(QCoreApplication.translate("MainWindow", u"engine settings", None))
         self.customEngineSettings.setText(QCoreApplication.translate("MainWindow", u"custom engine", None))
+        self.actionedit.setText(QCoreApplication.translate("MainWindow", u"edit from rpy", None))
         self.versionLabel.setText(QCoreApplication.translate("MainWindow", u"Version 1.8.4", None))
         self.translateBtn.setText(QCoreApplication.translate("MainWindow", u"translate", None))
         self.selectFilesBtn.setText(QCoreApplication.translate("MainWindow", u"...", None))
@@ -299,5 +306,6 @@ class Ui_MainWindow(object):
         self.aboutMenu.setTitle(QCoreApplication.translate("MainWindow", u"about", None))
         self.proxyMenu.setTitle(QCoreApplication.translate("MainWindow", u"proxy", None))
         self.translationEngineMenu.setTitle(QCoreApplication.translate("MainWindow", u"translation engine", None))
+        self.editorMenu.setTitle(QCoreApplication.translate("MainWindow", u"editor", None))
     # retranslateUi
 
