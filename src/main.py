@@ -213,18 +213,25 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
 
     @staticmethod
     def get_combobox_content(p, d):
-        f = io.open(p, 'r', encoding='utf-8')
-        _read = f.read()
-        f.close()
-        _read_line = _read.split('\n')
-        ret_l = []
-        for i in _read_line:
-            contents = i.split(':')
-            d[contents[0].strip()] = contents[1].strip()
-            ret_l.append(contents[0].strip())
-        ret_l = list(set(ret_l))
-        ret_l.sort()
-        return ret_l
+        if not os.path.isfile(p):
+            return []
+        try:
+            f = io.open(p, 'r', encoding='utf-8')
+            _read = f.read()
+            f.close()
+            _read_line = _read.split('\n')
+            ret_l = []
+            for i in _read_line:
+                contents = i.split(':')
+                d[contents[0].strip()] = contents[1].strip()
+                ret_l.append(contents[0].strip())
+            ret_l = list(set(ret_l))
+            ret_l.sort()
+            return ret_l
+        except:
+            msg = traceback.format_exc()
+            log_print(msg)
+            return []
 
     def init_combobox(self):
         self.targetComboBox.clear()
