@@ -803,7 +803,6 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
         try:
             rpy_lock.acquire()
             if os.path.isfile('rpy_info_got') and os.path.getsize('rpy_info_got') > 0:
-                log_print('rpy_info_got refresh')
                 f = io.open('rpy_info_got', 'r', encoding='utf-8')
                 select_one = f.read()
                 f.close()
@@ -964,7 +963,6 @@ def get_rpy_info_from_dir(select_one, is_open_filter):
         res = pool.map(get_rpy_info, jobs)
         pool.close()
         pool.join()
-        log_print('get_rpy_info finished')
         for ret, unmatch_cnt, p in res:
             p = p.replace('\\', '/')
             rpy_info_dic[p] = ret, unmatch_cnt, p
@@ -980,7 +978,6 @@ def get_rpy_info_from_dir(select_one, is_open_filter):
 
 def get_rpy_info(p):
     infoList = []
-    log_print(f'start get rpy info : {p}')
     try:
         f = io.open(p, 'r', encoding='utf-8')
     except:
@@ -1060,5 +1057,4 @@ def get_rpy_info(p):
                     dic['is_match'] = is_match
                     infoList.append(dic)
     # sorted(infoList, key=lambda x: x['line'])
-    log_print(f'end get rpy info : {p}')
     return infoList, unmatch_cnt, p
