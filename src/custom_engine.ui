@@ -77,6 +77,11 @@
         <height>22</height>
        </rect>
       </property>
+      <item>
+       <property name="text">
+        <string>add a new custom engine</string>
+       </property>
+      </item>
      </widget>
      <widget class="QCheckBox" name="renameScriptCheckBox">
       <property name="geometry">
@@ -347,7 +352,7 @@
        </rect>
       </property>
       <property name="placeholderText">
-       <string>rename the  source name in  'supported_language' folder</string>
+       <string>rename the  target name in  'supported_language' folder</string>
       </property>
      </widget>
      <widget class="QPushButton" name="saveButton">

@@ -24,7 +24,7 @@
        </size>
       </property>
       <property name="text">
-       <string>Version 1.8.5</string>
+       <string>Version 1.8.6</string>
       </property>
      </widget>
     </item>
@@ -692,10 +692,19 @@
     </property>
     <addaction name="actionedit"/>
    </widget>
+   <widget class="QMenu" name="menulanguage">
+    <property name="title">
+     <string>language</string>
+    </property>
+    <addaction name="actionEnglish"/>
+    <addaction name="actionChinese"/>
+    <addaction name="actionJapanese"/>
+   </widget>
    <addaction name="aboutMenu"/>
    <addaction name="proxyMenu"/>
    <addaction name="translationEngineMenu"/>
    <addaction name="editorMenu"/>
+   <addaction name="menulanguage"/>
   </widget>
   <action name="actioncopyright">
    <property name="text">
@@ -720,6 +729,21 @@
   <action name="actionedit">
    <property name="text">
     <string>edit from rpy</string>
+   </property>
+  </action>
+  <action name="actionEnglish">
+   <property name="text">
+    <string>English</string>
+   </property>
+  </action>
+  <action name="actionChinese">
+   <property name="text">
+    <string>Chinese</string>
+   </property>
+  </action>
+  <action name="actionJapanese">
+   <property name="text">
+    <string>Japanese</string>
    </property>
   </action>
  </widget>

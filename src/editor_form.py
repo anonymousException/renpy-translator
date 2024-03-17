@@ -9,7 +9,7 @@ import time
 import traceback
 
 from PySide6 import QtCore
-from PySide6.QtCore import Qt, QDir, QModelIndex, QSortFilterProxyModel, Signal, QThread
+from PySide6.QtCore import Qt, QDir, QModelIndex, QSortFilterProxyModel, Signal, QThread, QCoreApplication
 from PySide6.QtGui import QStandardItemModel, QStandardItem, QIcon, QColor, QTextCursor, QKeySequence
 from PySide6.QtWidgets import QDialog, QHeaderView, QTableView, QMenu, QListView, QFileDialog, QTreeView, \
     QFileSystemModel, QStyle, QMessageBox, QButtonGroup, QInputDialog, QVBoxLayout, QLabel, QTextEdit, QPushButton, \
@@ -314,19 +314,19 @@ class MyInputDialog(QDialog):
         self.text_edit = QTextEdit()
         self.text_edit = QTextEdit()
         self.checkbox = QCheckBox()
-        self.checkbox.setText('Case Sensitive')
+        self.checkbox.setText(QCoreApplication.translate('EditorDialog', 'Case Sensitive', None))
         self.checkbox.setChecked(True)
         self.referCheckbox = QCheckBox()
-        self.referCheckbox.setText('Search refer column')
+        self.referCheckbox.setText(QCoreApplication.translate('EditorDialog', 'Search refer column', None))
         self.referCheckbox.setChecked(True)
         self.originalCheckbox = QCheckBox()
-        self.originalCheckbox.setText('Search Original column')
+        self.originalCheckbox.setText(QCoreApplication.translate('EditorDialog', 'Search Original column', None))
         self.originalCheckbox.setChecked(True)
         self.currentCheckbox = QCheckBox()
-        self.currentCheckbox.setText('Search Current column')
+        self.currentCheckbox.setText(QCoreApplication.translate('EditorDialog', 'Search Current column', None))
         self.currentCheckbox.setChecked(True)
         self.translatedCheckbox = QCheckBox()
-        self.translatedCheckbox.setText('Search Translated column')
+        self.translatedCheckbox.setText(QCoreApplication.translate('EditorDialog', 'Search Translated column', None))
         self.translatedCheckbox.setChecked(True)
         layout.addWidget(self.label1)
         layout.addWidget(self.text_edit)
@@ -389,8 +389,8 @@ class MyTableView(QTableView):
 
     def jump_line(self):
         dialog = MyInputJumpLineDialog(self)
-        dialog.setWindowTitle('Input Dialog')
-        dialog.label1.setText('Please Input the line number you want to jump')
+        dialog.setWindowTitle(QCoreApplication.translate('EditorDialog', 'Input Dialog', None))
+        dialog.label1.setText(QCoreApplication.translate('EditorDialog', 'Please Input the line number you want to jump', None))
         if dialog.exec():
             text = dialog.getText()
             for row in range(self.model.rowCount()):
@@ -400,8 +400,8 @@ class MyTableView(QTableView):
 
     def search(self):
         dialog = MyInputDialog(self)
-        dialog.setWindowTitle('Input Dialog')
-        dialog.label1.setText('Please Input the content you want to search')
+        dialog.setWindowTitle(QCoreApplication.translate('EditorDialog', 'Input Dialog', None))
+        dialog.label1.setText(QCoreApplication.translate('EditorDialog', 'Please Input the content you want to search', None))
         if dialog.exec():
             self.searched.clear()
             search_text = dialog.getText()

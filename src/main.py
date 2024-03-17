@@ -12,7 +12,7 @@ import json
 from PySide6 import QtWidgets, QtCore
 import sys
 
-from PySide6.QtCore import Qt, QDir, QThread, Signal
+from PySide6.QtCore import Qt, QDir, QThread, Signal, QCoreApplication, QTranslator, QLocale, QLibraryInfo
 from PySide6.QtGui import QIcon, QIntValidator, QTextCursor
 from PySide6.QtWidgets import QFileDialog, QListView, QAbstractItemView, QTreeView, QDialog, QPushButton, QLineEdit, \
     QVBoxLayout, QMainWindow, QApplication
@@ -33,7 +33,7 @@ from editor_form import MyEditorForm
 from engine_form import MyEngineForm
 targetDic = dict()
 sourceDic = dict()
-
+translator = QTranslator()
 from custom_translate import CustomTranslate
 # customTranslate = CustomTranslate('test.txt','3975l6lr5pcbvidl6jl2',None,{'http':'http://localhost:10809'},True)
 # result = customTranslate.translate(['What are you doing'],'auto','zh')
@@ -128,11 +128,30 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.engineSettings.triggered.connect(lambda: self.show_engine_settings())
         self.customEngineSettings.triggered.connect(lambda: self.show_custom_engine_settings())
         self.actionedit.triggered.connect(lambda: self.show_edit_form())
+        self.actionChinese.triggered.connect(lambda: self.to_language('chinese'))
+        self.actionJapanese.triggered.connect(lambda: self.to_language('japanese'))
+        self.actionEnglish.triggered.connect(lambda: self.switch_to_default_language())
         _thread.start_new_thread(self.update_log, ())
         if os.path.isfile('translating'):
             os.remove('translating')
         if os.path.isfile('extracting'):
             os.remove('extracting')
+
+    def switch_to_default_language(self):
+        app = QCoreApplication.instance()
+        if app is not None:
+            app.removeTranslator(translator)
+            self.retranslateUi(self)
+
+    def to_language(self,lan):
+        translator.load("qm/"+lan+".qm")
+        QCoreApplication.instance().installTranslator(translator)
+        self.retranslateUi(self)
+
+    def to_japanese(self):
+        translator.load("qm/japanese.qm")
+        QCoreApplication.instance().installTranslator(translator)
+        self.retranslateUi(self)
 
     def show_edit_form(self):
         self.hide()
@@ -327,7 +346,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
                     cnt = cnt + 1
             if len(extract_threads) > 0:
                 open('extracting', "w")
-                self.extractBtn.setText('extracting...')
+                self.extractBtn.setText(QCoreApplication.translate('MainWindow','extracting...',None))
                 self.extractBtn.setDisabled(True)
                 _thread.start_new_thread(self.extract_threads_over, ())
         except Exception:
@@ -369,17 +388,17 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
             self.log_text.setText(data)
             self.log_text.moveCursor(QTextCursor.End)
         if os.path.isfile('translating'):
-            self.translateBtn.setText('translating...')
+            self.translateBtn.setText(QCoreApplication.translate('MainWindow','translating...',None))
             self.translateBtn.setDisabled(True)
         else:
-            self.translateBtn.setText('translate')
+            self.translateBtn.setText(QCoreApplication.translate('MainWindow','translate',None))
             self.translateBtn.setEnabled(True)
 
         if os.path.isfile('extracting'):
-            self.extractBtn.setText('extracting...')
+            self.extractBtn.setText(QCoreApplication.translate('MainWindow','extracting...',None))
             self.extractBtn.setDisabled(True)
         else:
-            self.extractBtn.setText('extract')
+            self.extractBtn.setText(QCoreApplication.translate('MainWindow','extract',None))
             self.extractBtn.setEnabled(True)
 
     class UpdateThread(QThread):
@@ -476,7 +495,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
                             cnt = cnt + 1
             if len(translate_threads) > 0:
                 open('translating', "w")
-                self.translateBtn.setText('translating...')
+                self.translateBtn.setText(QCoreApplication.translate('MainWindow','translating...',None))
                 self.translateBtn.setDisabled(True)
                 _thread.start_new_thread(self.translate_threads_over, ())
         except Exception:

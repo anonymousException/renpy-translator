@@ -9,7 +9,7 @@ import traceback
 import webbrowser
 
 from PySide6 import QtCore
-from PySide6.QtCore import QThread, Signal
+from PySide6.QtCore import QThread, Signal, QCoreApplication
 from PySide6.QtGui import QTextCursor
 from PySide6.QtWidgets import QDialog, QFileDialog
 
@@ -54,7 +54,6 @@ class MyCustomEngineForm(QDialog, Ui_CustomDialog):
         self.selectScriptBtn.clicked.connect(self.select_script_file)
         self.selectSourceBtn.clicked.connect(self.select_source_file)
         self.selectTargetBtn.clicked.connect(self.select_target_file)
-        self.customComboBox.addItem('add a new custom engine')
         self.saveButton.clicked.connect(self.on_save_button_clicked)
         self.deleteButton.clicked.connect(self.on_delete_button_clicked)
         self.customComboBox.currentIndexChanged.connect(self.refresh_custom)
@@ -99,7 +98,7 @@ class MyCustomEngineForm(QDialog, Ui_CustomDialog):
         json.dump(dic, f)
         f.close()
         self.customComboBox.clear()
-        self.customComboBox.addItem('add a new custom engine')
+        self.customComboBox.addItem(QCoreApplication.translate("CustomDialog", u"add a new custom engine", None))
         if os.path.isfile('custom.txt'):
             f = io.open('custom.txt', 'r', encoding='utf-8')
             loaded_data = json.load(f)
@@ -196,7 +195,7 @@ class MyCustomEngineForm(QDialog, Ui_CustomDialog):
                 json.dump(loaded_data, f)
                 f.close()
         self.customComboBox.clear()
-        self.customComboBox.addItem('add a new custom engine')
+        self.customComboBox.addItem(QCoreApplication.translate("CustomDialog", u"add a new custom engine", None))
         if os.path.isfile('custom.txt'):
             f = io.open('custom.txt', 'r', encoding='utf-8')
             loaded_data = json.load(f)
