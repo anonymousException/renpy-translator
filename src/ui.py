@@ -269,7 +269,7 @@ class Ui_MainWindow(object):
         self.actionEnglish.setText(QCoreApplication.translate("MainWindow", u"English", None))
         self.actionChinese.setText(QCoreApplication.translate("MainWindow", u"Chinese", None))
         self.actionJapanese.setText(QCoreApplication.translate("MainWindow", u"Japanese", None))
-        self.versionLabel.setText(QCoreApplication.translate("MainWindow", u"Version 1.8.6", None))
+        self.versionLabel.setText(QCoreApplication.translate("MainWindow", u"Version 1.8.7", None))
         self.translateBtn.setText(QCoreApplication.translate("MainWindow", u"translate", None))
         self.selectFilesBtn.setText(QCoreApplication.translate("MainWindow", u"...", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"directory", None))

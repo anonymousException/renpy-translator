@@ -34,11 +34,7 @@ from engine_form import MyEngineForm
 targetDic = dict()
 sourceDic = dict()
 translator = QTranslator()
-from custom_translate import CustomTranslate
-# customTranslate = CustomTranslate('test.txt','3975l6lr5pcbvidl6jl2',None,{'http':'http://localhost:10809'},True)
-# result = customTranslate.translate(['What are you doing'],'auto','zh')
-# log_print(result)
-
+editor_form = None
 
 class MyProxyForm(QDialog, Ui_ProxyDialog):
     def __init__(self, parent=None):
@@ -142,16 +138,15 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         if app is not None:
             app.removeTranslator(translator)
             self.retranslateUi(self)
+            os.remove('language.txt')
 
     def to_language(self,lan):
         translator.load("qm/"+lan+".qm")
         QCoreApplication.instance().installTranslator(translator)
         self.retranslateUi(self)
-
-    def to_japanese(self):
-        translator.load("qm/japanese.qm")
-        QCoreApplication.instance().installTranslator(translator)
-        self.retranslateUi(self)
+        f = io.open("language.txt","w",encoding='utf-8')
+        f.write(lan)
+        f.close()
 
     def show_edit_form(self):
         self.hide()
@@ -160,7 +155,9 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.widget_3.hide()
         self.menubar.hide()
         self.versionLabel.hide()
-        editor_form = MyEditorForm(parent=None)
+        global editor_form
+        if editor_form is None:
+            editor_form = MyEditorForm(parent=None)
         editor_form.parent = self
         editor_form.show()
         self.actionedit.triggered.disconnect()
@@ -516,6 +513,12 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
 if __name__ == "__main__":
     multiprocessing.freeze_support()
     app = QApplication(sys.argv)
+    if os.path.isfile('language.txt'):
+        f = io.open('language.txt', 'r', encoding='utf-8')
+        lan = f.read()
+        f.close()
+        translator.load("qm/" + lan + ".qm")
+        QCoreApplication.instance().installTranslator(translator)
     myWin = MyMainForm()
     myWin.show()
     sys.exit(app.exec())

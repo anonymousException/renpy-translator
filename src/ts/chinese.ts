@@ -454,8 +454,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="27"/>
-        <source>Version 1.8.6</source>
-        <translation>版本 1.8.6</translation>
+        <source>Version 1.8.7</source>
+        <translation>版本 1.8.7</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="62"/>

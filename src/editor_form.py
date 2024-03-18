@@ -586,8 +586,6 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
         self.changeTranslationEngineButton.clicked.connect(self.show_engine_settings)
         self.showLogButton.clicked.connect(self.on_show_log_button_checked)
         self.searchedOnlyCheckBox.stateChanged.connect(self.on_checkbox_state_changed)
-        self.is_thread_runing = True
-        self.is_thread_end = False
         _thread.start_new_thread(self.update_log, ())
 
     def on_show_log_button_checked(self):
@@ -601,9 +599,9 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
         self.parent.menubar.show()
         self.parent.actionedit.triggered.connect(lambda: self.parent.show_edit_form())
         self.parent.showNormal()
-        self.is_thread_runing = False
-        while not self.is_thread_end:
-            time.sleep(0.1)
+        self.hide()
+        event.ignore()
+        return
 
     def show_engine_settings(self):
         engine_form = MyEngineForm(parent=self)
@@ -794,10 +792,9 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
     def update_log(self):
         thread = self.UpdateThread()
         thread.update_date.connect(self.update_progress)
-        while self.is_thread_runing:
+        while True:
             thread.start()
             time.sleep(0.5)
-        self.is_thread_end = True
 
     def update_progress(self, data):
         try:
@@ -993,6 +990,7 @@ def get_rpy_info(p):
     _read_line = _read.split('\n')
     isLastFiltered = False
     isNeedSkip = False
+    isVoice = False
     unmatch_cnt = 0
     for line_index, line_content in enumerate(_read_line):
         if (line_content.startswith('translate ')):
@@ -1018,18 +1016,25 @@ def get_rpy_info(p):
             #     continue
         else:
             isLastFiltered = False
-        if line_index > 0 and not _read_line[line_index - 1].strip().startswith('#') and not _read_line[
-            line_index - 1].strip().startswith('old '):
+        if not isVoice:
+            if line_index > 0 and not _read_line[line_index - 1].strip().startswith('#') and not _read_line[
+                line_index - 1].strip().startswith('old '):
+                continue
+        if (line_content.strip().lstrip('#').strip().startswith('voice ')):
+            isVoice = True
             continue
         d = EncodeBracketContent(line_content, '"', '"')
         if ('oriList' in d.keys() and len(d['oriList']) > 0):
             # print(d['oriList'])
             for i, e in enumerate(d['oriList']):
                 if (isAllPunctuations(d['encoded'].strip('"')) == False):
+                    target_index = line_index - 1
+                    if isVoice:
+                        target_index = target_index -1
                     if line_content.strip().startswith('new '):
-                        d_o = EncodeBracketContent(_read_line[line_index - 1].strip()[4:], '"', '"')
+                        d_o = EncodeBracketContent(_read_line[target_index].strip()[4:], '"', '"')
                     else:
-                        d_o = EncodeBracketContent(_read_line[line_index - 1].strip(), '"', '"')
+                        d_o = EncodeBracketContent(_read_line[target_index].strip(), '"', '"')
                     original = ''
                     if ('oriList' in d_o.keys() and len(d_o['oriList']) > 0):
                         original = d_o['oriList'][i].strip('"')
@@ -1040,8 +1045,14 @@ def get_rpy_info(p):
                     dic = dict()
                     dic['original'] = original
                     dic['current'] = e.strip('"')
-                    dic['line'] = line_index
+                    if not isVoice:
+                        dic['line'] = line_index
+                    else:
+                        dic['line'] = line_index + 1
                     start = line_index - 2
+                    if isVoice:
+                        start = start - 2
+                        isVoice = False
                     if line_content.strip().startswith('new '):
                         start = line_index
                     j = 0
