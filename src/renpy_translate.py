@@ -58,7 +58,7 @@ client_openai = None
 
 
 class translateThread(threading.Thread):
-    def __init__(self, threadID, p, lang_target, lang_source, is_open_multi_thread, is_gen_bak):
+    def __init__(self, threadID, p, lang_target, lang_source, is_open_multi_thread, is_gen_bak,local_glossary,is_translate_current,is_skip_translated):
         threading.Thread.__init__(self)
         self.threadID = threadID
         self.p = p
@@ -66,13 +66,16 @@ class translateThread(threading.Thread):
         self.lang_source = lang_source
         self.is_open_multi_thread = is_open_multi_thread
         self.is_gen_bak = is_gen_bak
+        self.local_glossary = local_glossary
+        self.is_translate_current = is_translate_current
+        self.is_skip_translated = is_skip_translated
 
     def run(self):
         if not self.is_open_multi_thread:
             translate_lock.acquire()
         try:
             log_print(self.p + ' begin translate!')
-            TranslateFile(self.p, self.lang_target, self.lang_source, self.is_gen_bak)
+            TranslateFile(self.p, self.lang_target, self.lang_source, self.is_gen_bak,self.local_glossary,self.is_translate_current,self.is_skip_translated)
         except Exception as e:
             msg = traceback.format_exc()
             log_print(msg)
@@ -82,9 +85,12 @@ class translateThread(threading.Thread):
             translate_lock.release()
 
 
-def TranslateToList(cli, inList, lang_target, lang_source):
+def TranslateToList(cli, inList, lang_target, lang_source,fmt = 'text'):
     dic = dict()
-    texts = cli.translate(inList, target=lang_target, source=lang_source)
+    if cli.__class__.__name__ != 'Translate':
+        texts = cli.translate(inList, target=lang_target, source=lang_source)
+    else:
+        texts = cli.translate(inList, target=lang_target, source=lang_source,fmt = fmt)
     if isinstance(texts, list):
         for i, e in enumerate(texts):
             if cli.__class__.__name__ == 'OpenAITranslate':
@@ -175,20 +181,125 @@ def init_client():
         client = Translate(fmt='text', proxies=proxies)
     return client
 
-def TranslateFile(p, lang_target, lang_source, is_gen_bak):
+def TranslateFile(p, lang_target, lang_source, is_gen_bak,local_glossary,is_translate_current,is_skip_translated):
     client = init_client()
     if client is None:
         return
     transList = []
+    ret, unmatch_cnt, p = get_rpy_info(p)
+    if len(ret) == 0:
+        log_print(p + 'unable to get translated info')
+    for dic in ret:
+        original = dic['original']
+        current = dic['current']
+        if is_translate_current:
+            target = current
+        else:
+            target = original
+        if is_skip_translated and original != current:
+            continue
+        if local_glossary is not None and len(local_glossary) > 0:
+            for original,replace in local_glossary.items():
+                target = target.replace(original, replace)
+        d = EncodeBrackets(target)
+        if (isAllPunctuations(d['encoded'].strip('"')) == False):
+            transList.append(d['encoded'].strip('"'))
+    if client.__class__.__name__ == 'Translate' and local_glossary is not None and len(local_glossary) > 0:
+        fmt = 'html'
+    else:
+        fmt = 'text'
+    trans_dic = TranslateToList(client, transList, lang_target, lang_source,fmt=fmt)
+    if len(transList) == 0:
+        log_print(p + ' translate skip!')
+        return
+    f = io.open(p, 'r', encoding='utf-8')
+    _read_lines = f.readlines()
+    f.close()
+    if is_gen_bak:
+        f = io.open(p + '.bak', 'w', encoding='utf-8')
+        f.writelines(_read_lines)
+        f.close()
+    for dic in ret:
+        line = dic['line'] - 1
+        ori_line = dic['ori_line'] - 1
+        original = dic['original']
+        current = dic['current']
+        if is_translate_current:
+            target = current
+        else:
+            target = original
+        if is_skip_translated and original != current:
+            continue
+        ori_target = target
+        if local_glossary is not None and len(local_glossary) > 0:
+            for original, replace in local_glossary.items():
+                target = target.replace(original, replace)
+        translated = get_translated(trans_dic,target)
+        if translated is None:
+            d = EncodeBrackets(target)
+            log_print(
+                'Error in line:' + str(line) + ' ' + '\n' + target + '\n' + d['encoded'].strip(
+                    '"') + ' Error')
+        else:
+            target = ori_target
+            if is_translate_current:
+                _read_lines[line] =  _read_lines[line].replace(target, translated)
+            else:
+                _read_lines[line] = '    ' + _read_lines[ori_line].replace(target, translated).lstrip().lstrip('#').lstrip()
+                if _read_lines[line].startswith('    old '):
+                    _read_lines[line] = _read_lines[line].replace('    old ','    new ',1)
+
+    f = io.open(p, 'w', encoding='utf-8')
+    f.writelines(_read_lines)
+    f.close()
+
+
+def get_translated(trans_dic,target):
     try:
-        f = io.open(p, 'r+', encoding='utf-8')
+        d = EncodeBrackets(target)
+        if (isAllPunctuations(d['encoded'].strip('"')) == False):
+            translated = trans_dic[d['encoded'].strip('"')]
+            translated = translated.replace('\u200b', '')
+            translated = translated.replace('\u200b1', '')
+            translated = translated.replace('"', '\\"')
+            translated = translated.replace('【', '[')
+            translated = translated.replace('】', ']')
+            translated = translated.rstrip('\\')
+            dd = DecodeBrackets(
+                translated, d['en_1'], d['en_2'], d['en_3'])
+            if d['en_1_cnt'] != dd['de_6_cnt'] or d['en_2_cnt'] != dd['de_5_cnt'] or d['en_3_cnt'] != \
+                    dd[
+                        'de_4_cnt']:
+                raise Exception('decoded error')
+            dd = dd['decoded']
+            dd = dd.replace('&gt;', '>')
+            dd = dd.replace('&#39;', "'")
+            dd = dd.replace('&quot;', '\\"')
+            dd = dd.replace('\n', '\\n')
+            return dd
+    except:
+        return None
+
+
+def get_rpy_info(p):
+    infoList = []
+    try:
+        f = io.open(p, 'r', encoding='utf-8')
     except:
         log_print(p + ' file not found')
-        return
-    _read = f.read()
+        return infoList, 0, p
+    try:
+        size = os.path.getsize(p)
+        _read = f.read()
+        f.close()
+    except:
+        f.close()
+        return infoList, 0, p
     _read_line = _read.split('\n')
     isLastFiltered = False
     isNeedSkip = False
+    isVoice = False
+    unmatch_cnt = 0
     for line_index, line_content in enumerate(_read_line):
         if (line_content.startswith('translate ')):
             isNeedSkip = False
@@ -206,108 +317,61 @@ def TranslateFile(p, lang_target, lang_source, is_gen_bak):
             continue
         if (isLastFiltered):
             isLastFiltered = False
-            if (_read_line[line_index - 1].strip()[4:] != _read_line[line_index].strip()[4:] and _read_line[
-                                                                                                     line_index - 1].strip()[
-                                                                                                 2:] != _read_line[
-                line_index].strip()):
-                continue
+            # if (_read_line[line_index - 1].strip()[4:] != _read_line[line_index].strip()[4:] and _read_line[
+            #                                                                                          line_index - 1].strip()[
+            #                                                                                      2:] != _read_line[
+            #     line_index].strip()):
+            #     continue
         else:
             isLastFiltered = False
-        if line_index > 0 and not _read_line[line_index - 1].strip().startswith('#') and not _read_line[
-            line_index - 1].strip().startswith('old '):
+        if not isVoice:
+            if line_index > 0 and not _read_line[line_index - 1].strip().startswith('#') and not _read_line[
+                line_index - 1].strip().startswith('old '):
+                continue
+        if (line_content.strip().lstrip('#').strip().startswith('voice ')):
+            isVoice = True
             continue
         d = EncodeBracketContent(line_content, '"', '"')
         if ('oriList' in d.keys() and len(d['oriList']) > 0):
             # print(d['oriList'])
-            for i in d['oriList']:
-                d = EncodeBrackets(i)
+            for i, e in enumerate(d['oriList']):
                 if (isAllPunctuations(d['encoded'].strip('"')) == False):
-                    transList.append(d['encoded'].strip('"'))
-                # dd = DecodeBrackets(
-                #     d['encoded'], d['en_1'], d['en_2'], d['en_3'])
-                # print(d['encoded'],dd)
-    if (len(transList) == 0):
-        log_print(p + ' translate skip!')
-        return
-    # for i in transList:
-    #     threadLock.acquire()
-    #     log_print(i)
-    #     threadLock.release()
-    trans_dic = TranslateToList(client, transList, lang_target, lang_source)
-
-    translated_line = []
-    isLastFiltered = False
-    isNeedSkip = False
-    for line_index, line_content in enumerate(_read_line):
-        if (line_content.startswith('translate ')):
-            isNeedSkip = False
-            split_s = line_content.split(' ')
-            if (len(split_s) > 2):
-                target = split_s[2].strip('\n')
-                if (target == 'python:' or target == 'style'):
-                    isNeedSkip = True
-            continue
-        if (isNeedSkip):
-            continue
-        isNeedSkip = False
-        if (line_content.strip().startswith('#') or line_content.strip().startswith('old ')):
-            isLastFiltered = True
-            continue
-        if (isLastFiltered):
-            isLastFiltered = False
-            if (_read_line[line_index - 1].strip()[4:] != _read_line[line_index].strip()[4:] and _read_line[
-                                                                                                     line_index - 1].strip()[
-                                                                                                 2:] != _read_line[
-                line_index].strip()):
-                continue
-        else:
-            isLastFiltered = False
-        if line_index > 0 and not _read_line[line_index - 1].strip().startswith('#') and not _read_line[
-            line_index - 1].strip().startswith('old '):
-            continue
-        d = EncodeBracketContent(line_content, '"', '"')
-        if ('oriList' in d.keys() and len(d['oriList']) > 0):
-            for i in d['oriList']:
-                d = EncodeBrackets(i)
-                if (isAllPunctuations(d['encoded'].strip('"')) == True):
-                    continue
-                if d['encoded'].strip('"') not in trans_dic:
-                    log_print(
-                        'Error in line:' + str(line_index) + ' ' + p + '\n' + i + '\n' + d['encoded'].strip(
-                            '"') + ' Error')
-                    continue
-                translated = trans_dic[d['encoded'].strip('"')]
-                translated = translated.replace('\u200b', '')
-                translated = translated.replace('\u200b1', '')
-                translated = translated.replace('"', '\\"')
-                translated = translated.replace('【', '[')
-                translated = translated.replace('】', ']')
-                translated = translated.rstrip('\\')
-                translated = '"' + translated + '"'
-                try:
-                    dd = DecodeBrackets(
-                        translated, d['en_1'], d['en_2'], d['en_3'])
-                    if d['en_1_cnt'] != dd['de_6_cnt'] or d['en_2_cnt'] != dd['de_5_cnt'] or d['en_3_cnt'] != dd[
-                        'de_4_cnt']:
-                        raise Exception('decoded error')
-                    dd = dd['decoded']
-                    dd = dd.replace('&gt;', '>')
-                    dd = dd.replace('&#39;', "'")
-                    dd = dd.replace('&quot;', '\\"')
-                    dd = dd.replace('\n', '\\n')
-                    _read_line[line_index] = _read_line[line_index].replace(
-                        i, dd)
-                except:
-                    log_print(
-                        'Error in line:' + str(line_index) + ' ' + p + '\n' + i + '\n' + d['encoded'].strip(
-                            '"') + ' Error' + '\n' + translated)
-
-    if is_gen_bak:
-        f = io.open(p + '.bak', 'w', encoding='utf-8')
-        f.write(_read)
-        f.close()
-    f = io.open(p, 'w', encoding='utf-8')
-    for line_content in _read_line:
-        f.write(line_content + '\n')
-    f.close()
-    log_print(p + ' translate success!')
+                    target_index = line_index - 1
+                    if isVoice:
+                        target_index = target_index -1
+                    if line_content.strip().startswith('new '):
+                        d_o = EncodeBracketContent(_read_line[target_index].strip()[4:], '"', '"')
+                    else:
+                        d_o = EncodeBracketContent(_read_line[target_index].strip(), '"', '"')
+                    original = ''
+                    if ('oriList' in d_o.keys() and len(d_o['oriList']) > 0):
+                        original = d_o['oriList'][i].strip('"')
+                    is_match = True
+                    if original != e.strip('"'):
+                        unmatch_cnt = unmatch_cnt + 1
+                        is_match = False
+                    dic = dict()
+                    dic['original'] = original
+                    dic['current'] = e.strip('"')
+                    dic['ori_line'] = target_index + 1
+                    dic['line'] = line_index + 1
+                    start = line_index - 2
+                    if isVoice:
+                        start = start - 2
+                        isVoice = False
+                    if line_content.strip().startswith('new '):
+                        start = line_index
+                    j = 0
+                    end = start - 5
+                    if end < 0:
+                        end = -1
+                    for j in range(start, end, -1):
+                        if _read_line[j].strip().startswith('#'):
+                            break
+                    dic['refer'] = ''
+                    if j != 0:
+                        dic['refer'] = _read_line[j].strip('#')
+                    dic['is_match'] = is_match
+                    infoList.append(dic)
+    # sorted(infoList, key=lambda x: x['line'])
+    return infoList, unmatch_cnt, p

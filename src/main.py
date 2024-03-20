@@ -15,12 +15,13 @@ import sys
 from PySide6.QtCore import Qt, QDir, QThread, Signal, QCoreApplication, QTranslator, QLocale, QLibraryInfo
 from PySide6.QtGui import QIcon, QIntValidator, QTextCursor
 from PySide6.QtWidgets import QFileDialog, QListView, QAbstractItemView, QTreeView, QDialog, QPushButton, QLineEdit, \
-    QVBoxLayout, QMainWindow, QApplication
+    QVBoxLayout, QMainWindow, QApplication, QButtonGroup
 
 from copyright import Ui_CopyrightDialog
 from my_log import log_print, log_path
 from renpy_extract import extractThread, extract_threads, ExtractAllFilesInDir
 from renpy_fonts import GenGuiFonts
+from local_glossary_form import MyLocalGlossaryForm
 
 os.environ['REQUESTS_CA_BUNDLE'] = os.path.join(os.path.dirname(sys.argv[0]), 'cacert.pem')
 os.environ['NO_PROXY'] = '*'
@@ -106,12 +107,18 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.replaceFontBtn.clicked.connect(self.replaceFont)
         self.openFontStyleBtn.clicked.connect(self.openFontStyleFile)
         self.multiTranslateCheckBox.setChecked(True)
-        self.backupCheckBox.setChecked(True)
         self.filterCheckBox.setChecked(True)
         self.filterLengthLineEdit.setText('8')
         self.filterCheckBox.stateChanged.connect(self.filter_checkbox_changed)
         validator = QIntValidator()
         self.filterLengthLineEdit.setValidator(validator)
+        self.local_glossary = None
+        self.localGlossaryCheckBox.clicked.connect(self.on_local_glossary_checkbox_state_changed)
+        self.buttonGroup = QButtonGroup()
+        self.buttonGroup.addButton(self.originalRadioButton, 1)
+        self.buttonGroup.addButton(self.currentRadioButton, 2)
+        self.is_current = True
+        self.buttonGroup.buttonClicked.connect(self.button_group_clicked)
         try:
             self.init_combobox()
         except Exception as e:
@@ -133,17 +140,56 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         if os.path.isfile('extracting'):
             os.remove('extracting')
 
+    def button_group_clicked(self, item):
+        if item.group().checkedId() == 1:
+            self.is_current = False
+        else:
+            self.is_current = True
+
+
+    def on_local_glossary_checkbox_state_changed(self):
+        if self.localGlossaryCheckBox.isChecked():
+            local_glossary_form = MyLocalGlossaryForm(parent=self)
+            local_glossary_form.exec()
+            dic = local_glossary_form.data
+            index = self.sourceComboBox.findText('Auto Detect')
+            if dic is None or len(dic) == 0:
+                self.localGlossaryCheckBox.setChecked(False)
+                if 'Auto Detect' in sourceDic.keys() and index == -1:
+                    self.sourceComboBox.addItem('Auto Detect')
+                    index = self.sourceComboBox.findText('Auto Detect')
+                    self.sourceComboBox.setCurrentIndex(index)
+                self.local_glossary = None
+            else:
+                if index != -1:
+                    current_index = self.sourceComboBox.currentIndex()
+                    self.sourceComboBox.removeItem(index)
+                    if current_index == index:
+                        self.sourceComboBox.setCurrentIndex(0)
+                self.local_glossary = dic
+        else:
+            index = self.sourceComboBox.findText('Auto Detect')
+            if 'Auto Detect' in sourceDic.keys() and index == -1:
+                self.sourceComboBox.addItem('Auto Detect')
+                index = self.sourceComboBox.findText('Auto Detect')
+                self.sourceComboBox.setCurrentIndex(index)
+            self.local_glossary = None
+
     def switch_to_default_language(self):
         app = QCoreApplication.instance()
         if app is not None:
             app.removeTranslator(translator)
             self.retranslateUi(self)
+            if editor_form is not None:
+                editor_form.retranslateUi(editor_form)
             os.remove('language.txt')
 
     def to_language(self,lan):
         translator.load("qm/"+lan+".qm")
         QCoreApplication.instance().installTranslator(translator)
         self.retranslateUi(self)
+        if editor_form is not None:
+            editor_form.retranslateUi(editor_form)
         f = io.open("language.txt","w",encoding='utf-8')
         f.write(lan)
         f.close()
@@ -252,6 +298,8 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
     def init_combobox(self):
         self.targetComboBox.clear()
         self.sourceComboBox.clear()
+        targetDic.clear()
+        sourceDic.clear()
         target = 'google.target.rst'
         source = 'google.source.rst'
         customEngineDic = dict()
@@ -465,7 +513,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
                 i = i.replace('file:///', '')
                 if len(i) > 0:
                     t = translateThread(cnt, i, target_language, source_language,
-                                        self.multiTranslateCheckBox.isChecked(), self.backupCheckBox.isChecked())
+                                        self.multiTranslateCheckBox.isChecked(), self.backupCheckBox.isChecked(),self.local_glossary,self.is_current,self.skipTranslatedCheckBox.isChecked())
                     t.start()
                     translate_threads.append(t)
                     cnt = cnt + 1
@@ -486,7 +534,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
                             # _thread.start_new_thread(TranslateFile,(i,))
                             t = translateThread(cnt, i, target_language, source_language,
                                                 self.multiTranslateCheckBox.isChecked(),
-                                                self.backupCheckBox.isChecked())
+                                                self.backupCheckBox.isChecked(),self.local_glossary,self.is_current,self.skipTranslatedCheckBox.isChecked())
                             t.start()
                             translate_threads.append(t)
                             cnt = cnt + 1

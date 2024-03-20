@@ -138,7 +138,7 @@
      <widget class="QCheckBox" name="rpyCheckBox">
       <property name="geometry">
        <rect>
-        <x>200</x>
+        <x>20</x>
         <y>270</y>
         <width>131</width>
         <height>20</height>
@@ -213,6 +213,19 @@
        <string>Show Log Form</string>
       </property>
      </widget>
+     <widget class="QCheckBox" name="localGlossaryCheckBox">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>270</y>
+        <width>361</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Local Glossary (replace certain words with preset content)</string>
+      </property>
+     </widget>
     </widget>
    </item>
    <item row="1" column="2" rowspan="3" colspan="2">
@@ -230,7 +243,7 @@
       <property name="geometry">
        <rect>
         <x>420</x>
-        <y>40</y>
+        <y>20</y>
         <width>71</width>
         <height>20</height>
        </rect>
@@ -252,7 +265,7 @@
       <property name="geometry">
        <rect>
         <x>190</x>
-        <y>40</y>
+        <y>20</y>
         <width>111</width>
         <height>20</height>
        </rect>
@@ -270,7 +283,7 @@
      <widget class="QPushButton" name="saveFileButton">
       <property name="geometry">
        <rect>
-        <x>180</x>
+        <x>160</x>
         <y>70</y>
         <width>335</width>
         <height>24</height>
@@ -289,8 +302,8 @@
      <widget class="QCheckBox" name="untranslatedCheckBox">
       <property name="geometry">
        <rect>
-        <x>100</x>
-        <y>10</y>
+        <x>40</x>
+        <y>0</y>
         <width>165</width>
         <height>20</height>
        </rect>
@@ -309,7 +322,7 @@
       <property name="geometry">
        <rect>
         <x>320</x>
-        <y>40</y>
+        <y>20</y>
         <width>71</width>
         <height>20</height>
        </rect>
@@ -327,7 +340,7 @@
      <widget class="QLabel" name="label_4">
       <property name="geometry">
        <rect>
-        <x>40</x>
+        <x>20</x>
         <y>100</y>
         <width>601</width>
         <height>191</height>
@@ -346,8 +359,8 @@
      <widget class="QCheckBox" name="searchedOnlyCheckBox">
       <property name="geometry">
        <rect>
-        <x>280</x>
-        <y>10</y>
+        <x>220</x>
+        <y>0</y>
         <width>141</width>
         <height>20</height>
        </rect>
@@ -365,8 +378,8 @@
      <widget class="QCheckBox" name="logAfterSearchCheckBox">
       <property name="geometry">
        <rect>
-        <x>430</x>
-        <y>10</y>
+        <x>370</x>
+        <y>0</y>
         <width>151</width>
         <height>20</height>
        </rect>
@@ -382,6 +395,82 @@
       </property>
       <property name="checked">
        <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="copyOriginalRadioButton">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>45</y>
+        <width>71</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>Original</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="copyCurrentRadioButton">
+      <property name="geometry">
+       <rect>
+        <x>420</x>
+        <y>45</y>
+        <width>71</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>Current</string>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="copyTranslatedRadioButton">
+      <property name="geometry">
+       <rect>
+        <x>510</x>
+        <y>45</y>
+        <width>81</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>Translated</string>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="copySelectedCheckBox">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>45</y>
+        <width>261</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Copy selected to clipboard   Copy Source</string>
       </property>
      </widget>
     </widget>

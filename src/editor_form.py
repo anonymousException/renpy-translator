@@ -8,6 +8,7 @@ import threading
 import time
 import traceback
 
+import pyperclip
 from PySide6 import QtCore
 from PySide6.QtCore import Qt, QDir, QModelIndex, QSortFilterProxyModel, Signal, QThread, QCoreApplication
 from PySide6.QtGui import QStandardItemModel, QStandardItem, QIcon, QColor, QTextCursor, QKeySequence
@@ -16,9 +17,10 @@ from PySide6.QtWidgets import QDialog, QHeaderView, QTableView, QMenu, QListView
     QCheckBox, QLineEdit
 from editor import Ui_EditorDialog
 from my_log import log_print, log_path
-from renpy_translate import init_client, TranslateToList, engineDic, language_header
+from renpy_translate import init_client, TranslateToList, engineDic, language_header, get_rpy_info, get_translated
 from custom_engine_form import targetDic, sourceDic
 from engine_form import MyEngineForm
+from local_glossary_form import MyLocalGlossaryForm
 from string_tool import *
 
 addedList = []
@@ -104,13 +106,16 @@ class FileSystemModel(QFileSystemModel):
     def headerData(self, section, orientation, role=Qt.DisplayRole):
         if (orientation == Qt.Horizontal and
                 role == Qt.DisplayRole and
+                section == 0):
+            return QCoreApplication.translate('EditorDialog', 'Path', None)
+        if (orientation == Qt.Horizontal and
+                role == Qt.DisplayRole and
                 section == self.columnCount() - 2):
-            return 'Units'
+            return QCoreApplication.translate('EditorDialog', 'Units', None)
         if (orientation == Qt.Horizontal and
                 role == Qt.DisplayRole and
                 section == self.columnCount() - 1):
-            return 'Translated'
-
+            return QCoreApplication.translate('EditorDialog', 'Translated', None)
         return super().headerData(section, orientation, role)
 
 
@@ -142,7 +147,7 @@ class MyTreeView(QTreeView):
             self.tableView.model.clear()
             self.tableView.searched.clear()
             self.tableView.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
-            self.tableView.model.setHorizontalHeaderLabels(['line', 'refer', 'Original', 'Current', 'Translated'])
+            self.tableView.model.setHorizontalHeaderLabels([QCoreApplication.translate('EditorDialog', 'line', None), QCoreApplication.translate('EditorDialog', 'refer', None), QCoreApplication.translate('EditorDialog', 'Original', None),QCoreApplication.translate('EditorDialog', 'Current', None) ,QCoreApplication.translate('EditorDialog', 'Translated', None) ])
             if full_path in rpy_info_dic.keys():
                 ret, unmatch_cnt, p = rpy_info_dic[full_path]
             else:
@@ -192,7 +197,7 @@ class MySelectTableView(QTableView):
         super(MySelectTableView, self).__init__(parent)
         self.model = QStandardItemModel()
         self.setModel(self.model)
-        self.model.setHorizontalHeaderLabels(['Path', 'Units', 'Translated'])
+        self.model.setHorizontalHeaderLabels([QCoreApplication.translate('EditorDialog', 'Path', None), QCoreApplication.translate('EditorDialog', 'Units', None), QCoreApplication.translate('EditorDialog', 'Translated', None)])
         self.verticalHeader().setVisible(False)
         self.verticalHeader().setDefaultSectionSize(35)
         self.setSelectionBehavior(QTableView.SelectRows)
@@ -222,8 +227,7 @@ class MySelectTableView(QTableView):
                     self.tableView.model.clear()
                     self.tableView.searched.clear()
                     self.tableView.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
-                    self.tableView.model.setHorizontalHeaderLabels(
-                        ['line', 'refer', 'Original', 'Current', 'Translated'])
+                    self.tableView.model.setHorizontalHeaderLabels([QCoreApplication.translate('EditorDialog', 'line', None), QCoreApplication.translate('EditorDialog', 'refer', None), QCoreApplication.translate('EditorDialog', 'Original', None),QCoreApplication.translate('EditorDialog', 'Current', None) ,QCoreApplication.translate('EditorDialog', 'Translated', None) ])
 
                     ret, unmatch_cnt, p = get_rpy_info(select_one)
                     rpy_info_dic[select_one] = ret, unmatch_cnt, p
@@ -285,19 +289,21 @@ class MySelectTableView(QTableView):
 
 
 class translateThread(threading.Thread):
-    def __init__(self, threadID, client, transList, target_language, source_language):
+    def __init__(self, threadID, client, transList, target_language, source_language,fmt):
         threading.Thread.__init__(self)
         self.threadID = threadID
         self.client = client
         self.transList = transList
         self.target_language = target_language
         self.source_language = source_language
+        self.fmt = fmt
 
     def run(self):
         global translated_dic
         try:
             log_print('begin translate! please waiting...')
-            translated_dic = TranslateToList(self.client, self.transList, self.target_language, self.source_language)
+
+            translated_dic = TranslateToList(self.client, self.transList, self.target_language, self.source_language,fmt = self.fmt)
 
         except Exception as e:
             msg = traceback.format_exc()
@@ -369,7 +375,7 @@ class MyTableView(QTableView):
         super(MyTableView, self).__init__(parent)
         self.model = QStandardItemModel()
         self.setModel(self.model)
-        self.model.setHorizontalHeaderLabels(['line', 'refer', 'Original', 'Current', 'Translated'])
+        self.model.setHorizontalHeaderLabels([QCoreApplication.translate('EditorDialog', 'line', None), QCoreApplication.translate('EditorDialog', 'refer', None), QCoreApplication.translate('EditorDialog', 'Original', None),QCoreApplication.translate('EditorDialog', 'Current', None) ,QCoreApplication.translate('EditorDialog', 'Translated', None) ])
         self.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
         self.verticalHeader().setVisible(False)
         self.setSelectionBehavior(QTableView.SelectRows)
@@ -378,6 +384,23 @@ class MyTableView(QTableView):
         self.file = None
         self.row = None
         self.searched = set()
+        self.local_glossary = None
+        selection_model = self.selectionModel()
+        selection_model.selectionChanged.connect(self.on_selection_changed)
+
+    def on_selection_changed(self, selected, deselected):
+        indexes = self.selectionModel().selectedRows()
+        indexes = sorted(indexes, key=lambda index: index.row())
+        l = []
+        if indexes:
+            for i in indexes:
+                index = QModelIndex(i)
+                if (self.copy_index + 1) > 0:
+                    data = self.model.index(index.row(), self.copy_index + 1).data()
+                    l.append(data)
+        if len(l) > 0:
+            text_to_copy = "\n".join(l)
+            pyperclip.copy(text_to_copy)
 
     def keyPressEvent(self, event):
         if event.matches(QKeySequence.Find):
@@ -487,10 +510,10 @@ class MyTableView(QTableView):
         selected_rows = [index.row() for index in self.selectionModel().selectedRows()]
 
         if selected_rows:
-            action1 = contextMenu.addAction("Translate Translation Source to Translated", self.translate)
-            action2 = contextMenu.addAction("Copy Original to Current", self.copy_ori_to_cur)
-            action3 = contextMenu.addAction("Copy Translated to Current", self.copy_translated_to_cur)
-            action4 = contextMenu.addAction("Rollback Current to First Load", self.rollback_cur)
+            action1 = contextMenu.addAction(QCoreApplication.translate('EditorDialog', "Translate Translation Source to Translated", None), self.translate)
+            action2 = contextMenu.addAction(QCoreApplication.translate('EditorDialog', "Copy Original to Current", None), self.copy_ori_to_cur)
+            action3 = contextMenu.addAction(QCoreApplication.translate('EditorDialog', "Copy Translated to Current", None), self.copy_translated_to_cur)
+            action4 = contextMenu.addAction(QCoreApplication.translate('EditorDialog', "Rollback Current to First Load", None), self.rollback_cur)
 
         contextMenu.exec_(event.globalPos())
 
@@ -506,12 +529,16 @@ class MyTableView(QTableView):
         selected_indexes = self.selectionModel().selectedRows()
         self.selected_rows = [index.row() for index in selected_indexes]
         self.selected_rows.sort(reverse=True)
+        local_glossary = self.local_glossary
         transList = []
         for row in self.selected_rows:
             if self.is_original:
                 target = self.model.item(row, 2).text()
             else:
                 target = self.model.item(row, 3).text()
+            if local_glossary is not None:
+                for original, replace in local_glossary.items():
+                    target = target.replace(original, replace)
             d = EncodeBrackets(target)
             if (isAllPunctuations(d['encoded'].strip('"')) == False):
                 transList.append(d['encoded'].strip('"'))
@@ -520,6 +547,10 @@ class MyTableView(QTableView):
         client = init_client()
         if client is None:
             return
+        if client.__class__.__name__ == 'Translate' and local_glossary is not None and len(local_glossary) > 0:
+            fmt = 'html'
+        else:
+            fmt = 'text'
         target_language = targetDic[self.editorForm.targetComboBox.currentText()]
         source_language = sourceDic[self.editorForm.sourceComboBox.currentText()]
         self.editorForm.parent.showNormal()
@@ -528,7 +559,7 @@ class MyTableView(QTableView):
         self.editorForm.setDisabled(True)
         # trans_dic = TranslateToList(client, transList, target_language, source_language)
         global translated_thread, translated_dic
-        translated_thread = translateThread(0, client, transList, target_language, source_language)
+        translated_thread = translateThread(0, client, transList, target_language, source_language,fmt=fmt)
         translated_thread.start()
 
     def copy_translated_to_cur(self):
@@ -580,13 +611,55 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
         self.buttonGroup.addButton(self.originalRadioButton, 1)
         self.buttonGroup.addButton(self.currentRadioButton, 2)
         self.buttonGroup.buttonClicked.connect(self.button_group_clicked)
+        self.buttonGroup2 = QButtonGroup()
+        self.buttonGroup2.addButton(self.copyOriginalRadioButton, 1)
+        self.buttonGroup2.addButton(self.copyCurrentRadioButton, 2)
+        self.buttonGroup2.addButton(self.copyTranslatedRadioButton, 3)
+        self.buttonGroup2.buttonClicked.connect(self.button_group_clicked2)
+        self.copyCurrentRadioButton.setChecked(True)
+        self.tableView.copy_index = -2
+        self.copySelectedCheckBox.stateChanged.connect(self.on_copy_selected_checkbox_state_changed)
         self.init_combobox()
         self.untranslatedCheckBox.stateChanged.connect(self.on_checkbox_state_changed)
         self.saveFileButton.clicked.connect(self.save_file_button_clicked)
         self.changeTranslationEngineButton.clicked.connect(self.show_engine_settings)
         self.showLogButton.clicked.connect(self.on_show_log_button_checked)
         self.searchedOnlyCheckBox.stateChanged.connect(self.on_checkbox_state_changed)
+        self.localGlossaryCheckBox.clicked.connect(self.on_local_glossary_checkbox_state_changed)
         _thread.start_new_thread(self.update_log, ())
+
+    def on_local_glossary_checkbox_state_changed(self):
+        if self.localGlossaryCheckBox.isChecked():
+            local_glossary_form = MyLocalGlossaryForm(parent=self)
+            local_glossary_form.exec()
+            dic = local_glossary_form.data
+            index = self.sourceComboBox.findText('Auto Detect')
+            if dic is None or len(dic) == 0:
+                self.localGlossaryCheckBox.setChecked(False)
+                if 'Auto Detect' in sourceDic.keys() and index == -1:
+                    self.sourceComboBox.addItem('Auto Detect')
+                    index = self.sourceComboBox.findText('Auto Detect')
+                    self.sourceComboBox.setCurrentIndex(index)
+                self.tableView.local_glossary = None
+            else:
+                if index != -1:
+                    current_index = self.sourceComboBox.currentIndex()
+                    self.sourceComboBox.removeItem(index)
+                    if current_index == index:
+                        self.sourceComboBox.setCurrentIndex(0)
+                self.tableView.local_glossary = dic
+        else:
+            index = self.sourceComboBox.findText('Auto Detect')
+            if 'Auto Detect' in sourceDic.keys() and index == -1:
+                self.sourceComboBox.addItem('Auto Detect')
+                index = self.sourceComboBox.findText('Auto Detect')
+                self.sourceComboBox.setCurrentIndex(index)
+
+    def on_copy_selected_checkbox_state_changed(self):
+        if self.copySelectedCheckBox.isChecked():
+            self.tableView.copy_index = self.buttonGroup2.checkedId()
+        else:
+            self.tableView.copy_index = -2
 
     def on_show_log_button_checked(self):
         self.parent.showNormal()
@@ -597,6 +670,7 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
         self.parent.widget_2.show()
         self.parent.widget_3.show()
         self.parent.menubar.show()
+        self.parent.versionLabel.show()
         self.parent.actionedit.triggered.connect(lambda: self.parent.show_edit_form())
         self.parent.showNormal()
         self.hide()
@@ -679,6 +753,8 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
     def init_combobox(self):
         self.targetComboBox.clear()
         self.sourceComboBox.clear()
+        targetDic.clear()
+        sourceDic.clear()
         target = 'google.target.rst'
         source = 'google.source.rst'
         customEngineDic = dict()
@@ -711,10 +787,17 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
         source_l = self.get_combobox_content(source, sourceDic)
         for i in source_l:
             self.sourceComboBox.addItem(i)
+        if self.localGlossaryCheckBox.isChecked():
+            index = self.sourceComboBox.findText('Auto Detect')
+            if index != -1:
+                self.sourceComboBox.removeItem(index)
         try:
             self.sourceComboBox.setCurrentIndex(source_l.index('Auto Detect'))
         except Exception:
             pass
+
+    def button_group_clicked2(self, item):
+        self.tableView.copy_index = item.group().checkedId()
 
     def button_group_clicked(self, item):
         if item.group().checkedId() == 1:
@@ -825,7 +908,7 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
                 f.close()
                 for row in range(self.tableView.model.rowCount()):
                     data = self.tableView.model.item(row, 0).data(Qt.UserRole)
-                    line = int(data['line'])
+                    line = int(data['line']) - 1
                     ori_current = data['current']
                     current = self.tableView.model.item(row, 3).text()
                     if ori_current != current:
@@ -862,46 +945,29 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
                 return
             translated_thread.join()
             trans_dic = translated_dic
+            local_glossary = self.tableView.local_glossary
             for row in self.tableView.selected_rows:
                 if self.tableView.is_original:
                     target = self.tableView.model.item(row, 2).text()
                 else:
                     target = self.tableView.model.item(row, 3).text()
-                d = EncodeBrackets(target)
+                if local_glossary is not None:
+                    for original, replace in local_glossary.items():
+                        target = target.replace(original, replace)
+
                 line_index = int(self.tableView.model.item(row, 0).text())
-                if (isAllPunctuations(d['encoded'].strip('"')) == False):
-                    try:
-                        translated = trans_dic[d['encoded'].strip('"')]
-                        translated = translated.replace('\u200b', '')
-                        translated = translated.replace('\u200b1', '')
-                        translated = translated.replace('"', '\\"')
-                        translated = translated.replace('【', '[')
-                        translated = translated.replace('】', ']')
-                        translated = translated.rstrip('\\')
-                        dd = DecodeBrackets(
-                            translated, d['en_1'], d['en_2'], d['en_3'])
-                        if d['en_1_cnt'] != dd['de_6_cnt'] or d['en_2_cnt'] != dd['de_5_cnt'] or d['en_3_cnt'] != \
-                                dd[
-                                    'de_4_cnt']:
-                            raise Exception('decoded error')
-                        dd = dd['decoded']
-                        dd = dd.replace('&gt;', '>')
-                        dd = dd.replace('&#39;', "'")
-                        dd = dd.replace('&quot;', '\\"')
-                        dd = dd.replace('\n', '\\n')
-                        self.tableView.model.item(row, 4).setText(dd)
-                        self.tableView.model.item(row, 4).setToolTip(dd)
-                    except:
-                        log_print(
-                            'Error in line:' + str(line_index) + ' ' + '\n' + target + '\n' + d['encoded'].strip(
-                                '"') + ' Error')
-                        self.tableView.model.item(row, 4).setText(target)
-                        self.tableView.model.item(row, 4).setToolTip(target)
-                else:
+                translated = get_translated(trans_dic,target)
+                if translated is None:
+                    d = EncodeBrackets(target)
+                    log_print(
+                        'Error in line:' + str(line_index) + ' ' + '\n' + target + '\n' + d['encoded'].strip(
+                            '"') + ' Error')
                     self.tableView.model.item(row, 4).setText(target)
                     self.tableView.model.item(row, 4).setToolTip(target)
+                else:
+                    self.tableView.model.item(row, 4).setText(translated)
+                    self.tableView.model.item(row, 4).setToolTip(translated)
             # self.parent.hide()
-
             log_print('translated over')
             translated_dic = None
             translated_thread = None
@@ -973,99 +1039,3 @@ def get_rpy_info_from_dir(select_one, is_open_filter):
         log_print(msg)
 
 
-def get_rpy_info(p):
-    infoList = []
-    try:
-        f = io.open(p, 'r', encoding='utf-8')
-    except:
-        log_print(p + ' file not found')
-        return infoList, 0, p
-    try:
-        size = os.path.getsize(p)
-        _read = f.read()
-        f.close()
-    except:
-        f.close()
-        return infoList, 0, p
-    _read_line = _read.split('\n')
-    isLastFiltered = False
-    isNeedSkip = False
-    isVoice = False
-    unmatch_cnt = 0
-    for line_index, line_content in enumerate(_read_line):
-        if (line_content.startswith('translate ')):
-            isNeedSkip = False
-            split_s = line_content.split(' ')
-            if (len(split_s) > 2):
-                target = split_s[2].strip('\n')
-                if (target == 'python:' or target == 'style'):
-                    isNeedSkip = True
-            continue
-        if (isNeedSkip):
-            continue
-        isNeedSkip = False
-        if (line_content.strip().startswith('#') or line_content.strip().startswith('old ')):
-            isLastFiltered = True
-            continue
-        if (isLastFiltered):
-            isLastFiltered = False
-            # if (_read_line[line_index - 1].strip()[4:] != _read_line[line_index].strip()[4:] and _read_line[
-            #                                                                                          line_index - 1].strip()[
-            #                                                                                      2:] != _read_line[
-            #     line_index].strip()):
-            #     continue
-        else:
-            isLastFiltered = False
-        if not isVoice:
-            if line_index > 0 and not _read_line[line_index - 1].strip().startswith('#') and not _read_line[
-                line_index - 1].strip().startswith('old '):
-                continue
-        if (line_content.strip().lstrip('#').strip().startswith('voice ')):
-            isVoice = True
-            continue
-        d = EncodeBracketContent(line_content, '"', '"')
-        if ('oriList' in d.keys() and len(d['oriList']) > 0):
-            # print(d['oriList'])
-            for i, e in enumerate(d['oriList']):
-                if (isAllPunctuations(d['encoded'].strip('"')) == False):
-                    target_index = line_index - 1
-                    if isVoice:
-                        target_index = target_index -1
-                    if line_content.strip().startswith('new '):
-                        d_o = EncodeBracketContent(_read_line[target_index].strip()[4:], '"', '"')
-                    else:
-                        d_o = EncodeBracketContent(_read_line[target_index].strip(), '"', '"')
-                    original = ''
-                    if ('oriList' in d_o.keys() and len(d_o['oriList']) > 0):
-                        original = d_o['oriList'][i].strip('"')
-                    is_match = True
-                    if original != e.strip('"'):
-                        unmatch_cnt = unmatch_cnt + 1
-                        is_match = False
-                    dic = dict()
-                    dic['original'] = original
-                    dic['current'] = e.strip('"')
-                    if not isVoice:
-                        dic['line'] = line_index
-                    else:
-                        dic['line'] = line_index + 1
-                    start = line_index - 2
-                    if isVoice:
-                        start = start - 2
-                        isVoice = False
-                    if line_content.strip().startswith('new '):
-                        start = line_index
-                    j = 0
-                    end = start - 5
-                    if end < 0:
-                        end = -1
-                    for j in range(start, end, -1):
-                        if _read_line[j].strip().startswith('#'):
-                            break
-                    dic['refer'] = ''
-                    if j != 0:
-                        dic['refer'] = _read_line[j].strip('#')
-                    dic['is_match'] = is_match
-                    infoList.append(dic)
-    # sorted(infoList, key=lambda x: x['line'])
-    return infoList, unmatch_cnt, p

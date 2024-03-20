@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1397</width>
-    <height>974</height>
+    <height>1024</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -24,7 +24,7 @@
        </size>
       </property>
       <property name="text">
-       <string>Version 1.8.7</string>
+       <string>Version 1.8.8</string>
       </property>
      </widget>
     </item>
@@ -33,14 +33,14 @@
       <property name="minimumSize">
        <size>
         <width>600</width>
-        <height>310</height>
+        <height>360</height>
        </size>
       </property>
       <widget class="QPushButton" name="translateBtn">
        <property name="geometry">
         <rect>
          <x>260</x>
-         <y>280</y>
+         <y>330</y>
          <width>75</width>
          <height>24</height>
         </rect>
@@ -201,7 +201,7 @@
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>240</y>
+         <y>300</y>
          <width>561</width>
          <height>31</height>
         </rect>
@@ -217,13 +217,102 @@
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>280</y>
+         <y>330</y>
          <width>231</width>
          <height>24</height>
         </rect>
        </property>
        <property name="text">
         <string>Generate Backup Files (xxx.rpy.bak)</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="localGlossaryCheckBox">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>280</y>
+         <width>361</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Local Glossary (replace certain words with preset content)</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_15">
+       <property name="geometry">
+        <rect>
+         <x>260</x>
+         <y>250</y>
+         <width>111</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>20</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Translation Source</string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="originalRadioButton">
+       <property name="geometry">
+        <rect>
+         <x>390</x>
+         <y>250</y>
+         <width>71</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>20</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Original</string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="currentRadioButton">
+       <property name="geometry">
+        <rect>
+         <x>490</x>
+         <y>250</y>
+         <width>71</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>20</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Current</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="skipTranslatedCheckBox">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>250</y>
+         <width>231</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Skip Translated (Original != Current)</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
        </property>
       </widget>
      </widget>
