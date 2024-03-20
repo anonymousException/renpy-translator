@@ -11,7 +11,7 @@
 
 <div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/interface_editor.png"></div>
 
-<div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/interface_v1.8.0.png"></div>
+<div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/interface_v1.8.8.png"></div>
 
 <div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/translated_contents.png"></div>
 
@@ -66,6 +66,7 @@ You can download the latest version through https://github.com/anonymousExceptio
 
 - Completely free and open-source
 - Support Editor Mode to edit file
+- Supoort local glossary to improve translation
 - Support **special symbols** in untranslated contents like "{}"  "[]" and "<>"  , the contents in special symbols will not be translated.  Example:
 - ```python
   # untranslated contents:
@@ -118,6 +119,14 @@ You can download the latest version through https://github.com/anonymousExceptio
 Editor Mode:
 
 https://github.com/anonymousException/renpy-translator/assets/157234942/eb140430-2b58-4a46-b913-b2df07d1bb6d
+
+Local Glossary:
+
+https://github.com/anonymousException/renpy-translator/assets/157234942/1ac405a8-5aed-4586-9ae0-5055903bf165
+
+Imported Glossary format:
+
+![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/imported_local_glossary.png)
 
 Translate Files:
 
