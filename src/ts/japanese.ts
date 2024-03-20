@@ -519,8 +519,8 @@
     </message>
     <message>
         <location filename="../local_glossary_form.py" line="86"/>
-        <source>The file does not exist.Do you want to create it?</source>
-        <translation>ファイルが存在しません。作成しますか?</translation>
+        <source>The file does not exist.Click to create it</source>
+        <translation>ファイルが存在しません。クリックして作成してください</translation>
     </message>
     <message>
         <location filename="../local_glossary_form.py" line="111"/>

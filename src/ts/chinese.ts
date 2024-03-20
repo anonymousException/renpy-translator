@@ -549,8 +549,8 @@
     </message>
     <message>
         <location filename="../local_glossary_form.py" line="86"/>
-        <source>The file does not exist.Do you want to create it?</source>
-        <translation>该文件不存在。是否要创建它？</translation>
+        <source>The file does not exist.Click to create it</source>
+        <translation>文件不存在，点击创建</translation>
     </message>
     <message>
         <location filename="../local_glossary_form.py" line="111"/>

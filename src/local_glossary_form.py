@@ -81,7 +81,7 @@ class MyLocalGlossaryForm(QDialog, Ui_LocalGlossaryDialog):
             self.tableView.model.setRowCount(1)
             self.tableView.row = 0
             text = file + ' : ' + QCoreApplication.translate(
-                'LocalGlossaryDialog', 'The file does not exist.Do you want to create it?',
+                'LocalGlossaryDialog', 'The file does not exist.Click to create it',
                 None)
             m_button = QPushButton()
             m_button.setText(text)
