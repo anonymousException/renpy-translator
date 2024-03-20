@@ -629,6 +629,7 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
         _thread.start_new_thread(self.update_log, ())
 
     def on_local_glossary_checkbox_state_changed(self):
+        self.tableView.local_glossary = None
         if self.localGlossaryCheckBox.isChecked():
             local_glossary_form = MyLocalGlossaryForm(parent=self)
             local_glossary_form.exec()
@@ -640,7 +641,6 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
                     self.sourceComboBox.addItem('Auto Detect')
                     index = self.sourceComboBox.findText('Auto Detect')
                     self.sourceComboBox.setCurrentIndex(index)
-                self.tableView.local_glossary = None
             else:
                 if index != -1:
                     current_index = self.sourceComboBox.currentIndex()
