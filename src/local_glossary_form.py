@@ -1,5 +1,6 @@
 import os.path
 
+import openpyxl
 from PySide6.QtCore import QCoreApplication, Qt
 from PySide6.QtGui import QStandardItemModel, QStandardItem
 from PySide6.QtWidgets import QDialog, QTableWidget, QTableView, QHeaderView, QTableWidgetItem, QFileDialog, \
@@ -7,14 +8,16 @@ from PySide6.QtWidgets import QDialog, QTableWidget, QTableView, QHeaderView, QT
 from openpyxl.workbook import Workbook
 
 from local_glossary import Ui_LocalGlossaryDialog
-import pandas
+
+
 class MyTableView(QTableView):
     def __init__(self, parent=None):
         super(MyTableView, self).__init__(parent)
         self.model = QStandardItemModel()
         self.setModel(self.model)
         self.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
-        self.model.setHorizontalHeaderLabels([QCoreApplication.translate('LocalGlossaryDialog', 'Original', None),QCoreApplication.translate('LocalGlossaryDialog', 'Replace', None)])
+        self.model.setHorizontalHeaderLabels([QCoreApplication.translate('LocalGlossaryDialog', 'Original', None),
+                                              QCoreApplication.translate('LocalGlossaryDialog', 'Replace', None)])
         self.model.setColumnCount(2)
         self.model.dataChanged.connect(self.handle_data_changed)
         self.file = None
@@ -31,7 +34,7 @@ class MyTableView(QTableView):
         cols = model.columnCount()
         wb = Workbook()
         ws = wb.active
-        ws.cell(row=1,column=1, value=self.model.horizontalHeaderItem(0).text())
+        ws.cell(row=1, column=1, value=self.model.horizontalHeaderItem(0).text())
         ws.cell(row=1, column=2, value=self.model.horizontalHeaderItem(1).text())
         for r in range(rows):
             for c in range(cols):
@@ -55,11 +58,12 @@ class MyLocalGlossaryForm(QDialog, Ui_LocalGlossaryDialog):
         self.appendCheckBox.stateChanged.connect(self.on_append_checkbox_changed)
         self.data = None
         self.confirmButton.clicked.connect(self.on_confirm_clicked)
+        self.create_file_param = None
 
     def on_append_checkbox_changed(self):
         self.load_from_xlsx(self.tableView.file)
         if self.appendCheckBox.isChecked():
-            self.tableView.model.setRowCount((int(self.tableView.row / 100) + 1)*100)
+            self.tableView.model.setRowCount((int(self.tableView.row / 100) + 1) * 100)
         else:
             self.tableView.model.setRowCount(self.tableView.row)
 
@@ -68,71 +72,100 @@ class MyLocalGlossaryForm(QDialog, Ui_LocalGlossaryDialog):
         if len(file) == 0:
             self.tableView.model.clear()
             return
-        if os.path.isfile(file):
+        if os.path.isfile(file) and file.endswith('.xlsx'):
             self.load_from_xlsx(file)
             self.tableView.file = file
             self.on_append_checkbox_changed()
         else:
             self.tableView.file = None
             self.tableView.model.clear()
-            self.tableView.model.setHorizontalHeaderLabels([QCoreApplication.translate('LocalGlossaryDialog', 'Original', None),
-                                                  QCoreApplication.translate('LocalGlossaryDialog', 'Replace', None)])
+            self.tableView.model.setHorizontalHeaderLabels(
+                [QCoreApplication.translate('LocalGlossaryDialog', 'Original', None),
+                 QCoreApplication.translate('LocalGlossaryDialog', 'Replace', None)])
             self.tableView.model.setColumnCount(1)
             self.tableView.model.setRowCount(1)
             self.tableView.row = 0
-            text = file + ' : ' + QCoreApplication.translate(
-                'LocalGlossaryDialog', 'The file does not exist.Click to create it',
-                None)
+            if file.endswith('.xlsx'):
+                text = file + ' : ' + QCoreApplication.translate(
+                    'LocalGlossaryDialog', 'The file does not exist.Click to create it',
+                    None)
+                self.create_file_param = file
+            else:
+                if os.path.isfile(file + '.xlsx'):
+                    text = file + ' : ' + QCoreApplication.translate(
+                        'LocalGlossaryDialog', 'The file is not a xlsx file.Click to open ',
+                        None) + file + '.xlsx'
+                else:
+                    text = file + ' : ' + QCoreApplication.translate(
+                        'LocalGlossaryDialog', 'The file is not a xlsx file.Click to create ',
+                        None) + file + '.xlsx'
+                self.create_file_param = file + '.xlsx'
             m_button = QPushButton()
             m_button.setText(text)
-            m_button.clicked.connect(self.create_file)
-            self.tableView.setIndexWidget(self.tableView.model.index(0,0),m_button)
 
+            m_button.clicked.connect(self.create_file)
+            self.tableView.setIndexWidget(self.tableView.model.index(0, 0), m_button)
 
     def create_file(self):
+        if os.path.isfile(self.create_file_param):
+            self.tableView.file = self.create_file_param
+            self.selectFileText.setText(self.create_file_param)
+            return
         model = self.tableView.model
         rows = model.rowCount()
         cols = model.columnCount()
         wb = Workbook()
         ws = wb.active
         self.tableView.model.clear()
-        self.tableView.model.setHorizontalHeaderLabels([QCoreApplication.translate('LocalGlossaryDialog', 'Original', None),
-                                              QCoreApplication.translate('LocalGlossaryDialog', 'Replace', None)])
+        self.tableView.model.setHorizontalHeaderLabels(
+            [QCoreApplication.translate('LocalGlossaryDialog', 'Original', None),
+             QCoreApplication.translate('LocalGlossaryDialog', 'Replace', None)])
         ws.cell(row=1, column=1, value=self.tableView.model.horizontalHeaderItem(0).text())
         ws.cell(row=1, column=2, value=self.tableView.model.horizontalHeaderItem(1).text())
-        self.tableView.file = self.selectFileText.toPlainText().replace('file:///', '')
+        self.tableView.file = self.create_file_param
         wb.save(self.tableView.file)
-        self.load_from_xlsx(self.tableView.file)
+        # self.load_from_xlsx(self.tableView.file)
+        self.selectFileText.setText(self.tableView.file)
         self.appendCheckBox.setChecked(True)
-
 
     def select_file(self):
         file, filetype = QFileDialog.getOpenFileName(self,
-                                                       QCoreApplication.translate('LocalGlossaryDialog', 'select the file you want to import', None),
-                                                       '',
-                                                       "Xlsx Files (*.xlsx)")
+                                                     QCoreApplication.translate('LocalGlossaryDialog',
+                                                                                'select the file you want to import',
+                                                                                None),
+                                                     '',
+                                                     "Xlsx Files (*.xlsx)")
         if os.path.isfile(file):
             self.tableView.file = file
             self.selectFileText.setText(file)
 
-    def load_from_xlsx(self,file):
-        df = pandas.read_excel(file,keep_default_na=False)
-        row = df.shape[0]
-        column = df.shape[1]
+    def load_from_xlsx(self, file):
+        wb = openpyxl.load_workbook(file,data_only = True)
+        ws = wb.active
+        row = ws.max_row
+        column = ws.max_column
         self.tableView.row = row
         self.tableView.column = column
         self.tableView.model.dataChanged.disconnect()
         if row > 0:
+            first_row = next(ws.iter_rows(min_row=1, max_row=1, values_only=True))
+            first_row_list = list(first_row)
             self.tableView.model.clear()
-            self.tableView.model.setHorizontalHeaderLabels(df.columns)
+            self.tableView.model.setHorizontalHeaderLabels(first_row_list)
             self.tableView.model.setRowCount(row)
             self.tableView.model.setColumnCount(column)
             for i in range(row):
                 for j in range(column):
-                    item = QStandardItem(str(df.iat[i, j]))
-                    self.tableView.model.setItem(i, j, item)
+                    if i == 0:
+                        continue
+                    cell_value = ws.cell(row=i + 1, column=j + 1).value
+                    if cell_value is None:
+                        cell_value = ''
+                    data = str(cell_value)
+                    item = QStandardItem(data)
+                    self.tableView.model.setItem(i-1, j, item)
         self.tableView.model.dataChanged.connect(self.tableView.handle_data_changed)
-
+        wb.close()
 
     def get_data(self):
         dic = dict()

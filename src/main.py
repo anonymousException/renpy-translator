@@ -205,7 +205,8 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         if editor_form is None:
             editor_form = MyEditorForm(parent=None)
         editor_form.parent = self
-        editor_form.show()
+        editor_form.showNormal()
+        editor_form.raise_()
         self.actionedit.triggered.disconnect()
         #self.show()
 

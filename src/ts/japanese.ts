@@ -504,26 +504,36 @@
 <context>
     <name>LocalGlossaryDialog</name>
     <message>
-        <location filename="../local_glossary_form.py" line="17"/>
-        <location filename="../local_glossary_form.py" line="78"/>
-        <location filename="../local_glossary_form.py" line="99"/>
+        <location filename="../local_glossary_form.py" line="19"/>
+        <location filename="../local_glossary_form.py" line="83"/>
+        <location filename="../local_glossary_form.py" line="121"/>
         <source>Original</source>
         <translation>オリジナル</translation>
     </message>
     <message>
-        <location filename="../local_glossary_form.py" line="17"/>
-        <location filename="../local_glossary_form.py" line="79"/>
-        <location filename="../local_glossary_form.py" line="100"/>
+        <location filename="../local_glossary_form.py" line="20"/>
+        <location filename="../local_glossary_form.py" line="84"/>
+        <location filename="../local_glossary_form.py" line="122"/>
         <source>Replace</source>
         <translation>交換する</translation>
     </message>
     <message>
-        <location filename="../local_glossary_form.py" line="86"/>
+        <location filename="../local_glossary_form.py" line="92"/>
         <source>The file does not exist.Click to create it</source>
         <translation>ファイルが存在しません。クリックして作成してください</translation>
     </message>
     <message>
-        <location filename="../local_glossary_form.py" line="111"/>
+        <location filename="../local_glossary_form.py" line="97"/>
+        <source>The file is not a xlsx file.Click to open </source>
+        <translation>ファイルは xlsx ファイルではありません。クリックして開きます </translation>
+    </message>
+    <message>
+        <location filename="../local_glossary_form.py" line="101"/>
+        <source>The file is not a xlsx file.Click to create </source>
+        <translation>ファイルは xlsx ファイルではありません。クリックして作成してください </translation>
+    </message>
+    <message>
+        <location filename="../local_glossary_form.py" line="135"/>
         <source>select the file you want to import</source>
         <translation>インポートするファイルを選択します</translation>
     </message>
@@ -566,19 +576,19 @@
         <translation>レンピー翻訳者</translation>
     </message>
     <message>
-        <location filename="../main.py" line="394"/>
-        <location filename="../main.py" line="443"/>
+        <location filename="../main.py" line="395"/>
+        <location filename="../main.py" line="444"/>
         <source>extracting...</source>
         <translation>抽出中...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="436"/>
-        <location filename="../main.py" line="543"/>
+        <location filename="../main.py" line="437"/>
+        <location filename="../main.py" line="544"/>
         <source>translating...</source>
         <translation>翻訳中...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="439"/>
+        <location filename="../main.py" line="440"/>
         <location filename="../ui.ui" line="49"/>
         <source>translate</source>
         <translation>翻訳する</translation>
@@ -738,7 +748,7 @@
         <translation>日本語</translation>
     </message>
     <message>
-        <location filename="../main.py" line="446"/>
+        <location filename="../main.py" line="447"/>
         <location filename="../ui.ui" line="585"/>
         <source>extract</source>
         <translation>抽出する</translation>
