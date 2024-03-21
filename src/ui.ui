@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1397</width>
-    <height>1024</height>
+    <width>1255</width>
+    <height>1064</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -24,7 +24,7 @@
        </size>
       </property>
       <property name="text">
-       <string>Version 1.8.8</string>
+       <string>Version 1.8.9</string>
       </property>
      </widget>
     </item>
@@ -33,15 +33,15 @@
       <property name="minimumSize">
        <size>
         <width>600</width>
-        <height>360</height>
+        <height>400</height>
        </size>
       </property>
       <widget class="QPushButton" name="translateBtn">
        <property name="geometry">
         <rect>
-         <x>260</x>
-         <y>330</y>
-         <width>75</width>
+         <x>384</x>
+         <y>370</y>
+         <width>181</width>
          <height>24</height>
         </rect>
        </property>
@@ -138,7 +138,7 @@
         <rect>
          <x>260</x>
          <y>0</y>
-         <width>71</width>
+         <width>141</width>
          <height>20</height>
         </rect>
        </property>
@@ -201,13 +201,13 @@
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>300</y>
-         <width>561</width>
+         <y>320</y>
+         <width>191</width>
          <height>31</height>
         </rect>
        </property>
        <property name="text">
-        <string>Multi-Translate (If disabled translation will continue after the previous file has been translated)</string>
+        <string>Multi-threaded translation</string>
        </property>
        <property name="tristate">
         <bool>false</bool>
@@ -217,8 +217,8 @@
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>330</y>
-         <width>231</width>
+         <y>370</y>
+         <width>481</width>
          <height>24</height>
         </rect>
        </property>
@@ -231,7 +231,7 @@
         <rect>
          <x>0</x>
          <y>280</y>
-         <width>361</width>
+         <width>591</width>
          <height>20</height>
         </rect>
        </property>
@@ -315,6 +315,22 @@
         <bool>true</bool>
        </property>
       </widget>
+      <widget class="QLabel" name="label_16">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>310</y>
+         <width>411</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>(If disable, translation will continue after the previous file has been translated)</string>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
      </widget>
     </item>
     <item row="5" column="2">
@@ -343,7 +359,7 @@
         <rect>
          <x>260</x>
          <y>0</y>
-         <width>60</width>
+         <width>121</width>
          <height>20</height>
         </rect>
        </property>
@@ -374,12 +390,15 @@
         <rect>
          <x>0</x>
          <y>105</y>
-         <width>30</width>
+         <width>81</width>
          <height>31</height>
         </rect>
        </property>
        <property name="text">
         <string>font</string>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
        </property>
       </widget>
       <widget class="QPushButton" name="selectFontBtn">
@@ -398,9 +417,9 @@
       <widget class="QPushButton" name="replaceFontBtn">
        <property name="geometry">
         <rect>
-         <x>250</x>
+         <x>84</x>
          <y>150</y>
-         <width>75</width>
+         <width>411</width>
          <height>24</height>
         </rect>
        </property>
@@ -411,9 +430,9 @@
       <widget class="QPushButton" name="openFontStyleBtn">
        <property name="geometry">
         <rect>
-         <x>210</x>
+         <x>80</x>
          <y>190</y>
-         <width>161</width>
+         <width>411</width>
          <height>24</height>
         </rect>
        </property>
@@ -426,12 +445,15 @@
         <rect>
          <x>0</x>
          <y>40</y>
-         <width>61</width>
+         <width>81</width>
          <height>31</height>
         </rect>
        </property>
        <property name="text">
         <string>directory</string>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
        </property>
       </widget>
       <widget class="QTextEdit" name="selectDirText_3">
@@ -491,7 +513,7 @@
         <rect>
          <x>0</x>
          <y>45</y>
-         <width>31</width>
+         <width>71</width>
          <height>31</height>
         </rect>
        </property>
@@ -520,7 +542,7 @@
         <rect>
          <x>260</x>
          <y>10</y>
-         <width>60</width>
+         <width>141</width>
          <height>20</height>
         </rect>
        </property>
@@ -558,6 +580,9 @@
        <property name="text">
         <string>tl directory</string>
        </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
       </widget>
       <widget class="QTextEdit" name="selectDirText_2">
        <property name="geometry">
@@ -575,9 +600,9 @@
       <widget class="QPushButton" name="extractBtn">
        <property name="geometry">
         <rect>
-         <x>250</x>
+         <x>84</x>
          <y>310</y>
-         <width>75</width>
+         <width>411</width>
          <height>24</height>
         </rect>
        </property>
@@ -590,12 +615,15 @@
         <rect>
          <x>0</x>
          <y>235</y>
-         <width>61</width>
+         <width>71</width>
          <height>31</height>
         </rect>
        </property>
        <property name="text">
         <string>tl name</string>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
        </property>
       </widget>
       <widget class="QTextEdit" name="tlNameText">
@@ -687,7 +715,7 @@
         <rect>
          <x>230</x>
          <y>280</y>
-         <width>61</width>
+         <width>31</width>
          <height>20</height>
         </rect>
        </property>
@@ -695,9 +723,9 @@
       <widget class="QCheckBox" name="emptyCheckBox">
        <property name="geometry">
         <rect>
-         <x>310</x>
+         <x>280</x>
          <y>280</y>
-         <width>271</width>
+         <width>321</width>
          <height>20</height>
         </rect>
        </property>
@@ -752,7 +780,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1397</width>
+     <width>1255</width>
      <height>22</height>
     </rect>
    </property>
@@ -785,9 +813,18 @@
     <property name="title">
      <string>language</string>
     </property>
-    <addaction name="actionEnglish"/>
+    <addaction name="actionArabic"/>
+    <addaction name="actionBengali"/>
     <addaction name="actionChinese"/>
+    <addaction name="actionEnglish"/>
+    <addaction name="actionFrench"/>
+    <addaction name="actionHindi"/>
     <addaction name="actionJapanese"/>
+    <addaction name="actionPortuguese"/>
+    <addaction name="actionRussian"/>
+    <addaction name="actionSpanish"/>
+    <addaction name="separator"/>
+    <addaction name="actionUrdu"/>
    </widget>
    <addaction name="aboutMenu"/>
    <addaction name="proxyMenu"/>
@@ -822,17 +859,60 @@
   </action>
   <action name="actionEnglish">
    <property name="text">
-    <string>English</string>
+    <string notr="true">English</string>
    </property>
   </action>
   <action name="actionChinese">
    <property name="text">
-    <string>Chinese</string>
+    <string notr="true">Chinese</string>
    </property>
   </action>
   <action name="actionJapanese">
    <property name="text">
-    <string>Japanese</string>
+    <string notr="true">Japanese</string>
+   </property>
+  </action>
+  <action name="actionSpanish">
+   <property name="text">
+    <string notr="true">Spanish</string>
+   </property>
+  </action>
+  <action name="actionPortuguese">
+   <property name="text">
+    <string notr="true">Portuguese</string>
+   </property>
+  </action>
+  <action name="actionArabic">
+   <property name="text">
+    <string notr="true">Arabic</string>
+   </property>
+  </action>
+  <action name="actionHindi">
+   <property name="text">
+    <string notr="true">Hindi</string>
+   </property>
+  </action>
+  <action name="actionFrench">
+   <property name="text">
+    <string notr="true">French</string>
+   </property>
+  </action>
+  <action name="actionBengali">
+   <property name="text">
+    <string notr="true">Bengali</string>
+   </property>
+  </action>
+  <action name="actionRussian">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string notr="true">Russian</string>
+   </property>
+  </action>
+  <action name="actionUrdu">
+   <property name="text">
+    <string>Urdu</string>
    </property>
   </action>
  </widget>

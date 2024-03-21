@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="zh_CN">
+<TS version="2.1" language="ar">
 <context>
     <name>CopyrightDialog</name>
     <message>
         <location filename="../copyright.ui" line="14"/>
         <source>CopyRight</source>
-        <translation>版权</translation>
+        <translation>حقوق النشر</translation>
     </message>
     <message>
         <location filename="../copyright.ui" line="31"/>
         <source>The software is completely free and open-source</source>
-        <translation>这个软件完全开源免费</translation>
+        <translation>البرنامج مجاني تماما ومفتوح المصدر</translation>
     </message>
     <message>
         <location filename="../copyright.ui" line="52"/>
         <source>You can view the source code from </source>
-        <translation>你可以查看源码从 </translation>
+        <translation>يمكنك عرض الكود المصدري من </translation>
     </message>
     <message>
         <location filename="../copyright.ui" line="71"/>
@@ -26,7 +26,7 @@
     <message>
         <location filename="../copyright.ui" line="89"/>
         <source>This item is available for research and study. In no event shall the author or copyright holder be liable for any claims, damages, or other liabilities arising out of or in connection with the software or the use of the software or other dealings with the software, whether in an action in contract, an action for infringement, or any other proceeding</source>
-        <translation>该项目可供研究和学习。在任何情况下，作者或版权持有者均不对因本软件或本软件的使用或与本软件的其他交易而产生或与之相关的任何索赔、损害或其他责任承担责任，无论是合同诉讼、侵权诉讼或任何其他诉讼</translation>
+        <translation>هذا البند متاح للبحث والدراسة. لا يتحمل المؤلف أو صاحب حقوق الطبع والنشر بأي حال من الأحوال المسؤولية عن أي مطالبات أو أضرار أو التزامات أخرى ناشئة عن أو فيما يتعلق بالبرنامج أو استخدام البرنامج أو أي تعاملات أخرى مع البرنامج، سواء في إجراء في العقد أو دعوى الانتهاك أو أي إجراء آخر</translation>
     </message>
 </context>
 <context>
@@ -34,12 +34,12 @@
     <message>
         <location filename="../custom_engine.ui" line="14"/>
         <source>Custom Translation Engine</source>
-        <translation>自定义翻译引擎</translation>
+        <translation>محرك ترجمة مخصص</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="20"/>
         <source>clear log</source>
-        <translation>清空日志</translation>
+        <translation>سجل نظيف</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="42"/>
@@ -53,182 +53,297 @@
         <location filename="../custom_engine.ui" line="109"/>
         <location filename="../custom_engine.ui" line="274"/>
         <source>rename</source>
-        <translation>重命名</translation>
+        <translation>إعادة تسمية</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="68"/>
         <source>relative to Active Translation Engine</source>
-        <translation>与 激活的翻译引擎 对应</translation>
+        <translation>نسبة إلى محرك الترجمة النشط</translation>
+    </message>
+    <message>
+        <location filename="../custom_engine.ui" line="82"/>
+        <source>add a new custom engine</source>
+        <translation>إضافة محرك مخصص جديد</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="96"/>
         <source>Rename Script</source>
-        <translation>重命名脚本</translation>
+        <translation>إعادة تسمية البرنامج النصي</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="122"/>
         <source>rename the  source name in  &apos;supported_language&apos; folder</source>
-        <translation>重命名“supported_language”文件夹中的源名称</translation>
+        <translation>أعد تسمية اسم المصدر في المجلد &quot;supported_language&quot;.</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="135"/>
         <source>Save the key and secret in the upper right corner</source>
-        <translation>保存在右上角的 key 和 secret</translation>
+        <translation>احفظ المفتاح والسر في الزاوية اليمنى العليا</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="151"/>
         <source>input or choose or drag the python script which supports translation api.  The script will be copied to &apos;custom_engine&apos; folder</source>
-        <translation>输入或选择或拖拽提供翻译 API 的 python 脚本,这个脚本将会被拷贝到 &apos;custom_engine&apos; 文件夹下</translation>
+        <translation>أدخل أو اختر أو اسحب برنامج python النصي الذي يدعم واجهة برمجة التطبيقات للترجمة. سيتم نسخ البرنامج النصي إلى مجلد &quot;custom_engine&quot;.</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="164"/>
         <source>Rename Source</source>
-        <translation>重命名源</translation>
+        <translation>إعادة تسمية المصدر</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="177"/>
         <source>Rename Target</source>
-        <translation>重命名目标</translation>
+        <translation>إعادة تسمية الهدف</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="190"/>
         <source>Key Support(API_KEY)</source>
-        <translation>支持输入 Key (API_KEY)</translation>
+        <translation>دعم المفاتيح (API_KEY)</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="203"/>
         <source>Queue Support (Can the api support list input in one request such as:[&apos;Hello&apos;,&apos;World&apos;])</source>
-        <translation>支持队列输入(这个 API 是否支持在一个请求内输入一组数据，如 [&apos;你好&apos;,&apos;世界&apos;])</translation>
+        <translation>دعم قائمة الانتظار (يمكن إدخال قائمة دعم واجهة برمجة التطبيقات في طلب واحد مثل:[&apos;Hello&apos;,&apos;World&apos;])</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="216"/>
         <location filename="../custom_engine.ui" line="466"/>
         <source>target</source>
-        <translation>目标</translation>
+        <translation>هدف</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="235"/>
         <source>input or choose or drag the source language file which applies language map.  The file will be copied to &apos;supported_language&apos; folder</source>
-        <translation>输入或选择或拖拽应用语言映射的源语言文件。该文件将被复制到“supported_language”文件夹</translation>
+        <translation>أدخل أو اختر أو اسحب ملف اللغة المصدر الذي يطبق خريطة اللغة. سيتم نسخ الملف إلى مجلد &quot;supported_language&quot;.</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="248"/>
         <source>relative to detail information</source>
-        <translation>与 详细信息 对应</translation>
+        <translation>نسبة إلى المعلومات التفصيلية</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="261"/>
         <source>Delete</source>
-        <translation>删除</translation>
+        <translation>يمسح</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="290"/>
         <source>input or choose or drag the target language file which applies language map.  The file will be copied to &apos;supported_language&apos; folder</source>
-        <translation>输入或选择或拖动应用语言映射的目标语言文件。该文件将被复制到“supported_language”文件夹</translation>
+        <translation>أدخل أو اختر أو اسحب ملف اللغة الهدف الذي يطبق خريطة اللغة. سيتم نسخ الملف إلى مجلد &quot;supported_language&quot;.</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="303"/>
         <source>custom engine list</source>
-        <translation>自定义引擎列表</translation>
+        <translation>قائمة المحركات المخصصة</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="329"/>
         <source>Secret Support(API_SECRET)</source>
-        <translation>支持输入 Secret (API_SECRET)</translation>
+        <translation>الدعم السري (API_SECRET)</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="355"/>
         <source>rename the  target name in  &apos;supported_language&apos; folder</source>
-        <translation>重命名“supported_language”文件夹中的目标名称</translation>
+        <translation>أعد تسمية الاسم الهدف في المجلد &quot;supported_language&quot;.</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="368"/>
         <source>Save</source>
-        <translation>保存</translation>
+        <translation>يحفظ</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="381"/>
         <source>url</source>
-        <translation>url</translation>
+        <translation>عنوان URL</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="394"/>
         <source>rename the  script name in  &apos;custom engine&apos; folder</source>
-        <translation>重命名“自定义引擎”文件夹中的脚本名称</translation>
+        <translation>أعد تسمية اسم البرنامج النصي في مجلد &quot;المحرك المخصص&quot;.</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="407"/>
         <source>script</source>
-        <translation>脚本</translation>
+        <translation>النصي</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="423"/>
         <location filename="../custom_engine.ui" line="473"/>
         <source>source</source>
-        <translation>源</translation>
+        <translation>مصدر</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="439"/>
         <source>name</source>
-        <translation>名称</translation>
+        <translation>اسم</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="493"/>
         <source>API_KEY:</source>
-        <translation>API_KEY:</translation>
+        <translation>مفتاح API:</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="500"/>
         <source>APP_SECRET:</source>
-        <translation>APP_SECRET:</translation>
+        <translation>سر التطبيق:</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="519"/>
         <source>Active Translation Engine:</source>
-        <translation>激活的翻译引擎:</translation>
+        <translation>محرك الترجمة النشط:</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="531"/>
         <source>detail information</source>
-        <translation>详细信息</translation>
+        <translation>معلومات مفصلة</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="548"/>
         <source>untranslated text</source>
-        <translation>未翻译的文本</translation>
+        <translation>نص غير مترجم</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="568"/>
         <source>Test</source>
-        <translation>测试</translation>
-    </message>
-    <message>
-        <location filename="../custom_engine.ui" line="82"/>
-        <source>add a new custom engine</source>
-        <translation>添加新的自定义引擎</translation>
+        <translation>امتحان</translation>
     </message>
 </context>
 <context>
     <name>EditorDialog</name>
     <message>
+        <location filename="../editor_form.py" line="111"/>
+        <location filename="../editor_form.py" line="200"/>
+        <source>Path</source>
+        <translation>طريق</translation>
+    </message>
+    <message>
+        <location filename="../editor_form.py" line="115"/>
+        <location filename="../editor_form.py" line="200"/>
+        <source>Units</source>
+        <translation>الوحدات</translation>
+    </message>
+    <message>
+        <location filename="../editor_form.py" line="119"/>
+        <location filename="../editor_form.py" line="150"/>
+        <location filename="../editor_form.py" line="200"/>
+        <location filename="../editor_form.py" line="230"/>
+        <location filename="../editor_form.py" line="378"/>
+        <location filename="../editor.ui" line="457"/>
+        <source>Translated</source>
+        <translation>مترجم</translation>
+    </message>
+    <message>
+        <location filename="../editor_form.py" line="150"/>
+        <location filename="../editor_form.py" line="230"/>
+        <location filename="../editor_form.py" line="378"/>
+        <source>line</source>
+        <translation>خط</translation>
+    </message>
+    <message>
+        <location filename="../editor_form.py" line="150"/>
+        <location filename="../editor_form.py" line="230"/>
+        <location filename="../editor_form.py" line="378"/>
+        <source>refer</source>
+        <translation>يشير إلى</translation>
+    </message>
+    <message>
+        <location filename="../editor_form.py" line="150"/>
+        <location filename="../editor_form.py" line="230"/>
+        <location filename="../editor_form.py" line="378"/>
+        <location filename="../editor.ui" line="337"/>
+        <location filename="../editor.ui" line="416"/>
+        <source>Original</source>
+        <translation>إبداعي</translation>
+    </message>
+    <message>
+        <location filename="../editor_form.py" line="150"/>
+        <location filename="../editor_form.py" line="230"/>
+        <location filename="../editor_form.py" line="378"/>
+        <location filename="../editor.ui" line="258"/>
+        <location filename="../editor.ui" line="435"/>
+        <source>Current</source>
+        <translation>حاضِر</translation>
+    </message>
+    <message>
+        <location filename="../editor_form.py" line="323"/>
+        <source>Case Sensitive</source>
+        <translation>حساسية الموضوع</translation>
+    </message>
+    <message>
+        <location filename="../editor_form.py" line="326"/>
+        <source>Search refer column</source>
+        <translation>البحث في العمود المرجعي</translation>
+    </message>
+    <message>
+        <location filename="../editor_form.py" line="329"/>
+        <source>Search Original column</source>
+        <translation>البحث في العمود الأصلي</translation>
+    </message>
+    <message>
+        <location filename="../editor_form.py" line="332"/>
+        <source>Search Current column</source>
+        <translation>البحث في العمود الحالي</translation>
+    </message>
+    <message>
+        <location filename="../editor_form.py" line="335"/>
+        <source>Search Translated column</source>
+        <translation>البحث في العمود المترجم</translation>
+    </message>
+    <message>
+        <location filename="../editor_form.py" line="415"/>
+        <location filename="../editor_form.py" line="426"/>
+        <source>Input Dialog</source>
+        <translation>حوار الإدخال</translation>
+    </message>
+    <message>
+        <location filename="../editor_form.py" line="416"/>
+        <source>Please Input the line number you want to jump</source>
+        <translation>الرجاء إدخال رقم السطر الذي تريد القفز عليه</translation>
+    </message>
+    <message>
+        <location filename="../editor_form.py" line="427"/>
+        <source>Please Input the content you want to search</source>
+        <translation>الرجاء إدخال المحتوى الذي تريد البحث فيه</translation>
+    </message>
+    <message>
+        <location filename="../editor_form.py" line="513"/>
+        <source>Translate Translation Source to Translated</source>
+        <translation>ترجمة مصدر الترجمة إلى مترجم</translation>
+    </message>
+    <message>
+        <location filename="../editor_form.py" line="514"/>
+        <source>Copy Original to Current</source>
+        <translation>انسخ الأصل إلى الحالي</translation>
+    </message>
+    <message>
+        <location filename="../editor_form.py" line="515"/>
+        <source>Copy Translated to Current</source>
+        <translation>نسخة مترجمة إلى الحالية</translation>
+    </message>
+    <message>
+        <location filename="../editor_form.py" line="516"/>
+        <source>Rollback Current to First Load</source>
+        <translation>التراجع الحالي إلى التحميل الأول</translation>
+    </message>
+    <message>
         <location filename="../editor.ui" line="14"/>
         <source>Ren&apos;py Translator Editor</source>
-        <translation>Ren&apos;py 翻译器编辑器</translation>
+        <translation>محرر مترجم Ren&apos;py</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="44"/>
         <source>Change Translation Engine</source>
-        <translation>更改翻译引擎</translation>
+        <translation>تغيير محرك الترجمة</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="57"/>
         <source>input or choose or drag the directory you want to edit here.  Example:F:\GameName\game\tl\language</source>
-        <translation>在此处输入或选择或拖动要编辑的目录。示例：F:\GameName\game\tl\language</translation>
+        <translation>أدخل أو اختر أو اسحب الدليل الذي تريد تحريره هنا. مثال:F:\GameName\game\tl\language</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="80"/>
         <source>directory</source>
-        <translation>目录</translation>
+        <translation>الدليل</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="103"/>
@@ -239,192 +354,77 @@
     <message>
         <location filename="../editor.ui" line="119"/>
         <source>input or choose or drag the file(s) you want to edit here. Examaple : F:\GameName\game\tl\language\script.rpy</source>
-        <translation>在此处输入或选择或拖动要编辑的文件。示例：F:\GameName\game\tl\language\script.rpy</translation>
+        <translation>أدخل أو اختر أو اسحب الملف (الملفات) الذي تريد تحريره هنا. على سبيل المثال: F:\GameName\game\tl\language\script.rpy</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="132"/>
         <source>file(s)</source>
-        <translation>文件</translation>
+        <translation>الملف (الملفات)</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="148"/>
         <source>Show .rpy File Only</source>
-        <translation>仅显示 .rpy 文件</translation>
+        <translation>إظهار ملف .rpy فقط</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="161"/>
         <source>source</source>
-        <translation>源</translation>
+        <translation>مصدر</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="187"/>
         <source>target</source>
-        <translation>目标</translation>
+        <translation>هدف</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="200"/>
         <source>Add to file list</source>
-        <translation>添加到文件列表</translation>
+        <translation>أضف إلى قائمة الملفات</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="213"/>
         <source>Show Log Form</source>
-        <translation>显示日志窗体</translation>
+        <translation>عرض نموذج السجل</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="226"/>
         <source>Local Glossary (replace certain words with preset content)</source>
-        <translation>本地词汇表（用预设内容替换某些单词）</translation>
-    </message>
-    <message>
-        <location filename="../editor_form.py" line="150"/>
-        <location filename="../editor_form.py" line="230"/>
-        <location filename="../editor_form.py" line="378"/>
-        <location filename="../editor.ui" line="258"/>
-        <location filename="../editor.ui" line="435"/>
-        <source>Current</source>
-        <translation>当前的</translation>
+        <translation>المسرد المحلي (استبدال كلمات معينة بمحتوى محدد مسبقًا)</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="280"/>
         <source>Translation Source</source>
-        <translation>翻译来源</translation>
+        <translation>مصدر الترجمة</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="299"/>
         <source>Save to file</source>
-        <translation>保存到文件</translation>
+        <translation>احفظ الملف</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="318"/>
         <source>Show Untranslated Only</source>
-        <translation>仅显示未翻译的内容</translation>
-    </message>
-    <message>
-        <location filename="../editor_form.py" line="150"/>
-        <location filename="../editor_form.py" line="230"/>
-        <location filename="../editor_form.py" line="378"/>
-        <location filename="../editor.ui" line="337"/>
-        <location filename="../editor.ui" line="416"/>
-        <source>Original</source>
-        <translation>原来的</translation>
+        <translation>عرض غير المترجم فقط</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="350"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Multi-Select is supportable (Hold down the &apos;Ctrl&apos; to Active) &lt;/p&gt;&lt;p&gt;Besides you can use &apos;Shift&apos; to select a continuous line&lt;/p&gt;&lt;p&gt;Select the line(s) you want to operate , right click to show menu&lt;/p&gt;&lt;p&gt;&apos;Ctrl + A&apos; to select all the lines&lt;br/&gt;&apos;Ctrl + F&apos; to search the content&lt;br/&gt;&apos;Ctrl + G&apos; to jump to line&lt;/p&gt;&lt;p&gt;As for save , only the contents in column &apos;Current&apos; will be replaced to the file&lt;/p&gt;&lt;p&gt;At last , you can modify the &apos;Current&apos; and &apos;Translated&apos; column through  Double-Click&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;支持多选（按住“Ctrl”激活）&lt;/p&gt;&lt;p&gt;此外，您可以使用“Shift”选择连续行&lt;/p &gt;&lt;p&gt;选中要操作的行，右键显示菜单&lt;/p&gt;&lt;p&gt;‘Ctrl + A’全选行&lt;br/&gt;‘Ctrl + F’搜索内容&lt;br/&gt;&apos;Ctrl + G&apos;跳转到行&lt;/p&gt;&lt;p&gt;保存时，只会将&apos;当前&apos;列的内容替换到文件中&lt;/p&gt;&lt;p&gt;最后，您可以通过双击修改“当前”和“已翻译”列&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;التحديد المتعدد مدعوم (اضغط باستمرار على مفتاح &quot;Ctrl&quot; للتنشيط) &lt;/p&gt;&lt;p&gt;إلى جانب ذلك، يمكنك استخدام &quot;Shift&quot; لتحديد خط مستمر&lt;/p &gt;&lt;p&gt;حدد الخط (الخطوط) الذي تريد تشغيله، انقر بزر الماوس الأيمن لإظهار القائمة&lt;/p&gt;&lt;p&gt;&apos;Ctrl + A&apos; لتحديد جميع الخطوط&lt;br/&gt;&apos;Ctrl + F&apos; للبحث في المحتوى &lt;br/&gt;&apos;Ctrl + G&apos; للانتقال إلى السطر&lt;/p&gt;&lt;p&gt;أما بالنسبة للحفظ، فسيتم استبدال محتويات العمود &quot;الحالي&quot; فقط بالملف&lt;/p&gt;&lt;p&gt;أخيرًا، يمكنك ذلك قم بتعديل العمود &quot;الحالي&quot; و&quot;المترجم&quot; من خلال النقر المزدوج&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="375"/>
         <source>Show Searched Only</source>
-        <translation>仅显示搜索到的内容</translation>
+        <translation>عرض البحث فقط</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="394"/>
         <source>Show Log After Search</source>
-        <translation>搜索后显示日志</translation>
-    </message>
-    <message>
-        <location filename="../editor_form.py" line="119"/>
-        <location filename="../editor_form.py" line="150"/>
-        <location filename="../editor_form.py" line="200"/>
-        <location filename="../editor_form.py" line="230"/>
-        <location filename="../editor_form.py" line="378"/>
-        <location filename="../editor.ui" line="457"/>
-        <source>Translated</source>
-        <translation>已翻译</translation>
+        <translation>إظهار السجل بعد البحث</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="473"/>
         <source>Copy selected to clipboard   Copy Source</source>
-        <translation>将所选内容复制到剪贴板 复制源</translation>
-    </message>
-    <message>
-        <location filename="../editor_form.py" line="115"/>
-        <location filename="../editor_form.py" line="200"/>
-        <source>Units</source>
-        <translation>单位</translation>
-    </message>
-    <message>
-        <location filename="../editor_form.py" line="150"/>
-        <location filename="../editor_form.py" line="230"/>
-        <location filename="../editor_form.py" line="378"/>
-        <source>line</source>
-        <translation>行</translation>
-    </message>
-    <message>
-        <location filename="../editor_form.py" line="150"/>
-        <location filename="../editor_form.py" line="230"/>
-        <location filename="../editor_form.py" line="378"/>
-        <source>refer</source>
-        <translation>指向</translation>
-    </message>
-    <message>
-        <location filename="../editor_form.py" line="111"/>
-        <location filename="../editor_form.py" line="200"/>
-        <source>Path</source>
-        <translation>路径</translation>
-    </message>
-    <message>
-        <location filename="../editor_form.py" line="323"/>
-        <source>Case Sensitive</source>
-        <translation>区分大小写</translation>
-    </message>
-    <message>
-        <location filename="../editor_form.py" line="326"/>
-        <source>Search refer column</source>
-        <translation>搜索 refer 列</translation>
-    </message>
-    <message>
-        <location filename="../editor_form.py" line="329"/>
-        <source>Search Original column</source>
-        <translation>搜索 Origina 列</translation>
-    </message>
-    <message>
-        <location filename="../editor_form.py" line="332"/>
-        <source>Search Current column</source>
-        <translation>搜索 Current 列</translation>
-    </message>
-    <message>
-        <location filename="../editor_form.py" line="335"/>
-        <source>Search Translated column</source>
-        <translation>搜索 Translated 列</translation>
-    </message>
-    <message>
-        <location filename="../editor_form.py" line="415"/>
-        <location filename="../editor_form.py" line="426"/>
-        <source>Input Dialog</source>
-        <translation>输入对话框</translation>
-    </message>
-    <message>
-        <location filename="../editor_form.py" line="416"/>
-        <source>Please Input the line number you want to jump</source>
-        <translation>请输入您要跳转的行号</translation>
-    </message>
-    <message>
-        <location filename="../editor_form.py" line="427"/>
-        <source>Please Input the content you want to search</source>
-        <translation>输入您要搜索的内容</translation>
-    </message>
-    <message>
-        <location filename="../editor_form.py" line="513"/>
-        <source>Translate Translation Source to Translated</source>
-        <translation>将翻译源翻译到翻译后的内容</translation>
-    </message>
-    <message>
-        <location filename="../editor_form.py" line="514"/>
-        <source>Copy Original to Current</source>
-        <translation>将原始内容复制到当前内容</translation>
-    </message>
-    <message>
-        <location filename="../editor_form.py" line="515"/>
-        <source>Copy Translated to Current</source>
-        <translation>复制翻译为当前</translation>
-    </message>
-    <message>
-        <location filename="../editor_form.py" line="516"/>
-        <source>Rollback Current to First Load</source>
-        <translation>将 当前 回滚到刚加载时</translation>
+        <translation>النسخ المحدد إلى الحافظة نسخ المصدر</translation>
     </message>
 </context>
 <context>
@@ -432,32 +432,32 @@
     <message>
         <location filename="../engine.ui" line="14"/>
         <source>Translation Engine Settings</source>
-        <translation>翻译引擎设置</translation>
+        <translation>إعدادات محرك الترجمة</translation>
     </message>
     <message>
         <location filename="../engine.ui" line="36"/>
         <source>Active Translation Engine:</source>
-        <translation>激活的翻译引擎：</translation>
+        <translation>محرك الترجمة النشط:</translation>
     </message>
     <message>
         <location filename="../engine.ui" line="49"/>
         <source>API_KEY:</source>
-        <translation>API_KEY:</translation>
+        <translation>مفتاح API:</translation>
     </message>
     <message>
         <location filename="../engine.ui" line="72"/>
         <source>APP_SECRET:</source>
-        <translation>APP_SECRET:</translation>
+        <translation>سر التطبيق:</translation>
     </message>
     <message>
         <location filename="../engine.ui" line="98"/>
         <source>Confirm</source>
-        <translation>确认</translation>
+        <translation>يتأكد</translation>
     </message>
     <message>
         <location filename="../engine.ui" line="116"/>
         <source>detail information</source>
-        <translation>详细信息</translation>
+        <translation>معلومات مفصلة</translation>
     </message>
     <message>
         <location filename="../engine.ui" line="129"/>
@@ -468,17 +468,17 @@
     <message>
         <location filename="../engine.ui" line="142"/>
         <source>RPM (requests per minute):</source>
-        <translation>RPM (每分钟请求数):</translation>
+        <translation>دورة في الدقيقة (الطلبات في الدقيقة):</translation>
     </message>
     <message>
         <location filename="../engine.ui" line="155"/>
         <source>RPS (requests per second):</source>
-        <translation>RPS (每秒请求数):</translation>
+        <translation>RPS (الطلبات في الثانية):</translation>
     </message>
     <message>
         <location filename="../engine.ui" line="181"/>
         <source>TPM (requests token limits):</source>
-        <translation>TPM (请求令牌限制):</translation>
+        <translation>TPM (يطلب حدود الرمز المميز):</translation>
     </message>
     <message>
         <location filename="../engine.ui" line="194"/>
@@ -488,7 +488,7 @@
     <message>
         <location filename="../engine.ui" line="217"/>
         <source>model:</source>
-        <translation>模型:</translation>
+        <translation>نموذج:</translation>
     </message>
     <message>
         <location filename="../engine.ui" line="230"/>
@@ -504,29 +504,76 @@
 <context>
     <name>LocalGlossaryDialog</name>
     <message>
+        <location filename="../local_glossary_form.py" line="20"/>
+        <location filename="../local_glossary_form.py" line="153"/>
+        <location filename="../local_glossary_form.py" line="191"/>
+        <location filename="../local_glossary_form.py" line="226"/>
+        <source>Row</source>
+        <translation>صف</translation>
+    </message>
+    <message>
+        <location filename="../local_glossary_form.py" line="21"/>
+        <location filename="../local_glossary_form.py" line="154"/>
+        <location filename="../local_glossary_form.py" line="192"/>
+        <source>Original</source>
+        <translation>إبداعي</translation>
+    </message>
+    <message>
+        <location filename="../local_glossary_form.py" line="22"/>
+        <location filename="../local_glossary_form.py" line="155"/>
+        <location filename="../local_glossary_form.py" line="193"/>
+        <source>Replace</source>
+        <translation>يستبدل</translation>
+    </message>
+    <message>
+        <location filename="../local_glossary_form.py" line="163"/>
+        <source>The file does not exist.Click to create it</source>
+        <translation>الملف غير موجود. انقر لإنشائه</translation>
+    </message>
+    <message>
+        <location filename="../local_glossary_form.py" line="168"/>
+        <source>The file is not a xlsx file.Click to open </source>
+        <translation>الملف ليس ملف xlsx.انقر لفتحه</translation>
+    </message>
+    <message>
+        <location filename="../local_glossary_form.py" line="172"/>
+        <source>The file is not a xlsx file.Click to create </source>
+        <translation>الملف ليس ملف xlsx.انقر للإنشاء</translation>
+    </message>
+    <message>
+        <location filename="../local_glossary_form.py" line="206"/>
+        <source>select the file you want to import</source>
+        <translation>حدد الملف الذي تريد استيراده</translation>
+    </message>
+    <message>
         <location filename="../local_glossary.ui" line="14"/>
         <source>Local Glossary</source>
-        <translation>本地词汇表</translation>
+        <translation>المسرد المحلي</translation>
+    </message>
+    <message>
+        <location filename="../local_glossary.ui" line="35"/>
+        <source>input or choose or drag the file(s) you want to edit here. Examaple : F:\xxx.xslx</source>
+        <translation>أدخل أو اختر أو اسحب الملف (الملفات) الذي تريد تحريره هنا. على سبيل المثال: F:\xxx.xslx</translation>
     </message>
     <message>
         <location filename="../local_glossary.ui" line="42"/>
         <source>Show duplicate rows only (if duplicated, only the last one will take effect)</source>
-        <translation>仅显示重复行（如果重复，则仅最后一行生效）</translation>
-    </message>
-    <message>
-        <location filename="../local_glossary.ui" line="87"/>
-        <source>Support Append</source>
-        <translation>支持追加</translation>
-    </message>
-    <message>
-        <location filename="../local_glossary.ui" line="113"/>
-        <source>For more advanced editing functions, it is recommended to use professional software such as Excel.</source>
-        <translation>对于更高级的编辑功能，建议使用Excel等专业软件。</translation>
+        <translation>إظهار الصفوف المكررة فقط (في حالة التكرار، سيتم تفعيل الصف الأخير فقط)</translation>
     </message>
     <message>
         <location filename="../local_glossary.ui" line="55"/>
         <source>file</source>
-        <translation>文件</translation>
+        <translation>ملف</translation>
+    </message>
+    <message>
+        <location filename="../local_glossary.ui" line="71"/>
+        <source>Confirm</source>
+        <translation>يتأكد</translation>
+    </message>
+    <message>
+        <location filename="../local_glossary.ui" line="87"/>
+        <source>Support Append</source>
+        <translation>دعم إلحاق</translation>
     </message>
     <message>
         <location filename="../local_glossary.ui" line="100"/>
@@ -534,87 +581,46 @@
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../local_glossary.ui" line="35"/>
-        <source>input or choose or drag the file(s) you want to edit here. Examaple : F:\xxx.xslx</source>
-        <translation>在此处输入或选择或拖动要编辑的文件。示例：F:\xxx.xslx</translation>
-    </message>
-    <message>
-        <location filename="../local_glossary.ui" line="71"/>
-        <source>Confirm</source>
-        <translation>确认</translation>
-    </message>
-    <message>
-        <location filename="../local_glossary_form.py" line="20"/>
-        <location filename="../local_glossary_form.py" line="153"/>
-        <location filename="../local_glossary_form.py" line="191"/>
-        <location filename="../local_glossary_form.py" line="226"/>
-        <source>Row</source>
-        <translation>行</translation>
-    </message>
-    <message>
-        <location filename="../local_glossary_form.py" line="21"/>
-        <location filename="../local_glossary_form.py" line="154"/>
-        <location filename="../local_glossary_form.py" line="192"/>
-        <source>Original</source>
-        <translation>原来的</translation>
-    </message>
-    <message>
-        <location filename="../local_glossary_form.py" line="22"/>
-        <location filename="../local_glossary_form.py" line="155"/>
-        <location filename="../local_glossary_form.py" line="193"/>
-        <source>Replace</source>
-        <translation>代替</translation>
-    </message>
-    <message>
-        <location filename="../local_glossary_form.py" line="163"/>
-        <source>The file does not exist.Click to create it</source>
-        <translation>文件不存在，点击创建</translation>
-    </message>
-    <message>
-        <location filename="../local_glossary_form.py" line="168"/>
-        <source>The file is not a xlsx file.Click to open </source>
-        <translation>该文件不是xlsx文件。点击打开 </translation>
-    </message>
-    <message>
-        <location filename="../local_glossary_form.py" line="172"/>
-        <source>The file is not a xlsx file.Click to create </source>
-        <translation>该文件不是xlsx文件。点击创建 </translation>
-    </message>
-    <message>
-        <location filename="../local_glossary_form.py" line="206"/>
-        <source>select the file you want to import</source>
-        <translation>选择您要导入的文件</translation>
+        <location filename="../local_glossary.ui" line="113"/>
+        <source>For more advanced editing functions, it is recommended to use professional software such as Excel.</source>
+        <translation>للحصول على وظائف تحرير أكثر تقدمًا، يوصى باستخدام برامج احترافية مثل Excel.</translation>
     </message>
 </context>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../ui.ui" line="14"/>
-        <source>Ren&apos;py Translator</source>
-        <translation>Ren&apos;py 翻译器</translation>
-    </message>
-    <message>
         <location filename="../main.py" line="397"/>
         <location filename="../main.py" line="446"/>
         <source>extracting...</source>
-        <translation>抽取中...</translation>
+        <translation>استخراج...</translation>
     </message>
     <message>
         <location filename="../main.py" line="439"/>
         <location filename="../main.py" line="546"/>
         <source>translating...</source>
-        <translation>翻译中...</translation>
+        <translation>جار الترجمة...</translation>
     </message>
     <message>
         <location filename="../main.py" line="442"/>
         <location filename="../ui.ui" line="49"/>
         <source>translate</source>
-        <translation>翻译</translation>
+        <translation>يترجم</translation>
+    </message>
+    <message>
+        <location filename="../main.py" line="449"/>
+        <location filename="../ui.ui" line="601"/>
+        <source>extract</source>
+        <translation>يستخرج</translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="14"/>
+        <source>Ren&apos;py Translator</source>
+        <translation>مترجم رينبي</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="27"/>
         <source>Version 1.8.9</source>
-        <translation>版本 1.8.9</translation>
+        <translation>الإصدار 1.8.9</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="62"/>
@@ -631,225 +637,219 @@
         <location filename="../ui.ui" line="75"/>
         <location filename="../ui.ui" line="450"/>
         <source>directory</source>
-        <translation>目录</translation>
+        <translation>الدليل</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="88"/>
         <location filename="../ui.ui" line="515"/>
         <source>file(s)</source>
-        <translation>文件</translation>
+        <translation>الملف (الملفات)</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="107"/>
         <source>input or choose or drag the file(s) you want to translate here. Examaple : F:\GameName\game\tl\language\script.rpy</source>
-        <translation>在此处输入或选择或拖动您要翻译的文件。示例：F:\GameName\game\tl\language\script.rpy</translation>
+        <translation>أدخل أو اختر أو اسحب الملف (الملفات) الذي تريد ترجمته هنا. على سبيل المثال: F:\GameName\game\tl\language\script.rpy</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="133"/>
         <source>input or choose or drag the directory you want translate here.  Example:F:\GameName\game\tl\language</source>
-        <translation>在此处输入或选择或拖动要翻译的目录。示例：F:\GameName\game\tl\language</translation>
+        <translation>أدخل أو اختر أو اسحب الدليل الذي تريد ترجمته هنا. مثال:F:\GameName\game\tl\language</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="151"/>
         <source>translation</source>
-        <translation>翻译</translation>
+        <translation>ترجمة</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="164"/>
         <source>target</source>
-        <translation>目标</translation>
+        <translation>هدف</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="177"/>
         <source>source</source>
-        <translation>源</translation>
-    </message>
-    <message>
-        <location filename="../ui.ui" line="210"/>
-        <source>Multi-threaded translation</source>
-        <translation>多线程翻译</translation>
+        <translation>مصدر</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="226"/>
         <source>Generate Backup Files (xxx.rpy.bak)</source>
-        <translation>生成备份文件（xxx.rpy.bak）</translation>
+        <translation>إنشاء ملفات النسخ الاحتياطي (xxx.rpy.bak)</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="239"/>
         <source>Local Glossary (replace certain words with preset content)</source>
-        <translation>本地词汇表（用预设内容替换某些单词）</translation>
+        <translation>المسرد المحلي (استبدال كلمات معينة بمحتوى محدد مسبقًا)</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="258"/>
         <source>Translation Source</source>
-        <translation>翻译来源</translation>
+        <translation>مصدر الترجمة</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="277"/>
         <source>Original</source>
-        <translation>原来的</translation>
+        <translation>إبداعي</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="296"/>
         <source>Current</source>
-        <translation>当前的</translation>
+        <translation>حاضِر</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="312"/>
         <source>Skip Translated (Original != Current)</source>
-        <translation>跳过翻译（原始！=当前）</translation>
+        <translation>تخطي الترجمة (الأصل! = الحالي)</translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="210"/>
+        <source>Multi-threaded translation</source>
+        <translation>ترجمة متعددة الخيوط</translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="328"/>
+        <source>(If disable, translation will continue after the previous file has been translated)</source>
+        <translation>(في حالة التعطيل، ستستمر الترجمة بعد ترجمة الملف السابق)</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="345"/>
         <source>©2024 Last moment,All rights reserved.</source>
-        <translation>©2024 Last moment,All rights reserved.</translation>
+        <translation>©2024 اللحظة الأخيرة، جميع الحقوق محفوظة.</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="372"/>
         <location filename="../ui.ui" line="398"/>
         <source>font</source>
-        <translation>字体</translation>
+        <translation>الخط</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="385"/>
         <source>input or choose or drag the font which supports the language after translation. Example : DejaVuSans.ttf (ren&apos;py &apos;s default font)</source>
-        <translation>输入或选择或拖动支持翻译后语言的字体。示例：DejaVuSans.ttf（ren&apos;py 的默认字体）</translation>
+        <translation>أدخل أو اختر أو اسحب الخط الذي يدعم اللغة بعد الترجمة. مثال: DejaVuSans.ttf (الخط الافتراضي لـren&apos;py)</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="424"/>
         <source>replace font</source>
-        <translation>替换字体</translation>
+        <translation>استبدال الخط</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="437"/>
         <source>open font style file</source>
-        <translation>打开字体样式文件</translation>
+        <translation>فتح ملف نمط الخط</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="463"/>
         <source>input or choose or drag the directory you want to replace font here.  Example:F:\GameName\game\tl\language</source>
-        <translation>在此处输入或选择或拖动要替换字体的目录。示例：F:\GameName\game\tl\language</translation>
+        <translation>أدخل أو اختر أو اسحب الدليل الذي تريد استبدال الخط هنا. مثال:F:\GameName\game\tl\language</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="502"/>
         <source>input or choose or drag the file(s) you want to extract here.    Examaple : F:\GameName\game\script.rpy</source>
-        <translation>在此处输入或选择或拖动要提取的文件。示例：F:\GameName\game\script.rpy</translation>
+        <translation>أدخل أو اختر أو اسحب الملف (الملفات) الذي تريد استخراجه هنا. على سبيل المثال: F:\GameName\game\script.rpy</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="549"/>
         <source>extraction</source>
-        <translation>抽取</translation>
+        <translation>اِستِخلاص</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="575"/>
         <source>tl directory</source>
-        <translation>tl 目录</translation>
+        <translation>دليل ليرة تركية</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="588"/>
         <source>input or choose or drag the directory you want to translate here.  Example:F:\GameName\game\tl\language</source>
-        <translation>在此处输入或选择或拖动要翻译的目录。示例：F:\GameName\game\tl\language</translation>
-    </message>
-    <message>
-        <location filename="../main.py" line="449"/>
-        <location filename="../ui.ui" line="601"/>
-        <source>extract</source>
-        <translation>抽取</translation>
-    </message>
-    <message>
-        <location filename="../ui.ui" line="328"/>
-        <source>(If disable, translation will continue after the previous file has been translated)</source>
-        <translation>（如果禁用，翻译将在前一个文件翻译完成后继续）</translation>
+        <translation>أدخل أو اختر أو اسحب الدليل الذي تريد ترجمته هنا. مثال:F:\GameName\game\tl\language</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="614"/>
         <source>tl name</source>
-        <translation>tl 名称</translation>
+        <translation>اسم ليرة تركية</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="627"/>
         <source>only force needs in file(s)/directory(s) mode , for tl directory , fill nothing is acceptable. input the directory name under game\tl  Example: japanese or chinese</source>
-        <translation>仅在文件/目录模式下强制需要，对于tl目录，不填任何内容都可以。输入game\tl下的目录名 例如：japanese 或 chinese</translation>
+        <translation>احتياجات القوة فقط في وضع الملف (الملفات)/الدليل (الملفات)، بالنسبة لدليل tl، لا يوجد شيء مقبول. أدخل اسم الدليل ضمن اللعبة\tl مثال: اليابانية أو الصينية</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="640"/>
         <source>directory(s)</source>
-        <translation>目录</translation>
+        <translation>الدليل (المجلدات)</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="659"/>
         <source>input or choose or drag the directory(s) you want to extract here.    Examaple : F:\GameName\game\character</source>
-        <translation>在此处输入或选择或拖动要提取的目录。示例：F:\GameName\game\character</translation>
+        <translation>أدخل أو اختر أو اسحب الدليل (المجلدات) الذي تريد استخراجه هنا. على سبيل المثال: F:\GameName\game\character</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="685"/>
         <source>Enable filter for extract</source>
-        <translation>启用提取过滤器</translation>
+        <translation>تمكين عامل التصفية للاستخراج</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="698"/>
         <source>filter length less than</source>
-        <translation>过滤器长度小于</translation>
+        <translation>طول الفلتر أقل من</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="721"/>
         <source>Generate empty strings instead of original</source>
-        <translation>生成空字符串而不是原始字符串</translation>
+        <translation>إنشاء سلاسل فارغة بدلاً من الأصلية</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="741"/>
         <source>clear log</source>
-        <translation>清空日志</translation>
+        <translation>سجل نظيف</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="777"/>
         <source>about</source>
-        <translation>关于</translation>
+        <translation>عن</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="783"/>
         <source>proxy</source>
-        <translation>代理</translation>
+        <translation>الوكيل</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="789"/>
         <source>translation engine</source>
-        <translation>翻译引擎</translation>
+        <translation>محرك الترجمة</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="796"/>
         <source>editor</source>
-        <translation>编辑器</translation>
+        <translation>محرر</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="802"/>
         <source>language</source>
-        <translation>语言</translation>
+        <translation>لغة</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="824"/>
         <source>copyright</source>
-        <translation>版权</translation>
+        <translation>حقوق النشر</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="829"/>
         <source>proxy settings</source>
-        <translation>代理设置</translation>
+        <translation>إعدادات الوكيل</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="834"/>
         <source>engine settings</source>
-        <translation>引擎设置</translation>
+        <translation>إعدادات المحرك</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="839"/>
         <source>custom engine</source>
-        <translation>自定义引擎</translation>
+        <translation>محرك مخصص</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="844"/>
         <source>edit from rpy</source>
-        <translation>从 rpy 编辑</translation>
+        <translation>تحرير من rpy</translation>
     </message>
 </context>
 <context>
@@ -857,27 +857,27 @@
     <message>
         <location filename="../proxy.ui" line="14"/>
         <source>ProxySettings</source>
-        <translation>代理设置</translation>
+        <translation>إعدادات الوكيل</translation>
     </message>
     <message>
         <location filename="../proxy.ui" line="26"/>
         <source>Enable Proxy</source>
-        <translation>启用代理</translation>
+        <translation>تمكين الوكيل</translation>
     </message>
     <message>
         <location filename="../proxy.ui" line="39"/>
         <source>example : http://localhost:10809</source>
-        <translation>example : http://localhost:10809</translation>
+        <translation>مثال: http://localhost:10809</translation>
     </message>
     <message>
         <location filename="../proxy.ui" line="52"/>
         <source>proxy address:</source>
-        <translation>代理地址：</translation>
+        <translation>عنوان الوكيل:</translation>
     </message>
     <message>
         <location filename="../proxy.ui" line="65"/>
         <source>confirm</source>
-        <translation>确认</translation>
+        <translation>يتأكد</translation>
     </message>
 </context>
 </TS>

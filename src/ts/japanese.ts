@@ -504,36 +504,44 @@
 <context>
     <name>LocalGlossaryDialog</name>
     <message>
-        <location filename="../local_glossary_form.py" line="19"/>
-        <location filename="../local_glossary_form.py" line="83"/>
-        <location filename="../local_glossary_form.py" line="121"/>
+        <location filename="../local_glossary_form.py" line="20"/>
+        <location filename="../local_glossary_form.py" line="153"/>
+        <location filename="../local_glossary_form.py" line="191"/>
+        <location filename="../local_glossary_form.py" line="226"/>
+        <source>Row</source>
+        <translation>行</translation>
+    </message>
+    <message>
+        <location filename="../local_glossary_form.py" line="21"/>
+        <location filename="../local_glossary_form.py" line="154"/>
+        <location filename="../local_glossary_form.py" line="192"/>
         <source>Original</source>
         <translation>オリジナル</translation>
     </message>
     <message>
-        <location filename="../local_glossary_form.py" line="20"/>
-        <location filename="../local_glossary_form.py" line="84"/>
-        <location filename="../local_glossary_form.py" line="122"/>
+        <location filename="../local_glossary_form.py" line="22"/>
+        <location filename="../local_glossary_form.py" line="155"/>
+        <location filename="../local_glossary_form.py" line="193"/>
         <source>Replace</source>
         <translation>交換する</translation>
     </message>
     <message>
-        <location filename="../local_glossary_form.py" line="92"/>
+        <location filename="../local_glossary_form.py" line="163"/>
         <source>The file does not exist.Click to create it</source>
         <translation>ファイルが存在しません。クリックして作成してください</translation>
     </message>
     <message>
-        <location filename="../local_glossary_form.py" line="97"/>
+        <location filename="../local_glossary_form.py" line="168"/>
         <source>The file is not a xlsx file.Click to open </source>
         <translation>ファイルは xlsx ファイルではありません。クリックして開きます </translation>
     </message>
     <message>
-        <location filename="../local_glossary_form.py" line="101"/>
+        <location filename="../local_glossary_form.py" line="172"/>
         <source>The file is not a xlsx file.Click to create </source>
         <translation>ファイルは xlsx ファイルではありません。クリックして作成してください </translation>
     </message>
     <message>
-        <location filename="../local_glossary_form.py" line="135"/>
+        <location filename="../local_glossary_form.py" line="206"/>
         <source>select the file you want to import</source>
         <translation>インポートするファイルを選択します</translation>
     </message>
@@ -543,27 +551,37 @@
         <translation>地元の用語集</translation>
     </message>
     <message>
-        <location filename="../local_glossary.ui" line="26"/>
+        <location filename="../local_glossary.ui" line="42"/>
+        <source>Show duplicate rows only (if duplicated, only the last one will take effect)</source>
+        <translation>重複した行のみを表示 (重複した場合、最後の行のみが有効になります)</translation>
+    </message>
+    <message>
+        <location filename="../local_glossary.ui" line="87"/>
         <source>Support Append</source>
         <translation>サポート追加</translation>
     </message>
     <message>
-        <location filename="../local_glossary.ui" line="39"/>
+        <location filename="../local_glossary.ui" line="113"/>
+        <source>For more advanced editing functions, it is recommended to use professional software such as Excel.</source>
+        <translation>より高度な編集機能を使用するには、Excel などの専門的なソフトウェアを使用することをお勧めします。</translation>
+    </message>
+    <message>
+        <location filename="../local_glossary.ui" line="55"/>
         <source>file</source>
         <translation>ファイル</translation>
     </message>
     <message>
-        <location filename="../local_glossary.ui" line="58"/>
+        <location filename="../local_glossary.ui" line="100"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../local_glossary.ui" line="80"/>
+        <location filename="../local_glossary.ui" line="35"/>
         <source>input or choose or drag the file(s) you want to edit here. Examaple : F:\xxx.xslx</source>
         <translation>ここに編集したいファイルを入力または選択またはドラッグします。例：F:\xxx.xslx</translation>
     </message>
     <message>
-        <location filename="../local_glossary.ui" line="93"/>
+        <location filename="../local_glossary.ui" line="71"/>
         <source>Confirm</source>
         <translation>確認する</translation>
     </message>
@@ -576,48 +594,48 @@
         <translation>レンピー翻訳者</translation>
     </message>
     <message>
-        <location filename="../main.py" line="395"/>
-        <location filename="../main.py" line="444"/>
+        <location filename="../main.py" line="397"/>
+        <location filename="../main.py" line="446"/>
         <source>extracting...</source>
         <translation>抽出中...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="437"/>
-        <location filename="../main.py" line="544"/>
+        <location filename="../main.py" line="439"/>
+        <location filename="../main.py" line="546"/>
         <source>translating...</source>
         <translation>翻訳中...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="440"/>
+        <location filename="../main.py" line="442"/>
         <location filename="../ui.ui" line="49"/>
         <source>translate</source>
         <translation>翻訳する</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="27"/>
-        <source>Version 1.8.8</source>
-        <translation>バージョン1.8.8</translation>
+        <source>Version 1.8.9</source>
+        <translation>バージョン1.8.9</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="62"/>
         <location filename="../ui.ui" line="120"/>
-        <location filename="../ui.ui" line="395"/>
-        <location filename="../ui.ui" line="460"/>
-        <location filename="../ui.ui" line="515"/>
-        <location filename="../ui.ui" line="546"/>
-        <location filename="../ui.ui" line="656"/>
+        <location filename="../ui.ui" line="411"/>
+        <location filename="../ui.ui" line="476"/>
+        <location filename="../ui.ui" line="531"/>
+        <location filename="../ui.ui" line="562"/>
+        <location filename="../ui.ui" line="672"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="75"/>
-        <location filename="../ui.ui" line="434"/>
+        <location filename="../ui.ui" line="450"/>
         <source>directory</source>
         <translation>ディレクトリ</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="88"/>
-        <location filename="../ui.ui" line="499"/>
+        <location filename="../ui.ui" line="515"/>
         <source>file(s)</source>
         <translation>ファイル</translation>
     </message>
@@ -648,8 +666,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="210"/>
-        <source>Multi-Translate (If disabled translation will continue after the previous file has been translated)</source>
-        <translation>同時翻訳 (無効にすると、前のファイルが翻訳された後でのみ翻訳が続行されます)</translation>
+        <source>Multi-threaded translation</source>
+        <translation>マルチスレッド翻訳</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="226"/>
@@ -682,164 +700,154 @@
         <translation>翻訳をスキップ (オリジナル != 現在)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="329"/>
+        <location filename="../ui.ui" line="345"/>
         <source>©2024 Last moment,All rights reserved.</source>
         <translation>©2024 Last moment,All rights reserved.</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="356"/>
-        <location filename="../ui.ui" line="382"/>
+        <location filename="../ui.ui" line="372"/>
+        <location filename="../ui.ui" line="398"/>
         <source>font</source>
         <translation>フォント</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="369"/>
+        <location filename="../ui.ui" line="385"/>
         <source>input or choose or drag the font which supports the language after translation. Example : DejaVuSans.ttf (ren&apos;py &apos;s default font)</source>
         <translation>翻訳後の言語をサポートするフォントを入力または選択またはドラッグします。例: DejaVuSans.ttf (ren&apos;py のデフォルトのフォント)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="408"/>
+        <location filename="../ui.ui" line="424"/>
         <source>replace font</source>
         <translation>フォントを置き換える</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="421"/>
+        <location filename="../ui.ui" line="437"/>
         <source>open font style file</source>
         <translation>フォントスタイルファイルを開く</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="447"/>
+        <location filename="../ui.ui" line="463"/>
         <source>input or choose or drag the directory you want to replace font here.  Example:F:\GameName\game\tl\language</source>
         <translation>ここにフォントを置換するディレクトリを入力または選択またはドラッグします。例:F:\GameName\game\tl\language</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="486"/>
+        <location filename="../ui.ui" line="502"/>
         <source>input or choose or drag the file(s) you want to extract here.    Examaple : F:\GameName\game\script.rpy</source>
         <translation>ここに抽出するファイルを入力または選択またはドラッグします。例 : F:\GameName\game\script.rpy</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="533"/>
+        <location filename="../ui.ui" line="549"/>
         <source>extraction</source>
         <translation>抽出</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="559"/>
+        <location filename="../ui.ui" line="575"/>
         <source>tl directory</source>
         <translation>tl ディレクトリ</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="572"/>
+        <location filename="../ui.ui" line="588"/>
         <source>input or choose or drag the directory you want to translate here.  Example:F:\GameName\game\tl\language</source>
         <translation>ここに翻訳したいディレクトリを入力または選択またはドラッグします。例:F:\GameName\game\tl\language</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="825"/>
-        <source>English</source>
-        <translation>英語</translation>
-    </message>
-    <message>
-        <location filename="../ui.ui" line="830"/>
-        <source>Chinese</source>
-        <translation>中国語</translation>
-    </message>
-    <message>
-        <location filename="../ui.ui" line="835"/>
-        <source>Japanese</source>
-        <translation>日本語</translation>
-    </message>
-    <message>
-        <location filename="../main.py" line="447"/>
-        <location filename="../ui.ui" line="585"/>
+        <location filename="../main.py" line="449"/>
+        <location filename="../ui.ui" line="601"/>
         <source>extract</source>
         <translation>抽出する</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="598"/>
+        <location filename="../ui.ui" line="328"/>
+        <source>(If disable, translation will continue after the previous file has been translated)</source>
+        <translation>(無効にすると、前のファイルが翻訳された後に翻訳が続行されます)</translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="614"/>
         <source>tl name</source>
         <translation>tl 名</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="611"/>
+        <location filename="../ui.ui" line="627"/>
         <source>only force needs in file(s)/directory(s) mode , for tl directory , fill nothing is acceptable. input the directory name under game\tl  Example: japanese or chinese</source>
         <translation>ファイル/ディレクトリ モードでは強制的にのみ必要ですが、tl ディレクトリの場合は何も入力することはできません。 game\tl 下のディレクトリ名を入力 例: japanese または chinese</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="624"/>
+        <location filename="../ui.ui" line="640"/>
         <source>directory(s)</source>
         <translation>ディレクトリ</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="643"/>
+        <location filename="../ui.ui" line="659"/>
         <source>input or choose or drag the directory(s) you want to extract here.    Examaple : F:\GameName\game\character</source>
         <translation>ここに抽出するディレクトリを入力または選択またはドラッグします。例 : F:\GameName\game\character</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="669"/>
+        <location filename="../ui.ui" line="685"/>
         <source>Enable filter for extract</source>
         <translation>抽出用のフィルターを有効にする</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="682"/>
+        <location filename="../ui.ui" line="698"/>
         <source>filter length less than</source>
         <translation>フィルタの長さは以下です</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="705"/>
+        <location filename="../ui.ui" line="721"/>
         <source>Generate empty strings instead of original</source>
         <translation>元の文字列の代わりに空の文字列を生成する</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="725"/>
+        <location filename="../ui.ui" line="741"/>
         <source>clear log</source>
         <translation>ログをクリアする</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="761"/>
+        <location filename="../ui.ui" line="777"/>
         <source>about</source>
         <translation>について</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="767"/>
+        <location filename="../ui.ui" line="783"/>
         <source>proxy</source>
         <translation>プロキシ</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="773"/>
+        <location filename="../ui.ui" line="789"/>
         <source>translation engine</source>
         <translation>翻訳エンジン</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="780"/>
+        <location filename="../ui.ui" line="796"/>
         <source>editor</source>
         <translation>編集者</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="786"/>
+        <location filename="../ui.ui" line="802"/>
         <source>language</source>
         <translation>言語</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="800"/>
+        <location filename="../ui.ui" line="824"/>
         <source>copyright</source>
         <translation>著作権</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="805"/>
+        <location filename="../ui.ui" line="829"/>
         <source>proxy settings</source>
         <translation>プロキシ設定</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="810"/>
+        <location filename="../ui.ui" line="834"/>
         <source>engine settings</source>
         <translation>エンジン設定</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="815"/>
+        <location filename="../ui.ui" line="839"/>
         <source>custom engine</source>
         <translation>カスタムエンジン</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="820"/>
+        <location filename="../ui.ui" line="844"/>
         <source>edit from rpy</source>
         <translation>rpyから編集する</translation>
     </message>

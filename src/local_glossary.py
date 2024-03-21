@@ -23,14 +23,20 @@ class Ui_LocalGlossaryDialog(object):
     def setupUi(self, LocalGlossaryDialog):
         if not LocalGlossaryDialog.objectName():
             LocalGlossaryDialog.setObjectName(u"LocalGlossaryDialog")
-        LocalGlossaryDialog.resize(705, 527)
+        LocalGlossaryDialog.resize(731, 552)
         self.gridLayout = QGridLayout(LocalGlossaryDialog)
         self.gridLayout.setObjectName(u"gridLayout")
-        self.appendCheckBox = QCheckBox(LocalGlossaryDialog)
-        self.appendCheckBox.setObjectName(u"appendCheckBox")
-        self.appendCheckBox.setMaximumSize(QSize(16777215, 20))
+        self.selectFileText = QTextEdit(LocalGlossaryDialog)
+        self.selectFileText.setObjectName(u"selectFileText")
+        self.selectFileText.setMinimumSize(QSize(0, 40))
+        self.selectFileText.setMaximumSize(QSize(16777215, 40))
 
-        self.gridLayout.addWidget(self.appendCheckBox, 0, 3, 1, 1)
+        self.gridLayout.addWidget(self.selectFileText, 0, 1, 1, 1)
+
+        self.duplicateCheckBox = QCheckBox(LocalGlossaryDialog)
+        self.duplicateCheckBox.setObjectName(u"duplicateCheckBox")
+
+        self.gridLayout.addWidget(self.duplicateCheckBox, 1, 1, 1, 1)
 
         self.label = QLabel(LocalGlossaryDialog)
         self.label.setObjectName(u"label")
@@ -39,10 +45,22 @@ class Ui_LocalGlossaryDialog(object):
 
         self.gridLayout.addWidget(self.label, 0, 0, 1, 1)
 
+        self.confirmButton = QPushButton(LocalGlossaryDialog)
+        self.confirmButton.setObjectName(u"confirmButton")
+        self.confirmButton.setMaximumSize(QSize(16777215, 24))
+
+        self.gridLayout.addWidget(self.confirmButton, 4, 0, 1, 4)
+
         self.verticalLayout = QVBoxLayout()
         self.verticalLayout.setObjectName(u"verticalLayout")
 
-        self.gridLayout.addLayout(self.verticalLayout, 1, 0, 1, 4)
+        self.gridLayout.addLayout(self.verticalLayout, 3, 0, 1, 4)
+
+        self.appendCheckBox = QCheckBox(LocalGlossaryDialog)
+        self.appendCheckBox.setObjectName(u"appendCheckBox")
+        self.appendCheckBox.setMaximumSize(QSize(16777215, 20))
+
+        self.gridLayout.addWidget(self.appendCheckBox, 0, 3, 1, 1)
 
         self.selectFileBtn = QPushButton(LocalGlossaryDialog)
         self.selectFileBtn.setObjectName(u"selectFileBtn")
@@ -50,18 +68,11 @@ class Ui_LocalGlossaryDialog(object):
 
         self.gridLayout.addWidget(self.selectFileBtn, 0, 2, 1, 1)
 
-        self.selectFileText = QTextEdit(LocalGlossaryDialog)
-        self.selectFileText.setObjectName(u"selectFileText")
-        self.selectFileText.setMinimumSize(QSize(0, 40))
-        self.selectFileText.setMaximumSize(QSize(16777215, 40))
+        self.label_2 = QLabel(LocalGlossaryDialog)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setMaximumSize(QSize(16777215, 20))
 
-        self.gridLayout.addWidget(self.selectFileText, 0, 1, 1, 1)
-
-        self.confirmButton = QPushButton(LocalGlossaryDialog)
-        self.confirmButton.setObjectName(u"confirmButton")
-        self.confirmButton.setMaximumSize(QSize(16777215, 24))
-
-        self.gridLayout.addWidget(self.confirmButton, 2, 0, 1, 4)
+        self.gridLayout.addWidget(self.label_2, 2, 1, 1, 3)
 
 
         self.retranslateUi(LocalGlossaryDialog)
@@ -71,13 +82,15 @@ class Ui_LocalGlossaryDialog(object):
 
     def retranslateUi(self, LocalGlossaryDialog):
         LocalGlossaryDialog.setWindowTitle(QCoreApplication.translate("LocalGlossaryDialog", u"Local Glossary", None))
-        self.appendCheckBox.setText(QCoreApplication.translate("LocalGlossaryDialog", u"Support Append", None))
-        self.label.setText(QCoreApplication.translate("LocalGlossaryDialog", u"file", None))
-        self.selectFileBtn.setText(QCoreApplication.translate("LocalGlossaryDialog", u"...", None))
 #if QT_CONFIG(tooltip)
         self.selectFileText.setToolTip("")
 #endif // QT_CONFIG(tooltip)
         self.selectFileText.setPlaceholderText(QCoreApplication.translate("LocalGlossaryDialog", u"input or choose or drag the file(s) you want to edit here. Examaple : F:\\xxx.xslx", None))
+        self.duplicateCheckBox.setText(QCoreApplication.translate("LocalGlossaryDialog", u"Show duplicate rows only (if duplicated, only the last one will take effect)", None))
+        self.label.setText(QCoreApplication.translate("LocalGlossaryDialog", u"file", None))
         self.confirmButton.setText(QCoreApplication.translate("LocalGlossaryDialog", u"Confirm", None))
+        self.appendCheckBox.setText(QCoreApplication.translate("LocalGlossaryDialog", u"Support Append", None))
+        self.selectFileBtn.setText(QCoreApplication.translate("LocalGlossaryDialog", u"...", None))
+        self.label_2.setText(QCoreApplication.translate("LocalGlossaryDialog", u"For more advanced editing functions, it is recommended to use professional software such as Excel.", None))
     # retranslateUi
 
