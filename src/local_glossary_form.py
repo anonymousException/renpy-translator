@@ -198,6 +198,7 @@ class MyLocalGlossaryForm(QDialog, Ui_LocalGlossaryDialog):
         # self.load_from_xlsx(self.tableView.file)
         self.selectFileText.setText(self.tableView.file)
         self.appendCheckBox.setChecked(True)
+        self.on_append_checkbox_clicked()
 
     def select_file(self):
         file, filetype = QFileDialog.getOpenFileName(self,
