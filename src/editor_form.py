@@ -4,6 +4,7 @@ import multiprocessing
 
 import os.path
 import io
+import subprocess
 import threading
 import time
 import traceback
@@ -32,6 +33,8 @@ translated_dic = None
 is_need_save = False
 rpy_lock = threading.Lock()
 
+def open_directory_and_select_file(file_path):
+    subprocess.run(["explorer", "/select,", os.path.normpath(file_path)])
 
 class CustomSortProxyModel(QSortFilterProxyModel):
     def __init__(self, parent=None):
@@ -547,6 +550,7 @@ class MyTableView(QTableView):
                 ws.cell(row=cnt, column=2, value=current)
                 cnt = cnt + 1
             wb.save(f'{fileName}')
+            open_directory_and_select_file(fileName)
 
     def rollback_cur(self):
         selected_indexes = self.selectionModel().selectedRows()
