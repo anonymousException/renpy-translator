@@ -525,12 +525,9 @@ class MyTableView(QTableView):
         contextMenu.exec_(event.globalPos())
 
     def export_to_xlsx(self):
-        options = QFileDialog.Options()
-        options |= QFileDialog.DontUseNativeDialog
         fileName, _ = QFileDialog.getSaveFileName(self,
                                                   QCoreApplication.translate('EditorDialog', "Export to xlsx file", None), "",
-                                                  "Xlsx Files (*.xlsx)",
-                                                  options=options)
+                                                  "Xlsx Files (*.xlsx)")
         if fileName:
             if not fileName.endswith('.xlsx'):
                 fileName += '.xlsx'
