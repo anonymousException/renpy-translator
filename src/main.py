@@ -19,7 +19,7 @@ from PySide6.QtWidgets import QFileDialog, QListView, QAbstractItemView, QTreeVi
 
 from copyright import Ui_CopyrightDialog
 from my_log import log_print, log_path
-from renpy_extract import extractThread, extract_threads, ExtractAllFilesInDir
+from renpy_extract import extractThread, extract_threads
 from renpy_fonts import GenGuiFonts
 from local_glossary_form import MyLocalGlossaryForm
 

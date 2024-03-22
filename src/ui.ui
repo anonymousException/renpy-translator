@@ -24,7 +24,7 @@
        </size>
       </property>
       <property name="text">
-       <string>Version 1.8.9</string>
+       <string>Version 1.9.0</string>
       </property>
      </widget>
     </item>
@@ -912,7 +912,7 @@
   </action>
   <action name="actionUrdu">
    <property name="text">
-    <string>Urdu</string>
+    <string notr="true">Urdu</string>
    </property>
   </action>
  </widget>

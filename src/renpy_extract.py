@@ -10,7 +10,7 @@ import traceback
 import pathlib
 
 from my_log import log_print
-from string_tool import remove_upprintable_chars
+from string_tool import remove_upprintable_chars, EncodeBracketContent, EncodeBrackets
 
 extract_threads = []
 
@@ -44,16 +44,17 @@ class extractThread(threading.Thread):
             else:
                 if self.p is not None:
                     log_print(self.p + ' begin extract!')
-                    ExtractWriteFile(self.p, self.tl_name, self.is_open_filter, self.filter_length,self.is_gen_empty)
+                    ExtractWriteFile(self.p, self.tl_name, self.is_open_filter, self.filter_length,self.is_gen_empty,set())
                 if self.dir is not None:
                     log_print(self.dir + ' begin extract!')
                     paths = os.walk(self.dir, topdown=False)
+                    global_e = set()
                     for path, dir_lst, file_lst in paths:
                         for file_name in file_lst:
                             i = os.path.join(path, file_name)
                             if not file_name.endswith("rpy"):
                                 continue
-                            ExtractWriteFile(i, self.tl_name, self.is_open_filter, self.filter_length,self.is_gen_empty)
+                            global_e = ExtractWriteFile(i, self.tl_name, self.is_open_filter, self.filter_length,self.is_gen_empty,global_e)
 
         except Exception as e:
             msg = traceback.format_exc()
@@ -61,179 +62,8 @@ class extractThread(threading.Thread):
 
 
 def replace_all_blank(value):
-    """
-    去除value中的所有标点符号、空格、换行、下划线等
-    :param value: 需要处理的内容
-    :return: 返回处理后的内容
-    """
-    # \W 表示匹配非数字字母下划线
     result = re.sub('\\W+', '', value).replace("_", '')
     return result
-
-
-def EncodeBracketContent(s, bracketLeft, bracketRight, isAddSpace=False):
-    start = -1
-    end = 0
-    cnt = 0
-    i = 0
-    dic = dict()
-    dic["ori"] = s
-    oriList = []
-    if (bracketLeft != bracketRight):
-        matchLeftCnt = 0
-        matchRightCnt = 0
-        while True:
-            _len = len(s)
-            if (i >= _len):
-                if (matchLeftCnt != matchRightCnt and start != -1):
-                    i = start + 1
-                    matchLeftCnt = 0
-                    matchRightCnt = 0
-                    continue
-                break
-            if (s[i] == bracketLeft):
-                matchLeftCnt = matchLeftCnt + 1
-                if (i == 0):
-                    start = i
-                else:
-                    if (s[i - 1] == '\\'):
-                        i = i + 1
-                        continue
-                    else:
-                        if (matchLeftCnt == (matchRightCnt + 1)):
-                            start = i
-            if (s[i] == bracketRight):
-                if (i == 0):
-                    continue
-                else:
-                    if (s[i - 1] == '\\'):
-                        i = i + 1
-                        continue
-                    else:
-                        matchRightCnt = matchRightCnt + 1
-                        if (start != -1):
-                            if (matchLeftCnt == matchRightCnt):
-                                end = i
-            if (start != -1 and end > start):
-                if (matchLeftCnt != matchRightCnt):
-                    continue
-                replace = ''
-                if (isAddSpace):
-                    replace = ' ' + bracketLeft + str(cnt) + bracketRight + ' '
-                else:
-                    replace = bracketLeft + str(cnt) + bracketRight
-                ori = s[start:end + 1]
-                oriList.append(ori)
-                s = s[:start] + replace + s[end + 1:]
-                i = start + len(replace) - 1
-                cnt = cnt + 1
-                start = -1
-                end = 0
-            i = i + 1
-        dic['encoded'] = s
-        dic['oriList'] = oriList
-        return dic
-    else:
-        while True:
-            _len = len(s)
-            if (i >= _len):
-                break
-            if (s[i] == bracketLeft):
-                if (i == 0):
-                    start = i
-                else:
-                    if (s[i - 1] == '\\'):
-                        i = i + 1
-                        continue
-                    else:
-                        if (start >= end):
-                            end = i
-                        else:
-                            start = i
-            if (start != -1 and end > start):
-                replace = bracketLeft + str(cnt) + bracketRight
-                ori = s[start:end + 1]
-                oriList.append(ori)
-                s = s[:start] + replace + s[end + 1:]
-                i = start + len(replace) - 1
-                cnt = cnt + 1
-                start = -1
-                end = 0
-            i = i + 1
-            dic['encoded'] = s
-            dic['oriList'] = oriList
-        return dic
-
-
-def DecodeBracketContent(s, bracketLeft, bracketRight, l):
-    start = -1
-    end = 0
-    cnt = 0
-    i = 0
-    dic = dict()
-    dic["ori"] = s
-    oriList = []
-    while True:
-        _len = len(s)
-        if (i >= _len):
-            break
-        if (s[i] == bracketLeft):
-            if (i == 0):
-                start = i
-            else:
-                if (s[i - 1] == '\\'):
-                    i = i + 1
-                    continue
-                else:
-                    start = i
-        if (s[i] == bracketRight):
-            if (i == 0):
-                continue
-            else:
-                if (s[i - 1] == '\\'):
-                    i = i + 1
-                    continue
-                else:
-                    if (start != -1):
-                        end = i
-        if (start != -1 and end > start):
-            ori = s[start:end + 1]
-            index = int(ori[1:len(ori) - 1])
-            # print(l[index])
-            replace = l[index]
-            oriList.append(ori)
-            s = s[:start] + replace + s[end + 1:]
-            i = start + len(replace) - 1
-            cnt = cnt + 1
-            start = -1
-            end = 0
-        i = i + 1
-    dic['decoded'] = s
-    dic['oriList'] = oriList
-    return dic
-
-
-def EncodeBrackets(s):
-    dic = dict()
-    d = EncodeBracketContent(s, '<', '>', False)
-    # log_print(d['encoded'])
-    d2 = EncodeBracketContent(d['encoded'], '{', '}', False)
-    # log_print(d2['encoded'],d2['oriList'])
-    d3 = EncodeBracketContent(d2['encoded'], '[', ']', False)
-    # log_print(d3['encoded'],d3['oriList'])
-    dic['encoded'] = d3['encoded']
-    dic['en_1'] = d['oriList']
-    dic['en_2'] = d2['oriList']
-    dic['en_3'] = d3['oriList']
-    return dic
-
-
-def DecodeBrackets(s, en_1, en_2, en_3):
-    d4 = DecodeBracketContent(s, '[', ']', en_3)
-    d5 = DecodeBracketContent(d4['decoded'], '{', '}', en_2)
-    d6 = DecodeBracketContent(d5['decoded'], '<', '>', en_1)
-    return d6["decoded"]
-
 
 def ExtractFromFile(p, is_open_filter, filter_length):
     e = set()
@@ -336,6 +166,20 @@ def GetExtractedSet(p):
             if (file_name.endswith("rpy") == False):
                 continue
             extracted = ExtractFromFile(i, False, 9999)
+            both = e & extracted
+            if len(both) > 0:
+                f = io.open(i, 'r', encoding='utf-8')
+                lines = f.readlines()
+                f.close()
+                for j in both:
+                    for index,line in enumerate(lines):
+                        if line.startswith('    old ' + j):
+                            lines[index] = '\n'
+                            lines[index+1] = '\n'
+                f = io.open(i, 'w', encoding='utf-8')
+                f.writelines(lines)
+                f.close()
+
             e = e | extracted
     return e
 
@@ -415,7 +259,7 @@ def GetHeaderPath(p):
         return dic
 
 
-def ExtractWriteFile(p, tl_name, is_open_filter, filter_length,is_gen_empty):
+def ExtractWriteFile(p, tl_name, is_open_filter, filter_length,is_gen_empty,global_e):
     dic = GetHeaderPath(p)
     header = dic['header']
     if (header == ''):
@@ -433,8 +277,9 @@ def ExtractWriteFile(p, tl_name, is_open_filter, filter_length,is_gen_empty):
     if (os.path.isfile(target) == False):
         open(target, 'w').close()
     e = ExtractFromFile(p, is_open_filter, filter_length)
+    global_e = global_e | e
     extractedSet = ExtractFromFile(target, False, 9999)
-    eDiff = e - extractedSet
+    eDiff = global_e - extractedSet
     if (len(eDiff) > 0):
         f = io.open(target, 'a+', encoding='utf-8')
         f.write('\ntranslate ' + tl_name + ' strings:\n')
@@ -456,11 +301,13 @@ def ExtractWriteFile(p, tl_name, is_open_filter, filter_length,is_gen_empty):
                 writeData = '    old ' + j + '\n    new ' + '""' + '\n'
             f.write(writeData + '\n')
         f.close()
-    extractedSet = e | extractedSet
+    global_e = global_e | extractedSet
     log_print(target + ' extracted success!')
+    return global_e
 
 
 def ExtractAllFilesInDir(dirName, is_open_filter, filter_length,is_gen_empty):
     CreateEmptyFileIfNotExsit(dirName)
     ret = GetExtractedSet(dirName)
     WriteExtracted(dirName,ret,is_open_filter, filter_length,is_gen_empty)
+    ret = GetExtractedSet(dirName)

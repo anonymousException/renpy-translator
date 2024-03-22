@@ -15,6 +15,8 @@ from PySide6.QtGui import QStandardItemModel, QStandardItem, QIcon, QColor, QTex
 from PySide6.QtWidgets import QDialog, QHeaderView, QTableView, QMenu, QListView, QFileDialog, QTreeView, \
     QFileSystemModel, QStyle, QMessageBox, QButtonGroup, QInputDialog, QVBoxLayout, QLabel, QTextEdit, QPushButton, \
     QCheckBox, QLineEdit
+from openpyxl.workbook import Workbook
+
 from editor import Ui_EditorDialog
 from my_log import log_print, log_path
 from renpy_translate import init_client, TranslateToList, engineDic, language_header, get_rpy_info, get_translated
@@ -514,8 +516,37 @@ class MyTableView(QTableView):
             action2 = contextMenu.addAction(QCoreApplication.translate('EditorDialog', "Copy Original to Current", None), self.copy_ori_to_cur)
             action3 = contextMenu.addAction(QCoreApplication.translate('EditorDialog', "Copy Translated to Current", None), self.copy_translated_to_cur)
             action4 = contextMenu.addAction(QCoreApplication.translate('EditorDialog', "Rollback Current to First Load", None), self.rollback_cur)
+            action5 = contextMenu.addAction(
+                QCoreApplication.translate('EditorDialog', "Export to xlsx file", None), self.export_to_xlsx)
 
         contextMenu.exec_(event.globalPos())
+
+    def export_to_xlsx(self):
+        options = QFileDialog.Options()
+        options |= QFileDialog.DontUseNativeDialog
+        fileName, _ = QFileDialog.getSaveFileName(self,
+                                                  QCoreApplication.translate('EditorDialog', "Export to xlsx file", None), "",
+                                                  "Xlsx Files (*.xlsx)",
+                                                  options=options)
+        if fileName:
+            if not fileName.endswith('.xlsx'):
+                fileName += '.xlsx'
+            wb = Workbook()
+            ws = wb.active
+            ws.title = "New Sheet"
+            ws.cell(row=1, column=1, value=self.model.horizontalHeaderItem(2).text())
+            ws.cell(row=1, column=2, value=self.model.horizontalHeaderItem(3).text())
+            selected_indexes = self.selectionModel().selectedRows()
+            selected_rows = [index.row() for index in selected_indexes]
+            selected_rows.sort(reverse=False)
+            cnt = 2
+            for row in selected_rows:
+                original = self.model.item(row, 0).data(Qt.UserRole)['original']
+                current = self.model.item(row, 0).data(Qt.UserRole)['current']
+                ws.cell(row=cnt, column=1, value=original)
+                ws.cell(row=cnt, column=2, value=current)
+                cnt = cnt + 1
+            wb.save(f'{fileName}')
 
     def rollback_cur(self):
         selected_indexes = self.selectionModel().selectedRows()
