@@ -154,6 +154,7 @@ class MyTreeView(QTreeView):
         self.units_max = sys.maxsize
         self.translated_min = 0.0
         self.translated_max = 100.0
+        self.is_fresh = False
         # self.hide()
 
     def openMenu(self, position):
@@ -310,9 +311,14 @@ class MySelectTableView(QTableView):
     def export_to_xlsx(self,path,selected_rows,is_open_filter,treeView):
         if path is None:
             return
+        if selected_rows is not None:
+            treeView.is_fresh = True
+        else:
+            treeView.is_fresh = False
         if os.path.isfile(path):
             if selected_rows is not None:
                 self.load_data(self.model.index(selected_rows,0))
+
             fileName, _ = QFileDialog.getSaveFileName(self,
                                                       QCoreApplication.translate('EditorDialog',
                                                                                  'Export to xlsx file',
@@ -1034,7 +1040,9 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
                 select_one = f.read()
                 f.close()
                 if os.path.isdir(select_one):
+                    is_fresh = True
                     if self.treeView.export_path is not None:
+                        is_fresh = self.treeView.is_fresh
                         paths = os.walk(select_one, topdown=False)
                         select_one = select_one.replace('\\', '/')
                         wb = Workbook()
@@ -1071,7 +1079,7 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
                         open_directory_and_select_file(fileName)
 
                         self.treeView.export_path = None
-                    else:
+                    if is_fresh:
                         self.treeView.model.setRootPath(select_one)
                         self.treeView.setRootIndex(
                             self.treeView.proxy_model.mapFromSource(self.treeView.model.index(select_one)))
