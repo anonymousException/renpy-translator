@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ExportXlsxSettingDialog</class>
+ <widget class="QDialog" name="ExportXlsxSettingDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>592</width>
+    <height>255</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Export Xlsx Setting</string>
+  </property>
+  <widget class="QCheckBox" name="unitsCheckBox">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>38</y>
+     <width>221</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Filter the Units</string>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="unitsMinLlineEdit">
+   <property name="geometry">
+    <rect>
+     <x>234</x>
+     <y>38</y>
+     <width>132</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="placeholderText">
+    <string notr="true">&gt;=0</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>370</x>
+     <y>40</y>
+     <width>71</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>and</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="unitsMaxLineEdit">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>38</y>
+     <width>132</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="placeholderText">
+    <string notr="true">&lt;= MAX</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>372</x>
+     <y>125</y>
+     <width>71</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>and</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="translatedCheckBox">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>123</y>
+     <width>221</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Filter the Translated</string>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="translatedMaxLineEdit">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>123</y>
+     <width>132</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="placeholderText">
+    <string notr="true">&lt;=100%</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="translatedMinLineEdit">
+   <property name="geometry">
+    <rect>
+     <x>234</x>
+     <y>123</y>
+     <width>132</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="placeholderText">
+    <string notr="true">&gt;=0%</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="confirmButton">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>210</y>
+     <width>571</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Confirm</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -277,9 +277,11 @@
         <translation>ローカル用語集 (特定の単語を事前設定されたコンテンツに置き換えます)</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="152"/>
-        <location filename="../editor_form.py" line="232"/>
-        <location filename="../editor_form.py" line="380"/>
+        <location filename="../editor_form.py" line="157"/>
+        <location filename="../editor_form.py" line="239"/>
+        <location filename="../editor_form.py" line="306"/>
+        <location filename="../editor_form.py" line="472"/>
+        <location filename="../editor_form.py" line="1028"/>
         <location filename="../editor.ui" line="258"/>
         <location filename="../editor.ui" line="435"/>
         <source>Current</source>
@@ -301,9 +303,11 @@
         <translation>未翻訳のみを表示</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="152"/>
-        <location filename="../editor_form.py" line="232"/>
-        <location filename="../editor_form.py" line="380"/>
+        <location filename="../editor_form.py" line="157"/>
+        <location filename="../editor_form.py" line="239"/>
+        <location filename="../editor_form.py" line="305"/>
+        <location filename="../editor_form.py" line="472"/>
+        <location filename="../editor_form.py" line="1027"/>
         <location filename="../editor.ui" line="337"/>
         <location filename="../editor.ui" line="416"/>
         <source>Original</source>
@@ -325,11 +329,11 @@
         <translation>検索後にログを表示</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="121"/>
-        <location filename="../editor_form.py" line="152"/>
-        <location filename="../editor_form.py" line="202"/>
-        <location filename="../editor_form.py" line="232"/>
-        <location filename="../editor_form.py" line="380"/>
+        <location filename="../editor_form.py" line="126"/>
+        <location filename="../editor_form.py" line="157"/>
+        <location filename="../editor_form.py" line="207"/>
+        <location filename="../editor_form.py" line="239"/>
+        <location filename="../editor_form.py" line="472"/>
         <location filename="../editor.ui" line="457"/>
         <source>Translated</source>
         <translation>翻訳済み</translation>
@@ -340,95 +344,119 @@
         <translation>選択したものをクリップボードにコピー ソースをコピー</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="113"/>
-        <location filename="../editor_form.py" line="202"/>
+        <location filename="../editor_form.py" line="118"/>
+        <location filename="../editor_form.py" line="207"/>
         <source>Path</source>
         <translation>パス</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="117"/>
-        <location filename="../editor_form.py" line="202"/>
+        <location filename="../editor_form.py" line="122"/>
+        <location filename="../editor_form.py" line="207"/>
         <source>Units</source>
         <translation>単位</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="152"/>
-        <location filename="../editor_form.py" line="232"/>
-        <location filename="../editor_form.py" line="380"/>
+        <location filename="../editor_form.py" line="157"/>
+        <location filename="../editor_form.py" line="239"/>
+        <location filename="../editor_form.py" line="472"/>
         <source>line</source>
         <translation>行</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="152"/>
-        <location filename="../editor_form.py" line="232"/>
-        <location filename="../editor_form.py" line="380"/>
+        <location filename="../editor_form.py" line="157"/>
+        <location filename="../editor_form.py" line="239"/>
+        <location filename="../editor_form.py" line="472"/>
         <source>refer</source>
         <translation>参照する</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="325"/>
+        <location filename="../editor_form.py" line="276"/>
+        <source>Remove</source>
+        <translation>取り除く</translation>
+    </message>
+    <message>
+        <location filename="../editor_form.py" line="331"/>
+        <source>Do you want to make advanced settings (the default setting is to export all files in the directory)</source>
+        <translation>詳細設定を行いますか (デフォルト設定では、ディレクトリ内のすべてのファイルをエクスポートします)</translation>
+    </message>
+    <message>
+        <location filename="../editor_form.py" line="417"/>
         <source>Case Sensitive</source>
         <translation>検索したい内容を入力してください</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="328"/>
+        <location filename="../editor_form.py" line="420"/>
         <source>Search refer column</source>
         <translation>refer 列を検索</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="331"/>
+        <location filename="../editor_form.py" line="423"/>
         <source>Search Original column</source>
         <translation>Original 列を検索</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="334"/>
+        <location filename="../editor_form.py" line="426"/>
         <source>Search Current column</source>
         <translation>Current 列を検索</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="337"/>
+        <location filename="../editor_form.py" line="429"/>
         <source>Search Translated column</source>
         <translation>Translated 列を検索</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="417"/>
-        <location filename="../editor_form.py" line="428"/>
+        <location filename="../editor_form.py" line="509"/>
+        <location filename="../editor_form.py" line="520"/>
         <source>Input Dialog</source>
         <translation>入力ダイアログ</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="418"/>
+        <location filename="../editor_form.py" line="510"/>
         <source>Please Input the line number you want to jump</source>
         <translation>ジャンプしたい行番号を入力してください</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="429"/>
+        <location filename="../editor_form.py" line="521"/>
         <source>Please Input the content you want to search</source>
         <translation>検索したい内容を入力してください</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="515"/>
+        <location filename="../editor_form.py" line="607"/>
         <source>Translate Translation Source to Translated</source>
         <translation>翻訳ソースを翻訳済みに翻訳</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="516"/>
+        <location filename="../editor_form.py" line="608"/>
         <source>Copy Original to Current</source>
         <translation>オリジナルを現在にコピー</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="517"/>
+        <location filename="../editor_form.py" line="609"/>
         <source>Copy Translated to Current</source>
         <translation>現在に翻訳されたコピー</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="518"/>
+        <location filename="../editor_form.py" line="610"/>
         <source>Rollback Current to First Load</source>
         <translation>現在 をロードしたばかりの状態にロールバックします</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="520"/>
-        <location filename="../editor_form.py" line="528"/>
+        <location filename="../editor_form.py" line="983"/>
+        <source>select the directory you want to edit</source>
+        <translation>編集したいディレクトリを選択します</translation>
+    </message>
+    <message>
+        <location filename="../editor_form.py" line="988"/>
+        <source>select the file(s) you want to edit</source>
+        <translation>編集したいファイルを選択します</translation>
+    </message>
+    <message>
+        <location filename="../editor_form.py" line="277"/>
+        <location filename="../editor_form.py" line="292"/>
+        <location filename="../editor_form.py" line="323"/>
+        <location filename="../editor_form.py" line="330"/>
+        <location filename="../editor_form.py" line="612"/>
+        <location filename="../editor_form.py" line="618"/>
         <source>Export to xlsx file</source>
         <translation>xlsxファイルにエクスポート</translation>
     </message>
@@ -505,6 +533,35 @@
         <location filename="../engine.ui" line="246"/>
         <source>http://my.test.server.example.com:8083</source>
         <translation>http://my.test.server.example.com:8083</translation>
+    </message>
+</context>
+<context>
+    <name>ExportXlsxSettingDialog</name>
+    <message>
+        <location filename="../export_xlsx_setting.ui" line="14"/>
+        <source>Export Xlsx Setting</source>
+        <translation>Xlsx設定のエクスポート</translation>
+    </message>
+    <message>
+        <location filename="../export_xlsx_setting.ui" line="26"/>
+        <source>Filter the Units</source>
+        <translation>単位をフィルタリングする</translation>
+    </message>
+    <message>
+        <location filename="../export_xlsx_setting.ui" line="55"/>
+        <location filename="../export_xlsx_setting.ui" line="84"/>
+        <source>and</source>
+        <translation>そして</translation>
+    </message>
+    <message>
+        <location filename="../export_xlsx_setting.ui" line="100"/>
+        <source>Filter the Translated</source>
+        <translation>翻訳されたものをフィルタリングする</translation>
+    </message>
+    <message>
+        <location filename="../export_xlsx_setting.ui" line="142"/>
+        <source>Confirm</source>
+        <translation>確認する</translation>
     </message>
 </context>
 <context>
@@ -619,8 +676,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="27"/>
-        <source>Version 1.9.0</source>
-        <translation>バージョン1.9.0</translation>
+        <source>Version 1.9.1</source>
+        <translation>バージョン1.9.1</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="62"/>

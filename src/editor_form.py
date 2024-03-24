@@ -5,6 +5,7 @@ import multiprocessing
 import os.path
 import io
 import subprocess
+import sys
 import threading
 import time
 import traceback
@@ -15,7 +16,7 @@ from PySide6.QtCore import Qt, QDir, QModelIndex, QSortFilterProxyModel, Signal,
 from PySide6.QtGui import QStandardItemModel, QStandardItem, QIcon, QColor, QTextCursor, QKeySequence
 from PySide6.QtWidgets import QDialog, QHeaderView, QTableView, QMenu, QListView, QFileDialog, QTreeView, \
     QFileSystemModel, QStyle, QMessageBox, QButtonGroup, QInputDialog, QVBoxLayout, QLabel, QTextEdit, QPushButton, \
-    QCheckBox, QLineEdit
+    QCheckBox, QLineEdit, QAbstractItemView
 from openpyxl.workbook import Workbook
 
 from editor import Ui_EditorDialog
@@ -24,6 +25,7 @@ from renpy_translate import init_client, TranslateToList, engineDic, language_he
 from custom_engine_form import targetDic, sourceDic
 from engine_form import MyEngineForm
 from local_glossary_form import MyLocalGlossaryForm
+from export_xlsx_setting_form import MyExportXlsxSettingForm
 from string_tool import *
 
 addedList = []
@@ -206,7 +208,9 @@ class MySelectTableView(QTableView):
         self.verticalHeader().setVisible(False)
         self.verticalHeader().setDefaultSectionSize(35)
         self.setSelectionBehavior(QTableView.SelectRows)
+        self.setSelectionMode(QAbstractItemView.SingleSelection)
         self.setSortingEnabled(True)
+        self.export_path = None
         # self.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
 
     def load_data(self, index):
@@ -269,9 +273,97 @@ class MySelectTableView(QTableView):
         selected_rows = [index.row() for index in self.selectionModel().selectedRows()]
 
         if selected_rows:
-            action1 = contextMenu.addAction("Remove", self.removeAction)
-
+            action1 = contextMenu.addAction(QCoreApplication.translate('EditorDialog', 'Remove', None), self.removeAction)
+            action2 = contextMenu.addAction(QCoreApplication.translate('EditorDialog', 'Export to xlsx file', None),
+                                            self.export_to_xlsx)
         contextMenu.exec_(event.globalPos())
+
+    def export_to_xlsx(self):
+        selected_indexes = self.selectionModel().selectedRows()
+        if len(selected_indexes) == 1:
+            selected_rows = selected_indexes[0].row()
+            path = self.model.item(selected_rows,0).text()
+            path = path.replace('\\', '/')
+            if os.path.isfile(path):
+                self.load_data(self.model.index(selected_rows,0))
+                fileName, _ = QFileDialog.getSaveFileName(self,
+                                                          QCoreApplication.translate('EditorDialog',
+                                                                                     'Export to xlsx file',
+                                                                                     None), "",
+                                                          "Xlsx Files (*.xlsx)")
+                if fileName:
+                    if not fileName.endswith('.xlsx'):
+                        fileName += '.xlsx'
+                    if path in rpy_info_dic.keys():
+                        ret, unmatch_cnt, p = rpy_info_dic[path]
+                    else:
+                        ret, unmatch_cnt, p = get_rpy_info(path)
+                        rpy_info_dic[path] = ret, unmatch_cnt, p
+                    wb = Workbook()
+                    ws = wb.active
+                    ws.title = "New Sheet"
+                    ws.cell(row=1, column=1, value=QCoreApplication.translate('EditorDialog', 'Original', None))
+                    ws.cell(row=1, column=2, value=QCoreApplication.translate('EditorDialog', 'Current', None))
+                    selected_indexes = self.selectionModel().selectedRows()
+                    selected_rows = [index.row() for index in selected_indexes]
+                    selected_rows.sort(reverse=False)
+                    cnt = 2
+                    for i in ret:
+                        original = i['original']
+                        current = i['current']
+                        ws.cell(row=cnt, column=1, value=original)
+                        ws.cell(row=cnt, column=2, value=current)
+                        cnt = cnt + 1
+                    wb.save(f'{fileName}')
+                    open_directory_and_select_file(fileName)
+            elif os.path.isdir(path):
+                fileName, _ = QFileDialog.getSaveFileName(self,
+                                                          QCoreApplication.translate('EditorDialog',
+                                                                                     'Export to xlsx file',
+                                                                                     None), "",
+                                                          "Xlsx Files (*.xlsx)")
+                if fileName:
+                    if not fileName.endswith('.xlsx'):
+                        fileName += '.xlsx'
+                    self.export_path = fileName
+                    reply = QMessageBox.question(self,
+                                                 QCoreApplication.translate('EditorDialog','Export to xlsx file',None),
+                                                 QCoreApplication.translate('EditorDialog','Do you want to make advanced settings (the default setting is to export all files in the directory)',None),
+                                                 QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
+
+                    self.units_min = 0
+                    self.units_max = sys.maxsize
+                    self.translated_min = 0.0
+                    self.translated_max = 100.0
+                    if reply == QMessageBox.Yes:
+                        myExportXlsxSettingForm = MyExportXlsxSettingForm(parent=self)
+                        myExportXlsxSettingForm.exec()
+                        if myExportXlsxSettingForm.unitsCheckBox.isChecked():
+                            try:
+                                self.units_min = int(myExportXlsxSettingForm.unitsMinLlineEdit.text())
+                            except Exception:
+                                pass
+                            try:
+                                self.units_max = int(myExportXlsxSettingForm.unitsMaxLineEdit.text())
+                            except Exception:
+                                pass
+                        if myExportXlsxSettingForm.translatedCheckBox.isChecked():
+                            try:
+                                self.translated_min = float(myExportXlsxSettingForm.translatedMinLineEdit.text())
+                            except Exception:
+                                pass
+                            try:
+                                self.translated_max = float(myExportXlsxSettingForm.translatedMaxLineEdit.text())
+                            except Exception:
+                                pass
+
+                    t = getRpyInfoThread(p=path, is_open_filter=self.treeView.model.is_open_filter)
+                    t.start()
+                    self.setDisabled(True)
+                    self.treeView.setDisabled(True)
+                    self.treeView.show()
+
+
 
     def removeAction(self):
         selected_indexes = self.selectionModel().selectedRows()
@@ -288,9 +380,6 @@ class MySelectTableView(QTableView):
         self.setColumnWidth(1, width * 0.15)
         self.setColumnWidth(2, width * 0.14)
         super(MySelectTableView, self).resizeEvent(event)
-
-    def act1(self):
-        print("act1")
 
 
 class translateThread(threading.Thread):
@@ -891,12 +980,12 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
                 self.selectTableView.model.sort(0, Qt.AscendingOrder)
 
     def select_directory(self):
-        directory = QFileDialog.getExistingDirectory(self, 'select the directory you want to edit')
+        directory = QFileDialog.getExistingDirectory(self,  QCoreApplication.translate('EditorDialog', 'select the directory you want to edit', None))
         self.selectDirText.setText(directory)
 
     def select_file(self):
         files, filetype = QFileDialog.getOpenFileNames(self,
-                                                       "select the file(s) you want to edit",
+                                                       QCoreApplication.translate('EditorDialog', 'select the file(s) you want to edit', None),
                                                        '',
                                                        "Rpy Files (*.rpy);;All Files (*)")
         s = ''
@@ -929,6 +1018,40 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
                     self.selectTableView.setEnabled(True)
                     self.treeView.setEnabled(True)
                     self.rpyCheckBox.setEnabled(True)
+                    if self.selectTableView.export_path is not None:
+                        paths = os.walk(select_one, topdown=False)
+                        select_one = select_one.replace('\\', '/')
+                        wb = Workbook()
+                        ws = wb.active
+                        ws.title = "New Sheet"
+                        ws.cell(row=1, column=1, value=QCoreApplication.translate('EditorDialog', 'Original', None))
+                        ws.cell(row=1, column=2, value=QCoreApplication.translate('EditorDialog', 'Current', None))
+                        cnt = 2
+                        fileName = self.selectTableView.export_path
+                        for path, dir_lst, file_lst in paths:
+                            for file_name in file_lst:
+                                if self.treeView.model.is_open_filter and not file_name.endswith("rpy"):
+                                    continue
+                                i = os.path.join(path, file_name)
+                                i = i.replace('\\', '/')
+                                #log_print(i)
+                                ret, unmatch_cnt, p = rpy_info_dic[i]
+                                units = len(ret)
+                                percentage = unmatch_cnt / units * 100
+                                if percentage < self.selectTableView.translated_min or percentage > self.selectTableView.translated_max:
+                                    continue
+                                if units < self.selectTableView.units_min or units > self.selectTableView.units_max:
+                                    continue
+                                for i in ret:
+                                    original = i['original']
+                                    current = i['current']
+                                    ws.cell(row=cnt, column=1, value=original)
+                                    ws.cell(row=cnt, column=2, value=current)
+                                    cnt = cnt + 1
+                        wb.save(f'{fileName}')
+                        open_directory_and_select_file(fileName)
+
+                        self.selectTableView.export_path = None
                     os.remove('rpy_info_got')
             rpy_lock.release()
 

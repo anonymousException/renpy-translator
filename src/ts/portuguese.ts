@@ -211,123 +211,151 @@
 <context>
     <name>EditorDialog</name>
     <message>
-        <location filename="../editor_form.py" line="113"/>
-        <location filename="../editor_form.py" line="202"/>
+        <location filename="../editor_form.py" line="118"/>
+        <location filename="../editor_form.py" line="207"/>
         <source>Path</source>
         <translation>Caminho</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="117"/>
-        <location filename="../editor_form.py" line="202"/>
+        <location filename="../editor_form.py" line="122"/>
+        <location filename="../editor_form.py" line="207"/>
         <source>Units</source>
         <translation>Unidades</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="121"/>
-        <location filename="../editor_form.py" line="152"/>
-        <location filename="../editor_form.py" line="202"/>
-        <location filename="../editor_form.py" line="232"/>
-        <location filename="../editor_form.py" line="380"/>
+        <location filename="../editor_form.py" line="126"/>
+        <location filename="../editor_form.py" line="157"/>
+        <location filename="../editor_form.py" line="207"/>
+        <location filename="../editor_form.py" line="239"/>
+        <location filename="../editor_form.py" line="472"/>
         <location filename="../editor.ui" line="457"/>
         <source>Translated</source>
         <translation>Traduzido</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="152"/>
-        <location filename="../editor_form.py" line="232"/>
-        <location filename="../editor_form.py" line="380"/>
+        <location filename="../editor_form.py" line="157"/>
+        <location filename="../editor_form.py" line="239"/>
+        <location filename="../editor_form.py" line="472"/>
         <source>line</source>
         <translation>linha</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="152"/>
-        <location filename="../editor_form.py" line="232"/>
-        <location filename="../editor_form.py" line="380"/>
+        <location filename="../editor_form.py" line="157"/>
+        <location filename="../editor_form.py" line="239"/>
+        <location filename="../editor_form.py" line="472"/>
         <source>refer</source>
         <translation>referir</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="152"/>
-        <location filename="../editor_form.py" line="232"/>
-        <location filename="../editor_form.py" line="380"/>
+        <location filename="../editor_form.py" line="157"/>
+        <location filename="../editor_form.py" line="239"/>
+        <location filename="../editor_form.py" line="305"/>
+        <location filename="../editor_form.py" line="472"/>
+        <location filename="../editor_form.py" line="1027"/>
         <location filename="../editor.ui" line="337"/>
         <location filename="../editor.ui" line="416"/>
         <source>Original</source>
         <translation>Original</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="152"/>
-        <location filename="../editor_form.py" line="232"/>
-        <location filename="../editor_form.py" line="380"/>
+        <location filename="../editor_form.py" line="157"/>
+        <location filename="../editor_form.py" line="239"/>
+        <location filename="../editor_form.py" line="306"/>
+        <location filename="../editor_form.py" line="472"/>
+        <location filename="../editor_form.py" line="1028"/>
         <location filename="../editor.ui" line="258"/>
         <location filename="../editor.ui" line="435"/>
         <source>Current</source>
         <translation>Atual</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="325"/>
+        <location filename="../editor_form.py" line="276"/>
+        <source>Remove</source>
+        <translation>Remover</translation>
+    </message>
+    <message>
+        <location filename="../editor_form.py" line="331"/>
+        <source>Do you want to make advanced settings (the default setting is to export all files in the directory)</source>
+        <translation>Você deseja fazer configurações avançadas (a configuração padrão é exportar todos os arquivos do diretório)</translation>
+    </message>
+    <message>
+        <location filename="../editor_form.py" line="417"/>
         <source>Case Sensitive</source>
         <translation>Maiúsculas e minúsculas</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="328"/>
+        <location filename="../editor_form.py" line="420"/>
         <source>Search refer column</source>
         <translation>Coluna de referência de pesquisa</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="331"/>
+        <location filename="../editor_form.py" line="423"/>
         <source>Search Original column</source>
         <translation>Pesquisar coluna original</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="334"/>
+        <location filename="../editor_form.py" line="426"/>
         <source>Search Current column</source>
         <translation>Pesquisar coluna atual</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="337"/>
+        <location filename="../editor_form.py" line="429"/>
         <source>Search Translated column</source>
         <translation>Pesquisar coluna traduzida</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="417"/>
-        <location filename="../editor_form.py" line="428"/>
+        <location filename="../editor_form.py" line="509"/>
+        <location filename="../editor_form.py" line="520"/>
         <source>Input Dialog</source>
         <translation>Caixa de diálogo de entrada</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="418"/>
+        <location filename="../editor_form.py" line="510"/>
         <source>Please Input the line number you want to jump</source>
         <translation>Por favor, insira o número da linha que você deseja pular</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="429"/>
+        <location filename="../editor_form.py" line="521"/>
         <source>Please Input the content you want to search</source>
         <translation>Por favor, insira o conteúdo que deseja pesquisar</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="515"/>
+        <location filename="../editor_form.py" line="607"/>
         <source>Translate Translation Source to Translated</source>
         <translation>Traduzir fonte de tradução para traduzido</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="516"/>
+        <location filename="../editor_form.py" line="608"/>
         <source>Copy Original to Current</source>
         <translation>Copiar original para atual</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="517"/>
+        <location filename="../editor_form.py" line="609"/>
         <source>Copy Translated to Current</source>
         <translation>Copiar traduzido para atual</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="518"/>
+        <location filename="../editor_form.py" line="610"/>
         <source>Rollback Current to First Load</source>
         <translation>Reverter a corrente para a primeira carga</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="520"/>
-        <location filename="../editor_form.py" line="528"/>
+        <location filename="../editor_form.py" line="983"/>
+        <source>select the directory you want to edit</source>
+        <translation>selecione o diretório que deseja editar</translation>
+    </message>
+    <message>
+        <location filename="../editor_form.py" line="988"/>
+        <source>select the file(s) you want to edit</source>
+        <translation>selecione o(s) arquivo(s) que deseja editar</translation>
+    </message>
+    <message>
+        <location filename="../editor_form.py" line="277"/>
+        <location filename="../editor_form.py" line="292"/>
+        <location filename="../editor_form.py" line="323"/>
+        <location filename="../editor_form.py" line="330"/>
+        <location filename="../editor_form.py" line="612"/>
+        <location filename="../editor_form.py" line="618"/>
         <source>Export to xlsx file</source>
         <translation>Exportar para arquivo xlsx</translation>
     </message>
@@ -508,6 +536,35 @@
     </message>
 </context>
 <context>
+    <name>ExportXlsxSettingDialog</name>
+    <message>
+        <location filename="../export_xlsx_setting.ui" line="14"/>
+        <source>Export Xlsx Setting</source>
+        <translation>Exportar configuração Xlsx</translation>
+    </message>
+    <message>
+        <location filename="../export_xlsx_setting.ui" line="26"/>
+        <source>Filter the Units</source>
+        <translation>Filtre as unidades</translation>
+    </message>
+    <message>
+        <location filename="../export_xlsx_setting.ui" line="55"/>
+        <location filename="../export_xlsx_setting.ui" line="84"/>
+        <source>and</source>
+        <translation>e</translation>
+    </message>
+    <message>
+        <location filename="../export_xlsx_setting.ui" line="100"/>
+        <source>Filter the Translated</source>
+        <translation>Filtre o traduzido</translation>
+    </message>
+    <message>
+        <location filename="../export_xlsx_setting.ui" line="142"/>
+        <source>Confirm</source>
+        <translation>confirme</translation>
+    </message>
+</context>
+<context>
     <name>LocalGlossaryDialog</name>
     <message>
         <location filename="../local_glossary_form.py" line="20"/>
@@ -625,8 +682,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="27"/>
-        <source>Version 1.9.0</source>
-        <translation>Versão 1.9.0</translation>
+        <source>Version 1.9.1</source>
+        <translation>Versão 1.9.1</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="62"/>

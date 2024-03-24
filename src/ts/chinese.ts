@@ -277,9 +277,11 @@
         <translation>本地词汇表（用预设内容替换某些单词）</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="152"/>
-        <location filename="../editor_form.py" line="232"/>
-        <location filename="../editor_form.py" line="380"/>
+        <location filename="../editor_form.py" line="157"/>
+        <location filename="../editor_form.py" line="239"/>
+        <location filename="../editor_form.py" line="306"/>
+        <location filename="../editor_form.py" line="472"/>
+        <location filename="../editor_form.py" line="1028"/>
         <location filename="../editor.ui" line="258"/>
         <location filename="../editor.ui" line="435"/>
         <source>Current</source>
@@ -301,9 +303,11 @@
         <translation>仅显示未翻译的内容</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="152"/>
-        <location filename="../editor_form.py" line="232"/>
-        <location filename="../editor_form.py" line="380"/>
+        <location filename="../editor_form.py" line="157"/>
+        <location filename="../editor_form.py" line="239"/>
+        <location filename="../editor_form.py" line="305"/>
+        <location filename="../editor_form.py" line="472"/>
+        <location filename="../editor_form.py" line="1027"/>
         <location filename="../editor.ui" line="337"/>
         <location filename="../editor.ui" line="416"/>
         <source>Original</source>
@@ -325,11 +329,11 @@
         <translation>搜索后显示日志</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="121"/>
-        <location filename="../editor_form.py" line="152"/>
-        <location filename="../editor_form.py" line="202"/>
-        <location filename="../editor_form.py" line="232"/>
-        <location filename="../editor_form.py" line="380"/>
+        <location filename="../editor_form.py" line="126"/>
+        <location filename="../editor_form.py" line="157"/>
+        <location filename="../editor_form.py" line="207"/>
+        <location filename="../editor_form.py" line="239"/>
+        <location filename="../editor_form.py" line="472"/>
         <location filename="../editor.ui" line="457"/>
         <source>Translated</source>
         <translation>已翻译</translation>
@@ -340,95 +344,119 @@
         <translation>将所选内容复制到剪贴板 复制源</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="117"/>
-        <location filename="../editor_form.py" line="202"/>
+        <location filename="../editor_form.py" line="122"/>
+        <location filename="../editor_form.py" line="207"/>
         <source>Units</source>
         <translation>单位</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="152"/>
-        <location filename="../editor_form.py" line="232"/>
-        <location filename="../editor_form.py" line="380"/>
+        <location filename="../editor_form.py" line="157"/>
+        <location filename="../editor_form.py" line="239"/>
+        <location filename="../editor_form.py" line="472"/>
         <source>line</source>
         <translation>行</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="152"/>
-        <location filename="../editor_form.py" line="232"/>
-        <location filename="../editor_form.py" line="380"/>
+        <location filename="../editor_form.py" line="157"/>
+        <location filename="../editor_form.py" line="239"/>
+        <location filename="../editor_form.py" line="472"/>
         <source>refer</source>
         <translation>指向</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="113"/>
-        <location filename="../editor_form.py" line="202"/>
+        <location filename="../editor_form.py" line="118"/>
+        <location filename="../editor_form.py" line="207"/>
         <source>Path</source>
         <translation>路径</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="325"/>
+        <location filename="../editor_form.py" line="276"/>
+        <source>Remove</source>
+        <translation>移除</translation>
+    </message>
+    <message>
+        <location filename="../editor_form.py" line="331"/>
+        <source>Do you want to make advanced settings (the default setting is to export all files in the directory)</source>
+        <translation>是否要进行高级设置（默认设置是导出目录下的所有文件）</translation>
+    </message>
+    <message>
+        <location filename="../editor_form.py" line="417"/>
         <source>Case Sensitive</source>
         <translation>区分大小写</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="328"/>
+        <location filename="../editor_form.py" line="420"/>
         <source>Search refer column</source>
         <translation>搜索 refer 列</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="331"/>
+        <location filename="../editor_form.py" line="423"/>
         <source>Search Original column</source>
         <translation>搜索 Origina 列</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="334"/>
+        <location filename="../editor_form.py" line="426"/>
         <source>Search Current column</source>
         <translation>搜索 Current 列</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="337"/>
+        <location filename="../editor_form.py" line="429"/>
         <source>Search Translated column</source>
         <translation>搜索 Translated 列</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="417"/>
-        <location filename="../editor_form.py" line="428"/>
+        <location filename="../editor_form.py" line="509"/>
+        <location filename="../editor_form.py" line="520"/>
         <source>Input Dialog</source>
         <translation>输入对话框</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="418"/>
+        <location filename="../editor_form.py" line="510"/>
         <source>Please Input the line number you want to jump</source>
         <translation>请输入您要跳转的行号</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="429"/>
+        <location filename="../editor_form.py" line="521"/>
         <source>Please Input the content you want to search</source>
         <translation>输入您要搜索的内容</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="515"/>
+        <location filename="../editor_form.py" line="607"/>
         <source>Translate Translation Source to Translated</source>
         <translation>将翻译源翻译到翻译后的内容</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="516"/>
+        <location filename="../editor_form.py" line="608"/>
         <source>Copy Original to Current</source>
         <translation>将原始内容复制到当前内容</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="517"/>
+        <location filename="../editor_form.py" line="609"/>
         <source>Copy Translated to Current</source>
         <translation>复制翻译为当前</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="518"/>
+        <location filename="../editor_form.py" line="610"/>
         <source>Rollback Current to First Load</source>
         <translation>将 当前 回滚到刚加载时</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="520"/>
-        <location filename="../editor_form.py" line="528"/>
+        <location filename="../editor_form.py" line="983"/>
+        <source>select the directory you want to edit</source>
+        <translation>选择要编辑的目录</translation>
+    </message>
+    <message>
+        <location filename="../editor_form.py" line="988"/>
+        <source>select the file(s) you want to edit</source>
+        <translation>选择您要编辑的文件</translation>
+    </message>
+    <message>
+        <location filename="../editor_form.py" line="277"/>
+        <location filename="../editor_form.py" line="292"/>
+        <location filename="../editor_form.py" line="323"/>
+        <location filename="../editor_form.py" line="330"/>
+        <location filename="../editor_form.py" line="612"/>
+        <location filename="../editor_form.py" line="618"/>
         <source>Export to xlsx file</source>
         <translation>导出到 xlsx 文件</translation>
     </message>
@@ -505,6 +533,35 @@
         <location filename="../engine.ui" line="246"/>
         <source>http://my.test.server.example.com:8083</source>
         <translation>http://my.test.server.example.com:8083</translation>
+    </message>
+</context>
+<context>
+    <name>ExportXlsxSettingDialog</name>
+    <message>
+        <location filename="../export_xlsx_setting.ui" line="14"/>
+        <source>Export Xlsx Setting</source>
+        <translation>导出 Xlsx 设置</translation>
+    </message>
+    <message>
+        <location filename="../export_xlsx_setting.ui" line="26"/>
+        <source>Filter the Units</source>
+        <translation>过滤单位</translation>
+    </message>
+    <message>
+        <location filename="../export_xlsx_setting.ui" line="100"/>
+        <source>Filter the Translated</source>
+        <translation>过滤翻译的内容</translation>
+    </message>
+    <message>
+        <location filename="../export_xlsx_setting.ui" line="55"/>
+        <location filename="../export_xlsx_setting.ui" line="84"/>
+        <source>and</source>
+        <translation>和</translation>
+    </message>
+    <message>
+        <location filename="../export_xlsx_setting.ui" line="142"/>
+        <source>Confirm</source>
+        <translation>确认</translation>
     </message>
 </context>
 <context>
@@ -619,8 +676,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="27"/>
-        <source>Version 1.9.0</source>
-        <translation>版本 1.9.0</translation>
+        <source>Version 1.9.1</source>
+        <translation>版本 1.9.1</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="62"/>

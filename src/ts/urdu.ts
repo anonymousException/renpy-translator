@@ -211,125 +211,153 @@
 <context>
     <name>EditorDialog</name>
     <message>
-        <location filename="../editor_form.py" line="113"/>
-        <location filename="../editor_form.py" line="202"/>
+        <location filename="../editor_form.py" line="118"/>
+        <location filename="../editor_form.py" line="207"/>
         <source>Path</source>
         <translation>راستہ</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="117"/>
-        <location filename="../editor_form.py" line="202"/>
+        <location filename="../editor_form.py" line="122"/>
+        <location filename="../editor_form.py" line="207"/>
         <source>Units</source>
         <translation>یونٹس</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="121"/>
-        <location filename="../editor_form.py" line="152"/>
-        <location filename="../editor_form.py" line="202"/>
-        <location filename="../editor_form.py" line="232"/>
-        <location filename="../editor_form.py" line="380"/>
+        <location filename="../editor_form.py" line="126"/>
+        <location filename="../editor_form.py" line="157"/>
+        <location filename="../editor_form.py" line="207"/>
+        <location filename="../editor_form.py" line="239"/>
+        <location filename="../editor_form.py" line="472"/>
         <location filename="../editor.ui" line="457"/>
         <source>Translated</source>
         <translation>ترجمہ شدہ</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="152"/>
-        <location filename="../editor_form.py" line="232"/>
-        <location filename="../editor_form.py" line="380"/>
+        <location filename="../editor_form.py" line="157"/>
+        <location filename="../editor_form.py" line="239"/>
+        <location filename="../editor_form.py" line="472"/>
         <source>line</source>
         <translation>لائن</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="152"/>
-        <location filename="../editor_form.py" line="232"/>
-        <location filename="../editor_form.py" line="380"/>
+        <location filename="../editor_form.py" line="157"/>
+        <location filename="../editor_form.py" line="239"/>
+        <location filename="../editor_form.py" line="472"/>
         <source>refer</source>
         <translation>رجوع کریں</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="152"/>
-        <location filename="../editor_form.py" line="232"/>
-        <location filename="../editor_form.py" line="380"/>
+        <location filename="../editor_form.py" line="157"/>
+        <location filename="../editor_form.py" line="239"/>
+        <location filename="../editor_form.py" line="305"/>
+        <location filename="../editor_form.py" line="472"/>
+        <location filename="../editor_form.py" line="1027"/>
         <location filename="../editor.ui" line="337"/>
         <location filename="../editor.ui" line="416"/>
         <source>Original</source>
         <translation>اصل</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="152"/>
-        <location filename="../editor_form.py" line="232"/>
-        <location filename="../editor_form.py" line="380"/>
+        <location filename="../editor_form.py" line="157"/>
+        <location filename="../editor_form.py" line="239"/>
+        <location filename="../editor_form.py" line="306"/>
+        <location filename="../editor_form.py" line="472"/>
+        <location filename="../editor_form.py" line="1028"/>
         <location filename="../editor.ui" line="258"/>
         <location filename="../editor.ui" line="435"/>
         <source>Current</source>
         <translation>کرنٹ</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="325"/>
+        <location filename="../editor_form.py" line="276"/>
+        <source>Remove</source>
+        <translation>دور</translation>
+    </message>
+    <message>
+        <location filename="../editor_form.py" line="331"/>
+        <source>Do you want to make advanced settings (the default setting is to export all files in the directory)</source>
+        <translation>کیا آپ ایڈوانس سیٹنگز بنانا چاہتے ہیں (ڈیفالٹ سیٹنگ ڈائرکٹری میں موجود تمام فائلوں کو ایکسپورٹ کرنا ہے)</translation>
+    </message>
+    <message>
+        <location filename="../editor_form.py" line="417"/>
         <source>Case Sensitive</source>
         <translation>حساس کیس</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="328"/>
+        <location filename="../editor_form.py" line="420"/>
         <source>Search refer column</source>
         <translation>حوالہ کالم تلاش کریں۔</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="331"/>
+        <location filename="../editor_form.py" line="423"/>
         <source>Search Original column</source>
         <translation>اصل کالم تلاش کریں۔</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="334"/>
+        <location filename="../editor_form.py" line="426"/>
         <source>Search Current column</source>
         <translation>موجودہ کالم تلاش کریں۔</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="337"/>
+        <location filename="../editor_form.py" line="429"/>
         <source>Search Translated column</source>
         <translation>ترجمہ شدہ کالم تلاش کریں۔</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="417"/>
-        <location filename="../editor_form.py" line="428"/>
+        <location filename="../editor_form.py" line="509"/>
+        <location filename="../editor_form.py" line="520"/>
         <source>Input Dialog</source>
         <translation>ان پٹ ڈائیلاگ</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="418"/>
+        <location filename="../editor_form.py" line="510"/>
         <source>Please Input the line number you want to jump</source>
         <translation>براہ کرم وہ لائن نمبر درج کریں جو آپ کودنا چاہتے ہیں۔</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="429"/>
+        <location filename="../editor_form.py" line="521"/>
         <source>Please Input the content you want to search</source>
         <translation>براہ کرم وہ مواد درج کریں جسے آپ تلاش کرنا چاہتے ہیں۔</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="515"/>
+        <location filename="../editor_form.py" line="607"/>
         <source>Translate Translation Source to Translated</source>
         <translation>ترجمہ ترجمہ ماخذ کو ترجمہ شدہ سے ترجمہ کریں۔</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="516"/>
+        <location filename="../editor_form.py" line="608"/>
         <source>Copy Original to Current</source>
         <translation>اصل کو موجودہ میں کاپی کریں۔</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="517"/>
+        <location filename="../editor_form.py" line="609"/>
         <source>Copy Translated to Current</source>
         <translation>موجودہ میں ترجمہ شدہ کاپی کریں۔</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="518"/>
+        <location filename="../editor_form.py" line="610"/>
         <source>Rollback Current to First Load</source>
         <translation>پہلے لوڈ پر کرنٹ کو رول بیک کریں۔</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="520"/>
-        <location filename="../editor_form.py" line="528"/>
+        <location filename="../editor_form.py" line="983"/>
+        <source>select the directory you want to edit</source>
+        <translation>وہ ڈائریکٹری منتخب کریں جس میں آپ ترمیم کرنا چاہتے ہیں۔</translation>
+    </message>
+    <message>
+        <location filename="../editor_form.py" line="988"/>
+        <source>select the file(s) you want to edit</source>
+        <translation>وہ فائل منتخب کریں جس میں آپ ترمیم کرنا چاہتے ہیں۔</translation>
+    </message>
+    <message>
+        <location filename="../editor_form.py" line="277"/>
+        <location filename="../editor_form.py" line="292"/>
+        <location filename="../editor_form.py" line="323"/>
+        <location filename="../editor_form.py" line="330"/>
+        <location filename="../editor_form.py" line="612"/>
+        <location filename="../editor_form.py" line="618"/>
         <source>Export to xlsx file</source>
-        <translation type="unfinished">xlsx فائل میں منتقل کریں</translation>
+        <translation>xlsx فائل میں برآمد کریں۔</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="14"/>
@@ -508,6 +536,35 @@
     </message>
 </context>
 <context>
+    <name>ExportXlsxSettingDialog</name>
+    <message>
+        <location filename="../export_xlsx_setting.ui" line="14"/>
+        <source>Export Xlsx Setting</source>
+        <translation>ایکس ایل ایس ایکس سیٹنگ برآمد کریں۔</translation>
+    </message>
+    <message>
+        <location filename="../export_xlsx_setting.ui" line="26"/>
+        <source>Filter the Units</source>
+        <translation>یونٹس کو فلٹر کریں۔</translation>
+    </message>
+    <message>
+        <location filename="../export_xlsx_setting.ui" line="55"/>
+        <location filename="../export_xlsx_setting.ui" line="84"/>
+        <source>and</source>
+        <translation>اور</translation>
+    </message>
+    <message>
+        <location filename="../export_xlsx_setting.ui" line="100"/>
+        <source>Filter the Translated</source>
+        <translation>ترجمہ شدہ کو فلٹر کریں۔</translation>
+    </message>
+    <message>
+        <location filename="../export_xlsx_setting.ui" line="142"/>
+        <source>Confirm</source>
+        <translation>تصدیق کریں۔</translation>
+    </message>
+</context>
+<context>
     <name>LocalGlossaryDialog</name>
     <message>
         <location filename="../local_glossary_form.py" line="20"/>
@@ -625,8 +682,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="27"/>
-        <source>Version 1.9.0</source>
-        <translation>ورژن 1.9.0</translation>
+        <source>Version 1.9.1</source>
+        <translation>ورژن 1.9.1</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="62"/>
@@ -868,7 +925,7 @@
     <message>
         <location filename="../proxy.ui" line="26"/>
         <source>Enable Proxy</source>
-        <translation type="unfinished">پراکسی کو فعال کریں۔</translation>
+        <translation>پراکسی کو فعال کریں۔</translation>
     </message>
     <message>
         <location filename="../proxy.ui" line="39"/>
