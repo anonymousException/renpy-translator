@@ -1015,9 +1015,7 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
                     self.treeView.model.setRootPath(select_one)
                     self.treeView.setRootIndex(
                         self.treeView.proxy_model.mapFromSource(self.treeView.model.index(select_one)))
-                    self.selectTableView.setEnabled(True)
-                    self.treeView.setEnabled(True)
-                    self.rpyCheckBox.setEnabled(True)
+
                     if self.selectTableView.export_path is not None:
                         paths = os.walk(select_one, topdown=False)
                         select_one = select_one.replace('\\', '/')
@@ -1037,7 +1035,10 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
                                 #log_print(i)
                                 ret, unmatch_cnt, p = rpy_info_dic[i]
                                 units = len(ret)
-                                percentage = unmatch_cnt / units * 100
+                                if units != 0:
+                                    percentage = unmatch_cnt / units * 100
+                                else:
+                                    percentage = 0
                                 if percentage < self.selectTableView.translated_min or percentage > self.selectTableView.translated_max:
                                     continue
                                 if units < self.selectTableView.units_min or units > self.selectTableView.units_max:
@@ -1052,6 +1053,10 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
                         open_directory_and_select_file(fileName)
 
                         self.selectTableView.export_path = None
+
+                    self.selectTableView.setEnabled(True)
+                    self.treeView.setEnabled(True)
+                    self.rpyCheckBox.setEnabled(True)
                     os.remove('rpy_info_got')
             rpy_lock.release()
 
