@@ -1,204 +1,210 @@
+import _thread
 import os.path
-from collections import Counter, defaultdict
+import time
+import traceback
 
 import openpyxl
-from PySide6.QtCore import QCoreApplication, Qt, QSortFilterProxyModel
-from PySide6.QtGui import QStandardItemModel, QStandardItem
+from PySide6.QtCore import QCoreApplication, Qt, QSortFilterProxyModel, QAbstractTableModel, QModelIndex, QThread, \
+    Signal
+from PySide6.QtGui import QIntValidator
 from PySide6.QtWidgets import QDialog, QTableWidget, QTableView, QHeaderView, QTableWidgetItem, QFileDialog, \
-    QInputDialog, QMessageBox, QStyledItemDelegate, QPushButton
+    QInputDialog, QMessageBox, QStyledItemDelegate, QPushButton, QLineEdit
 from openpyxl.workbook import Workbook
 
 from local_glossary import Ui_LocalGlossaryDialog
+from my_log import log_print, log_path
+
+
+class LineEditDelegate(QStyledItemDelegate):
+
+    def createEditor(self, parent, option, index):
+        editor = QLineEdit(parent)
+        return editor
+
+    def setEditorData(self, editor, index):
+        value = index.model().data(index, Qt.EditRole)
+        editor.setText(str(index.data()))
+
+
+def save_to_xlsx_file(filename, wb):
+    wb.save(filename)
+
+
+class ExcelModel(QAbstractTableModel):
+    def __init__(self, data, path, wb, rows_per_page=100):
+        super().__init__()
+        self.is_need_save = False
+        if data is None:
+            return
+        self._data = data
+        self.path = path
+        self.wb = wb
+        self.rows_per_page = rows_per_page
+        self.current_page = 0
+        self.max_row = self._data.max_row
+        self.max_column = self._data.max_column
+        self.header_titles = [QCoreApplication.translate('LocalGlossaryDialog', 'Row', None)] + [
+            self._data.cell(row=1, column=col).value for col in
+            range(1, self.max_column + 1)]
+        self.dataChanged.connect(self.handle_data_changed)
+
+    def handle_data_changed(self, top_left, bottom_right):
+        self.is_need_save = True
+
+    def flags(self, index):
+        if not index.isValid():
+            return Qt.NoItemFlags
+
+        if index.column() == 0:
+            return super().flags(index)
+        else:
+            return super().flags(index) | Qt.ItemIsEditable
+
+    def setData(self, index, value, role=Qt.EditRole):
+        if not index.isValid() or role != Qt.EditRole:
+            return False
+        if index.column() == 0:
+            return False
+        row = self.current_page * self.rows_per_page + index.row() + 2
+        column = index.column()
+        self._data.cell(row=row, column=column).value = value
+        self.dataChanged.emit(index, index)
+        return True
+
+    def save_data(self):
+        if os.path.isfile(self.path):
+            self.wb.save(self.path)
+
+    def rowCount(self, parent=QModelIndex()):
+        return min(self.rows_per_page, self.max_row - self.current_page * self.rows_per_page - 1)
+
+    def columnCount(self, parent=QModelIndex()):
+        return self.max_column + 1
+
+    def data(self, index, role=Qt.DisplayRole):
+        if not index.isValid() or role != Qt.DisplayRole:
+            return None
+
+        if index.column() == 0:
+            value = self.current_page * self.rows_per_page + index.row() + 1
+            if value is None:
+                value = ''
+            return str(value)
+        else:
+            row = self.current_page * self.rows_per_page + index.row() + 2
+            column = index.column()
+            if row <= self.max_row:
+                cell = self._data.cell(row=row, column=column)
+                if cell.value is None:
+                    cell.value = ''
+                return str(cell.value)
+
+        return None
+
+    def headerData(self, section, orientation, role=Qt.DisplayRole):
+        if role != Qt.DisplayRole:
+            return None
+        if orientation == Qt.Horizontal:
+            return self.header_titles[section]
+        else:
+            return str(self.current_page * self.rows_per_page + section + 1)
+
+    def setPage(self, page):
+        self.beginResetModel()
+        self.current_page = page
+        self.endResetModel()
+
+    def resetPageRows(self, rows):
+        self.beginResetModel()
+        self.rows_per_page = rows
+        self.endResetModel()
 
 
 class MyTableView(QTableView):
     def __init__(self, parent=None):
         super(MyTableView, self).__init__(parent)
-        self.model = QStandardItemModel()
-        #self.setModel(self.model)
+        self.model = ExcelModel(None, None, None)
+        # self.setModel(self.model)
         self.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
-        self.model.setHorizontalHeaderLabels([QCoreApplication.translate('LocalGlossaryDialog', 'Row', None),
-            QCoreApplication.translate('LocalGlossaryDialog', 'Original', None),
-                                              QCoreApplication.translate('LocalGlossaryDialog', 'Replace', None)])
-        self.model.setColumnCount(3)
-        self.model.dataChanged.connect(self.handle_data_changed)
+        self.header_titles = ([QCoreApplication.translate('LocalGlossaryDialog', 'Row', None),
+                               QCoreApplication.translate('LocalGlossaryDialog', 'Original', None),
+                               QCoreApplication.translate('LocalGlossaryDialog', 'Replace', None)])
         self.file = None
         self.row = 0
         self.rows_to_hide = []
         self.verticalHeader().setVisible(False)
-        self.proxy_model = CustomSortProxyModel()
-        self.proxy_model.setSourceModel(self.model)
-        self.setModel(self.proxy_model)
-        self.setSortingEnabled(True)
-
-    def handle_data_changed(self, top_left, bottom_right):
-        self.file = self.selectFileText.toPlainText().replace('file:///', '')
-        if len(self.file) == 0:
-            return
-        if not os.path.isfile(self.file):
-            return
-        model = self.model
-        rows = model.rowCount()
-        cols = model.columnCount()
-        wb = Workbook()
-        ws = wb.active
-        ws.cell(row=1, column=1, value=self.model.horizontalHeaderItem(1).text())
-        ws.cell(row=1, column=2, value=self.model.horizontalHeaderItem(2).text())
-        for r in range(rows):
-            for c in range(cols):
-                if c == 0:
-                    continue
-                index = model.index(r, c)
-                value = model.data(index, Qt.DisplayRole)
-                if value is None:
-                    continue
-                ws.cell(row=r + 2, column=c, value=value)
-        wb.save(self.file)
-
-
-class CustomSortProxyModel(QSortFilterProxyModel):
-    def __init__(self, parent=None):
-        super(CustomSortProxyModel, self).__init__(parent)
-
-    def lessThan(self, left, right):
-        if left.column() == 0 and right.column() == 0:
-            leftValue = 0
-            rightValue = 0
-            if left.data() is not None and len(left.data()) > 0:
-                leftValue = int(left.data())
-            if right.data() is not None and len(right.data()) > 0:
-                rightValue = int(right.data())
-            return leftValue < rightValue
-        else:
-            return super().lessThan(left, right)
-
+        lineEditDelegate = LineEditDelegate()
+        self.setItemDelegate(lineEditDelegate)
 
 
 class MyLocalGlossaryForm(QDialog, Ui_LocalGlossaryDialog):
     def __init__(self, parent=None):
         super(MyLocalGlossaryForm, self).__init__(parent)
         self.setupUi(self)
+        self.setWindowFlags(self.windowFlags() | Qt.WindowMaximizeButtonHint | Qt.WindowMinimizeButtonHint)
         self.tableView = MyTableView()
         self.tableView.selectFileText = self.selectFileText
         self.verticalLayout.addWidget(self.tableView)
         self.selectFileBtn.clicked.connect(self.select_file)
         self.selectFileText.textChanged.connect(self.on_text_changed)
-        self.appendCheckBox.clicked.connect(self.on_append_checkbox_clicked)
         self.data = None
         self.confirmButton.clicked.connect(self.on_confirm_clicked)
         self.create_file_param = None
-        self.duplicateCheckBox.clicked.connect(self.on_duplicate_clicked)
+        self.gotoPageLineEdit.setValidator(QIntValidator(1, 0, self))
+        self.pageRowsLineEdit.setValidator(QIntValidator(1, 9999, self))
+        _thread.start_new_thread(self.update, ())
 
-        #self.tableView.proxy_model.sort(0, Qt.AscendingOrder)
+        def on_previous_clicked():
+            new_page = max(self.tableView.model.current_page - 1, 0)
+            self.tableView.model.setPage(new_page)
+            self.curPageLabel.setText(str(self.tableView.model.current_page + 1) + '/' + str(
+                int(self.tableView.model.max_row / self.tableView.model.rows_per_page) + 1))
 
-    def on_duplicate_clicked(self):
-        model = self.tableView.model
-        if model.columnCount() == 1:
+        def on_next_clicked():
+            new_page = min(self.tableView.model.current_page + 1,
+                           (self.tableView.model.max_row - 1) // self.tableView.model.rows_per_page)
+            self.tableView.model.setPage(new_page)
+            self.curPageLabel.setText(str(self.tableView.model.current_page + 1) + '/' + str(
+                int(self.tableView.model.max_row / self.tableView.model.rows_per_page) + 1))
+
+        self.prevButton.clicked.connect(on_previous_clicked)
+        self.nextButton.clicked.connect(on_next_clicked)
+        self.gotoPageButton.clicked.connect(self.on_goto_clicked)
+        self.maxPageRowsButton.clicked.connect(self.on_max_rows_clicked)
+        self.gotoPageLineEdit.returnPressed.connect(self.on_goto_clicked)
+        self.pageRowsLineEdit.returnPressed.connect(self.on_max_rows_clicked)
+
+    def on_goto_clicked(self):
+        if len(self.gotoPageLineEdit.text()) == 0:
             return
-        if self.duplicateCheckBox.isChecked():
-            self.appendCheckBox.setChecked(False)
-            self.on_append_checkbox_clicked()
-            self.duplicateCheckBox.setChecked(True)
-            value_to_rows = defaultdict(list)
-            for row in range(model.rowCount()):
-                item = model.item(row, 1)
-                if item is not None:
-                    value = item.text()
-                    value_to_rows[value].append(row)
-            non_duplicate_values = {value for value, rows in value_to_rows.items() if len(rows) == 1}
-            for row in range(model.rowCount()):
-                item = model.item(row, 1)
-                if item is not None:
-                    value = item.text()
-                    if value in non_duplicate_values or value == '':
-                        self.tableView.setRowHidden(row, True)
-            self.tableView.proxy_model.sort(1, Qt.AscendingOrder)
-        else:
-            for row in range(model.rowCount()):
-                self.tableView.setRowHidden(row, False)
-            self.tableView.proxy_model.sort(0, Qt.AscendingOrder)
+        page = int(self.gotoPageLineEdit.text()) - 1
+        if page < 0:
+            page = 0
+        max_page = int(self.tableView.model.max_row / self.tableView.model.rows_per_page)
+        if page > max_page:
+            page = max_page
+            self.gotoPageLineEdit.setText(str(page))
+        self.tableView.model.setPage(page)
+        self.curPageLabel.setText(str(self.tableView.model.current_page + 1) + '/' + str(
+            int(self.tableView.model.max_row / self.tableView.model.rows_per_page) + 1))
 
-    def on_append_checkbox_clicked(self):
-        self.load_from_xlsx(self.tableView.file)
-        self.tableView.model.dataChanged.disconnect()
-        self.tableView.proxy_model.sort(0, Qt.AscendingOrder)
-        if self.appendCheckBox.isChecked():
-            row_count = (int(self.tableView.row / 100) + 1) * 100
-            self.tableView.model.setRowCount(row_count)
-
-            for row in range(row_count):
-                item = self.tableView.model.item(row, 0)
-                if item is not None:
-                    item.setText(str(row+1))
-                else:
-                    item = QStandardItem(str(row + 1))
-                    item.setEditable(False)
-                    self.tableView.model.setItem(row, 0, item)
-        else:
-            self.tableView.model.setRowCount(self.tableView.row)
-        self.tableView.model.dataChanged.connect(self.tableView.handle_data_changed)
+    def on_max_rows_clicked(self):
+        if len(self.pageRowsLineEdit.text()) == 0:
+            return
+        max_rows = int(self.pageRowsLineEdit.text())
+        self.tableView.model.resetPageRows(max_rows)
+        self.gotoPageLineEdit.setText(str(0))
+        self.on_goto_clicked()
+        self.curPageLabel.setText(str(self.tableView.model.current_page + 1) + '/' + str(
+            int(self.tableView.model.max_row / self.tableView.model.rows_per_page) + 1))
 
     def on_text_changed(self):
         file = self.selectFileText.toPlainText().replace('file:///', '')
         if len(file) == 0:
-            self.tableView.model.clear()
             return
         if os.path.isfile(file) and file.endswith('.xlsx'):
             self.load_from_xlsx(file)
             self.tableView.file = file
-            self.on_append_checkbox_clicked()
-        else:
-            self.tableView.file = None
-            self.tableView.model.clear()
-            self.tableView.model.setHorizontalHeaderLabels([QCoreApplication.translate('LocalGlossaryDialog', 'Row', None),
-                QCoreApplication.translate('LocalGlossaryDialog', 'Original', None),
-                 QCoreApplication.translate('LocalGlossaryDialog', 'Replace', None)])
-            self.tableView.model.setColumnCount(1)
-            self.tableView.model.setRowCount(1)
-            self.tableView.row = 0
-            if file.endswith('.xlsx'):
-                text = file + ' : ' + QCoreApplication.translate(
-                    'LocalGlossaryDialog', 'The file does not exist.Click to create it',
-                    None)
-                self.create_file_param = file
-            else:
-                if os.path.isfile(file + '.xlsx'):
-                    text = file + ' : ' + QCoreApplication.translate(
-                        'LocalGlossaryDialog', 'The file is not a xlsx file.Click to open ',
-                        None) + file + '.xlsx'
-                else:
-                    text = file + ' : ' + QCoreApplication.translate(
-                        'LocalGlossaryDialog', 'The file is not a xlsx file.Click to create ',
-                        None) + file + '.xlsx'
-                self.create_file_param = file + '.xlsx'
-            m_button = QPushButton()
-            m_button.setText(text)
-
-            m_button.clicked.connect(self.create_file)
-            self.tableView.setIndexWidget(self.tableView.proxy_model.index(0, 0), m_button)
-
-    def create_file(self):
-        if os.path.isfile(self.create_file_param):
-            self.tableView.file = self.create_file_param
-            self.selectFileText.setText(self.create_file_param)
-            return
-        model = self.tableView.model
-        rows = model.rowCount()
-        cols = model.columnCount()
-        wb = Workbook()
-        ws = wb.active
-        self.tableView.model.clear()
-        self.tableView.model.setHorizontalHeaderLabels([QCoreApplication.translate('LocalGlossaryDialog', 'Row', None),
-            QCoreApplication.translate('LocalGlossaryDialog', 'Original', None),
-             QCoreApplication.translate('LocalGlossaryDialog', 'Replace', None)])
-        ws.cell(row=1, column=1, value=self.tableView.model.horizontalHeaderItem(1).text())
-        ws.cell(row=1, column=2, value=self.tableView.model.horizontalHeaderItem(2).text())
-        self.tableView.file = self.create_file_param
-        wb.save(self.tableView.file)
-        # self.load_from_xlsx(self.tableView.file)
-        self.selectFileText.setText(self.tableView.file)
-        self.appendCheckBox.setChecked(True)
-        self.on_append_checkbox_clicked()
 
     def select_file(self):
         file, filetype = QFileDialog.getOpenFileName(self,
@@ -212,37 +218,15 @@ class MyLocalGlossaryForm(QDialog, Ui_LocalGlossaryDialog):
             self.selectFileText.setText(file)
 
     def load_from_xlsx(self, file):
-        self.duplicateCheckBox.setChecked(False)
-        wb = openpyxl.load_workbook(file,data_only = True)
+        wb = openpyxl.load_workbook(file, data_only=True)
         ws = wb.active
-        row = ws.max_row
-        column = ws.max_column
-        self.tableView.row = row
-        self.tableView.column = column
-        self.tableView.model.dataChanged.disconnect()
-        self.tableView.model.clear()
-        if row > 0:
-            first_row = next(ws.iter_rows(min_row=1, max_row=1, values_only=True))
-            first_row_list = list(first_row)
-            first_row_list.insert(0,QCoreApplication.translate('LocalGlossaryDialog', 'Row', None))
-            self.tableView.model.clear()
-            self.tableView.model.setHorizontalHeaderLabels(first_row_list)
-            self.tableView.model.setRowCount(row+1)
-            self.tableView.model.setColumnCount(column + 1)
-            for i in range(row+1):
-                for j in range(column):
-                    cell_value = ws.cell(row=i + 1, column=j + 1).value
-                    if cell_value is None:
-                        cell_value = ''
-                    data = str(cell_value)
-                    item = QStandardItem(data)
-                    self.tableView.model.setItem(i-1, j+1, item)
-                    if j == 0:
-                        item = QStandardItem(str(i+1))
-                        item.setEditable(False)
-                        self.tableView.model.setItem(i, j, item)
-        self.tableView.model.dataChanged.connect(self.tableView.handle_data_changed)
-        wb.close()
+        self.tableView.model = ExcelModel(ws, file, wb)
+        self.tableView.setModel(self.tableView.model)
+        self.curPageLabel.setText(str(self.tableView.model.current_page + 1) + '/' + str(
+            int(self.tableView.model.max_row / self.tableView.model.rows_per_page) + 1))
+        self.gotoPageLineEdit.setValidator(QIntValidator(1, self.tableView.model.max_row, self))
+        self.on_max_rows_clicked()
+        return
 
     def get_data(self):
         dic = dict()
@@ -264,3 +248,31 @@ class MyLocalGlossaryForm(QDialog, Ui_LocalGlossaryDialog):
     def on_confirm_clicked(self):
         self.data = self.get_data()
         self.close()
+
+    def update(self):
+        thread = self.UpdateThread()
+        thread.update_date.connect(self.update_progress)
+        while True:
+            thread.start()
+            time.sleep(0.1)
+
+    def update_progress(self):
+        try:
+            if self.tableView.model.is_need_save:
+                self.tableView.model.save_data()
+                self.tableView.model.is_need_save = False
+        except Exception:
+            msg = traceback.format_exc()
+            log_print(msg)
+
+    class UpdateThread(QThread):
+        update_date = Signal()
+
+        def __init__(self):
+            super().__init__()
+
+        def __del__(self):
+            self.wait()
+
+        def run(self):
+            self.update_date.emit()

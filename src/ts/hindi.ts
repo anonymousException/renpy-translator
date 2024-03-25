@@ -212,150 +212,151 @@
     <name>EditorDialog</name>
     <message>
         <location filename="../editor_form.py" line="118"/>
-        <location filename="../editor_form.py" line="207"/>
+        <location filename="../editor_form.py" line="230"/>
         <source>Path</source>
         <translation>पथ</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="122"/>
-        <location filename="../editor_form.py" line="207"/>
+        <location filename="../editor_form.py" line="230"/>
         <source>Units</source>
         <translation>इकाइयों</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="126"/>
-        <location filename="../editor_form.py" line="157"/>
-        <location filename="../editor_form.py" line="207"/>
-        <location filename="../editor_form.py" line="239"/>
-        <location filename="../editor_form.py" line="472"/>
+        <location filename="../editor_form.py" line="180"/>
+        <location filename="../editor_form.py" line="230"/>
+        <location filename="../editor_form.py" line="261"/>
+        <location filename="../editor_form.py" line="503"/>
         <location filename="../editor.ui" line="457"/>
         <source>Translated</source>
         <translation>अनुवाद</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="157"/>
-        <location filename="../editor_form.py" line="239"/>
-        <location filename="../editor_form.py" line="472"/>
+        <location filename="../editor_form.py" line="180"/>
+        <location filename="../editor_form.py" line="261"/>
+        <location filename="../editor_form.py" line="503"/>
         <source>line</source>
         <translation>रेखा</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="157"/>
-        <location filename="../editor_form.py" line="239"/>
-        <location filename="../editor_form.py" line="472"/>
+        <location filename="../editor_form.py" line="180"/>
+        <location filename="../editor_form.py" line="261"/>
+        <location filename="../editor_form.py" line="503"/>
         <source>refer</source>
         <translation>संदर्भ देना</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="157"/>
-        <location filename="../editor_form.py" line="239"/>
-        <location filename="../editor_form.py" line="305"/>
-        <location filename="../editor_form.py" line="472"/>
-        <location filename="../editor_form.py" line="1027"/>
+        <location filename="../editor_form.py" line="180"/>
+        <location filename="../editor_form.py" line="261"/>
+        <location filename="../editor_form.py" line="338"/>
+        <location filename="../editor_form.py" line="503"/>
+        <location filename="../editor_form.py" line="1051"/>
         <location filename="../editor.ui" line="337"/>
         <location filename="../editor.ui" line="416"/>
         <source>Original</source>
         <translation>मूल</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="157"/>
-        <location filename="../editor_form.py" line="239"/>
-        <location filename="../editor_form.py" line="306"/>
-        <location filename="../editor_form.py" line="472"/>
-        <location filename="../editor_form.py" line="1028"/>
+        <location filename="../editor_form.py" line="180"/>
+        <location filename="../editor_form.py" line="261"/>
+        <location filename="../editor_form.py" line="339"/>
+        <location filename="../editor_form.py" line="503"/>
+        <location filename="../editor_form.py" line="1052"/>
         <location filename="../editor.ui" line="258"/>
         <location filename="../editor.ui" line="435"/>
         <source>Current</source>
         <translation>मौजूदा</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="276"/>
+        <location filename="../editor_form.py" line="298"/>
         <source>Remove</source>
         <translation>निकालना</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="331"/>
+        <location filename="../editor_form.py" line="362"/>
         <source>Do you want to make advanced settings (the default setting is to export all files in the directory)</source>
         <translation>क्या आप उन्नत सेटिंग करना चाहते हैं (डिफ़ॉल्ट सेटिंग निर्देशिका में सभी फ़ाइलों को निर्यात करना है)</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="417"/>
+        <location filename="../editor_form.py" line="448"/>
         <source>Case Sensitive</source>
         <translation>अक्षर संवेदनशील</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="420"/>
+        <location filename="../editor_form.py" line="451"/>
         <source>Search refer column</source>
         <translation>संदर्भ स्तंभ खोजें</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="423"/>
+        <location filename="../editor_form.py" line="454"/>
         <source>Search Original column</source>
         <translation>मूल कॉलम खोजें</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="426"/>
+        <location filename="../editor_form.py" line="457"/>
         <source>Search Current column</source>
         <translation>वर्तमान कॉलम खोजें</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="429"/>
+        <location filename="../editor_form.py" line="460"/>
         <source>Search Translated column</source>
         <translation>अनुवादित कॉलम खोजें</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="509"/>
-        <location filename="../editor_form.py" line="520"/>
+        <location filename="../editor_form.py" line="540"/>
+        <location filename="../editor_form.py" line="551"/>
         <source>Input Dialog</source>
         <translation>इनपुट संवाद</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="510"/>
+        <location filename="../editor_form.py" line="541"/>
         <source>Please Input the line number you want to jump</source>
         <translation>कृपया वह लाइन नंबर इनपुट करें जिसे आप जंप करना चाहते हैं</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="521"/>
+        <location filename="../editor_form.py" line="552"/>
         <source>Please Input the content you want to search</source>
         <translation>कृपया वह सामग्री इनपुट करें जिसे आप खोजना चाहते हैं</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="607"/>
+        <location filename="../editor_form.py" line="638"/>
         <source>Translate Translation Source to Translated</source>
         <translation>अनुवाद स्रोत का अनुवाद अनुवादित में करें</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="608"/>
+        <location filename="../editor_form.py" line="639"/>
         <source>Copy Original to Current</source>
         <translation>मूल को वर्तमान में कॉपी करें</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="609"/>
+        <location filename="../editor_form.py" line="640"/>
         <source>Copy Translated to Current</source>
         <translation>वर्तमान में अनुवादित प्रतिलिपि</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="610"/>
+        <location filename="../editor_form.py" line="641"/>
         <source>Rollback Current to First Load</source>
         <translation>रोलबैक करंट को पहले लोड पर</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="983"/>
+        <location filename="../editor_form.py" line="1015"/>
         <source>select the directory you want to edit</source>
         <translation>वह निर्देशिका चुनें जिसे आप संपादित करना चाहते हैं</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="988"/>
+        <location filename="../editor_form.py" line="1020"/>
         <source>select the file(s) you want to edit</source>
         <translation>वह फ़ाइल चुनें जिसे आप संपादित करना चाहते हैं</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="277"/>
-        <location filename="../editor_form.py" line="292"/>
-        <location filename="../editor_form.py" line="323"/>
-        <location filename="../editor_form.py" line="330"/>
-        <location filename="../editor_form.py" line="612"/>
-        <location filename="../editor_form.py" line="618"/>
+        <location filename="../editor_form.py" line="170"/>
+        <location filename="../editor_form.py" line="306"/>
+        <location filename="../editor_form.py" line="325"/>
+        <location filename="../editor_form.py" line="354"/>
+        <location filename="../editor_form.py" line="361"/>
+        <location filename="../editor_form.py" line="643"/>
+        <location filename="../editor_form.py" line="649"/>
         <source>Export to xlsx file</source>
         <translation>xlsx फ़ाइल में निर्यात करें</translation>
     </message>
@@ -567,44 +568,35 @@
 <context>
     <name>LocalGlossaryDialog</name>
     <message>
-        <location filename="../local_glossary_form.py" line="20"/>
-        <location filename="../local_glossary_form.py" line="153"/>
-        <location filename="../local_glossary_form.py" line="191"/>
-        <location filename="../local_glossary_form.py" line="227"/>
+        <location filename="../local_glossary_form.py" line="47"/>
+        <location filename="../local_glossary_form.py" line="129"/>
         <source>Row</source>
         <translation>पंक्ति</translation>
     </message>
     <message>
-        <location filename="../local_glossary_form.py" line="21"/>
-        <location filename="../local_glossary_form.py" line="154"/>
-        <location filename="../local_glossary_form.py" line="192"/>
+        <location filename="../local_glossary_form.py" line="130"/>
         <source>Original</source>
         <translation>मूल</translation>
     </message>
     <message>
-        <location filename="../local_glossary_form.py" line="22"/>
-        <location filename="../local_glossary_form.py" line="155"/>
-        <location filename="../local_glossary_form.py" line="193"/>
+        <location filename="../local_glossary_form.py" line="131"/>
         <source>Replace</source>
         <translation>प्रतिस्थापित करें</translation>
     </message>
     <message>
-        <location filename="../local_glossary_form.py" line="163"/>
         <source>The file does not exist.Click to create it</source>
-        <translation>फ़ाइल मौजूद नहीं है। इसे बनाने के लिए क्लिक करें</translation>
+        <translation type="vanished">फ़ाइल मौजूद नहीं है। इसे बनाने के लिए क्लिक करें</translation>
     </message>
     <message>
-        <location filename="../local_glossary_form.py" line="168"/>
         <source>The file is not a xlsx file.Click to open </source>
-        <translation>फ़ाइल xlsx फ़ाइल नहीं है। खोलने के लिए क्लिक करें</translation>
+        <translation type="vanished">फ़ाइल xlsx फ़ाइल नहीं है। खोलने के लिए क्लिक करें</translation>
     </message>
     <message>
-        <location filename="../local_glossary_form.py" line="172"/>
         <source>The file is not a xlsx file.Click to create </source>
-        <translation>फ़ाइल xlsx फ़ाइल नहीं है। बनाने के लिए क्लिक करें</translation>
+        <translation type="vanished">फ़ाइल xlsx फ़ाइल नहीं है। बनाने के लिए क्लिक करें</translation>
     </message>
     <message>
-        <location filename="../local_glossary_form.py" line="207"/>
+        <location filename="../local_glossary_form.py" line="213"/>
         <source>select the file you want to import</source>
         <translation>वह फ़ाइल चुनें जिसे आप आयात करना चाहते हैं</translation>
     </message>
@@ -619,32 +611,50 @@
         <translation>जिस फ़ाइल को आप संपादित करना चाहते हैं उसे यहां इनपुट करें या चुनें या खींचें। उदाहरण: F:\xxx.xslx</translation>
     </message>
     <message>
-        <location filename="../local_glossary.ui" line="42"/>
-        <source>Show duplicate rows only (if duplicated, only the last one will take effect)</source>
-        <translation>केवल डुप्लिकेट पंक्तियाँ दिखाएँ (यदि डुप्लिकेट किया गया है, तो केवल अंतिम पंक्ति ही प्रभावी होगी)</translation>
+        <location filename="../local_glossary.ui" line="95"/>
+        <source>Previous</source>
+        <translation>पहले का</translation>
     </message>
     <message>
-        <location filename="../local_glossary.ui" line="55"/>
+        <location filename="../local_glossary.ui" line="120"/>
+        <source>Next</source>
+        <translation>अगला</translation>
+    </message>
+    <message>
+        <source>Show duplicate rows only (if duplicated, only the last one will take effect)</source>
+        <translation type="vanished">केवल डुप्लिकेट पंक्तियाँ दिखाएँ (यदि डुप्लिकेट किया गया है, तो केवल अंतिम पंक्ति ही प्रभावी होगी)</translation>
+    </message>
+    <message>
+        <location filename="../local_glossary.ui" line="70"/>
         <source>file</source>
         <translation>फ़ाइल</translation>
     </message>
     <message>
-        <location filename="../local_glossary.ui" line="71"/>
+        <location filename="../local_glossary.ui" line="48"/>
         <source>Confirm</source>
         <translation>पुष्टि करना</translation>
     </message>
     <message>
-        <location filename="../local_glossary.ui" line="87"/>
         <source>Support Append</source>
-        <translation>समर्थन संलग्न करें</translation>
+        <translation type="vanished">समर्थन संलग्न करें</translation>
     </message>
     <message>
-        <location filename="../local_glossary.ui" line="100"/>
+        <location filename="../local_glossary.ui" line="136"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../local_glossary.ui" line="113"/>
+        <location filename="../local_glossary.ui" line="173"/>
+        <source>Go to page</source>
+        <translation>पृष्ठ पर जाओ</translation>
+    </message>
+    <message>
+        <location filename="../local_glossary.ui" line="224"/>
+        <source>Max Page Rows</source>
+        <translation>अधिकतम पृष्ठ पंक्तियाँ</translation>
+    </message>
+    <message>
+        <location filename="../local_glossary.ui" line="246"/>
         <source>For more advanced editing functions, it is recommended to use professional software such as Excel.</source>
         <translation>अधिक उन्नत संपादन कार्यों के लिए, एक्सेल जैसे पेशेवर सॉफ़्टवेयर का उपयोग करने की अनुशंसा की जाती है।</translation>
     </message>
@@ -682,8 +692,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="27"/>
-        <source>Version 1.9.2</source>
-        <translation>संस्करण 1.9.2</translation>
+        <source>Version 1.9.3</source>
+        <translation>संस्करण 1.9.3</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="62"/>

@@ -212,150 +212,151 @@
     <name>EditorDialog</name>
     <message>
         <location filename="../editor_form.py" line="118"/>
-        <location filename="../editor_form.py" line="207"/>
+        <location filename="../editor_form.py" line="230"/>
         <source>Path</source>
         <translation>Путь</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="122"/>
-        <location filename="../editor_form.py" line="207"/>
+        <location filename="../editor_form.py" line="230"/>
         <source>Units</source>
         <translation>Единицы</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="126"/>
-        <location filename="../editor_form.py" line="157"/>
-        <location filename="../editor_form.py" line="207"/>
-        <location filename="../editor_form.py" line="239"/>
-        <location filename="../editor_form.py" line="472"/>
+        <location filename="../editor_form.py" line="180"/>
+        <location filename="../editor_form.py" line="230"/>
+        <location filename="../editor_form.py" line="261"/>
+        <location filename="../editor_form.py" line="503"/>
         <location filename="../editor.ui" line="457"/>
         <source>Translated</source>
         <translation>Переведено</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="157"/>
-        <location filename="../editor_form.py" line="239"/>
-        <location filename="../editor_form.py" line="472"/>
+        <location filename="../editor_form.py" line="180"/>
+        <location filename="../editor_form.py" line="261"/>
+        <location filename="../editor_form.py" line="503"/>
         <source>line</source>
         <translation>линия</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="157"/>
-        <location filename="../editor_form.py" line="239"/>
-        <location filename="../editor_form.py" line="472"/>
+        <location filename="../editor_form.py" line="180"/>
+        <location filename="../editor_form.py" line="261"/>
+        <location filename="../editor_form.py" line="503"/>
         <source>refer</source>
         <translation>ссылаться</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="157"/>
-        <location filename="../editor_form.py" line="239"/>
-        <location filename="../editor_form.py" line="305"/>
-        <location filename="../editor_form.py" line="472"/>
-        <location filename="../editor_form.py" line="1027"/>
+        <location filename="../editor_form.py" line="180"/>
+        <location filename="../editor_form.py" line="261"/>
+        <location filename="../editor_form.py" line="338"/>
+        <location filename="../editor_form.py" line="503"/>
+        <location filename="../editor_form.py" line="1051"/>
         <location filename="../editor.ui" line="337"/>
         <location filename="../editor.ui" line="416"/>
         <source>Original</source>
         <translation>Оригинал</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="157"/>
-        <location filename="../editor_form.py" line="239"/>
-        <location filename="../editor_form.py" line="306"/>
-        <location filename="../editor_form.py" line="472"/>
-        <location filename="../editor_form.py" line="1028"/>
+        <location filename="../editor_form.py" line="180"/>
+        <location filename="../editor_form.py" line="261"/>
+        <location filename="../editor_form.py" line="339"/>
+        <location filename="../editor_form.py" line="503"/>
+        <location filename="../editor_form.py" line="1052"/>
         <location filename="../editor.ui" line="258"/>
         <location filename="../editor.ui" line="435"/>
         <source>Current</source>
         <translation>Текущий</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="276"/>
+        <location filename="../editor_form.py" line="298"/>
         <source>Remove</source>
         <translation>Удалять</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="331"/>
+        <location filename="../editor_form.py" line="362"/>
         <source>Do you want to make advanced settings (the default setting is to export all files in the directory)</source>
         <translation>Хотите ли вы выполнить расширенные настройки (настройка по умолчанию — экспортировать все файлы в каталоге)</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="417"/>
+        <location filename="../editor_form.py" line="448"/>
         <source>Case Sensitive</source>
         <translation>С учетом регистра</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="420"/>
+        <location filename="../editor_form.py" line="451"/>
         <source>Search refer column</source>
         <translation>Поиск в столбце ссылки</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="423"/>
+        <location filename="../editor_form.py" line="454"/>
         <source>Search Original column</source>
         <translation>Исходный столбец поиска</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="426"/>
+        <location filename="../editor_form.py" line="457"/>
         <source>Search Current column</source>
         <translation>Поиск в текущем столбце</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="429"/>
+        <location filename="../editor_form.py" line="460"/>
         <source>Search Translated column</source>
         <translation>Поиск Переведенный столбец</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="509"/>
-        <location filename="../editor_form.py" line="520"/>
+        <location filename="../editor_form.py" line="540"/>
+        <location filename="../editor_form.py" line="551"/>
         <source>Input Dialog</source>
         <translation>Диалог ввода</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="510"/>
+        <location filename="../editor_form.py" line="541"/>
         <source>Please Input the line number you want to jump</source>
         <translation>Пожалуйста, введите номер строки, на которую вы хотите перейти.</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="521"/>
+        <location filename="../editor_form.py" line="552"/>
         <source>Please Input the content you want to search</source>
         <translation>Пожалуйста, введите контент, который вы хотите найти</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="607"/>
+        <location filename="../editor_form.py" line="638"/>
         <source>Translate Translation Source to Translated</source>
         <translation>Перевести исходный код перевода в переведенный</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="608"/>
+        <location filename="../editor_form.py" line="639"/>
         <source>Copy Original to Current</source>
         <translation>Копировать оригинал в текущий</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="609"/>
+        <location filename="../editor_form.py" line="640"/>
         <source>Copy Translated to Current</source>
         <translation>Копия переведена в текущий</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="610"/>
+        <location filename="../editor_form.py" line="641"/>
         <source>Rollback Current to First Load</source>
         <translation>Ток отката до первой нагрузки</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="983"/>
+        <location filename="../editor_form.py" line="1015"/>
         <source>select the directory you want to edit</source>
         <translation>выберите каталог, который вы хотите редактировать</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="988"/>
+        <location filename="../editor_form.py" line="1020"/>
         <source>select the file(s) you want to edit</source>
         <translation>выберите файл(ы), которые вы хотите отредактировать</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="277"/>
-        <location filename="../editor_form.py" line="292"/>
-        <location filename="../editor_form.py" line="323"/>
-        <location filename="../editor_form.py" line="330"/>
-        <location filename="../editor_form.py" line="612"/>
-        <location filename="../editor_form.py" line="618"/>
+        <location filename="../editor_form.py" line="170"/>
+        <location filename="../editor_form.py" line="306"/>
+        <location filename="../editor_form.py" line="325"/>
+        <location filename="../editor_form.py" line="354"/>
+        <location filename="../editor_form.py" line="361"/>
+        <location filename="../editor_form.py" line="643"/>
+        <location filename="../editor_form.py" line="649"/>
         <source>Export to xlsx file</source>
         <translation>Экспортировать в файл xlsx</translation>
     </message>
@@ -567,44 +568,35 @@
 <context>
     <name>LocalGlossaryDialog</name>
     <message>
-        <location filename="../local_glossary_form.py" line="20"/>
-        <location filename="../local_glossary_form.py" line="153"/>
-        <location filename="../local_glossary_form.py" line="191"/>
-        <location filename="../local_glossary_form.py" line="227"/>
+        <location filename="../local_glossary_form.py" line="47"/>
+        <location filename="../local_glossary_form.py" line="129"/>
         <source>Row</source>
         <translation>Ряд</translation>
     </message>
     <message>
-        <location filename="../local_glossary_form.py" line="21"/>
-        <location filename="../local_glossary_form.py" line="154"/>
-        <location filename="../local_glossary_form.py" line="192"/>
+        <location filename="../local_glossary_form.py" line="130"/>
         <source>Original</source>
         <translation>Оригинал</translation>
     </message>
     <message>
-        <location filename="../local_glossary_form.py" line="22"/>
-        <location filename="../local_glossary_form.py" line="155"/>
-        <location filename="../local_glossary_form.py" line="193"/>
+        <location filename="../local_glossary_form.py" line="131"/>
         <source>Replace</source>
         <translation>Заменять</translation>
     </message>
     <message>
-        <location filename="../local_glossary_form.py" line="163"/>
         <source>The file does not exist.Click to create it</source>
-        <translation>Файл не существует. Нажмите, чтобы создать его.</translation>
+        <translation type="vanished">Файл не существует. Нажмите, чтобы создать его.</translation>
     </message>
     <message>
-        <location filename="../local_glossary_form.py" line="168"/>
         <source>The file is not a xlsx file.Click to open </source>
-        <translation>Файл не является файлом xlsx. Нажмите, чтобы открыть.</translation>
+        <translation type="vanished">Файл не является файлом xlsx. Нажмите, чтобы открыть.</translation>
     </message>
     <message>
-        <location filename="../local_glossary_form.py" line="172"/>
         <source>The file is not a xlsx file.Click to create </source>
-        <translation>Файл не является файлом xlsx. Нажмите, чтобы создать.</translation>
+        <translation type="vanished">Файл не является файлом xlsx. Нажмите, чтобы создать.</translation>
     </message>
     <message>
-        <location filename="../local_glossary_form.py" line="207"/>
+        <location filename="../local_glossary_form.py" line="213"/>
         <source>select the file you want to import</source>
         <translation>выберите файл, который хотите импортировать</translation>
     </message>
@@ -619,32 +611,50 @@
         <translation>введите или выберите или перетащите сюда файлы, которые хотите редактировать. Пример: F:\xxx.xslx</translation>
     </message>
     <message>
-        <location filename="../local_glossary.ui" line="42"/>
-        <source>Show duplicate rows only (if duplicated, only the last one will take effect)</source>
-        <translation>Показывать только повторяющиеся строки (при дублировании будет действовать только последняя)</translation>
+        <location filename="../local_glossary.ui" line="95"/>
+        <source>Previous</source>
+        <translation>Предыдущий</translation>
     </message>
     <message>
-        <location filename="../local_glossary.ui" line="55"/>
+        <location filename="../local_glossary.ui" line="120"/>
+        <source>Next</source>
+        <translation>Следующий</translation>
+    </message>
+    <message>
+        <source>Show duplicate rows only (if duplicated, only the last one will take effect)</source>
+        <translation type="vanished">Показывать только повторяющиеся строки (при дублировании будет действовать только последняя)</translation>
+    </message>
+    <message>
+        <location filename="../local_glossary.ui" line="70"/>
         <source>file</source>
         <translation>файл</translation>
     </message>
     <message>
-        <location filename="../local_glossary.ui" line="71"/>
+        <location filename="../local_glossary.ui" line="48"/>
         <source>Confirm</source>
         <translation>Подтверждать</translation>
     </message>
     <message>
-        <location filename="../local_glossary.ui" line="87"/>
         <source>Support Append</source>
-        <translation>Поддержка добавления</translation>
+        <translation type="vanished">Поддержка добавления</translation>
     </message>
     <message>
-        <location filename="../local_glossary.ui" line="100"/>
+        <location filename="../local_glossary.ui" line="136"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../local_glossary.ui" line="113"/>
+        <location filename="../local_glossary.ui" line="173"/>
+        <source>Go to page</source>
+        <translation>Перейти на страницу</translation>
+    </message>
+    <message>
+        <location filename="../local_glossary.ui" line="224"/>
+        <source>Max Page Rows</source>
+        <translation>Максимальное количество строк страницы</translation>
+    </message>
+    <message>
+        <location filename="../local_glossary.ui" line="246"/>
         <source>For more advanced editing functions, it is recommended to use professional software such as Excel.</source>
         <translation>Для более продвинутых функций редактирования рекомендуется использовать профессиональное программное обеспечение, такое как Excel.</translation>
     </message>
@@ -682,8 +692,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="27"/>
-        <source>Version 1.9.2</source>
-        <translation>Версия 1.9.2</translation>
+        <source>Version 1.9.3</source>
+        <translation>Версия 1.9.3</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="62"/>

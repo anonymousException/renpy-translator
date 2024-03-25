@@ -1175,7 +1175,7 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
             self.show()
             self.raise_()
         except Exception:
-            msg = traceback.print_exc()
+            msg = traceback.format_exc()
             log_print(msg)
 
     class UpdateThread(QThread):
