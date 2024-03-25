@@ -331,7 +331,7 @@ class Ui_MainWindow(object):
         self.engineSettings.setText(QCoreApplication.translate("MainWindow", u"engine settings", None))
         self.customEngineSettings.setText(QCoreApplication.translate("MainWindow", u"custom engine", None))
         self.actionedit.setText(QCoreApplication.translate("MainWindow", u"edit from rpy", None))
-        self.versionLabel.setText(QCoreApplication.translate("MainWindow", u"Version 1.9.1", None))
+        self.versionLabel.setText(QCoreApplication.translate("MainWindow", u"Version 1.9.2", None))
         self.translateBtn.setText(QCoreApplication.translate("MainWindow", u"translate", None))
         self.selectFilesBtn.setText(QCoreApplication.translate("MainWindow", u"...", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"directory", None))

@@ -347,7 +347,7 @@ def get_rpy_info(p):
                     if ('oriList' in d_o.keys() and len(d_o['oriList']) > 0):
                         original = d_o['oriList'][i].strip('"')
                     is_match = True
-                    if original != e.strip('"'):
+                    if original != e.strip('"') and e.strip('"')!='':
                         unmatch_cnt = unmatch_cnt + 1
                         is_match = False
                     dic = dict()

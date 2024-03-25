@@ -676,8 +676,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="27"/>
-        <source>Version 1.9.1</source>
-        <translation>版本 1.9.1</translation>
+        <source>Version 1.9.2</source>
+        <translation>版本 1.9.2</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="62"/>

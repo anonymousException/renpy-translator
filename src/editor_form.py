@@ -1102,10 +1102,17 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
                 for row in range(self.tableView.model.rowCount()):
                     data = self.tableView.model.item(row, 0).data(Qt.UserRole)
                     line = int(data['line']) - 1
-                    ori_current = data['current']
+                    ori_line = int(data['ori_line']) - 1
+                    ori_current = str(data['current'])
                     current = self.tableView.model.item(row, 3).text()
                     if ori_current != current:
-                        _read_lines[line] = _read_lines[line].replace(ori_current, current)
+                        if ori_current != '':
+                            _read_lines[line] = _read_lines[line].replace(ori_current, current, 1)
+                        else:
+                            if _read_lines[ori_line].startswith('    old '):
+                                _read_lines[line] = '    new ' + '"' + current + '"' + '\n'
+                            else:
+                                _read_lines[line] = '    ' + '"' + current + '"' + '\n'
                 f = io.open(self.tableView.file, 'w', encoding='utf-8')
                 f.writelines(_read_lines)
                 f.close()
