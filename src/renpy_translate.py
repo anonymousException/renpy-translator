@@ -188,7 +188,7 @@ def TranslateFile(p, lang_target, lang_source, is_gen_bak,local_glossary,is_tran
     transList = []
     ret, unmatch_cnt, p = get_rpy_info(p)
     if len(ret) == 0:
-        log_print(p + 'unable to get translated info')
+        log_print(p + ' unable to get translated info')
     for dic in ret:
         original = dic['original']
         current = dic['current']
