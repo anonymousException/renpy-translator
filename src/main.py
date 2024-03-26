@@ -119,6 +119,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.buttonGroup.addButton(self.currentRadioButton, 2)
         self.is_current = True
         self.buttonGroup.buttonClicked.connect(self.button_group_clicked)
+        self.local_glossary_form = MyLocalGlossaryForm(parent=None)
         try:
             self.init_combobox()
         except Exception as e:
@@ -158,9 +159,8 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
 
     def on_local_glossary_checkbox_state_changed(self):
         if self.localGlossaryCheckBox.isChecked():
-            local_glossary_form = MyLocalGlossaryForm(parent=self)
-            local_glossary_form.exec()
-            dic = local_glossary_form.data
+            self.local_glossary_form.exec()
+            dic = self.local_glossary_form.data
             index = self.sourceComboBox.findText('Auto Detect')
             if dic is None or len(dic) == 0:
                 self.localGlossaryCheckBox.setChecked(False)

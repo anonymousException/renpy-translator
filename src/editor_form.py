@@ -688,6 +688,11 @@ class MyTableView(QTableView):
                 target = self.model.item(row, 2).text()
             else:
                 target = self.model.item(row, 3).text()
+            if len(target) == 0:
+                line_index = int(self.model.item(row, 0).text())
+                log_print(
+                    'Empty in line:' + str(line_index) + ' ' + ' Skip Translation\n')
+                continue
             if local_glossary is not None:
                 for original, replace in local_glossary.items():
                     target = target.replace(original, replace)
@@ -695,6 +700,9 @@ class MyTableView(QTableView):
             if (isAllPunctuations(d['encoded'].strip('"')) == False):
                 transList.append(d['encoded'].strip('"'))
         if len(transList) == 0:
+            log_print('The translation content is empty!')
+            self.editorForm.parent.showNormal()
+            self.editorForm.parent.raise_()
             return
         client = init_client()
         if client is None:
@@ -784,7 +792,7 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
     def on_local_glossary_checkbox_state_changed(self):
         self.tableView.local_glossary = None
         if self.localGlossaryCheckBox.isChecked():
-            local_glossary_form = MyLocalGlossaryForm(parent=self)
+            local_glossary_form = self.parent.local_glossary_form
             local_glossary_form.exec()
             dic = local_glossary_form.data
             index = self.sourceComboBox.findText('Auto Detect')
@@ -1151,6 +1159,8 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
                     target = self.tableView.model.item(row, 2).text()
                 else:
                     target = self.tableView.model.item(row, 3).text()
+                if len(target) == 0:
+                    continue
                 if local_glossary is not None:
                     for original, replace in local_glossary.items():
                         target = target.replace(original, replace)
@@ -1168,6 +1178,8 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
                     self.tableView.model.item(row, 4).setText(translated)
                     self.tableView.model.item(row, 4).setToolTip(translated)
             # self.parent.hide()
+            if self.autoCopyCheckBox.isChecked():
+                self.tableView.copy_translated_to_cur()
             log_print('translated over')
             translated_dic = None
             translated_thread = None

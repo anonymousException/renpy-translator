@@ -277,11 +277,16 @@
         <translation>本地词汇表（用预设内容替换某些单词）</translation>
     </message>
     <message>
+        <location filename="../editor.ui" line="486"/>
+        <source>Auto copy to Current after translation</source>
+        <translation>翻译后自动复制到当前</translation>
+    </message>
+    <message>
         <location filename="../editor_form.py" line="180"/>
         <location filename="../editor_form.py" line="261"/>
         <location filename="../editor_form.py" line="339"/>
         <location filename="../editor_form.py" line="503"/>
-        <location filename="../editor_form.py" line="1052"/>
+        <location filename="../editor_form.py" line="1060"/>
         <location filename="../editor.ui" line="258"/>
         <location filename="../editor.ui" line="435"/>
         <source>Current</source>
@@ -307,7 +312,7 @@
         <location filename="../editor_form.py" line="261"/>
         <location filename="../editor_form.py" line="338"/>
         <location filename="../editor_form.py" line="503"/>
-        <location filename="../editor_form.py" line="1051"/>
+        <location filename="../editor_form.py" line="1059"/>
         <location filename="../editor.ui" line="337"/>
         <location filename="../editor.ui" line="416"/>
         <source>Original</source>
@@ -441,12 +446,12 @@
         <translation>将 当前 回滚到刚加载时</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1015"/>
+        <location filename="../editor_form.py" line="1023"/>
         <source>select the directory you want to edit</source>
         <translation>选择要编辑的目录</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1020"/>
+        <location filename="../editor_form.py" line="1028"/>
         <source>select the file(s) you want to edit</source>
         <translation>选择您要编辑的文件</translation>
     </message>
@@ -581,7 +586,7 @@
         <translation type="vanished">支持追加</translation>
     </message>
     <message>
-        <location filename="../local_glossary.ui" line="246"/>
+        <location filename="../local_glossary.ui" line="249"/>
         <source>For more advanced editing functions, it is recommended to use professional software such as Excel.</source>
         <translation>对于更高级的编辑功能，建议使用Excel等专业软件。</translation>
     </message>
@@ -611,7 +616,7 @@
         <translation>转到页面</translation>
     </message>
     <message>
-        <location filename="../local_glossary.ui" line="224"/>
+        <location filename="../local_glossary.ui" line="227"/>
         <source>Max Page Rows</source>
         <translation>最大页行数</translation>
     </message>
@@ -686,8 +691,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="27"/>
-        <source>Version 1.9.3</source>
-        <translation>版本 1.9.3</translation>
+        <source>Version 1.9.4</source>
+        <translation>版本 1.9.4</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="62"/>

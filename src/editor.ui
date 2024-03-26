@@ -242,7 +242,7 @@
      <widget class="QRadioButton" name="currentRadioButton">
       <property name="geometry">
        <rect>
-        <x>420</x>
+        <x>590</x>
         <y>20</y>
         <width>71</width>
         <height>20</height>
@@ -264,9 +264,9 @@
      <widget class="QLabel" name="label_3">
       <property name="geometry">
        <rect>
-        <x>190</x>
+        <x>350</x>
         <y>20</y>
-        <width>111</width>
+        <width>131</width>
         <height>20</height>
        </rect>
       </property>
@@ -321,7 +321,7 @@
      <widget class="QRadioButton" name="originalRadioButton">
       <property name="geometry">
        <rect>
-        <x>320</x>
+        <x>490</x>
         <y>20</y>
         <width>71</width>
         <height>20</height>
@@ -400,7 +400,7 @@
      <widget class="QRadioButton" name="copyOriginalRadioButton">
       <property name="geometry">
        <rect>
-        <x>320</x>
+        <x>400</x>
         <y>45</y>
         <width>71</width>
         <height>20</height>
@@ -419,7 +419,7 @@
      <widget class="QRadioButton" name="copyCurrentRadioButton">
       <property name="geometry">
        <rect>
-        <x>420</x>
+        <x>500</x>
         <y>45</y>
         <width>71</width>
         <height>20</height>
@@ -441,7 +441,7 @@
      <widget class="QRadioButton" name="copyTranslatedRadioButton">
       <property name="geometry">
        <rect>
-        <x>510</x>
+        <x>590</x>
         <y>45</y>
         <width>81</width>
         <height>20</height>
@@ -465,12 +465,25 @@
        <rect>
         <x>40</x>
         <y>45</y>
-        <width>261</width>
+        <width>351</width>
         <height>20</height>
        </rect>
       </property>
       <property name="text">
        <string>Copy selected to clipboard   Copy Source</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="autoCopyCheckBox">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>20</y>
+        <width>311</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Auto copy to Current after translation</string>
       </property>
      </widget>
     </widget>

@@ -251,7 +251,7 @@
         <location filename="../editor_form.py" line="261"/>
         <location filename="../editor_form.py" line="338"/>
         <location filename="../editor_form.py" line="503"/>
-        <location filename="../editor_form.py" line="1051"/>
+        <location filename="../editor_form.py" line="1059"/>
         <location filename="../editor.ui" line="337"/>
         <location filename="../editor.ui" line="416"/>
         <source>Original</source>
@@ -262,7 +262,7 @@
         <location filename="../editor_form.py" line="261"/>
         <location filename="../editor_form.py" line="339"/>
         <location filename="../editor_form.py" line="503"/>
-        <location filename="../editor_form.py" line="1052"/>
+        <location filename="../editor_form.py" line="1060"/>
         <location filename="../editor.ui" line="258"/>
         <location filename="../editor.ui" line="435"/>
         <source>Current</source>
@@ -340,12 +340,12 @@
         <translation>रोलबैक करंट को पहले लोड पर</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1015"/>
+        <location filename="../editor_form.py" line="1023"/>
         <source>select the directory you want to edit</source>
         <translation>वह निर्देशिका चुनें जिसे आप संपादित करना चाहते हैं</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1020"/>
+        <location filename="../editor_form.py" line="1028"/>
         <source>select the file(s) you want to edit</source>
         <translation>वह फ़ाइल चुनें जिसे आप संपादित करना चाहते हैं</translation>
     </message>
@@ -460,6 +460,11 @@
         <location filename="../editor.ui" line="473"/>
         <source>Copy selected to clipboard   Copy Source</source>
         <translation>क्लिपबोर्ड पर चयनित कॉपी स्रोत कॉपी करें</translation>
+    </message>
+    <message>
+        <location filename="../editor.ui" line="486"/>
+        <source>Auto copy to Current after translation</source>
+        <translation>अनुवाद के बाद करंट में स्वतः प्रतिलिपि</translation>
     </message>
 </context>
 <context>
@@ -649,12 +654,12 @@
         <translation>पृष्ठ पर जाओ</translation>
     </message>
     <message>
-        <location filename="../local_glossary.ui" line="224"/>
+        <location filename="../local_glossary.ui" line="227"/>
         <source>Max Page Rows</source>
         <translation>अधिकतम पृष्ठ पंक्तियाँ</translation>
     </message>
     <message>
-        <location filename="../local_glossary.ui" line="246"/>
+        <location filename="../local_glossary.ui" line="249"/>
         <source>For more advanced editing functions, it is recommended to use professional software such as Excel.</source>
         <translation>अधिक उन्नत संपादन कार्यों के लिए, एक्सेल जैसे पेशेवर सॉफ़्टवेयर का उपयोग करने की अनुशंसा की जाती है।</translation>
     </message>
@@ -692,8 +697,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="27"/>
-        <source>Version 1.9.3</source>
-        <translation>संस्करण 1.9.3</translation>
+        <source>Version 1.9.4</source>
+        <translation>संस्करण 1.9.4</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="62"/>

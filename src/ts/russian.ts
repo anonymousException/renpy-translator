@@ -251,7 +251,7 @@
         <location filename="../editor_form.py" line="261"/>
         <location filename="../editor_form.py" line="338"/>
         <location filename="../editor_form.py" line="503"/>
-        <location filename="../editor_form.py" line="1051"/>
+        <location filename="../editor_form.py" line="1059"/>
         <location filename="../editor.ui" line="337"/>
         <location filename="../editor.ui" line="416"/>
         <source>Original</source>
@@ -262,7 +262,7 @@
         <location filename="../editor_form.py" line="261"/>
         <location filename="../editor_form.py" line="339"/>
         <location filename="../editor_form.py" line="503"/>
-        <location filename="../editor_form.py" line="1052"/>
+        <location filename="../editor_form.py" line="1060"/>
         <location filename="../editor.ui" line="258"/>
         <location filename="../editor.ui" line="435"/>
         <source>Current</source>
@@ -340,12 +340,12 @@
         <translation>Ток отката до первой нагрузки</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1015"/>
+        <location filename="../editor_form.py" line="1023"/>
         <source>select the directory you want to edit</source>
         <translation>выберите каталог, который вы хотите редактировать</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1020"/>
+        <location filename="../editor_form.py" line="1028"/>
         <source>select the file(s) you want to edit</source>
         <translation>выберите файл(ы), которые вы хотите отредактировать</translation>
     </message>
@@ -460,6 +460,11 @@
         <location filename="../editor.ui" line="473"/>
         <source>Copy selected to clipboard   Copy Source</source>
         <translation>Копировать выбранное в буфер обмена Копировать источник</translation>
+    </message>
+    <message>
+        <location filename="../editor.ui" line="486"/>
+        <source>Auto copy to Current after translation</source>
+        <translation>Автоматическое копирование в Текущий после перевода</translation>
     </message>
 </context>
 <context>
@@ -649,12 +654,12 @@
         <translation>Перейти на страницу</translation>
     </message>
     <message>
-        <location filename="../local_glossary.ui" line="224"/>
+        <location filename="../local_glossary.ui" line="227"/>
         <source>Max Page Rows</source>
         <translation>Максимальное количество строк страницы</translation>
     </message>
     <message>
-        <location filename="../local_glossary.ui" line="246"/>
+        <location filename="../local_glossary.ui" line="249"/>
         <source>For more advanced editing functions, it is recommended to use professional software such as Excel.</source>
         <translation>Для более продвинутых функций редактирования рекомендуется использовать профессиональное программное обеспечение, такое как Excel.</translation>
     </message>
@@ -692,8 +697,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="27"/>
-        <source>Version 1.9.3</source>
-        <translation>Версия 1.9.3</translation>
+        <source>Version 1.9.4</source>
+        <translation>Версия 1.9.4</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="62"/>

@@ -277,11 +277,16 @@
         <translation>ローカル用語集 (特定の単語を事前設定されたコンテンツに置き換えます)</translation>
     </message>
     <message>
+        <location filename="../editor.ui" line="486"/>
+        <source>Auto copy to Current after translation</source>
+        <translation>翻訳後に現在に自動コピー</translation>
+    </message>
+    <message>
         <location filename="../editor_form.py" line="180"/>
         <location filename="../editor_form.py" line="261"/>
         <location filename="../editor_form.py" line="339"/>
         <location filename="../editor_form.py" line="503"/>
-        <location filename="../editor_form.py" line="1052"/>
+        <location filename="../editor_form.py" line="1060"/>
         <location filename="../editor.ui" line="258"/>
         <location filename="../editor.ui" line="435"/>
         <source>Current</source>
@@ -307,7 +312,7 @@
         <location filename="../editor_form.py" line="261"/>
         <location filename="../editor_form.py" line="338"/>
         <location filename="../editor_form.py" line="503"/>
-        <location filename="../editor_form.py" line="1051"/>
+        <location filename="../editor_form.py" line="1059"/>
         <location filename="../editor.ui" line="337"/>
         <location filename="../editor.ui" line="416"/>
         <source>Original</source>
@@ -441,12 +446,12 @@
         <translation>現在 をロードしたばかりの状態にロールバックします</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1015"/>
+        <location filename="../editor_form.py" line="1023"/>
         <source>select the directory you want to edit</source>
         <translation>編集したいディレクトリを選択します</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1020"/>
+        <location filename="../editor_form.py" line="1028"/>
         <source>select the file(s) you want to edit</source>
         <translation>編集したいファイルを選択します</translation>
     </message>
@@ -614,7 +619,7 @@
         <translation type="vanished">サポート追加</translation>
     </message>
     <message>
-        <location filename="../local_glossary.ui" line="246"/>
+        <location filename="../local_glossary.ui" line="249"/>
         <source>For more advanced editing functions, it is recommended to use professional software such as Excel.</source>
         <translation>より高度な編集機能を使用するには、Excel などの専門的なソフトウェアを使用することをお勧めします。</translation>
     </message>
@@ -644,7 +649,7 @@
         <translation>ページに移動</translation>
     </message>
     <message>
-        <location filename="../local_glossary.ui" line="224"/>
+        <location filename="../local_glossary.ui" line="227"/>
         <source>Max Page Rows</source>
         <translation>最大ページ行数</translation>
     </message>
@@ -686,8 +691,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="27"/>
-        <source>Version 1.9.3</source>
-        <translation>バージョン1.9.3</translation>
+        <source>Version 1.9.4</source>
+        <translation>バージョン1.9.4</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="62"/>

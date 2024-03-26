@@ -238,7 +238,7 @@ def TranslateFile(p, lang_target, lang_source, is_gen_bak,local_glossary,is_tran
         if translated is None:
             d = EncodeBrackets(target)
             log_print(
-                'Error in line:' + str(line) + ' ' + '\n' + target + '\n' + d['encoded'].strip(
+                p + ' Error in line:' + str(line) + ' ' + '\n' + target + '\n' + d['encoded'].strip(
                     '"') + ' Error')
         else:
             target = ori_target
