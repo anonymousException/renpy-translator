@@ -41,6 +41,56 @@ https://github.com/anonymousException/renpy-translator/blob/feature/ai-translate
 | [CloudTranslation](https://www.cloudtranslation.com/#/translate) |             8             |          Free          | [Xiamen University](http://nlp.xmu.edu.cn/) / [CloudTranslation](https://www.cloudtranslation.com/#/about) |  China  |  [translators](https://github.com/UlionTse/translators)  |
 |            [Caiyun](https://fanyi.caiyunapp.com/)            |             3             |          Free          |         [ColorfulClouds](http://caiyunapp.com/jobs/)         |  China  |  [translators](https://github.com/UlionTse/translators)  |
 
+## 用法
+
+### 编辑器模式
+
+ https://github.com/anonymousException/renpy-translator/assets/157234942/eb140430-2b58-4a46-b913-b2df07d1bb6d
+
+### 本地术语
+
+对于高级编辑，建议使用 EXCEL 等专业软件
+
+该工具仅支持加载和简单修改
+
+https://github.com/anonymousException/renpy-translator/assets/157234942/c9b8bc7d-a5e0-4df6-a4d6-6005644daa74
+
+#### 导入的术语格式
+
+你应该提供 2 列：
+
+原文：替换前的单词
+
+当前(替换的) : 被替换后的单词
+
+第一行应该是标题（只是为了展示，你可以重命名它们）
+
+![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/imported_local_glossary.png)
+
+### 翻译(多)文件
+
+https://github.com/anonymousException/renpy-translator/assets/157234942/495be06c-9751-4966-b22c-84602fb3dc0a
+
+### 翻译整个文件夹
+
+https://github.com/anonymousException/renpy-translator/assets/157234942/0034bbaa-d1fc-4981-b228-9bde62423367
+
+### 替换字体
+
+https://github.com/anonymousException/renpy-translator/assets/157234942/46e524d7-14ef-472e-8426-ac47d923bef0
+
+### 抽取(多个)文件
+
+https://github.com/anonymousException/renpy-translator/assets/157234942/7d1efbfd-7152-407f-9896-c63a98538f02
+
+### 抽取(多个)文件夹
+
+https://github.com/anonymousException/renpy-translator/assets/157234942/518e34a9-12f6-4e69-9ac4-80a6b181081c
+
+抽取所有内容到整个 tl 目录并重命名(如果 tl name 为空则直接抽取到输入的 tl 目录下):
+
+https://github.com/anonymousException/renpy-translator/assets/157234942/09edf9fa-0f5c-410a-acd9-6fd219b55893
+
 ## 目的
 
 正如你所见上方翻译后的内容，在翻译后被翻译的原文也会被保留
@@ -111,44 +161,6 @@ https://github.com/anonymousException/renpy-translator/blob/feature/ai-translate
 - 支持**多种**翻译引擎 
 
 ------
-
-## 用法
-
-编辑器模式:
-
- https://github.com/anonymousException/renpy-translator/assets/157234942/eb140430-2b58-4a46-b913-b2df07d1bb6d
-
-本地术语:
-
-https://github.com/anonymousException/renpy-translator/assets/157234942/1ac405a8-5aed-4586-9ae0-5055903bf165
-
-导入的术语格式:
-
-![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/imported_local_glossary.png)
-
-翻译(多)文件:
-
-https://github.com/anonymousException/renpy-translator/assets/157234942/495be06c-9751-4966-b22c-84602fb3dc0a
-
-翻译整个文件夹:
-
-https://github.com/anonymousException/renpy-translator/assets/157234942/0034bbaa-d1fc-4981-b228-9bde62423367
-
-替换字体:
-
-https://github.com/anonymousException/renpy-translator/assets/157234942/46e524d7-14ef-472e-8426-ac47d923bef0
-
-抽取(多个)文件:
-
-https://github.com/anonymousException/renpy-translator/assets/157234942/7d1efbfd-7152-407f-9896-c63a98538f02
-
-抽取(多个)文件夹
-
-https://github.com/anonymousException/renpy-translator/assets/157234942/518e34a9-12f6-4e69-9ac4-80a6b181081c
-
-抽取所有内容到整个 tl 目录并重命名(如果 tl name 为空则直接抽取到输入的 tl 目录下):
-
-https://github.com/anonymousException/renpy-translator/assets/157234942/09edf9fa-0f5c-410a-acd9-6fd219b55893
 
 ## 使用教程
 

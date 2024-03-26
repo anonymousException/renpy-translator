@@ -44,6 +44,56 @@ https://github.com/anonymousException/renpy-translator/blob/feature/ai-translate
 | [CloudTranslation](https://www.cloudtranslation.com/#/translate) |             8             |          Free          | [Xiamen University](http://nlp.xmu.edu.cn/) / [CloudTranslation](https://www.cloudtranslation.com/#/about) |  China  |  [translators](https://github.com/UlionTse/translators)  |
 |            [Caiyun](https://fanyi.caiyunapp.com/)            |             3             |  Free\|Token Required  |         [ColorfulClouds](http://caiyunapp.com/jobs/)         |  China  |  [translators](https://github.com/UlionTse/translators)  |
 
+## Usage
+
+### Editor Mode
+
+https://github.com/anonymousException/renpy-translator/assets/157234942/eb140430-2b58-4a46-b913-b2df07d1bb6d
+
+### Local Glossary
+
+For advanced edit , it is recommended to use professional software such as EXCEL
+
+This tool only supports loading and simple modifications
+
+https://github.com/anonymousException/renpy-translator/assets/157234942/c9b8bc7d-a5e0-4df6-a4d6-6005644daa74
+
+#### Imported Glossary format
+
+You should offer 2 columns : 
+
+Original : the words before replaced
+
+Current(Replaced) :  the words replaced
+
+The first row should be the header (just for show you can rename them)
+
+![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/imported_local_glossary.png)
+
+### Translate Files
+
+https://github.com/anonymousException/renpy-translator/assets/157234942/495be06c-9751-4966-b22c-84602fb3dc0a
+
+### Translate Directory
+
+https://github.com/anonymousException/renpy-translator/assets/157234942/0034bbaa-d1fc-4981-b228-9bde62423367
+
+### Replace fonts
+
+https://github.com/anonymousException/renpy-translator/assets/157234942/46e524d7-14ef-472e-8426-ac47d923bef0
+
+### Extract File(s)
+
+https://github.com/anonymousException/renpy-translator/assets/157234942/7d1efbfd-7152-407f-9896-c63a98538f02
+
+### Extract Directory(s)
+
+https://github.com/anonymousException/renpy-translator/assets/157234942/518e34a9-12f6-4e69-9ac4-80a6b181081c
+
+Extract all extractable contents to tl directory and rename(if tl name is empty will just extracted to the tl directory):
+
+https://github.com/anonymousException/renpy-translator/assets/157234942/09edf9fa-0f5c-410a-acd9-6fd219b55893
+
 ## Target
 
 As you see the above translated contents. The original contents will be remained after translation.
@@ -113,44 +163,6 @@ You can download the latest version through https://github.com/anonymousExceptio
 - Support **multi** translation engines
 
 ------
-
-## Usage
-
-Editor Mode:
-
-https://github.com/anonymousException/renpy-translator/assets/157234942/eb140430-2b58-4a46-b913-b2df07d1bb6d
-
-Local Glossary:
-
-https://github.com/anonymousException/renpy-translator/assets/157234942/1ac405a8-5aed-4586-9ae0-5055903bf165
-
-Imported Glossary format:
-
-![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/imported_local_glossary.png)
-
-Translate Files:
-
-https://github.com/anonymousException/renpy-translator/assets/157234942/495be06c-9751-4966-b22c-84602fb3dc0a
-
-Translate Directory:
-
-https://github.com/anonymousException/renpy-translator/assets/157234942/0034bbaa-d1fc-4981-b228-9bde62423367
-
-Replace fonts:
-
-https://github.com/anonymousException/renpy-translator/assets/157234942/46e524d7-14ef-472e-8426-ac47d923bef0
-
-Extract File(s):
-
-https://github.com/anonymousException/renpy-translator/assets/157234942/7d1efbfd-7152-407f-9896-c63a98538f02
-
-Extract Directory(s)
-
-https://github.com/anonymousException/renpy-translator/assets/157234942/518e34a9-12f6-4e69-9ac4-80a6b181081c
-
-Extract all extractable contents to tl directory and rename(if tl name is empty will just extracted to the tl directory):
-
-https://github.com/anonymousException/renpy-translator/assets/157234942/09edf9fa-0f5c-410a-acd9-6fd219b55893
 
 ## Tutorial
 
