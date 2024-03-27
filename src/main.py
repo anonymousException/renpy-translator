@@ -20,8 +20,9 @@ from PySide6.QtWidgets import QFileDialog, QListView, QAbstractItemView, QTreeVi
 from copyright import Ui_CopyrightDialog
 from my_log import log_print, log_path
 from renpy_extract import extractThread, extract_threads
-from renpy_fonts import GenGuiFonts
 from local_glossary_form import MyLocalGlossaryForm
+from font_replace_form import MyFontReplaceForm
+from game_unpacker_form import MyGameUnpackerForm
 
 os.environ['REQUESTS_CA_BUNDLE'] = os.path.join(os.path.dirname(sys.argv[0]), 'cacert.pem')
 os.environ['NO_PROXY'] = '*'
@@ -32,10 +33,12 @@ from ui import Ui_MainWindow
 from custom_engine_form import MyCustomEngineForm
 from editor_form import MyEditorForm
 from engine_form import MyEngineForm
+
 targetDic = dict()
 sourceDic = dict()
 translator = QTranslator()
 editor_form = None
+
 
 class MyProxyForm(QDialog, Ui_ProxyDialog):
     def __init__(self, parent=None):
@@ -98,14 +101,13 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.selectDirBtn.clicked.connect(self.select_directory)
         self.translateBtn.clicked.connect(self.translate)
         self.clearLogBtn.clicked.connect(self.clear_log)
-        self.selectFontBtn.clicked.connect(self.select_font)
+
         self.selectFilesBtn_2.clicked.connect(self.select_file2)
         self.selectDirBtn_2.clicked.connect(self.select_directory2)
-        self.selectDirBtn_3.clicked.connect(self.select_directory3)
+
         self.selectDirsBtn.clicked.connect(self.select_directory4)
         self.extractBtn.clicked.connect(self.extract)
-        self.replaceFontBtn.clicked.connect(self.replaceFont)
-        self.openFontStyleBtn.clicked.connect(self.openFontStyleFile)
+
         self.multiTranslateCheckBox.setChecked(True)
         self.filterCheckBox.setChecked(True)
         self.filterLengthLineEdit.setText('8')
@@ -127,11 +129,14 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
             log_print(msg)
         self.versionLabel.setStyleSheet("color:grey")
         self.copyrightLabel.setStyleSheet("color:grey")
+        self.myGameUnpackerForm = None
         self.actioncopyright.triggered.connect(lambda: self.show_copyright_form())
         self.proxySettings.triggered.connect(lambda: self.show_proxy_settings())
         self.engineSettings.triggered.connect(lambda: self.show_engine_settings())
         self.customEngineSettings.triggered.connect(lambda: self.show_custom_engine_settings())
         self.actionedit.triggered.connect(lambda: self.show_edit_form())
+        self.actionreplace_font.triggered.connect(lambda: self.replace_font())
+        self.actionunpack_game.triggered.connect(lambda: self.unpack_game())
         self.actionArabic.triggered.connect(lambda: self.to_language('arabic'))
         self.actionBengali.triggered.connect(lambda: self.to_language('bengali'))
         self.actionChinese.triggered.connect(lambda: self.to_language('chinese'))
@@ -150,12 +155,20 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         if os.path.isfile('extracting'):
             os.remove('extracting')
 
+    def unpack_game(self):
+        if self.myGameUnpackerForm is None:
+            self.myGameUnpackerForm = MyGameUnpackerForm(parent=self)
+        self.myGameUnpackerForm.exec()
+
+    def replace_font(self):
+        myFontReplaceForm = MyFontReplaceForm(parent=self)
+        myFontReplaceForm.exec()
+
     def button_group_clicked(self, item):
         if item.group().checkedId() == 1:
             self.is_current = False
         else:
             self.is_current = True
-
 
     def on_local_glossary_checkbox_state_changed(self):
         if self.localGlossaryCheckBox.isChecked():
@@ -191,15 +204,19 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
             self.retranslateUi(self)
             if editor_form is not None:
                 editor_form.retranslateUi(editor_form)
+            if self.myGameUnpackerForm is not None:
+                self.myGameUnpackerForm.retranslateUi(self.myGameUnpackerForm)
             os.remove('language.txt')
 
-    def to_language(self,lan):
-        translator.load("qm/"+lan+".qm")
+    def to_language(self, lan):
+        translator.load("qm/" + lan + ".qm")
         QCoreApplication.instance().installTranslator(translator)
         self.retranslateUi(self)
         if editor_form is not None:
             editor_form.retranslateUi(editor_form)
-        f = io.open("language.txt","w",encoding='utf-8')
+        if self.myGameUnpackerForm is not None:
+            self.myGameUnpackerForm.retranslateUi(self.myGameUnpackerForm)
+        f = io.open("language.txt", "w", encoding='utf-8')
         f.write(lan)
         f.close()
 
@@ -207,7 +224,6 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.hide()
         self.widget.hide()
         self.widget_2.hide()
-        self.widget_3.hide()
         self.menubar.hide()
         self.versionLabel.hide()
         global editor_form
@@ -217,7 +233,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         editor_form.showNormal()
         editor_form.raise_()
         self.actionedit.triggered.disconnect()
-        #self.show()
+        # self.show()
 
     def show_custom_engine_settings(self):
         custom_engine_form = MyCustomEngineForm(parent=self)
@@ -257,27 +273,6 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
     def show_proxy_settings(self):
         proxy_form = MyProxyForm(parent=self)
         proxy_form.exec()
-
-    def replaceFont(self):
-        select_dir = self.selectDirText_3.toPlainText()
-        if len(select_dir) > 0:
-            select_dir = select_dir.replace('file:///', '')
-            if not os.path.exists(select_dir):
-                log_print(select_dir + ' directory does not exist!')
-            else:
-                if select_dir[len(select_dir) - 1] != '/' and select_dir[len(select_dir) - 1] != '\\':
-                    select_dir = select_dir + '/'
-                font_path = self.selectFontText.toPlainText()
-                font_path = font_path.replace('file:///', '')
-                GenGuiFonts(select_dir, font_path)
-
-    def openFontStyleFile(self):
-        select_dir = self.selectDirText_3.toPlainText()
-        if len(select_dir) > 0:
-            select_dir = select_dir.replace('file:///', '')
-            if select_dir[len(select_dir) - 1] != '/' and select_dir[len(select_dir) - 1] != '\\':
-                select_dir = select_dir + '/'
-            os.system('notepad ' + select_dir + 'gui.rpy')
 
     def show_copyright_form(self):
         copyright_form = MyCopyrightForm(parent=self)
@@ -401,7 +396,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
                     cnt = cnt + 1
             if len(extract_threads) > 0:
                 open('extracting', "w")
-                self.extractBtn.setText(QCoreApplication.translate('MainWindow','extracting...',None))
+                self.extractBtn.setText(QCoreApplication.translate('MainWindow', 'extracting...', None))
                 self.extractBtn.setDisabled(True)
                 _thread.start_new_thread(self.extract_threads_over, ())
         except Exception:
@@ -417,13 +412,6 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         log_print('extract all complete!')
         if os.path.isfile('extracting'):
             os.remove('extracting')
-
-    def select_font(self):
-        file, filetype = QFileDialog.getOpenFileName(self,
-                                                     "select the file font which supports the translated language",
-                                                     '',  # 起始路径
-                                                     "Font Files (*.ttf || *.otf);;All Files (*)")
-        self.selectFontText.setText(file)
 
     @staticmethod
     def clear_log():
@@ -443,17 +431,17 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
             self.log_text.setText(data)
             self.log_text.moveCursor(QTextCursor.End)
         if os.path.isfile('translating'):
-            self.translateBtn.setText(QCoreApplication.translate('MainWindow','translating...',None))
+            self.translateBtn.setText(QCoreApplication.translate('MainWindow', 'translating...', None))
             self.translateBtn.setDisabled(True)
         else:
-            self.translateBtn.setText(QCoreApplication.translate('MainWindow','translate',None))
+            self.translateBtn.setText(QCoreApplication.translate('MainWindow', 'translate', None))
             self.translateBtn.setEnabled(True)
 
         if os.path.isfile('extracting'):
-            self.extractBtn.setText(QCoreApplication.translate('MainWindow','extracting...',None))
+            self.extractBtn.setText(QCoreApplication.translate('MainWindow', 'extracting...', None))
             self.extractBtn.setDisabled(True)
         else:
-            self.extractBtn.setText(QCoreApplication.translate('MainWindow','extract',None))
+            self.extractBtn.setText(QCoreApplication.translate('MainWindow', 'extract', None))
             self.extractBtn.setEnabled(True)
 
     class UpdateThread(QThread):
@@ -480,13 +468,11 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
                     s = s + folder + '\n'
             self.selectDirsText.setText(s.rstrip('\n'))
 
-    def select_directory3(self):
-        directory = QFileDialog.getExistingDirectory(self, 'select the directory you want to extract')
-        self.selectDirText_3.setText(directory)
-
     def select_file2(self):
         files, filetype = QFileDialog.getOpenFileNames(self,
-                                                       "select the file(s) you want to extract",
+                                                       QCoreApplication.translate('MainWindow',
+                                                                                  'select the file(s) you want to extract',
+                                                                                  None),
                                                        '',
                                                        "Rpy Files (*.rpy);;All Files (*)")
         s = ''
@@ -495,12 +481,16 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.selectFilesText_2.setText(s.rstrip('\n'))
 
     def select_directory2(self):
-        directory = QFileDialog.getExistingDirectory(self, 'select the directory you want to extract')
+        directory = QFileDialog.getExistingDirectory(self, QCoreApplication.translate('MainWindow',
+                                                                                      'select the directory you want to extract',
+                                                                                      None))
         self.selectDirText_2.setText(directory)
 
     def select_file(self):
         files, filetype = QFileDialog.getOpenFileNames(self,
-                                                       "select the file(s) you want to translate",
+                                                       QCoreApplication.translate('MainWindow',
+                                                                                  'select the file(s) you want to translate',
+                                                                                  None),
                                                        '',
                                                        "Rpy Files (*.rpy);;All Files (*)")
         s = ''
@@ -509,7 +499,9 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.selectFilesText.setText(s.rstrip('\n'))
 
     def select_directory(self):
-        directory = QFileDialog.getExistingDirectory(self, 'select the directory you want to translate')
+        directory = QFileDialog.getExistingDirectory(self, QCoreApplication.translate('MainWindow',
+                                                                                      'select the directory you want to translate',
+                                                                                      None))
         self.selectDirText.setText(directory)
 
     def translate(self):
@@ -523,7 +515,8 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
                 i = i.replace('file:///', '')
                 if len(i) > 0:
                     t = translateThread(cnt, i, target_language, source_language,
-                                        self.multiTranslateCheckBox.isChecked(), self.backupCheckBox.isChecked(),self.local_glossary,self.is_current,self.skipTranslatedCheckBox.isChecked())
+                                        self.multiTranslateCheckBox.isChecked(), self.backupCheckBox.isChecked(),
+                                        self.local_glossary, self.is_current, self.skipTranslatedCheckBox.isChecked())
                     t.start()
                     translate_threads.append(t)
                     cnt = cnt + 1
@@ -544,13 +537,14 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
                             # _thread.start_new_thread(TranslateFile,(i,))
                             t = translateThread(cnt, i, target_language, source_language,
                                                 self.multiTranslateCheckBox.isChecked(),
-                                                self.backupCheckBox.isChecked(),self.local_glossary,self.is_current,self.skipTranslatedCheckBox.isChecked())
+                                                self.backupCheckBox.isChecked(), self.local_glossary, self.is_current,
+                                                self.skipTranslatedCheckBox.isChecked())
                             t.start()
                             translate_threads.append(t)
                             cnt = cnt + 1
             if len(translate_threads) > 0:
                 open('translating', "w")
-                self.translateBtn.setText(QCoreApplication.translate('MainWindow','translating...',None))
+                self.translateBtn.setText(QCoreApplication.translate('MainWindow', 'translating...', None))
                 self.translateBtn.setDisabled(True)
                 _thread.start_new_thread(self.translate_threads_over, ())
         except Exception:

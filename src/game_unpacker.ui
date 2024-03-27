@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>GameUnpackerDialog</class>
+ <widget class="QDialog" name="GameUnpackerDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>661</width>
+    <height>206</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Game Unpacker</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>40</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>file</string>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="selectFileBtn">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>25</y>
+     <width>81</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>...</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="selectFileText">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>25</y>
+     <width>411</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="placeholderText">
+    <string>input or choose or drag the game you want to unpack it's rpa files.Example:F:/DemoGame.exe</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="unpackBtn">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>100</y>
+     <width>491</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Unpack</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="cleanBtn">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>140</y>
+     <width>491</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Clean temporary files</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="autoCheckBox">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>180</y>
+     <width>331</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Auto Clean after unpack</string>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

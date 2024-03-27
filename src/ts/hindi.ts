@@ -251,7 +251,7 @@
         <location filename="../editor_form.py" line="261"/>
         <location filename="../editor_form.py" line="338"/>
         <location filename="../editor_form.py" line="503"/>
-        <location filename="../editor_form.py" line="1059"/>
+        <location filename="../editor_form.py" line="1058"/>
         <location filename="../editor.ui" line="337"/>
         <location filename="../editor.ui" line="416"/>
         <source>Original</source>
@@ -262,7 +262,7 @@
         <location filename="../editor_form.py" line="261"/>
         <location filename="../editor_form.py" line="339"/>
         <location filename="../editor_form.py" line="503"/>
-        <location filename="../editor_form.py" line="1060"/>
+        <location filename="../editor_form.py" line="1059"/>
         <location filename="../editor.ui" line="258"/>
         <location filename="../editor.ui" line="435"/>
         <source>Current</source>
@@ -340,12 +340,12 @@
         <translation>रोलबैक करंट को पहले लोड पर</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1023"/>
+        <location filename="../editor_form.py" line="1022"/>
         <source>select the directory you want to edit</source>
         <translation>वह निर्देशिका चुनें जिसे आप संपादित करना चाहते हैं</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1028"/>
+        <location filename="../editor_form.py" line="1027"/>
         <source>select the file(s) you want to edit</source>
         <translation>वह फ़ाइल चुनें जिसे आप संपादित करना चाहते हैं</translation>
     </message>
@@ -571,6 +571,109 @@
     </message>
 </context>
 <context>
+    <name>FontReplaceDialog</name>
+    <message>
+        <location filename="../font_replace_form.py" line="23"/>
+        <source>select the directory you want to extract</source>
+        <translation>वह निर्देशिका चुनें जिसे आप निकालना चाहते हैं</translation>
+    </message>
+    <message>
+        <location filename="../font_replace_form.py" line="28"/>
+        <source>select the file font which supports the translated language</source>
+        <translation>उस फ़ाइल फ़ॉन्ट का चयन करें जो अनुवादित भाषा का समर्थन करता है</translation>
+    </message>
+    <message>
+        <location filename="../font_replace.ui" line="14"/>
+        <source>Font Replace</source>
+        <translation>फ़ॉन्ट बदलें</translation>
+    </message>
+    <message>
+        <location filename="../font_replace.ui" line="46"/>
+        <location filename="../font_replace.ui" line="72"/>
+        <source>font</source>
+        <translation>फ़ॉन्ट</translation>
+    </message>
+    <message>
+        <location filename="../font_replace.ui" line="59"/>
+        <source>input or choose or drag the font which supports the language after translation. Example : DejaVuSans.ttf (ren&apos;py &apos;s default font)</source>
+        <translation>अनुवाद के बाद भाषा का समर्थन करने वाले फ़ॉन्ट को इनपुट करें या चुनें या खींचें। उदाहरण: DejaVuSans.ttf (ren&apos;py का डिफ़ॉल्ट फ़ॉन्ट)</translation>
+    </message>
+    <message>
+        <location filename="../font_replace.ui" line="88"/>
+        <location filename="../font_replace.ui" line="156"/>
+        <source>...</source>
+        <translation>...</translation>
+    </message>
+    <message>
+        <location filename="../font_replace.ui" line="101"/>
+        <source>replace font</source>
+        <translation>फ़ॉन्ट बदलें</translation>
+    </message>
+    <message>
+        <location filename="../font_replace.ui" line="114"/>
+        <source>open font style file</source>
+        <translation>फ़ॉन्ट शैली फ़ाइल खोलें</translation>
+    </message>
+    <message>
+        <location filename="../font_replace.ui" line="127"/>
+        <source>directory</source>
+        <translation>निर्देशिका</translation>
+    </message>
+    <message>
+        <location filename="../font_replace.ui" line="143"/>
+        <source>input or choose or drag the directory you want to replace font here.  Example:F:\GameName\game\tl\language</source>
+        <translation>यहां उस निर्देशिका को इनपुट करें या चुनें या खींचें जिसे आप फ़ॉन्ट बदलना चाहते हैं। उदाहरण:F:\GameName\game\tl\भाषा</translation>
+    </message>
+</context>
+<context>
+    <name>GameUnpackerDialog</name>
+    <message>
+        <location filename="../game_unpacker_form.py" line="37"/>
+        <source>select the game file you want to unpack</source>
+        <translation>वह गेम फ़ाइल चुनें जिसे आप अनपैक करना चाहते हैं</translation>
+    </message>
+    <message>
+        <location filename="../game_unpacker_form.py" line="77"/>
+        <source>Clean Complete</source>
+        <translation>साफ़ पूर्ण</translation>
+    </message>
+    <message>
+        <location filename="../game_unpacker.ui" line="14"/>
+        <source>Game Unpacker</source>
+        <translation>गेम अनपैकर</translation>
+    </message>
+    <message>
+        <location filename="../game_unpacker.ui" line="26"/>
+        <source>file</source>
+        <translation>फ़ाइल</translation>
+    </message>
+    <message>
+        <location filename="../game_unpacker.ui" line="42"/>
+        <source>...</source>
+        <translation>...</translation>
+    </message>
+    <message>
+        <location filename="../game_unpacker.ui" line="58"/>
+        <source>input or choose or drag the game you want to unpack it&apos;s rpa files.Example:F:/DemoGame.exe</source>
+        <translation>उस गेम को इनपुट करें या चुनें या खींचें जिसे आप उसकी आरपीए फ़ाइलों को अनपैक करना चाहते हैं। उदाहरण: F:/DemoGame.exe</translation>
+    </message>
+    <message>
+        <location filename="../game_unpacker.ui" line="71"/>
+        <source>Unpack</source>
+        <translation>खोलना</translation>
+    </message>
+    <message>
+        <location filename="../game_unpacker.ui" line="84"/>
+        <source>Clean temporary files</source>
+        <translation>अस्थायी फ़ाइलें साफ़ करें</translation>
+    </message>
+    <message>
+        <location filename="../game_unpacker.ui" line="97"/>
+        <source>Auto Clean after unpack</source>
+        <translation>अनपैक करने के बाद ऑटो क्लीन</translation>
+    </message>
+</context>
+<context>
     <name>LocalGlossaryDialog</name>
     <message>
         <location filename="../local_glossary_form.py" line="47"/>
@@ -667,28 +770,48 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../main.py" line="404"/>
-        <location filename="../main.py" line="453"/>
+        <location filename="../main.py" line="399"/>
+        <location filename="../main.py" line="441"/>
         <source>extracting...</source>
         <translation>निकाल रहा हूँ...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="446"/>
-        <location filename="../main.py" line="553"/>
+        <location filename="../main.py" line="434"/>
+        <location filename="../main.py" line="547"/>
         <source>translating...</source>
         <translation>अनुवाद कर रहा हूँ...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="449"/>
+        <location filename="../main.py" line="437"/>
         <location filename="../ui.ui" line="49"/>
         <source>translate</source>
         <translation>अनुवाद</translation>
     </message>
     <message>
-        <location filename="../main.py" line="456"/>
-        <location filename="../ui.ui" line="610"/>
+        <location filename="../main.py" line="444"/>
+        <location filename="../ui.ui" line="472"/>
         <source>extract</source>
         <translation>निकालना</translation>
+    </message>
+    <message>
+        <location filename="../main.py" line="475"/>
+        <source>select the file(s) you want to extract</source>
+        <translation>वह फ़ाइल चुनें जिसे आप निकालना चाहते हैं</translation>
+    </message>
+    <message>
+        <location filename="../main.py" line="486"/>
+        <source>select the directory you want to extract</source>
+        <translation>वह निर्देशिका चुनें जिसे आप निकालना चाहते हैं</translation>
+    </message>
+    <message>
+        <location filename="../main.py" line="493"/>
+        <source>select the file(s) you want to translate</source>
+        <translation>वह फ़ाइल चुनें जिसका आप अनुवाद करना चाहते हैं</translation>
+    </message>
+    <message>
+        <location filename="../main.py" line="504"/>
+        <source>select the directory you want to translate</source>
+        <translation>वह निर्देशिका चुनें जिसका आप अनुवाद करना चाहते हैं</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="14"/>
@@ -697,29 +820,26 @@
     </message>
     <message>
         <location filename="../ui.ui" line="27"/>
-        <source>Version 1.9.4</source>
-        <translation>संस्करण 1.9.4</translation>
+        <source>Version 1.9.5</source>
+        <translation>संस्करण 1.9.5</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="62"/>
         <location filename="../ui.ui" line="120"/>
-        <location filename="../ui.ui" line="414"/>
-        <location filename="../ui.ui" line="482"/>
-        <location filename="../ui.ui" line="537"/>
-        <location filename="../ui.ui" line="568"/>
-        <location filename="../ui.ui" line="684"/>
+        <location filename="../ui.ui" line="399"/>
+        <location filename="../ui.ui" line="430"/>
+        <location filename="../ui.ui" line="546"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="75"/>
-        <location filename="../ui.ui" line="453"/>
         <source>directory</source>
         <translation>निर्देशिका</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="88"/>
-        <location filename="../ui.ui" line="521"/>
+        <location filename="../ui.ui" line="383"/>
         <source>file(s)</source>
         <translation>फ़ाइल</translation>
     </message>
@@ -779,6 +899,16 @@
         <translation>अनूदित छोड़ें (मूल !=वर्तमान)</translation>
     </message>
     <message>
+        <location filename="../ui.ui" line="670"/>
+        <source>advanced options</source>
+        <translation>उन्नत विकल्प</translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="789"/>
+        <source>unpack game package</source>
+        <translation>गेम पैकेज को अनपैक करें</translation>
+    </message>
+    <message>
         <location filename="../ui.ui" line="210"/>
         <source>Multi-threaded translation</source>
         <translation>बहु-थ्रेडेड अनुवाद</translation>
@@ -794,138 +924,132 @@
         <translation>©2024 अंतिम क्षण, सर्वाधिकार सुरक्षित।</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="372"/>
-        <location filename="../ui.ui" line="398"/>
         <source>font</source>
-        <translation>फ़ॉन्ट</translation>
+        <translation type="vanished">फ़ॉन्ट</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="385"/>
         <source>input or choose or drag the font which supports the language after translation. Example : DejaVuSans.ttf (ren&apos;py &apos;s default font)</source>
-        <translation>अनुवाद के बाद भाषा का समर्थन करने वाले फ़ॉन्ट को इनपुट करें या चुनें या खींचें। उदाहरण: DejaVuSans.ttf (ren&apos;py का डिफ़ॉल्ट फ़ॉन्ट)</translation>
+        <translation type="vanished">अनुवाद के बाद भाषा का समर्थन करने वाले फ़ॉन्ट को इनपुट करें या चुनें या खींचें। उदाहरण: DejaVuSans.ttf (ren&apos;py का डिफ़ॉल्ट फ़ॉन्ट)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="427"/>
+        <location filename="../ui.ui" line="784"/>
         <source>replace font</source>
         <translation>फ़ॉन्ट बदलें</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="440"/>
         <source>open font style file</source>
-        <translation>फ़ॉन्ट शैली फ़ाइल खोलें</translation>
+        <translation type="vanished">फ़ॉन्ट शैली फ़ाइल खोलें</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="469"/>
         <source>input or choose or drag the directory you want to replace font here.  Example:F:\GameName\game\tl\language</source>
-        <translation>यहां उस निर्देशिका को इनपुट करें या चुनें या खींचें जिसे आप फ़ॉन्ट बदलना चाहते हैं। उदाहरण:F:\GameName\game\tl\भाषा</translation>
+        <translation type="vanished">यहां उस निर्देशिका को इनपुट करें या चुनें या खींचें जिसे आप फ़ॉन्ट बदलना चाहते हैं। उदाहरण:F:\GameName\game\tl\भाषा</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="508"/>
+        <location filename="../ui.ui" line="370"/>
         <source>input or choose or drag the file(s) you want to extract here.    Examaple : F:\GameName\game\script.rpy</source>
         <translation>उस फ़ाइल(फ़ाइलों) को इनपुट करें या चुनें या खींचें जिन्हें आप यहां निकालना चाहते हैं। उदाहरण: F:\GameName\game\script.rpy</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="555"/>
+        <location filename="../ui.ui" line="417"/>
         <source>extraction</source>
         <translation>निष्कर्षण</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="581"/>
+        <location filename="../ui.ui" line="443"/>
         <source>tl directory</source>
         <translation>टीएल निर्देशिका</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="597"/>
+        <location filename="../ui.ui" line="459"/>
         <source>input or choose or drag the directory you want to translate here.  Example:F:\GameName\game\tl\language</source>
         <translation>जिस निर्देशिका का आप यहां अनुवाद करना चाहते हैं उसे इनपुट करें या चुनें या खींचें। उदाहरण:F:\GameName\game\tl\भाषा</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="623"/>
+        <location filename="../ui.ui" line="485"/>
         <source>tl name</source>
         <translation>टीएल नाम</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="639"/>
+        <location filename="../ui.ui" line="501"/>
         <source>only force needs in file(s)/directory(s) mode , for tl directory , fill nothing is acceptable. input the directory name under game\tl  Example: japanese or chinese</source>
         <translation>फ़ाइल(ओं)/निर्देशिका(ओं) मोड में केवल बल की आवश्यकता है, टीएल निर्देशिका के लिए, कुछ भी भरना स्वीकार्य नहीं है। गेम\tl के अंतर्गत निर्देशिका नाम इनपुट करें उदाहरण: जापानी या चीनी</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="652"/>
+        <location filename="../ui.ui" line="514"/>
         <source>directory(s)</source>
         <translation>निर्देशिका</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="671"/>
+        <location filename="../ui.ui" line="533"/>
         <source>input or choose or drag the directory(s) you want to extract here.    Examaple : F:\GameName\game\character</source>
         <translation>उस निर्देशिका को इनपुट करें या चुनें या खींचें जिसे आप यहां निकालना चाहते हैं। उदाहरण: F:\GameName\game\चरित्र</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="697"/>
+        <location filename="../ui.ui" line="559"/>
         <source>Enable filter for extract</source>
         <translation>निकालने के लिए फ़िल्टर सक्षम करें</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="710"/>
+        <location filename="../ui.ui" line="572"/>
         <source>filter length less than</source>
         <translation>फ़िल्टर की लंबाई से कम</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="733"/>
+        <location filename="../ui.ui" line="595"/>
         <source>Generate empty strings instead of original</source>
         <translation>मूल के बजाय खाली स्ट्रिंग उत्पन्न करें</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="753"/>
+        <location filename="../ui.ui" line="615"/>
         <source>clear log</source>
         <translation>लॉग साफ करें</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="789"/>
+        <location filename="../ui.ui" line="651"/>
         <source>about</source>
         <translation>के बारे में</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="795"/>
+        <location filename="../ui.ui" line="657"/>
         <source>proxy</source>
         <translation>प्रतिनिधि</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="801"/>
+        <location filename="../ui.ui" line="663"/>
         <source>translation engine</source>
         <translation>अनुवाद इंजन</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="808"/>
         <source>editor</source>
-        <translation>संपादक</translation>
+        <translation type="vanished">संपादक</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="814"/>
+        <location filename="../ui.ui" line="678"/>
         <source>language</source>
         <translation>भाषा</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="837"/>
+        <location filename="../ui.ui" line="701"/>
         <source>copyright</source>
         <translation>कॉपीराइट</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="842"/>
+        <location filename="../ui.ui" line="706"/>
         <source>proxy settings</source>
         <translation>प्रॉक्सी सेटिंग</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="847"/>
+        <location filename="../ui.ui" line="711"/>
         <source>engine settings</source>
         <translation>इंजन सेटिंग्स</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="852"/>
+        <location filename="../ui.ui" line="716"/>
         <source>custom engine</source>
         <translation>कस्टम इंजन</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="857"/>
+        <location filename="../ui.ui" line="721"/>
         <source>edit from rpy</source>
         <translation>rpy से संपादित करें</translation>
     </message>

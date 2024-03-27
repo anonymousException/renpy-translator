@@ -829,7 +829,6 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
     def closeEvent(self, event):
         self.parent.widget.show()
         self.parent.widget_2.show()
-        self.parent.widget_3.show()
         self.parent.menubar.show()
         self.parent.versionLabel.show()
         self.parent.actionedit.triggered.connect(lambda: self.parent.show_edit_form())

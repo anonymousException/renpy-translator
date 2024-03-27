@@ -251,7 +251,7 @@
         <location filename="../editor_form.py" line="261"/>
         <location filename="../editor_form.py" line="338"/>
         <location filename="../editor_form.py" line="503"/>
-        <location filename="../editor_form.py" line="1059"/>
+        <location filename="../editor_form.py" line="1058"/>
         <location filename="../editor.ui" line="337"/>
         <location filename="../editor.ui" line="416"/>
         <source>Original</source>
@@ -262,7 +262,7 @@
         <location filename="../editor_form.py" line="261"/>
         <location filename="../editor_form.py" line="339"/>
         <location filename="../editor_form.py" line="503"/>
-        <location filename="../editor_form.py" line="1060"/>
+        <location filename="../editor_form.py" line="1059"/>
         <location filename="../editor.ui" line="258"/>
         <location filename="../editor.ui" line="435"/>
         <source>Current</source>
@@ -340,12 +340,12 @@
         <translation>Ток отката до первой нагрузки</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1023"/>
+        <location filename="../editor_form.py" line="1022"/>
         <source>select the directory you want to edit</source>
         <translation>выберите каталог, который вы хотите редактировать</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1028"/>
+        <location filename="../editor_form.py" line="1027"/>
         <source>select the file(s) you want to edit</source>
         <translation>выберите файл(ы), которые вы хотите отредактировать</translation>
     </message>
@@ -571,6 +571,109 @@
     </message>
 </context>
 <context>
+    <name>FontReplaceDialog</name>
+    <message>
+        <location filename="../font_replace_form.py" line="23"/>
+        <source>select the directory you want to extract</source>
+        <translation>выберите каталог, который вы хотите извлечь</translation>
+    </message>
+    <message>
+        <location filename="../font_replace_form.py" line="28"/>
+        <source>select the file font which supports the translated language</source>
+        <translation>выберите шрифт файла, который поддерживает переведенный язык</translation>
+    </message>
+    <message>
+        <location filename="../font_replace.ui" line="14"/>
+        <source>Font Replace</source>
+        <translation>Замена шрифта</translation>
+    </message>
+    <message>
+        <location filename="../font_replace.ui" line="46"/>
+        <location filename="../font_replace.ui" line="72"/>
+        <source>font</source>
+        <translation>шрифт</translation>
+    </message>
+    <message>
+        <location filename="../font_replace.ui" line="59"/>
+        <source>input or choose or drag the font which supports the language after translation. Example : DejaVuSans.ttf (ren&apos;py &apos;s default font)</source>
+        <translation>введите или выберите или перетащите шрифт, который поддерживает язык после перевода. Пример: DejaVuSans.ttf (шрифт ren&apos;py по умолчанию)</translation>
+    </message>
+    <message>
+        <location filename="../font_replace.ui" line="88"/>
+        <location filename="../font_replace.ui" line="156"/>
+        <source>...</source>
+        <translation>...</translation>
+    </message>
+    <message>
+        <location filename="../font_replace.ui" line="101"/>
+        <source>replace font</source>
+        <translation>заменить шрифт</translation>
+    </message>
+    <message>
+        <location filename="../font_replace.ui" line="114"/>
+        <source>open font style file</source>
+        <translation>открыть файл стиля шрифта</translation>
+    </message>
+    <message>
+        <location filename="../font_replace.ui" line="127"/>
+        <source>directory</source>
+        <translation>каталог</translation>
+    </message>
+    <message>
+        <location filename="../font_replace.ui" line="143"/>
+        <source>input or choose or drag the directory you want to replace font here.  Example:F:\GameName\game\tl\language</source>
+        <translation>введите или выберите или перетащите сюда каталог, в котором вы хотите заменить шрифт. Пример: F:\GameName\game\tl\language.</translation>
+    </message>
+</context>
+<context>
+    <name>GameUnpackerDialog</name>
+    <message>
+        <location filename="../game_unpacker_form.py" line="37"/>
+        <source>select the game file you want to unpack</source>
+        <translation>выберите файл игры, который хотите распаковать</translation>
+    </message>
+    <message>
+        <location filename="../game_unpacker_form.py" line="77"/>
+        <source>Clean Complete</source>
+        <translation>Очистить завершено</translation>
+    </message>
+    <message>
+        <location filename="../game_unpacker.ui" line="14"/>
+        <source>Game Unpacker</source>
+        <translation>Распаковщик игр</translation>
+    </message>
+    <message>
+        <location filename="../game_unpacker.ui" line="26"/>
+        <source>file</source>
+        <translation>файл</translation>
+    </message>
+    <message>
+        <location filename="../game_unpacker.ui" line="42"/>
+        <source>...</source>
+        <translation>...</translation>
+    </message>
+    <message>
+        <location filename="../game_unpacker.ui" line="58"/>
+        <source>input or choose or drag the game you want to unpack it&apos;s rpa files.Example:F:/DemoGame.exe</source>
+        <translation>введите или выберите или перетащите игру, которую хотите распаковать, ее файлы rpa. Пример: F:/DemoGame.exe</translation>
+    </message>
+    <message>
+        <location filename="../game_unpacker.ui" line="71"/>
+        <source>Unpack</source>
+        <translation>Распаковать</translation>
+    </message>
+    <message>
+        <location filename="../game_unpacker.ui" line="84"/>
+        <source>Clean temporary files</source>
+        <translation>Очистить временные файлы</translation>
+    </message>
+    <message>
+        <location filename="../game_unpacker.ui" line="97"/>
+        <source>Auto Clean after unpack</source>
+        <translation>Автоматическая очистка после распаковки</translation>
+    </message>
+</context>
+<context>
     <name>LocalGlossaryDialog</name>
     <message>
         <location filename="../local_glossary_form.py" line="47"/>
@@ -667,28 +770,48 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../main.py" line="404"/>
-        <location filename="../main.py" line="453"/>
+        <location filename="../main.py" line="399"/>
+        <location filename="../main.py" line="441"/>
         <source>extracting...</source>
         <translation>извлечение...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="446"/>
-        <location filename="../main.py" line="553"/>
+        <location filename="../main.py" line="434"/>
+        <location filename="../main.py" line="547"/>
         <source>translating...</source>
         <translation>Идет перевод...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="449"/>
+        <location filename="../main.py" line="437"/>
         <location filename="../ui.ui" line="49"/>
         <source>translate</source>
         <translation>переводить</translation>
     </message>
     <message>
-        <location filename="../main.py" line="456"/>
-        <location filename="../ui.ui" line="610"/>
+        <location filename="../main.py" line="444"/>
+        <location filename="../ui.ui" line="472"/>
         <source>extract</source>
         <translation>извлекать</translation>
+    </message>
+    <message>
+        <location filename="../main.py" line="475"/>
+        <source>select the file(s) you want to extract</source>
+        <translation>выберите файл(ы), которые вы хотите извлечь</translation>
+    </message>
+    <message>
+        <location filename="../main.py" line="486"/>
+        <source>select the directory you want to extract</source>
+        <translation>выберите каталог, который вы хотите извлечь</translation>
+    </message>
+    <message>
+        <location filename="../main.py" line="493"/>
+        <source>select the file(s) you want to translate</source>
+        <translation>выберите файл(ы), которые вы хотите перевести</translation>
+    </message>
+    <message>
+        <location filename="../main.py" line="504"/>
+        <source>select the directory you want to translate</source>
+        <translation>выберите каталог, который вы хотите перевести</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="14"/>
@@ -697,29 +820,26 @@
     </message>
     <message>
         <location filename="../ui.ui" line="27"/>
-        <source>Version 1.9.4</source>
-        <translation>Версия 1.9.4</translation>
+        <source>Version 1.9.5</source>
+        <translation>Версия 1.9.5</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="62"/>
         <location filename="../ui.ui" line="120"/>
-        <location filename="../ui.ui" line="414"/>
-        <location filename="../ui.ui" line="482"/>
-        <location filename="../ui.ui" line="537"/>
-        <location filename="../ui.ui" line="568"/>
-        <location filename="../ui.ui" line="684"/>
+        <location filename="../ui.ui" line="399"/>
+        <location filename="../ui.ui" line="430"/>
+        <location filename="../ui.ui" line="546"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="75"/>
-        <location filename="../ui.ui" line="453"/>
         <source>directory</source>
         <translation>каталог</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="88"/>
-        <location filename="../ui.ui" line="521"/>
+        <location filename="../ui.ui" line="383"/>
         <source>file(s)</source>
         <translation>файл(ы)</translation>
     </message>
@@ -779,6 +899,16 @@
         <translation>Пропустить перевод (Исходный != Текущий)</translation>
     </message>
     <message>
+        <location filename="../ui.ui" line="670"/>
+        <source>advanced options</source>
+        <translation>Расширенные опции</translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="789"/>
+        <source>unpack game package</source>
+        <translation>распаковать пакет игры</translation>
+    </message>
+    <message>
         <location filename="../ui.ui" line="210"/>
         <source>Multi-threaded translation</source>
         <translation>Многопоточный перевод</translation>
@@ -794,138 +924,132 @@
         <translation>©2024 Последний момент,Все права защищены.</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="372"/>
-        <location filename="../ui.ui" line="398"/>
         <source>font</source>
-        <translation>шрифт</translation>
+        <translation type="vanished">шрифт</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="385"/>
         <source>input or choose or drag the font which supports the language after translation. Example : DejaVuSans.ttf (ren&apos;py &apos;s default font)</source>
-        <translation>введите или выберите или перетащите шрифт, который поддерживает язык после перевода. Пример: DejaVuSans.ttf (шрифт ren&apos;py по умолчанию)</translation>
+        <translation type="vanished">введите или выберите или перетащите шрифт, который поддерживает язык после перевода. Пример: DejaVuSans.ttf (шрифт ren&apos;py по умолчанию)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="427"/>
+        <location filename="../ui.ui" line="784"/>
         <source>replace font</source>
         <translation>заменить шрифт</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="440"/>
         <source>open font style file</source>
-        <translation>открыть файл стиля шрифта</translation>
+        <translation type="vanished">открыть файл стиля шрифта</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="469"/>
         <source>input or choose or drag the directory you want to replace font here.  Example:F:\GameName\game\tl\language</source>
-        <translation>введите или выберите или перетащите сюда каталог, в котором вы хотите заменить шрифт. Пример: F:\GameName\game\tl\language.</translation>
+        <translation type="vanished">введите или выберите или перетащите сюда каталог, в котором вы хотите заменить шрифт. Пример: F:\GameName\game\tl\language.</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="508"/>
+        <location filename="../ui.ui" line="370"/>
         <source>input or choose or drag the file(s) you want to extract here.    Examaple : F:\GameName\game\script.rpy</source>
         <translation>введите или выберите или перетащите сюда файлы, которые вы хотите извлечь. Пример: F:\GameName\game\script.rpy.</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="555"/>
+        <location filename="../ui.ui" line="417"/>
         <source>extraction</source>
         <translation>добыча</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="581"/>
+        <location filename="../ui.ui" line="443"/>
         <source>tl directory</source>
         <translation>каталог tl</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="597"/>
+        <location filename="../ui.ui" line="459"/>
         <source>input or choose or drag the directory you want to translate here.  Example:F:\GameName\game\tl\language</source>
         <translation>введите или выберите или перетащите сюда каталог, который вы хотите перевести. Пример: F:\GameName\game\tl\language.</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="623"/>
+        <location filename="../ui.ui" line="485"/>
         <source>tl name</source>
         <translation>имя</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="639"/>
+        <location filename="../ui.ui" line="501"/>
         <source>only force needs in file(s)/directory(s) mode , for tl directory , fill nothing is acceptable. input the directory name under game\tl  Example: japanese or chinese</source>
         <translation>Принудительное использование требуется только в режиме файла(ов)/каталога(ов), для каталога tl ничего не заполняется. введите имя каталога в разделе game\tl. Пример: японский или китайский.</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="652"/>
+        <location filename="../ui.ui" line="514"/>
         <source>directory(s)</source>
         <translation>каталог(ы)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="671"/>
+        <location filename="../ui.ui" line="533"/>
         <source>input or choose or drag the directory(s) you want to extract here.    Examaple : F:\GameName\game\character</source>
         <translation>введите или выберите или перетащите сюда каталоги, которые вы хотите извлечь. Пример: F:\ИмяИгры\игра\персонаж.</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="697"/>
+        <location filename="../ui.ui" line="559"/>
         <source>Enable filter for extract</source>
         <translation>Включить фильтр для извлечения</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="710"/>
+        <location filename="../ui.ui" line="572"/>
         <source>filter length less than</source>
         <translation>длина фильтра меньше</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="733"/>
+        <location filename="../ui.ui" line="595"/>
         <source>Generate empty strings instead of original</source>
         <translation>Генерировать пустые строки вместо оригинальных</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="753"/>
+        <location filename="../ui.ui" line="615"/>
         <source>clear log</source>
         <translation>Очистить журнал</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="789"/>
+        <location filename="../ui.ui" line="651"/>
         <source>about</source>
         <translation>о</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="795"/>
+        <location filename="../ui.ui" line="657"/>
         <source>proxy</source>
         <translation>прокси</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="801"/>
+        <location filename="../ui.ui" line="663"/>
         <source>translation engine</source>
         <translation>механизм перевода</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="808"/>
         <source>editor</source>
-        <translation>редактор</translation>
+        <translation type="vanished">редактор</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="814"/>
+        <location filename="../ui.ui" line="678"/>
         <source>language</source>
         <translation>язык</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="837"/>
+        <location filename="../ui.ui" line="701"/>
         <source>copyright</source>
         <translation>Авторские права</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="842"/>
+        <location filename="../ui.ui" line="706"/>
         <source>proxy settings</source>
         <translation>настройки прокси</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="847"/>
+        <location filename="../ui.ui" line="711"/>
         <source>engine settings</source>
         <translation>настройки двигателя</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="852"/>
+        <location filename="../ui.ui" line="716"/>
         <source>custom engine</source>
         <translation>специальный движок</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="857"/>
+        <location filename="../ui.ui" line="721"/>
         <source>edit from rpy</source>
         <translation>редактировать из rpy</translation>
     </message>

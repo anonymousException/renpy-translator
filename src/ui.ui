@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1255</width>
-    <height>1064</height>
+    <height>838</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -24,7 +24,7 @@
        </size>
       </property>
       <property name="text">
-       <string>Version 1.9.4</string>
+       <string>Version 1.9.5</string>
       </property>
      </widget>
     </item>
@@ -346,144 +346,6 @@
       </property>
      </widget>
     </item>
-    <item row="3" column="0">
-     <widget class="QWidget" name="widget_3" native="true">
-      <property name="minimumSize">
-       <size>
-        <width>600</width>
-        <height>220</height>
-       </size>
-      </property>
-      <widget class="QLabel" name="label_11">
-       <property name="geometry">
-        <rect>
-         <x>260</x>
-         <y>0</y>
-         <width>121</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>font</string>
-       </property>
-      </widget>
-      <widget class="QTextEdit" name="selectFontText">
-       <property name="geometry">
-        <rect>
-         <x>80</x>
-         <y>100</y>
-         <width>411</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="placeholderText">
-        <string>input or choose or drag the font which supports the language after translation. Example : DejaVuSans.ttf (ren'py 's default font)</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_4">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>105</y>
-         <width>81</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>font</string>
-       </property>
-       <property name="wordWrap">
-        <bool>true</bool>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="selectFontBtn">
-       <property name="geometry">
-        <rect>
-         <x>490</x>
-         <y>100</y>
-         <width>81</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>...</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="replaceFontBtn">
-       <property name="geometry">
-        <rect>
-         <x>84</x>
-         <y>150</y>
-         <width>411</width>
-         <height>24</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>replace font</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="openFontStyleBtn">
-       <property name="geometry">
-        <rect>
-         <x>80</x>
-         <y>190</y>
-         <width>411</width>
-         <height>24</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>open font style file</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_12">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>40</y>
-         <width>81</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>directory</string>
-       </property>
-       <property name="wordWrap">
-        <bool>true</bool>
-       </property>
-      </widget>
-      <widget class="QTextEdit" name="selectDirText_3">
-       <property name="geometry">
-        <rect>
-         <x>80</x>
-         <y>38</y>
-         <width>411</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="placeholderText">
-        <string>input or choose or drag the directory you want to replace font here.  Example:F:\GameName\game\tl\language</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="selectDirBtn_3">
-       <property name="geometry">
-        <rect>
-         <x>490</x>
-         <y>38</y>
-         <width>81</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>...</string>
-       </property>
-      </widget>
-     </widget>
-    </item>
     <item row="2" column="0">
      <widget class="QWidget" name="widget_2" native="true">
       <property name="minimumSize">
@@ -803,11 +665,13 @@
     <addaction name="engineSettings"/>
     <addaction name="customEngineSettings"/>
    </widget>
-   <widget class="QMenu" name="editorMenu">
+   <widget class="QMenu" name="advancedMenu">
     <property name="title">
-     <string>editor</string>
+     <string>advanced options</string>
     </property>
     <addaction name="actionedit"/>
+    <addaction name="actionreplace_font"/>
+    <addaction name="actionunpack_game"/>
    </widget>
    <widget class="QMenu" name="menulanguage">
     <property name="title">
@@ -829,7 +693,7 @@
    <addaction name="aboutMenu"/>
    <addaction name="proxyMenu"/>
    <addaction name="translationEngineMenu"/>
-   <addaction name="editorMenu"/>
+   <addaction name="advancedMenu"/>
    <addaction name="menulanguage"/>
   </widget>
   <action name="actioncopyright">
@@ -913,6 +777,16 @@
   <action name="actionUrdu">
    <property name="text">
     <string notr="true">Urdu</string>
+   </property>
+  </action>
+  <action name="actionreplace_font">
+   <property name="text">
+    <string>replace font</string>
+   </property>
+  </action>
+  <action name="actionunpack_game">
+   <property name="text">
+    <string>unpack game package</string>
    </property>
   </action>
  </widget>
