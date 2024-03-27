@@ -43,6 +43,10 @@ https://github.com/anonymousException/renpy-translator/blob/feature/ai-translate
 
 ## 用法
 
+### 解包游戏
+
+https://github.com/anonymousException/renpy-translator/assets/157234942/25c64e79-7be1-4618-b3a2-c555f78db7fe
+
 ### 编辑器模式
 
  https://github.com/anonymousException/renpy-translator/assets/157234942/eb140430-2b58-4a46-b913-b2df07d1bb6d
@@ -188,31 +192,23 @@ https://github.com/anonymousException/renpy-translator/assets/157234942/09edf9fa
 
 ![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/unpacked.png)
 
-你可以试试跟着这篇教程翻译我提供的 [教程游戏](https://github.com/anonymousException/renpy-translator/blob/main/docs/demo_game/DemoGame-1.0-win.zip)
+你可以试试跟着这篇教程翻译我提供的 [教程游戏](https://github.com/anonymousException/renpy-translator/blob/main/docs/demo_game/DemoGame-1.1-win.zip)
 
 如果游戏被打包了，需要解包：
 
-我一般是用从  https://f95zone.to/ 整来的  [UnRen-ultrahack.bat ](https://github.com/anonymousException/renpy-translator/blob/main/docs/tool/UnRen-ultrahack.bat) 来解包
+~~我一般是用从  https://f95zone.to/ 整来的  [UnRen-ultrahack.bat ](https://github.com/anonymousException/renpy-translator/blob/main/docs/tool/UnRen-ultrahack.bat) 来解包~~
 
 https://github.com/anonymousException/renpy-translator/assets/157234942/718b2b71-ca98-4dfd-999b-ffdc9c112102
 
 **强烈不推荐**翻译者通过解包翻译后未经原作者授权就私自发布翻译包，请**尊重**原作者
 
-下载  [UnRen-ultrahack.bat]() 并把它拷贝到游戏目录底下 (里面含有 游戏名.exe)
+~~下载  [UnRen-ultrahack.bat]() 并把它拷贝到游戏目录底下 (里面含有 游戏名.exe)~~
 
-![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/move_unren.png)
+现在解包功能已支持：支持通过运行时 hook 解包(能**绕过**大多数加密)
 
-双击 UnRen-ultrahack.bat 然后会弹出一个控制台
+解包出来的文件格式是 rpyc，因此会自动调用 [UnRen-forall(v9.4)](https://f95zone.to/threads/unrengui-unren-forall-v9-4-unren-powershell-forall-v9-4-unren-old.92717/) 转换为 rpy
 
-![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/unren_console.png)
-
-输入 9 然后再输入 y
-
-![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/unren_console2.png)
-
-等一会以后就解包完成了
-
-![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/unren_console3.png)
+https://github.com/anonymousException/renpy-translator/assets/157234942/25c64e79-7be1-4618-b3a2-c555f78db7fe
 
 ------
 

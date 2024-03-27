@@ -46,6 +46,10 @@ https://github.com/anonymousException/renpy-translator/blob/feature/ai-translate
 
 ## Usage
 
+### Unpack Game
+
+https://github.com/anonymousException/renpy-translator/assets/157234942/25c64e79-7be1-4618-b3a2-c555f78db7fe
+
 ### Editor Mode
 
 https://github.com/anonymousException/renpy-translator/assets/157234942/eb140430-2b58-4a46-b913-b2df07d1bb6d
@@ -186,31 +190,23 @@ An unpacked ren‘py game (for what you can find .rpa files under the game direc
 
 ![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/unpacked.png)
 
-You can try to translate [the tutorial game](https://github.com/anonymousException/renpy-translator/blob/main/docs/demo_game/DemoGame-1.0-win.zip) following the tutorial
+You can try to translate [the tutorial game](https://github.com/anonymousException/renpy-translator/blob/main/docs/demo_game/DemoGame-1.1-win.zip) following the tutorial
 
 if not you can try to unpack it
 
-I usually use [UnRen-ultrahack.bat](https://github.com/anonymousException/renpy-translator/blob/main/docs/tool/UnRen-ultrahack.bat) from https://f95zone.to/ to unpack the game
+~~I usually use [UnRen-ultrahack.bat](https://github.com/anonymousException/renpy-translator/blob/main/docs/tool/UnRen-ultrahack.bat) from https://f95zone.to/ to unpack the game~~
 
 https://github.com/anonymousException/renpy-translator/assets/157234942/718b2b71-ca98-4dfd-999b-ffdc9c112102
 
 It's **strongly not recommended** for translators to make translation through unpack and then deliver a translated version without the original author's permission. Please **respect** the original author
 
-Download the  [UnRen-ultrahack.bat]() and copy it to the game directory (where game.exe locates)
+~~Download the  [UnRen-ultrahack.bat]() and copy it to the game directory (where game.exe locates)~~
 
-![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/move_unren.png)
+Now unpack function is supported : Support unpack game through runtime hook which can **bypass most encryption**
 
-Double-Click the UnRen-ultrahack.bat and the following console will show
+The dumped file format is rpyc , so will auto call [UnRen-forall(v9.4)](https://f95zone.to/threads/unrengui-unren-forall-v9-4-unren-powershell-forall-v9-4-unren-old.92717/) to tranform into rpy
 
-![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/unren_console.png)
-
-Input 9 and then Enter and then Enter y
-
-![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/unren_console2.png)
-
-Wait for a moment and then the unpack will be over
-
-![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/unren_console3.png)
+https://github.com/anonymousException/renpy-translator/assets/157234942/25c64e79-7be1-4618-b3a2-c555f78db7fe
 
 ------
 
