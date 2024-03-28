@@ -6,7 +6,7 @@ import traceback
 import openpyxl
 from PySide6.QtCore import QCoreApplication, Qt, QSortFilterProxyModel, QAbstractTableModel, QModelIndex, QThread, \
     Signal
-from PySide6.QtGui import QIntValidator
+from PySide6.QtGui import QIntValidator, QIcon
 from PySide6.QtWidgets import QDialog, QTableWidget, QTableView, QHeaderView, QTableWidgetItem, QFileDialog, \
     QInputDialog, QMessageBox, QStyledItemDelegate, QPushButton, QLineEdit
 from openpyxl.workbook import Workbook
@@ -141,6 +141,7 @@ class MyLocalGlossaryForm(QDialog, Ui_LocalGlossaryDialog):
     def __init__(self, parent=None):
         super(MyLocalGlossaryForm, self).__init__(parent)
         self.setupUi(self)
+        self.setWindowIcon(QIcon('main.ico'))
         self.setWindowFlags(self.windowFlags() | Qt.WindowMaximizeButtonHint | Qt.WindowMinimizeButtonHint)
         self.tableView = MyTableView()
         self.tableView.selectFileText = self.selectFileText

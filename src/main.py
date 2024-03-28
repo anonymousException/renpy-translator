@@ -23,6 +23,7 @@ from renpy_extract import extractThread, extract_threads
 from local_glossary_form import MyLocalGlossaryForm
 from font_replace_form import MyFontReplaceForm
 from game_unpacker_form import MyGameUnpackerForm
+from extraction_form import MyExtractionForm
 
 os.environ['REQUESTS_CA_BUNDLE'] = os.path.join(os.path.dirname(sys.argv[0]), 'cacert.pem')
 os.environ['NO_PROXY'] = '*'
@@ -33,6 +34,7 @@ from ui import Ui_MainWindow
 from custom_engine_form import MyCustomEngineForm
 from editor_form import MyEditorForm
 from engine_form import MyEngineForm
+from qt_material import apply_stylesheet
 
 targetDic = dict()
 sourceDic = dict()
@@ -78,18 +80,7 @@ class MyCopyrightForm(QDialog, Ui_CopyrightDialog):
         webbrowser.open(self.url_label.text())
 
 
-class DirectorySelector(QFileDialog):
-    def __init__(self):
-        super(DirectorySelector, self).__init__()
-        self.setFileMode(QFileDialog.FileMode.Directory)
-        self.setOption(QFileDialog.Option.DontUseNativeDialog, True)
-        self.setDirectory(QDir.rootPath())
-        listView = self.findChild(QListView, "listView")
-        if listView:
-            listView.setSelectionMode(QAbstractItemView.SelectionMode.ExtendedSelection)
-        treeView = self.findChild(QTreeView, "treeView")
-        if treeView:
-            treeView.setSelectionMode(QAbstractItemView.SelectionMode.ExtendedSelection)
+
 
 
 class MyMainForm(QMainWindow, Ui_MainWindow):
@@ -102,18 +93,6 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.translateBtn.clicked.connect(self.translate)
         self.clearLogBtn.clicked.connect(self.clear_log)
 
-        self.selectFilesBtn_2.clicked.connect(self.select_file2)
-        self.selectDirBtn_2.clicked.connect(self.select_directory2)
-
-        self.selectDirsBtn.clicked.connect(self.select_directory4)
-        self.extractBtn.clicked.connect(self.extract)
-
-        self.multiTranslateCheckBox.setChecked(True)
-        self.filterCheckBox.setChecked(True)
-        self.filterLengthLineEdit.setText('8')
-        self.filterCheckBox.stateChanged.connect(self.filter_checkbox_changed)
-        validator = QIntValidator()
-        self.filterLengthLineEdit.setValidator(validator)
         self.local_glossary = None
         self.localGlossaryCheckBox.clicked.connect(self.on_local_glossary_checkbox_state_changed)
         self.buttonGroup = QButtonGroup()
@@ -129,12 +108,14 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
             log_print(msg)
         self.versionLabel.setStyleSheet("color:grey")
         self.copyrightLabel.setStyleSheet("color:grey")
+        self.myExtractionForm = None
         self.myGameUnpackerForm = None
         self.actioncopyright.triggered.connect(lambda: self.show_copyright_form())
         self.proxySettings.triggered.connect(lambda: self.show_proxy_settings())
         self.engineSettings.triggered.connect(lambda: self.show_engine_settings())
         self.customEngineSettings.triggered.connect(lambda: self.show_custom_engine_settings())
         self.actionedit.triggered.connect(lambda: self.show_edit_form())
+        self.actionextract_translation.triggered.connect(lambda: self.show_extraction_form())
         self.actionreplace_font.triggered.connect(lambda: self.replace_font())
         self.actionunpack_game.triggered.connect(lambda: self.unpack_game())
         self.actionArabic.triggered.connect(lambda: self.to_language('arabic'))
@@ -149,11 +130,45 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.actionSpanish.triggered.connect(lambda: self.to_language('spanish'))
         self.actionUrdu.triggered.connect(lambda: self.to_language('urdu'))
 
+        self.actionlight_amber.triggered.connect(lambda: self.change_theme(self.actionlight_amber.text()))
+        self.actionlight_blue.triggered.connect(lambda: self.change_theme(self.actionlight_blue.text()))
+        self.actionlight_cyan.triggered.connect(lambda: self.change_theme(self.actionlight_cyan.text()))
+        self.actionlight_cyan_500.triggered.connect(lambda: self.change_theme(self.actionlight_cyan_500.text()))
+        self.actionlight_lightgreen.triggered.connect(lambda: self.change_theme(self.actionlight_lightgreen.text()))
+        self.actionlight_pink.triggered.connect(lambda: self.change_theme(self.actionlight_pink.text()))
+        self.actionlight_purple.triggered.connect(lambda: self.change_theme(self.actionlight_purple.text()))
+        self.actionlight_red.triggered.connect(lambda: self.change_theme(self.actionlight_red.text()))
+        self.actionlight_teal.triggered.connect(lambda: self.change_theme(self.actionlight_teal.text()))
+        self.actionlight_yellow.triggered.connect(lambda: self.change_theme(self.actionlight_yellow.text()))
+        self.actiondark_amber.triggered.connect(lambda: self.change_theme(self.actiondark_amber.text()))
+        self.actiondark_blue.triggered.connect(lambda: self.change_theme(self.actiondark_blue.text()))
+        self.actiondark_cyan.triggered.connect(lambda: self.change_theme(self.actiondark_cyan.text()))
+        self.actiondark_lightgreen.triggered.connect(lambda: self.change_theme(self.actiondark_lightgreen.text()))
+        self.actiondark_pink.triggered.connect(lambda: self.change_theme(self.actiondark_pink.text()))
+        self.actiondark_purple.triggered.connect(lambda: self.change_theme(self.actiondark_purple.text()))
+        self.actiondark_red.triggered.connect(lambda: self.change_theme(self.actiondark_red.text()))
+        self.actiondark_teal.triggered.connect(lambda: self.change_theme(self.actiondark_teal.text()))
+        self.actiondark_yellow.triggered.connect(lambda: self.change_theme(self.actiondark_yellow.text()))
+
         _thread.start_new_thread(self.update_log, ())
         if os.path.isfile('translating'):
             os.remove('translating')
         if os.path.isfile('extracting'):
             os.remove('extracting')
+
+    def show_extraction_form(self):
+        if self.myExtractionForm is None:
+            self.myExtractionForm = MyExtractionForm(parent=self)
+        self.myExtractionForm.exec()
+
+    def change_theme(self, new_theme):
+        if new_theme is None:
+            apply_stylesheet(self.app, theme=self.actionlight_blue.text() + '.xml')
+            return
+        apply_stylesheet(self.app, theme=new_theme+'.xml')
+        f = io.open('theme','w', encoding='utf-8')
+        f.write(new_theme)
+        f.close()
 
     def unpack_game(self):
         if self.myGameUnpackerForm is None:
@@ -197,25 +212,26 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
                 self.sourceComboBox.setCurrentIndex(index)
             self.local_glossary = None
 
-    def switch_to_default_language(self):
-        app = QCoreApplication.instance()
-        if app is not None:
-            app.removeTranslator(translator)
-            self.retranslateUi(self)
-            if editor_form is not None:
-                editor_form.retranslateUi(editor_form)
-            if self.myGameUnpackerForm is not None:
-                self.myGameUnpackerForm.retranslateUi(self.myGameUnpackerForm)
-            os.remove('language.txt')
-
-    def to_language(self, lan):
-        translator.load("qm/" + lan + ".qm")
-        QCoreApplication.instance().installTranslator(translator)
+    def retranslate_ui(self):
         self.retranslateUi(self)
         if editor_form is not None:
             editor_form.retranslateUi(editor_form)
         if self.myGameUnpackerForm is not None:
             self.myGameUnpackerForm.retranslateUi(self.myGameUnpackerForm)
+        if self.local_glossary_form is not None:
+            self.local_glossary_form.retranslateUi(self.local_glossary_form)
+
+    def switch_to_default_language(self):
+        app = QCoreApplication.instance()
+        if app is not None:
+            app.removeTranslator(translator)
+            self.retranslate_ui()
+            os.remove('language.txt')
+
+    def to_language(self, lan):
+        translator.load("qm/" + lan + ".qm")
+        QCoreApplication.instance().installTranslator(translator)
+        self.retranslate_ui()
         f = io.open("language.txt", "w", encoding='utf-8')
         f.write(lan)
         f.close()
@@ -223,7 +239,6 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
     def show_edit_form(self):
         self.hide()
         self.widget.hide()
-        self.widget_2.hide()
         self.menubar.hide()
         self.versionLabel.hide()
         global editor_form
@@ -239,11 +254,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         custom_engine_form = MyCustomEngineForm(parent=self)
         custom_engine_form.exec()
 
-    def filter_checkbox_changed(self, state):
-        if self.filterCheckBox.isChecked():
-            self.filterLengthLineEdit.setEnabled(True)
-        else:
-            self.filterLengthLineEdit.setDisabled(True)
+
 
     def closeEvent(self, event):
         if self.menubar.isHidden():
@@ -342,76 +353,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         except Exception:
             pass
 
-    def extract(self):
-        # noinspection PyBroadException
-        try:
-            select_files = self.selectFilesText_2.toPlainText().split('\n')
-            cnt = 0
-            for i in select_files:
-                i = i.replace('file:///', '')
-                if len(i) > 0:
-                    tl_name = self.tlNameText.toPlainText()
-                    if len(tl_name) == 0:
-                        log_print('tl name is empty skip extract file(s)')
-                        continue
-                    t = extractThread(threadID=cnt, p=i, tl_name=tl_name, dir=None, tl_dir=None,
-                                      is_open_filter=self.filterCheckBox.isChecked(),
-                                      filter_length=int(self.filterLengthLineEdit.text()),
-                                      is_gen_empty=self.emptyCheckBox.isChecked())
-                    t.start()
-                    extract_threads.append(t)
-                    cnt = cnt + 1
-            select_dirs = self.selectDirsText.toPlainText().split('\n')
-            for i in select_dirs:
-                i = i.replace('file:///', '')
-                if len(i) > 0:
-                    tl_name = self.tlNameText.toPlainText()
-                    if len(tl_name) == 0:
-                        log_print('tl name is empty skip extract directory(s)')
-                        continue
-                    t = extractThread(threadID=cnt, p=None, tl_name=tl_name, dir=i, tl_dir=None,
-                                      is_open_filter=self.filterCheckBox.isChecked(),
-                                      filter_length=int(self.filterLengthLineEdit.text()),
-                                      is_gen_empty=self.emptyCheckBox.isChecked())
-                    t.start()
-                    extract_threads.append(t)
-                    cnt = cnt + 1
-                pass
 
-            select_dir = self.selectDirText_2.toPlainText()
-            if len(select_dir) > 0:
-                select_dir = select_dir.replace('file:///', '')
-                tl_name = self.tlNameText.toPlainText()
-                if not os.path.exists(select_dir):
-                    log_print(select_dir + ' directory does not exist!')
-                else:
-                    if select_dir[len(select_dir) - 1] != '/' and select_dir[len(select_dir) - 1] != '\\':
-                        select_dir = select_dir + '/'
-                    t = extractThread(threadID=cnt, p=None, tl_name=tl_name, dir=None, tl_dir=select_dir,
-                                      is_open_filter=self.filterCheckBox.isChecked(),
-                                      filter_length=int(self.filterLengthLineEdit.text()),
-                                      is_gen_empty=self.emptyCheckBox.isChecked())
-                    t.start()
-                    extract_threads.append(t)
-                    cnt = cnt + 1
-            if len(extract_threads) > 0:
-                open('extracting', "w")
-                self.extractBtn.setText(QCoreApplication.translate('MainWindow', 'extracting...', None))
-                self.extractBtn.setDisabled(True)
-                _thread.start_new_thread(self.extract_threads_over, ())
-        except Exception:
-            msg = traceback.format_exc()
-            log_print(msg)
-            if os.path.isfile('extracting'):
-                os.remove('extracting')
-
-    @staticmethod
-    def extract_threads_over():
-        for t in extract_threads:
-            t.join()
-        log_print('extract all complete!')
-        if os.path.isfile('extracting'):
-            os.remove('extracting')
 
     @staticmethod
     def clear_log():
@@ -438,11 +380,13 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
             self.translateBtn.setEnabled(True)
 
         if os.path.isfile('extracting'):
-            self.extractBtn.setText(QCoreApplication.translate('MainWindow', 'extracting...', None))
-            self.extractBtn.setDisabled(True)
+            if self.myExtractionForm is not None:
+                self.myExtractionForm.extractBtn.setText(QCoreApplication.translate('MainWindow', 'extracting...', None))
+                self.myExtractionForm.extractBtn.setDisabled(True)
         else:
-            self.extractBtn.setText(QCoreApplication.translate('MainWindow', 'extract', None))
-            self.extractBtn.setEnabled(True)
+            if self.myExtractionForm is not None:
+                self.myExtractionForm.extractBtn.setText(QCoreApplication.translate('MainWindow', 'extract', None))
+                self.myExtractionForm.extractBtn.setEnabled(True)
 
     class UpdateThread(QThread):
         update_date = Signal(str)
@@ -458,33 +402,6 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
             self.update_date.emit(f.read())
             f.close()
 
-    def select_directory4(self):
-        directorySelector = DirectorySelector()
-        if directorySelector.exec() == 1:
-            folders = directorySelector.selectedFiles()
-            s = ''
-            for folder in folders:
-                if os.path.isdir(folder):
-                    s = s + folder + '\n'
-            self.selectDirsText.setText(s.rstrip('\n'))
-
-    def select_file2(self):
-        files, filetype = QFileDialog.getOpenFileNames(self,
-                                                       QCoreApplication.translate('MainWindow',
-                                                                                  'select the file(s) you want to extract',
-                                                                                  None),
-                                                       '',
-                                                       "Rpy Files (*.rpy);;All Files (*)")
-        s = ''
-        for file in files:
-            s = s + file + '\n'
-        self.selectFilesText_2.setText(s.rstrip('\n'))
-
-    def select_directory2(self):
-        directory = QFileDialog.getExistingDirectory(self, QCoreApplication.translate('MainWindow',
-                                                                                      'select the directory you want to extract',
-                                                                                      None))
-        self.selectDirText_2.setText(directory)
 
     def select_file(self):
         files, filetype = QFileDialog.getOpenFileNames(self,
@@ -565,6 +482,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
 if __name__ == "__main__":
     multiprocessing.freeze_support()
     app = QApplication(sys.argv)
+
     if os.path.isfile('language.txt'):
         f = io.open('language.txt', 'r', encoding='utf-8')
         lan = f.read()
@@ -572,5 +490,13 @@ if __name__ == "__main__":
         translator.load("qm/" + lan + ".qm")
         QCoreApplication.instance().installTranslator(translator)
     myWin = MyMainForm()
+    myWin.app = app
+    if os.path.isfile('theme'):
+        f = io.open('theme', 'r', encoding='utf-8')
+        theme = f.read()
+        myWin.change_theme(theme)
+        f.close()
+    else:
+        myWin.change_theme(None)
     myWin.show()
     sys.exit(app.exec())

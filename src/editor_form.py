@@ -229,11 +229,10 @@ class MySelectTableView(QTableView):
         self.setModel(self.model)
         self.model.setHorizontalHeaderLabels([QCoreApplication.translate('EditorDialog', 'Path', None), QCoreApplication.translate('EditorDialog', 'Units', None), QCoreApplication.translate('EditorDialog', 'Translated', None)])
         self.verticalHeader().setVisible(False)
-        self.verticalHeader().setDefaultSectionSize(35)
         self.setSelectionBehavior(QTableView.SelectRows)
         self.setSelectionMode(QAbstractItemView.SingleSelection)
         self.setSortingEnabled(True)
-        # self.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+        self.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
 
     def load_data(self, index):
         if index.isValid():
@@ -405,12 +404,7 @@ class MySelectTableView(QTableView):
             self.model.removeRow(row)
         self.selectionModel().clearSelection()
 
-    def resizeEvent(self, event):
-        width = self.width()
-        self.setColumnWidth(0, width * 0.7)
-        self.setColumnWidth(1, width * 0.15)
-        self.setColumnWidth(2, width * 0.14)
-        super(MySelectTableView, self).resizeEvent(event)
+
 
 
 class translateThread(threading.Thread):
@@ -828,7 +822,6 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
 
     def closeEvent(self, event):
         self.parent.widget.show()
-        self.parent.widget_2.show()
         self.parent.menubar.show()
         self.parent.versionLabel.show()
         self.parent.actionedit.triggered.connect(lambda: self.parent.show_edit_form())
@@ -996,6 +989,7 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
                         item.setEditable(False)
                         item.setToolTip(item.text())
                     row[0].setTextAlignment(Qt.AlignLeft)
+                    self.selectTableView.horizontalHeader().setSectionResizeMode(QHeaderView.Interactive)
                     self.selectTableView.model.appendRow(row)
                     addedList.append(i)
         self.selectTableView.model.sort(0, Qt.AscendingOrder)
@@ -1014,6 +1008,7 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
                     item.setEditable(False)
                     item.setToolTip(item.text())
                 row[0].setTextAlignment(Qt.AlignLeft)
+                self.selectTableView.horizontalHeader().setSectionResizeMode(QHeaderView.Interactive)
                 self.selectTableView.model.appendRow(row)
                 addedList.append(select_dir)
                 self.selectTableView.model.sort(0, Qt.AscendingOrder)
@@ -1248,5 +1243,3 @@ def get_rpy_info_from_dir(select_one, is_open_filter):
     except:
         msg = traceback.format_exc()
         log_print(msg)
-
-

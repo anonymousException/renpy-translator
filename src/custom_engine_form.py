@@ -10,7 +10,7 @@ import webbrowser
 
 from PySide6 import QtCore
 from PySide6.QtCore import QThread, Signal, QCoreApplication
-from PySide6.QtGui import QTextCursor
+from PySide6.QtGui import QTextCursor, Qt
 from PySide6.QtWidgets import QDialog, QFileDialog
 
 from custom_engine import Ui_CustomDialog
@@ -31,6 +31,7 @@ class MyCustomEngineForm(QDialog, Ui_CustomDialog):
             "background-color : lightgreen;"
             "}"
         )
+        self.setWindowFlags(self.windowFlags() | Qt.WindowMinMaxButtonsHint)
         _thread.start_new_thread(self.update_log, ())
         self.nameLineEdit.textChanged.connect(self.refresh_name)
         self.urlLineEdit.textChanged.connect(self.refresh_url)

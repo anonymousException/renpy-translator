@@ -29,13 +29,16 @@
        <height>650</height>
       </size>
      </property>
+     <property name="toolTip">
+      <string/>
+     </property>
      <widget class="QPushButton" name="selectScriptBtn">
       <property name="geometry">
        <rect>
         <x>500</x>
-        <y>240</y>
+        <y>220</y>
         <width>81</width>
-        <height>41</height>
+        <height>61</height>
        </rect>
       </property>
       <property name="text">
@@ -45,10 +48,10 @@
      <widget class="QLabel" name="label_8">
       <property name="geometry">
        <rect>
-        <x>150</x>
-        <y>510</y>
-        <width>54</width>
-        <height>20</height>
+        <x>140</x>
+        <y>520</y>
+        <width>161</width>
+        <height>31</height>
        </rect>
       </property>
       <property name="text">
@@ -86,9 +89,9 @@
      <widget class="QCheckBox" name="renameScriptCheckBox">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>0</x>
         <y>295</y>
-        <width>111</width>
+        <width>131</width>
         <height>20</height>
        </rect>
       </property>
@@ -99,9 +102,9 @@
      <widget class="QLabel" name="label_6">
       <property name="geometry">
        <rect>
-        <x>150</x>
+        <x>140</x>
         <y>405</y>
-        <width>54</width>
+        <width>171</width>
         <height>20</height>
        </rect>
       </property>
@@ -112,11 +115,14 @@
      <widget class="QLineEdit" name="renameSourceLineEdit">
       <property name="geometry">
        <rect>
-        <x>210</x>
-        <y>405</y>
-        <width>371</width>
-        <height>20</height>
+        <x>280</x>
+        <y>400</y>
+        <width>301</width>
+        <height>31</height>
        </rect>
+      </property>
+      <property name="toolTip">
+       <string>rename the  source name in  'supported_language' folder</string>
       </property>
       <property name="placeholderText">
        <string>rename the  source name in  'supported_language' folder</string>
@@ -126,8 +132,8 @@
       <property name="geometry">
        <rect>
         <x>160</x>
-        <y>545</y>
-        <width>301</width>
+        <y>560</y>
+        <width>421</width>
         <height>21</height>
        </rect>
       </property>
@@ -139,9 +145,9 @@
       <property name="geometry">
        <rect>
         <x>80</x>
-        <y>240</y>
+        <y>220</y>
         <width>421</width>
-        <height>41</height>
+        <height>61</height>
        </rect>
       </property>
       <property name="toolTip">
@@ -154,9 +160,9 @@
      <widget class="QCheckBox" name="renameSourceCheckBox">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>0</x>
         <y>405</y>
-        <width>111</width>
+        <width>131</width>
         <height>20</height>
        </rect>
       </property>
@@ -167,9 +173,9 @@
      <widget class="QCheckBox" name="renameTargetCheckBox">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>510</y>
-        <width>111</width>
+        <x>0</x>
+        <y>526</y>
+        <width>131</width>
         <height>20</height>
        </rect>
       </property>
@@ -180,9 +186,9 @@
      <widget class="QCheckBox" name="keyCheckBox">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>165</y>
-        <width>161</width>
+        <x>0</x>
+        <y>160</y>
+        <width>231</width>
         <height>20</height>
        </rect>
       </property>
@@ -193,11 +199,14 @@
      <widget class="QCheckBox" name="queueCheckBox">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>205</y>
-        <width>551</width>
+        <x>0</x>
+        <y>190</y>
+        <width>591</width>
         <height>20</height>
        </rect>
+      </property>
+      <property name="toolTip">
+       <string>Queue Support (Can the api support list input in one request such as:['Hello','World'])</string>
       </property>
       <property name="text">
        <string>Queue Support (Can the api support list input in one request such as:['Hello','World'])</string>
@@ -206,9 +215,9 @@
      <widget class="QLabel" name="label_7">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>460</y>
-        <width>41</width>
+        <x>0</x>
+        <y>450</y>
+        <width>81</width>
         <height>31</height>
        </rect>
       </property>
@@ -223,9 +232,9 @@
       <property name="geometry">
        <rect>
         <x>80</x>
-        <y>350</y>
+        <y>330</y>
         <width>421</width>
-        <height>41</height>
+        <height>61</height>
        </rect>
       </property>
       <property name="toolTip">
@@ -251,9 +260,9 @@
      <widget class="QPushButton" name="deleteButton">
       <property name="geometry">
        <rect>
-        <x>240</x>
-        <y>615</y>
-        <width>121</width>
+        <x>160</x>
+        <y>620</y>
+        <width>301</width>
         <height>24</height>
        </rect>
       </property>
@@ -264,9 +273,9 @@
      <widget class="QLabel" name="label_4">
       <property name="geometry">
        <rect>
-        <x>150</x>
+        <x>140</x>
         <y>295</y>
-        <width>54</width>
+        <width>171</width>
         <height>20</height>
        </rect>
       </property>
@@ -278,9 +287,9 @@
       <property name="geometry">
        <rect>
         <x>80</x>
-        <y>455</y>
+        <y>435</y>
         <width>421</width>
-        <height>41</height>
+        <height>61</height>
        </rect>
       </property>
       <property name="toolTip">
@@ -293,23 +302,26 @@
      <widget class="QLabel" name="label_15">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>10</y>
-        <width>141</width>
-        <height>16</height>
+        <x>0</x>
+        <y>0</y>
+        <width>161</width>
+        <height>31</height>
        </rect>
       </property>
       <property name="text">
        <string>custom engine list</string>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
       </property>
      </widget>
      <widget class="QPushButton" name="selectTargetBtn">
       <property name="geometry">
        <rect>
         <x>500</x>
-        <y>455</y>
+        <y>435</y>
         <width>81</width>
-        <height>41</height>
+        <height>61</height>
        </rect>
       </property>
       <property name="text">
@@ -319,9 +331,9 @@
      <widget class="QCheckBox" name="secretCheckBox">
       <property name="geometry">
        <rect>
-        <x>210</x>
-        <y>165</y>
-        <width>191</width>
+        <x>230</x>
+        <y>160</y>
+        <width>351</width>
         <height>20</height>
        </rect>
       </property>
@@ -333,9 +345,9 @@
       <property name="geometry">
        <rect>
         <x>500</x>
-        <y>350</y>
+        <y>330</y>
         <width>81</width>
-        <height>41</height>
+        <height>61</height>
        </rect>
       </property>
       <property name="text">
@@ -345,11 +357,17 @@
      <widget class="QLineEdit" name="renameTargetLineEdit">
       <property name="geometry">
        <rect>
-        <x>210</x>
-        <y>510</y>
-        <width>371</width>
-        <height>20</height>
+        <x>280</x>
+        <y>520</y>
+        <width>301</width>
+        <height>31</height>
        </rect>
+      </property>
+      <property name="toolTip">
+       <string>rename the  target name in  'supported_language' folder</string>
+      </property>
+      <property name="inputMethodHints">
+       <set>Qt::ImhNone</set>
       </property>
       <property name="placeholderText">
        <string>rename the  target name in  'supported_language' folder</string>
@@ -358,9 +376,9 @@
      <widget class="QPushButton" name="saveButton">
       <property name="geometry">
        <rect>
-        <x>240</x>
-        <y>575</y>
-        <width>121</width>
+        <x>160</x>
+        <y>590</y>
+        <width>301</width>
         <height>24</height>
        </rect>
       </property>
@@ -371,9 +389,9 @@
      <widget class="QLabel" name="label_2">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>0</x>
         <y>115</y>
-        <width>51</width>
+        <width>71</width>
         <height>21</height>
        </rect>
       </property>
@@ -384,11 +402,14 @@
      <widget class="QLineEdit" name="renameScriptLineEdit">
       <property name="geometry">
        <rect>
-        <x>210</x>
-        <y>295</y>
-        <width>371</width>
-        <height>20</height>
+        <x>280</x>
+        <y>290</y>
+        <width>301</width>
+        <height>31</height>
        </rect>
+      </property>
+      <property name="toolTip">
+       <string>rename the  script name in  'custom engine' folder</string>
       </property>
       <property name="placeholderText">
        <string>rename the  script name in  'custom engine' folder</string>
@@ -397,10 +418,10 @@
      <widget class="QLabel" name="label_3">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>245</y>
-        <width>31</width>
-        <height>31</height>
+        <x>0</x>
+        <y>230</y>
+        <width>81</width>
+        <height>41</height>
        </rect>
       </property>
       <property name="text">
@@ -413,10 +434,10 @@
      <widget class="QLabel" name="label_5">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>355</y>
-        <width>41</width>
-        <height>31</height>
+        <x>0</x>
+        <y>340</y>
+        <width>81</width>
+        <height>41</height>
        </rect>
       </property>
       <property name="text">
@@ -429,9 +450,9 @@
      <widget class="QLabel" name="label">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>0</x>
         <y>65</y>
-        <width>51</width>
+        <width>71</width>
         <height>21</height>
        </rect>
       </property>
@@ -501,51 +522,13 @@
         </property>
        </widget>
       </item>
-      <item row="0" column="0" colspan="3">
-       <widget class="QLabel" name="label_10">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>150</width>
-          <height>16777215</height>
-         </size>
-        </property>
-        <property name="text">
-         <string>Active Translation Engine:</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="6">
-       <widget class="QLabel" name="detailLabel">
-        <property name="font">
-         <font>
-          <underline>true</underline>
-         </font>
-        </property>
-        <property name="text">
-         <string>detail information</string>
-        </property>
-       </widget>
-      </item>
       <item row="0" column="3">
        <widget class="QComboBox" name="engineComboBox">
         <property name="minimumSize">
          <size>
-          <width>260</width>
+          <width>240</width>
           <height>0</height>
          </size>
-        </property>
-       </widget>
-      </item>
-      <item row="7" column="0">
-       <widget class="QLabel" name="label_14">
-        <property name="text">
-         <string>untranslated text</string>
         </property>
        </widget>
       </item>
@@ -566,6 +549,50 @@
        <widget class="QPushButton" name="testButton">
         <property name="text">
          <string>Test</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="5" colspan="2">
+       <widget class="QLabel" name="detailLabel">
+        <property name="font">
+         <font>
+          <underline>true</underline>
+         </font>
+        </property>
+        <property name="text">
+         <string>detail information</string>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0" colspan="3">
+       <widget class="QLabel" name="label_10">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>150</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Active Translation Engine:</string>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="0">
+       <widget class="QLabel" name="label_14">
+        <property name="text">
+         <string>untranslated text</string>
         </property>
        </widget>
       </item>

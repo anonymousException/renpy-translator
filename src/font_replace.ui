@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>659</width>
-    <height>276</height>
+    <width>663</width>
+    <height>346</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,9 +17,9 @@
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>20</y>
+     <y>10</y>
      <width>600</width>
-     <height>220</height>
+     <height>331</height>
     </rect>
    </property>
    <property name="minimumSize">
@@ -50,9 +50,9 @@
     <property name="geometry">
      <rect>
       <x>80</x>
-      <y>100</y>
+      <y>160</y>
       <width>411</width>
-      <height>41</height>
+      <height>91</height>
      </rect>
     </property>
     <property name="placeholderText">
@@ -63,7 +63,7 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>105</y>
+      <y>190</y>
       <width>81</width>
       <height>31</height>
      </rect>
@@ -79,9 +79,9 @@
     <property name="geometry">
      <rect>
       <x>490</x>
-      <y>100</y>
+      <y>160</y>
       <width>81</width>
-      <height>41</height>
+      <height>91</height>
      </rect>
     </property>
     <property name="text">
@@ -91,8 +91,8 @@
    <widget class="QPushButton" name="replaceFontBtn">
     <property name="geometry">
      <rect>
-      <x>84</x>
-      <y>150</y>
+      <x>80</x>
+      <y>260</y>
       <width>411</width>
       <height>24</height>
      </rect>
@@ -105,7 +105,7 @@
     <property name="geometry">
      <rect>
       <x>80</x>
-      <y>190</y>
+      <y>300</y>
       <width>411</width>
       <height>24</height>
      </rect>
@@ -118,7 +118,7 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>40</y>
+      <y>70</y>
       <width>81</width>
       <height>31</height>
      </rect>
@@ -136,7 +136,7 @@
       <x>80</x>
       <y>38</y>
       <width>411</width>
-      <height>41</height>
+      <height>101</height>
      </rect>
     </property>
     <property name="placeholderText">
@@ -149,7 +149,7 @@
       <x>490</x>
       <y>38</y>
       <width>81</width>
-      <height>41</height>
+      <height>101</height>
      </rect>
     </property>
     <property name="text">

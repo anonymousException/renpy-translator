@@ -890,7 +890,7 @@
     </message>
     <message>
         <location filename="../ui.ui" line="27"/>
-        <source>Version 1.9.6</source>
+        <source>Version 1.9.7</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
