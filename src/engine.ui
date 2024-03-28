@@ -27,9 +27,9 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>22</y>
+     <y>12</y>
      <width>221</width>
-     <height>16</height>
+     <height>31</height>
     </rect>
    </property>
    <property name="text">
@@ -43,9 +43,9 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>70</y>
+     <y>65</y>
      <width>211</width>
-     <height>16</height>
+     <height>31</height>
     </rect>
    </property>
    <property name="text">
@@ -69,9 +69,9 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>122</y>
+     <y>117</y>
      <width>211</width>
-     <height>16</height>
+     <height>31</height>
     </rect>
    </property>
    <property name="text">
@@ -131,7 +131,7 @@
   <widget class="QLineEdit" name="rpmEdit">
    <property name="geometry">
     <rect>
-     <x>290</x>
+     <x>280</x>
      <y>210</y>
      <width>41</width>
      <height>20</height>
@@ -145,9 +145,9 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>210</y>
-     <width>261</width>
-     <height>20</height>
+     <y>199</y>
+     <width>241</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="text">
@@ -160,17 +160,17 @@
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
-     <x>390</x>
-     <y>210</y>
-     <width>221</width>
-     <height>20</height>
+     <x>340</x>
+     <y>199</y>
+     <width>201</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="text">
     <string>RPS (requests per second):</string>
    </property>
    <property name="alignment">
-    <set>Qt::AlignCenter</set>
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
    </property>
    <property name="wordWrap">
     <bool>true</bool>
@@ -179,9 +179,9 @@
   <widget class="QLineEdit" name="rpsEdit">
    <property name="geometry">
     <rect>
-     <x>620</x>
+     <x>540</x>
      <y>210</y>
-     <width>71</width>
+     <width>151</width>
      <height>20</height>
     </rect>
    </property>
@@ -193,9 +193,9 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>240</y>
-     <width>261</width>
-     <height>20</height>
+     <y>230</y>
+     <width>231</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="text">
@@ -208,7 +208,7 @@
   <widget class="QLineEdit" name="tpmEdit">
    <property name="geometry">
     <rect>
-     <x>290</x>
+     <x>280</x>
      <y>240</y>
      <width>41</width>
      <height>20</height>
@@ -221,9 +221,9 @@
   <widget class="QComboBox" name="modelComboBox">
    <property name="geometry">
     <rect>
-     <x>620</x>
+     <x>540</x>
      <y>240</y>
-     <width>71</width>
+     <width>151</width>
      <height>22</height>
     </rect>
    </property>
@@ -231,17 +231,17 @@
   <widget class="QLabel" name="label_7">
    <property name="geometry">
     <rect>
-     <x>350</x>
-     <y>240</y>
+     <x>340</x>
+     <y>229</y>
      <width>191</width>
-     <height>20</height>
+     <height>41</height>
     </rect>
    </property>
    <property name="text">
     <string>model:</string>
    </property>
    <property name="alignment">
-    <set>Qt::AlignCenter</set>
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
    </property>
    <property name="wordWrap">
     <bool>true</bool>
