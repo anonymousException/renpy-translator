@@ -22,19 +22,20 @@ class Ui_ProxyDialog(object):
     def setupUi(self, ProxyDialog):
         if not ProxyDialog.objectName():
             ProxyDialog.setObjectName(u"ProxyDialog")
-        ProxyDialog.resize(486, 87)
+        ProxyDialog.resize(594, 93)
         self.checkBox = QCheckBox(ProxyDialog)
         self.checkBox.setObjectName(u"checkBox")
-        self.checkBox.setGeometry(QRect(20, 20, 101, 20))
+        self.checkBox.setGeometry(QRect(20, 20, 161, 20))
         self.proxyEdit = QLineEdit(ProxyDialog)
         self.proxyEdit.setObjectName(u"proxyEdit")
-        self.proxyEdit.setGeometry(QRect(210, 20, 261, 20))
+        self.proxyEdit.setGeometry(QRect(300, 20, 271, 20))
         self.label = QLabel(ProxyDialog)
         self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(120, 22, 91, 16))
+        self.label.setGeometry(QRect(180, 10, 121, 41))
+        self.label.setWordWrap(True)
         self.confirmButton = QPushButton(ProxyDialog)
         self.confirmButton.setObjectName(u"confirmButton")
-        self.confirmButton.setGeometry(QRect(200, 50, 75, 24))
+        self.confirmButton.setGeometry(QRect(14, 60, 561, 24))
 
         self.retranslateUi(ProxyDialog)
 

@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>584</width>
+    <width>714</width>
     <height>300</height>
    </rect>
   </property>
@@ -18,7 +18,7 @@
     <rect>
      <x>240</x>
      <y>20</y>
-     <width>161</width>
+     <width>261</width>
      <height>22</height>
     </rect>
    </property>
@@ -35,6 +35,9 @@
    <property name="text">
     <string>Active Translation Engine:</string>
    </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
   </widget>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
@@ -48,13 +51,16 @@
    <property name="text">
     <string>API_KEY:</string>
    </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
   </widget>
   <widget class="QLineEdit" name="keyEdit">
    <property name="geometry">
     <rect>
      <x>240</x>
      <y>68</y>
-     <width>331</width>
+     <width>451</width>
      <height>20</height>
     </rect>
    </property>
@@ -71,13 +77,16 @@
    <property name="text">
     <string>APP_SECRET:</string>
    </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
   </widget>
   <widget class="QLineEdit" name="secretEdit">
    <property name="geometry">
     <rect>
      <x>240</x>
      <y>120</y>
-     <width>331</width>
+     <width>451</width>
      <height>20</height>
     </rect>
    </property>
@@ -90,7 +99,7 @@
     <rect>
      <x>20</x>
      <y>160</y>
-     <width>551</width>
+     <width>671</width>
      <height>24</height>
     </rect>
    </property>
@@ -101,10 +110,10 @@
   <widget class="QLabel" name="detailLabel">
    <property name="geometry">
     <rect>
-     <x>410</x>
-     <y>21</y>
+     <x>520</x>
+     <y>11</y>
      <width>171</width>
-     <height>21</height>
+     <height>41</height>
     </rect>
    </property>
    <property name="font">
@@ -115,11 +124,14 @@
    <property name="text">
     <string>detail information</string>
    </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
   </widget>
   <widget class="QLineEdit" name="rpmEdit">
    <property name="geometry">
     <rect>
-     <x>240</x>
+     <x>290</x>
      <y>210</y>
      <width>41</width>
      <height>20</height>
@@ -134,18 +146,21 @@
     <rect>
      <x>20</x>
      <y>210</y>
-     <width>221</width>
+     <width>261</width>
      <height>20</height>
     </rect>
    </property>
    <property name="text">
     <string>RPM (requests per minute):</string>
    </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
   </widget>
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
-     <x>280</x>
+     <x>390</x>
      <y>210</y>
      <width>221</width>
      <height>20</height>
@@ -157,11 +172,14 @@
    <property name="alignment">
     <set>Qt::AlignCenter</set>
    </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
   </widget>
   <widget class="QLineEdit" name="rpsEdit">
    <property name="geometry">
     <rect>
-     <x>500</x>
+     <x>620</x>
      <y>210</y>
      <width>71</width>
      <height>20</height>
@@ -176,18 +194,21 @@
     <rect>
      <x>20</x>
      <y>240</y>
-     <width>221</width>
+     <width>261</width>
      <height>20</height>
     </rect>
    </property>
    <property name="text">
     <string>TPM (requests token limits):</string>
    </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
   </widget>
   <widget class="QLineEdit" name="tpmEdit">
    <property name="geometry">
     <rect>
-     <x>240</x>
+     <x>290</x>
      <y>240</y>
      <width>41</width>
      <height>20</height>
@@ -200,9 +221,9 @@
   <widget class="QComboBox" name="modelComboBox">
    <property name="geometry">
     <rect>
-     <x>400</x>
+     <x>620</x>
      <y>240</y>
-     <width>171</width>
+     <width>71</width>
      <height>22</height>
     </rect>
    </property>
@@ -210,9 +231,9 @@
   <widget class="QLabel" name="label_7">
    <property name="geometry">
     <rect>
-     <x>280</x>
+     <x>350</x>
      <y>240</y>
-     <width>121</width>
+     <width>191</width>
      <height>20</height>
     </rect>
    </property>
@@ -221,6 +242,9 @@
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QLabel" name="label_8">
@@ -235,13 +259,16 @@
    <property name="text">
     <string>base_url:</string>
    </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
   </widget>
   <widget class="QLineEdit" name="baseUrlEdit">
    <property name="geometry">
     <rect>
      <x>160</x>
      <y>270</y>
-     <width>411</width>
+     <width>531</width>
      <height>20</height>
     </rect>
    </property>
