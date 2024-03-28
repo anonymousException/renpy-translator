@@ -190,7 +190,7 @@ set "rpatoolps=%rpatool:[=`[%"
 set "rpatoolps=%rpatoolps:]=`]%"
 set "rpatoolps=%rpatoolps:^=^^%"
 set "rpatoolps=%rpatoolps:&=^&%"
-powershell.exe -nologo -noprofile -noninteractive -command "& { [IO.File]::WriteAllBytes(\"%rpatoolps%\", [Convert]::FromBase64String([IO.File]::ReadAllText(\"%rpatoolps%.tmp\"))) }"
+%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\powershell.exe -nologo -noprofile -noninteractive -command "& { [IO.File]::WriteAllBytes(\"%rpatoolps%\", [Convert]::FromBase64String([IO.File]::ReadAllText(\"%rpatoolps%.tmp\"))) }"
 
 echo.
 echo	Remove RPA archives after extraction?
@@ -286,7 +286,7 @@ set "decompcabps=%decompcab:[=`[%"
 set "decompcabps=%decompcabps:]=`]%"
 set "decompcabps=%decompcabps:^=^^%"
 set "decompcabps=%decompcabps:&=^&%"
-powershell.exe -nologo -noprofile -noninteractive -command "& { [IO.File]::WriteAllBytes(\"%decompcabps%\", [Convert]::FromBase64String([IO.File]::ReadAllText(\"%decompcabps%.tmp\"))) }"
+%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\powershell.exe -nologo -noprofile -noninteractive -command "& { [IO.File]::WriteAllBytes(\"%decompcabps%\", [Convert]::FromBase64String([IO.File]::ReadAllText(\"%decompcabps%.tmp\"))) }"
 
 echo.
 
@@ -382,7 +382,7 @@ set "unren-consoleps=%unren-console:[=`[%"
 set "unren-consoleps=%unren-consoleps:]=`]%"
 set "unren-consoleps=%unren-consoleps:^=^^%"
 set "unren-consoleps=%unren-consoleps:&=^&%"
-powershell.exe -nologo -noprofile -noninteractive -command "& { [IO.File]::WriteAllBytes(\"%unren-consoleps%\", [Convert]::FromBase64String([IO.File]::ReadAllText(\"%unren-consoleps%.tmp\"))) }"
+%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\powershell.exe -nologo -noprofile -noninteractive -command "& { [IO.File]::WriteAllBytes(\"%unren-consoleps%\", [Convert]::FromBase64String([IO.File]::ReadAllText(\"%unren-consoleps%.tmp\"))) }"
 
 echo	+ Console: SHIFT+O
 echo	+ Dev Menu: SHIFT+D
@@ -413,7 +413,7 @@ set "unren-quickps=%unren-quick:[=`[%"
 set "unren-quickps=%unren-quickps:]=`]%"
 set "unren-quickps=%unren-quickps:^=^^%"
 set "unren-quickps=%unren-quickps:&=^&%"
-powershell.exe -nologo -noprofile -noninteractive -command "& { [IO.File]::WriteAllBytes(\"%unren-quickps%\", [Convert]::FromBase64String([IO.File]::ReadAllText(\"%unren-quickps%.tmp\"))) }"
+%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\powershell.exe -nologo -noprofile -noninteractive -command "& { [IO.File]::WriteAllBytes(\"%unren-quickps%\", [Convert]::FromBase64String([IO.File]::ReadAllText(\"%unren-quickps%.tmp\"))) }"
 
 echo	Default hotkeys:
 echo	+ Quick Save: F5
@@ -445,7 +445,7 @@ set "unren-skipps=%unren-skip:[=`[%"
 set "unren-skipps=%unren-skipps:]=`]%"
 set "unren-skipps=%unren-skipps:^=^^%"
 set "unren-skipps=%unren-skipps:&=^&%"
-powershell.exe -nologo -noprofile -noninteractive -command "& { [IO.File]::WriteAllBytes(\"%unren-skipps%\", [Convert]::FromBase64String([IO.File]::ReadAllText(\"%unren-skipps%.tmp\"))) }"
+%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\powershell.exe -nologo -noprofile -noninteractive -command "& { [IO.File]::WriteAllBytes(\"%unren-skipps%\", [Convert]::FromBase64String([IO.File]::ReadAllText(\"%unren-skipps%.tmp\"))) }"
 
 echo	+ You can now skip all text using TAB and CTRL keys
 echo.
@@ -475,7 +475,7 @@ set "unren-rollbackps=%unren-rollback:[=`[%"
 set "unren-rollbackps=%unren-rollbackps:]=`]%"
 set "unren-rollbackps=%unren-rollbackps:^=^^%"
 set "unren-rollbackps=%unren-rollbackps:&=^&%"
-powershell.exe -nologo -noprofile -noninteractive -command "& { [IO.File]::WriteAllBytes(\"%unren-rollbackps%\", [Convert]::FromBase64String([IO.File]::ReadAllText(\"%unren-rollbackps%.tmp\"))) }"
+%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\powershell.exe -nologo -noprofile -noninteractive -command "& { [IO.File]::WriteAllBytes(\"%unren-rollbackps%\", [Convert]::FromBase64String([IO.File]::ReadAllText(\"%unren-rollbackps%.tmp\"))) }"
 
 echo	+ You can now rollback using the scrollwheel
 echo.
@@ -492,6 +492,7 @@ echo  ----------------------------------------------------
 echo.
 echo	Finished!
 echo.
+echo end > unren.finish
 echo	Press Any Key to Close
 set /p exitoption=
 echo.

@@ -2,6 +2,7 @@ init python early hide:
     import renpy.loader
     import threading
     from renpy.loader import file_open_callbacks,load_from_archive,SubFile
+
     def my_load_from_archive(name):
         rv = load_from_archive(name)
         if rv is None:
@@ -39,14 +40,21 @@ init python early hide:
     file_open_callbacks.append(my_load_from_archive)
 
 
+
 init python:
     import os
-    finish_flag = 'unpack.finish'
-    if renpy.loader.load_from_apk == None:
-        os.system('"UnRen-forall.bat"')
-        if os.path.isfile(finish_flag):
-            os.remove(finish_flag)
-        renpy.quit()
-    else:
-         if os.path.isfile(finish_flag):
-            os.remove(finish_flag)
+    my_old_show_screen = renpy.show_screen
+
+    def my_show_screen(_screen_name, *_args, **kwargs):
+        finish_flag = 'unpack.finish'
+        if renpy.loader.load_from_apk == None:
+            if os.path.isfile(finish_flag):
+                os.remove(finish_flag)
+            renpy.quit()
+        else:
+             if os.path.isfile(finish_flag):
+                os.remove(finish_flag)
+        renpy.show_screen = my_old_show_screen
+        return my_old_show_screen(_screen_name, *_args, **kwargs)
+
+    renpy.show_screen = my_show_screen

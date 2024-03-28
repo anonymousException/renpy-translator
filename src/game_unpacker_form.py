@@ -91,6 +91,14 @@ class MyGameUnpackerForm(QDialog, Ui_GameUnpackerDialog):
             dir = os.path.dirname(self.path)
             target = dir + finish_flag
             if not os.path.isfile(target):
+                bat = dir + '/UnRen-forall.bat'
+                command = 'start "" /d "' + dir + '"  "' + bat + '"'
+                os.system(command)
+                while (True):
+                    time.sleep(0.1)
+                    if os.path.isfile(dir + '/unren.finish'):
+                        os.remove(dir + '/unren.finish')
+                        break
                 if self.autoCheckBox.isChecked():
                     self.clean(is_auto_clean = True)
                 self.path = None

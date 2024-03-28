@@ -303,7 +303,7 @@ class Ui_MainWindow(object):
         self.actionedit.setText(QCoreApplication.translate("MainWindow", u"edit from rpy", None))
         self.actionreplace_font.setText(QCoreApplication.translate("MainWindow", u"replace font", None))
         self.actionunpack_game.setText(QCoreApplication.translate("MainWindow", u"unpack game package", None))
-        self.versionLabel.setText(QCoreApplication.translate("MainWindow", u"Version 1.9.5", None))
+        self.versionLabel.setText(QCoreApplication.translate("MainWindow", u"Version 1.9.6", None))
         self.translateBtn.setText(QCoreApplication.translate("MainWindow", u"translate", None))
         self.selectFilesBtn.setText(QCoreApplication.translate("MainWindow", u"...", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"directory", None))
