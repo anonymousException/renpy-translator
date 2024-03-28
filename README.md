@@ -11,7 +11,7 @@
 
 <div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/interface_editor.png"></div>
 
-<div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/interface_v1.8.8.png"></div>
+<div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/interface_v1.9.7.png"></div>
 
 <div align=center><img src = "https://github.com/anonymousException/renpy-translator/blob/main/docs/img/translated_contents.png"></div>
 
