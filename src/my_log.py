@@ -12,6 +12,6 @@ sys.stderr = f
 log_lock = threading.Lock()
 def log_print(*objects, sep=' ', end='\n', file=sys.stdout, flush=True):
     log_lock.acquire()
-    print(datetime.now().strftime('%Y-%m-%d %H:%M:%S'),end ='\t') # 这样每次调用log_print()的时候，会先输出当前时间，然后再输出内容
+    print(datetime.now().strftime('%Y-%m-%d %H:%M:%S'),end ='\t')
     print(*objects, sep=' ', end='\n', file=sys.stdout, flush=True)
     log_lock.release()

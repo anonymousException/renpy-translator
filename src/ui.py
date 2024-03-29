@@ -25,7 +25,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1051, 509)
+        MainWindow.resize(1051, 512)
         self.actioncopyright = QAction(MainWindow)
         self.actioncopyright.setObjectName(u"actioncopyright")
         self.proxySettings = QAction(MainWindow)
@@ -252,7 +252,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 1051, 21))
+        self.menubar.setGeometry(QRect(0, 0, 1051, 22))
         self.aboutMenu = QMenu(self.menubar)
         self.aboutMenu.setObjectName(u"aboutMenu")
         self.proxyMenu = QMenu(self.menubar)
@@ -330,7 +330,7 @@ class Ui_MainWindow(object):
         self.actionextract_translation.setText(QCoreApplication.translate("MainWindow", u"extract translation", None))
         self.clearLogBtn.setText(QCoreApplication.translate("MainWindow", u"clear log", None))
         self.copyrightLabel.setText(QCoreApplication.translate("MainWindow", u"\u00a92024 Last moment,All rights reserved.", None))
-        self.versionLabel.setText(QCoreApplication.translate("MainWindow", u"Version 1.9.7", None))
+        self.versionLabel.setText(QCoreApplication.translate("MainWindow", u"Version 1.9.8", None))
         self.translateBtn.setText(QCoreApplication.translate("MainWindow", u"translate", None))
         self.selectFilesBtn.setText(QCoreApplication.translate("MainWindow", u"...", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"directory", None))

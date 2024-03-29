@@ -900,8 +900,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 1.9.7</source>
-        <translation>الإصدار1.9.7</translation>
+        <source>Version 1.9.8</source>
+        <translation>الإصدار1.9.8</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="113"/>

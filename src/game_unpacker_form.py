@@ -16,6 +16,7 @@ from game_unpacker import Ui_GameUnpackerDialog
 bat = 'UnRen-forall.bat'
 hook_script = 'hook_unrpa.rpy'
 finish_flag = '/unpack.finish'
+expand_file = 'expand.exe'
 
 class MyGameUnpackerForm(QDialog, Ui_GameUnpackerDialog):
     def __init__(self, parent=None):
@@ -47,6 +48,7 @@ class MyGameUnpackerForm(QDialog, Ui_GameUnpackerDialog):
                 dir = os.path.dirname(path)
 
                 shutil.copyfile(bat, dir + '/' + bat)
+                shutil.copyfile(expand_file, dir + '/' + expand_file)
 
                 shutil.copyfile(hook_script, dir + '/game/' + hook_script)
                 command = 'start "" /d "' + dir + '"  "' + path + '"'
@@ -71,6 +73,9 @@ class MyGameUnpackerForm(QDialog, Ui_GameUnpackerDialog):
                 bat_path = dir + '/' + bat
                 if os.path.isfile(bat_path):
                     os.remove(bat_path)
+                expand_path = dir + '/' + expand_file
+                if os.path.isfile(expand_path):
+                    os.remove(expand_path)
                 if not is_auto_clean:
                     msg_box = QMessageBox()
                     msg_box.setWindowTitle('o(≧口≦)o')
