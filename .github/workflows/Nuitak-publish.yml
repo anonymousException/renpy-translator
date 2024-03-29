@@ -41,6 +41,7 @@ jobs:
     - run: copy src\custom.txt dist\windows\custom.txt
     - run: copy src\UnRen-forall.bat dist\windows\UnRen-forall.bat
     - run: copy src\hook_unrpa.rpy dist\windows\hook_unrpa.rpy
+    - run: copy src\expand.exe dist\windows\expand.exe
     - run: copy src\cacert.pem dist\windows\cacert.pem
     - run: copy src\main.ico dist\windows\main.ico
 

@@ -28,6 +28,7 @@ jobs:
     - run: cp src/custom.txt src/dist/windows/main/custom.txt
     - run: cp src/UnRen-forall.bat src/dist/windows/main/UnRen-forall.bat
     - run: cp src/hook_unrpa.rpy src/dist/windows/main/hook_unrpa.rpy
+    - run: cp src/expand.exe src/dist/windows/main/expand.exe
     - run: cp -r src/custom_engine src/dist/windows/main
     - run: cp src/main.ico src/dist/windows/main/main.ico
     - run: cp src/cacert.pem src/dist/windows/main/cacert.pem
