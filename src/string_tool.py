@@ -1,6 +1,9 @@
 import string
+
+
 def remove_upprintable_chars(s):
     return ''.join(x for x in s if x.isprintable())
+
 
 def split_strings(strings, max_length=5000):
     result = []
@@ -19,6 +22,7 @@ def split_strings(strings, max_length=5000):
     if current_string:
         result.append(current_string)
     return result
+
 
 def EncodeBracketContent(s, bracketLeft, bracketRight, isAddSpace=False):
     start = -1
@@ -166,11 +170,11 @@ def DecodeBracketContent(s, bracketLeft, bracketRight, l):
 
 def EncodeBrackets(s):
     dic = dict()
-    d = EncodeBracketContent(s, '<', '>', True)
+    d = EncodeBracketContent(s, '<', '>')
     # print(d['encoded'])
-    d2 = EncodeBracketContent(d['encoded'], '{', '}', True)
+    d2 = EncodeBracketContent(d['encoded'], '{', '}')
     # print(d2['encoded'],d2['oriList'])
-    d3 = EncodeBracketContent(d2['encoded'], '[', ']', True)
+    d3 = EncodeBracketContent(d2['encoded'], '[', ']')
     # print(d3['encoded'],d3['oriList'])
     dic['encoded'] = d3['encoded']
     dic['en_1'] = d['oriList']

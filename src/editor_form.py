@@ -35,8 +35,10 @@ translated_dic = None
 is_need_save = False
 rpy_lock = threading.Lock()
 
+
 def open_directory_and_select_file(file_path):
     subprocess.run(["explorer", "/select,", os.path.normpath(file_path)])
+
 
 class CustomSortProxyModel(QSortFilterProxyModel):
     def __init__(self, parent=None):
@@ -167,17 +169,22 @@ class MyTreeView(QTreeView):
             file_info = QtCore.QFileInfo(self.model.filePath(source_index))
             full_path = file_info.absoluteFilePath()
             full_path = full_path.replace('\\', '/')
-            menu.addAction(QCoreApplication.translate('EditorDialog', 'Export to xlsx file', None), lambda :selectTableView.export_to_xlsx(full_path,None,self.model.is_open_filter,self))
+            menu.addAction(QCoreApplication.translate('EditorDialog', 'Export to xlsx file', None),
+                           lambda: selectTableView.export_to_xlsx(full_path, None, self.model.is_open_filter, self))
             menu.exec(self.viewport().mapToGlobal(position))
-
-
 
     def refresh_table_view(self, full_path):
         if os.path.isfile(full_path):
             self.tableView.model.clear()
             self.tableView.searched.clear()
             self.tableView.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
-            self.tableView.model.setHorizontalHeaderLabels([QCoreApplication.translate('EditorDialog', 'line', None), QCoreApplication.translate('EditorDialog', 'refer', None), QCoreApplication.translate('EditorDialog', 'Original', None),QCoreApplication.translate('EditorDialog', 'Current', None) ,QCoreApplication.translate('EditorDialog', 'Translated', None) ])
+            self.tableView.model.setHorizontalHeaderLabels([QCoreApplication.translate('EditorDialog', 'line', None),
+                                                            QCoreApplication.translate('EditorDialog', 'refer', None),
+                                                            QCoreApplication.translate('EditorDialog', 'Original',
+                                                                                       None),
+                                                            QCoreApplication.translate('EditorDialog', 'Current', None),
+                                                            QCoreApplication.translate('EditorDialog', 'Translated',
+                                                                                       None)])
             if full_path in rpy_info_dic.keys():
                 ret, unmatch_cnt, p = rpy_info_dic[full_path]
             else:
@@ -227,7 +234,9 @@ class MySelectTableView(QTableView):
         super(MySelectTableView, self).__init__(parent)
         self.model = QStandardItemModel()
         self.setModel(self.model)
-        self.model.setHorizontalHeaderLabels([QCoreApplication.translate('EditorDialog', 'Path', None), QCoreApplication.translate('EditorDialog', 'Units', None), QCoreApplication.translate('EditorDialog', 'Translated', None)])
+        self.model.setHorizontalHeaderLabels([QCoreApplication.translate('EditorDialog', 'Path', None),
+                                              QCoreApplication.translate('EditorDialog', 'Units', None),
+                                              QCoreApplication.translate('EditorDialog', 'Translated', None)])
         self.verticalHeader().setVisible(False)
         self.setSelectionBehavior(QTableView.SelectRows)
         self.setSelectionMode(QAbstractItemView.SingleSelection)
@@ -257,7 +266,12 @@ class MySelectTableView(QTableView):
                     self.tableView.model.clear()
                     self.tableView.searched.clear()
                     self.tableView.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
-                    self.tableView.model.setHorizontalHeaderLabels([QCoreApplication.translate('EditorDialog', 'line', None), QCoreApplication.translate('EditorDialog', 'refer', None), QCoreApplication.translate('EditorDialog', 'Original', None),QCoreApplication.translate('EditorDialog', 'Current', None) ,QCoreApplication.translate('EditorDialog', 'Translated', None) ])
+                    self.tableView.model.setHorizontalHeaderLabels(
+                        [QCoreApplication.translate('EditorDialog', 'line', None),
+                         QCoreApplication.translate('EditorDialog', 'refer', None),
+                         QCoreApplication.translate('EditorDialog', 'Original', None),
+                         QCoreApplication.translate('EditorDialog', 'Current', None),
+                         QCoreApplication.translate('EditorDialog', 'Translated', None)])
 
                     ret, unmatch_cnt, p = get_rpy_info(select_one)
                     rpy_info_dic[select_one] = ret, unmatch_cnt, p
@@ -294,7 +308,8 @@ class MySelectTableView(QTableView):
         selected_rows = [index.row() for index in self.selectionModel().selectedRows()]
 
         if selected_rows:
-            action1 = contextMenu.addAction(QCoreApplication.translate('EditorDialog', 'Remove', None), self.removeAction)
+            action1 = contextMenu.addAction(QCoreApplication.translate('EditorDialog', 'Remove', None),
+                                            self.removeAction)
             path = None
             selected_indexes = self.selectionModel().selectedRows()
             if len(selected_indexes) == 1:
@@ -304,10 +319,10 @@ class MySelectTableView(QTableView):
                 is_open_filter = self.treeView.model.is_open_filter
             action2 = contextMenu.addAction(QCoreApplication.translate('EditorDialog', 'Export to xlsx file', None),
                                             lambda:
-                                            self.export_to_xlsx(path,selected_rows,is_open_filter,self.treeView))
+                                            self.export_to_xlsx(path, selected_rows, is_open_filter, self.treeView))
         contextMenu.exec_(event.globalPos())
 
-    def export_to_xlsx(self,path,selected_rows,is_open_filter,treeView):
+    def export_to_xlsx(self, path, selected_rows, is_open_filter, treeView):
         if path is None:
             return
         if selected_rows is not None:
@@ -316,7 +331,7 @@ class MySelectTableView(QTableView):
             treeView.is_fresh = False
         if os.path.isfile(path):
             if selected_rows is not None:
-                self.load_data(self.model.index(selected_rows,0))
+                self.load_data(self.model.index(selected_rows, 0))
 
             fileName, _ = QFileDialog.getSaveFileName(self,
                                                       QCoreApplication.translate('EditorDialog',
@@ -357,8 +372,10 @@ class MySelectTableView(QTableView):
                     fileName += '.xlsx'
                 treeView.export_path = fileName
                 reply = QMessageBox.question(self,
-                                             QCoreApplication.translate('EditorDialog','Export to xlsx file',None),
-                                             QCoreApplication.translate('EditorDialog','Do you want to make advanced settings (the default setting is to export all files in the directory)',None),
+                                             QCoreApplication.translate('EditorDialog', 'Export to xlsx file', None),
+                                             QCoreApplication.translate('EditorDialog',
+                                                                        'Do you want to make advanced settings (the default setting is to export all files in the directory)',
+                                                                        None),
                                              QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
 
                 treeView.units_min = 0
@@ -393,8 +410,6 @@ class MySelectTableView(QTableView):
                 treeView.setDisabled(True)
                 treeView.show()
 
-
-
     def removeAction(self):
         selected_indexes = self.selectionModel().selectedRows()
         selected_rows = [index.row() for index in selected_indexes]
@@ -405,10 +420,8 @@ class MySelectTableView(QTableView):
         self.selectionModel().clearSelection()
 
 
-
-
 class translateThread(threading.Thread):
-    def __init__(self, threadID, client, transList, target_language, source_language,fmt):
+    def __init__(self, threadID, client, transList, target_language, source_language, fmt):
         threading.Thread.__init__(self)
         self.threadID = threadID
         self.client = client
@@ -422,7 +435,8 @@ class translateThread(threading.Thread):
         try:
             log_print('begin translate! please waiting...')
 
-            translated_dic = TranslateToList(self.client, self.transList, self.target_language, self.source_language,fmt = self.fmt)
+            translated_dic = TranslateToList(self.client, self.transList, self.target_language, self.source_language,
+                                             fmt=self.fmt)
 
         except Exception as e:
             msg = traceback.format_exc()
@@ -494,7 +508,11 @@ class MyTableView(QTableView):
         super(MyTableView, self).__init__(parent)
         self.model = QStandardItemModel()
         self.setModel(self.model)
-        self.model.setHorizontalHeaderLabels([QCoreApplication.translate('EditorDialog', 'line', None), QCoreApplication.translate('EditorDialog', 'refer', None), QCoreApplication.translate('EditorDialog', 'Original', None),QCoreApplication.translate('EditorDialog', 'Current', None) ,QCoreApplication.translate('EditorDialog', 'Translated', None) ])
+        self.model.setHorizontalHeaderLabels([QCoreApplication.translate('EditorDialog', 'line', None),
+                                              QCoreApplication.translate('EditorDialog', 'refer', None),
+                                              QCoreApplication.translate('EditorDialog', 'Original', None),
+                                              QCoreApplication.translate('EditorDialog', 'Current', None),
+                                              QCoreApplication.translate('EditorDialog', 'Translated', None)])
         self.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
         self.verticalHeader().setVisible(False)
         self.setSelectionBehavior(QTableView.SelectRows)
@@ -532,7 +550,8 @@ class MyTableView(QTableView):
     def jump_line(self):
         dialog = MyInputJumpLineDialog(self)
         dialog.setWindowTitle(QCoreApplication.translate('EditorDialog', 'Input Dialog', None))
-        dialog.label1.setText(QCoreApplication.translate('EditorDialog', 'Please Input the line number you want to jump', None))
+        dialog.label1.setText(
+            QCoreApplication.translate('EditorDialog', 'Please Input the line number you want to jump', None))
         if dialog.exec():
             text = dialog.getText()
             for row in range(self.model.rowCount()):
@@ -543,7 +562,8 @@ class MyTableView(QTableView):
     def search(self):
         dialog = MyInputDialog(self)
         dialog.setWindowTitle(QCoreApplication.translate('EditorDialog', 'Input Dialog', None))
-        dialog.label1.setText(QCoreApplication.translate('EditorDialog', 'Please Input the content you want to search', None))
+        dialog.label1.setText(
+            QCoreApplication.translate('EditorDialog', 'Please Input the content you want to search', None))
         if dialog.exec():
             self.searched.clear()
             search_text = dialog.getText()
@@ -629,10 +649,16 @@ class MyTableView(QTableView):
         selected_rows = [index.row() for index in self.selectionModel().selectedRows()]
 
         if selected_rows:
-            action1 = contextMenu.addAction(QCoreApplication.translate('EditorDialog', "Translate Translation Source to Translated", None), self.translate)
-            action2 = contextMenu.addAction(QCoreApplication.translate('EditorDialog', "Copy Original to Current", None), self.copy_ori_to_cur)
-            action3 = contextMenu.addAction(QCoreApplication.translate('EditorDialog', "Copy Translated to Current", None), self.copy_translated_to_cur)
-            action4 = contextMenu.addAction(QCoreApplication.translate('EditorDialog', "Rollback Current to First Load", None), self.rollback_cur)
+            action1 = contextMenu.addAction(
+                QCoreApplication.translate('EditorDialog', "Translate Translation Source to Translated", None),
+                self.translate)
+            action2 = contextMenu.addAction(
+                QCoreApplication.translate('EditorDialog', "Copy Original to Current", None), self.copy_ori_to_cur)
+            action3 = contextMenu.addAction(
+                QCoreApplication.translate('EditorDialog', "Copy Translated to Current", None),
+                self.copy_translated_to_cur)
+            action4 = contextMenu.addAction(
+                QCoreApplication.translate('EditorDialog', "Rollback Current to First Load", None), self.rollback_cur)
             action5 = contextMenu.addAction(
                 QCoreApplication.translate('EditorDialog', "Export to xlsx file", None), self.export_to_xlsx)
 
@@ -640,7 +666,8 @@ class MyTableView(QTableView):
 
     def export_to_xlsx(self):
         fileName, _ = QFileDialog.getSaveFileName(self,
-                                                  QCoreApplication.translate('EditorDialog', "Export to xlsx file", None), "",
+                                                  QCoreApplication.translate('EditorDialog', "Export to xlsx file",
+                                                                             None), "",
                                                   "Xlsx Files (*.xlsx)")
         if fileName:
             if not fileName.endswith('.xlsx'):
@@ -713,7 +740,7 @@ class MyTableView(QTableView):
         self.editorForm.setDisabled(True)
         # trans_dic = TranslateToList(client, transList, target_language, source_language)
         global translated_thread, translated_dic
-        translated_thread = translateThread(0, client, transList, target_language, source_language,fmt=fmt)
+        translated_thread = translateThread(0, client, transList, target_language, source_language, fmt=fmt)
         translated_thread.start()
 
     def copy_translated_to_cur(self):
@@ -1014,12 +1041,16 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
                 self.selectTableView.model.sort(0, Qt.AscendingOrder)
 
     def select_directory(self):
-        directory = QFileDialog.getExistingDirectory(self,  QCoreApplication.translate('EditorDialog', 'select the directory you want to edit', None))
+        directory = QFileDialog.getExistingDirectory(self, QCoreApplication.translate('EditorDialog',
+                                                                                      'select the directory you want to edit',
+                                                                                      None))
         self.selectDirText.setText(directory)
 
     def select_file(self):
         files, filetype = QFileDialog.getOpenFileNames(self,
-                                                       QCoreApplication.translate('EditorDialog', 'select the file(s) you want to edit', None),
+                                                       QCoreApplication.translate('EditorDialog',
+                                                                                  'select the file(s) you want to edit',
+                                                                                  None),
                                                        '',
                                                        "Rpy Files (*.rpy);;All Files (*)")
         s = ''
@@ -1060,7 +1091,7 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
                                     continue
                                 i = os.path.join(path, file_name)
                                 i = i.replace('\\', '/')
-                                #log_print(i)
+                                # log_print(i)
                                 ret, unmatch_cnt, p = rpy_info_dic[i]
                                 units = len(ret)
                                 if units != 0:
@@ -1160,7 +1191,8 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
                         target = target.replace(original, replace)
 
                 line_index = int(self.tableView.model.item(row, 0).text())
-                translated = get_translated(trans_dic,target)
+                d = EncodeBrackets(target)
+                translated = get_translated(trans_dic, d)
                 if translated is None:
                     d = EncodeBrackets(target)
                     log_print(

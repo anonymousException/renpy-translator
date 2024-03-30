@@ -58,7 +58,8 @@ client_openai = None
 
 
 class translateThread(threading.Thread):
-    def __init__(self, threadID, p, lang_target, lang_source, is_open_multi_thread, is_gen_bak,local_glossary,is_translate_current,is_skip_translated):
+    def __init__(self, threadID, p, lang_target, lang_source, is_open_multi_thread, is_gen_bak, local_glossary,
+                 is_translate_current, is_skip_translated):
         threading.Thread.__init__(self)
         self.threadID = threadID
         self.p = p
@@ -75,7 +76,8 @@ class translateThread(threading.Thread):
             translate_lock.acquire()
         try:
             log_print(self.p + ' begin translate!')
-            TranslateFile(self.p, self.lang_target, self.lang_source, self.is_gen_bak,self.local_glossary,self.is_translate_current,self.is_skip_translated)
+            self.TranslateFile(self.p, self.lang_target, self.lang_source, self.is_gen_bak, self.local_glossary,
+                               self.is_translate_current, self.is_skip_translated)
         except Exception as e:
             msg = traceback.format_exc()
             log_print(msg)
@@ -84,13 +86,85 @@ class translateThread(threading.Thread):
         if not self.is_open_multi_thread:
             translate_lock.release()
 
+    def TranslateFile(self, p, lang_target, lang_source, is_gen_bak, local_glossary, is_translate_current,
+                      is_skip_translated):
+        client = init_client()
+        if client is None:
+            return
+        transList = []
+        trans_ori_dic = dict()
+        ret, unmatch_cnt, p = get_rpy_info(p)
+        if len(ret) == 0:
+            log_print(p + ' unable to get translated info')
+            return
+        for dic in ret:
+            original = dic['original']
+            current = dic['current']
+            if is_translate_current:
+                target = current
+            else:
+                target = original
+            if is_skip_translated and original != current:
+                continue
+            if local_glossary is not None and len(local_glossary) > 0:
+                for original, replace in local_glossary.items():
+                    target = target.replace(original, replace)
+            d = EncodeBrackets(target)
+            if isAllPunctuations(d['encoded'].strip('"')) == False:
+                transList.append(d['encoded'].strip('"'))
+                dic['target'] = target
+                dic['d'] = d
+                trans_ori_dic[d['encoded'].strip('"')] = dic
 
-def TranslateToList(cli, inList, lang_target, lang_source,fmt = 'text'):
+        if client.__class__.__name__ == 'Translate' and local_glossary is not None and len(local_glossary) > 0:
+            fmt = 'html'
+        else:
+            fmt = 'text'
+        trans_dic = TranslateToList(client, transList, lang_target, lang_source, fmt=fmt)
+        if len(transList) == 0:
+            log_print(p + ' translate skip!')
+            return
+        f = io.open(p, 'r', encoding='utf-8')
+        _read_lines = f.readlines()
+        f.close()
+        if is_gen_bak:
+            f = io.open(p + '.bak', 'w', encoding='utf-8')
+            f.writelines(_read_lines)
+            f.close()
+        for trans_item in transList:
+            ori_dic = trans_ori_dic[trans_item]
+            line = ori_dic['line'] - 1
+            ori_line = ori_dic['ori_line'] - 1
+            original = ori_dic['original']
+            current = ori_dic['current']
+            target = ori_dic['target']
+            d = ori_dic['d']
+            translated = get_translated(trans_dic, d)
+            if translated is None:
+                log_print(
+                    p + ' Error in line:' + str(line) + ' ' + '\n' + target + '\n' + d['encoded'].strip(
+                        '"') + ' Error')
+            else:
+                if target == current:
+                    _read_lines[line] = _read_lines[line].replace(target, translated)
+                else:
+                    _read_lines[line] = '    ' + _read_lines[ori_line].replace(target, translated).lstrip().lstrip(
+                        '#').lstrip()
+                    if _read_lines[line].startswith('    old '):
+                        _read_lines[line] = _read_lines[line].replace('    old ', '    new ', 1)
+
+        f = io.open(p, 'w', encoding='utf-8')
+        f.writelines(_read_lines)
+        f.close()
+        log_print(p + ' translate success!')
+
+
+def TranslateToList(cli, inList, lang_target, lang_source, fmt='text'):
     dic = dict()
     if cli.__class__.__name__ != 'Translate':
         texts = cli.translate(inList, target=lang_target, source=lang_source)
     else:
-        texts = cli.translate(inList, target=lang_target, source=lang_source,fmt = fmt)
+        texts = cli.translate(inList, target=lang_target, source=lang_source, fmt=fmt)
     if isinstance(texts, list):
         for i, e in enumerate(texts):
             if cli.__class__.__name__ == 'OpenAITranslate':
@@ -101,6 +175,7 @@ def TranslateToList(cli, inList, lang_target, lang_source,fmt = 'text'):
     else:
         raise Exception('translate error:' + str(texts))
     return dic
+
 
 def init_client():
     proxies = None
@@ -181,85 +256,10 @@ def init_client():
         client = Translate(fmt='text', proxies=proxies)
     return client
 
-def TranslateFile(p, lang_target, lang_source, is_gen_bak,local_glossary,is_translate_current,is_skip_translated):
-    client = init_client()
-    if client is None:
-        return
-    transList = []
-    ret, unmatch_cnt, p = get_rpy_info(p)
-    if len(ret) == 0:
-        log_print(p + ' unable to get translated info')
-        return
-    for dic in ret:
-        original = dic['original']
-        current = dic['current']
-        if is_translate_current:
-            target = current
-        else:
-            target = original
-        if is_skip_translated and original != current:
-            continue
-        if local_glossary is not None and len(local_glossary) > 0:
-            for original,replace in local_glossary.items():
-                target = target.replace(original, replace)
-        d = EncodeBrackets(target)
-        if (isAllPunctuations(d['encoded'].strip('"')) == False):
-            transList.append(d['encoded'].strip('"'))
-    if client.__class__.__name__ == 'Translate' and local_glossary is not None and len(local_glossary) > 0:
-        fmt = 'html'
-    else:
-        fmt = 'text'
-    trans_dic = TranslateToList(client, transList, lang_target, lang_source,fmt=fmt)
-    if len(transList) == 0:
-        log_print(p + ' translate skip!')
-        return
-    f = io.open(p, 'r', encoding='utf-8')
-    _read_lines = f.readlines()
-    f.close()
-    if is_gen_bak:
-        f = io.open(p + '.bak', 'w', encoding='utf-8')
-        f.writelines(_read_lines)
-        f.close()
-    for dic in ret:
-        line = dic['line'] - 1
-        ori_line = dic['ori_line'] - 1
-        original = dic['original']
-        current = dic['current']
-        if is_translate_current:
-            target = current
-        else:
-            target = original
-        if is_skip_translated and original != current:
-            continue
-        ori_target = target
-        if local_glossary is not None and len(local_glossary) > 0:
-            for original, replace in local_glossary.items():
-                target = target.replace(original, replace)
-        translated = get_translated(trans_dic,target)
-        if translated is None:
-            d = EncodeBrackets(target)
-            log_print(
-                p + ' Error in line:' + str(line) + ' ' + '\n' + target + '\n' + d['encoded'].strip(
-                    '"') + ' Error')
-        else:
-            target = ori_target
-            if is_translate_current:
-                _read_lines[line] =  _read_lines[line].replace(target, translated)
-            else:
-                _read_lines[line] = '    ' + _read_lines[ori_line].replace(target, translated).lstrip().lstrip('#').lstrip()
-                if _read_lines[line].startswith('    old '):
-                    _read_lines[line] = _read_lines[line].replace('    old ','    new ',1)
 
-    f = io.open(p, 'w', encoding='utf-8')
-    f.writelines(_read_lines)
-    f.close()
-    log_print(p + ' translate success!')
-
-
-def get_translated(trans_dic,target):
+def get_translated(trans_dic, d):
     try:
-        d = EncodeBrackets(target)
-        if (isAllPunctuations(d['encoded'].strip('"')) == False):
+        if isAllPunctuations(d['encoded'].strip('"')) == False:
             translated = trans_dic[d['encoded'].strip('"')]
             translated = translated.replace('\u200b', '')
             translated = translated.replace('\u200b1', '')
@@ -340,7 +340,7 @@ def get_rpy_info(p):
                 if (isAllPunctuations(d['encoded'].strip('"')) == False):
                     target_index = line_index - 1
                     if isVoice:
-                        target_index = target_index -1
+                        target_index = target_index - 1
                     if line_content.strip().startswith('new '):
                         d_o = EncodeBracketContent(_read_line[target_index].strip()[4:], '"', '"')
                     else:
@@ -349,7 +349,7 @@ def get_rpy_info(p):
                     if ('oriList' in d_o.keys() and len(d_o['oriList']) > 0):
                         original = d_o['oriList'][i].strip('"')
                     is_match = True
-                    if original != e.strip('"') and e.strip('"')!='':
+                    if original != e.strip('"') and e.strip('"') != '':
                         unmatch_cnt = unmatch_cnt + 1
                         is_match = False
                     dic = dict()
