@@ -412,9 +412,10 @@ you may meet errors like this:
 
 ```python
 2024-01-30 14:55:19 Error in line:1320 D:\Download\Nova-Pasta\SunshineLoveCH2-1.01-pc\game\tl\Portugues/10_week10_00.rpy
-"It’s [s_name]. And [y_name]."
-It’s [0] . And [1] . Error
-"É [0] . E 1] ."
+It’s [s_name]. And [y_name].
+It’s [0] . And [1] .
+É [0] . E 1] .
+Error
 ```
 
 It's depend on the translation result. In order to skip translate special symbols like '[]' '{}' '<>' , this tool will replace the contents in special symbols in order nums.
@@ -436,6 +437,8 @@ You can found that one '[' is missing , so this tool can't restore the original 
 You may need to modify these certain lines manually.
 
 Fortunately this situation occurs rarely , you need not to spend too much time to modify these certain lines.
+
+Currently Google is the best choice to translate the contents which contain special symbols , you can re-translate these contents with Google
 
 ### Anti-virus software report viruses
 
