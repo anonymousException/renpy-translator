@@ -1200,9 +1200,11 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
                 translated = get_translated(trans_dic, d)
                 if translated is None:
                     d = EncodeBrackets(target)
-                    log_print(
-                        'Error in line:' + str(line_index) + ' ' + '\n' + target + '\n' + d['encoded'].strip(
-                            '"') + ' Error')
+                    encoded = d['encoded'].strip('"')
+                    translated = ''
+                    if encoded in trans_dic:
+                        translated = trans_dic[encoded]
+                    log_print(f'Error in line:{str(line_index)} {target}\n{encoded}\n{translated}\nError')
                     self.tableView.model.item(row, 4).setText(target)
                     self.tableView.model.item(row, 4).setToolTip(target)
                 else:

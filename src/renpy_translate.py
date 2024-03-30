@@ -141,9 +141,11 @@ class translateThread(threading.Thread):
             d = ori_dic['d']
             translated = get_translated(trans_dic, d)
             if translated is None:
-                log_print(
-                    p + ' Error in line:' + str(line) + ' ' + '\n' + target + '\n' + d['encoded'].strip(
-                        '"') + ' Error')
+                translated = ''
+                encoded = d['encoded'].strip('"')
+                if encoded in trans_dic:
+                    translated = trans_dic[encoded]
+                log_print(f'Error in line:{str(line)} {target}\n{encoded}\n{translated}\nError')
             else:
                 if target == current:
                     if _read_lines[line].startswith('    new '):
