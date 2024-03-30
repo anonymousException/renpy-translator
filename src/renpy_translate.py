@@ -145,7 +145,7 @@ class translateThread(threading.Thread):
                 encoded = d['encoded'].strip('"')
                 if encoded in trans_dic:
                     translated = trans_dic[encoded]
-                log_print(f'Error in line:{str(line)} {target}\n{encoded}\n{translated}\nError')
+                log_print(f'{p} Error in line:{str(line)}\n{target}\n{encoded}\n{translated}\nError')
             else:
                 if target == current:
                     if _read_lines[line].startswith('    new '):

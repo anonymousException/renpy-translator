@@ -413,7 +413,7 @@ or
 你可能会遇到像这样的错误 :
 
 ```python
-2024-01-30 14:55:19 Error in line:1320 D:\Download\Nova-Pasta\SunshineLoveCH2-1.01-pc\game\tl\Portugues/10_week10_00.rpy
+2024-01-30 14:55:19 D:\Download\Nova-Pasta\SunshineLoveCH2-1.01-pc\game\tl\Portugues/10_week10_00.rpy Error in line:1320
 It’s [s_name]. And [y_name].
 It’s [0] . And [1] .
 É [0] . E 1] .
