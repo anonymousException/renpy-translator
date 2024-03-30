@@ -146,7 +146,12 @@ class translateThread(threading.Thread):
                         '"') + ' Error')
             else:
                 if target == current:
-                    _read_lines[line] = _read_lines[line].replace(target, translated)
+                    if _read_lines[line].startswith('    new '):
+                        header = _read_lines[line][:7]
+                        content = _read_lines[line][7:]
+                        _read_lines[line] = header + content.replace(target, translated, 1)
+                    else:
+                        _read_lines[line] = _read_lines[line].replace(target, translated, 1)
                 else:
                     _read_lines[line] = '    ' + _read_lines[ori_line].replace(target, translated).lstrip().lstrip(
                         '#').lstrip()

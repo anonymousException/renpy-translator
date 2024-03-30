@@ -1140,7 +1140,12 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
                     current = self.tableView.model.item(row, 3).text()
                     if ori_current != current:
                         if ori_current != '':
-                            _read_lines[line] = _read_lines[line].replace(ori_current, current, 1)
+                            if _read_lines[line].startswith('    new '):
+                                header = _read_lines[line][:7]
+                                content = _read_lines[line][7:]
+                                _read_lines[line] = header + content.replace(ori_current, current, 1)
+                            else:
+                                _read_lines[line] = _read_lines[line].replace(ori_current, current, 1)
                         else:
                             if _read_lines[ori_line].startswith('    old '):
                                 _read_lines[line] = '    new ' + '"' + current + '"' + '\n'
