@@ -58,6 +58,12 @@ class MyEngineForm(QDialog, Ui_EngineDialog):
         self.engineComboBox.currentIndexChanged.connect(self.on_combobox_change)
         self.detailLabel.mousePressEvent = self.open_url
         self.detailLabel.setCursor(QtCore.Qt.CursorShape.PointingHandCursor)
+        self.customButton.clicked.connect(self.on_custom_button_clicked)
+
+    def on_custom_button_clicked(self):
+        if os.path.isfile('openai_model.txt'):
+            os.system('notepad ' + 'openai_model.txt')
+            self.init_openai_model_combobox()
 
     def init_edit_status(self):
         customEngineDic = dict()
@@ -89,10 +95,14 @@ class MyEngineForm(QDialog, Ui_EngineDialog):
             log_print(current_text + 'not in dic error!')
 
     def init_openai_model_combobox(self):
-        if self.modelComboBox.count() == 0:
-            l = ["gpt-3.5-turbo", "gpt-4"]
-            for i in l:
-                self.modelComboBox.addItem(i)
+        self.modelComboBox.clear()
+        if os.path.isfile('openai_model.txt'):
+            f = io.open('openai_model.txt', 'r',encoding='utf-8')
+            models = f.readlines()
+            f.close()
+            for i in models:
+                self.modelComboBox.addItem(i.rstrip('\n'))
+
 
     def open_url(self, event):
         current_text = self.engineComboBox.currentText()

@@ -42,168 +42,172 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../custom_engine.ui" line="42"/>
-        <location filename="../custom_engine.ui" line="316"/>
-        <location filename="../custom_engine.ui" line="342"/>
+        <location filename="../custom_engine.ui" line="45"/>
+        <location filename="../custom_engine.ui" line="328"/>
+        <location filename="../custom_engine.ui" line="354"/>
         <source>...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../custom_engine.ui" line="55"/>
-        <location filename="../custom_engine.ui" line="109"/>
-        <location filename="../custom_engine.ui" line="274"/>
+        <location filename="../custom_engine.ui" line="58"/>
+        <location filename="../custom_engine.ui" line="112"/>
+        <location filename="../custom_engine.ui" line="283"/>
         <source>rename</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../custom_engine.ui" line="68"/>
+        <location filename="../custom_engine.ui" line="71"/>
         <source>relative to Active Translation Engine</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../custom_engine.ui" line="82"/>
+        <location filename="../custom_engine.ui" line="85"/>
         <source>add a new custom engine</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../custom_engine.ui" line="96"/>
+        <location filename="../custom_engine.ui" line="99"/>
         <source>Rename Script</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../custom_engine.ui" line="122"/>
+        <location filename="../custom_engine.ui" line="125"/>
+        <location filename="../custom_engine.ui" line="128"/>
         <source>rename the  source name in  &apos;supported_language&apos; folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../custom_engine.ui" line="135"/>
+        <location filename="../custom_engine.ui" line="141"/>
         <source>Save the key and secret in the upper right corner</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../custom_engine.ui" line="151"/>
+        <location filename="../custom_engine.ui" line="157"/>
         <source>input or choose or drag the python script which supports translation api.  The script will be copied to &apos;custom_engine&apos; folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../custom_engine.ui" line="164"/>
+        <location filename="../custom_engine.ui" line="170"/>
         <source>Rename Source</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../custom_engine.ui" line="177"/>
+        <location filename="../custom_engine.ui" line="183"/>
         <source>Rename Target</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../custom_engine.ui" line="190"/>
+        <location filename="../custom_engine.ui" line="196"/>
         <source>Key Support(API_KEY)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../custom_engine.ui" line="203"/>
+        <location filename="../custom_engine.ui" line="209"/>
+        <location filename="../custom_engine.ui" line="212"/>
         <source>Queue Support (Can the api support list input in one request such as:[&apos;Hello&apos;,&apos;World&apos;])</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../custom_engine.ui" line="216"/>
-        <location filename="../custom_engine.ui" line="466"/>
+        <location filename="../custom_engine.ui" line="225"/>
+        <location filename="../custom_engine.ui" line="487"/>
         <source>target</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../custom_engine.ui" line="235"/>
+        <location filename="../custom_engine.ui" line="244"/>
         <source>input or choose or drag the source language file which applies language map.  The file will be copied to &apos;supported_language&apos; folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../custom_engine.ui" line="248"/>
+        <location filename="../custom_engine.ui" line="257"/>
         <source>relative to detail information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../custom_engine.ui" line="261"/>
+        <location filename="../custom_engine.ui" line="270"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../custom_engine.ui" line="290"/>
+        <location filename="../custom_engine.ui" line="299"/>
         <source>input or choose or drag the target language file which applies language map.  The file will be copied to &apos;supported_language&apos; folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../custom_engine.ui" line="303"/>
+        <location filename="../custom_engine.ui" line="312"/>
         <source>custom engine list</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../custom_engine.ui" line="329"/>
+        <location filename="../custom_engine.ui" line="341"/>
         <source>Secret Support(API_SECRET)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../custom_engine.ui" line="355"/>
+        <location filename="../custom_engine.ui" line="367"/>
+        <location filename="../custom_engine.ui" line="373"/>
         <source>rename the  target name in  &apos;supported_language&apos; folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../custom_engine.ui" line="368"/>
+        <location filename="../custom_engine.ui" line="386"/>
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../custom_engine.ui" line="381"/>
+        <location filename="../custom_engine.ui" line="399"/>
         <source>url</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../custom_engine.ui" line="394"/>
+        <location filename="../custom_engine.ui" line="412"/>
+        <location filename="../custom_engine.ui" line="415"/>
         <source>rename the  script name in  &apos;custom engine&apos; folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../custom_engine.ui" line="407"/>
+        <location filename="../custom_engine.ui" line="428"/>
         <source>script</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../custom_engine.ui" line="423"/>
-        <location filename="../custom_engine.ui" line="473"/>
+        <location filename="../custom_engine.ui" line="444"/>
+        <location filename="../custom_engine.ui" line="494"/>
         <source>source</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../custom_engine.ui" line="439"/>
+        <location filename="../custom_engine.ui" line="460"/>
         <source>name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../custom_engine.ui" line="493"/>
+        <location filename="../custom_engine.ui" line="514"/>
         <source>API_KEY:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../custom_engine.ui" line="500"/>
+        <location filename="../custom_engine.ui" line="521"/>
         <source>APP_SECRET:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../custom_engine.ui" line="519"/>
+        <location filename="../custom_engine.ui" line="585"/>
         <source>Active Translation Engine:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../custom_engine.ui" line="531"/>
+        <location filename="../custom_engine.ui" line="563"/>
         <source>detail information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../custom_engine.ui" line="548"/>
+        <location filename="../custom_engine.ui" line="595"/>
         <source>untranslated text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../custom_engine.ui" line="568"/>
+        <location filename="../custom_engine.ui" line="551"/>
         <source>Test</source>
         <translation type="unfinished"></translation>
     </message>
@@ -211,152 +215,152 @@
 <context>
     <name>EditorDialog</name>
     <message>
-        <location filename="../editor_form.py" line="118"/>
-        <location filename="../editor_form.py" line="230"/>
+        <location filename="../editor_form.py" line="120"/>
+        <location filename="../editor_form.py" line="237"/>
         <source>Path</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="122"/>
-        <location filename="../editor_form.py" line="230"/>
+        <location filename="../editor_form.py" line="124"/>
+        <location filename="../editor_form.py" line="238"/>
         <source>Units</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="126"/>
-        <location filename="../editor_form.py" line="180"/>
-        <location filename="../editor_form.py" line="230"/>
-        <location filename="../editor_form.py" line="261"/>
-        <location filename="../editor_form.py" line="503"/>
-        <location filename="../editor.ui" line="457"/>
+        <location filename="../editor_form.py" line="128"/>
+        <location filename="../editor_form.py" line="187"/>
+        <location filename="../editor_form.py" line="239"/>
+        <location filename="../editor_form.py" line="274"/>
+        <location filename="../editor_form.py" line="515"/>
+        <location filename="../editor.ui" line="454"/>
         <source>Translated</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="180"/>
-        <location filename="../editor_form.py" line="261"/>
-        <location filename="../editor_form.py" line="503"/>
+        <location filename="../editor_form.py" line="181"/>
+        <location filename="../editor_form.py" line="270"/>
+        <location filename="../editor_form.py" line="511"/>
         <source>line</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="180"/>
-        <location filename="../editor_form.py" line="261"/>
-        <location filename="../editor_form.py" line="503"/>
+        <location filename="../editor_form.py" line="182"/>
+        <location filename="../editor_form.py" line="271"/>
+        <location filename="../editor_form.py" line="512"/>
         <source>refer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="180"/>
-        <location filename="../editor_form.py" line="261"/>
-        <location filename="../editor_form.py" line="338"/>
-        <location filename="../editor_form.py" line="503"/>
-        <location filename="../editor_form.py" line="1058"/>
-        <location filename="../editor.ui" line="337"/>
-        <location filename="../editor.ui" line="416"/>
+        <location filename="../editor_form.py" line="184"/>
+        <location filename="../editor_form.py" line="272"/>
+        <location filename="../editor_form.py" line="352"/>
+        <location filename="../editor_form.py" line="513"/>
+        <location filename="../editor_form.py" line="1084"/>
+        <location filename="../editor.ui" line="334"/>
+        <location filename="../editor.ui" line="413"/>
         <source>Original</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="180"/>
-        <location filename="../editor_form.py" line="261"/>
-        <location filename="../editor_form.py" line="339"/>
-        <location filename="../editor_form.py" line="503"/>
-        <location filename="../editor_form.py" line="1059"/>
-        <location filename="../editor.ui" line="258"/>
-        <location filename="../editor.ui" line="435"/>
+        <location filename="../editor_form.py" line="185"/>
+        <location filename="../editor_form.py" line="273"/>
+        <location filename="../editor_form.py" line="353"/>
+        <location filename="../editor_form.py" line="514"/>
+        <location filename="../editor_form.py" line="1085"/>
+        <location filename="../editor.ui" line="255"/>
+        <location filename="../editor.ui" line="432"/>
         <source>Current</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="298"/>
+        <location filename="../editor_form.py" line="311"/>
         <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="362"/>
+        <location filename="../editor_form.py" line="378"/>
         <source>Do you want to make advanced settings (the default setting is to export all files in the directory)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="448"/>
+        <location filename="../editor_form.py" line="456"/>
         <source>Case Sensitive</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="451"/>
+        <location filename="../editor_form.py" line="459"/>
         <source>Search refer column</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="454"/>
+        <location filename="../editor_form.py" line="462"/>
         <source>Search Original column</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="457"/>
+        <location filename="../editor_form.py" line="465"/>
         <source>Search Current column</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="460"/>
+        <location filename="../editor_form.py" line="468"/>
         <source>Search Translated column</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="540"/>
-        <location filename="../editor_form.py" line="551"/>
+        <location filename="../editor_form.py" line="552"/>
+        <location filename="../editor_form.py" line="564"/>
         <source>Input Dialog</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="541"/>
+        <location filename="../editor_form.py" line="554"/>
         <source>Please Input the line number you want to jump</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="552"/>
+        <location filename="../editor_form.py" line="566"/>
         <source>Please Input the content you want to search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="638"/>
+        <location filename="../editor_form.py" line="653"/>
         <source>Translate Translation Source to Translated</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="639"/>
+        <location filename="../editor_form.py" line="656"/>
         <source>Copy Original to Current</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="640"/>
+        <location filename="../editor_form.py" line="658"/>
         <source>Copy Translated to Current</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="641"/>
+        <location filename="../editor_form.py" line="661"/>
         <source>Rollback Current to First Load</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1022"/>
+        <location filename="../editor_form.py" line="1046"/>
         <source>select the directory you want to edit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1027"/>
+        <location filename="../editor_form.py" line="1053"/>
         <source>select the file(s) you want to edit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="170"/>
-        <location filename="../editor_form.py" line="306"/>
-        <location filename="../editor_form.py" line="325"/>
-        <location filename="../editor_form.py" line="354"/>
-        <location filename="../editor_form.py" line="361"/>
-        <location filename="../editor_form.py" line="643"/>
-        <location filename="../editor_form.py" line="649"/>
+        <location filename="../editor_form.py" line="172"/>
+        <location filename="../editor_form.py" line="320"/>
+        <location filename="../editor_form.py" line="339"/>
+        <location filename="../editor_form.py" line="368"/>
+        <location filename="../editor_form.py" line="375"/>
+        <location filename="../editor_form.py" line="663"/>
+        <location filename="../editor_form.py" line="670"/>
         <source>Export to xlsx file</source>
         <translation type="unfinished"></translation>
     </message>
@@ -366,103 +370,103 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../editor.ui" line="44"/>
+        <location filename="../editor.ui" line="41"/>
         <source>Change Translation Engine</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../editor.ui" line="57"/>
+        <location filename="../editor.ui" line="54"/>
         <source>input or choose or drag the directory you want to edit here.  Example:F:\GameName\game\tl\language</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../editor.ui" line="80"/>
+        <location filename="../editor.ui" line="77"/>
         <source>directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../editor.ui" line="103"/>
-        <location filename="../editor.ui" line="174"/>
+        <location filename="../editor.ui" line="100"/>
+        <location filename="../editor.ui" line="171"/>
         <source>...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../editor.ui" line="119"/>
+        <location filename="../editor.ui" line="116"/>
         <source>input or choose or drag the file(s) you want to edit here. Examaple : F:\GameName\game\tl\language\script.rpy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../editor.ui" line="132"/>
+        <location filename="../editor.ui" line="129"/>
         <source>file(s)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../editor.ui" line="148"/>
+        <location filename="../editor.ui" line="145"/>
         <source>Show .rpy File Only</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../editor.ui" line="161"/>
+        <location filename="../editor.ui" line="158"/>
         <source>source</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../editor.ui" line="187"/>
+        <location filename="../editor.ui" line="184"/>
         <source>target</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../editor.ui" line="200"/>
+        <location filename="../editor.ui" line="197"/>
         <source>Add to file list</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../editor.ui" line="213"/>
+        <location filename="../editor.ui" line="210"/>
         <source>Show Log Form</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../editor.ui" line="226"/>
+        <location filename="../editor.ui" line="223"/>
         <source>Local Glossary (replace certain words with preset content)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../editor.ui" line="280"/>
+        <location filename="../editor.ui" line="277"/>
         <source>Translation Source</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../editor.ui" line="299"/>
+        <location filename="../editor.ui" line="296"/>
         <source>Save to file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../editor.ui" line="318"/>
+        <location filename="../editor.ui" line="315"/>
         <source>Show Untranslated Only</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../editor.ui" line="350"/>
+        <location filename="../editor.ui" line="347"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Multi-Select is supportable (Hold down the &apos;Ctrl&apos; to Active) &lt;/p&gt;&lt;p&gt;Besides you can use &apos;Shift&apos; to select a continuous line&lt;/p&gt;&lt;p&gt;Select the line(s) you want to operate , right click to show menu&lt;/p&gt;&lt;p&gt;&apos;Ctrl + A&apos; to select all the lines&lt;br/&gt;&apos;Ctrl + F&apos; to search the content&lt;br/&gt;&apos;Ctrl + G&apos; to jump to line&lt;/p&gt;&lt;p&gt;As for save , only the contents in column &apos;Current&apos; will be replaced to the file&lt;/p&gt;&lt;p&gt;At last , you can modify the &apos;Current&apos; and &apos;Translated&apos; column through  Double-Click&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../editor.ui" line="375"/>
+        <location filename="../editor.ui" line="372"/>
         <source>Show Searched Only</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../editor.ui" line="394"/>
+        <location filename="../editor.ui" line="391"/>
         <source>Show Log After Search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../editor.ui" line="473"/>
+        <location filename="../editor.ui" line="470"/>
         <source>Copy selected to clipboard   Copy Source</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../editor.ui" line="486"/>
+        <location filename="../editor.ui" line="483"/>
         <source>Auto copy to Current after translation</source>
         <translation type="unfinished"></translation>
     </message>
@@ -480,64 +484,69 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="49"/>
+        <location filename="../engine.ui" line="52"/>
         <source>API_KEY:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="72"/>
+        <location filename="../engine.ui" line="78"/>
         <source>APP_SECRET:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="98"/>
+        <location filename="../engine.ui" line="107"/>
         <source>Confirm</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="116"/>
+        <location filename="../engine.ui" line="125"/>
         <source>detail information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="129"/>
-        <location filename="../engine.ui" line="168"/>
+        <location filename="../engine.ui" line="144"/>
+        <location filename="../engine.ui" line="192"/>
         <source>3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="142"/>
+        <location filename="../engine.ui" line="157"/>
         <source>RPM (requests per minute):</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="155"/>
+        <location filename="../engine.ui" line="173"/>
         <source>RPS (requests per second):</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="181"/>
+        <location filename="../engine.ui" line="205"/>
         <source>TPM (requests token limits):</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="194"/>
+        <location filename="../engine.ui" line="221"/>
         <source>40000</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="217"/>
+        <location filename="../engine.ui" line="244"/>
         <source>model:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="230"/>
+        <location filename="../engine.ui" line="263"/>
         <source>base_url:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="246"/>
+        <location filename="../engine.ui" line="282"/>
         <source>http://my.test.server.example.com:8083</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../engine.ui" line="295"/>
+        <source>custom model</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -567,6 +576,86 @@
     <message>
         <location filename="../export_xlsx_setting.ui" line="142"/>
         <source>Confirm</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ExtractionDialog</name>
+    <message>
+        <location filename="../extraction.ui" line="14"/>
+        <source>Extraction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../extraction.ui" line="44"/>
+        <source>input or choose or drag the file(s) you want to extract here.    Examaple : F:\GameName\game\script.rpy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../extraction.ui" line="57"/>
+        <source>file(s)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../extraction.ui" line="73"/>
+        <location filename="../extraction.ui" line="104"/>
+        <location filename="../extraction.ui" line="220"/>
+        <source>...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../extraction.ui" line="91"/>
+        <source>extraction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../extraction.ui" line="117"/>
+        <source>tl directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../extraction.ui" line="133"/>
+        <source>input or choose or drag the directory you want to translate here.  Example:F:\GameName\game\tl\language</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../extraction.ui" line="146"/>
+        <source>extract</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../extraction.ui" line="159"/>
+        <source>tl name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../extraction.ui" line="175"/>
+        <source>only force needs in file(s)/directory(s) mode , for tl directory , fill nothing is acceptable. input the directory name under game\tl  Example: japanese or chinese</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../extraction.ui" line="188"/>
+        <source>directory(s)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../extraction.ui" line="207"/>
+        <source>input or choose or drag the directory(s) you want to extract here.    Examaple : F:\GameName\game\character</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../extraction.ui" line="233"/>
+        <source>Enable filter for extract</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../extraction.ui" line="246"/>
+        <source>filter length less than</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../extraction.ui" line="272"/>
+        <source>Generate empty strings instead of original</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -628,12 +717,12 @@
 <context>
     <name>GameUnpackerDialog</name>
     <message>
-        <location filename="../game_unpacker_form.py" line="37"/>
+        <location filename="../game_unpacker_form.py" line="38"/>
         <source>select the game file you want to unpack</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../game_unpacker_form.py" line="77"/>
+        <location filename="../game_unpacker_form.py" line="82"/>
         <source>Clean Complete</source>
         <translation type="unfinished"></translation>
     </message>
@@ -692,7 +781,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../local_glossary_form.py" line="213"/>
+        <location filename="../local_glossary_form.py" line="214"/>
         <source>select the file you want to import</source>
         <translation type="unfinished"></translation>
     </message>
@@ -742,7 +831,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../local_glossary.ui" line="249"/>
+        <location filename="../local_glossary.ui" line="255"/>
         <source>For more advanced editing functions, it is recommended to use professional software such as Excel.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -750,46 +839,34 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../main.py" line="399"/>
-        <location filename="../main.py" line="441"/>
+        <location filename="../main.py" line="384"/>
         <source>extracting...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="434"/>
-        <location filename="../main.py" line="547"/>
+        <location filename="../main.py" line="376"/>
+        <location filename="../main.py" line="464"/>
         <source>translating...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="437"/>
-        <location filename="../ui.ui" line="49"/>
+        <location filename="../main.py" line="379"/>
+        <location filename="../ui.ui" line="100"/>
         <source>translate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="444"/>
-        <location filename="../ui.ui" line="472"/>
+        <location filename="../main.py" line="388"/>
         <source>extract</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="475"/>
-        <source>select the file(s) you want to extract</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../main.py" line="486"/>
-        <source>select the directory you want to extract</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../main.py" line="493"/>
+        <location filename="../main.py" line="410"/>
         <source>select the file(s) you want to translate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="504"/>
+        <location filename="../main.py" line="421"/>
         <source>select the directory you want to translate</source>
         <translation type="unfinished"></translation>
     </message>
@@ -799,217 +876,168 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="62"/>
-        <location filename="../ui.ui" line="120"/>
-        <location filename="../ui.ui" line="399"/>
-        <location filename="../ui.ui" line="430"/>
-        <location filename="../ui.ui" line="546"/>
+        <location filename="../ui.ui" line="113"/>
+        <location filename="../ui.ui" line="174"/>
         <source>...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="75"/>
+        <location filename="../ui.ui" line="126"/>
         <source>directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="88"/>
-        <location filename="../ui.ui" line="383"/>
+        <location filename="../ui.ui" line="142"/>
         <source>file(s)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="107"/>
+        <location filename="../ui.ui" line="161"/>
         <source>input or choose or drag the file(s) you want to translate here. Examaple : F:\GameName\game\tl\language\script.rpy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="133"/>
+        <location filename="../ui.ui" line="187"/>
         <source>input or choose or drag the directory you want translate here.  Example:F:\GameName\game\tl\language</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="151"/>
+        <location filename="../ui.ui" line="205"/>
         <source>translation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="164"/>
+        <location filename="../ui.ui" line="218"/>
         <source>target</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="177"/>
+        <location filename="../ui.ui" line="234"/>
         <source>source</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="226"/>
+        <location filename="../ui.ui" line="289"/>
         <source>Generate Backup Files (xxx.rpy.bak)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="239"/>
+        <location filename="../ui.ui" line="302"/>
         <source>Local Glossary (replace certain words with preset content)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="258"/>
+        <location filename="../ui.ui" line="321"/>
         <source>Translation Source</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="277"/>
+        <location filename="../ui.ui" line="340"/>
         <source>Original</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="296"/>
+        <location filename="../ui.ui" line="359"/>
         <source>Current</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="312"/>
+        <location filename="../ui.ui" line="375"/>
         <source>Skip Translated (Original != Current)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="670"/>
+        <location filename="../ui.ui" line="431"/>
         <source>advanced options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="789"/>
+        <location filename="../ui.ui" line="457"/>
+        <source>theme</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="576"/>
         <source>unpack game package</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="210"/>
+        <location filename="../ui.ui" line="676"/>
+        <source>extract translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="270"/>
         <source>Multi-threaded translation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="27"/>
-        <source>Version 1.9.9</source>
+        <location filename="../ui.ui" line="78"/>
+        <source>Version 2.0.0</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="328"/>
+        <location filename="../ui.ui" line="391"/>
         <source>(If disable, translation will continue after the previous file has been translated)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="345"/>
+        <location filename="../ui.ui" line="46"/>
         <source>©2024 Last moment,All rights reserved.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="784"/>
+        <location filename="../ui.ui" line="571"/>
         <source>replace font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="370"/>
-        <source>input or choose or drag the file(s) you want to extract here.    Examaple : F:\GameName\game\script.rpy</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui.ui" line="417"/>
-        <source>extraction</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui.ui" line="443"/>
-        <source>tl directory</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui.ui" line="459"/>
-        <source>input or choose or drag the directory you want to translate here.  Example:F:\GameName\game\tl\language</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui.ui" line="485"/>
-        <source>tl name</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui.ui" line="501"/>
-        <source>only force needs in file(s)/directory(s) mode , for tl directory , fill nothing is acceptable. input the directory name under game\tl  Example: japanese or chinese</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui.ui" line="514"/>
-        <source>directory(s)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui.ui" line="533"/>
-        <source>input or choose or drag the directory(s) you want to extract here.    Examaple : F:\GameName\game\character</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui.ui" line="559"/>
-        <source>Enable filter for extract</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui.ui" line="572"/>
-        <source>filter length less than</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui.ui" line="595"/>
-        <source>Generate empty strings instead of original</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui.ui" line="615"/>
+        <location filename="../ui.ui" line="33"/>
         <source>clear log</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="651"/>
+        <location filename="../ui.ui" line="412"/>
         <source>about</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="657"/>
+        <location filename="../ui.ui" line="418"/>
         <source>proxy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="663"/>
+        <location filename="../ui.ui" line="424"/>
         <source>translation engine</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="678"/>
+        <location filename="../ui.ui" line="440"/>
         <source>language</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="701"/>
+        <location filename="../ui.ui" line="488"/>
         <source>copyright</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="706"/>
+        <location filename="../ui.ui" line="493"/>
         <source>proxy settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="711"/>
+        <location filename="../ui.ui" line="498"/>
         <source>engine settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="716"/>
+        <location filename="../ui.ui" line="503"/>
         <source>custom engine</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="721"/>
+        <location filename="../ui.ui" line="508"/>
         <source>edit from rpy</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1037,7 +1065,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../proxy.ui" line="65"/>
+        <location filename="../proxy.ui" line="68"/>
         <source>confirm</source>
         <translation type="unfinished"></translation>
     </message>
