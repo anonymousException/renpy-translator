@@ -75,7 +75,7 @@
        </size>
       </property>
       <property name="text">
-       <string>Version 2.0.0</string>
+       <string>Version 2.0.1</string>
       </property>
      </widget>
     </item>
@@ -431,6 +431,7 @@
      <string>advanced options</string>
     </property>
     <addaction name="actionedit"/>
+    <addaction name="actionruntime_extraction"/>
     <addaction name="actionextract_translation"/>
     <addaction name="actionreplace_font"/>
     <addaction name="actionunpack_game"/>
@@ -674,6 +675,11 @@
   <action name="actionextract_translation">
    <property name="text">
     <string>extract translation</string>
+   </property>
+  </action>
+  <action name="actionruntime_extraction">
+   <property name="text">
+    <string>runtime extraction</string>
    </property>
   </action>
  </widget>

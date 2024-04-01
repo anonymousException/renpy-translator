@@ -1,3 +1,4 @@
+import re
 import string
 
 
@@ -209,3 +210,11 @@ def isAllPunctuations(s):
         else:
             return False
     return True
+
+
+def encode_say_string(s):
+    s = s.replace("\\", "\\\\")
+    s = s.replace("\n", "\\n")
+    s = s.replace("\"", "\\\"")
+    s = re.sub(r'(?<= ) ', '\\ ', s)
+    return s

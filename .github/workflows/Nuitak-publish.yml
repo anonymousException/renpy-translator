@@ -43,6 +43,7 @@ jobs:
     - run: copy src\hook_unrpa.rpy dist\windows\hook_unrpa.rpy
     - run: copy src\expand.exe dist\windows\expand.exe
     - run: copy src\openai_model.txt dist\windows\openai_model.txt
+    - run: copy src\hook_extract.rpy dist\windows\hook_extract.rpy
     - run: copy src\cacert.pem dist\windows\cacert.pem
     - run: copy src\main.ico dist\windows\main.ico
 

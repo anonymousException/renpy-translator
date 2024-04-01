@@ -660,6 +660,49 @@
     </message>
 </context>
 <context>
+    <name>ExtractionRuntimeDialog</name>
+    <message>
+        <location filename="../extraction_runtime.ui" line="14"/>
+        <source>Runtime Extraction</source>
+        <translation>رن ٹائم نکالنا</translation>
+    </message>
+    <message>
+        <location filename="../extraction_runtime.ui" line="26"/>
+        <source>tl name</source>
+        <translation>tl نام</translation>
+    </message>
+    <message>
+        <location filename="../extraction_runtime.ui" line="42"/>
+        <source>Input the directory name under game\tl  Example: &apos;japanese&apos; or &apos;chinese&apos;.If the folder already exists, the content will be appended to the original file</source>
+        <translation>گیم کے تحت ڈائرکٹری کا نام داخل کریں\tl مثال: &apos;جاپانی&apos; یا &apos;چینی&apos;اگر فولڈر پہلے سے موجود ہے تو، مواد کو اصل فائل میں شامل کر دیا جائے گا۔</translation>
+    </message>
+    <message>
+        <location filename="../extraction_runtime.ui" line="55"/>
+        <source>Generate empty strings instead of original</source>
+        <translation>اصلی کے بجائے خالی ڈور تیار کریں۔</translation>
+    </message>
+    <message>
+        <location filename="../extraction_runtime.ui" line="68"/>
+        <source>file</source>
+        <translation>فائل</translation>
+    </message>
+    <message>
+        <location filename="../extraction_runtime.ui" line="84"/>
+        <source>...</source>
+        <translation>...</translation>
+    </message>
+    <message>
+        <location filename="../extraction_runtime.ui" line="100"/>
+        <source>input or choose or drag the game you want to extract it&apos;s dialogues.Example:F:/DemoGame.exe</source>
+        <translation>جس گیم کو آپ ڈائیلاگز نکالنا چاہتے ہیں اسے داخل کریں یا منتخب کریں یا گھسیٹیں۔ مثال:F:/DemoGame.exe</translation>
+    </message>
+    <message>
+        <location filename="../extraction_runtime.ui" line="113"/>
+        <source>extract</source>
+        <translation>نکالنا</translation>
+    </message>
+</context>
+<context>
     <name>FontReplaceDialog</name>
     <message>
         <location filename="../font_replace_form.py" line="23"/>
@@ -859,24 +902,24 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../main.py" line="384"/>
+        <location filename="../main.py" line="393"/>
         <source>extracting...</source>
         <translation>نکال رہا ہے...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="376"/>
-        <location filename="../main.py" line="464"/>
+        <location filename="../main.py" line="385"/>
+        <location filename="../main.py" line="473"/>
         <source>translating...</source>
         <translation>ترجمہ...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="379"/>
+        <location filename="../main.py" line="388"/>
         <location filename="../ui.ui" line="100"/>
         <source>translate</source>
         <translation>ترجمہ</translation>
     </message>
     <message>
-        <location filename="../main.py" line="388"/>
+        <location filename="../main.py" line="397"/>
         <source>extract</source>
         <translation>نکالنا</translation>
     </message>
@@ -889,12 +932,12 @@
         <translation type="vanished">وہ ڈائریکٹری منتخب کریں جسے آپ نکالنا چاہتے ہیں۔</translation>
     </message>
     <message>
-        <location filename="../main.py" line="410"/>
+        <location filename="../main.py" line="419"/>
         <source>select the file(s) you want to translate</source>
         <translation>وہ فائل (فائلیں) منتخب کریں جس کا آپ ترجمہ کرنا چاہتے ہیں۔</translation>
     </message>
     <message>
-        <location filename="../main.py" line="421"/>
+        <location filename="../main.py" line="430"/>
         <source>select the directory you want to translate</source>
         <translation>وہ ڈائریکٹری منتخب کریں جس کا آپ ترجمہ کرنا چاہتے ہیں۔</translation>
     </message>
@@ -905,8 +948,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.0.0</source>
-        <translation>ورژن 2.0.0</translation>
+        <source>Version 2.0.1</source>
+        <translation>ورژن 2.0.1</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="113"/>
@@ -985,19 +1028,24 @@
         <translation>اعلی درجے کے اختیارات</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="457"/>
+        <location filename="../ui.ui" line="458"/>
         <source>theme</source>
         <translation>خیالیہ</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="576"/>
+        <location filename="../ui.ui" line="577"/>
         <source>unpack game package</source>
         <translation>گیم پیکج کھولیں۔</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="676"/>
+        <location filename="../ui.ui" line="677"/>
         <source>extract translation</source>
         <translation>ترجمہ نکالیں۔</translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="682"/>
+        <source>runtime extraction</source>
+        <translation>رن ٹائم نکالنا</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="270"/>
@@ -1023,7 +1071,7 @@
         <translation type="vanished">ترجمہ کے بعد زبان کو سپورٹ کرنے والا فونٹ داخل کریں یا منتخب کریں یا گھسیٹیں۔ مثال: DejaVuSans.ttf (ren&apos;py کا ڈیفالٹ فونٹ)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="571"/>
+        <location filename="../ui.ui" line="572"/>
         <source>replace font</source>
         <translation>فونٹ تبدیل کریں</translation>
     </message>
@@ -1104,32 +1152,32 @@
         <translation type="vanished">ایڈیٹر</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="440"/>
+        <location filename="../ui.ui" line="441"/>
         <source>language</source>
         <translation>زبان</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="488"/>
+        <location filename="../ui.ui" line="489"/>
         <source>copyright</source>
         <translation>کاپی رائٹ</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="493"/>
+        <location filename="../ui.ui" line="494"/>
         <source>proxy settings</source>
         <translation>پراکسی ترتیبات</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="498"/>
+        <location filename="../ui.ui" line="499"/>
         <source>engine settings</source>
         <translation>انجن کی ترتیبات</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="503"/>
+        <location filename="../ui.ui" line="504"/>
         <source>custom engine</source>
         <translation>اپنی مرضی کے انجن</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="508"/>
+        <location filename="../ui.ui" line="509"/>
         <source>edit from rpy</source>
         <translation>rpy سے ترمیم کریں۔</translation>
     </message>

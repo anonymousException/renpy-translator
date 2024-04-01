@@ -660,6 +660,49 @@
     </message>
 </context>
 <context>
+    <name>ExtractionRuntimeDialog</name>
+    <message>
+        <location filename="../extraction_runtime.ui" line="14"/>
+        <source>Runtime Extraction</source>
+        <translation>Extraction de l&apos;environnement d&apos;exécution</translation>
+    </message>
+    <message>
+        <location filename="../extraction_runtime.ui" line="26"/>
+        <source>tl name</source>
+        <translation>nom de téléphone</translation>
+    </message>
+    <message>
+        <location filename="../extraction_runtime.ui" line="42"/>
+        <source>Input the directory name under game\tl  Example: &apos;japanese&apos; or &apos;chinese&apos;.If the folder already exists, the content will be appended to the original file</source>
+        <translation>Saisissez le nom du répertoire sous game\tl Exemple&#xa0;: «&#xa0;japonais&#xa0;» ou «&#xa0;chinois&#xa0;». Si le dossier existe déjà, le contenu sera ajouté au fichier d&apos;origine.</translation>
+    </message>
+    <message>
+        <location filename="../extraction_runtime.ui" line="55"/>
+        <source>Generate empty strings instead of original</source>
+        <translation>Générer des chaînes vides au lieu de l&apos;original</translation>
+    </message>
+    <message>
+        <location filename="../extraction_runtime.ui" line="68"/>
+        <source>file</source>
+        <translation>déposer</translation>
+    </message>
+    <message>
+        <location filename="../extraction_runtime.ui" line="84"/>
+        <source>...</source>
+        <translation>...</translation>
+    </message>
+    <message>
+        <location filename="../extraction_runtime.ui" line="100"/>
+        <source>input or choose or drag the game you want to extract it&apos;s dialogues.Example:F:/DemoGame.exe</source>
+        <translation>saisissez ou choisissez ou faites glisser le jeu dont vous souhaitez extraire ses dialogues.Exemple&#xa0;:F:/DemoGame.exe</translation>
+    </message>
+    <message>
+        <location filename="../extraction_runtime.ui" line="113"/>
+        <source>extract</source>
+        <translation type="unfinished">extrait</translation>
+    </message>
+</context>
+<context>
     <name>FontReplaceDialog</name>
     <message>
         <location filename="../font_replace_form.py" line="23"/>
@@ -859,24 +902,24 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../main.py" line="384"/>
+        <location filename="../main.py" line="393"/>
         <source>extracting...</source>
         <translation>extraire...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="376"/>
-        <location filename="../main.py" line="464"/>
+        <location filename="../main.py" line="385"/>
+        <location filename="../main.py" line="473"/>
         <source>translating...</source>
         <translation>Traduction en cours...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="379"/>
+        <location filename="../main.py" line="388"/>
         <location filename="../ui.ui" line="100"/>
         <source>translate</source>
         <translation>traduire</translation>
     </message>
     <message>
-        <location filename="../main.py" line="388"/>
+        <location filename="../main.py" line="397"/>
         <source>extract</source>
         <translation>extrait</translation>
     </message>
@@ -889,12 +932,12 @@
         <translation type="vanished">sélectionnez le répertoire que vous souhaitez extraire</translation>
     </message>
     <message>
-        <location filename="../main.py" line="410"/>
+        <location filename="../main.py" line="419"/>
         <source>select the file(s) you want to translate</source>
         <translation>sélectionnez le(s) fichier(s) que vous souhaitez traduire</translation>
     </message>
     <message>
-        <location filename="../main.py" line="421"/>
+        <location filename="../main.py" line="430"/>
         <source>select the directory you want to translate</source>
         <translation>sélectionnez le répertoire que vous souhaitez traduire</translation>
     </message>
@@ -905,8 +948,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.0.0</source>
-        <translation>Version 2.0.0</translation>
+        <source>Version 2.0.1</source>
+        <translation>Version 2.0.1</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="113"/>
@@ -985,19 +1028,24 @@
         <translation>options avancées</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="457"/>
+        <location filename="../ui.ui" line="458"/>
         <source>theme</source>
         <translation>thème</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="576"/>
+        <location filename="../ui.ui" line="577"/>
         <source>unpack game package</source>
         <translation>déballer le paquet de jeu</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="676"/>
+        <location filename="../ui.ui" line="677"/>
         <source>extract translation</source>
         <translation>extrait de traduction</translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="682"/>
+        <source>runtime extraction</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../ui.ui" line="270"/>
@@ -1023,7 +1071,7 @@
         <translation type="vanished">saisissez ou choisissez ou faites glisser la police qui prend en charge la langue après la traduction. Exemple&#xa0;: DejaVuSans.ttf (police par défaut de ren&apos;py)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="571"/>
+        <location filename="../ui.ui" line="572"/>
         <source>replace font</source>
         <translation>remplacer la police</translation>
     </message>
@@ -1104,32 +1152,32 @@
         <translation type="vanished">éditeur</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="440"/>
+        <location filename="../ui.ui" line="441"/>
         <source>language</source>
         <translation>langue</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="488"/>
+        <location filename="../ui.ui" line="489"/>
         <source>copyright</source>
         <translation>droits d&apos;auteur</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="493"/>
+        <location filename="../ui.ui" line="494"/>
         <source>proxy settings</source>
         <translation>paramètres du proxy</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="498"/>
+        <location filename="../ui.ui" line="499"/>
         <source>engine settings</source>
         <translation>réglages du moteur</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="503"/>
+        <location filename="../ui.ui" line="504"/>
         <source>custom engine</source>
         <translation>moteur personnalisé</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="508"/>
+        <location filename="../ui.ui" line="509"/>
         <source>edit from rpy</source>
         <translation>modifier depuis rpy</translation>
     </message>

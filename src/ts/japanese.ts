@@ -660,6 +660,49 @@
     </message>
 </context>
 <context>
+    <name>ExtractionRuntimeDialog</name>
+    <message>
+        <location filename="../extraction_runtime.ui" line="14"/>
+        <source>Runtime Extraction</source>
+        <translation>ランタイム抽出</translation>
+    </message>
+    <message>
+        <location filename="../extraction_runtime.ui" line="26"/>
+        <source>tl name</source>
+        <translation>tl 名</translation>
+    </message>
+    <message>
+        <location filename="../extraction_runtime.ui" line="42"/>
+        <source>Input the directory name under game\tl  Example: &apos;japanese&apos; or &apos;chinese&apos;.If the folder already exists, the content will be appended to the original file</source>
+        <translation>game\tl の下にディレクトリ名を入力します。例: &apos;japanese&apos; または &apos;chinese&apos;。フォルダーが既に存在する場合、内容は元のファイルに追加されます。</translation>
+    </message>
+    <message>
+        <location filename="../extraction_runtime.ui" line="55"/>
+        <source>Generate empty strings instead of original</source>
+        <translation>元の文字列の代わりに空の文字列を生成する</translation>
+    </message>
+    <message>
+        <location filename="../extraction_runtime.ui" line="68"/>
+        <source>file</source>
+        <translation>ファイル</translation>
+    </message>
+    <message>
+        <location filename="../extraction_runtime.ui" line="84"/>
+        <source>...</source>
+        <translation>...</translation>
+    </message>
+    <message>
+        <location filename="../extraction_runtime.ui" line="100"/>
+        <source>input or choose or drag the game you want to extract it&apos;s dialogues.Example:F:/DemoGame.exe</source>
+        <translation>ダイアログを抽出したいゲームを入力または選択またはドラッグします。例:F:/DemoGame.exe</translation>
+    </message>
+    <message>
+        <location filename="../extraction_runtime.ui" line="113"/>
+        <source>extract</source>
+        <translation>抽出する</translation>
+    </message>
+</context>
+<context>
     <name>FontReplaceDialog</name>
     <message>
         <location filename="../font_replace_form.py" line="23"/>
@@ -864,18 +907,18 @@
         <translation>レンピー翻訳者</translation>
     </message>
     <message>
-        <location filename="../main.py" line="384"/>
+        <location filename="../main.py" line="393"/>
         <source>extracting...</source>
         <translation>抽出中...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="376"/>
-        <location filename="../main.py" line="464"/>
+        <location filename="../main.py" line="385"/>
+        <location filename="../main.py" line="473"/>
         <source>translating...</source>
         <translation>翻訳中...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="379"/>
+        <location filename="../main.py" line="388"/>
         <location filename="../ui.ui" line="100"/>
         <source>translate</source>
         <translation>翻訳する</translation>
@@ -889,19 +932,19 @@
         <translation type="vanished">抽出したいディレクトリを選択します</translation>
     </message>
     <message>
-        <location filename="../main.py" line="410"/>
+        <location filename="../main.py" line="419"/>
         <source>select the file(s) you want to translate</source>
         <translation>翻訳したいファイルを選択します</translation>
     </message>
     <message>
-        <location filename="../main.py" line="421"/>
+        <location filename="../main.py" line="430"/>
         <source>select the directory you want to translate</source>
         <translation>翻訳したいディレクトリを選択します</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.0.0</source>
-        <translation>バージョン2.0.0</translation>
+        <source>Version 2.0.1</source>
+        <translation>バージョン2.0.1</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="113"/>
@@ -980,9 +1023,14 @@
         <translation>翻訳をスキップ (オリジナル != 現在)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="676"/>
+        <location filename="../ui.ui" line="677"/>
         <source>extract translation</source>
         <translation>翻訳を抜粋</translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="682"/>
+        <source>runtime extraction</source>
+        <translation>ランタイム抽出</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="46"/>
@@ -995,7 +1043,7 @@
         <translation>高度なオプション</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="576"/>
+        <location filename="../ui.ui" line="577"/>
         <source>unpack game package</source>
         <translation>ゲームパッケージを解凍する</translation>
     </message>
@@ -1008,7 +1056,7 @@
         <translation type="vanished">翻訳後の言語をサポートするフォントを入力または選択またはドラッグします。例: DejaVuSans.ttf (ren&apos;py のデフォルトのフォント)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="571"/>
+        <location filename="../ui.ui" line="572"/>
         <source>replace font</source>
         <translation>フォントを置き換える</translation>
     </message>
@@ -1037,7 +1085,7 @@
         <translation type="vanished">ここに翻訳したいディレクトリを入力または選択またはドラッグします。例:F:\GameName\game\tl\language</translation>
     </message>
     <message>
-        <location filename="../main.py" line="388"/>
+        <location filename="../main.py" line="397"/>
         <source>extract</source>
         <translation>抽出する</translation>
     </message>
@@ -1099,37 +1147,37 @@
         <translation type="vanished">編集者</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="440"/>
+        <location filename="../ui.ui" line="441"/>
         <source>language</source>
         <translation>言語</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="457"/>
+        <location filename="../ui.ui" line="458"/>
         <source>theme</source>
         <translation>テーマ</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="488"/>
+        <location filename="../ui.ui" line="489"/>
         <source>copyright</source>
         <translation>著作権</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="493"/>
+        <location filename="../ui.ui" line="494"/>
         <source>proxy settings</source>
         <translation>プロキシ設定</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="498"/>
+        <location filename="../ui.ui" line="499"/>
         <source>engine settings</source>
         <translation>エンジン設定</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="503"/>
+        <location filename="../ui.ui" line="504"/>
         <source>custom engine</source>
         <translation>カスタムエンジン</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="508"/>
+        <location filename="../ui.ui" line="509"/>
         <source>edit from rpy</source>
         <translation>rpyから編集する</translation>
     </message>

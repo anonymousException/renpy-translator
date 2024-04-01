@@ -20,13 +20,13 @@ from PySide6.QtWidgets import QFileDialog, QListView, QAbstractItemView, QTreeVi
 from copyright import Ui_CopyrightDialog
 from my_log import log_print, log_path
 from renpy_extract import extractThread, extract_threads
+os.environ['REQUESTS_CA_BUNDLE'] = os.path.join(os.path.dirname(sys.argv[0]), 'cacert.pem')
+os.environ['NO_PROXY'] = '*'
 from local_glossary_form import MyLocalGlossaryForm
 from font_replace_form import MyFontReplaceForm
 from game_unpacker_form import MyGameUnpackerForm
 from extraction_form import MyExtractionForm
-
-os.environ['REQUESTS_CA_BUNDLE'] = os.path.join(os.path.dirname(sys.argv[0]), 'cacert.pem')
-os.environ['NO_PROXY'] = '*'
+from extract_runtime_form import MyExtractionRuntimeForm
 from renpy_translate import translateThread, translate_threads, engineList, engineDic, language_header
 from proxy import Ui_ProxyDialog
 from engine import Ui_EngineDialog
@@ -110,12 +110,14 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.copyrightLabel.setStyleSheet("color:grey")
         self.myExtractionForm = None
         self.myGameUnpackerForm = None
+        self.myExtractionRuntimeForm = None
         self.actioncopyright.triggered.connect(lambda: self.show_copyright_form())
         self.proxySettings.triggered.connect(lambda: self.show_proxy_settings())
         self.engineSettings.triggered.connect(lambda: self.show_engine_settings())
         self.customEngineSettings.triggered.connect(lambda: self.show_custom_engine_settings())
         self.actionedit.triggered.connect(lambda: self.show_edit_form())
         self.actionextract_translation.triggered.connect(lambda: self.show_extraction_form())
+        self.actionruntime_extraction.triggered.connect(lambda: self.show_extraction_runtime_form())
         self.actionreplace_font.triggered.connect(lambda: self.replace_font())
         self.actionunpack_game.triggered.connect(lambda: self.unpack_game())
         self.actionArabic.triggered.connect(lambda: self.to_language('arabic'))
@@ -155,6 +157,11 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
             os.remove('translating')
         if os.path.isfile('extracting'):
             os.remove('extracting')
+
+    def show_extraction_runtime_form(self):
+        if self.myExtractionRuntimeForm is None:
+            self.myExtractionRuntimeForm = MyExtractionRuntimeForm(parent=self)
+        self.myExtractionRuntimeForm.exec()
 
     def show_extraction_form(self):
         if self.myExtractionForm is None:
@@ -220,6 +227,8 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
             self.myGameUnpackerForm.retranslateUi(self.myGameUnpackerForm)
         if self.local_glossary_form is not None:
             self.local_glossary_form.retranslateUi(self.local_glossary_form)
+        if self.myExtractionRuntimeForm is not None:
+            self.myExtractionRuntimeForm.retranslateUi(self.myExtractionRuntimeForm)
 
     def switch_to_default_language(self):
         app = QCoreApplication.instance()
