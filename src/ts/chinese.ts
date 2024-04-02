@@ -2,6 +2,29 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="zh_CN">
 <context>
+    <name>AddEntranceDialog</name>
+    <message>
+        <location filename="../add_change_langauge_entrance.ui" line="14"/>
+        <source>Add change language entrance</source>
+        <translation>添加更改语言入口</translation>
+    </message>
+    <message>
+        <location filename="../add_change_langauge_entrance.ui" line="39"/>
+        <source>file</source>
+        <translation>文件</translation>
+    </message>
+    <message>
+        <location filename="../add_change_langauge_entrance.ui" line="58"/>
+        <source>Input or choose or drag the game you want to add entrance.Example:F:/DemoGame.exe</source>
+        <translation>输入或选择或拖动要添加入口的游戏。示例：F:/DemoGame.exe</translation>
+    </message>
+    <message>
+        <location filename="../add_change_langauge_entrance.ui" line="71"/>
+        <source>Add an entrance to change language in preference option</source>
+        <translation>在偏好选项中添加更改语言的入口</translation>
+    </message>
+</context>
+<context>
     <name>CopyrightDialog</name>
     <message>
         <location filename="../copyright.ui" line="14"/>
@@ -907,18 +930,18 @@
         <translation>Ren&apos;py 翻译器</translation>
     </message>
     <message>
-        <location filename="../main.py" line="393"/>
+        <location filename="../main.py" line="405"/>
         <source>extracting...</source>
         <translation>抽取中...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="385"/>
-        <location filename="../main.py" line="473"/>
+        <location filename="../main.py" line="397"/>
+        <location filename="../main.py" line="485"/>
         <source>translating...</source>
         <translation>翻译中...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="388"/>
+        <location filename="../main.py" line="400"/>
         <location filename="../ui.ui" line="100"/>
         <source>translate</source>
         <translation>翻译</translation>
@@ -932,19 +955,19 @@
         <translation type="vanished">选择你要解压的目录</translation>
     </message>
     <message>
-        <location filename="../main.py" line="419"/>
+        <location filename="../main.py" line="431"/>
         <source>select the file(s) you want to translate</source>
         <translation>选择您要翻译的文件</translation>
     </message>
     <message>
-        <location filename="../main.py" line="430"/>
+        <location filename="../main.py" line="442"/>
         <source>select the directory you want to translate</source>
         <translation>选择要翻译的目录</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.0.3</source>
-        <translation>版本 2.0.3</translation>
+        <source>Version 2.0.4</source>
+        <translation>版本 2.0.4</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="113"/>
@@ -1023,14 +1046,19 @@
         <translation>跳过翻译（原始！=当前）</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="677"/>
+        <location filename="../ui.ui" line="681"/>
         <source>extract translation</source>
         <translation>提取翻译</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="682"/>
+        <location filename="../ui.ui" line="686"/>
         <source>runtime extraction</source>
         <translation>运行时提取</translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="701"/>
+        <source>add change langauge entrance</source>
+        <translation>添加更改语言入口</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="46"/>
@@ -1043,7 +1071,7 @@
         <translation>高级选项</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="577"/>
+        <location filename="../ui.ui" line="581"/>
         <source>unpack game package</source>
         <translation>解压游戏包</translation>
     </message>
@@ -1060,7 +1088,7 @@
         <translation type="vanished">输入或选择或拖动支持翻译后语言的字体。示例：DejaVuSans.ttf（ren&apos;py 的默认字体）</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="572"/>
+        <location filename="../ui.ui" line="576"/>
         <source>replace font</source>
         <translation>替换字体</translation>
     </message>
@@ -1089,7 +1117,7 @@
         <translation type="vanished">在此处输入或选择或拖动要翻译的目录。示例：F:\GameName\game\tl\language</translation>
     </message>
     <message>
-        <location filename="../main.py" line="397"/>
+        <location filename="../main.py" line="409"/>
         <source>extract</source>
         <translation>抽取</translation>
     </message>
@@ -1151,37 +1179,37 @@
         <translation type="vanished">编辑器</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="441"/>
+        <location filename="../ui.ui" line="443"/>
         <source>language</source>
         <translation>语言</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="458"/>
+        <location filename="../ui.ui" line="462"/>
         <source>theme</source>
         <translation>主题</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="489"/>
+        <location filename="../ui.ui" line="493"/>
         <source>copyright</source>
         <translation>版权</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="494"/>
+        <location filename="../ui.ui" line="498"/>
         <source>proxy settings</source>
         <translation>代理设置</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="499"/>
+        <location filename="../ui.ui" line="503"/>
         <source>engine settings</source>
         <translation>引擎设置</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="504"/>
+        <location filename="../ui.ui" line="508"/>
         <source>custom engine</source>
         <translation>自定义引擎</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="509"/>
+        <location filename="../ui.ui" line="513"/>
         <source>edit from rpy</source>
         <translation>从 rpy 编辑</translation>
     </message>

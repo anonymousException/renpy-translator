@@ -75,7 +75,7 @@
        </size>
       </property>
       <property name="text">
-       <string>Version 2.0.3</string>
+       <string>Version 2.0.4</string>
       </property>
      </widget>
     </item>
@@ -433,8 +433,10 @@
     <addaction name="actionedit"/>
     <addaction name="actionruntime_extraction"/>
     <addaction name="actionextract_translation"/>
+    <addaction name="actionadd_change_langauge_entrance"/>
     <addaction name="actionreplace_font"/>
     <addaction name="actionunpack_game"/>
+    <addaction name="separator"/>
    </widget>
    <widget class="QMenu" name="menulanguage">
     <property name="title">
@@ -686,12 +688,17 @@
   </action>
   <action name="actionGerman">
    <property name="text">
-    <string>German</string>
+    <string notr="true">German</string>
    </property>
   </action>
   <action name="actionKorean">
    <property name="text">
-    <string>Korean</string>
+    <string notr="true">Korean</string>
+   </property>
+  </action>
+  <action name="actionadd_change_langauge_entrance">
+   <property name="text">
+    <string>add change langauge entrance</string>
    </property>
   </action>
  </widget>

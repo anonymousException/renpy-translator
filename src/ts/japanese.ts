@@ -2,6 +2,29 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="ja_JP">
 <context>
+    <name>AddEntranceDialog</name>
+    <message>
+        <location filename="../add_change_langauge_entrance.ui" line="14"/>
+        <source>Add change language entrance</source>
+        <translation>言語変更の入り口を追加</translation>
+    </message>
+    <message>
+        <location filename="../add_change_langauge_entrance.ui" line="39"/>
+        <source>file</source>
+        <translation>ファイル</translation>
+    </message>
+    <message>
+        <location filename="../add_change_langauge_entrance.ui" line="58"/>
+        <source>Input or choose or drag the game you want to add entrance.Example:F:/DemoGame.exe</source>
+        <translation>追加したいゲームを入力または選択またはドラッグします。例:F:/DemoGame.exe</translation>
+    </message>
+    <message>
+        <location filename="../add_change_langauge_entrance.ui" line="71"/>
+        <source>Add an entrance to change language in preference option</source>
+        <translation>設定オプションに言語を変更するための入り口を追加します</translation>
+    </message>
+</context>
+<context>
     <name>CopyrightDialog</name>
     <message>
         <location filename="../copyright.ui" line="14"/>
@@ -907,18 +930,18 @@
         <translation>レンピー翻訳者</translation>
     </message>
     <message>
-        <location filename="../main.py" line="393"/>
+        <location filename="../main.py" line="405"/>
         <source>extracting...</source>
         <translation>抽出中...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="385"/>
-        <location filename="../main.py" line="473"/>
+        <location filename="../main.py" line="397"/>
+        <location filename="../main.py" line="485"/>
         <source>translating...</source>
         <translation>翻訳中...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="388"/>
+        <location filename="../main.py" line="400"/>
         <location filename="../ui.ui" line="100"/>
         <source>translate</source>
         <translation>翻訳する</translation>
@@ -932,19 +955,19 @@
         <translation type="vanished">抽出したいディレクトリを選択します</translation>
     </message>
     <message>
-        <location filename="../main.py" line="419"/>
+        <location filename="../main.py" line="431"/>
         <source>select the file(s) you want to translate</source>
         <translation>翻訳したいファイルを選択します</translation>
     </message>
     <message>
-        <location filename="../main.py" line="430"/>
+        <location filename="../main.py" line="442"/>
         <source>select the directory you want to translate</source>
         <translation>翻訳したいディレクトリを選択します</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.0.3</source>
-        <translation>バージョン2.0.3</translation>
+        <source>Version 2.0.4</source>
+        <translation>バージョン2.0.4</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="113"/>
@@ -1023,14 +1046,19 @@
         <translation>翻訳をスキップ (オリジナル != 現在)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="677"/>
+        <location filename="../ui.ui" line="681"/>
         <source>extract translation</source>
         <translation>翻訳を抜粋</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="682"/>
+        <location filename="../ui.ui" line="686"/>
         <source>runtime extraction</source>
         <translation>ランタイム抽出</translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="701"/>
+        <source>add change langauge entrance</source>
+        <translation>言語変更の入り口を追加</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="46"/>
@@ -1043,7 +1071,7 @@
         <translation>高度なオプション</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="577"/>
+        <location filename="../ui.ui" line="581"/>
         <source>unpack game package</source>
         <translation>ゲームパッケージを解凍する</translation>
     </message>
@@ -1056,7 +1084,7 @@
         <translation type="vanished">翻訳後の言語をサポートするフォントを入力または選択またはドラッグします。例: DejaVuSans.ttf (ren&apos;py のデフォルトのフォント)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="572"/>
+        <location filename="../ui.ui" line="576"/>
         <source>replace font</source>
         <translation>フォントを置き換える</translation>
     </message>
@@ -1085,7 +1113,7 @@
         <translation type="vanished">ここに翻訳したいディレクトリを入力または選択またはドラッグします。例:F:\GameName\game\tl\language</translation>
     </message>
     <message>
-        <location filename="../main.py" line="397"/>
+        <location filename="../main.py" line="409"/>
         <source>extract</source>
         <translation>抽出する</translation>
     </message>
@@ -1147,37 +1175,37 @@
         <translation type="vanished">編集者</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="441"/>
+        <location filename="../ui.ui" line="443"/>
         <source>language</source>
         <translation>言語</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="458"/>
+        <location filename="../ui.ui" line="462"/>
         <source>theme</source>
         <translation>テーマ</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="489"/>
+        <location filename="../ui.ui" line="493"/>
         <source>copyright</source>
         <translation>著作権</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="494"/>
+        <location filename="../ui.ui" line="498"/>
         <source>proxy settings</source>
         <translation>プロキシ設定</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="499"/>
+        <location filename="../ui.ui" line="503"/>
         <source>engine settings</source>
         <translation>エンジン設定</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="504"/>
+        <location filename="../ui.ui" line="508"/>
         <source>custom engine</source>
         <translation>カスタムエンジン</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="509"/>
+        <location filename="../ui.ui" line="513"/>
         <source>edit from rpy</source>
         <translation>rpyから編集する</translation>
     </message>

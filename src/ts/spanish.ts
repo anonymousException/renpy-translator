@@ -2,6 +2,29 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="es">
 <context>
+    <name>AddEntranceDialog</name>
+    <message>
+        <location filename="../add_change_langauge_entrance.ui" line="14"/>
+        <source>Add change language entrance</source>
+        <translation>Agregar entrada para cambiar idioma</translation>
+    </message>
+    <message>
+        <location filename="../add_change_langauge_entrance.ui" line="39"/>
+        <source>file</source>
+        <translation>archivo</translation>
+    </message>
+    <message>
+        <location filename="../add_change_langauge_entrance.ui" line="58"/>
+        <source>Input or choose or drag the game you want to add entrance.Example:F:/DemoGame.exe</source>
+        <translation>Ingrese o elija o arrastre el juego al que desea agregar entrada. Ejemplo: F:/DemoGame.exe</translation>
+    </message>
+    <message>
+        <location filename="../add_change_langauge_entrance.ui" line="71"/>
+        <source>Add an entrance to change language in preference option</source>
+        <translation>Agregar una entrada para cambiar idioma en la opción de preferencia</translation>
+    </message>
+</context>
+<context>
     <name>CopyrightDialog</name>
     <message>
         <location filename="../copyright.ui" line="14"/>
@@ -902,24 +925,24 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../main.py" line="393"/>
+        <location filename="../main.py" line="405"/>
         <source>extracting...</source>
         <translation>extrayendo...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="385"/>
-        <location filename="../main.py" line="473"/>
+        <location filename="../main.py" line="397"/>
+        <location filename="../main.py" line="485"/>
         <source>translating...</source>
         <translation>traductorio...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="388"/>
+        <location filename="../main.py" line="400"/>
         <location filename="../ui.ui" line="100"/>
         <source>translate</source>
         <translation>traducir</translation>
     </message>
     <message>
-        <location filename="../main.py" line="397"/>
+        <location filename="../main.py" line="409"/>
         <source>extract</source>
         <translation>extracto</translation>
     </message>
@@ -932,12 +955,12 @@
         <translation type="vanished">seleccione el directorio que desea extraer</translation>
     </message>
     <message>
-        <location filename="../main.py" line="419"/>
+        <location filename="../main.py" line="431"/>
         <source>select the file(s) you want to translate</source>
         <translation>seleccione el archivo(s) que desea traducir</translation>
     </message>
     <message>
-        <location filename="../main.py" line="430"/>
+        <location filename="../main.py" line="442"/>
         <source>select the directory you want to translate</source>
         <translation>seleccione el directorio que desea traducir</translation>
     </message>
@@ -948,8 +971,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.0.3</source>
-        <translation>Versión 2.0.3</translation>
+        <source>Version 2.0.4</source>
+        <translation>Versión 2.0.4</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="113"/>
@@ -1033,14 +1056,19 @@
         <translation>(Si está deshabilitado, la traducción continuará después de que se haya traducido el archivo anterior)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="677"/>
+        <location filename="../ui.ui" line="681"/>
         <source>extract translation</source>
         <translation>extraer traducción</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="682"/>
+        <location filename="../ui.ui" line="686"/>
         <source>runtime extraction</source>
         <translation>Extracción en tiempo de ejecución</translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="701"/>
+        <source>add change langauge entrance</source>
+        <translation>Agregar entrada para cambiar idioma</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="46"/>
@@ -1053,7 +1081,7 @@
         <translation>opciones avanzadas</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="577"/>
+        <location filename="../ui.ui" line="581"/>
         <source>unpack game package</source>
         <translation>desempaquetar el paquete del juego</translation>
     </message>
@@ -1066,7 +1094,7 @@
         <translation type="vanished">ingrese o elija o arrastre la fuente que admite el idioma después de la traducción. Ejemplo: DejaVuSans.ttf (fuente predeterminada de ren&apos;py)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="572"/>
+        <location filename="../ui.ui" line="576"/>
         <source>replace font</source>
         <translation>reemplazar fuente</translation>
     </message>
@@ -1147,37 +1175,37 @@
         <translation type="vanished">editor</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="441"/>
+        <location filename="../ui.ui" line="443"/>
         <source>language</source>
         <translation>idioma</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="458"/>
+        <location filename="../ui.ui" line="462"/>
         <source>theme</source>
         <translation>tema</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="489"/>
+        <location filename="../ui.ui" line="493"/>
         <source>copyright</source>
         <translation>derechos de autor</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="494"/>
+        <location filename="../ui.ui" line="498"/>
         <source>proxy settings</source>
         <translation>configuración de proxy</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="499"/>
+        <location filename="../ui.ui" line="503"/>
         <source>engine settings</source>
         <translation>configuración del motor</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="504"/>
+        <location filename="../ui.ui" line="508"/>
         <source>custom engine</source>
         <translation>motor personalizado</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="509"/>
+        <location filename="../ui.ui" line="513"/>
         <source>edit from rpy</source>
         <translation>editar desde rpy</translation>
     </message>

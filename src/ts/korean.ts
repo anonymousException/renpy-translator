@@ -2,6 +2,29 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="ko">
 <context>
+    <name>AddEntranceDialog</name>
+    <message>
+        <location filename="../add_change_langauge_entrance.ui" line="14"/>
+        <source>Add change language entrance</source>
+        <translation>언어 변경 입구 추가</translation>
+    </message>
+    <message>
+        <location filename="../add_change_langauge_entrance.ui" line="39"/>
+        <source>file</source>
+        <translation>파일</translation>
+    </message>
+    <message>
+        <location filename="../add_change_langauge_entrance.ui" line="58"/>
+        <source>Input or choose or drag the game you want to add entrance.Example:F:/DemoGame.exe</source>
+        <translation>입장을 추가하려는 게임을 입력하거나 선택하거나 드래그하세요. 예:F:/DemoGame.exe</translation>
+    </message>
+    <message>
+        <location filename="../add_change_langauge_entrance.ui" line="71"/>
+        <source>Add an entrance to change language in preference option</source>
+        <translation>기본 설정 옵션에 언어 변경 입구 추가</translation>
+    </message>
+</context>
+<context>
     <name>CopyrightDialog</name>
     <message>
         <location filename="../copyright.ui" line="14"/>
@@ -882,34 +905,34 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../main.py" line="393"/>
+        <location filename="../main.py" line="405"/>
         <source>extracting...</source>
         <translation>적출...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="385"/>
-        <location filename="../main.py" line="473"/>
+        <location filename="../main.py" line="397"/>
+        <location filename="../main.py" line="485"/>
         <source>translating...</source>
         <translation>번역하는 중...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="388"/>
+        <location filename="../main.py" line="400"/>
         <location filename="../ui.ui" line="100"/>
         <source>translate</source>
         <translation>번역하다</translation>
     </message>
     <message>
-        <location filename="../main.py" line="397"/>
+        <location filename="../main.py" line="409"/>
         <source>extract</source>
         <translation>발췌</translation>
     </message>
     <message>
-        <location filename="../main.py" line="419"/>
+        <location filename="../main.py" line="431"/>
         <source>select the file(s) you want to translate</source>
         <translation>번역하려는 파일을 선택하세요</translation>
     </message>
     <message>
-        <location filename="../main.py" line="430"/>
+        <location filename="../main.py" line="442"/>
         <source>select the directory you want to translate</source>
         <translation>번역하려는 디렉토리를 선택하십시오</translation>
     </message>
@@ -995,24 +1018,29 @@
         <translation>고급 옵션</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="458"/>
+        <location filename="../ui.ui" line="462"/>
         <source>theme</source>
         <translation>주제</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="577"/>
+        <location filename="../ui.ui" line="581"/>
         <source>unpack game package</source>
         <translation>게임 패키지 풀기</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="677"/>
+        <location filename="../ui.ui" line="681"/>
         <source>extract translation</source>
         <translation>번역 추출</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="682"/>
+        <location filename="../ui.ui" line="686"/>
         <source>runtime extraction</source>
         <translation>런타임 추출</translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="701"/>
+        <source>add change langauge entrance</source>
+        <translation>언어 변경 입구 추가</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="270"/>
@@ -1021,8 +1049,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.0.3</source>
-        <translation>버전 2.0.3</translation>
+        <source>Version 2.0.4</source>
+        <translation>버전 2.0.4</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="391"/>
@@ -1035,7 +1063,7 @@
         <translation>©2024 마지막 순간, 모든 권리 보유.</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="572"/>
+        <location filename="../ui.ui" line="576"/>
         <source>replace font</source>
         <translation>글꼴 교체</translation>
     </message>
@@ -1060,32 +1088,32 @@
         <translation>번역 엔진</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="441"/>
+        <location filename="../ui.ui" line="443"/>
         <source>language</source>
         <translation>언어</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="489"/>
+        <location filename="../ui.ui" line="493"/>
         <source>copyright</source>
         <translation>저작권</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="494"/>
+        <location filename="../ui.ui" line="498"/>
         <source>proxy settings</source>
         <translation>프록시 설정</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="499"/>
+        <location filename="../ui.ui" line="503"/>
         <source>engine settings</source>
         <translation>엔진 설정</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="504"/>
+        <location filename="../ui.ui" line="508"/>
         <source>custom engine</source>
         <translation>커스텀 엔진</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="509"/>
+        <location filename="../ui.ui" line="513"/>
         <source>edit from rpy</source>
         <translation>rpy에서 편집</translation>
     </message>

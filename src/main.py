@@ -20,6 +20,8 @@ from PySide6.QtWidgets import QFileDialog, QListView, QAbstractItemView, QTreeVi
 from copyright import Ui_CopyrightDialog
 from my_log import log_print, log_path
 from renpy_extract import extractThread, extract_threads
+
+
 os.environ['REQUESTS_CA_BUNDLE'] = os.path.join(os.path.dirname(sys.argv[0]), 'cacert.pem')
 os.environ['NO_PROXY'] = '*'
 from local_glossary_form import MyLocalGlossaryForm
@@ -27,6 +29,7 @@ from font_replace_form import MyFontReplaceForm
 from game_unpacker_form import MyGameUnpackerForm
 from extraction_form import MyExtractionForm
 from extract_runtime_form import MyExtractionRuntimeForm
+from add_change_language_entrance_form import MyAddChangeLanguageEntranceForm
 from renpy_translate import translateThread, translate_threads, engineList, engineDic, language_header
 from proxy import Ui_ProxyDialog
 from engine import Ui_EngineDialog
@@ -111,6 +114,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.myExtractionForm = None
         self.myGameUnpackerForm = None
         self.myExtractionRuntimeForm = None
+        self.myAddChangeLanguageEntranceForm = None
         self.actioncopyright.triggered.connect(lambda: self.show_copyright_form())
         self.proxySettings.triggered.connect(lambda: self.show_proxy_settings())
         self.engineSettings.triggered.connect(lambda: self.show_engine_settings())
@@ -120,6 +124,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.actionruntime_extraction.triggered.connect(lambda: self.show_extraction_runtime_form())
         self.actionreplace_font.triggered.connect(lambda: self.replace_font())
         self.actionunpack_game.triggered.connect(lambda: self.unpack_game())
+        self.actionadd_change_langauge_entrance.triggered.connect(lambda: self.show_add_entrance_form())
         self.actionArabic.triggered.connect(lambda: self.to_language('arabic'))
         self.actionBengali.triggered.connect(lambda: self.to_language('bengali'))
         self.actionChinese.triggered.connect(lambda: self.to_language('chinese'))
@@ -159,6 +164,11 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
             os.remove('translating')
         if os.path.isfile('extracting'):
             os.remove('extracting')
+
+    def show_add_entrance_form(self):
+        if self.myAddChangeLanguageEntranceForm is None:
+            self.myAddChangeLanguageEntranceForm = MyAddChangeLanguageEntranceForm(parent=self)
+        self.myAddChangeLanguageEntranceForm.exec()
 
     def show_extraction_runtime_form(self):
         if self.myExtractionRuntimeForm is None:
