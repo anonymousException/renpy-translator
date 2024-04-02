@@ -948,8 +948,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.0.1</source>
-        <translation>ورژن 2.0.1</translation>
+        <source>Version 2.0.2</source>
+        <translation>ورژن 2.0.2</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="113"/>
