@@ -3,6 +3,7 @@ import io
 import json
 import os
 import shutil
+import subprocess
 import threading
 import time
 import traceback
@@ -38,7 +39,9 @@ class extractThread(threading.Thread):
             shutil.copyfile(hook_script, target)
             command = 'start "" /wait /d "' + dir + '"  "' + path + '"'
             self.path = path
-            os.system(command)
+            p = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                             creationflags=0x08000000)
+            p.wait()
             if os.path.exists(target):
                 os.remove(target)
             target = target + 'c'
