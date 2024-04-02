@@ -43,6 +43,25 @@ https://github.com/anonymousException/renpy-translator/blob/feature/ai-translate
 
 ## 用法
 
+### 完整教程
+
+https://github.com/anonymousException/renpy-translator/assets/157234942/381ad014-442f-458d-a304-4547a4d6a38a
+
+本视频按顺序展示了:
+
+1. 展示原始的游戏
+2. 解包游戏
+3. 运行时抽取(只抽取对话)
+4. 抽取
+5. 替换字体
+6. 在偏好设置中添加一个更改语言的入口
+7. 翻译
+8. 展示翻译后的游戏
+
+### 增加入口
+
+https://github.com/anonymousException/renpy-translator/assets/157234942/67a04032-c8d7-46bf-bfa1-bd9307764d08
+
 ### 运行时抽取
 
 https://github.com/anonymousException/renpy-translator/assets/157234942/64e82f3f-7d85-4e33-8226-a06a7ba60270
@@ -172,6 +191,8 @@ https://github.com/anonymousException/renpy-translator/assets/157234942/09edf9fa
 
 ## 使用教程
 
+https://github.com/anonymousException/renpy-translator/assets/157234942/381ad014-442f-458d-a304-4547a4d6a38a
+
 ### 事前准备
 
 一个好的网络环境，如果网络不好，可能无法正常调用**翻译引擎**来翻译
@@ -291,23 +312,27 @@ https://github.com/anonymousException/renpy-translator/assets/157234942/64e82f3f
 
 #### 添加入口
 
-https://github.com/anonymousException/renpy-translator/assets/157234942/a0316ab5-f912-4e25-8423-19b82b7fbfbe
+https://github.com/anonymousException/renpy-translator/assets/157234942/67a04032-c8d7-46bf-bfa1-bd9307764d08
 
-你需要在游戏里添加一个用来切换语言的入口
+已支持通过本工具自动添加入口
 
-打开游戏文件夹，然后再进入子目录 "game" ，打开 "screen.rpy" 文件 （可以用记事本打开）
+~~https://github.com/anonymousException/renpy-translator/assets/157234942/a0316ab5-f912-4e25-8423-19b82b7fbfbe~~
 
-![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/screens.rpy_folder.png)
+~~你需要在游戏里添加一个用来切换语言的入口~~
 
-搜索关键字 : "game_menu(_("Preferences")" (一般这个关键字都是能搜到的，不然你就得自己找一下游戏用来替代 "Preferences" 的词)
+~~打开游戏文件夹，然后再进入子目录 "game" ，打开 "screen.rpy" 文件 （可以用记事本打开）~~
 
-通常来说你会找到很多 "vbox"，像这样:
+~~![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/screens.rpy_folder.png)~~
 
-![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/screens_notepad.png)
+~~搜索关键字 : "game_menu(_("Preferences")" (一般这个关键字都是能搜到的，不然你就得自己找一下游戏用来替代 "Preferences" 的词)~~
 
-尝试找到一个包含 "Language" 或其他 "Language" 的近义词的 vbox
+~~通常来说你会找到很多 "vbox"，像这样:~~
 
-如果没找到，把下面的代码粘贴到包含 "skip" 的 vbox 下面
+~~![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/screens_notepad.png)~~
+
+~~尝试找到一个包含 "Language" 或其他 "Language" 的近义词的 vbox~~
+
+~~如果没找到，把下面的代码粘贴到包含 "skip" 的 vbox 下面~~
 
 ```python
 vbox:
@@ -318,13 +343,13 @@ vbox:
     #比如 textbutton "turn to Japanese" action Language("japanese")
 ```
 
-注意缩进保持对齐，在编辑后应该能得到类似:
+~~注意缩进保持对齐，在编辑后应该能得到类似:~~
 
-![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/screens_notepad_edit.png)
+~~![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/screens_notepad_edit.png)~~
 
 ------
 
-如果找到了，直接加一行到对应的 vbox 里
+~~如果找到了，直接加一行到对应的 vbox 里~~
 
 ```python
 textbutton "LanguageName" action Language("The Tag you fill in official Extract") 
@@ -333,9 +358,9 @@ textbutton "LanguageName" action Language("The Tag you fill in official Extract"
 
 ------
 
-当文件保存以后，打开游戏确保设置里面已经有了我们添加的切换语言的选项
+~~当文件保存以后，打开游戏确保设置里面已经有了我们添加的切换语言的选项~~
 
-![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/game_language.png)
+~~![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/game_language.png)~~
 
 ------
 
