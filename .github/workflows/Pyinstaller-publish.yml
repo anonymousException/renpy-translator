@@ -31,7 +31,7 @@ jobs:
     - run: cp src/expand.exe src/dist/windows/main/expand.exe
     - run: cp src/openai_model.txt src/dist/windows/main/openai_model.txt
     - run: cp src/hook_extract.rpy src/dist/windows/main/hook_extract.rpy
-    - run: cp src/hook_add_language.rpy src/dist/windows/main/hook_add_language.rpy
+    - run: cp src/hook_add_change_language_entrance.rpy src/dist/windows/main/hook_add_change_language_entrance.rpy
     - run: cp -r src/custom_engine src/dist/windows/main
     - run: cp src/main.ico src/dist/windows/main/main.ico
     - run: cp src/cacert.pem src/dist/windows/main/cacert.pem
