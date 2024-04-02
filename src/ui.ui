@@ -75,7 +75,7 @@
        </size>
       </property>
       <property name="text">
-       <string>Version 2.0.2</string>
+       <string>Version 2.0.3</string>
       </property>
      </widget>
     </item>
@@ -445,8 +445,10 @@
     <addaction name="actionChinese"/>
     <addaction name="actionEnglish"/>
     <addaction name="actionFrench"/>
+    <addaction name="actionGerman"/>
     <addaction name="actionHindi"/>
     <addaction name="actionJapanese"/>
+    <addaction name="actionKorean"/>
     <addaction name="actionPortuguese"/>
     <addaction name="actionRussian"/>
     <addaction name="actionSpanish"/>
@@ -680,6 +682,16 @@
   <action name="actionruntime_extraction">
    <property name="text">
     <string>runtime extraction</string>
+   </property>
+  </action>
+  <action name="actionGerman">
+   <property name="text">
+    <string>German</string>
+   </property>
+  </action>
+  <action name="actionKorean">
+   <property name="text">
+    <string>Korean</string>
    </property>
   </action>
  </widget>

@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="bn">
+<TS version="2.1" language="de">
 <context>
     <name>CopyrightDialog</name>
     <message>
         <location filename="../copyright.ui" line="14"/>
         <source>CopyRight</source>
-        <translation>কপিরাইট</translation>
+        <translation>Urheberrechte ©</translation>
     </message>
     <message>
         <location filename="../copyright.ui" line="31"/>
         <source>The software is completely free and open-source</source>
-        <translation>সফটওয়্যারটি সম্পূর্ণ বিনামূল্যে এবং ওপেন সোর্স</translation>
+        <translation>Die Software ist völlig kostenlos und Open Source</translation>
     </message>
     <message>
         <location filename="../copyright.ui" line="52"/>
         <source>You can view the source code from </source>
-        <translation>আপনি থেকে সোর্স কোড দেখতে পারেন </translation>
+        <translation>Sie können den Quellcode unter einsehen </translation>
     </message>
     <message>
         <location filename="../copyright.ui" line="71"/>
@@ -26,7 +26,7 @@
     <message>
         <location filename="../copyright.ui" line="89"/>
         <source>This item is available for research and study. In no event shall the author or copyright holder be liable for any claims, damages, or other liabilities arising out of or in connection with the software or the use of the software or other dealings with the software, whether in an action in contract, an action for infringement, or any other proceeding</source>
-        <translation>এই আইটেমটি গবেষণা এবং অধ্যয়নের জন্য উপলব্ধ. সফ্টওয়্যার বা সফ্টওয়্যার ব্যবহার বা সফ্টওয়্যার ব্যবহার বা সফ্টওয়্যারের সাথে অন্যান্য লেনদেনের কারণে উদ্ভূত কোনও দাবি, ক্ষতি, বা অন্যান্য দায়-দায়িত্বের জন্য লেখক বা কপিরাইট ধারক কোনও ক্ষেত্রেই দায়বদ্ধ হবেন না, চুক্তিতে কোনও পদক্ষেপেই হোক না কেন, লঙ্ঘনের জন্য ব্যবস্থা, বা অন্য কোনো কার্যক্রম</translation>
+        <translation>Dieser Artikel steht für Forschungs- und Studienzwecke zur Verfügung. In keinem Fall haftet der Autor oder Urheberrechtsinhaber für Ansprüche, Schäden oder andere Verbindlichkeiten, die sich aus oder im Zusammenhang mit der Software oder der Nutzung der Software oder anderen Geschäften mit der Software ergeben, sei es im Rahmen einer Vertragsklage oder einer anderen Art von Haftung Klage wegen Vertragsverletzung oder ein anderes Verfahren</translation>
     </message>
 </context>
 <context>
@@ -34,12 +34,12 @@
     <message>
         <location filename="../custom_engine.ui" line="14"/>
         <source>Custom Translation Engine</source>
-        <translation>কাস্টম অনুবাদ ইঞ্জিন</translation>
+        <translation>Benutzerdefinierte Übersetzungs-Engine</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="20"/>
         <source>clear log</source>
-        <translation>স্পষ্ট লগ</translation>
+        <translation>Protokoll löschen</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="45"/>
@@ -53,163 +53,163 @@
         <location filename="../custom_engine.ui" line="112"/>
         <location filename="../custom_engine.ui" line="283"/>
         <source>rename</source>
-        <translation>নাম পরিবর্তন করুন</translation>
+        <translation>umbenennen</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="71"/>
         <source>relative to Active Translation Engine</source>
-        <translation>সক্রিয় অনুবাদ ইঞ্জিনের সাথে সম্পর্কিত</translation>
+        <translation>relativ zur Active Translation Engine</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="85"/>
         <source>add a new custom engine</source>
-        <translation>একটি নতুন কাস্টম ইঞ্জিন যোগ করুন</translation>
+        <translation>Fügen Sie eine neue benutzerdefinierte Engine hinzu</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="99"/>
         <source>Rename Script</source>
-        <translation>স্ক্রিপ্টের নাম পরিবর্তন করুন</translation>
+        <translation>Skript umbenennen</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="125"/>
         <location filename="../custom_engine.ui" line="128"/>
         <source>rename the  source name in  &apos;supported_language&apos; folder</source>
-        <translation>&apos;সমর্থিত_ভাষা&apos; ফোল্ডারে উৎসের নাম পরিবর্তন করুন</translation>
+        <translation>Benennen Sie den Quellnamen im Ordner „supported_sprache“ um</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="141"/>
         <source>Save the key and secret in the upper right corner</source>
-        <translation>উপরের ডান কোণায় কী এবং গোপনীয়তা সংরক্ষণ করুন</translation>
+        <translation>Speichern Sie den Schlüssel und das Geheimnis in der oberen rechten Ecke</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="157"/>
         <source>input or choose or drag the python script which supports translation api.  The script will be copied to &apos;custom_engine&apos; folder</source>
-        <translation>পাইথন স্ক্রিপ্ট ইনপুট বা চয়ন বা টেনে আনুন যা অনুবাদ এপিআই সমর্থন করে। স্ক্রিপ্টটি &apos;custom_engine&apos; ফোল্ডারে কপি করা হবে</translation>
+        <translation>Geben Sie das Python-Skript ein, das die Übersetzungs-API unterstützt, oder wählen Sie es aus oder ziehen Sie es. Das Skript wird in den Ordner „custom_engine“ kopiert</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="170"/>
         <source>Rename Source</source>
-        <translation>উৎস পুনঃনামকরণ করুন</translation>
+        <translation>Quelle umbenennen</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="183"/>
         <source>Rename Target</source>
-        <translation>টার্গেট রিনেম করুন</translation>
+        <translation>Ziel umbenennen</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="196"/>
         <source>Key Support(API_KEY)</source>
-        <translation>মূল সমর্থন(API_KEY)</translation>
+        <translation>Schlüsselunterstützung (API_KEY)</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="209"/>
         <location filename="../custom_engine.ui" line="212"/>
         <source>Queue Support (Can the api support list input in one request such as:[&apos;Hello&apos;,&apos;World&apos;])</source>
-        <translation>সারি সাপোর্ট (এপিআই সমর্থন তালিকা একটি অনুরোধে ইনপুট করতে পারে যেমন: [&apos;হ্যালো&apos;, &apos;ওয়ার্ল্ড&apos;])</translation>
+        <translation>Warteschlangenunterstützung (Kann die API Listeneingaben in einer Anfrage unterstützen, z.&#xa0;B.:[&apos;Hallo&apos;,&apos;Welt&apos;])</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="225"/>
         <location filename="../custom_engine.ui" line="487"/>
         <source>target</source>
-        <translation>লক্ষ্য</translation>
+        <translation>Ziel</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="244"/>
         <source>input or choose or drag the source language file which applies language map.  The file will be copied to &apos;supported_language&apos; folder</source>
-        <translation>ইনপুট করুন বা সোর্স ল্যাঙ্গুয়েজ ফাইলটি বেছে নিন বা টেনে আনুন যা ভাষা মানচিত্র প্রয়োগ করে। ফাইলটি &apos;সমর্থিত_ভাষা&apos; ফোল্ডারে কপি করা হবে</translation>
+        <translation>Geben Sie die Quellsprachendatei ein, auf die die Sprachzuordnung angewendet wird, oder wählen Sie sie aus oder ziehen Sie sie per Drag &amp; Drop. Die Datei wird in den Ordner „supported_sprache“ kopiert</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="257"/>
         <source>relative to detail information</source>
-        <translation>বিস্তারিত তথ্যের সাথে সম্পর্কিত</translation>
+        <translation>bezogen auf Detailinformationen</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="270"/>
         <source>Delete</source>
-        <translation>মুছে ফেলা</translation>
+        <translation>Löschen</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="299"/>
         <source>input or choose or drag the target language file which applies language map.  The file will be copied to &apos;supported_language&apos; folder</source>
-        <translation>ইনপুট বা চয়ন বা টার্গেট ভাষা ফাইল যা ভাষা মানচিত্র প্রযোজ্য টেনে আনুন। ফাইলটি &apos;সমর্থিত_ভাষা&apos; ফোল্ডারে কপি করা হবে</translation>
+        <translation>Geben Sie die Zielsprachendatei ein, auf die die Sprachzuordnung angewendet wird, oder wählen Sie sie aus oder ziehen Sie sie per Drag &amp; Drop. Die Datei wird in den Ordner „supported_sprache“ kopiert</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="312"/>
         <source>custom engine list</source>
-        <translation>কাস্টম ইঞ্জিন তালিকা</translation>
+        <translation>benutzerdefinierte Engine-Liste</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="341"/>
         <source>Secret Support(API_SECRET)</source>
-        <translation>গোপন সমর্থন(API_SECRET)</translation>
+        <translation>Geheime Unterstützung (API_SECRET)</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="367"/>
         <location filename="../custom_engine.ui" line="373"/>
         <source>rename the  target name in  &apos;supported_language&apos; folder</source>
-        <translation>&apos;সমর্থিত_ভাষা&apos; ফোল্ডারে টার্গেটের নাম পরিবর্তন করুন</translation>
+        <translation>Benennen Sie den Zielnamen im Ordner „supported_sprache“ um</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="386"/>
         <source>Save</source>
-        <translation>সংরক্ষণ</translation>
+        <translation>Speichern</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="399"/>
         <source>url</source>
-        <translation>url</translation>
+        <translation>URL</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="412"/>
         <location filename="../custom_engine.ui" line="415"/>
         <source>rename the  script name in  &apos;custom engine&apos; folder</source>
-        <translation>&apos;কাস্টম ইঞ্জিন&apos; ফোল্ডারে স্ক্রিপ্টের নাম পরিবর্তন করুন</translation>
+        <translation>Benennen Sie den Skriptnamen im Ordner „Custom Engine“ um</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="428"/>
         <source>script</source>
-        <translation>লিপি</translation>
+        <translation>Skript</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="444"/>
         <location filename="../custom_engine.ui" line="494"/>
         <source>source</source>
-        <translation>উৎস</translation>
+        <translation>Quelle</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="460"/>
         <source>name</source>
-        <translation>নাম</translation>
+        <translation>Name</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="514"/>
         <source>API_KEY:</source>
-        <translation>API_KEY:</translation>
+        <translation>API-SCHLÜSSEL:</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="521"/>
         <source>APP_SECRET:</source>
-        <translation>অ্যাপ গোপন:</translation>
+        <translation>APP_SECRET:</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="585"/>
         <source>Active Translation Engine:</source>
-        <translation>সক্রিয় অনুবাদ ইঞ্জিন:</translation>
+        <translation>Aktive Übersetzungsmaschine:</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="563"/>
         <source>detail information</source>
-        <translation>বিস্তারিত তথ্য</translation>
+        <translation>Detail Information</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="595"/>
         <source>untranslated text</source>
-        <translation>অনূদিত পাঠ্য</translation>
+        <translation>unübersetzter Text</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="551"/>
         <source>Test</source>
-        <translation>পরীক্ষা</translation>
+        <translation>Prüfen</translation>
     </message>
 </context>
 <context>
@@ -218,13 +218,13 @@
         <location filename="../editor_form.py" line="120"/>
         <location filename="../editor_form.py" line="237"/>
         <source>Path</source>
-        <translation>পথ</translation>
+        <translation>Weg</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="124"/>
         <location filename="../editor_form.py" line="238"/>
         <source>Units</source>
-        <translation>ইউনিট</translation>
+        <translation>Einheiten</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="128"/>
@@ -234,21 +234,21 @@
         <location filename="../editor_form.py" line="515"/>
         <location filename="../editor.ui" line="454"/>
         <source>Translated</source>
-        <translation>অনূদিত</translation>
+        <translation>Übersetzt</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="181"/>
         <location filename="../editor_form.py" line="270"/>
         <location filename="../editor_form.py" line="511"/>
         <source>line</source>
-        <translation>লাইন</translation>
+        <translation>Linie</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="182"/>
         <location filename="../editor_form.py" line="271"/>
         <location filename="../editor_form.py" line="512"/>
         <source>refer</source>
-        <translation>উল্লেখ করুন</translation>
+        <translation>verweisen</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="184"/>
@@ -259,7 +259,7 @@
         <location filename="../editor.ui" line="334"/>
         <location filename="../editor.ui" line="413"/>
         <source>Original</source>
-        <translation>আসল</translation>
+        <translation>Original</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="185"/>
@@ -270,88 +270,88 @@
         <location filename="../editor.ui" line="255"/>
         <location filename="../editor.ui" line="432"/>
         <source>Current</source>
-        <translation>কারেন্ট</translation>
+        <translation>Aktuell</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="311"/>
         <source>Remove</source>
-        <translation>অপসারণ</translation>
+        <translation>Entfernen</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="378"/>
         <source>Do you want to make advanced settings (the default setting is to export all files in the directory)</source>
-        <translation>আপনি কি উন্নত সেটিংস করতে চান (ডিফল্ট সেটিং হল ডিরেক্টরির সমস্ত ফাইল রপ্তানি করা)</translation>
+        <translation>Möchten Sie erweiterte Einstellungen vornehmen (Standardeinstellung ist der Export aller Dateien im Verzeichnis)</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="456"/>
         <source>Case Sensitive</source>
-        <translation>কেস সংবেদনশীল</translation>
+        <translation>Groß- und Kleinschreibung beachten</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="459"/>
         <source>Search refer column</source>
-        <translation>অনুসন্ধান করুন কলাম</translation>
+        <translation>Referenzspalte durchsuchen</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="462"/>
         <source>Search Original column</source>
-        <translation>আসল কলাম অনুসন্ধান করুন</translation>
+        <translation>Originalspalte durchsuchen</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="465"/>
         <source>Search Current column</source>
-        <translation>বর্তমান কলাম অনুসন্ধান করুন</translation>
+        <translation>Aktuelle Spalte durchsuchen</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="468"/>
         <source>Search Translated column</source>
-        <translation>অনুবাদিত কলাম অনুসন্ধান করুন</translation>
+        <translation>Durchsuchen Sie die Spalte „Übersetzt“</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="552"/>
         <location filename="../editor_form.py" line="564"/>
         <source>Input Dialog</source>
-        <translation>ইনপুট ডায়ালগ</translation>
+        <translation>Eingabedialog</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="554"/>
         <source>Please Input the line number you want to jump</source>
-        <translation>আপনি লাফ দিতে চান লাইন নম্বর ইনপুট করুন</translation>
+        <translation>Bitte geben Sie die Zeilennummer ein, zu der Sie springen möchten</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="566"/>
         <source>Please Input the content you want to search</source>
-        <translation>আপনি অনুসন্ধান করতে চান বিষয়বস্তু ইনপুট করুন</translation>
+        <translation>Bitte geben Sie den Inhalt ein, nach dem Sie suchen möchten</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="653"/>
         <source>Translate Translation Source to Translated</source>
-        <translation>অনুবাদ অনুবাদ উৎস অনুবাদ করা</translation>
+        <translation>Übersetzen Sie die Übersetzungsquelle in „Übersetzt“</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="656"/>
         <source>Copy Original to Current</source>
-        <translation>কারেন্টে আসল কপি করুন</translation>
+        <translation>Original auf Aktuelle kopieren</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="658"/>
         <source>Copy Translated to Current</source>
-        <translation>কপি বর্তমান অনুবাদ</translation>
+        <translation>In „Aktuell“ übersetzt kopieren</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="661"/>
         <source>Rollback Current to First Load</source>
-        <translation>রোলব্যাক বর্তমান প্রথম লোড</translation>
+        <translation>Rollback-Strom zum ersten Laden</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="1046"/>
         <source>select the directory you want to edit</source>
-        <translation>আপনি যে ডিরেক্টরিটি সম্পাদনা করতে চান তা নির্বাচন করুন</translation>
+        <translation>Wählen Sie das Verzeichnis aus, das Sie bearbeiten möchten</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="1053"/>
         <source>select the file(s) you want to edit</source>
-        <translation>আপনি সম্পাদনা করতে চান ফাইল(গুলি) নির্বাচন করুন</translation>
+        <translation>Wählen Sie die Datei(en) aus, die Sie bearbeiten möchten</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="172"/>
@@ -362,27 +362,27 @@
         <location filename="../editor_form.py" line="663"/>
         <location filename="../editor_form.py" line="670"/>
         <source>Export to xlsx file</source>
-        <translation>xlsx ফাইলে রপ্তানি করুন</translation>
+        <translation>In eine XLSX-Datei exportieren</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="14"/>
         <source>Ren&apos;py Translator Editor</source>
-        <translation>Ren&apos;py অনুবাদক সম্পাদক</translation>
+        <translation>Ren&apos;py Übersetzer-Editor</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="41"/>
         <source>Change Translation Engine</source>
-        <translation>অনুবাদ ইঞ্জিন পরিবর্তন করুন</translation>
+        <translation>Übersetzungs-Engine ändern</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="54"/>
         <source>input or choose or drag the directory you want to edit here.  Example:F:\GameName\game\tl\language</source>
-        <translation>আপনি যে ডিরেক্টরিটি এখানে সম্পাদনা করতে চান সেটি ইনপুট বা চয়ন বা টেনে আনুন। উদাহরণ:F:\GameName\game\tl\language</translation>
+        <translation>Geben Sie hier ein oder wählen oder ziehen Sie das Verzeichnis, das Sie bearbeiten möchten. Beispiel:F:\GameName\game\tl\sprache</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="77"/>
         <source>directory</source>
-        <translation>ডিরেক্টরি</translation>
+        <translation>Verzeichnis</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="100"/>
@@ -393,82 +393,82 @@
     <message>
         <location filename="../editor.ui" line="116"/>
         <source>input or choose or drag the file(s) you want to edit here. Examaple : F:\GameName\game\tl\language\script.rpy</source>
-        <translation>আপনি এখানে যে ফাইলটি সম্পাদনা করতে চান সেটি ইনপুট বা চয়ন বা টেনে আনুন। উদাহরণ: F:\GameName\game\tl\language\script.rpy</translation>
+        <translation>Geben Sie hier die Datei(en) ein, die Sie bearbeiten möchten, oder wählen Sie sie aus oder ziehen Sie sie per Drag &amp; Drop. Beispiel: F:\GameName\game\tl\sprache\script.rpy</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="129"/>
         <source>file(s)</source>
-        <translation>নথি পত্র)</translation>
+        <translation>Datei(en)</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="145"/>
         <source>Show .rpy File Only</source>
-        <translation>শুধুমাত্র .rpy ফাইল দেখান</translation>
+        <translation>Nur .rpy-Datei anzeigen</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="158"/>
         <source>source</source>
-        <translation>উৎস</translation>
+        <translation>Quelle</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="184"/>
         <source>target</source>
-        <translation>লক্ষ্য</translation>
+        <translation>Ziel</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="197"/>
         <source>Add to file list</source>
-        <translation>ফাইল তালিকা যোগ করুন</translation>
+        <translation>Zur Dateiliste hinzufügen</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="210"/>
         <source>Show Log Form</source>
-        <translation>লগ ফর্ম দেখান</translation>
+        <translation>Protokollformular anzeigen</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="223"/>
         <source>Local Glossary (replace certain words with preset content)</source>
-        <translation>স্থানীয় শব্দকোষ (প্রিসেট কন্টেন্ট দিয়ে কিছু শব্দ প্রতিস্থাপন করুন)</translation>
+        <translation>Lokales Glossar (bestimmte Wörter durch voreingestellte Inhalte ersetzen)</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="277"/>
         <source>Translation Source</source>
-        <translation>অনুবাদ সূত্র</translation>
+        <translation>Übersetzungsquelle</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="296"/>
         <source>Save to file</source>
-        <translation>ফাইলে সংরক্ষণ করুন</translation>
+        <translation>Speichern unter</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="315"/>
         <source>Show Untranslated Only</source>
-        <translation>শুধুমাত্র অঅনুবাদিত দেখান</translation>
+        <translation>Nur unübersetzt anzeigen</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="347"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Multi-Select is supportable (Hold down the &apos;Ctrl&apos; to Active) &lt;/p&gt;&lt;p&gt;Besides you can use &apos;Shift&apos; to select a continuous line&lt;/p&gt;&lt;p&gt;Select the line(s) you want to operate , right click to show menu&lt;/p&gt;&lt;p&gt;&apos;Ctrl + A&apos; to select all the lines&lt;br/&gt;&apos;Ctrl + F&apos; to search the content&lt;br/&gt;&apos;Ctrl + G&apos; to jump to line&lt;/p&gt;&lt;p&gt;As for save , only the contents in column &apos;Current&apos; will be replaced to the file&lt;/p&gt;&lt;p&gt;At last , you can modify the &apos;Current&apos; and &apos;Translated&apos; column through  Double-Click&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;মাল্টি-সিলেক্ট সমর্থনযোগ্য (&apos;Ctrl&apos;কে সক্রিয় করে ধরে রাখুন) &lt;/p&gt;&lt;p&gt;এছাড়া আপনি একটি ক্রমাগত লাইন নির্বাচন করতে &apos;Shift&apos; ব্যবহার করতে পারেন&lt;/p &lt;p&gt;আপনি যে লাইনটি পরিচালনা করতে চান সেটি নির্বাচন করুন, মেনু দেখাতে ডান ক্লিক করুন&lt;/p&gt;&lt;p&gt;&apos;Ctrl + A&apos; সমস্ত লাইন নির্বাচন করতে&lt;br/&gt;&apos;Ctrl + F&apos; বিষয়বস্তু অনুসন্ধান করুন &lt;br/&gt;&apos;Ctrl + G&apos; লাইনে যেতে&lt;/p&gt;&lt;p&gt;সংরক্ষণের জন্য, শুধুমাত্র &apos;বর্তমান&apos; কলামের বিষয়বস্তু ফাইলে প্রতিস্থাপিত হবে&lt;/p&gt;&lt;p&gt;অবশেষে, আপনি করতে পারেন ডাবল-ক্লিকের মাধ্যমে &apos;বর্তমান&apos; এবং &apos;অনুবাদিত&apos; কলাম পরিবর্তন করুন&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Mehrfachauswahl ist unterstützbar (Halten Sie die „Strg“-Taste gedrückt, um sie zu aktivieren) &lt;/p&gt;&lt;p&gt;Außerdem können Sie mit der „Umschalttaste“ eine durchgehende Linie auswählen&lt;/p &gt;&lt;p&gt;Wählen Sie die Zeile(n) aus, die Sie bedienen möchten, klicken Sie mit der rechten Maustaste, um das Menü anzuzeigen&lt;/p&gt;&lt;p&gt;&apos;Strg + A&apos;, um alle Zeilen auszuwählen&lt;br/&gt;&apos;Strg + F&apos;, um den Inhalt zu durchsuchen &lt;br/&gt;&apos;Strg + G&apos;, um zur Zeile zu springen&lt;/p&gt;&lt;p&gt;Beim Speichern wird nur der Inhalt in der Spalte „Aktuell“ in der Datei ersetzt&lt;/p&gt;&lt;p&gt;Endlich können Sie Ändern Sie die Spalten „Aktuell“ und „Übersetzt“ durch Doppelklick&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="372"/>
         <source>Show Searched Only</source>
-        <translation>শুধুমাত্র অনুসন্ধান করা দেখান</translation>
+        <translation>Nur gesucht anzeigen</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="391"/>
         <source>Show Log After Search</source>
-        <translation>অনুসন্ধানের পরে লগ দেখান</translation>
+        <translation>Protokoll nach der Suche anzeigen</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="470"/>
         <source>Copy selected to clipboard   Copy Source</source>
-        <translation>ক্লিপবোর্ডে নির্বাচিত অনুলিপি কপি উত্স</translation>
+        <translation>Ausgewählte Quelle in die Zwischenablage kopieren</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="483"/>
         <source>Auto copy to Current after translation</source>
-        <translation>অনুবাদের পরে কারেন্টে স্বয়ংক্রিয় অনুলিপি</translation>
+        <translation>Nach der Übersetzung automatisch auf „Aktuell“ kopieren</translation>
     </message>
 </context>
 <context>
@@ -476,32 +476,32 @@
     <message>
         <location filename="../engine.ui" line="14"/>
         <source>Translation Engine Settings</source>
-        <translation>অনুবাদ ইঞ্জিন সেটিংস</translation>
+        <translation>Einstellungen der Übersetzungsmaschine</translation>
     </message>
     <message>
         <location filename="../engine.ui" line="36"/>
         <source>Active Translation Engine:</source>
-        <translation>সক্রিয় অনুবাদ ইঞ্জিন:</translation>
+        <translation>Aktive Übersetzungsmaschine:</translation>
     </message>
     <message>
         <location filename="../engine.ui" line="52"/>
         <source>API_KEY:</source>
-        <translation>API_KEY:</translation>
+        <translation>API-SCHLÜSSEL:</translation>
     </message>
     <message>
         <location filename="../engine.ui" line="78"/>
         <source>APP_SECRET:</source>
-        <translation>অ্যাপ গোপন:</translation>
+        <translation>APP_SECRET:</translation>
     </message>
     <message>
         <location filename="../engine.ui" line="107"/>
         <source>Confirm</source>
-        <translation>নিশ্চিত করুন</translation>
+        <translation>Bestätigen</translation>
     </message>
     <message>
         <location filename="../engine.ui" line="125"/>
         <source>detail information</source>
-        <translation>বিস্তারিত তথ্য</translation>
+        <translation>Detail Information</translation>
     </message>
     <message>
         <location filename="../engine.ui" line="144"/>
@@ -512,17 +512,17 @@
     <message>
         <location filename="../engine.ui" line="157"/>
         <source>RPM (requests per minute):</source>
-        <translation>RPM (প্রতি মিনিটে অনুরোধ):</translation>
+        <translation>RPM (Anfragen pro Minute):</translation>
     </message>
     <message>
         <location filename="../engine.ui" line="173"/>
         <source>RPS (requests per second):</source>
-        <translation>RPS (প্রতি সেকেন্ডে অনুরোধ):</translation>
+        <translation>RPS (Anfragen pro Sekunde):</translation>
     </message>
     <message>
         <location filename="../engine.ui" line="205"/>
         <source>TPM (requests token limits):</source>
-        <translation>TPM (টোকেন সীমার অনুরোধ করে):</translation>
+        <translation>TPM (Anforderungs-Token-Limits):</translation>
     </message>
     <message>
         <location filename="../engine.ui" line="221"/>
@@ -532,7 +532,7 @@
     <message>
         <location filename="../engine.ui" line="244"/>
         <source>model:</source>
-        <translation>মডেল:</translation>
+        <translation>Modell:</translation>
     </message>
     <message>
         <location filename="../engine.ui" line="263"/>
@@ -547,7 +547,7 @@
     <message>
         <location filename="../engine.ui" line="295"/>
         <source>custom model</source>
-        <translation>কাস্টম মডেল</translation>
+        <translation>kundenspezifisches Modell</translation>
     </message>
 </context>
 <context>
@@ -555,28 +555,28 @@
     <message>
         <location filename="../export_xlsx_setting.ui" line="14"/>
         <source>Export Xlsx Setting</source>
-        <translation>Xlsx সেটিং রপ্তানি করুন</translation>
+        <translation>Xlsx-Einstellung exportieren</translation>
     </message>
     <message>
         <location filename="../export_xlsx_setting.ui" line="26"/>
         <source>Filter the Units</source>
-        <translation>ইউনিটগুলি ফিল্টার করুন</translation>
+        <translation>Filtern Sie die Einheiten</translation>
     </message>
     <message>
         <location filename="../export_xlsx_setting.ui" line="55"/>
         <location filename="../export_xlsx_setting.ui" line="84"/>
         <source>and</source>
-        <translation>এবং</translation>
+        <translation>Und</translation>
     </message>
     <message>
         <location filename="../export_xlsx_setting.ui" line="100"/>
         <source>Filter the Translated</source>
-        <translation>অনুবাদিত ফিল্টার করুন</translation>
+        <translation>Filtern Sie die Übersetzten</translation>
     </message>
     <message>
         <location filename="../export_xlsx_setting.ui" line="142"/>
         <source>Confirm</source>
-        <translation>নিশ্চিত করুন</translation>
+        <translation>Bestätigen</translation>
     </message>
 </context>
 <context>
@@ -584,17 +584,17 @@
     <message>
         <location filename="../extraction.ui" line="14"/>
         <source>Extraction</source>
-        <translation>নিষ্কাশন</translation>
+        <translation>Extraktion</translation>
     </message>
     <message>
         <location filename="../extraction.ui" line="44"/>
         <source>input or choose or drag the file(s) you want to extract here.    Examaple : F:\GameName\game\script.rpy</source>
-        <translation>আপনি এখানে যে ফাইলটি এক্সট্রাক্ট করতে চান সেটি ইনপুট করুন বা বেছে নিন বা টেনে আনুন। উদাহরণ: F:\GameName\game\script.rpy</translation>
+        <translation>Geben Sie hier die Datei(en) ein, die Sie extrahieren möchten, oder wählen Sie sie aus oder ziehen Sie sie per Drag &amp; Drop. Beispiel: F:\GameName\game\script.rpy</translation>
     </message>
     <message>
         <location filename="../extraction.ui" line="57"/>
         <source>file(s)</source>
-        <translation>নথি পত্র)</translation>
+        <translation>Datei(en)</translation>
     </message>
     <message>
         <location filename="../extraction.ui" line="73"/>
@@ -606,57 +606,57 @@
     <message>
         <location filename="../extraction.ui" line="91"/>
         <source>extraction</source>
-        <translation>নিষ্কাশন</translation>
+        <translation>Extraktion</translation>
     </message>
     <message>
         <location filename="../extraction.ui" line="117"/>
         <source>tl directory</source>
-        <translation>tl ডিরেক্টরি</translation>
+        <translation>tl-Verzeichnis</translation>
     </message>
     <message>
         <location filename="../extraction.ui" line="133"/>
         <source>input or choose or drag the directory you want to translate here.  Example:F:\GameName\game\tl\language</source>
-        <translation>আপনি যে ডিরেক্টরিটি এখানে অনুবাদ করতে চান সেটি ইনপুট বা চয়ন বা টেনে আনুন। উদাহরণ:F:\GameName\game\tl\language</translation>
+        <translation>Geben Sie hier das Verzeichnis ein, das Sie übersetzen möchten, oder wählen Sie es aus oder ziehen Sie es per Drag &amp; Drop. Beispiel:F:\GameName\game\tl\sprache</translation>
     </message>
     <message>
         <location filename="../extraction.ui" line="146"/>
         <source>extract</source>
-        <translation>নির্যাস</translation>
+        <translation>Extrakt</translation>
     </message>
     <message>
         <location filename="../extraction.ui" line="159"/>
         <source>tl name</source>
-        <translation>tl নাম</translation>
+        <translation>tl Name</translation>
     </message>
     <message>
         <location filename="../extraction.ui" line="175"/>
         <source>only force needs in file(s)/directory(s) mode , for tl directory , fill nothing is acceptable. input the directory name under game\tl  Example: japanese or chinese</source>
-        <translation>শুধুমাত্র ফাইল(গুলি)/ডিরেক্টরি(গুলি) মোডে বলপ্রয়োগ করুন, tl ডিরেক্টরির জন্য, কিছুই গ্রহণযোগ্য নয়। গেমের অধীনে ডিরেক্টরির নাম ইনপুট করুন\tl উদাহরণ: জাপানি বা চাইনিজ</translation>
+        <translation>Erzwingen muss nur im Datei(en)/Verzeichnis(en)-Modus erfolgen, für das TL-Verzeichnis ist das Ausfüllen nichts akzeptabel. Geben Sie den Verzeichnisnamen unter game\tl ein. Beispiel: Japanisch oder Chinesisch</translation>
     </message>
     <message>
         <location filename="../extraction.ui" line="188"/>
         <source>directory(s)</source>
-        <translation>ডিরেক্টরি(গুলি)</translation>
+        <translation>Verzeichnis(se)</translation>
     </message>
     <message>
         <location filename="../extraction.ui" line="207"/>
         <source>input or choose or drag the directory(s) you want to extract here.    Examaple : F:\GameName\game\character</source>
-        <translation>ইনপুট করুন বা নির্বাচন করুন বা টেনে আনুন যে ডিরেক্টরিটি আপনি এখানে বের করতে চান। উদাহরণ: F:\GameName\game\ character</translation>
+        <translation>Geben Sie hier die Verzeichnisse ein, die Sie extrahieren möchten, oder wählen Sie sie aus oder ziehen Sie sie per Drag &amp; Drop. Beispiel: F:\GameName\game\character</translation>
     </message>
     <message>
         <location filename="../extraction.ui" line="233"/>
         <source>Enable filter for extract</source>
-        <translation>নিষ্কাশনের জন্য ফিল্টার সক্ষম করুন</translation>
+        <translation>Filter für Extrakt aktivieren</translation>
     </message>
     <message>
         <location filename="../extraction.ui" line="246"/>
         <source>filter length less than</source>
-        <translation>ফিল্টারের দৈর্ঘ্য কম</translation>
+        <translation>Filterlänge kleiner als</translation>
     </message>
     <message>
         <location filename="../extraction.ui" line="272"/>
         <source>Generate empty strings instead of original</source>
-        <translation>মূলের পরিবর্তে খালি স্ট্রিং তৈরি করুন</translation>
+        <translation>Erzeugen Sie leere Zeichenfolgen anstelle von Originalzeichenfolgen</translation>
     </message>
 </context>
 <context>
@@ -664,27 +664,27 @@
     <message>
         <location filename="../extraction_runtime.ui" line="14"/>
         <source>Runtime Extraction</source>
-        <translation>রানটাইম নিষ্কাশন</translation>
+        <translation>Laufzeitextraktion</translation>
     </message>
     <message>
         <location filename="../extraction_runtime.ui" line="26"/>
         <source>tl name</source>
-        <translation>tl নাম</translation>
+        <translation>tl Name</translation>
     </message>
     <message>
         <location filename="../extraction_runtime.ui" line="42"/>
         <source>Input the directory name under game\tl  Example: &apos;japanese&apos; or &apos;chinese&apos;.If the folder already exists, the content will be appended to the original file</source>
-        <translation>গেমের অধীনে ডিরেক্টরির নাম ইনপুট করুন\tl উদাহরণ: &apos;জাপানি&apos; বা &apos;চাইনিজ&apos;।যদি ফোল্ডারটি ইতিমধ্যেই বিদ্যমান থাকে তবে বিষয়বস্তুটি মূল ফাইলে যুক্ত করা হবে</translation>
+        <translation>Geben Sie den Verzeichnisnamen unter game\tl ein. Beispiel: „japanese“ oder „chinese“. Wenn der Ordner bereits vorhanden ist, wird der Inhalt an die Originaldatei angehängt</translation>
     </message>
     <message>
         <location filename="../extraction_runtime.ui" line="55"/>
         <source>Generate empty strings instead of original</source>
-        <translation>মূলের পরিবর্তে খালি স্ট্রিং তৈরি করুন</translation>
+        <translation>Erzeugen Sie leere Zeichenfolgen anstelle von Originalzeichenfolgen</translation>
     </message>
     <message>
         <location filename="../extraction_runtime.ui" line="68"/>
         <source>file</source>
-        <translation>ফাইল</translation>
+        <translation>Datei</translation>
     </message>
     <message>
         <location filename="../extraction_runtime.ui" line="84"/>
@@ -694,12 +694,12 @@
     <message>
         <location filename="../extraction_runtime.ui" line="100"/>
         <source>input or choose or drag the game you want to extract it&apos;s dialogues.Example:F:/DemoGame.exe</source>
-        <translation>ইনপুট করুন বা বেছে নিন বা টেনে আনুন গেমটি আপনি এর ডায়ালগগুলি বের করতে চান৷ উদাহরণ:F:/DemoGame.exe</translation>
+        <translation>Geben Sie das Spiel ein oder wählen oder ziehen Sie es, dessen Dialoge Sie extrahieren möchten. Beispiel: F:/DemoGame.exe</translation>
     </message>
     <message>
         <location filename="../extraction_runtime.ui" line="113"/>
         <source>extract</source>
-        <translation>নির্যাস</translation>
+        <translation>Extrakt</translation>
     </message>
 </context>
 <context>
@@ -707,28 +707,28 @@
     <message>
         <location filename="../font_replace_form.py" line="23"/>
         <source>select the directory you want to extract</source>
-        <translation>আপনি নিষ্কাশন করতে চান ডিরেক্টরি নির্বাচন করুন</translation>
+        <translation>Wählen Sie das Verzeichnis aus, das Sie extrahieren möchten</translation>
     </message>
     <message>
         <location filename="../font_replace_form.py" line="28"/>
         <source>select the file font which supports the translated language</source>
-        <translation>ফাইল ফন্ট নির্বাচন করুন যা অনুবাদিত ভাষা সমর্থন করে</translation>
+        <translation>Wählen Sie die Dateischriftart aus, die die übersetzte Sprache unterstützt</translation>
     </message>
     <message>
         <location filename="../font_replace.ui" line="14"/>
         <source>Font Replace</source>
-        <translation>ফন্ট প্রতিস্থাপন</translation>
+        <translation>Schriftart ersetzen</translation>
     </message>
     <message>
         <location filename="../font_replace.ui" line="46"/>
         <location filename="../font_replace.ui" line="72"/>
         <source>font</source>
-        <translation>ফন্ট</translation>
+        <translation>Schriftart</translation>
     </message>
     <message>
         <location filename="../font_replace.ui" line="59"/>
         <source>input or choose or drag the font which supports the language after translation. Example : DejaVuSans.ttf (ren&apos;py &apos;s default font)</source>
-        <translation>ইনপুট বা চয়ন করুন বা ফন্ট যা অনুবাদের পরে ভাষা সমর্থন করে টেনে আনুন। উদাহরণ: DejaVuSans.ttf (ren&apos;py এর ডিফল্ট ফন্ট)</translation>
+        <translation>Geben Sie die Schriftart ein oder wählen oder ziehen Sie sie, die die Sprache nach der Übersetzung unterstützt. Beispiel: DejaVuSans.ttf (Ren&apos;pys Standardschriftart)</translation>
     </message>
     <message>
         <location filename="../font_replace.ui" line="88"/>
@@ -739,22 +739,22 @@
     <message>
         <location filename="../font_replace.ui" line="101"/>
         <source>replace font</source>
-        <translation>ফন্ট প্রতিস্থাপন</translation>
+        <translation>Schriftart ersetzen</translation>
     </message>
     <message>
         <location filename="../font_replace.ui" line="114"/>
         <source>open font style file</source>
-        <translation>ফন্ট স্টাইল ফাইল খুলুন</translation>
+        <translation>Schriftstildatei öffnen</translation>
     </message>
     <message>
         <location filename="../font_replace.ui" line="127"/>
         <source>directory</source>
-        <translation>ডিরেক্টরি</translation>
+        <translation>Verzeichnis</translation>
     </message>
     <message>
         <location filename="../font_replace.ui" line="143"/>
         <source>input or choose or drag the directory you want to replace font here.  Example:F:\GameName\game\tl\language</source>
-        <translation>আপনি এখানে ফন্ট প্রতিস্থাপন করতে চান সেটি ইনপুট বা নির্বাচন করুন বা টেনে আনুন। উদাহরণ:F:\GameName\game\tl\language</translation>
+        <translation>Geben Sie hier ein oder wählen oder ziehen Sie das Verzeichnis, in dem Sie die Schriftart ersetzen möchten. Beispiel:F:\GameName\game\tl\sprache</translation>
     </message>
 </context>
 <context>
@@ -762,22 +762,22 @@
     <message>
         <location filename="../game_unpacker_form.py" line="38"/>
         <source>select the game file you want to unpack</source>
-        <translation>আপনি যে গেম ফাইলটি আনপ্যাক করতে চান তা নির্বাচন করুন</translation>
+        <translation>Wählen Sie die Spieldatei aus, die Sie entpacken möchten</translation>
     </message>
     <message>
         <location filename="../game_unpacker_form.py" line="82"/>
         <source>Clean Complete</source>
-        <translation>পরিষ্কার সম্পূর্ণ</translation>
+        <translation>Reinigung abgeschlossen</translation>
     </message>
     <message>
         <location filename="../game_unpacker.ui" line="14"/>
         <source>Game Unpacker</source>
-        <translation>গেম আনপ্যাকার</translation>
+        <translation>Spiele-Entpacker</translation>
     </message>
     <message>
         <location filename="../game_unpacker.ui" line="26"/>
         <source>file</source>
-        <translation>ফাইল</translation>
+        <translation>Datei</translation>
     </message>
     <message>
         <location filename="../game_unpacker.ui" line="42"/>
@@ -787,22 +787,22 @@
     <message>
         <location filename="../game_unpacker.ui" line="58"/>
         <source>input or choose or drag the game you want to unpack it&apos;s rpa files.Example:F:/DemoGame.exe</source>
-        <translation>ইনপুট করুন বা বেছে নিন বা টেনে আনুন গেমটি আপনি এটির rpa ফাইলগুলি আনপ্যাক করতে চান৷ উদাহরণ:F:/DemoGame.exe</translation>
+        <translation>Geben Sie das Spiel ein oder wählen Sie es aus oder ziehen Sie es per Drag &amp; Drop, um seine RPA-Dateien zu entpacken. Beispiel: F:/DemoGame.exe</translation>
     </message>
     <message>
         <location filename="../game_unpacker.ui" line="71"/>
         <source>Unpack</source>
-        <translation>আনপ্যাক</translation>
+        <translation>Auspacken</translation>
     </message>
     <message>
         <location filename="../game_unpacker.ui" line="84"/>
         <source>Clean temporary files</source>
-        <translation>অস্থায়ী ফাইল পরিষ্কার করুন</translation>
+        <translation>Temporäre Dateien bereinigen</translation>
     </message>
     <message>
         <location filename="../game_unpacker.ui" line="97"/>
         <source>Auto Clean after unpack</source>
-        <translation>আনপ্যাক করার পরে অটো ক্লিন</translation>
+        <translation>Automatische Reinigung nach dem Auspacken</translation>
     </message>
 </context>
 <context>
@@ -811,72 +811,52 @@
         <location filename="../local_glossary_form.py" line="47"/>
         <location filename="../local_glossary_form.py" line="129"/>
         <source>Row</source>
-        <translation>সারি</translation>
+        <translation>Reihe</translation>
     </message>
     <message>
         <location filename="../local_glossary_form.py" line="130"/>
         <source>Original</source>
-        <translation>আসল</translation>
+        <translation>Original</translation>
     </message>
     <message>
         <location filename="../local_glossary_form.py" line="131"/>
         <source>Replace</source>
-        <translation>প্রতিস্থাপন করুন</translation>
-    </message>
-    <message>
-        <source>The file does not exist.Click to create it</source>
-        <translation type="vanished">ফাইলটি বিদ্যমান নেই৷ এটি তৈরি করতে ক্লিক করুন৷</translation>
-    </message>
-    <message>
-        <source>The file is not a xlsx file.Click to open </source>
-        <translation type="vanished">ফাইলটি xlsx ফাইল নয়। খুলতে ক্লিক করুন </translation>
-    </message>
-    <message>
-        <source>The file is not a xlsx file.Click to create </source>
-        <translation type="vanished">ফাইলটি একটি xlsx ফাইল নয়৷ তৈরি করতে ক্লিক করুন৷ </translation>
+        <translation>Ersetzen</translation>
     </message>
     <message>
         <location filename="../local_glossary_form.py" line="214"/>
         <source>select the file you want to import</source>
-        <translation>আপনি যে ফাইলটি আমদানি করতে চান তা নির্বাচন করুন</translation>
+        <translation>Wählen Sie die Datei aus, die Sie importieren möchten</translation>
     </message>
     <message>
         <location filename="../local_glossary.ui" line="14"/>
         <source>Local Glossary</source>
-        <translation>স্থানীয় শব্দকোষ</translation>
+        <translation>Lokales Glossar</translation>
     </message>
     <message>
         <location filename="../local_glossary.ui" line="35"/>
         <source>input or choose or drag the file(s) you want to edit here. Examaple : F:\xxx.xslx</source>
-        <translation>আপনি এখানে যে ফাইলটি সম্পাদনা করতে চান সেটি ইনপুট বা চয়ন বা টেনে আনুন। উদাহরণ: F:\xxx.xslx</translation>
+        <translation>Geben Sie hier die Datei(en) ein, die Sie bearbeiten möchten, oder wählen Sie sie aus oder ziehen Sie sie per Drag &amp; Drop. Beispiel: F:\xxx.xslx</translation>
     </message>
     <message>
         <location filename="../local_glossary.ui" line="95"/>
         <source>Previous</source>
-        <translation>আগে</translation>
+        <translation>Vorherige</translation>
     </message>
     <message>
         <location filename="../local_glossary.ui" line="120"/>
         <source>Next</source>
-        <translation>পরবর্তী</translation>
-    </message>
-    <message>
-        <source>Show duplicate rows only (if duplicated, only the last one will take effect)</source>
-        <translation type="vanished">শুধুমাত্র ডুপ্লিকেট সারি দেখান (যদি ডুপ্লিকেট করা হয়, শুধুমাত্র শেষটি কার্যকর হবে)</translation>
+        <translation>Nächste</translation>
     </message>
     <message>
         <location filename="../local_glossary.ui" line="70"/>
         <source>file</source>
-        <translation>ফাইল</translation>
+        <translation>Datei</translation>
     </message>
     <message>
         <location filename="../local_glossary.ui" line="48"/>
         <source>Confirm</source>
-        <translation>নিশ্চিত করুন</translation>
-    </message>
-    <message>
-        <source>Support Append</source>
-        <translation type="vanished">সমর্থন যোগ করুন</translation>
+        <translation>Bestätigen</translation>
     </message>
     <message>
         <location filename="../local_glossary.ui" line="136"/>
@@ -886,17 +866,17 @@
     <message>
         <location filename="../local_glossary.ui" line="173"/>
         <source>Go to page</source>
-        <translation>পৃষ্ঠায় যান</translation>
+        <translation>Gehe zur Seite</translation>
     </message>
     <message>
         <location filename="../local_glossary.ui" line="227"/>
         <source>Max Page Rows</source>
-        <translation>সর্বাধিক পৃষ্ঠা সারি</translation>
+        <translation>Maximale Seitenzeilen</translation>
     </message>
     <message>
         <location filename="../local_glossary.ui" line="255"/>
         <source>For more advanced editing functions, it is recommended to use professional software such as Excel.</source>
-        <translation>আরও উন্নত সম্পাদনা ফাংশনগুলির জন্য, এক্সেলের মতো পেশাদার সফ্টওয়্যার ব্যবহার করার পরামর্শ দেওয়া হয়।</translation>
+        <translation>Für erweiterte Bearbeitungsfunktionen empfiehlt sich der Einsatz professioneller Software wie Excel.</translation>
     </message>
 </context>
 <context>
@@ -904,52 +884,39 @@
     <message>
         <location filename="../main.py" line="393"/>
         <source>extracting...</source>
-        <translation>নিষ্কাশন করা হচ্ছে...</translation>
+        <translation>extrahieren...</translation>
     </message>
     <message>
         <location filename="../main.py" line="385"/>
         <location filename="../main.py" line="473"/>
         <source>translating...</source>
-        <translation>অনুবাদ করা হচ্ছে...</translation>
+        <translation>übersetzen...</translation>
     </message>
     <message>
         <location filename="../main.py" line="388"/>
         <location filename="../ui.ui" line="100"/>
         <source>translate</source>
-        <translation>অনুবাদ করা</translation>
+        <translation>übersetzen</translation>
     </message>
     <message>
         <location filename="../main.py" line="397"/>
         <source>extract</source>
-        <translation>নির্যাস</translation>
-    </message>
-    <message>
-        <source>select the file(s) you want to extract</source>
-        <translation type="vanished">আপনি যে ফাইলটি বের করতে চান সেটি নির্বাচন করুন</translation>
-    </message>
-    <message>
-        <source>select the directory you want to extract</source>
-        <translation type="vanished">আপনি নিষ্কাশন করতে চান ডিরেক্টরি নির্বাচন করুন</translation>
+        <translation>Extrakt</translation>
     </message>
     <message>
         <location filename="../main.py" line="419"/>
         <source>select the file(s) you want to translate</source>
-        <translation>আপনি যে ফাইলটি অনুবাদ করতে চান সেটি নির্বাচন করুন</translation>
+        <translation>Wählen Sie die Datei(en) aus, die Sie übersetzen möchten</translation>
     </message>
     <message>
         <location filename="../main.py" line="430"/>
         <source>select the directory you want to translate</source>
-        <translation>আপনি যে ডিরেক্টরিটি অনুবাদ করতে চান তা নির্বাচন করুন</translation>
+        <translation>Wählen Sie das Verzeichnis aus, das Sie übersetzen möchten</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="14"/>
         <source>Ren&apos;py Translator</source>
-        <translation>Ren&apos;py অনুবাদক</translation>
-    </message>
-    <message>
-        <location filename="../ui.ui" line="78"/>
-        <source>Version 2.0.3</source>
-        <translation>সংস্করণ 2.0.3</translation>
+        <translation>Ren&apos;py-Übersetzer</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="113"/>
@@ -960,226 +927,167 @@
     <message>
         <location filename="../ui.ui" line="126"/>
         <source>directory</source>
-        <translation>ডিরেক্টরি</translation>
+        <translation>Verzeichnis</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="142"/>
         <source>file(s)</source>
-        <translation>নথি পত্র)</translation>
+        <translation>Datei(en)</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="161"/>
         <source>input or choose or drag the file(s) you want to translate here. Examaple : F:\GameName\game\tl\language\script.rpy</source>
-        <translation>আপনি যে ফাইলটি এখানে অনুবাদ করতে চান সেটি ইনপুট করুন বা বেছে নিন বা টেনে আনুন। উদাহরণ: F:\GameName\game\tl\language\script.rpy</translation>
+        <translation>Geben Sie hier die Datei(en) ein, die Sie übersetzen möchten, oder wählen Sie sie aus oder ziehen Sie sie per Drag &amp; Drop. Beispiel: F:\GameName\game\tl\sprache\script.rpy</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="187"/>
         <source>input or choose or drag the directory you want translate here.  Example:F:\GameName\game\tl\language</source>
-        <translation>আপনি যে ডিরেক্টরিটি এখানে অনুবাদ করতে চান সেটি ইনপুট বা চয়ন বা টেনে আনুন। উদাহরণ:F:\GameName\game\tl\language</translation>
+        <translation>Geben Sie hier das Verzeichnis ein, das Sie übersetzen möchten, oder wählen Sie es aus oder ziehen Sie es per Drag &amp; Drop. Beispiel:F:\GameName\game\tl\sprache</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="205"/>
         <source>translation</source>
-        <translation>অনুবাদ</translation>
+        <translation>Übersetzung</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="218"/>
         <source>target</source>
-        <translation>লক্ষ্য</translation>
+        <translation>Ziel</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="234"/>
         <source>source</source>
-        <translation>উৎস</translation>
+        <translation>Quelle</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="289"/>
         <source>Generate Backup Files (xxx.rpy.bak)</source>
-        <translation>ব্যাকআপ ফাইল তৈরি করুন (xxx.rpy.bak)</translation>
+        <translation>Sicherungsdateien generieren (xxx.rpy.bak)</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="302"/>
         <source>Local Glossary (replace certain words with preset content)</source>
-        <translation>স্থানীয় শব্দকোষ (প্রিসেট কন্টেন্ট দিয়ে কিছু শব্দ প্রতিস্থাপন করুন)</translation>
+        <translation>Lokales Glossar (bestimmte Wörter durch voreingestellte Inhalte ersetzen)</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="321"/>
         <source>Translation Source</source>
-        <translation>অনুবাদ সূত্র</translation>
+        <translation>Übersetzungsquelle</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="340"/>
         <source>Original</source>
-        <translation>আসল</translation>
+        <translation>Original</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="359"/>
         <source>Current</source>
-        <translation>কারেন্ট</translation>
+        <translation>Aktuell</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="375"/>
         <source>Skip Translated (Original != Current)</source>
-        <translation>অনুবাদ করা এড়িয়ে যান (মূল!= বর্তমান)</translation>
+        <translation>Übersetzt überspringen (Original != Aktuell)</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="431"/>
         <source>advanced options</source>
-        <translation>উন্নত বিকল্প</translation>
+        <translation>erweiterte Optionen</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="458"/>
         <source>theme</source>
-        <translation>থিম</translation>
+        <translation>Thema</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="577"/>
         <source>unpack game package</source>
-        <translation>গেম প্যাকেজ আনপ্যাক করুন</translation>
+        <translation>Spielpaket auspacken</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="677"/>
         <source>extract translation</source>
-        <translation>অনুবাদ নির্যাস</translation>
+        <translation>Übersetzung extrahieren</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="682"/>
         <source>runtime extraction</source>
-        <translation>রানটাইম নিষ্কাশন</translation>
+        <translation>Laufzeitextraktion</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="270"/>
         <source>Multi-threaded translation</source>
-        <translation>মাল্টি-থ্রেডেড অনুবাদ</translation>
+        <translation>Multithread-Übersetzung</translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="78"/>
+        <source>Version 2.0.3</source>
+        <translation>Version 2.0.3</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="391"/>
         <source>(If disable, translation will continue after the previous file has been translated)</source>
-        <translation>(অক্ষম করা হলে, পূর্ববর্তী ফাইলটি অনুবাদ করার পরে অনুবাদ চলতে থাকবে)</translation>
+        <translation>(Wenn deaktiviert, wird die Übersetzung fortgesetzt, nachdem die vorherige Datei übersetzt wurde)</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="46"/>
         <source>©2024 Last moment,All rights reserved.</source>
-        <translation>©2024 শেষ মুহূর্ত, সর্বস্বত্ব সংরক্ষিত।</translation>
-    </message>
-    <message>
-        <source>font</source>
-        <translation type="vanished">ফন্ট</translation>
-    </message>
-    <message>
-        <source>input or choose or drag the font which supports the language after translation. Example : DejaVuSans.ttf (ren&apos;py &apos;s default font)</source>
-        <translation type="vanished">ইনপুট বা চয়ন করুন বা ফন্ট যা অনুবাদের পরে ভাষা সমর্থন করে টেনে আনুন। উদাহরণ: DejaVuSans.ttf (ren&apos;py এর ডিফল্ট ফন্ট)</translation>
+        <translation>©2024 Last Moment, Alle Rechte vorbehalten.</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="572"/>
         <source>replace font</source>
-        <translation>ফন্ট প্রতিস্থাপন</translation>
-    </message>
-    <message>
-        <source>open font style file</source>
-        <translation type="vanished">ফন্ট স্টাইল ফাইল খুলুন</translation>
-    </message>
-    <message>
-        <source>input or choose or drag the directory you want to replace font here.  Example:F:\GameName\game\tl\language</source>
-        <translation type="vanished">আপনি এখানে ফন্ট প্রতিস্থাপন করতে চান সেটি ইনপুট বা নির্বাচন করুন বা টেনে আনুন। উদাহরণ:F:\GameName\game\tl\language</translation>
-    </message>
-    <message>
-        <source>input or choose or drag the file(s) you want to extract here.    Examaple : F:\GameName\game\script.rpy</source>
-        <translation type="vanished">আপনি এখানে যে ফাইলটি এক্সট্রাক্ট করতে চান সেটি ইনপুট করুন বা বেছে নিন বা টেনে আনুন। উদাহরণ: F:\GameName\game\script.rpy</translation>
-    </message>
-    <message>
-        <source>extraction</source>
-        <translation type="vanished">নিষ্কাশন</translation>
-    </message>
-    <message>
-        <source>tl directory</source>
-        <translation type="vanished">tl ডিরেক্টরি</translation>
-    </message>
-    <message>
-        <source>input or choose or drag the directory you want to translate here.  Example:F:\GameName\game\tl\language</source>
-        <translation type="vanished">আপনি যে ডিরেক্টরিটি এখানে অনুবাদ করতে চান সেটি ইনপুট বা চয়ন বা টেনে আনুন। উদাহরণ:F:\GameName\game\tl\language</translation>
-    </message>
-    <message>
-        <source>tl name</source>
-        <translation type="vanished">tl নাম</translation>
-    </message>
-    <message>
-        <source>only force needs in file(s)/directory(s) mode , for tl directory , fill nothing is acceptable. input the directory name under game\tl  Example: japanese or chinese</source>
-        <translation type="vanished">শুধুমাত্র ফাইল(গুলি)/ডিরেক্টরি(গুলি) মোডে বলপ্রয়োগ করুন, tl ডিরেক্টরির জন্য, কিছুই গ্রহণযোগ্য নয়। গেমের অধীনে ডিরেক্টরির নাম ইনপুট করুন\tl উদাহরণ: জাপানি বা চাইনিজ</translation>
-    </message>
-    <message>
-        <source>directory(s)</source>
-        <translation type="vanished">ডিরেক্টরি(গুলি)</translation>
-    </message>
-    <message>
-        <source>input or choose or drag the directory(s) you want to extract here.    Examaple : F:\GameName\game\character</source>
-        <translation type="vanished">ইনপুট করুন বা নির্বাচন করুন বা টেনে আনুন যে ডিরেক্টরিটি আপনি এখানে বের করতে চান। উদাহরণ: F:\GameName\game\ character</translation>
-    </message>
-    <message>
-        <source>Enable filter for extract</source>
-        <translation type="vanished">নিষ্কাশনের জন্য ফিল্টার সক্ষম করুন</translation>
-    </message>
-    <message>
-        <source>filter length less than</source>
-        <translation type="vanished">ফিল্টারের দৈর্ঘ্য কম</translation>
-    </message>
-    <message>
-        <source>Generate empty strings instead of original</source>
-        <translation type="vanished">মূলের পরিবর্তে খালি স্ট্রিং তৈরি করুন</translation>
+        <translation>Schriftart ersetzen</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="33"/>
         <source>clear log</source>
-        <translation>স্পষ্ট লগ</translation>
+        <translation>Protokoll löschen</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="412"/>
         <source>about</source>
-        <translation>সম্পর্কিত</translation>
+        <translation>um</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="418"/>
         <source>proxy</source>
-        <translation>প্রক্সি</translation>
+        <translation>Proxy</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="424"/>
         <source>translation engine</source>
-        <translation>অনুবাদ ইঞ্জিন</translation>
-    </message>
-    <message>
-        <source>editor</source>
-        <translation type="vanished">সম্পাদক</translation>
+        <translation>Übersetzungsmaschine</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="441"/>
         <source>language</source>
-        <translation>ভাষা</translation>
+        <translation>Sprache</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="489"/>
         <source>copyright</source>
-        <translation>কপিরাইট</translation>
+        <translation>Urheberrechte ©</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="494"/>
         <source>proxy settings</source>
-        <translation>প্রক্সি সেটিংস</translation>
+        <translation>Proxy-Einstellungen</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="499"/>
         <source>engine settings</source>
-        <translation>ইঞ্জিন সেটিংস</translation>
+        <translation>Motoreinstellungen</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="504"/>
         <source>custom engine</source>
-        <translation>কাস্টম ইঞ্জিন</translation>
+        <translation>benutzerdefinierte Engine</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="509"/>
         <source>edit from rpy</source>
-        <translation>rpy থেকে সম্পাদনা করুন</translation>
+        <translation>Bearbeiten von rpy</translation>
     </message>
 </context>
 <context>
@@ -1187,27 +1095,27 @@
     <message>
         <location filename="../proxy.ui" line="14"/>
         <source>ProxySettings</source>
-        <translation>প্রক্সি সেটিংস</translation>
+        <translation>Proxy-Einstellungen</translation>
     </message>
     <message>
         <location filename="../proxy.ui" line="26"/>
         <source>Enable Proxy</source>
-        <translation>প্রক্সি সক্ষম করুন</translation>
+        <translation>Proxy aktivieren</translation>
     </message>
     <message>
         <location filename="../proxy.ui" line="39"/>
         <source>example : http://localhost:10809</source>
-        <translation>উদাহরণ: http://localhost:10809</translation>
+        <translation>Beispiel: http://localhost:10809</translation>
     </message>
     <message>
         <location filename="../proxy.ui" line="52"/>
         <source>proxy address:</source>
-        <translation>প্রক্সি ঠিকানা:</translation>
+        <translation>Proxy-Adresse:</translation>
     </message>
     <message>
         <location filename="../proxy.ui" line="68"/>
         <source>confirm</source>
-        <translation>নিশ্চিত করুন</translation>
+        <translation>bestätigen</translation>
     </message>
 </context>
 </TS>

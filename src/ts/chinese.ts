@@ -943,8 +943,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.0.2</source>
-        <translation>版本 2.0.2</translation>
+        <source>Version 2.0.3</source>
+        <translation>版本 2.0.3</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="113"/>
