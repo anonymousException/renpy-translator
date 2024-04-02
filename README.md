@@ -48,7 +48,7 @@ https://github.com/anonymousException/renpy-translator/blob/feature/ai-translate
 
 ### Runtime Extract
 
-https://github.com/anonymousException/renpy-translator/assets/157234942/352a8e90-1806-4779-942c-718fac8fe8bf
+https://github.com/anonymousException/renpy-translator/assets/157234942/64e82f3f-7d85-4e33-8226-a06a7ba60270
 
 ### Unpack Game
 
@@ -275,7 +275,7 @@ F:\Games\RenPy\DemoGame\game\tl\japanese
 
 #### Runtime Extract(Recommend)
 
-https://github.com/anonymousException/renpy-translator/assets/157234942/352a8e90-1806-4779-942c-718fac8fe8bf
+https://github.com/anonymousException/renpy-translator/assets/157234942/64e82f3f-7d85-4e33-8226-a06a7ba60270
 
 Runtime Extract can extract **only** dialogues **without unpacking** the game and the format is block like official
 

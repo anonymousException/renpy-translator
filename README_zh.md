@@ -45,7 +45,7 @@ https://github.com/anonymousException/renpy-translator/blob/feature/ai-translate
 
 ### 运行时抽取
 
-https://github.com/anonymousException/renpy-translator/assets/157234942/352a8e90-1806-4779-942c-718fac8fe8bf
+https://github.com/anonymousException/renpy-translator/assets/157234942/64e82f3f-7d85-4e33-8226-a06a7ba60270
 
 ### 解包游戏
 
@@ -277,7 +277,7 @@ F:\Games\RenPy\DemoGame\game\tl\japanese
 
 #### 运行时抽取(推荐)
 
-https://github.com/anonymousException/renpy-translator/assets/157234942/352a8e90-1806-4779-942c-718fac8fe8bf
+https://github.com/anonymousException/renpy-translator/assets/157234942/64e82f3f-7d85-4e33-8226-a06a7ba60270
 
 运行时抽取可以在不解包下只抽取对话并且为和官方一样的块格式
 
