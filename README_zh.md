@@ -43,6 +43,14 @@ https://github.com/anonymousException/renpy-translator/blob/feature/ai-translate
 
 ## 用法
 
+### 一键翻译
+
+支持一键翻译，只需要选择目标语言和字体文件然后游戏就会被自动翻译
+
+这等价于后面的完整教程
+
+https://github.com/anonymousException/renpy-translator/assets/157234942/d586e2b8-6bcc-4ab7-83cf-ea5f6d4fedc3
+
 ### 完整教程
 
 https://github.com/anonymousException/renpy-translator/assets/157234942/381ad014-442f-458d-a304-4547a4d6a38a

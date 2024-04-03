@@ -46,6 +46,14 @@ https://github.com/anonymousException/renpy-translator/blob/feature/ai-translate
 
 ## Usage
 
+### One Key Translate
+
+Support one key translate , just select the target language and the font file and the game will be translated automatically
+
+It's equal to the following complete tutorial
+
+https://github.com/anonymousException/renpy-translator/assets/157234942/d586e2b8-6bcc-4ab7-83cf-ea5f6d4fedc3
+
 ### Complete Tutorial
 
 https://github.com/anonymousException/renpy-translator/assets/157234942/381ad014-442f-458d-a304-4547a4d6a38a
