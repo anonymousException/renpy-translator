@@ -142,7 +142,8 @@ class MyExtractionForm(QDialog, Ui_ExtractionDialog):
     @staticmethod
     def extract_threads_over():
         for t in extract_threads:
-            t.join()
+            if t.is_alive():
+                t.join()
         log_print('extract all complete!')
         if os.path.isfile('extracting'):
             os.remove('extracting')

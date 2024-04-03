@@ -21,7 +21,6 @@ from copyright import Ui_CopyrightDialog
 from my_log import log_print, log_path
 from renpy_extract import extractThread, extract_threads
 
-
 os.environ['REQUESTS_CA_BUNDLE'] = os.path.join(os.path.dirname(sys.argv[0]), 'cacert.pem')
 os.environ['NO_PROXY'] = '*'
 from local_glossary_form import MyLocalGlossaryForm
@@ -30,6 +29,7 @@ from game_unpacker_form import MyGameUnpackerForm
 from extraction_form import MyExtractionForm
 from extract_runtime_form import MyExtractionRuntimeForm
 from add_change_language_entrance_form import MyAddChangeLanguageEntranceForm
+from one_key_translate_form import MyOneKeyTranslateForm
 from renpy_translate import translateThread, translate_threads, engineList, engineDic, language_header
 from proxy import Ui_ProxyDialog
 from engine import Ui_EngineDialog
@@ -42,7 +42,6 @@ from qt_material import apply_stylesheet
 targetDic = dict()
 sourceDic = dict()
 translator = QTranslator()
-editor_form = None
 
 
 class MyProxyForm(QDialog, Ui_ProxyDialog):
@@ -103,7 +102,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.buttonGroup.addButton(self.currentRadioButton, 2)
         self.is_current = True
         self.buttonGroup.buttonClicked.connect(self.button_group_clicked)
-        self.local_glossary_form = MyLocalGlossaryForm(parent=None)
+        self.local_glossary_form = MyLocalGlossaryForm(parent=self)
         try:
             self.init_combobox()
         except Exception as e:
@@ -115,6 +114,9 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.myGameUnpackerForm = None
         self.myExtractionRuntimeForm = None
         self.myAddChangeLanguageEntranceForm = None
+        self.myOneKeyTranslateForm = None
+        self.editor_form = None
+        self.myFontReplaceForm = None
         self.actioncopyright.triggered.connect(lambda: self.show_copyright_form())
         self.proxySettings.triggered.connect(lambda: self.show_proxy_settings())
         self.engineSettings.triggered.connect(lambda: self.show_engine_settings())
@@ -125,6 +127,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.actionreplace_font.triggered.connect(lambda: self.replace_font())
         self.actionunpack_game.triggered.connect(lambda: self.unpack_game())
         self.actionadd_change_langauge_entrance.triggered.connect(lambda: self.show_add_entrance_form())
+        self.actionone_key_translate.triggered.connect(lambda: self.show_one_key_translate_form())
         self.actionArabic.triggered.connect(lambda: self.to_language('arabic'))
         self.actionBengali.triggered.connect(lambda: self.to_language('bengali'))
         self.actionChinese.triggered.connect(lambda: self.to_language('chinese'))
@@ -165,6 +168,18 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         if os.path.isfile('extracting'):
             os.remove('extracting')
 
+    def show_one_key_translate_form(self):
+        self.hide()
+        self.widget.hide()
+        self.menubar.hide()
+        self.versionLabel.hide()
+        if self.myOneKeyTranslateForm is None:
+            self.myOneKeyTranslateForm = MyOneKeyTranslateForm(parent = self)
+        self.myOneKeyTranslateForm.parent = self
+        self.myOneKeyTranslateForm.showNormal()
+        self.myOneKeyTranslateForm.raise_()
+        self.actionone_key_translate.triggered.disconnect()
+
     def show_add_entrance_form(self):
         if self.myAddChangeLanguageEntranceForm is None:
             self.myAddChangeLanguageEntranceForm = MyAddChangeLanguageEntranceForm(parent=self)
@@ -195,8 +210,9 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.myGameUnpackerForm.exec()
 
     def replace_font(self):
-        myFontReplaceForm = MyFontReplaceForm(parent=self)
-        myFontReplaceForm.exec()
+        if self.myFontReplaceForm is None:
+            self.myFontReplaceForm = MyFontReplaceForm(parent=self)
+        self.myFontReplaceForm.exec()
 
     def button_group_clicked(self, item):
         if item.group().checkedId() == 1:
@@ -233,14 +249,23 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
 
     def retranslate_ui(self):
         self.retranslateUi(self)
-        if editor_form is not None:
-            editor_form.retranslateUi(editor_form)
+        if self.editor_form is not None:
+            self.editor_form.retranslateUi(self.editor_form)
         if self.myGameUnpackerForm is not None:
             self.myGameUnpackerForm.retranslateUi(self.myGameUnpackerForm)
         if self.local_glossary_form is not None:
             self.local_glossary_form.retranslateUi(self.local_glossary_form)
         if self.myExtractionRuntimeForm is not None:
             self.myExtractionRuntimeForm.retranslateUi(self.myExtractionRuntimeForm)
+        if self.myFontReplaceForm is not None:
+            self.myFontReplaceForm.retranslateUi(self.myFontReplaceForm)
+        if self.myOneKeyTranslateForm is not None:
+            self.myOneKeyTranslateForm.retranslateUi(self.myOneKeyTranslateForm)
+        if self.myAddChangeLanguageEntranceForm is not None:
+            self.myAddChangeLanguageEntranceForm.retranslateUi(self.myAddChangeLanguageEntranceForm)
+        if self.myExtractionForm is not None:
+            self.myExtractionForm.retranslateUi(self.myExtractionForm)
+
 
     def switch_to_default_language(self):
         app = QCoreApplication.instance()
@@ -262,12 +287,11 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.widget.hide()
         self.menubar.hide()
         self.versionLabel.hide()
-        global editor_form
-        if editor_form is None:
-            editor_form = MyEditorForm(parent=None)
-        editor_form.parent = self
-        editor_form.showNormal()
-        editor_form.raise_()
+        if self.editor_form is None:
+            self.editor_form = MyEditorForm(parent=None)
+        self.editor_form.parent = self
+        self.editor_form.showNormal()
+        self.editor_form.raise_()
         self.actionedit.triggered.disconnect()
         # self.show()
 
@@ -494,7 +518,8 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
     @staticmethod
     def translate_threads_over():
         for t in translate_threads:
-            t.join()
+            if t.is_alive():
+                t.join()
         log_print('translate all complete!')
         if os.path.isfile('translating'):
             os.remove('translating')

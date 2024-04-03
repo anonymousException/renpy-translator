@@ -925,24 +925,24 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../main.py" line="405"/>
+        <location filename="../main.py" line="420"/>
         <source>extracting...</source>
         <translation>نکال رہا ہے...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="397"/>
-        <location filename="../main.py" line="485"/>
+        <location filename="../main.py" line="412"/>
+        <location filename="../main.py" line="500"/>
         <source>translating...</source>
         <translation>ترجمہ...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="400"/>
+        <location filename="../main.py" line="415"/>
         <location filename="../ui.ui" line="100"/>
         <source>translate</source>
         <translation>ترجمہ</translation>
     </message>
     <message>
-        <location filename="../main.py" line="409"/>
+        <location filename="../main.py" line="424"/>
         <source>extract</source>
         <translation>نکالنا</translation>
     </message>
@@ -955,12 +955,12 @@
         <translation type="vanished">وہ ڈائریکٹری منتخب کریں جسے آپ نکالنا چاہتے ہیں۔</translation>
     </message>
     <message>
-        <location filename="../main.py" line="431"/>
+        <location filename="../main.py" line="446"/>
         <source>select the file(s) you want to translate</source>
         <translation>وہ فائل (فائلیں) منتخب کریں جس کا آپ ترجمہ کرنا چاہتے ہیں۔</translation>
     </message>
     <message>
-        <location filename="../main.py" line="442"/>
+        <location filename="../main.py" line="457"/>
         <source>select the directory you want to translate</source>
         <translation>وہ ڈائریکٹری منتخب کریں جس کا آپ ترجمہ کرنا چاہتے ہیں۔</translation>
     </message>
@@ -971,8 +971,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.0.4</source>
-        <translation>ورژن 2.0.4</translation>
+        <source>Version 2.0.5</source>
+        <translation>ورژن 2.0.5</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="113"/>
@@ -1051,29 +1051,34 @@
         <translation>اعلی درجے کے اختیارات</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="462"/>
+        <location filename="../ui.ui" line="463"/>
         <source>theme</source>
         <translation>خیالیہ</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="581"/>
+        <location filename="../ui.ui" line="582"/>
         <source>unpack game package</source>
         <translation>گیم پیکج کھولیں۔</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="681"/>
+        <location filename="../ui.ui" line="682"/>
         <source>extract translation</source>
         <translation>ترجمہ نکالیں۔</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="686"/>
+        <location filename="../ui.ui" line="687"/>
         <source>runtime extraction</source>
         <translation>رن ٹائم نکالنا</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="701"/>
+        <location filename="../ui.ui" line="702"/>
         <source>add change langauge entrance</source>
         <translation>تبدیلی کی زبان کا داخلہ شامل کریں۔</translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="707"/>
+        <source>one key translate</source>
+        <translation>ایک اہم ترجمہ</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="270"/>
@@ -1099,7 +1104,7 @@
         <translation type="vanished">ترجمہ کے بعد زبان کو سپورٹ کرنے والا فونٹ داخل کریں یا منتخب کریں یا گھسیٹیں۔ مثال: DejaVuSans.ttf (ren&apos;py کا ڈیفالٹ فونٹ)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="576"/>
+        <location filename="../ui.ui" line="577"/>
         <source>replace font</source>
         <translation>فونٹ تبدیل کریں</translation>
     </message>
@@ -1180,34 +1185,143 @@
         <translation type="vanished">ایڈیٹر</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="443"/>
+        <location filename="../ui.ui" line="444"/>
         <source>language</source>
         <translation>زبان</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="493"/>
+        <location filename="../ui.ui" line="494"/>
         <source>copyright</source>
         <translation>کاپی رائٹ</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="498"/>
+        <location filename="../ui.ui" line="499"/>
         <source>proxy settings</source>
         <translation>پراکسی ترتیبات</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="503"/>
+        <location filename="../ui.ui" line="504"/>
         <source>engine settings</source>
         <translation>انجن کی ترتیبات</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="508"/>
+        <location filename="../ui.ui" line="509"/>
         <source>custom engine</source>
         <translation>اپنی مرضی کے انجن</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="513"/>
+        <location filename="../ui.ui" line="514"/>
         <source>edit from rpy</source>
         <translation>rpy سے ترمیم کریں۔</translation>
+    </message>
+</context>
+<context>
+    <name>OneKeyTranslateDialog</name>
+    <message>
+        <location filename="../one_key_translate.ui" line="14"/>
+        <source>One Key Translate</source>
+        <translation>ایک اہم ترجمہ</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="26"/>
+        <location filename="../one_key_translate.ui" line="172"/>
+        <source>...</source>
+        <translation>...</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="42"/>
+        <source>input or choose or drag the game you want to extract it&apos;s dialogues.Example:F:/DemoGame.exe</source>
+        <translation>جس گیم کو آپ ڈائیلاگز نکالنا چاہتے ہیں اسے داخل کریں یا منتخب کریں یا گھسیٹیں۔ مثال:F:/DemoGame.exe</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="55"/>
+        <source>Input the directory name under game\tl  Example: &apos;japanese&apos; or &apos;chinese&apos;.If the folder already exists, the content will be appended to the original file</source>
+        <translation>گیم کے تحت ڈائرکٹری کا نام داخل کریں\tl مثال: &apos;جاپانی&apos; یا &apos;چینی&apos;اگر فولڈر پہلے سے موجود ہے تو، مواد کو اصل فائل میں شامل کر دیا جائے گا۔</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="68"/>
+        <source>tl name</source>
+        <translation>tl نام</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="84"/>
+        <source>file</source>
+        <translation>فائل</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="100"/>
+        <source>target</source>
+        <translation>ہدف</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="113"/>
+        <source>Change Translation Engine</source>
+        <translation>ترجمہ انجن تبدیل کریں۔</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="146"/>
+        <source>source</source>
+        <translation>ذریعہ</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="159"/>
+        <source>Local Glossary (replace certain words with preset content)</source>
+        <translation>مقامی لغت (بعض الفاظ کو پیش سیٹ مواد سے تبدیل کریں)</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="185"/>
+        <source>font</source>
+        <translation>فونٹ</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="201"/>
+        <source>input or choose or drag the font which supports the language after translation. Example : DejaVuSans.ttf (ren&apos;py &apos;s default font)</source>
+        <translation>ترجمہ کے بعد زبان کو سپورٹ کرنے والا فونٹ داخل کریں یا منتخب کریں یا گھسیٹیں۔ مثال: DejaVuSans.ttf (ren&apos;py کا ڈیفالٹ فونٹ)</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="214"/>
+        <source>Unpack Game Package</source>
+        <translation>گیم پیکج کھولیں۔</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="230"/>
+        <source>Runtime Extraction</source>
+        <translation>رن ٹائم نکالنا</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="246"/>
+        <source>Extraction</source>
+        <translation>نکالنا</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="262"/>
+        <source>Replace Font</source>
+        <translation>فونٹ تبدیل کریں</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="278"/>
+        <source>Add Change Langauge Entrance</source>
+        <translation>تبدیلی کی زبان کا داخلہ شامل کریں۔</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="294"/>
+        <source>Translate</source>
+        <translation>ترجمہ</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="310"/>
+        <source>Enable filter for extract</source>
+        <translation>نکالنے کے لیے فلٹر کو فعال کریں۔</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="339"/>
+        <source>filter length less than</source>
+        <translation>سے کم فلٹر کی لمبائی</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="355"/>
+        <source>Start</source>
+        <translation>شروع کریں۔</translation>
     </message>
 </context>
 <context>

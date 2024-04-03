@@ -35,7 +35,9 @@ class ExcelModel(QAbstractTableModel):
         super().__init__()
         self.is_need_save = False
         if data is None:
+            self.init = False
             return
+        self.init = True
         self._data = data
         self.path = path
         self.wb = wb
@@ -156,12 +158,16 @@ class MyLocalGlossaryForm(QDialog, Ui_LocalGlossaryDialog):
         _thread.start_new_thread(self.update, ())
 
         def on_previous_clicked():
+            if not self.tableView.model.init:
+                return
             new_page = max(self.tableView.model.current_page - 1, 0)
             self.tableView.model.setPage(new_page)
             self.curPageLabel.setText(str(self.tableView.model.current_page + 1) + '/' + str(
                 int(self.tableView.model.max_row / self.tableView.model.rows_per_page) + 1))
 
         def on_next_clicked():
+            if not self.tableView.model.init:
+                return
             new_page = min(self.tableView.model.current_page + 1,
                            (self.tableView.model.max_row - 1) // self.tableView.model.rows_per_page)
             self.tableView.model.setPage(new_page)

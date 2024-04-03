@@ -930,18 +930,18 @@
         <translation>Ren&apos;py 翻译器</translation>
     </message>
     <message>
-        <location filename="../main.py" line="405"/>
+        <location filename="../main.py" line="420"/>
         <source>extracting...</source>
         <translation>抽取中...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="397"/>
-        <location filename="../main.py" line="485"/>
+        <location filename="../main.py" line="412"/>
+        <location filename="../main.py" line="500"/>
         <source>translating...</source>
         <translation>翻译中...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="400"/>
+        <location filename="../main.py" line="415"/>
         <location filename="../ui.ui" line="100"/>
         <source>translate</source>
         <translation>翻译</translation>
@@ -955,19 +955,19 @@
         <translation type="vanished">选择你要解压的目录</translation>
     </message>
     <message>
-        <location filename="../main.py" line="431"/>
+        <location filename="../main.py" line="446"/>
         <source>select the file(s) you want to translate</source>
         <translation>选择您要翻译的文件</translation>
     </message>
     <message>
-        <location filename="../main.py" line="442"/>
+        <location filename="../main.py" line="457"/>
         <source>select the directory you want to translate</source>
         <translation>选择要翻译的目录</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.0.4</source>
-        <translation>版本 2.0.4</translation>
+        <source>Version 2.0.5</source>
+        <translation>版本 2.0.5</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="113"/>
@@ -1046,19 +1046,24 @@
         <translation>跳过翻译（原始！=当前）</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="681"/>
+        <location filename="../ui.ui" line="682"/>
         <source>extract translation</source>
         <translation>提取翻译</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="686"/>
+        <location filename="../ui.ui" line="687"/>
         <source>runtime extraction</source>
         <translation>运行时提取</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="701"/>
+        <location filename="../ui.ui" line="702"/>
         <source>add change langauge entrance</source>
         <translation>添加更改语言入口</translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="707"/>
+        <source>one key translate</source>
+        <translation>一键翻译</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="46"/>
@@ -1071,7 +1076,7 @@
         <translation>高级选项</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="581"/>
+        <location filename="../ui.ui" line="582"/>
         <source>unpack game package</source>
         <translation>解压游戏包</translation>
     </message>
@@ -1088,7 +1093,7 @@
         <translation type="vanished">输入或选择或拖动支持翻译后语言的字体。示例：DejaVuSans.ttf（ren&apos;py 的默认字体）</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="576"/>
+        <location filename="../ui.ui" line="577"/>
         <source>replace font</source>
         <translation>替换字体</translation>
     </message>
@@ -1117,7 +1122,7 @@
         <translation type="vanished">在此处输入或选择或拖动要翻译的目录。示例：F:\GameName\game\tl\language</translation>
     </message>
     <message>
-        <location filename="../main.py" line="409"/>
+        <location filename="../main.py" line="424"/>
         <source>extract</source>
         <translation>抽取</translation>
     </message>
@@ -1179,39 +1184,148 @@
         <translation type="vanished">编辑器</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="443"/>
+        <location filename="../ui.ui" line="444"/>
         <source>language</source>
         <translation>语言</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="462"/>
+        <location filename="../ui.ui" line="463"/>
         <source>theme</source>
         <translation>主题</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="493"/>
+        <location filename="../ui.ui" line="494"/>
         <source>copyright</source>
         <translation>版权</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="498"/>
+        <location filename="../ui.ui" line="499"/>
         <source>proxy settings</source>
         <translation>代理设置</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="503"/>
+        <location filename="../ui.ui" line="504"/>
         <source>engine settings</source>
         <translation>引擎设置</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="508"/>
+        <location filename="../ui.ui" line="509"/>
         <source>custom engine</source>
         <translation>自定义引擎</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="513"/>
+        <location filename="../ui.ui" line="514"/>
         <source>edit from rpy</source>
         <translation>从 rpy 编辑</translation>
+    </message>
+</context>
+<context>
+    <name>OneKeyTranslateDialog</name>
+    <message>
+        <location filename="../one_key_translate.ui" line="14"/>
+        <source>One Key Translate</source>
+        <translation>一键翻译</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="26"/>
+        <location filename="../one_key_translate.ui" line="172"/>
+        <source>...</source>
+        <translation>...</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="42"/>
+        <source>input or choose or drag the game you want to extract it&apos;s dialogues.Example:F:/DemoGame.exe</source>
+        <translation>输入或选择或拖动您要提取其对话的游戏。示例：F:/DemoGame.exe</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="55"/>
+        <source>Input the directory name under game\tl  Example: &apos;japanese&apos; or &apos;chinese&apos;.If the folder already exists, the content will be appended to the original file</source>
+        <translation>输入game\tl下的目录名 例如：“japanese”或“chinese”。如果该文件夹已存在，则内容将追加到原文件中</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="68"/>
+        <source>tl name</source>
+        <translation>tl 名称</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="84"/>
+        <source>file</source>
+        <translation>文件</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="100"/>
+        <source>target</source>
+        <translation>目标</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="113"/>
+        <source>Change Translation Engine</source>
+        <translation>更改翻译引擎</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="146"/>
+        <source>source</source>
+        <translation>源</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="159"/>
+        <source>Local Glossary (replace certain words with preset content)</source>
+        <translation>本地词汇表（用预设内容替换某些单词）</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="185"/>
+        <source>font</source>
+        <translation>字体</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="201"/>
+        <source>input or choose or drag the font which supports the language after translation. Example : DejaVuSans.ttf (ren&apos;py &apos;s default font)</source>
+        <translation>输入或选择或拖动支持翻译后语言的字体。示例：DejaVuSans.ttf（ren&apos;py 的默认字体）</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="214"/>
+        <source>Unpack Game Package</source>
+        <translation>解压游戏包</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="230"/>
+        <source>Runtime Extraction</source>
+        <translation>运行时提取</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="246"/>
+        <source>Extraction</source>
+        <translation>抽取</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="262"/>
+        <source>Replace Font</source>
+        <translation>替换字体</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="278"/>
+        <source>Add Change Langauge Entrance</source>
+        <translation>添加更改语言入口</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="294"/>
+        <source>Translate</source>
+        <translation>翻译</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="310"/>
+        <source>Enable filter for extract</source>
+        <translation>启用提取过滤器</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="339"/>
+        <source>filter length less than</source>
+        <translation>过滤器长度小于</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="355"/>
+        <source>Start</source>
+        <translation>启动</translation>
     </message>
 </context>
 <context>

@@ -925,24 +925,24 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../main.py" line="405"/>
+        <location filename="../main.py" line="420"/>
         <source>extracting...</source>
         <translation>extraindo...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="397"/>
-        <location filename="../main.py" line="485"/>
+        <location filename="../main.py" line="412"/>
+        <location filename="../main.py" line="500"/>
         <source>translating...</source>
         <translation>traduzindo...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="400"/>
+        <location filename="../main.py" line="415"/>
         <location filename="../ui.ui" line="100"/>
         <source>translate</source>
         <translation>traduzir</translation>
     </message>
     <message>
-        <location filename="../main.py" line="409"/>
+        <location filename="../main.py" line="424"/>
         <source>extract</source>
         <translation>extrair</translation>
     </message>
@@ -955,12 +955,12 @@
         <translation type="vanished">selecione o diretório que deseja extrair</translation>
     </message>
     <message>
-        <location filename="../main.py" line="431"/>
+        <location filename="../main.py" line="446"/>
         <source>select the file(s) you want to translate</source>
         <translation>selecione o(s) arquivo(s) que deseja traduzir</translation>
     </message>
     <message>
-        <location filename="../main.py" line="442"/>
+        <location filename="../main.py" line="457"/>
         <source>select the directory you want to translate</source>
         <translation>selecione o diretório que deseja traduzir</translation>
     </message>
@@ -971,8 +971,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.0.4</source>
-        <translation>Versão 2.0.4</translation>
+        <source>Version 2.0.5</source>
+        <translation>Versão 2.0.5</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="113"/>
@@ -1056,19 +1056,24 @@
         <translation>(Se desabilitado, a tradução continuará após a tradução do arquivo anterior)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="681"/>
+        <location filename="../ui.ui" line="682"/>
         <source>extract translation</source>
         <translation>extrair tradução</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="686"/>
+        <location filename="../ui.ui" line="687"/>
         <source>runtime extraction</source>
         <translation>Extração de tempo de execução</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="701"/>
+        <location filename="../ui.ui" line="702"/>
         <source>add change langauge entrance</source>
         <translation>Adicionar entrada para alteração de idioma</translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="707"/>
+        <source>one key translate</source>
+        <translation>uma chave traduz</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="46"/>
@@ -1081,7 +1086,7 @@
         <translation>opções avançadas</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="581"/>
+        <location filename="../ui.ui" line="582"/>
         <source>unpack game package</source>
         <translation>descompacte o pacote do jogo</translation>
     </message>
@@ -1094,7 +1099,7 @@
         <translation type="vanished">insira ou escolha ou arraste a fonte que suporta o idioma após a tradução. Exemplo: DejaVuSans.ttf (fonte padrão de ren&apos;py)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="576"/>
+        <location filename="../ui.ui" line="577"/>
         <source>replace font</source>
         <translation>substituir fonte</translation>
     </message>
@@ -1175,39 +1180,148 @@
         <translation type="vanished">editor</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="443"/>
+        <location filename="../ui.ui" line="444"/>
         <source>language</source>
         <translation>linguagem</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="462"/>
+        <location filename="../ui.ui" line="463"/>
         <source>theme</source>
         <translation>tema</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="493"/>
+        <location filename="../ui.ui" line="494"/>
         <source>copyright</source>
         <translation>direito autoral</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="498"/>
+        <location filename="../ui.ui" line="499"/>
         <source>proxy settings</source>
         <translation>configurações de proxy</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="503"/>
+        <location filename="../ui.ui" line="504"/>
         <source>engine settings</source>
         <translation>configurações do motor</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="508"/>
+        <location filename="../ui.ui" line="509"/>
         <source>custom engine</source>
         <translation>mecanismo personalizado</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="513"/>
+        <location filename="../ui.ui" line="514"/>
         <source>edit from rpy</source>
         <translation>editar do rpy</translation>
+    </message>
+</context>
+<context>
+    <name>OneKeyTranslateDialog</name>
+    <message>
+        <location filename="../one_key_translate.ui" line="14"/>
+        <source>One Key Translate</source>
+        <translation>uma chave traduz</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="26"/>
+        <location filename="../one_key_translate.ui" line="172"/>
+        <source>...</source>
+        <translation>...</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="42"/>
+        <source>input or choose or drag the game you want to extract it&apos;s dialogues.Example:F:/DemoGame.exe</source>
+        <translation>insira ou escolha ou arraste o jogo cujos diálogos deseja extrair.Exemplo:F:/DemoGame.exe</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="55"/>
+        <source>Input the directory name under game\tl  Example: &apos;japanese&apos; or &apos;chinese&apos;.If the folder already exists, the content will be appended to the original file</source>
+        <translation>Insira o nome do diretório em game\tl Exemplo: &apos;japanese&apos; ou &apos;chinese&apos;.Se a pasta já existir, o conteúdo será anexado ao arquivo original</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="68"/>
+        <source>tl name</source>
+        <translation>nome tl</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="84"/>
+        <source>file</source>
+        <translation>arquivo</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="100"/>
+        <source>target</source>
+        <translation>alvo</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="113"/>
+        <source>Change Translation Engine</source>
+        <translation>Alterar mecanismo de tradução</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="146"/>
+        <source>source</source>
+        <translation>fonte</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="159"/>
+        <source>Local Glossary (replace certain words with preset content)</source>
+        <translation>Glossário local (substitua certas palavras por conteúdo predefinido)</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="185"/>
+        <source>font</source>
+        <translation>Fonte</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="201"/>
+        <source>input or choose or drag the font which supports the language after translation. Example : DejaVuSans.ttf (ren&apos;py &apos;s default font)</source>
+        <translation>insira ou escolha ou arraste a fonte que suporta o idioma após a tradução. Exemplo: DejaVuSans.ttf (fonte padrão de ren&apos;py)</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="214"/>
+        <source>Unpack Game Package</source>
+        <translation>descompacte o pacote do jogo</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="230"/>
+        <source>Runtime Extraction</source>
+        <translation>Extração de tempo de execução</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="246"/>
+        <source>Extraction</source>
+        <translation>Extração</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="262"/>
+        <source>Replace Font</source>
+        <translation>substituir fonte</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="278"/>
+        <source>Add Change Langauge Entrance</source>
+        <translation>Adicionar entrada para alteração de idioma</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="294"/>
+        <source>Translate</source>
+        <translation>traduzir</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="310"/>
+        <source>Enable filter for extract</source>
+        <translation>Ativar filtro para extração</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="339"/>
+        <source>filter length less than</source>
+        <translation>comprimento do filtro menor que</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="355"/>
+        <source>Start</source>
+        <translation>Começar</translation>
     </message>
 </context>
 <context>

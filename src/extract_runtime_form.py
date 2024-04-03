@@ -22,11 +22,12 @@ extract_finish = 'extract_runtime.finish'
 
 
 class extractThread(threading.Thread):
-    def __init__(self, path, tl_name,is_gen_empty):
+    def __init__(self, path, tl_name,is_gen_empty,is_show_directory):
         threading.Thread.__init__(self)
         self.path = path
         self.tl_name = tl_name
         self.is_gen_empty = is_gen_empty
+        self.is_show_directory = is_show_directory
     def run(self):
         try:
             if os.path.isfile(extract_finish):
@@ -118,7 +119,8 @@ class extractThread(threading.Thread):
                                 f.write(f'    {who}"{what}"\n')
                             # print(f'who:{who} what:{what} {key} {linenumber}')
                         f.close()
-                open_directory_and_select_file(target)
+                if self.is_show_directory:
+                    open_directory_and_select_file(target)
                 log_print('runtime extract success!')
                 f = io.open(extract_finish, 'w', encoding='utf-8')
                 f.close()
@@ -148,7 +150,7 @@ class MyExtractionRuntimeForm(QDialog, Ui_ExtractionRuntimeDialog):
             return
         if os.path.isfile(path):
             if path.endswith('.exe'):
-                t = extractThread(path, tl_name, self.emptyCheckBox.isChecked())
+                t = extractThread(path, tl_name, self.emptyCheckBox.isChecked(), True)
                 t.start()
                 self.setDisabled(True)
 

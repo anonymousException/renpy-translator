@@ -925,24 +925,24 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../main.py" line="405"/>
+        <location filename="../main.py" line="420"/>
         <source>extracting...</source>
         <translation>নিষ্কাশন করা হচ্ছে...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="397"/>
-        <location filename="../main.py" line="485"/>
+        <location filename="../main.py" line="412"/>
+        <location filename="../main.py" line="500"/>
         <source>translating...</source>
         <translation>অনুবাদ করা হচ্ছে...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="400"/>
+        <location filename="../main.py" line="415"/>
         <location filename="../ui.ui" line="100"/>
         <source>translate</source>
         <translation>অনুবাদ করা</translation>
     </message>
     <message>
-        <location filename="../main.py" line="409"/>
+        <location filename="../main.py" line="424"/>
         <source>extract</source>
         <translation>নির্যাস</translation>
     </message>
@@ -955,12 +955,12 @@
         <translation type="vanished">আপনি নিষ্কাশন করতে চান ডিরেক্টরি নির্বাচন করুন</translation>
     </message>
     <message>
-        <location filename="../main.py" line="431"/>
+        <location filename="../main.py" line="446"/>
         <source>select the file(s) you want to translate</source>
         <translation>আপনি যে ফাইলটি অনুবাদ করতে চান সেটি নির্বাচন করুন</translation>
     </message>
     <message>
-        <location filename="../main.py" line="442"/>
+        <location filename="../main.py" line="457"/>
         <source>select the directory you want to translate</source>
         <translation>আপনি যে ডিরেক্টরিটি অনুবাদ করতে চান তা নির্বাচন করুন</translation>
     </message>
@@ -971,8 +971,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.0.4</source>
-        <translation>সংস্করণ 2.0.4</translation>
+        <source>Version 2.0.5</source>
+        <translation>সংস্করণ 2.0.5</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="113"/>
@@ -1051,29 +1051,34 @@
         <translation>উন্নত বিকল্প</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="462"/>
+        <location filename="../ui.ui" line="463"/>
         <source>theme</source>
         <translation>থিম</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="581"/>
+        <location filename="../ui.ui" line="582"/>
         <source>unpack game package</source>
         <translation>গেম প্যাকেজ আনপ্যাক করুন</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="681"/>
+        <location filename="../ui.ui" line="682"/>
         <source>extract translation</source>
         <translation>অনুবাদ নির্যাস</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="686"/>
+        <location filename="../ui.ui" line="687"/>
         <source>runtime extraction</source>
         <translation>রানটাইম নিষ্কাশন</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="701"/>
+        <location filename="../ui.ui" line="702"/>
         <source>add change langauge entrance</source>
         <translation>পরিবর্তন ভাষা প্রবেশদ্বার যোগ করুন</translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="707"/>
+        <source>one key translate</source>
+        <translation>একটি মূল অনুবাদ</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="270"/>
@@ -1099,7 +1104,7 @@
         <translation type="vanished">ইনপুট বা চয়ন করুন বা ফন্ট যা অনুবাদের পরে ভাষা সমর্থন করে টেনে আনুন। উদাহরণ: DejaVuSans.ttf (ren&apos;py এর ডিফল্ট ফন্ট)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="576"/>
+        <location filename="../ui.ui" line="577"/>
         <source>replace font</source>
         <translation>ফন্ট প্রতিস্থাপন</translation>
     </message>
@@ -1180,34 +1185,143 @@
         <translation type="vanished">সম্পাদক</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="443"/>
+        <location filename="../ui.ui" line="444"/>
         <source>language</source>
         <translation>ভাষা</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="493"/>
+        <location filename="../ui.ui" line="494"/>
         <source>copyright</source>
         <translation>কপিরাইট</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="498"/>
+        <location filename="../ui.ui" line="499"/>
         <source>proxy settings</source>
         <translation>প্রক্সি সেটিংস</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="503"/>
+        <location filename="../ui.ui" line="504"/>
         <source>engine settings</source>
         <translation>ইঞ্জিন সেটিংস</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="508"/>
+        <location filename="../ui.ui" line="509"/>
         <source>custom engine</source>
         <translation>কাস্টম ইঞ্জিন</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="513"/>
+        <location filename="../ui.ui" line="514"/>
         <source>edit from rpy</source>
         <translation>rpy থেকে সম্পাদনা করুন</translation>
+    </message>
+</context>
+<context>
+    <name>OneKeyTranslateDialog</name>
+    <message>
+        <location filename="../one_key_translate.ui" line="14"/>
+        <source>One Key Translate</source>
+        <translation>একটি মূল অনুবাদ</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="26"/>
+        <location filename="../one_key_translate.ui" line="172"/>
+        <source>...</source>
+        <translation>...</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="42"/>
+        <source>input or choose or drag the game you want to extract it&apos;s dialogues.Example:F:/DemoGame.exe</source>
+        <translation>ইনপুট করুন বা বেছে নিন বা টেনে আনুন গেমটি আপনি এর ডায়ালগগুলি বের করতে চান৷ উদাহরণ:F:/DemoGame.exe</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="55"/>
+        <source>Input the directory name under game\tl  Example: &apos;japanese&apos; or &apos;chinese&apos;.If the folder already exists, the content will be appended to the original file</source>
+        <translation>গেমের অধীনে ডিরেক্টরির নাম ইনপুট করুন\tl উদাহরণ: &apos;জাপানি&apos; বা &apos;চাইনিজ&apos;।যদি ফোল্ডারটি ইতিমধ্যেই বিদ্যমান থাকে তবে বিষয়বস্তুটি মূল ফাইলে যুক্ত করা হবে</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="68"/>
+        <source>tl name</source>
+        <translation>tl নাম</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="84"/>
+        <source>file</source>
+        <translation>ফাইল</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="100"/>
+        <source>target</source>
+        <translation>লক্ষ্য</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="113"/>
+        <source>Change Translation Engine</source>
+        <translation>অনুবাদ ইঞ্জিন পরিবর্তন করুন</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="146"/>
+        <source>source</source>
+        <translation>উৎস</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="159"/>
+        <source>Local Glossary (replace certain words with preset content)</source>
+        <translation>স্থানীয় শব্দকোষ (প্রিসেট কন্টেন্ট দিয়ে কিছু শব্দ প্রতিস্থাপন করুন)</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="185"/>
+        <source>font</source>
+        <translation>ফন্ট</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="201"/>
+        <source>input or choose or drag the font which supports the language after translation. Example : DejaVuSans.ttf (ren&apos;py &apos;s default font)</source>
+        <translation>ইনপুট বা চয়ন করুন বা ফন্ট যা অনুবাদের পরে ভাষা সমর্থন করে টেনে আনুন। উদাহরণ: DejaVuSans.ttf (ren&apos;py এর ডিফল্ট ফন্ট)</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="214"/>
+        <source>Unpack Game Package</source>
+        <translation>গেম প্যাকেজ আনপ্যাক করুন</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="230"/>
+        <source>Runtime Extraction</source>
+        <translation>রানটাইম নিষ্কাশন</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="246"/>
+        <source>Extraction</source>
+        <translation>নিষ্কাশন</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="262"/>
+        <source>Replace Font</source>
+        <translation>ফন্ট প্রতিস্থাপন</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="278"/>
+        <source>Add Change Langauge Entrance</source>
+        <translation>পরিবর্তন ভাষা প্রবেশদ্বার যোগ করুন</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="294"/>
+        <source>Translate</source>
+        <translation>অনুবাদ করা</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="310"/>
+        <source>Enable filter for extract</source>
+        <translation>নিষ্কাশনের জন্য ফিল্টার সক্ষম করুন</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="339"/>
+        <source>filter length less than</source>
+        <translation>ফিল্টারের দৈর্ঘ্য কম</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="355"/>
+        <source>Start</source>
+        <translation>শুরু করুন</translation>
     </message>
 </context>
 <context>
