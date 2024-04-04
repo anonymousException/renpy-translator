@@ -775,8 +775,6 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
         self.tableVerticalLayout.addWidget(self.tableView)
         self.selectTableView = MySelectTableView()
         self.fileVerticalLayout.addWidget(self.selectTableView)
-        # item = QStandardItem('F:\\Games\\RenPy\\DemoGame\\game\\tl\\japanese\\script.rpy')
-        # self.listView.model.appendRow(item)
         self.treeView = MyTreeView()
         self.fileVerticalLayout.addWidget(self.treeView)
         self.treeView.setMaximumWidth(550)

@@ -129,21 +129,21 @@ class MyExtractionForm(QDialog, Ui_ExtractionDialog):
                     extract_threads.append(t)
                     cnt = cnt + 1
             if len(extract_threads) > 0:
-                open('extracting', "w")
+                self.parent.extracting = True
                 self.extractBtn.setText(QCoreApplication.translate('MainWindow', 'extracting...', None))
                 self.extractBtn.setDisabled(True)
                 _thread.start_new_thread(self.extract_threads_over, ())
         except Exception:
             msg = traceback.format_exc()
             log_print(msg)
-            if os.path.isfile('extracting'):
-                os.remove('extracting')
+            self.parent.extracting = False
 
-    @staticmethod
-    def extract_threads_over():
+    def extract_threads_over(self):
+        threads_len = len(extract_threads)
         for t in extract_threads:
             if t.is_alive():
                 t.join()
-        log_print('extract all complete!')
-        if os.path.isfile('extracting'):
-            os.remove('extracting')
+            extract_threads.remove(t)
+        if threads_len > 0:
+            log_print('extract all complete!')
+        self.parent.extracting = False

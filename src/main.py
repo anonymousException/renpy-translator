@@ -19,8 +19,6 @@ from PySide6.QtWidgets import QFileDialog, QListView, QAbstractItemView, QTreeVi
 
 from copyright import Ui_CopyrightDialog
 from my_log import log_print, log_path
-from renpy_extract import extractThread, extract_threads
-
 os.environ['REQUESTS_CA_BUNDLE'] = os.path.join(os.path.dirname(sys.argv[0]), 'cacert.pem')
 os.environ['NO_PROXY'] = '*'
 from local_glossary_form import MyLocalGlossaryForm
@@ -94,7 +92,8 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.selectDirBtn.clicked.connect(self.select_directory)
         self.translateBtn.clicked.connect(self.translate)
         self.clearLogBtn.clicked.connect(self.clear_log)
-
+        self.translating = False
+        self.extracting = False
         self.local_glossary = None
         self.localGlossaryCheckBox.clicked.connect(self.on_local_glossary_checkbox_state_changed)
         self.buttonGroup = QButtonGroup()
@@ -163,10 +162,6 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.actiondark_yellow.triggered.connect(lambda: self.change_theme(self.actiondark_yellow.text()))
 
         _thread.start_new_thread(self.update_log, ())
-        if os.path.isfile('translating'):
-            os.remove('translating')
-        if os.path.isfile('extracting'):
-            os.remove('extracting')
 
     def show_one_key_translate_form(self):
         self.hide()
@@ -193,6 +188,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
     def show_extraction_form(self):
         if self.myExtractionForm is None:
             self.myExtractionForm = MyExtractionForm(parent=self)
+            self.myExtractionForm.parent = self
         self.myExtractionForm.exec()
 
     def change_theme(self, new_theme):
@@ -417,14 +413,14 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         if data != self.log_text.toPlainText():
             self.log_text.setText(data)
             self.log_text.moveCursor(QTextCursor.End)
-        if os.path.isfile('translating'):
+        if self.translating:
             self.translateBtn.setText(QCoreApplication.translate('MainWindow', 'translating...', None))
             self.translateBtn.setDisabled(True)
         else:
             self.translateBtn.setText(QCoreApplication.translate('MainWindow', 'translate', None))
             self.translateBtn.setEnabled(True)
 
-        if os.path.isfile('extracting'):
+        if self.extracting:
             if self.myExtractionForm is not None:
                 self.myExtractionForm.extractBtn.setText(QCoreApplication.translate('MainWindow', 'extracting...', None))
                 self.myExtractionForm.extractBtn.setDisabled(True)
@@ -505,24 +501,27 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
                             translate_threads.append(t)
                             cnt = cnt + 1
             if len(translate_threads) > 0:
-                open('translating', "w")
                 self.translateBtn.setText(QCoreApplication.translate('MainWindow', 'translating...', None))
                 self.translateBtn.setDisabled(True)
+                self.translating = True
                 _thread.start_new_thread(self.translate_threads_over, ())
+            else:
+                self.translating = False
         except Exception:
             msg = traceback.format_exc()
             log_print(msg)
-            if os.path.isfile('translating'):
-                os.remove('translating')
+            self.translating = False
 
-    @staticmethod
-    def translate_threads_over():
+    def translate_threads_over(self):
+        threads_len = len(translate_threads)
         for t in translate_threads:
             if t.is_alive():
                 t.join()
-        log_print('translate all complete!')
-        if os.path.isfile('translating'):
-            os.remove('translating')
+            translate_threads.remove(t)
+        if threads_len > 0 :
+            log_print('translate all complete!')
+        self.translating = False
+
 
 
 if __name__ == "__main__":

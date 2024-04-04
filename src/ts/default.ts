@@ -278,7 +278,7 @@
         <location filename="../editor_form.py" line="272"/>
         <location filename="../editor_form.py" line="352"/>
         <location filename="../editor_form.py" line="513"/>
-        <location filename="../editor_form.py" line="1084"/>
+        <location filename="../editor_form.py" line="1082"/>
         <location filename="../editor.ui" line="334"/>
         <location filename="../editor.ui" line="413"/>
         <source>Original</source>
@@ -289,7 +289,7 @@
         <location filename="../editor_form.py" line="273"/>
         <location filename="../editor_form.py" line="353"/>
         <location filename="../editor_form.py" line="514"/>
-        <location filename="../editor_form.py" line="1085"/>
+        <location filename="../editor_form.py" line="1083"/>
         <location filename="../editor.ui" line="255"/>
         <location filename="../editor.ui" line="432"/>
         <source>Current</source>
@@ -367,12 +367,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1046"/>
+        <location filename="../editor_form.py" line="1044"/>
         <source>select the directory you want to edit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1053"/>
+        <location filename="../editor_form.py" line="1051"/>
         <source>select the file(s) you want to edit</source>
         <translation type="unfinished"></translation>
     </message>
@@ -734,6 +734,7 @@
     </message>
     <message>
         <location filename="../font_replace_form.py" line="28"/>
+        <location filename="../one_key_translate_form.py" line="256"/>
         <source>select the file font which supports the translated language</source>
         <translation type="unfinished"></translation>
     </message>
@@ -831,23 +832,23 @@
 <context>
     <name>LocalGlossaryDialog</name>
     <message>
-        <location filename="../local_glossary_form.py" line="47"/>
-        <location filename="../local_glossary_form.py" line="129"/>
+        <location filename="../local_glossary_form.py" line="49"/>
+        <location filename="../local_glossary_form.py" line="131"/>
         <source>Row</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../local_glossary_form.py" line="130"/>
+        <location filename="../local_glossary_form.py" line="132"/>
         <source>Original</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../local_glossary_form.py" line="131"/>
+        <location filename="../local_glossary_form.py" line="133"/>
         <source>Replace</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../local_glossary_form.py" line="214"/>
+        <location filename="../local_glossary_form.py" line="220"/>
         <source>select the file you want to import</source>
         <translation type="unfinished"></translation>
     </message>
@@ -905,34 +906,34 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../main.py" line="420"/>
+        <location filename="../main.py" line="429"/>
         <source>extracting...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="412"/>
-        <location filename="../main.py" line="500"/>
+        <location filename="../main.py" line="421"/>
+        <location filename="../main.py" line="509"/>
         <source>translating...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="415"/>
+        <location filename="../main.py" line="424"/>
         <location filename="../ui.ui" line="100"/>
         <source>translate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="424"/>
+        <location filename="../main.py" line="433"/>
         <source>extract</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="446"/>
+        <location filename="../main.py" line="455"/>
         <source>select the file(s) you want to translate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="457"/>
+        <location filename="../main.py" line="466"/>
         <source>select the directory you want to translate</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1054,7 +1055,7 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.0.5</source>
+        <source>Version 2.0.6</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1229,6 +1230,16 @@
     <message>
         <location filename="../one_key_translate.ui" line="355"/>
         <source>Start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate_form.py" line="376"/>
+        <source>select the game file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate_form.py" line="411"/>
+        <source>One Key Translate Complete</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

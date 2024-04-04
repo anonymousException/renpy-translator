@@ -34,6 +34,5 @@ screen my_preferences():
                 label _("Language")
                 textbutton "Default" action Language(None)
                 for i in range(len(l)):
-                    if l[i] == 'None':
-                        continue
-                    textbutton "%s" % l[i] action Language(l[i])
+                    if l[i] != 'None':
+                        textbutton "%s" % l[i] action Language(l[i])

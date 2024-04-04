@@ -103,14 +103,27 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
                                             True,
                                             False, self.local_glossary, True,
                                             True)
-                        t.start()
                         translate_threads.append(t)
                         cnt = cnt + 1
                 if len(translate_threads) > 0:
-                    open('translating', "w")
+                    qDic[self.translate] = False
+                    for t in translate_threads:
+                        t.start()
                     self.setDisabled(True)
+                    _thread.start_new_thread(self.translate_threads_over, ())
                 else:
                     qDic[self.translate] = True
+
+
+
+    def translate_threads_over(self):
+        for t in translate_threads:
+            if t.is_alive():
+                t.join()
+            translate_threads.remove(t)
+        log_print('translate all complete!')
+        qDic[self.translate] = True
+        self.setEnabled(True)
 
     def add_entrance(self):
         target = self.get_add_entrance_target()
@@ -150,6 +163,7 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
                 font_path = font_path.replace('file:///', '')
                 GenGuiFonts(select_dir, font_path)
         qDic[self.replaceFont] = True
+
     def extract(self):
         # noinspection PyBroadException
         try:
@@ -171,18 +185,29 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
                                                     is_open_filter=self.filterCheckBox.isChecked(),
                                                     filter_length=int(self.filterLengthLineEdit.text()),
                                                     is_gen_empty=False)
-                    t.start()
                     renpy_extract.extract_threads.append(t)
+
             if len(renpy_extract.extract_threads) > 0:
-                open('extracting', "w")
+                qDic[self.extract] = False
+                for t in renpy_extract.extract_threads:
+                    t.start()
                 self.setDisabled(True)
-            qDic[self.extract] = True
+                _thread.start_new_thread(self.extract_threads_over, ())
+            else:
+                qDic[self.extract] = True
         except Exception:
             msg = traceback.format_exc()
             log_print(msg)
-            if os.path.isfile('extracting'):
-                os.remove('extracting')
             qDic[self.extract] = True
+
+    def extract_threads_over(self):
+        for t in renpy_extract.extract_threads:
+            if t.is_alive():
+                t.join()
+            renpy_extract.extract_threads.remove(t)
+        log_print('extract all complete!')
+        qDic[self.extract] = True
+        self.setEnabled(True)
 
     def runtime_extract(self):
         path = self.selectFileText.toPlainText()
@@ -387,6 +412,31 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
 
     def update_progress(self):
         try:
+            if not self.isEnabled():
+                if os.path.isfile(extract_finish):
+                    os.remove(extract_finish)
+                    if not os.path.isfile(extract_finish):
+                        qDic[self.runtime_extract] = True
+                        self.setEnabled(True)
+            if self.path is not None:
+                dir = os.path.dirname(self.path)
+                target = dir + finish_flag
+                if not os.path.isfile(target):
+                    bat = dir + '/UnRen-forall.bat'
+                    command = 'start "" /d "' + dir + '"  "' + bat + '"'
+                    os.system(command)
+                    while (True):
+                        time.sleep(0.1)
+                        if os.path.isfile(dir + '/unren.finish'):
+                            os.remove(dir + '/unren.finish')
+                            break
+                    qDic[self.unpack] = True
+                    self.clean()
+                    self.path = None
+                    self.setEnabled(True)
+                    self.parent.showNormal()
+                    self.parent.raise_()
+
             if not q.empty():
                 if self.parent.isHidden():
                     self.parent.showNormal()
@@ -408,49 +458,9 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
                         self.raise_()
                         msg_box = QMessageBox()
                         msg_box.setWindowTitle('o(≧口≦)o')
-                        msg_box.setText(QCoreApplication.translate('OneKeyTranslateDialog', 'One Key Translate Complete', None))
+                        msg_box.setText(
+                            QCoreApplication.translate('OneKeyTranslateDialog', 'One Key Translate Complete', None))
                         msg_box.exec()
-            if os.path.isfile('translating'):
-                for t in translate_threads:
-                    if t.is_alive():
-                        t.join()
-                log_print('translate all complete!')
-                qDic[self.translate] = True
-                self.setEnabled(True)
-                os.remove('translating')
-            if os.path.isfile('extracting'):
-                for t in renpy_extract.extract_threads:
-                    if t.is_alive():
-                        t.join()
-                log_print('extract all complete!')
-                qDic[self.extract] = True
-                self.setEnabled(True)
-                os.remove('extracting')
-            if not self.isEnabled():
-                if os.path.isfile(extract_finish):
-                    os.remove(extract_finish)
-                    if not os.path.isfile(extract_finish):
-                        qDic[self.runtime_extract] = True
-                        self.setEnabled(True)
-            if self.path is None:
-                return
-            dir = os.path.dirname(self.path)
-            target = dir + finish_flag
-            if not os.path.isfile(target):
-                bat = dir + '/UnRen-forall.bat'
-                command = 'start "" /d "' + dir + '"  "' + bat + '"'
-                os.system(command)
-                while (True):
-                    time.sleep(0.1)
-                    if os.path.isfile(dir + '/unren.finish'):
-                        os.remove(dir + '/unren.finish')
-                        break
-                qDic[self.unpack] = True
-                self.clean()
-                self.path = None
-                self.setEnabled(True)
-                self.parent.showNormal()
-                self.parent.raise_()
         except Exception:
             msg = traceback.format_exc()
             log_print(msg)
