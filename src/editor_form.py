@@ -25,10 +25,12 @@ from renpy_translate import init_client, TranslateToList, engineDic, language_he
 from custom_engine_form import targetDic, sourceDic
 from engine_form import MyEngineForm
 from local_glossary_form import MyLocalGlossaryForm
-from export_xlsx_setting_form import MyExportXlsxSettingForm
+from export_setting_form import MyExportSettingForm
+from html_util import write_html_with_strings
+from import_html_form import MyImportHtmlForm
+import html_util
 from string_tool import *
 
-addedList = []
 rpy_info_dic = dict()
 translated_thread = None
 translated_dic = None
@@ -152,6 +154,8 @@ class MyTreeView(QTreeView):
         self.setContextMenuPolicy(Qt.CustomContextMenu)
         self.customContextMenuRequested.connect(self.openMenu)
         self.export_path = None
+        self.export_html = False
+        self.import_html = False
         self.units_min = 0
         self.units_max = sys.maxsize
         self.translated_min = 0.0
@@ -171,6 +175,12 @@ class MyTreeView(QTreeView):
             full_path = full_path.replace('\\', '/')
             menu.addAction(QCoreApplication.translate('EditorDialog', 'Export to xlsx file', None),
                            lambda: selectTableView.export_to_xlsx(full_path, None, self.model.is_open_filter, self))
+            menu.addAction(QCoreApplication.translate('EditorDialog', 'Export to html file', None),
+                           lambda: selectTableView.export_to_html(full_path, None, self.model.is_open_filter, self))
+            menu.addAction(
+                QCoreApplication.translate('EditorDialog', 'Import html and relative translated contents', None),
+                lambda: selectTableView.import_from_html(full_path, None, self.model.is_open_filter, self))
+
             menu.exec(self.viewport().mapToGlobal(position))
 
     def refresh_table_view(self, full_path):
@@ -251,14 +261,13 @@ class MySelectTableView(QTableView):
             else:
                 self.treeView.proxy_model.filter_pattern = ''
             if os.path.isdir(select_one):
-                self.rpyCheckBox.setDisabled(True)
+                self.treeView.tableView.editorForm.setDisabled(True)
                 rpy_info_dic.clear()
                 self.tableView.model.clear()
                 self.tableView.searched.clear()
                 t = getRpyInfoThread(p=select_one, is_open_filter=self.treeView.model.is_open_filter)
                 t.start()
-                self.setDisabled(True)
-                self.treeView.setDisabled(True)
+                self.treeView.tableView.editorForm.setDisabled(True)
                 self.treeView.show()
             else:
                 if (os.path.isfile(select_one)):
@@ -320,7 +329,195 @@ class MySelectTableView(QTableView):
             action2 = contextMenu.addAction(QCoreApplication.translate('EditorDialog', 'Export to xlsx file', None),
                                             lambda:
                                             self.export_to_xlsx(path, selected_rows, is_open_filter, self.treeView))
+            action3 = contextMenu.addAction(QCoreApplication.translate('EditorDialog', 'Export to html file', None),
+                                            lambda:
+                                            self.export_to_html(path, selected_rows, is_open_filter, self.treeView))
+            action4 = contextMenu.addAction(
+                QCoreApplication.translate('EditorDialog', 'Import html and relative translated contents', None),
+                lambda:
+                self.import_from_html(path, selected_rows, is_open_filter, self.treeView))
         contextMenu.exec_(event.globalPos())
+
+    def ask_advanced_setting(self, treeView, title, content):
+        reply = QMessageBox.question(self,
+                                     title,
+                                     content,
+                                     QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
+
+        treeView.units_min = 0
+        treeView.units_max = sys.maxsize
+        treeView.translated_min = 0.0
+        treeView.translated_max = 100.0
+        if reply == QMessageBox.Yes:
+            myExportXlsxSettingForm = MyExportSettingForm(parent=self)
+            myExportXlsxSettingForm.exec()
+            if myExportXlsxSettingForm.unitsCheckBox.isChecked():
+                try:
+                    treeView.units_min = int(myExportXlsxSettingForm.unitsMinLlineEdit.text())
+                except Exception:
+                    pass
+                try:
+                    treeView.units_max = int(myExportXlsxSettingForm.unitsMaxLineEdit.text())
+                except Exception:
+                    pass
+            if myExportXlsxSettingForm.translatedCheckBox.isChecked():
+                try:
+                    treeView.translated_min = float(myExportXlsxSettingForm.translatedMinLineEdit.text())
+                except Exception:
+                    pass
+                try:
+                    treeView.translated_max = float(myExportXlsxSettingForm.translatedMaxLineEdit.text())
+                except Exception:
+                    pass
+
+    def import_from_html(self, path, selected_rows, is_open_filter, treeView: MyTreeView):
+        if path is None:
+            return
+        if selected_rows is not None:
+            treeView.is_fresh = True
+        else:
+            treeView.is_fresh = False
+        editorForm = treeView.tableView.editorForm
+        if editorForm.myImportHtmlForm is None:
+            editorForm.myImportHtmlForm = MyImportHtmlForm(parent=self)
+        last_write_html = html_util.last_write_html
+        if last_write_html is not None:
+            editorForm.myImportHtmlForm.selecHtmlFileText.setText(last_write_html)
+        editorForm.myImportHtmlForm.exec()
+        dic = editorForm.myImportHtmlForm.dic
+        if dic is None:
+            return
+        if os.path.isfile(path):
+            if selected_rows is not None:
+                self.load_data(self.model.index(selected_rows, 0))
+            if path in rpy_info_dic.keys():
+                ret, unmatch_cnt, p = rpy_info_dic[path]
+            else:
+                ret, unmatch_cnt, p = get_rpy_info(path)
+                rpy_info_dic[path] = ret, unmatch_cnt, p
+            f = io.open(path, 'r', encoding='utf-8')
+            _read_lines = f.readlines()
+            f.close()
+            l = []
+            for i in ret:
+                ori_line = i['ori_line'] - 1
+                line = i['line'] - 1
+                original = i['original']
+                current = i['current']
+                if treeView.tableView.is_original:
+                    target = original
+                else:
+                    target = current
+                replaced = None
+                if target in dic.keys():
+                    replaced = dic[target]
+                if replaced is None:
+                    l.append(target)
+                    continue
+                l.append(replaced)
+                if _read_lines[line].startswith('    new '):
+                    header = _read_lines[line][:7]
+                    content = _read_lines[line][7:]
+                    _read_lines[line] = header + content.replace(current, replaced, 1)
+                else:
+                    _read_lines[line] = _read_lines[line].replace(current, replaced, 1)
+            f = io.open(p, 'w', encoding='utf-8')
+            f.writelines(_read_lines)
+            f.close()
+            rpy_info_dic.clear()
+            index = QModelIndex(treeView.tableView.index)
+            item = treeView.selectTableView.model.item(index.row(), index.column())
+            treeView.refresh_table_view(treeView.tableView.file)
+            ret, unmatch_cnt, p = rpy_info_dic[treeView.tableView.file]
+            if len(ret) != 0:
+                percentage = unmatch_cnt / len(ret) * 100
+            else:
+                percentage = 0
+            try:
+                if item is not None and item.index() == index:
+                    treeView.selectTableView.model.item(index.row(), 2).setText(f'{percentage:.2f}%')
+                    treeView.tableView.index = treeView.selectTableView.model.item(index.row(), 2).index()
+                else:
+                    treeView.model.data(index)
+            except Exception as e:
+                msg = traceback.format_exc()
+                log_print(msg)
+            if last_write_html is not None:
+                write_html_with_strings(last_write_html, l)
+        elif os.path.isdir(path):
+            treeView.export_path = None
+            treeView.export_html = False
+            treeView.import_html = True
+            self.ask_advanced_setting(treeView, QCoreApplication.translate('EditorDialog', 'Import to files', None),
+                                      QCoreApplication.translate('EditorDialog',
+                                                                 'Do you want to make advanced settings (the default setting is to import to all files in the directory)',
+                                                                 None))
+            t = getRpyInfoThread(p=path, is_open_filter=is_open_filter)
+            editorForm.setDisabled(True)
+            treeView.show()
+            t.start()
+
+    def export_to_html(self, path, selected_rows, is_open_filter, treeView):
+        if path is None:
+            return
+        if selected_rows is not None:
+            treeView.is_fresh = True
+        else:
+            treeView.is_fresh = False
+        if os.path.isfile(path):
+            if selected_rows is not None:
+                self.load_data(self.model.index(selected_rows, 0))
+
+            fileName, _ = QFileDialog.getSaveFileName(self,
+                                                      QCoreApplication.translate('EditorDialog',
+                                                                                 'Export to html file',
+                                                                                 None), "",
+                                                      "Html Files (*.html)")
+            if fileName:
+                if len(fileName) == 0:
+                    return
+                if not fileName.endswith('.html'):
+                    fileName += '.html'
+                if path in rpy_info_dic.keys():
+                    ret, unmatch_cnt, p = rpy_info_dic[path]
+                else:
+                    ret, unmatch_cnt, p = get_rpy_info(path)
+                    rpy_info_dic[path] = ret, unmatch_cnt, p
+                l = []
+                for i in ret:
+                    original = i['original']
+                    current = i['current']
+                    if treeView.tableView.is_original:
+                        target = original
+                    else:
+                        target = current
+                    if len(target) > 0:
+                        l.append(target)
+                write_html_with_strings(fileName, l)
+                open_directory_and_select_file(fileName)
+        elif os.path.isdir(path):
+            fileName, _ = QFileDialog.getSaveFileName(self,
+                                                      QCoreApplication.translate('EditorDialog',
+                                                                                 'Export to html file',
+                                                                                 None), "",
+                                                      "Html Files (*.html)")
+            if fileName:
+                if len(fileName) == 0:
+                    return
+                if not fileName.endswith('.html'):
+                    fileName += '.html'
+                treeView.export_path = fileName
+                treeView.export_html = True
+                treeView.import_html = False
+                self.ask_advanced_setting(treeView,
+                                          QCoreApplication.translate('EditorDialog', 'Export to html file', None),
+                                          QCoreApplication.translate('EditorDialog',
+                                                                     'Do you want to make advanced settings (the default setting is to export all files in the directory)',
+                                                                     None))
+                t = getRpyInfoThread(p=path, is_open_filter=is_open_filter)
+                treeView.tableView.editorForm.setDisabled(True)
+                treeView.show()
+                t.start()
 
     def export_to_xlsx(self, path, selected_rows, is_open_filter, treeView):
         if path is None:
@@ -371,51 +568,24 @@ class MySelectTableView(QTableView):
                 if not fileName.endswith('.xlsx'):
                     fileName += '.xlsx'
                 treeView.export_path = fileName
-                reply = QMessageBox.question(self,
-                                             QCoreApplication.translate('EditorDialog', 'Export to xlsx file', None),
-                                             QCoreApplication.translate('EditorDialog',
-                                                                        'Do you want to make advanced settings (the default setting is to export all files in the directory)',
-                                                                        None),
-                                             QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
-
-                treeView.units_min = 0
-                treeView.units_max = sys.maxsize
-                treeView.translated_min = 0.0
-                treeView.translated_max = 100.0
-                if reply == QMessageBox.Yes:
-                    myExportXlsxSettingForm = MyExportXlsxSettingForm(parent=self)
-                    myExportXlsxSettingForm.exec()
-                    if myExportXlsxSettingForm.unitsCheckBox.isChecked():
-                        try:
-                            treeView.units_min = int(myExportXlsxSettingForm.unitsMinLlineEdit.text())
-                        except Exception:
-                            pass
-                        try:
-                            treeView.units_max = int(myExportXlsxSettingForm.unitsMaxLineEdit.text())
-                        except Exception:
-                            pass
-                    if myExportXlsxSettingForm.translatedCheckBox.isChecked():
-                        try:
-                            treeView.translated_min = float(myExportXlsxSettingForm.translatedMinLineEdit.text())
-                        except Exception:
-                            pass
-                        try:
-                            treeView.translated_max = float(myExportXlsxSettingForm.translatedMaxLineEdit.text())
-                        except Exception:
-                            pass
-
+                treeView.export_html = False
+                treeView.import_html = False
+                self.ask_advanced_setting(treeView,
+                                          QCoreApplication.translate('EditorDialog', 'Export to xlsx file', None),
+                                          QCoreApplication.translate('EditorDialog',
+                                                                     'Do you want to make advanced settings (the default setting is to export all files in the directory)',
+                                                                     None))
                 t = getRpyInfoThread(p=path, is_open_filter=is_open_filter)
-                t.start()
-                self.setDisabled(True)
-                treeView.setDisabled(True)
+                treeView.tableView.editorForm.setDisabled(True)
                 treeView.show()
+                t.start()
 
     def removeAction(self):
         selected_indexes = self.selectionModel().selectedRows()
         selected_rows = [index.row() for index in selected_indexes]
         selected_rows.sort(reverse=True)
         for row in selected_rows:
-            addedList.remove(self.model.item(row, 0).text().replace('file:///', ''))
+            self.tableView.editorForm.addedList.remove(self.model.item(row, 0).text().replace('file:///', ''))
             self.model.removeRow(row)
         self.selectionModel().clearSelection()
 
@@ -485,22 +655,33 @@ class MyInputDialog(QDialog):
         return self.text_edit.toPlainText()
 
 
+class EnterClickButtonTextEdit(QTextEdit):
+    def __init__(self, button: QPushButton):
+        super().__init__()
+        self.button = button
+
+    def keyPressEvent(self, event):
+        if event.key() == Qt.Key_Return:
+            self.button.click()
+        else:
+            super().keyPressEvent(event)
+
+
 class MyInputJumpLineDialog(QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
-
         layout = QVBoxLayout()
         self.label1 = QLabel()
-        self.text_edit = QLineEdit()
         layout.addWidget(self.label1)
+        self.button = QPushButton('OK')
+        self.button.clicked.connect(self.accept)
+        self.text_edit = EnterClickButtonTextEdit(self.button)
         layout.addWidget(self.text_edit)
-        button = QPushButton('OK')
-        button.clicked.connect(self.accept)
-        layout.addWidget(button)
+        layout.addWidget(self.button)
         self.setLayout(layout)
 
     def getText(self):
-        return self.text_edit.text()
+        return self.text_edit.toPlainText().strip()
 
 
 class MyTableView(QTableView):
@@ -661,14 +842,83 @@ class MyTableView(QTableView):
                 QCoreApplication.translate('EditorDialog', "Rollback Current to First Load", None), self.rollback_cur)
             action5 = contextMenu.addAction(
                 QCoreApplication.translate('EditorDialog', "Export to xlsx file", None), self.export_to_xlsx)
+            action6 = contextMenu.addAction(
+                QCoreApplication.translate('EditorDialog', "Export to html file", None), self.export_to_html)
+            action7 = contextMenu.addAction(
+                QCoreApplication.translate('EditorDialog', 'Import html and relative translated contents', None),
+                self.import_from_html)
 
         contextMenu.exec_(event.globalPos())
+
+    def import_from_html(self):
+        selected_indexes = self.selectionModel().selectedRows()
+        selected_rows = [index.row() for index in selected_indexes]
+        selected_rows.sort(reverse=False)
+        editorForm = self.editorForm
+        if editorForm.myImportHtmlForm is None:
+            editorForm.myImportHtmlForm = MyImportHtmlForm(parent=self)
+        last_write_html = html_util.last_write_html
+        if last_write_html is not None:
+            editorForm.myImportHtmlForm.selecHtmlFileText.setText(last_write_html)
+        editorForm.myImportHtmlForm.exec()
+        dic = editorForm.myImportHtmlForm.dic
+        if dic is None:
+            return
+        l = []
+        for row in selected_rows:
+            original = self.model.item(row, 0).data(Qt.UserRole)['original']
+            #current = self.model.item(row, 0).data(Qt.UserRole)['current']
+            current = self.model.item(row, 3).text()
+            ori_line = self.model.item(row, 0).data(Qt.UserRole)['ori_line'] - 1
+            line = self.model.item(row, 0).data(Qt.UserRole)['line'] - 1
+            if self.is_original:
+                target = original
+            else:
+                target = current
+            replaced = None
+            if target in dic.keys():
+                replaced = dic[target]
+            if replaced is None:
+                l.append(target)
+                continue
+            l.append(replaced)
+            self.model.item(row, 4).setText(replaced)
+        if editorForm.autoCopyCheckBox.isChecked():
+            self.copy_translated_to_cur()
+
+    def export_to_html(self):
+        fileName, _ = QFileDialog.getSaveFileName(self,
+                                                  QCoreApplication.translate('EditorDialog', "Export to html file",
+                                                                             None), "",
+                                                  "Html Files (*.html)")
+        if len(fileName) == 0:
+            return
+        if not fileName.endswith('.html'):
+            fileName += '.html'
+        selected_indexes = self.selectionModel().selectedRows()
+        selected_rows = [index.row() for index in selected_indexes]
+        selected_rows.sort(reverse=False)
+        l = []
+        for row in selected_rows:
+            original = self.model.item(row, 0).data(Qt.UserRole)['original']
+            #current = self.model.item(row, 0).data(Qt.UserRole)['current']
+            current = self.model.item(row, 3).text()
+            if self.is_original:
+                target = original
+            else:
+                target = current
+            if len(target) > 0:
+                l.append(target)
+        write_html_with_strings(fileName, l)
+        open_directory_and_select_file(fileName)
 
     def export_to_xlsx(self):
         fileName, _ = QFileDialog.getSaveFileName(self,
                                                   QCoreApplication.translate('EditorDialog', "Export to xlsx file",
                                                                              None), "",
                                                   "Xlsx Files (*.xlsx)")
+        if len(fileName) == 0:
+            return
         if fileName:
             if not fileName.endswith('.xlsx'):
                 fileName += '.xlsx'
@@ -748,8 +998,8 @@ class MyTableView(QTableView):
         selected_rows = [index.row() for index in selected_indexes]
         selected_rows.sort(reverse=True)
         for row in selected_rows:
-            ori = self.model.item(row, 4).text()
-            self.model.item(row, 3).setText(ori)
+            translated = self.model.item(row, 4).text()
+            self.model.item(row, 3).setText(translated)
 
     def copy_ori_to_cur(self):
         selected_indexes = self.selectionModel().selectedRows()
@@ -766,7 +1016,7 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
         self.setupUi(self)
         self.setWindowIcon(QIcon('main.ico'))
         self.setWindowFlags(self.windowFlags() | Qt.WindowMinMaxButtonsHint)
-        addedList.clear()
+        self.addedList = []
         self.selectFilesBtn.clicked.connect(self.select_file)
         self.selectDirBtn.clicked.connect(self.select_directory)
         self.addListButton.clicked.connect(self.add_to_list)
@@ -806,6 +1056,7 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
         self.showLogButton.clicked.connect(self.on_show_log_button_checked)
         self.searchedOnlyCheckBox.stateChanged.connect(self.on_checkbox_state_changed)
         self.localGlossaryCheckBox.clicked.connect(self.on_local_glossary_checkbox_state_changed)
+        self.myImportHtmlForm = None
         _thread.start_new_thread(self.update_log, ())
 
     def on_local_glossary_checkbox_state_changed(self):
@@ -998,7 +1249,7 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
         for i in select_files:
             i = i.replace('file:///', '')
             if len(i) > 0 and os.path.isfile(i):
-                if i not in addedList:
+                if i not in self.addedList:
                     ret, unmatch_cnt, p = get_rpy_info(i)
                     if len(ret) != 0:
                         percentage = unmatch_cnt / len(ret) * 100
@@ -1016,13 +1267,13 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
                     row[0].setTextAlignment(Qt.AlignLeft)
                     self.selectTableView.horizontalHeader().setSectionResizeMode(QHeaderView.Interactive)
                     self.selectTableView.model.appendRow(row)
-                    addedList.append(i)
+                    self.addedList.append(i)
         self.selectTableView.model.sort(0, Qt.AscendingOrder)
 
         select_dir = self.selectDirText.toPlainText()
         select_dir = select_dir.replace('file:///', '')
         if len(select_dir) > 0 and os.path.isdir(select_dir):
-            if select_dir not in addedList:
+            if select_dir not in self.addedList:
                 row = [
                     QStandardItem(select_dir),
                     QStandardItem('/'),
@@ -1035,7 +1286,7 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
                 row[0].setTextAlignment(Qt.AlignLeft)
                 self.selectTableView.horizontalHeader().setSectionResizeMode(QHeaderView.Interactive)
                 self.selectTableView.model.appendRow(row)
-                addedList.append(select_dir)
+                self.addedList.append(select_dir)
                 self.selectTableView.model.sort(0, Qt.AscendingOrder)
 
     def select_directory(self):
@@ -1063,7 +1314,7 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
             thread.start()
             time.sleep(0.5)
 
-    def update_progress(self, data):
+    def update_progress(self):
         try:
             rpy_lock.acquire()
             if os.path.isfile('rpy_info_got') and os.path.getsize('rpy_info_got') > 0:
@@ -1072,17 +1323,94 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
                 f.close()
                 if os.path.isdir(select_one):
                     is_fresh = True
+                    if self.treeView.import_html:
+                        last_translated_dic = html_util.last_translated_dic
+                        last_write_html = html_util.last_write_html
+                        if last_translated_dic is not None:
+                            is_fresh = self.treeView.is_fresh
+                            paths = os.walk(select_one, topdown=False)
+                            select_one = select_one.replace('\\', '/')
+                            l = []
+                            for path, dir_lst, file_lst in paths:
+                                for file_name in file_lst:
+                                    if self.treeView.model.is_open_filter and not file_name.endswith("rpy"):
+                                        continue
+                                    i = os.path.join(path, file_name)
+                                    i = i.replace('\\', '/')
+                                    # log_print(i)
+                                    ret, unmatch_cnt, p = rpy_info_dic[i]
+                                    units = len(ret)
+                                    if units != 0:
+                                        percentage = unmatch_cnt / units * 100
+                                    else:
+                                        percentage = 0
+                                    if percentage < self.treeView.translated_min or percentage > self.treeView.translated_max:
+                                        continue
+                                    if units < self.treeView.units_min or units > self.treeView.units_max:
+                                        continue
+                                    f = io.open(i, 'r', encoding='utf-8')
+                                    _read_lines = f.readlines()
+                                    f.close()
+
+                                    for index, dic in enumerate(ret):
+                                        ori_line = dic['ori_line'] - 1
+                                        line = dic['line'] - 1
+                                        original = dic['original']
+                                        current = dic['current']
+                                        is_match = dic['is_match']
+                                        if self.treeView.tableView.is_original:
+                                            target = original
+                                        else:
+                                            target = current
+                                        replaced = None
+                                        if target in last_translated_dic.keys():
+                                            replaced = last_translated_dic[target]
+                                        if replaced is None:
+                                            continue
+                                        dic['current'] = replaced
+                                        is_match_now = replaced == original
+                                        if is_match_now != is_match:
+                                            if is_match_now:
+                                                unmatch_cnt = unmatch_cnt - 1
+                                            else:
+                                                unmatch_cnt = unmatch_cnt + 1
+                                        dic['is_match'] = is_match_now
+                                        ret[index] = dic
+                                        rpy_info_dic[i] = ret, unmatch_cnt, p
+                                        if _read_lines[line].startswith('    new '):
+                                            header = _read_lines[line][:7]
+                                            content = _read_lines[line][7:]
+                                            _read_lines[line] = header + content.replace(current, replaced, 1)
+                                        else:
+                                            _read_lines[line] = _read_lines[line].replace(current, replaced, 1)
+                                    f = io.open(i, 'w', encoding='utf-8')
+                                    f.writelines(_read_lines)
+                                    f.close()
+                                    ret, unmatch_cnt, p = rpy_info_dic[i]
+                                    for i in ret:
+                                        original = i['original']
+                                        current = i['current']
+                                        if self.tableView.is_original:
+                                            target = original
+                                        else:
+                                            target = current
+                                        if len(target) > 0:
+                                            l.append(target)
+                            write_html_with_strings(last_write_html, l)
+                        self.treeView.import_html = False
                     if self.treeView.export_path is not None:
                         is_fresh = self.treeView.is_fresh
                         paths = os.walk(select_one, topdown=False)
                         select_one = select_one.replace('\\', '/')
-                        wb = Workbook()
-                        ws = wb.active
-                        ws.title = "New Sheet"
-                        ws.cell(row=1, column=1, value=QCoreApplication.translate('EditorDialog', 'Original', None))
-                        ws.cell(row=1, column=2, value=QCoreApplication.translate('EditorDialog', 'Current', None))
-                        cnt = 2
+                        if self.treeView.export_html == False:
+                            wb = Workbook()
+                            ws = wb.active
+                            ws.title = "New Sheet"
+                            ws.cell(row=1, column=1, value=QCoreApplication.translate('EditorDialog', 'Original', None))
+                            ws.cell(row=1, column=2, value=QCoreApplication.translate('EditorDialog', 'Current', None))
+                            cnt = 2
                         fileName = self.treeView.export_path
+                        l = []
                         for path, dir_lst, file_lst in paths:
                             for file_name in file_lst:
                                 if self.treeView.model.is_open_filter and not file_name.endswith("rpy"):
@@ -1103,27 +1431,38 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
                                 for i in ret:
                                     original = i['original']
                                     current = i['current']
-                                    ws.cell(row=cnt, column=1, value=original)
-                                    ws.cell(row=cnt, column=2, value=current)
-                                    cnt = cnt + 1
-                        wb.save(f'{fileName}')
+                                    if self.treeView.export_html == False:
+                                        ws.cell(row=cnt, column=1, value=original)
+                                        ws.cell(row=cnt, column=2, value=current)
+                                        cnt = cnt + 1
+                                    else:
+                                        if self.tableView.is_original:
+                                            target = original
+                                        else:
+                                            target = current
+                                        if len(target) > 0:
+                                            l.append(target)
+                        if self.treeView.export_html == False:
+                            wb.save(f'{fileName}')
+                        else:
+                            write_html_with_strings(fileName, l)
                         open_directory_and_select_file(fileName)
 
                         self.treeView.export_path = None
+                        self.treeView.export_html = False
+
                     if is_fresh:
-                        self.treeView.model.setRootPath(select_one)
-                        self.treeView.setRootIndex(
-                            self.treeView.proxy_model.mapFromSource(self.treeView.model.index(select_one)))
                         self.treeView.proxy_model.invalidateFilter()
                         self.treeView.model.setRootPath(select_one)
                         self.treeView.setRootIndex(
                             self.treeView.proxy_model.mapFromSource(self.treeView.model.index(select_one)))
-                    self.selectTableView.setEnabled(True)
-                    self.treeView.setEnabled(True)
-                    self.rpyCheckBox.setEnabled(True)
+                    if self.tableView.file is not None:
+                        index = QModelIndex(self.tableView.index)
+                        item = self.selectTableView.model.item(index.row(), index.column())
+                        self.treeView.refresh_table_view(self.tableView.file)
+                    self.setEnabled(True)
                     os.remove('rpy_info_got')
             rpy_lock.release()
-
             global is_need_save
             if is_need_save:
                 is_need_save = False
@@ -1175,54 +1514,54 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
                 self.show()
                 self.raise_()
                 self.setEnabled(True)
-
             global translated_thread, translated_dic
-            if translated_thread is None or translated_dic is None:
-                return
-            translated_thread.join()
-            trans_dic = translated_dic
-            local_glossary = self.tableView.local_glossary
-            for row in self.tableView.selected_rows:
-                if self.tableView.is_original:
-                    target = self.tableView.model.item(row, 2).text()
-                else:
-                    target = self.tableView.model.item(row, 3).text()
-                if len(target) == 0:
-                    continue
-                if local_glossary is not None:
-                    for original, replace in local_glossary.items():
-                        target = target.replace(original, replace)
+            if translated_thread is not None and translated_dic is not None:
+                translated_thread.join()
+                trans_dic = translated_dic
+                local_glossary = self.tableView.local_glossary
+                for row in self.tableView.selected_rows:
+                    if self.tableView.is_original:
+                        target = self.tableView.model.item(row, 2).text()
+                    else:
+                        target = self.tableView.model.item(row, 3).text()
+                    if len(target) == 0:
+                        continue
+                    if local_glossary is not None:
+                        for original, replace in local_glossary.items():
+                            target = target.replace(original, replace)
 
-                line_index = int(self.tableView.model.item(row, 0).text())
-                d = EncodeBrackets(target)
-                translated = get_translated(trans_dic, d)
-                if translated is None:
+                    line_index = int(self.tableView.model.item(row, 0).text())
                     d = EncodeBrackets(target)
-                    encoded = d['encoded'].strip('"')
-                    translated = ''
-                    if encoded in trans_dic:
-                        translated = trans_dic[encoded]
-                    log_print(f'{self.tableView.file} Error in line:{str(line_index)}\n{target}\n{encoded}\n{translated}\nError')
-                    self.tableView.model.item(row, 4).setText(target)
-                    self.tableView.model.item(row, 4).setToolTip(target)
-                else:
-                    self.tableView.model.item(row, 4).setText(translated)
-                    self.tableView.model.item(row, 4).setToolTip(translated)
-            # self.parent.hide()
-            if self.autoCopyCheckBox.isChecked():
-                self.tableView.copy_translated_to_cur()
-            log_print('translated over')
-            translated_dic = None
-            translated_thread = None
-            self.setEnabled(True)
-            self.show()
-            self.raise_()
+                    translated = get_translated(trans_dic, d)
+                    if translated is None:
+                        d = EncodeBrackets(target)
+                        encoded = d['encoded'].strip('"')
+                        translated = ''
+                        if encoded in trans_dic:
+                            translated = trans_dic[encoded]
+                        log_print(
+                            f'{self.tableView.file} Error in line:{str(line_index)}\n{target}\n{encoded}\n{translated}\nError')
+                        self.tableView.model.item(row, 4).setText(target)
+                        self.tableView.model.item(row, 4).setToolTip(target)
+                    else:
+                        self.tableView.model.item(row, 4).setText(translated)
+                        self.tableView.model.item(row, 4).setToolTip(translated)
+                # self.parent.hide()
+                if self.autoCopyCheckBox.isChecked():
+                    self.tableView.copy_translated_to_cur()
+                log_print('translated over')
+                translated_dic = None
+                translated_thread = None
+                self.setEnabled(True)
+                self.show()
+                self.raise_()
         except Exception:
             msg = traceback.format_exc()
             log_print(msg)
+            rpy_lock.release()
 
     class UpdateThread(QThread):
-        update_date = Signal(str)
+        update_date = Signal()
 
         def __init__(self):
             super().__init__()
@@ -1231,9 +1570,7 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
             self.wait()
 
         def run(self):
-            f = io.open(log_path, 'r', encoding='utf-8')
-            self.update_date.emit(f.read())
-            f.close()
+            self.update_date.emit()
 
 
 class getRpyInfoThread(threading.Thread):

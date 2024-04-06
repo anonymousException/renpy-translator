@@ -2,12 +2,12 @@ from PySide6.QtCore import Slot
 from PySide6.QtGui import QIntValidator, QValidator, QDoubleValidator
 from PySide6.QtWidgets import QDialog
 
-from export_xlsx_setting import Ui_ExportXlsxSettingDialog
+from export_setting import Ui_ExportSettingDialog
 
 
-class MyExportXlsxSettingForm(QDialog, Ui_ExportXlsxSettingDialog):
+class MyExportSettingForm(QDialog, Ui_ExportSettingDialog):
     def __init__(self, parent=None):
-        super(MyExportXlsxSettingForm, self).__init__(parent)
+        super(MyExportSettingForm, self).__init__(parent)
         self.setupUi(self)
         self.setFixedSize(self.width(), self.height())
         validator = QDoubleValidator(0.0, 100.0, 2)

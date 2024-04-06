@@ -8,3 +8,4 @@ translators==5.9.0
 pyperclip==1.8.2
 openpyxl==3.1.2
 qt-material==2.14
+beautifulsoup4==4.12.3

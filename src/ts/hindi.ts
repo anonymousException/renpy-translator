@@ -238,152 +238,181 @@
 <context>
     <name>EditorDialog</name>
     <message>
-        <location filename="../editor_form.py" line="120"/>
-        <location filename="../editor_form.py" line="237"/>
+        <location filename="../editor_form.py" line="122"/>
+        <location filename="../editor_form.py" line="247"/>
         <source>Path</source>
         <translation>पथ</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="124"/>
-        <location filename="../editor_form.py" line="238"/>
+        <location filename="../editor_form.py" line="126"/>
+        <location filename="../editor_form.py" line="248"/>
         <source>Units</source>
         <translation>इकाइयों</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="128"/>
-        <location filename="../editor_form.py" line="187"/>
-        <location filename="../editor_form.py" line="239"/>
-        <location filename="../editor_form.py" line="274"/>
-        <location filename="../editor_form.py" line="515"/>
+        <location filename="../editor_form.py" line="130"/>
+        <location filename="../editor_form.py" line="197"/>
+        <location filename="../editor_form.py" line="249"/>
+        <location filename="../editor_form.py" line="283"/>
+        <location filename="../editor_form.py" line="696"/>
         <location filename="../editor.ui" line="454"/>
         <source>Translated</source>
         <translation>अनुवाद</translation>
     </message>
     <message>
+        <location filename="../editor_form.py" line="178"/>
+        <location filename="../editor_form.py" line="332"/>
+        <location filename="../editor_form.py" line="474"/>
+        <location filename="../editor_form.py" line="502"/>
+        <location filename="../editor_form.py" line="513"/>
+        <location filename="../editor_form.py" line="846"/>
+        <location filename="../editor_form.py" line="892"/>
+        <source>Export to html file</source>
+        <translation>HTML फ़ाइल में निर्यात करें</translation>
+    </message>
+    <message>
         <location filename="../editor_form.py" line="181"/>
-        <location filename="../editor_form.py" line="270"/>
-        <location filename="../editor_form.py" line="511"/>
+        <location filename="../editor_form.py" line="336"/>
+        <location filename="../editor_form.py" line="848"/>
+        <source>Import html and relative translated contents</source>
+        <translation>HTML और सापेक्ष अनुवादित सामग्री आयात करें</translation>
+    </message>
+    <message>
+        <location filename="../editor_form.py" line="191"/>
+        <location filename="../editor_form.py" line="279"/>
+        <location filename="../editor_form.py" line="692"/>
         <source>line</source>
         <translation>रेखा</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="182"/>
-        <location filename="../editor_form.py" line="271"/>
-        <location filename="../editor_form.py" line="512"/>
+        <location filename="../editor_form.py" line="192"/>
+        <location filename="../editor_form.py" line="280"/>
+        <location filename="../editor_form.py" line="693"/>
         <source>refer</source>
         <translation>संदर्भ देना</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="184"/>
-        <location filename="../editor_form.py" line="272"/>
-        <location filename="../editor_form.py" line="352"/>
-        <location filename="../editor_form.py" line="513"/>
-        <location filename="../editor_form.py" line="1084"/>
+        <location filename="../editor_form.py" line="194"/>
+        <location filename="../editor_form.py" line="281"/>
+        <location filename="../editor_form.py" line="549"/>
+        <location filename="../editor_form.py" line="694"/>
+        <location filename="../editor_form.py" line="1409"/>
         <location filename="../editor.ui" line="334"/>
         <location filename="../editor.ui" line="413"/>
         <source>Original</source>
         <translation>मूल</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="185"/>
-        <location filename="../editor_form.py" line="273"/>
-        <location filename="../editor_form.py" line="353"/>
-        <location filename="../editor_form.py" line="514"/>
-        <location filename="../editor_form.py" line="1085"/>
+        <location filename="../editor_form.py" line="195"/>
+        <location filename="../editor_form.py" line="282"/>
+        <location filename="../editor_form.py" line="550"/>
+        <location filename="../editor_form.py" line="695"/>
+        <location filename="../editor_form.py" line="1410"/>
         <location filename="../editor.ui" line="255"/>
         <location filename="../editor.ui" line="432"/>
         <source>Current</source>
         <translation>मौजूदा</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="311"/>
+        <location filename="../editor_form.py" line="320"/>
         <source>Remove</source>
         <translation>निकालना</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="378"/>
+        <location filename="../editor_form.py" line="451"/>
+        <source>Import to files</source>
+        <translation>फ़ाइलों में आयात करें</translation>
+    </message>
+    <message>
+        <location filename="../editor_form.py" line="454"/>
+        <source>Do you want to make advanced settings (the default setting is to import to all files in the directory)</source>
+        <translation>क्या आप उन्नत सेटिंग्स बनाना चाहते हैं (डिफ़ॉल्ट सेटिंग निर्देशिका में सभी फ़ाइलों को आयात करना है)</translation>
+    </message>
+    <message>
+        <location filename="../editor_form.py" line="516"/>
+        <location filename="../editor_form.py" line="577"/>
         <source>Do you want to make advanced settings (the default setting is to export all files in the directory)</source>
         <translation>क्या आप उन्नत सेटिंग करना चाहते हैं (डिफ़ॉल्ट सेटिंग निर्देशिका में सभी फ़ाइलों को निर्यात करना है)</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="456"/>
+        <location filename="../editor_form.py" line="626"/>
         <source>Case Sensitive</source>
         <translation>अक्षर संवेदनशील</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="459"/>
+        <location filename="../editor_form.py" line="629"/>
         <source>Search refer column</source>
         <translation>संदर्भ स्तंभ खोजें</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="462"/>
+        <location filename="../editor_form.py" line="632"/>
         <source>Search Original column</source>
         <translation>मूल कॉलम खोजें</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="465"/>
+        <location filename="../editor_form.py" line="635"/>
         <source>Search Current column</source>
         <translation>वर्तमान कॉलम खोजें</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="468"/>
+        <location filename="../editor_form.py" line="638"/>
         <source>Search Translated column</source>
         <translation>अनुवादित कॉलम खोजें</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="552"/>
-        <location filename="../editor_form.py" line="564"/>
+        <location filename="../editor_form.py" line="733"/>
+        <location filename="../editor_form.py" line="745"/>
         <source>Input Dialog</source>
         <translation>इनपुट संवाद</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="554"/>
+        <location filename="../editor_form.py" line="735"/>
         <source>Please Input the line number you want to jump</source>
         <translation>कृपया वह लाइन नंबर इनपुट करें जिसे आप जंप करना चाहते हैं</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="566"/>
+        <location filename="../editor_form.py" line="747"/>
         <source>Please Input the content you want to search</source>
         <translation>कृपया वह सामग्री इनपुट करें जिसे आप खोजना चाहते हैं</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="653"/>
+        <location filename="../editor_form.py" line="834"/>
         <source>Translate Translation Source to Translated</source>
         <translation>अनुवाद स्रोत का अनुवाद अनुवादित में करें</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="656"/>
+        <location filename="../editor_form.py" line="837"/>
         <source>Copy Original to Current</source>
         <translation>मूल को वर्तमान में कॉपी करें</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="658"/>
+        <location filename="../editor_form.py" line="839"/>
         <source>Copy Translated to Current</source>
         <translation>वर्तमान में अनुवादित प्रतिलिपि</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="661"/>
+        <location filename="../editor_form.py" line="842"/>
         <source>Rollback Current to First Load</source>
         <translation>रोलबैक करंट को पहले लोड पर</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1046"/>
+        <location filename="../editor_form.py" line="1295"/>
         <source>select the directory you want to edit</source>
         <translation>वह निर्देशिका चुनें जिसे आप संपादित करना चाहते हैं</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1053"/>
+        <location filename="../editor_form.py" line="1302"/>
         <source>select the file(s) you want to edit</source>
         <translation>वह फ़ाइल चुनें जिसे आप संपादित करना चाहते हैं</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="172"/>
-        <location filename="../editor_form.py" line="320"/>
-        <location filename="../editor_form.py" line="339"/>
-        <location filename="../editor_form.py" line="368"/>
-        <location filename="../editor_form.py" line="375"/>
-        <location filename="../editor_form.py" line="663"/>
-        <location filename="../editor_form.py" line="670"/>
+        <location filename="../editor_form.py" line="176"/>
+        <location filename="../editor_form.py" line="329"/>
+        <location filename="../editor_form.py" line="536"/>
+        <location filename="../editor_form.py" line="565"/>
+        <location filename="../editor_form.py" line="574"/>
+        <location filename="../editor_form.py" line="844"/>
+        <location filename="../editor_form.py" line="918"/>
         <source>Export to xlsx file</source>
         <translation>xlsx फ़ाइल में निर्यात करें</translation>
     </message>
@@ -574,32 +603,55 @@
     </message>
 </context>
 <context>
-    <name>ExportXlsxSettingDialog</name>
+    <name>ExportSettingDialog</name>
     <message>
-        <location filename="../export_xlsx_setting.ui" line="14"/>
-        <source>Export Xlsx Setting</source>
-        <translation>एक्सएलएसएक्स सेटिंग निर्यात करें</translation>
+        <location filename="../export_setting.ui" line="14"/>
+        <source>Export Setting</source>
+        <translation>निर्यात सेटिंग</translation>
     </message>
     <message>
-        <location filename="../export_xlsx_setting.ui" line="26"/>
+        <location filename="../export_setting.ui" line="26"/>
         <source>Filter the Units</source>
         <translation>इकाइयों को फ़िल्टर करें</translation>
     </message>
     <message>
-        <location filename="../export_xlsx_setting.ui" line="55"/>
-        <location filename="../export_xlsx_setting.ui" line="84"/>
+        <location filename="../export_setting.ui" line="55"/>
+        <location filename="../export_setting.ui" line="84"/>
         <source>and</source>
         <translation>और</translation>
     </message>
     <message>
-        <location filename="../export_xlsx_setting.ui" line="100"/>
+        <location filename="../export_setting.ui" line="100"/>
         <source>Filter the Translated</source>
         <translation>अनुवादित को फ़िल्टर करें</translation>
     </message>
     <message>
-        <location filename="../export_xlsx_setting.ui" line="142"/>
+        <location filename="../export_setting.ui" line="142"/>
         <source>Confirm</source>
         <translation>पुष्टि करना</translation>
+    </message>
+</context>
+<context>
+    <name>ExportXlsxSettingDialog</name>
+    <message>
+        <source>Export Xlsx Setting</source>
+        <translation type="vanished">एक्सएलएसएक्स सेटिंग निर्यात करें</translation>
+    </message>
+    <message>
+        <source>Filter the Units</source>
+        <translation type="vanished">इकाइयों को फ़िल्टर करें</translation>
+    </message>
+    <message>
+        <source>and</source>
+        <translation type="vanished">और</translation>
+    </message>
+    <message>
+        <source>Filter the Translated</source>
+        <translation type="vanished">अनुवादित को फ़िल्टर करें</translation>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation type="vanished">पुष्टि करना</translation>
     </message>
 </context>
 <context>
@@ -734,6 +786,7 @@
     </message>
     <message>
         <location filename="../font_replace_form.py" line="28"/>
+        <location filename="../one_key_translate_form.py" line="281"/>
         <source>select the file font which supports the translated language</source>
         <translation>उस फ़ाइल फ़ॉन्ट का चयन करें जो अनुवादित भाषा का समर्थन करता है</translation>
     </message>
@@ -829,20 +882,68 @@
     </message>
 </context>
 <context>
+    <name>ImportHtmlDialog</name>
+    <message>
+        <location filename="../import_html_form.py" line="34"/>
+        <source>The html file does not match the translated file , please check the input files</source>
+        <translation>HTML फ़ाइल अनुवादित फ़ाइल से मेल नहीं खाती, कृपया इनपुट फ़ाइलों की जाँच करें</translation>
+    </message>
+    <message>
+        <location filename="../import_html_form.py" line="43"/>
+        <source>select the relative translated file</source>
+        <translation>संबंधित अनुवादित फ़ाइल का चयन करें</translation>
+    </message>
+    <message>
+        <location filename="../import_html_form.py" line="54"/>
+        <source>select the html file exported before</source>
+        <translation>पहले निर्यात की गई HTML फ़ाइल का चयन करें</translation>
+    </message>
+    <message>
+        <location filename="../import_html.ui" line="14"/>
+        <source>Import html and relative translated contents</source>
+        <translation>HTML और सापेक्ष अनुवादित सामग्री आयात करें</translation>
+    </message>
+    <message>
+        <location filename="../import_html.ui" line="29"/>
+        <source>input or choose or drag the html file exported before.Example:F:/exported.html</source>
+        <translation>पहले निर्यात की गई HTML फ़ाइल को इनपुट करें या चुनें या खींचें। उदाहरण:F:/exported.html</translation>
+    </message>
+    <message>
+        <location filename="../import_html.ui" line="55"/>
+        <source>html file</source>
+        <translation>एचटीएमएल फ़ाइल</translation>
+    </message>
+    <message>
+        <location filename="../import_html.ui" line="74"/>
+        <source>input or choose or drag the relative translated file.Example:F:/translated.txt</source>
+        <translation>संबंधित अनुवादित फ़ाइल को इनपुट करें या चुनें या खींचें। उदाहरण:F:/translated.txt</translation>
+    </message>
+    <message>
+        <location filename="../import_html.ui" line="100"/>
+        <source>translated file</source>
+        <translation>अनुवादित फ़ाइल</translation>
+    </message>
+    <message>
+        <location filename="../import_html.ui" line="116"/>
+        <source>Import Files</source>
+        <translation>फ़ाइलें आयात करें</translation>
+    </message>
+</context>
+<context>
     <name>LocalGlossaryDialog</name>
     <message>
-        <location filename="../local_glossary_form.py" line="47"/>
-        <location filename="../local_glossary_form.py" line="129"/>
+        <location filename="../local_glossary_form.py" line="49"/>
+        <location filename="../local_glossary_form.py" line="131"/>
         <source>Row</source>
         <translation>पंक्ति</translation>
     </message>
     <message>
-        <location filename="../local_glossary_form.py" line="130"/>
+        <location filename="../local_glossary_form.py" line="132"/>
         <source>Original</source>
         <translation>मूल</translation>
     </message>
     <message>
-        <location filename="../local_glossary_form.py" line="131"/>
+        <location filename="../local_glossary_form.py" line="133"/>
         <source>Replace</source>
         <translation>प्रतिस्थापित करें</translation>
     </message>
@@ -859,7 +960,7 @@
         <translation type="vanished">फ़ाइल xlsx फ़ाइल नहीं है। बनाने के लिए क्लिक करें</translation>
     </message>
     <message>
-        <location filename="../local_glossary_form.py" line="214"/>
+        <location filename="../local_glossary_form.py" line="220"/>
         <source>select the file you want to import</source>
         <translation>वह फ़ाइल चुनें जिसे आप आयात करना चाहते हैं</translation>
     </message>
@@ -925,24 +1026,24 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../main.py" line="420"/>
+        <location filename="../main.py" line="425"/>
         <source>extracting...</source>
         <translation>निकाल रहा हूँ...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="412"/>
-        <location filename="../main.py" line="500"/>
+        <location filename="../main.py" line="417"/>
+        <location filename="../main.py" line="504"/>
         <source>translating...</source>
         <translation>अनुवाद कर रहा हूँ...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="415"/>
+        <location filename="../main.py" line="420"/>
         <location filename="../ui.ui" line="100"/>
         <source>translate</source>
         <translation>अनुवाद</translation>
     </message>
     <message>
-        <location filename="../main.py" line="424"/>
+        <location filename="../main.py" line="429"/>
         <source>extract</source>
         <translation>निकालना</translation>
     </message>
@@ -955,12 +1056,12 @@
         <translation type="vanished">वह निर्देशिका चुनें जिसे आप निकालना चाहते हैं</translation>
     </message>
     <message>
-        <location filename="../main.py" line="446"/>
+        <location filename="../main.py" line="451"/>
         <source>select the file(s) you want to translate</source>
         <translation>वह फ़ाइल चुनें जिसका आप अनुवाद करना चाहते हैं</translation>
     </message>
     <message>
-        <location filename="../main.py" line="457"/>
+        <location filename="../main.py" line="462"/>
         <source>select the directory you want to translate</source>
         <translation>वह निर्देशिका चुनें जिसका आप अनुवाद करना चाहते हैं</translation>
     </message>
@@ -971,8 +1072,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.0.6</source>
-        <translation>संस्करण 2.0.6</translation>
+        <source>Version 2.0.7</source>
+        <translation>संस्करण 2.0.7</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="113"/>
@@ -1322,6 +1423,16 @@
         <location filename="../one_key_translate.ui" line="355"/>
         <source>Start</source>
         <translation>शुरू</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate_form.py" line="401"/>
+        <source>select the game file</source>
+        <translation>गेम फ़ाइल का चयन करें</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate_form.py" line="462"/>
+        <source>One Key Translate Complete</source>
+        <translation>एक कुंजी अनुवाद पूर्ण</translation>
     </message>
 </context>
 <context>

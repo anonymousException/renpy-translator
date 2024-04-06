@@ -304,83 +304,93 @@ def get_rpy_info(p):
     except:
         f.close()
         return infoList, 0, p
-    _read_line = _read.split('\n')
-    isLastFiltered = False
-    isNeedSkip = False
-    isVoice = False
-    unmatch_cnt = 0
-    for line_index, line_content in enumerate(_read_line):
-        if (line_content.startswith('translate ')):
-            isNeedSkip = False
-            split_s = line_content.split(' ')
-            if (len(split_s) > 2):
-                target = split_s[2].strip('\n')
-                if (target == 'python:' or target == 'style'):
-                    isNeedSkip = True
-            continue
-        if (isNeedSkip):
-            continue
+    try:
+        _read_line = _read.split('\n')
+        isLastFiltered = False
         isNeedSkip = False
-        if (line_content.strip().startswith('#') or line_content.strip().startswith('old ')):
-            isLastFiltered = True
-            continue
-        if (isLastFiltered):
-            isLastFiltered = False
-            # if (_read_line[line_index - 1].strip()[4:] != _read_line[line_index].strip()[4:] and _read_line[
-            #                                                                                          line_index - 1].strip()[
-            #                                                                                      2:] != _read_line[
-            #     line_index].strip()):
-            #     continue
-        else:
-            isLastFiltered = False
-        if not isVoice:
-            if line_index > 0 and not _read_line[line_index - 1].strip().startswith('#') and not _read_line[
-                line_index - 1].strip().startswith('old '):
+        isVoice = False
+        unmatch_cnt = 0
+        for line_index, line_content in enumerate(_read_line):
+            if (line_content.startswith('translate ')):
+                isNeedSkip = False
+                split_s = line_content.split(' ')
+                if (len(split_s) > 2):
+                    target = split_s[2].strip('\n')
+                    if (target == 'python:' or target == 'style'):
+                        isNeedSkip = True
                 continue
-        if (line_content.strip().lstrip('#').strip().startswith('voice ')):
-            isVoice = True
-            continue
-        d = EncodeBracketContent(line_content, '"', '"')
-        if ('oriList' in d.keys() and len(d['oriList']) > 0):
-            # print(d['oriList'])
-            for i, e in enumerate(d['oriList']):
-                if (isAllPunctuations(d['encoded'].strip('"')) == False):
-                    target_index = line_index - 1
-                    if isVoice:
-                        target_index = target_index - 1
-                    if line_content.strip().startswith('new '):
-                        d_o = EncodeBracketContent(_read_line[target_index].strip()[4:], '"', '"')
-                    else:
-                        d_o = EncodeBracketContent(_read_line[target_index].strip(), '"', '"')
-                    original = ''
-                    if ('oriList' in d_o.keys() and len(d_o['oriList']) > 0):
-                        original = d_o['oriList'][i].strip('"')
-                    is_match = True
-                    if original != e.strip('"') and e.strip('"') != '':
-                        unmatch_cnt = unmatch_cnt + 1
-                        is_match = False
-                    dic = dict()
-                    dic['original'] = original
-                    dic['current'] = e.strip('"')
-                    dic['ori_line'] = target_index + 1
-                    dic['line'] = line_index + 1
-                    start = line_index - 2
-                    if isVoice:
-                        start = start - 2
-                        isVoice = False
-                    if line_content.strip().startswith('new '):
-                        start = line_index
-                    j = 0
-                    end = start - 5
-                    if end < 0:
-                        end = -1
-                    for j in range(start, end, -1):
-                        if _read_line[j].strip().startswith('#'):
-                            break
-                    dic['refer'] = ''
-                    if j != 0:
-                        dic['refer'] = _read_line[j].strip('#')
-                    dic['is_match'] = is_match
-                    infoList.append(dic)
-    # sorted(infoList, key=lambda x: x['line'])
-    return infoList, unmatch_cnt, p
+            if (isNeedSkip):
+                continue
+            isNeedSkip = False
+            if (line_content.strip().startswith('#') or line_content.strip().startswith('old ')):
+                isLastFiltered = True
+                continue
+            if (isLastFiltered):
+                isLastFiltered = False
+                # if (_read_line[line_index - 1].strip()[4:] != _read_line[line_index].strip()[4:] and _read_line[
+                #                                                                                          line_index - 1].strip()[
+                #                                                                                      2:] != _read_line[
+                #     line_index].strip()):
+                #     continue
+            else:
+                isLastFiltered = False
+            if not isVoice:
+                if line_index > 0 and not _read_line[line_index - 1].strip().startswith('#') and not _read_line[
+                    line_index - 1].strip().startswith('old '):
+                    continue
+            if (line_content.strip().lstrip('#').strip().startswith('voice ')):
+                isVoice = True
+                continue
+            d = EncodeBracketContent(line_content, '"', '"')
+            if ('oriList' in d.keys() and len(d['oriList']) > 0):
+                # print(d['oriList'])
+                for i, e in enumerate(d['oriList']):
+                    if (isAllPunctuations(d['encoded'].strip('"')) == False):
+                        target_index = line_index - 1
+                        if isVoice:
+                            target_index = target_index - 1
+                        if line_content.strip().startswith('new '):
+                            d_o = EncodeBracketContent(_read_line[target_index].strip()[4:], '"', '"')
+                        else:
+                            d_o = EncodeBracketContent(_read_line[target_index].strip(), '"', '"')
+                        original = ''
+                        if 'oriList' in d_o.keys() and len(d_o['oriList']) > 0:
+                            if len(d_o['oriList']) > i:
+                                original = d_o['oriList'][i].strip('"')
+                            else:
+                                continue
+
+                        is_match = True
+                        if original != e.strip('"') and e.strip('"') != '':
+                            unmatch_cnt = unmatch_cnt + 1
+                            is_match = False
+                        dic = dict()
+                        dic['original'] = original
+                        dic['current'] = e.strip('"')
+                        dic['ori_line'] = target_index + 1
+                        dic['line'] = line_index + 1
+                        start = line_index - 2
+                        if isVoice:
+                            start = start - 2
+                            isVoice = False
+                        if line_content.strip().startswith('new '):
+                            start = line_index
+                        j = 0
+                        end = start - 5
+                        if end < 0:
+                            end = -1
+                        for j in range(start, end, -1):
+                            if _read_line[j].strip().startswith('#'):
+                                break
+                        dic['refer'] = ''
+                        if j != 0:
+                            dic['refer'] = _read_line[j].strip('#')
+                        dic['is_match'] = is_match
+                        infoList.append(dic)
+        # sorted(infoList, key=lambda x: x['line'])
+        return infoList, unmatch_cnt, p
+    except:
+        f.close()
+        msg = traceback.format_exc()
+        log_print(msg)
+        return infoList, 0, p
