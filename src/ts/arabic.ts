@@ -239,180 +239,187 @@
     <name>EditorDialog</name>
     <message>
         <location filename="../editor_form.py" line="122"/>
-        <location filename="../editor_form.py" line="247"/>
+        <location filename="../editor_form.py" line="248"/>
         <source>Path</source>
         <translation>طريق</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="126"/>
-        <location filename="../editor_form.py" line="248"/>
+        <location filename="../editor_form.py" line="249"/>
         <source>Units</source>
         <translation>الوحدات</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="130"/>
-        <location filename="../editor_form.py" line="197"/>
-        <location filename="../editor_form.py" line="249"/>
-        <location filename="../editor_form.py" line="283"/>
-        <location filename="../editor_form.py" line="696"/>
+        <location filename="../editor_form.py" line="198"/>
+        <location filename="../editor_form.py" line="250"/>
+        <location filename="../editor_form.py" line="284"/>
+        <location filename="../editor_form.py" line="730"/>
         <location filename="../editor.ui" line="454"/>
         <source>Translated</source>
         <translation>مترجم</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="178"/>
-        <location filename="../editor_form.py" line="332"/>
-        <location filename="../editor_form.py" line="474"/>
-        <location filename="../editor_form.py" line="502"/>
-        <location filename="../editor_form.py" line="513"/>
-        <location filename="../editor_form.py" line="846"/>
-        <location filename="../editor_form.py" line="892"/>
+        <location filename="../editor_form.py" line="179"/>
+        <location filename="../editor_form.py" line="333"/>
+        <location filename="../editor_form.py" line="479"/>
+        <location filename="../editor_form.py" line="527"/>
+        <location filename="../editor_form.py" line="538"/>
+        <location filename="../editor_form.py" line="880"/>
+        <location filename="../editor_form.py" line="932"/>
         <source>Export to html file</source>
         <translation>تصدير إلى ملف HTML</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="181"/>
-        <location filename="../editor_form.py" line="336"/>
-        <location filename="../editor_form.py" line="848"/>
+        <location filename="../editor_form.py" line="182"/>
+        <location filename="../editor_form.py" line="337"/>
+        <location filename="../editor_form.py" line="882"/>
         <source>Import html and relative translated contents</source>
         <translation>استيراد HTML والمحتويات المترجمة النسبية</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="191"/>
-        <location filename="../editor_form.py" line="279"/>
-        <location filename="../editor_form.py" line="692"/>
+        <location filename="../editor_form.py" line="192"/>
+        <location filename="../editor_form.py" line="280"/>
+        <location filename="../editor_form.py" line="726"/>
         <source>line</source>
         <translation>خط</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="192"/>
-        <location filename="../editor_form.py" line="280"/>
-        <location filename="../editor_form.py" line="693"/>
+        <location filename="../editor_form.py" line="193"/>
+        <location filename="../editor_form.py" line="281"/>
+        <location filename="../editor_form.py" line="727"/>
         <source>refer</source>
         <translation>يشير إلى</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="194"/>
-        <location filename="../editor_form.py" line="281"/>
-        <location filename="../editor_form.py" line="549"/>
-        <location filename="../editor_form.py" line="694"/>
-        <location filename="../editor_form.py" line="1409"/>
+        <location filename="../editor_form.py" line="195"/>
+        <location filename="../editor_form.py" line="282"/>
+        <location filename="../editor_form.py" line="583"/>
+        <location filename="../editor_form.py" line="728"/>
+        <location filename="../editor_form.py" line="1477"/>
         <location filename="../editor.ui" line="334"/>
         <location filename="../editor.ui" line="413"/>
         <source>Original</source>
         <translation>إبداعي</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="195"/>
-        <location filename="../editor_form.py" line="282"/>
-        <location filename="../editor_form.py" line="550"/>
-        <location filename="../editor_form.py" line="695"/>
-        <location filename="../editor_form.py" line="1410"/>
+        <location filename="../editor_form.py" line="196"/>
+        <location filename="../editor_form.py" line="283"/>
+        <location filename="../editor_form.py" line="584"/>
+        <location filename="../editor_form.py" line="729"/>
+        <location filename="../editor_form.py" line="1478"/>
         <location filename="../editor.ui" line="255"/>
         <location filename="../editor.ui" line="432"/>
         <source>Current</source>
         <translation>حاضِر</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="320"/>
+        <location filename="../editor_form.py" line="321"/>
         <source>Remove</source>
         <translation>يزيل</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="451"/>
+        <location filename="../editor_form.py" line="456"/>
         <source>Import to files</source>
         <translation>الاستيراد إلى الملفات</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="454"/>
+        <location filename="../editor_form.py" line="459"/>
         <source>Do you want to make advanced settings (the default setting is to import to all files in the directory)</source>
         <translation>هل تريد إجراء إعدادات متقدمة (الإعداد الافتراضي هو الاستيراد إلى كافة الملفات الموجودة في الدليل)</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="516"/>
-        <location filename="../editor_form.py" line="577"/>
+        <location filename="../editor_form.py" line="496"/>
+        <location filename="../editor_form.py" line="546"/>
+        <location filename="../editor_form.py" line="942"/>
+        <source>Do you want to replace special symbols?</source>
+        <translation>هل تريد استبدال الرموز الخاصة؟</translation>
+    </message>
+    <message>
+        <location filename="../editor_form.py" line="541"/>
+        <location filename="../editor_form.py" line="611"/>
         <source>Do you want to make advanced settings (the default setting is to export all files in the directory)</source>
         <translation>هل تريد عمل إعدادات متقدمة (الإعداد الافتراضي هو تصدير جميع الملفات الموجودة في الدليل)</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="626"/>
+        <location filename="../editor_form.py" line="660"/>
         <source>Case Sensitive</source>
         <translation>حساسية الموضوع</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="629"/>
+        <location filename="../editor_form.py" line="663"/>
         <source>Search refer column</source>
         <translation>البحث في العمود المرجعي</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="632"/>
+        <location filename="../editor_form.py" line="666"/>
         <source>Search Original column</source>
         <translation>البحث في العمود الأصلي</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="635"/>
+        <location filename="../editor_form.py" line="669"/>
         <source>Search Current column</source>
         <translation>البحث في العمود الحالي</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="638"/>
+        <location filename="../editor_form.py" line="672"/>
         <source>Search Translated column</source>
         <translation>البحث في العمود المترجم</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="733"/>
-        <location filename="../editor_form.py" line="745"/>
+        <location filename="../editor_form.py" line="767"/>
+        <location filename="../editor_form.py" line="779"/>
         <source>Input Dialog</source>
         <translation>حوار الإدخال</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="735"/>
+        <location filename="../editor_form.py" line="769"/>
         <source>Please Input the line number you want to jump</source>
         <translation>الرجاء إدخال رقم السطر الذي تريد القفز عليه</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="747"/>
+        <location filename="../editor_form.py" line="781"/>
         <source>Please Input the content you want to search</source>
         <translation>الرجاء إدخال المحتوى الذي تريد البحث فيه</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="834"/>
+        <location filename="../editor_form.py" line="868"/>
         <source>Translate Translation Source to Translated</source>
         <translation>ترجمة مصدر الترجمة إلى مترجم</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="837"/>
+        <location filename="../editor_form.py" line="871"/>
         <source>Copy Original to Current</source>
         <translation>انسخ الأصل إلى الحالي</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="839"/>
+        <location filename="../editor_form.py" line="873"/>
         <source>Copy Translated to Current</source>
         <translation>نسخة مترجمة إلى الحالية</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="842"/>
+        <location filename="../editor_form.py" line="876"/>
         <source>Rollback Current to First Load</source>
         <translation>التراجع الحالي إلى التحميل الأول</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1295"/>
+        <location filename="../editor_form.py" line="1359"/>
         <source>select the directory you want to edit</source>
         <translation>حدد الدليل الذي تريد تحريره</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1302"/>
+        <location filename="../editor_form.py" line="1366"/>
         <source>select the file(s) you want to edit</source>
         <translation>حدد الملف (الملفات) الذي تريد تحريره</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="176"/>
-        <location filename="../editor_form.py" line="329"/>
-        <location filename="../editor_form.py" line="536"/>
-        <location filename="../editor_form.py" line="565"/>
-        <location filename="../editor_form.py" line="574"/>
-        <location filename="../editor_form.py" line="844"/>
-        <location filename="../editor_form.py" line="918"/>
+        <location filename="../editor_form.py" line="177"/>
+        <location filename="../editor_form.py" line="330"/>
+        <location filename="../editor_form.py" line="570"/>
+        <location filename="../editor_form.py" line="599"/>
+        <location filename="../editor_form.py" line="608"/>
+        <location filename="../editor_form.py" line="878"/>
+        <location filename="../editor_form.py" line="982"/>
         <source>Export to xlsx file</source>
         <translation>تصدير إلى ملف XLSX</translation>
     </message>
@@ -884,17 +891,17 @@
 <context>
     <name>ImportHtmlDialog</name>
     <message>
-        <location filename="../import_html_form.py" line="34"/>
+        <location filename="../import_html_form.py" line="36"/>
         <source>The html file does not match the translated file , please check the input files</source>
         <translation>ملف html لا يتطابق مع الملف المترجم، يرجى التحقق من ملفات الإدخال</translation>
     </message>
     <message>
-        <location filename="../import_html_form.py" line="43"/>
+        <location filename="../import_html_form.py" line="45"/>
         <source>select the relative translated file</source>
         <translation>حدد الملف المترجم النسبي</translation>
     </message>
     <message>
-        <location filename="../import_html_form.py" line="54"/>
+        <location filename="../import_html_form.py" line="56"/>
         <source>select the html file exported before</source>
         <translation>حدد ملف html الذي تم تصديره من قبل</translation>
     </message>
@@ -1072,8 +1079,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.0.7</source>
-        <translation>الإصدار2.0.7</translation>
+        <source>Version 2.0.8</source>
+        <translation>الإصدار2.0.8</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="113"/>

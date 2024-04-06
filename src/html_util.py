@@ -1,14 +1,16 @@
+import json
 import os.path
 
 from bs4 import BeautifulSoup, NavigableString
 
 from my_log import log_print
+from renpy_translate import get_translated
 
 last_write_html = None
 last_translated_dic = None
 
 
-def write_html_with_strings(p, strings):
+def write_html_with_strings(p, strings, data):
     if strings is None:
         return
     soup = BeautifulSoup('<html><body></body></html>', 'html.parser')
@@ -16,7 +18,10 @@ def write_html_with_strings(p, strings):
         p_tag = soup.new_tag("p")
         p_tag.string = s
         soup.body.append(p_tag)
-
+    if data is not None:
+        data_div = soup.new_tag("div", id="data", style="display: none;")
+        data_div.string = data
+        soup.body.append(data_div)
     with open(p, "w", encoding='utf-8') as f:
         f.write(str(soup))
     global last_write_html
@@ -29,8 +34,12 @@ def read_strings_from_html(p):
     with open(p, "r", encoding="utf-8") as f:
         soup = BeautifulSoup(f, 'html.parser')
     p_tags = soup.find_all('p')
+    data_div = soup.find(id='data')
+    data = None
+    if data_div is not None:
+        data = data_div.string
     strings = [tag.get_text() for tag in p_tags]
-    return strings
+    return strings, data
 
 
 def read_strings_from_translated(p):
@@ -48,7 +57,9 @@ def read_strings_from_translated(p):
 
 def get_translated_dic(html_path, translated_path):
     dic = dict()
-    ori_strings = read_strings_from_html(html_path)
+    ori_strings, data = read_strings_from_html(html_path)
+    if data is not None:
+        data = json.loads(data)
     global last_translated_dic
     if ori_strings is None or len(ori_strings) == 0:
         last_translated_dic = None
@@ -61,7 +72,27 @@ def get_translated_dic(html_path, translated_path):
         log_print('Error:translated file does not match the html file')
         last_translated_dic = None
         return None
-    for i, e in enumerate(ori_strings):
-        dic[e] = translated_strings[i]
+    if data is not None:
+        for i, e in enumerate(data):
+            translated_dic = dict()
+            target = e['target']
+            line = e['line']
+            if 'd' not in e:
+                dic[ori_strings[i]] = translated_strings[i]
+                continue
+            d = e['d']
+            translated = translated_strings[i]
+            translated_dic[target] = translated
+            translated = get_translated(translated_dic, d)
+            if translated is None:
+                translated = ''
+                encoded = d['encoded'].strip('"')
+                if encoded in translated_dic:
+                    translated = translated_dic[encoded]
+                log_print(f'{translated_path} Error in line:{str(i + 1)} row:{line}\n{target}\n{encoded}\n{translated}\nError')
+            dic[ori_strings[i]] = translated
+    else:
+        for i, e in enumerate(ori_strings):
+            dic[e] = translated_strings[i]
     last_translated_dic = dic
-    return dic
+    return dic, data is not None

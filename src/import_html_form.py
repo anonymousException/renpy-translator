@@ -14,6 +14,7 @@ class MyImportHtmlForm(QDialog, Ui_ImportHtmlDialog):
         self.selectTranslatedFileBtn.clicked.connect(self.select_translated_file)
         self.importBtn.clicked.connect(self.on_import_button_clicked)
         self.dic = None
+        self.is_replace_special_symbols = True
 
     def on_import_button_clicked(self):
         self.dic = None
@@ -25,8 +26,9 @@ class MyImportHtmlForm(QDialog, Ui_ImportHtmlDialog):
         translated_file = translated_file.replace('file:///', '')
         if len(translated_file) == 0:
             return
-        dic = html_util.get_translated_dic(html_file, translated_file)
+        dic, is_replace_special_symbols = html_util.get_translated_dic(html_file, translated_file)
         self.dic = dic
+        self.is_replace_special_symbols = is_replace_special_symbols
         if self.dic is None:
             msg_box = QMessageBox()
             msg_box.setWindowTitle('o(≧口≦)o')

@@ -156,6 +156,7 @@ class MyTreeView(QTreeView):
         self.export_path = None
         self.export_html = False
         self.import_html = False
+        self.is_replace_special_symbols = True
         self.units_min = 0
         self.units_max = sys.maxsize
         self.translated_min = 0.0
@@ -348,25 +349,27 @@ class MySelectTableView(QTableView):
         treeView.units_max = sys.maxsize
         treeView.translated_min = 0.0
         treeView.translated_max = 100.0
+        editorForm = treeView.tableView.editorForm
         if reply == QMessageBox.Yes:
-            myExportXlsxSettingForm = MyExportSettingForm(parent=self)
-            myExportXlsxSettingForm.exec()
-            if myExportXlsxSettingForm.unitsCheckBox.isChecked():
+            if editorForm.myExportXlsxSettingForm is None:
+                editorForm.myExportXlsxSettingForm = MyExportSettingForm(parent=editorForm)
+            editorForm.myExportXlsxSettingForm.exec()
+            if editorForm.myExportXlsxSettingForm.unitsCheckBox.isChecked():
                 try:
-                    treeView.units_min = int(myExportXlsxSettingForm.unitsMinLlineEdit.text())
+                    treeView.units_min = int(editorForm.myExportXlsxSettingForm.unitsMinLlineEdit.text())
                 except Exception:
                     pass
                 try:
-                    treeView.units_max = int(myExportXlsxSettingForm.unitsMaxLineEdit.text())
+                    treeView.units_max = int(editorForm.myExportXlsxSettingForm.unitsMaxLineEdit.text())
                 except Exception:
                     pass
-            if myExportXlsxSettingForm.translatedCheckBox.isChecked():
+            if editorForm.myExportXlsxSettingForm.translatedCheckBox.isChecked():
                 try:
-                    treeView.translated_min = float(myExportXlsxSettingForm.translatedMinLineEdit.text())
+                    treeView.translated_min = float(editorForm.myExportXlsxSettingForm.translatedMinLineEdit.text())
                 except Exception:
                     pass
                 try:
-                    treeView.translated_max = float(myExportXlsxSettingForm.translatedMaxLineEdit.text())
+                    treeView.translated_max = float(editorForm.myExportXlsxSettingForm.translatedMaxLineEdit.text())
                 except Exception:
                     pass
 
@@ -385,6 +388,7 @@ class MySelectTableView(QTableView):
             editorForm.myImportHtmlForm.selecHtmlFileText.setText(last_write_html)
         editorForm.myImportHtmlForm.exec()
         dic = editorForm.myImportHtmlForm.dic
+        treeView.is_replace_special_symbols = editorForm.myImportHtmlForm.is_replace_special_symbols
         if dic is None:
             return
         if os.path.isfile(path):
@@ -399,18 +403,23 @@ class MySelectTableView(QTableView):
             _read_lines = f.readlines()
             f.close()
             l = []
-            for i in ret:
-                ori_line = i['ori_line'] - 1
-                line = i['line'] - 1
-                original = i['original']
-                current = i['current']
+            for i, e in enumerate(ret):
+                ori_line = e['ori_line'] - 1
+                line = e['line'] - 1
+                original = e['original']
+                current = e['current']
                 if treeView.tableView.is_original:
                     target = original
                 else:
                     target = current
                 replaced = None
-                if target in dic.keys():
-                    replaced = dic[target]
+                target_key = target
+                if treeView.is_replace_special_symbols:
+                    d = EncodeBrackets(target)
+                    if isAllPunctuations(d['encoded'].strip('"')) == False:
+                        target_key = d['encoded'].strip('"')
+                if target_key in dic.keys():
+                    replaced = dic[target_key]
                 if replaced is None:
                     l.append(target)
                     continue
@@ -442,8 +451,6 @@ class MySelectTableView(QTableView):
             except Exception as e:
                 msg = traceback.format_exc()
                 log_print(msg)
-            if last_write_html is not None:
-                write_html_with_strings(last_write_html, l)
         elif os.path.isdir(path):
             treeView.export_path = None
             treeView.export_html = False
@@ -484,16 +491,36 @@ class MySelectTableView(QTableView):
                     ret, unmatch_cnt, p = get_rpy_info(path)
                     rpy_info_dic[path] = ret, unmatch_cnt, p
                 l = []
-                for i in ret:
-                    original = i['original']
-                    current = i['current']
+                reply = QMessageBox.question(self,
+                                             'o((>ω< ))o',
+                                             QCoreApplication.translate('EditorDialog',
+                                                                        'Do you want to replace special symbols?',
+                                                                        None),
+                                             QMessageBox.Yes | QMessageBox.No, QMessageBox.Yes)
+                is_replace_special_symbols = True
+                if reply != QMessageBox.Yes:
+                    is_replace_special_symbols = False
+                for i, e in enumerate(ret):
+                    original = e['original']
+                    current = e['current']
                     if treeView.tableView.is_original:
                         target = original
                     else:
                         target = current
                     if len(target) > 0:
+                        e['target'] = target
+                        if is_replace_special_symbols:
+                            d = EncodeBrackets(target)
+                            if isAllPunctuations(d['encoded'].strip('"')) == False:
+                                target = d['encoded'].strip('"')
+                                e['target'] = target
+                                e['d'] = d
+                        ret[i] = e
                         l.append(target)
-                write_html_with_strings(fileName, l)
+                data = json.dumps(ret)
+                if not is_replace_special_symbols:
+                    data = None
+                write_html_with_strings(fileName, l, data)
                 open_directory_and_select_file(fileName)
         elif os.path.isdir(path):
             fileName, _ = QFileDialog.getSaveFileName(self,
@@ -514,6 +541,15 @@ class MySelectTableView(QTableView):
                                           QCoreApplication.translate('EditorDialog',
                                                                      'Do you want to make advanced settings (the default setting is to export all files in the directory)',
                                                                      None))
+                reply = QMessageBox.question(self,
+                                             'o((>ω< ))o',
+                                             QCoreApplication.translate('EditorDialog',
+                                                                        'Do you want to replace special symbols?',
+                                                                        None),
+                                             QMessageBox.Yes | QMessageBox.No, QMessageBox.Yes)
+                treeView.is_replace_special_symbols = True
+                if reply != QMessageBox.Yes:
+                    treeView.is_replace_special_symbols = False
                 t = getRpyInfoThread(p=path, is_open_filter=is_open_filter)
                 treeView.tableView.editorForm.setDisabled(True)
                 treeView.show()
@@ -862,12 +898,13 @@ class MyTableView(QTableView):
             editorForm.myImportHtmlForm.selecHtmlFileText.setText(last_write_html)
         editorForm.myImportHtmlForm.exec()
         dic = editorForm.myImportHtmlForm.dic
+        is_replace_special_symbols = editorForm.myImportHtmlForm.is_replace_special_symbols
         if dic is None:
             return
         l = []
         for row in selected_rows:
             original = self.model.item(row, 0).data(Qt.UserRole)['original']
-            #current = self.model.item(row, 0).data(Qt.UserRole)['current']
+            # current = self.model.item(row, 0).data(Qt.UserRole)['current']
             current = self.model.item(row, 3).text()
             ori_line = self.model.item(row, 0).data(Qt.UserRole)['ori_line'] - 1
             line = self.model.item(row, 0).data(Qt.UserRole)['line'] - 1
@@ -876,8 +913,13 @@ class MyTableView(QTableView):
             else:
                 target = current
             replaced = None
-            if target in dic.keys():
-                replaced = dic[target]
+            target_key = target
+            if is_replace_special_symbols:
+                d = EncodeBrackets(target)
+                if isAllPunctuations(d['encoded'].strip('"')) == False:
+                    target_key = d['encoded'].strip('"')
+            if target_key in dic.keys():
+                replaced = dic[target_key]
             if replaced is None:
                 l.append(target)
                 continue
@@ -895,21 +937,45 @@ class MyTableView(QTableView):
             return
         if not fileName.endswith('.html'):
             fileName += '.html'
+        reply = QMessageBox.question(self,
+                                     'o((>ω< ))o',
+                                     QCoreApplication.translate('EditorDialog',
+                                                                'Do you want to replace special symbols?',
+                                                                None),
+                                     QMessageBox.Yes | QMessageBox.No, QMessageBox.Yes)
+        is_replace_special_symbols = True
+        if reply != QMessageBox.Yes:
+            is_replace_special_symbols = False
         selected_indexes = self.selectionModel().selectedRows()
         selected_rows = [index.row() for index in selected_indexes]
         selected_rows.sort(reverse=False)
         l = []
+        ret_l = []
+        cnt = 0
         for row in selected_rows:
+            e = self.model.item(row, 0).data(Qt.UserRole)
             original = self.model.item(row, 0).data(Qt.UserRole)['original']
-            #current = self.model.item(row, 0).data(Qt.UserRole)['current']
+            # current = self.model.item(row, 0).data(Qt.UserRole)['current']
             current = self.model.item(row, 3).text()
             if self.is_original:
                 target = original
             else:
                 target = current
             if len(target) > 0:
+                e['target'] = target
+                if is_replace_special_symbols:
+                    d = EncodeBrackets(target)
+                    if isAllPunctuations(d['encoded'].strip('"')) == False:
+                        target = d['encoded'].strip('"')
+                        e['target'] = target
+                        e['d'] = d
                 l.append(target)
-        write_html_with_strings(fileName, l)
+                ret_l.append(e)
+                cnt = cnt + 1
+        data = json.dumps(ret_l)
+        if not is_replace_special_symbols:
+            data = None
+        write_html_with_strings(fileName, l, data)
         open_directory_and_select_file(fileName)
 
     def export_to_xlsx(self):
@@ -1057,6 +1123,7 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
         self.searchedOnlyCheckBox.stateChanged.connect(self.on_checkbox_state_changed)
         self.localGlossaryCheckBox.clicked.connect(self.on_local_glossary_checkbox_state_changed)
         self.myImportHtmlForm = None
+        self.myExportXlsxSettingForm = None
         _thread.start_new_thread(self.update_log, ())
 
     def on_local_glossary_checkbox_state_changed(self):
@@ -1363,8 +1430,13 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
                                         else:
                                             target = current
                                         replaced = None
-                                        if target in last_translated_dic.keys():
-                                            replaced = last_translated_dic[target]
+                                        target_key = target
+                                        if self.treeView.is_replace_special_symbols:
+                                            d = EncodeBrackets(target)
+                                            if isAllPunctuations(d['encoded'].strip('"')) == False:
+                                                target_key = d['encoded'].strip('"')
+                                        if target_key in last_translated_dic.keys():
+                                            replaced = last_translated_dic[target_key]
                                         if replaced is None:
                                             continue
                                         dic['current'] = replaced
@@ -1396,7 +1468,6 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
                                             target = current
                                         if len(target) > 0:
                                             l.append(target)
-                            write_html_with_strings(last_write_html, l)
                         self.treeView.import_html = False
                     if self.treeView.export_path is not None:
                         is_fresh = self.treeView.is_fresh
@@ -1411,6 +1482,7 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
                             cnt = 2
                         fileName = self.treeView.export_path
                         l = []
+                        ret_l = []
                         for path, dir_lst, file_lst in paths:
                             for file_name in file_lst:
                                 if self.treeView.model.is_open_filter and not file_name.endswith("rpy"):
@@ -1428,9 +1500,9 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
                                     continue
                                 if units < self.treeView.units_min or units > self.treeView.units_max:
                                     continue
-                                for i in ret:
-                                    original = i['original']
-                                    current = i['current']
+                                for i, e in enumerate(ret):
+                                    original = e['original']
+                                    current = e['current']
                                     if self.treeView.export_html == False:
                                         ws.cell(row=cnt, column=1, value=original)
                                         ws.cell(row=cnt, column=2, value=current)
@@ -1441,11 +1513,23 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
                                         else:
                                             target = current
                                         if len(target) > 0:
+                                            e['target'] = target
+                                            if self.treeView.is_replace_special_symbols:
+                                                d = EncodeBrackets(target)
+                                                if isAllPunctuations(d['encoded'].strip('"')) == False:
+                                                    target = d['encoded'].strip('"')
+                                                    e['target'] = target
+                                                    e['d'] = d
+                                            ret[i] = e
                                             l.append(target)
+                                ret_l.extend(ret)
                         if self.treeView.export_html == False:
                             wb.save(f'{fileName}')
                         else:
-                            write_html_with_strings(fileName, l)
+                            data = json.dumps(ret_l)
+                            if not self.treeView.is_replace_special_symbols:
+                                data = None
+                            write_html_with_strings(fileName, l, data)
                         open_directory_and_select_file(fileName)
 
                         self.treeView.export_path = None

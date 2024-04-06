@@ -247,6 +247,10 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.retranslateUi(self)
         if self.editor_form is not None:
             self.editor_form.retranslateUi(self.editor_form)
+            if self.editor_form.myImportHtmlForm is not None:
+                self.editor_form.myImportHtmlForm.retranslateUi(self.editor_form.myImportHtmlForm)
+            if self.editor_form.myExportXlsxSettingForm is not None:
+                self.editor_form.myExportXlsxSettingForm.retranslateUi(self.editor_form.myExportXlsxSettingForm)
         if self.myGameUnpackerForm is not None:
             self.myGameUnpackerForm.retranslateUi(self.myGameUnpackerForm)
         if self.local_glossary_form is not None:
