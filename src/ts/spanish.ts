@@ -296,7 +296,7 @@
         <location filename="../editor_form.py" line="282"/>
         <location filename="../editor_form.py" line="585"/>
         <location filename="../editor_form.py" line="730"/>
-        <location filename="../editor_form.py" line="1480"/>
+        <location filename="../editor_form.py" line="1484"/>
         <location filename="../editor.ui" line="334"/>
         <location filename="../editor.ui" line="413"/>
         <source>Original</source>
@@ -307,7 +307,7 @@
         <location filename="../editor_form.py" line="283"/>
         <location filename="../editor_form.py" line="586"/>
         <location filename="../editor_form.py" line="731"/>
-        <location filename="../editor_form.py" line="1481"/>
+        <location filename="../editor_form.py" line="1485"/>
         <location filename="../editor.ui" line="255"/>
         <location filename="../editor.ui" line="432"/>
         <source>Current</source>
@@ -403,12 +403,12 @@
         <translation>Revertir la corriente a la primera carga</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1362"/>
+        <location filename="../editor_form.py" line="1366"/>
         <source>select the directory you want to edit</source>
         <translation>seleccione el directorio que desea editar</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1369"/>
+        <location filename="../editor_form.py" line="1373"/>
         <source>select the file(s) you want to edit</source>
         <translation>seleccione el archivo(s) que desea editar</translation>
     </message>
@@ -932,6 +932,34 @@
     </message>
 </context>
 <context>
+    <name>HtmlConverterDialog</name>
+    <message>
+        <location filename="../html_converter.ui" line="14"/>
+        <source>Html Converter</source>
+        <translation>Convertidor HTML</translation>
+    </message>
+    <message>
+        <location filename="../html_converter.ui" line="26"/>
+        <source>file(s)</source>
+        <translation>archivo(s)</translation>
+    </message>
+    <message>
+        <location filename="../html_converter.ui" line="45"/>
+        <source>input or choose or drag the file(s) you want to convert to html here. Examaple : F:\example.txt</source>
+        <translation>ingrese o elija o arrastre los archivos que desea convertir a html aquí. Ejemplo: F:\ejemplo.txt</translation>
+    </message>
+    <message>
+        <location filename="../html_converter.ui" line="71"/>
+        <source>convert</source>
+        <translation>convertir</translation>
+    </message>
+    <message>
+        <location filename="../html_converter.ui" line="84"/>
+        <source>Replace Special Symbols</source>
+        <translation>Reemplazar símbolos especiales</translation>
+    </message>
+</context>
+<context>
     <name>ImportHtmlDialog</name>
     <message>
         <location filename="../import_html_form.py" line="36"/>
@@ -1076,25 +1104,25 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../main.py" line="440"/>
+        <location filename="../main.py" line="443"/>
         <location filename="../extraction_official_form.py" line="66"/>
         <source>extracting...</source>
         <translation>extrayendo...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="432"/>
-        <location filename="../main.py" line="519"/>
+        <location filename="../main.py" line="434"/>
+        <location filename="../main.py" line="521"/>
         <source>translating...</source>
         <translation>traductorio...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="435"/>
+        <location filename="../main.py" line="437"/>
         <location filename="../ui.ui" line="100"/>
         <source>translate</source>
         <translation>traducir</translation>
     </message>
     <message>
-        <location filename="../main.py" line="444"/>
+        <location filename="../main.py" line="447"/>
         <location filename="../extraction_official_form.py" line="88"/>
         <source>extract</source>
         <translation>extracto</translation>
@@ -1108,12 +1136,12 @@
         <translation type="vanished">seleccione el directorio que desea extraer</translation>
     </message>
     <message>
-        <location filename="../main.py" line="466"/>
+        <location filename="../main.py" line="468"/>
         <source>select the file(s) you want to translate</source>
         <translation>seleccione el archivo(s) que desea traducir</translation>
     </message>
     <message>
-        <location filename="../main.py" line="477"/>
+        <location filename="../main.py" line="479"/>
         <source>select the directory you want to translate</source>
         <translation>seleccione el directorio que desea traducir</translation>
     </message>
@@ -1124,8 +1152,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.0.9</source>
-        <translation>Versión 2.0.9</translation>
+        <source>Version 2.1.0</source>
+        <translation>Versión 2.1.0</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="113"/>
@@ -1209,29 +1237,34 @@
         <translation>(Si está deshabilitado, la traducción continuará después de que se haya traducido el archivo anterior)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="683"/>
+        <location filename="../ui.ui" line="684"/>
         <source>extract translation</source>
         <translation>extraer traducción</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="688"/>
+        <location filename="../ui.ui" line="689"/>
         <source>runtime extraction</source>
         <translation>Extracción en tiempo de ejecución</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="703"/>
+        <location filename="../ui.ui" line="704"/>
         <source>add change langauge entrance</source>
         <translation>Agregar entrada para cambiar idioma</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="708"/>
+        <location filename="../ui.ui" line="709"/>
         <source>one key translate</source>
         <translation>una clave traducir</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="713"/>
+        <location filename="../ui.ui" line="714"/>
         <source>official extraction</source>
         <translation>Extracción Oficial</translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="719"/>
+        <source>convert txt to html</source>
+        <translation>convertir texto a html</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="46"/>
@@ -1244,7 +1277,7 @@
         <translation>opciones avanzadas</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="583"/>
+        <location filename="../ui.ui" line="584"/>
         <source>unpack game package</source>
         <translation>desempaquetar el paquete del juego</translation>
     </message>
@@ -1257,7 +1290,7 @@
         <translation type="vanished">ingrese o elija o arrastre la fuente que admite el idioma después de la traducción. Ejemplo: DejaVuSans.ttf (fuente predeterminada de ren&apos;py)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="578"/>
+        <location filename="../ui.ui" line="579"/>
         <source>replace font</source>
         <translation>reemplazar fuente</translation>
     </message>
@@ -1338,37 +1371,37 @@
         <translation type="vanished">editor</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="445"/>
+        <location filename="../ui.ui" line="446"/>
         <source>language</source>
         <translation>idioma</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="464"/>
+        <location filename="../ui.ui" line="465"/>
         <source>theme</source>
         <translation>tema</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="495"/>
+        <location filename="../ui.ui" line="496"/>
         <source>copyright</source>
         <translation>derechos de autor</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="500"/>
+        <location filename="../ui.ui" line="501"/>
         <source>proxy settings</source>
         <translation>configuración de proxy</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="505"/>
+        <location filename="../ui.ui" line="506"/>
         <source>engine settings</source>
         <translation>configuración del motor</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="510"/>
+        <location filename="../ui.ui" line="511"/>
         <source>custom engine</source>
         <translation>motor personalizado</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="515"/>
+        <location filename="../ui.ui" line="516"/>
         <source>edit from rpy</source>
         <translation>editar desde rpy</translation>
     </message>

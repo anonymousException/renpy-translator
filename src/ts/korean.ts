@@ -296,7 +296,7 @@
         <location filename="../editor_form.py" line="282"/>
         <location filename="../editor_form.py" line="585"/>
         <location filename="../editor_form.py" line="730"/>
-        <location filename="../editor_form.py" line="1480"/>
+        <location filename="../editor_form.py" line="1484"/>
         <location filename="../editor.ui" line="334"/>
         <location filename="../editor.ui" line="413"/>
         <source>Original</source>
@@ -307,7 +307,7 @@
         <location filename="../editor_form.py" line="283"/>
         <location filename="../editor_form.py" line="586"/>
         <location filename="../editor_form.py" line="731"/>
-        <location filename="../editor_form.py" line="1481"/>
+        <location filename="../editor_form.py" line="1485"/>
         <location filename="../editor.ui" line="255"/>
         <location filename="../editor.ui" line="432"/>
         <source>Current</source>
@@ -403,12 +403,12 @@
         <translation>전류를 첫 번째 부하로 롤백</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1362"/>
+        <location filename="../editor_form.py" line="1366"/>
         <source>select the directory you want to edit</source>
         <translation>편집하려는 디렉토리를 선택하십시오</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1369"/>
+        <location filename="../editor_form.py" line="1373"/>
         <source>select the file(s) you want to edit</source>
         <translation>편집하고 싶은 파일을 선택하세요</translation>
     </message>
@@ -932,6 +932,34 @@
     </message>
 </context>
 <context>
+    <name>HtmlConverterDialog</name>
+    <message>
+        <location filename="../html_converter.ui" line="14"/>
+        <source>Html Converter</source>
+        <translation>HTML 변환기</translation>
+    </message>
+    <message>
+        <location filename="../html_converter.ui" line="26"/>
+        <source>file(s)</source>
+        <translation>파일</translation>
+    </message>
+    <message>
+        <location filename="../html_converter.ui" line="45"/>
+        <source>input or choose or drag the file(s) you want to convert to html here. Examaple : F:\example.txt</source>
+        <translation>여기에 html로 변환하려는 파일을 입력하거나 선택하거나 드래그하세요. 예 : F:\example.txt</translation>
+    </message>
+    <message>
+        <location filename="../html_converter.ui" line="71"/>
+        <source>convert</source>
+        <translation>전환하다</translation>
+    </message>
+    <message>
+        <location filename="../html_converter.ui" line="84"/>
+        <source>Replace Special Symbols</source>
+        <translation>특수 기호 바꾸기</translation>
+    </message>
+</context>
+<context>
     <name>ImportHtmlDialog</name>
     <message>
         <location filename="../import_html_form.py" line="36"/>
@@ -1056,36 +1084,36 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../main.py" line="440"/>
+        <location filename="../main.py" line="443"/>
         <location filename="../extraction_official_form.py" line="66"/>
         <source>extracting...</source>
         <translation>적출...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="432"/>
-        <location filename="../main.py" line="519"/>
+        <location filename="../main.py" line="434"/>
+        <location filename="../main.py" line="521"/>
         <source>translating...</source>
         <translation>번역하는 중...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="435"/>
+        <location filename="../main.py" line="437"/>
         <location filename="../ui.ui" line="100"/>
         <source>translate</source>
         <translation>번역하다</translation>
     </message>
     <message>
-        <location filename="../main.py" line="444"/>
+        <location filename="../main.py" line="447"/>
         <location filename="../extraction_official_form.py" line="88"/>
         <source>extract</source>
         <translation>발췌</translation>
     </message>
     <message>
-        <location filename="../main.py" line="466"/>
+        <location filename="../main.py" line="468"/>
         <source>select the file(s) you want to translate</source>
         <translation>번역하려는 파일을 선택하세요</translation>
     </message>
     <message>
-        <location filename="../main.py" line="477"/>
+        <location filename="../main.py" line="479"/>
         <source>select the directory you want to translate</source>
         <translation>번역하려는 디렉토리를 선택하십시오</translation>
     </message>
@@ -1171,39 +1199,44 @@
         <translation>고급 옵션</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="464"/>
+        <location filename="../ui.ui" line="465"/>
         <source>theme</source>
         <translation>주제</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="583"/>
+        <location filename="../ui.ui" line="584"/>
         <source>unpack game package</source>
         <translation>게임 패키지 풀기</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="683"/>
+        <location filename="../ui.ui" line="684"/>
         <source>extract translation</source>
         <translation>번역 추출</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="688"/>
+        <location filename="../ui.ui" line="689"/>
         <source>runtime extraction</source>
         <translation>런타임 추출</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="703"/>
+        <location filename="../ui.ui" line="704"/>
         <source>add change langauge entrance</source>
         <translation>언어 변경 입구 추가</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="708"/>
+        <location filename="../ui.ui" line="709"/>
         <source>one key translate</source>
         <translation>하나의 키 번역</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="713"/>
+        <location filename="../ui.ui" line="714"/>
         <source>official extraction</source>
         <translation>공식 추출</translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="719"/>
+        <source>convert txt to html</source>
+        <translation>txt를 html로 변환</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="270"/>
@@ -1212,8 +1245,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.0.9</source>
-        <translation>버전 2.0.9</translation>
+        <source>Version 2.1.0</source>
+        <translation>버전 2.1.0</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="391"/>
@@ -1226,7 +1259,7 @@
         <translation>©2024 마지막 순간, 모든 권리 보유.</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="578"/>
+        <location filename="../ui.ui" line="579"/>
         <source>replace font</source>
         <translation>글꼴 교체</translation>
     </message>
@@ -1251,32 +1284,32 @@
         <translation>번역 엔진</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="445"/>
+        <location filename="../ui.ui" line="446"/>
         <source>language</source>
         <translation>언어</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="495"/>
+        <location filename="../ui.ui" line="496"/>
         <source>copyright</source>
         <translation>저작권</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="500"/>
+        <location filename="../ui.ui" line="501"/>
         <source>proxy settings</source>
         <translation>프록시 설정</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="505"/>
+        <location filename="../ui.ui" line="506"/>
         <source>engine settings</source>
         <translation>엔진 설정</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="510"/>
+        <location filename="../ui.ui" line="511"/>
         <source>custom engine</source>
         <translation>커스텀 엔진</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="515"/>
+        <location filename="../ui.ui" line="516"/>
         <source>edit from rpy</source>
         <translation>rpy에서 편집</translation>
     </message>

@@ -20,6 +20,7 @@ from PySide6.QtWidgets import QFileDialog, QListView, QAbstractItemView, QTreeVi
 from copyright import Ui_CopyrightDialog
 from my_log import log_print, log_path
 from extraction_official_form import MyExtractionOfficialForm
+from html_converter_form import MyHtmlConverterForm
 
 os.environ['REQUESTS_CA_BUNDLE'] = os.path.join(os.path.dirname(sys.argv[0]), 'cacert.pem')
 os.environ['NO_PROXY'] = '*'
@@ -82,9 +83,6 @@ class MyCopyrightForm(QDialog, Ui_CopyrightDialog):
         webbrowser.open(self.url_label.text())
 
 
-
-
-
 class MyMainForm(QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
         super(MyMainForm, self).__init__(parent)
@@ -119,6 +117,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.editor_form = None
         self.myFontReplaceForm = None
         self.myExtractionOfficialForm = None
+        self.myHtmlConverterForm = None
         self.actioncopyright.triggered.connect(lambda: self.show_copyright_form())
         self.proxySettings.triggered.connect(lambda: self.show_proxy_settings())
         self.engineSettings.triggered.connect(lambda: self.show_engine_settings())
@@ -131,6 +130,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.actionadd_change_langauge_entrance.triggered.connect(lambda: self.show_add_entrance_form())
         self.actionone_key_translate.triggered.connect(lambda: self.show_one_key_translate_form())
         self.actionofficial_extraction.triggered.connect(lambda: self.show_extraction_official_form())
+        self.actionconvert_txt_to_html.triggered.connect(lambda: self.show_html_converter_form())
         self.actionArabic.triggered.connect(lambda: self.to_language('arabic'))
         self.actionBengali.triggered.connect(lambda: self.to_language('bengali'))
         self.actionChinese.triggered.connect(lambda: self.to_language('chinese'))
@@ -167,6 +167,11 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
 
         _thread.start_new_thread(self.update_log, ())
 
+    def show_html_converter_form(self):
+        if self.myHtmlConverterForm is None:
+            self.myHtmlConverterForm = MyHtmlConverterForm(parent=self)
+        self.myHtmlConverterForm.exec()
+
     def show_extraction_official_form(self):
         if self.myExtractionOfficialForm is None:
             self.myExtractionOfficialForm = MyExtractionOfficialForm(parent=self)
@@ -178,7 +183,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.menubar.hide()
         self.versionLabel.hide()
         if self.myOneKeyTranslateForm is None:
-            self.myOneKeyTranslateForm = MyOneKeyTranslateForm(parent = self)
+            self.myOneKeyTranslateForm = MyOneKeyTranslateForm(parent=self)
         self.myOneKeyTranslateForm.parent = self
         self.myOneKeyTranslateForm.showNormal()
         self.myOneKeyTranslateForm.raise_()
@@ -204,8 +209,8 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         if new_theme is None:
             apply_stylesheet(self.app, theme=self.actionlight_blue.text() + '.xml')
             return
-        apply_stylesheet(self.app, theme=new_theme+'.xml')
-        f = io.open('theme','w', encoding='utf-8')
+        apply_stylesheet(self.app, theme=new_theme + '.xml')
+        f = io.open('theme', 'w', encoding='utf-8')
         f.write(new_theme)
         f.close()
 
@@ -276,7 +281,8 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
             self.myExtractionForm.retranslateUi(self.myExtractionForm)
         if self.myExtractionOfficialForm is not None:
             self.myExtractionOfficialForm.retranslateUi(self.myExtractionOfficialForm)
-
+        if self.myHtmlConverterForm is not None:
+            self.myHtmlConverterForm.retranslateUi(self.myHtmlConverterForm)
 
     def switch_to_default_language(self):
         app = QCoreApplication.instance()
@@ -309,8 +315,6 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
     def show_custom_engine_settings(self):
         custom_engine_form = MyCustomEngineForm(parent=self)
         custom_engine_form.exec()
-
-
 
     def closeEvent(self, event):
         if self.menubar.isHidden():
@@ -409,8 +413,6 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         except Exception:
             pass
 
-
-
     @staticmethod
     def clear_log():
         f = io.open(log_path, 'w', encoding='utf-8')
@@ -437,7 +439,8 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
 
         if self.extracting:
             if self.myExtractionForm is not None:
-                self.myExtractionForm.extractBtn.setText(QCoreApplication.translate('MainWindow', 'extracting...', None))
+                self.myExtractionForm.extractBtn.setText(
+                    QCoreApplication.translate('MainWindow', 'extracting...', None))
                 self.myExtractionForm.extractBtn.setDisabled(True)
         else:
             if self.myExtractionForm is not None:
@@ -457,7 +460,6 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
             f = io.open(log_path, 'r+', encoding='utf-8')
             self.update_date.emit(f.read())
             f.close()
-
 
     def select_file(self):
         files, filetype = QFileDialog.getOpenFileNames(self,
@@ -533,10 +535,9 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
             if t.is_alive():
                 t.join()
             translate_threads.remove(t)
-        if threads_len > 0 :
+        if threads_len > 0:
             log_print('translate all complete!')
         self.translating = False
-
 
 
 if __name__ == "__main__":

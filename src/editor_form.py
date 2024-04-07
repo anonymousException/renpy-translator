@@ -1209,7 +1209,11 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
                 index = model.index(row, 0)
                 item = index.model().itemFromIndex(index)
                 data = item.data(Qt.UserRole)
-                if not data['is_match'] and self.untranslatedCheckBox.isChecked():
+                original = data['original']
+                current = self.tableView.model.item(row, 3).text()
+                if current == '' and self.untranslatedCheckBox.isChecked():
+                    self.tableView.verticalHeader().setSectionHidden(row, False)
+                elif original!=current and self.untranslatedCheckBox.isChecked():
                     self.tableView.verticalHeader().setSectionHidden(row, True)
                 else:
                     self.tableView.verticalHeader().setSectionHidden(row, False)
@@ -1558,6 +1562,7 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
                     line = int(data['line']) - 1
                     ori_line = int(data['ori_line']) - 1
                     ori_current = str(data['current'])
+
                     current = self.tableView.model.item(row, 3).text()
                     if ori_current != current:
                         if ori_current != '':
@@ -1571,7 +1576,13 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
                             if _read_lines[ori_line].startswith('    old '):
                                 _read_lines[line] = '    new ' + '"' + current + '"' + '\n'
                             else:
-                                _read_lines[line] = '    ' + '"' + current + '"' + '\n'
+                                is_voice = bool(data['is_voice'])
+                                if is_voice:
+                                    ori_content = str(data['ori_content'])
+                                    current_content = str(data['current_content'])
+                                    _read_lines[line] = current_content.rstrip('""') + f'"{current}"' + '\n'
+                                else:
+                                    _read_lines[line] = '    ' + '"' + current + '"' + '\n'
                 f = io.open(self.tableView.file, 'w', encoding='utf-8')
                 f.writelines(_read_lines)
                 f.close()

@@ -313,7 +313,7 @@
         <location filename="../editor_form.py" line="283"/>
         <location filename="../editor_form.py" line="586"/>
         <location filename="../editor_form.py" line="731"/>
-        <location filename="../editor_form.py" line="1481"/>
+        <location filename="../editor_form.py" line="1485"/>
         <location filename="../editor.ui" line="255"/>
         <location filename="../editor.ui" line="432"/>
         <source>Current</source>
@@ -339,7 +339,7 @@
         <location filename="../editor_form.py" line="282"/>
         <location filename="../editor_form.py" line="585"/>
         <location filename="../editor_form.py" line="730"/>
-        <location filename="../editor_form.py" line="1480"/>
+        <location filename="../editor_form.py" line="1484"/>
         <location filename="../editor.ui" line="334"/>
         <location filename="../editor.ui" line="413"/>
         <source>Original</source>
@@ -509,12 +509,12 @@
         <translation>現在 をロードしたばかりの状態にロールバックします</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1362"/>
+        <location filename="../editor_form.py" line="1366"/>
         <source>select the directory you want to edit</source>
         <translation>編集したいディレクトリを選択します</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1369"/>
+        <location filename="../editor_form.py" line="1373"/>
         <source>select the file(s) you want to edit</source>
         <translation>編集したいファイルを選択します</translation>
     </message>
@@ -932,6 +932,34 @@
     </message>
 </context>
 <context>
+    <name>HtmlConverterDialog</name>
+    <message>
+        <location filename="../html_converter.ui" line="14"/>
+        <source>Html Converter</source>
+        <translation>HTMLコンバータ</translation>
+    </message>
+    <message>
+        <location filename="../html_converter.ui" line="26"/>
+        <source>file(s)</source>
+        <translation>ファイル</translation>
+    </message>
+    <message>
+        <location filename="../html_converter.ui" line="45"/>
+        <source>input or choose or drag the file(s) you want to convert to html here. Examaple : F:\example.txt</source>
+        <translation>ここに HTML に変換したいファイルを入力または選択またはドラッグします。 例 : F:\example.txt</translation>
+    </message>
+    <message>
+        <location filename="../html_converter.ui" line="71"/>
+        <source>convert</source>
+        <translation>変換する</translation>
+    </message>
+    <message>
+        <location filename="../html_converter.ui" line="84"/>
+        <source>Replace Special Symbols</source>
+        <translation>特殊記号の置換</translation>
+    </message>
+</context>
+<context>
     <name>ImportHtmlDialog</name>
     <message>
         <location filename="../import_html_form.py" line="36"/>
@@ -1081,19 +1109,19 @@
         <translation>レンピー翻訳者</translation>
     </message>
     <message>
-        <location filename="../main.py" line="440"/>
+        <location filename="../main.py" line="443"/>
         <location filename="../extraction_official_form.py" line="66"/>
         <source>extracting...</source>
         <translation>抽出中...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="432"/>
-        <location filename="../main.py" line="519"/>
+        <location filename="../main.py" line="434"/>
+        <location filename="../main.py" line="521"/>
         <source>translating...</source>
         <translation>翻訳中...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="435"/>
+        <location filename="../main.py" line="437"/>
         <location filename="../ui.ui" line="100"/>
         <source>translate</source>
         <translation>翻訳する</translation>
@@ -1107,19 +1135,19 @@
         <translation type="vanished">抽出したいディレクトリを選択します</translation>
     </message>
     <message>
-        <location filename="../main.py" line="466"/>
+        <location filename="../main.py" line="468"/>
         <source>select the file(s) you want to translate</source>
         <translation>翻訳したいファイルを選択します</translation>
     </message>
     <message>
-        <location filename="../main.py" line="477"/>
+        <location filename="../main.py" line="479"/>
         <source>select the directory you want to translate</source>
         <translation>翻訳したいディレクトリを選択します</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.0.9</source>
-        <translation>バージョン2.0.9</translation>
+        <source>Version 2.1.0</source>
+        <translation>バージョン2.1.0</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="113"/>
@@ -1198,29 +1226,34 @@
         <translation>翻訳をスキップ (オリジナル != 現在)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="683"/>
+        <location filename="../ui.ui" line="684"/>
         <source>extract translation</source>
         <translation>翻訳を抜粋</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="688"/>
+        <location filename="../ui.ui" line="689"/>
         <source>runtime extraction</source>
         <translation>ランタイム抽出</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="703"/>
+        <location filename="../ui.ui" line="704"/>
         <source>add change langauge entrance</source>
         <translation>言語変更の入り口を追加</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="708"/>
+        <location filename="../ui.ui" line="709"/>
         <source>one key translate</source>
         <translation>ワンキー翻訳</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="713"/>
+        <location filename="../ui.ui" line="714"/>
         <source>official extraction</source>
         <translation>公式抽出</translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="719"/>
+        <source>convert txt to html</source>
+        <translation>txtをhtmlに変換する</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="46"/>
@@ -1233,7 +1266,7 @@
         <translation>高度なオプション</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="583"/>
+        <location filename="../ui.ui" line="584"/>
         <source>unpack game package</source>
         <translation>ゲームパッケージを解凍する</translation>
     </message>
@@ -1246,7 +1279,7 @@
         <translation type="vanished">翻訳後の言語をサポートするフォントを入力または選択またはドラッグします。例: DejaVuSans.ttf (ren&apos;py のデフォルトのフォント)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="578"/>
+        <location filename="../ui.ui" line="579"/>
         <source>replace font</source>
         <translation>フォントを置き換える</translation>
     </message>
@@ -1275,7 +1308,7 @@
         <translation type="vanished">ここに翻訳したいディレクトリを入力または選択またはドラッグします。例:F:\GameName\game\tl\language</translation>
     </message>
     <message>
-        <location filename="../main.py" line="444"/>
+        <location filename="../main.py" line="447"/>
         <location filename="../extraction_official_form.py" line="88"/>
         <source>extract</source>
         <translation>抽出する</translation>
@@ -1338,37 +1371,37 @@
         <translation type="vanished">編集者</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="445"/>
+        <location filename="../ui.ui" line="446"/>
         <source>language</source>
         <translation>言語</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="464"/>
+        <location filename="../ui.ui" line="465"/>
         <source>theme</source>
         <translation>テーマ</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="495"/>
+        <location filename="../ui.ui" line="496"/>
         <source>copyright</source>
         <translation>著作権</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="500"/>
+        <location filename="../ui.ui" line="501"/>
         <source>proxy settings</source>
         <translation>プロキシ設定</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="505"/>
+        <location filename="../ui.ui" line="506"/>
         <source>engine settings</source>
         <translation>エンジン設定</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="510"/>
+        <location filename="../ui.ui" line="511"/>
         <source>custom engine</source>
         <translation>カスタムエンジン</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="515"/>
+        <location filename="../ui.ui" line="516"/>
         <source>edit from rpy</source>
         <translation>rpyから編集する</translation>
     </message>

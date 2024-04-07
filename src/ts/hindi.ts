@@ -296,7 +296,7 @@
         <location filename="../editor_form.py" line="282"/>
         <location filename="../editor_form.py" line="585"/>
         <location filename="../editor_form.py" line="730"/>
-        <location filename="../editor_form.py" line="1480"/>
+        <location filename="../editor_form.py" line="1484"/>
         <location filename="../editor.ui" line="334"/>
         <location filename="../editor.ui" line="413"/>
         <source>Original</source>
@@ -307,7 +307,7 @@
         <location filename="../editor_form.py" line="283"/>
         <location filename="../editor_form.py" line="586"/>
         <location filename="../editor_form.py" line="731"/>
-        <location filename="../editor_form.py" line="1481"/>
+        <location filename="../editor_form.py" line="1485"/>
         <location filename="../editor.ui" line="255"/>
         <location filename="../editor.ui" line="432"/>
         <source>Current</source>
@@ -403,12 +403,12 @@
         <translation>रोलबैक करंट को पहले लोड पर</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1362"/>
+        <location filename="../editor_form.py" line="1366"/>
         <source>select the directory you want to edit</source>
         <translation>वह निर्देशिका चुनें जिसे आप संपादित करना चाहते हैं</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1369"/>
+        <location filename="../editor_form.py" line="1373"/>
         <source>select the file(s) you want to edit</source>
         <translation>वह फ़ाइल चुनें जिसे आप संपादित करना चाहते हैं</translation>
     </message>
@@ -932,6 +932,34 @@
     </message>
 </context>
 <context>
+    <name>HtmlConverterDialog</name>
+    <message>
+        <location filename="../html_converter.ui" line="14"/>
+        <source>Html Converter</source>
+        <translation>एचटीएमएल कन्वर्टर</translation>
+    </message>
+    <message>
+        <location filename="../html_converter.ui" line="26"/>
+        <source>file(s)</source>
+        <translation>फ़ाइल</translation>
+    </message>
+    <message>
+        <location filename="../html_converter.ui" line="45"/>
+        <source>input or choose or drag the file(s) you want to convert to html here. Examaple : F:\example.txt</source>
+        <translation>यहां उस फ़ाइल को इनपुट करें या चुनें या खींचें जिसे आप html में कनवर्ट करना चाहते हैं। उदाहरण: F:\example.txt</translation>
+    </message>
+    <message>
+        <location filename="../html_converter.ui" line="71"/>
+        <source>convert</source>
+        <translation>बदलना</translation>
+    </message>
+    <message>
+        <location filename="../html_converter.ui" line="84"/>
+        <source>Replace Special Symbols</source>
+        <translation>विशेष चिह्न बदलें</translation>
+    </message>
+</context>
+<context>
     <name>ImportHtmlDialog</name>
     <message>
         <location filename="../import_html_form.py" line="36"/>
@@ -1076,25 +1104,25 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../main.py" line="440"/>
+        <location filename="../main.py" line="443"/>
         <location filename="../extraction_official_form.py" line="66"/>
         <source>extracting...</source>
         <translation>निकाल रहा हूँ...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="432"/>
-        <location filename="../main.py" line="519"/>
+        <location filename="../main.py" line="434"/>
+        <location filename="../main.py" line="521"/>
         <source>translating...</source>
         <translation>अनुवाद कर रहा हूँ...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="435"/>
+        <location filename="../main.py" line="437"/>
         <location filename="../ui.ui" line="100"/>
         <source>translate</source>
         <translation>अनुवाद</translation>
     </message>
     <message>
-        <location filename="../main.py" line="444"/>
+        <location filename="../main.py" line="447"/>
         <location filename="../extraction_official_form.py" line="88"/>
         <source>extract</source>
         <translation>निकालना</translation>
@@ -1108,12 +1136,12 @@
         <translation type="vanished">वह निर्देशिका चुनें जिसे आप निकालना चाहते हैं</translation>
     </message>
     <message>
-        <location filename="../main.py" line="466"/>
+        <location filename="../main.py" line="468"/>
         <source>select the file(s) you want to translate</source>
         <translation>वह फ़ाइल चुनें जिसका आप अनुवाद करना चाहते हैं</translation>
     </message>
     <message>
-        <location filename="../main.py" line="477"/>
+        <location filename="../main.py" line="479"/>
         <source>select the directory you want to translate</source>
         <translation>वह निर्देशिका चुनें जिसका आप अनुवाद करना चाहते हैं</translation>
     </message>
@@ -1124,8 +1152,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.0.9</source>
-        <translation>संस्करण 2.0.9</translation>
+        <source>Version 2.1.0</source>
+        <translation>संस्करण 2.1.0</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="113"/>
@@ -1204,39 +1232,44 @@
         <translation>उन्नत विकल्प</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="464"/>
+        <location filename="../ui.ui" line="465"/>
         <source>theme</source>
         <translation>विषय</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="583"/>
+        <location filename="../ui.ui" line="584"/>
         <source>unpack game package</source>
         <translation>गेम पैकेज को अनपैक करें</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="683"/>
+        <location filename="../ui.ui" line="684"/>
         <source>extract translation</source>
         <translation>अनुवाद निकालें</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="688"/>
+        <location filename="../ui.ui" line="689"/>
         <source>runtime extraction</source>
         <translation>रनटाइम निष्कर्षण</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="703"/>
+        <location filename="../ui.ui" line="704"/>
         <source>add change langauge entrance</source>
         <translation>परिवर्तन भाषा प्रवेश द्वार जोड़ें</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="708"/>
+        <location filename="../ui.ui" line="709"/>
         <source>one key translate</source>
         <translation>एक कुंजी अनुवाद</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="713"/>
+        <location filename="../ui.ui" line="714"/>
         <source>official extraction</source>
         <translation>आधिकारिक निष्कर्षण</translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="719"/>
+        <source>convert txt to html</source>
+        <translation>txt को html में बदलें</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="270"/>
@@ -1262,7 +1295,7 @@
         <translation type="vanished">अनुवाद के बाद भाषा का समर्थन करने वाले फ़ॉन्ट को इनपुट करें या चुनें या खींचें। उदाहरण: DejaVuSans.ttf (ren&apos;py का डिफ़ॉल्ट फ़ॉन्ट)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="578"/>
+        <location filename="../ui.ui" line="579"/>
         <source>replace font</source>
         <translation>फ़ॉन्ट बदलें</translation>
     </message>
@@ -1343,32 +1376,32 @@
         <translation type="vanished">संपादक</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="445"/>
+        <location filename="../ui.ui" line="446"/>
         <source>language</source>
         <translation>भाषा</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="495"/>
+        <location filename="../ui.ui" line="496"/>
         <source>copyright</source>
         <translation>कॉपीराइट</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="500"/>
+        <location filename="../ui.ui" line="501"/>
         <source>proxy settings</source>
         <translation>प्रॉक्सी सेटिंग</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="505"/>
+        <location filename="../ui.ui" line="506"/>
         <source>engine settings</source>
         <translation>इंजन सेटिंग्स</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="510"/>
+        <location filename="../ui.ui" line="511"/>
         <source>custom engine</source>
         <translation>कस्टम इंजन</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="515"/>
+        <location filename="../ui.ui" line="516"/>
         <source>edit from rpy</source>
         <translation>rpy से संपादित करें</translation>
     </message>

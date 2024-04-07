@@ -296,7 +296,7 @@
         <location filename="../editor_form.py" line="282"/>
         <location filename="../editor_form.py" line="585"/>
         <location filename="../editor_form.py" line="730"/>
-        <location filename="../editor_form.py" line="1480"/>
+        <location filename="../editor_form.py" line="1484"/>
         <location filename="../editor.ui" line="334"/>
         <location filename="../editor.ui" line="413"/>
         <source>Original</source>
@@ -307,7 +307,7 @@
         <location filename="../editor_form.py" line="283"/>
         <location filename="../editor_form.py" line="586"/>
         <location filename="../editor_form.py" line="731"/>
-        <location filename="../editor_form.py" line="1481"/>
+        <location filename="../editor_form.py" line="1485"/>
         <location filename="../editor.ui" line="255"/>
         <location filename="../editor.ui" line="432"/>
         <source>Current</source>
@@ -403,12 +403,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1362"/>
+        <location filename="../editor_form.py" line="1366"/>
         <source>select the directory you want to edit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1369"/>
+        <location filename="../editor_form.py" line="1373"/>
         <source>select the file(s) you want to edit</source>
         <translation type="unfinished"></translation>
     </message>
@@ -909,6 +909,34 @@
     </message>
 </context>
 <context>
+    <name>HtmlConverterDialog</name>
+    <message>
+        <location filename="../html_converter.ui" line="14"/>
+        <source>Html Converter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../html_converter.ui" line="26"/>
+        <source>file(s)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../html_converter.ui" line="45"/>
+        <source>input or choose or drag the file(s) you want to convert to html here. Examaple : F:\example.txt</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../html_converter.ui" line="71"/>
+        <source>convert</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../html_converter.ui" line="84"/>
+        <source>Replace Special Symbols</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ImportHtmlDialog</name>
     <message>
         <location filename="../import_html_form.py" line="36"/>
@@ -1033,36 +1061,36 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../main.py" line="440"/>
+        <location filename="../main.py" line="443"/>
         <location filename="../extraction_official_form.py" line="66"/>
         <source>extracting...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="432"/>
-        <location filename="../main.py" line="519"/>
+        <location filename="../main.py" line="434"/>
+        <location filename="../main.py" line="521"/>
         <source>translating...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="435"/>
+        <location filename="../main.py" line="437"/>
         <location filename="../ui.ui" line="100"/>
         <source>translate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="444"/>
+        <location filename="../main.py" line="447"/>
         <location filename="../extraction_official_form.py" line="88"/>
         <source>extract</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="466"/>
+        <location filename="../main.py" line="468"/>
         <source>select the file(s) you want to translate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="477"/>
+        <location filename="../main.py" line="479"/>
         <source>select the directory you want to translate</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1148,38 +1176,43 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="464"/>
+        <location filename="../ui.ui" line="465"/>
         <source>theme</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="583"/>
+        <location filename="../ui.ui" line="584"/>
         <source>unpack game package</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="683"/>
+        <location filename="../ui.ui" line="684"/>
         <source>extract translation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="688"/>
+        <location filename="../ui.ui" line="689"/>
         <source>runtime extraction</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="703"/>
+        <location filename="../ui.ui" line="704"/>
         <source>add change langauge entrance</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="708"/>
+        <location filename="../ui.ui" line="709"/>
         <source>one key translate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="713"/>
+        <location filename="../ui.ui" line="714"/>
         <source>official extraction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="719"/>
+        <source>convert txt to html</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1189,7 +1222,7 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.0.9</source>
+        <source>Version 2.1.0</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1203,7 +1236,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="578"/>
+        <location filename="../ui.ui" line="579"/>
         <source>replace font</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1228,32 +1261,32 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="445"/>
+        <location filename="../ui.ui" line="446"/>
         <source>language</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="495"/>
+        <location filename="../ui.ui" line="496"/>
         <source>copyright</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="500"/>
+        <location filename="../ui.ui" line="501"/>
         <source>proxy settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="505"/>
+        <location filename="../ui.ui" line="506"/>
         <source>engine settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="510"/>
+        <location filename="../ui.ui" line="511"/>
         <source>custom engine</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="515"/>
+        <location filename="../ui.ui" line="516"/>
         <source>edit from rpy</source>
         <translation type="unfinished"></translation>
     </message>

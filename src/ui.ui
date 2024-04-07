@@ -75,7 +75,7 @@
        </size>
       </property>
       <property name="text">
-       <string>Version 2.0.9</string>
+       <string>Version 2.1.0</string>
       </property>
      </widget>
     </item>
@@ -439,6 +439,7 @@
     <addaction name="actionunpack_game"/>
     <addaction name="separator"/>
     <addaction name="actionone_key_translate"/>
+    <addaction name="actionconvert_txt_to_html"/>
    </widget>
    <widget class="QMenu" name="menulanguage">
     <property name="title">
@@ -711,6 +712,11 @@
   <action name="actionofficial_extraction">
    <property name="text">
     <string>official extraction</string>
+   </property>
+  </action>
+  <action name="actionconvert_txt_to_html">
+   <property name="text">
+    <string>convert txt to html</string>
    </property>
   </action>
  </widget>
