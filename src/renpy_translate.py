@@ -92,7 +92,7 @@ class translateThread(threading.Thread):
         if client is None:
             return
         transList = []
-        trans_ori_dic = dict()
+        trans_ori_dic = []
         ret, unmatch_cnt, p = get_rpy_info(p)
         if len(ret) == 0:
             log_print(p + ' unable to get translated info')
@@ -110,11 +110,11 @@ class translateThread(threading.Thread):
                 for original, replace in local_glossary.items():
                     target = target.replace(original, replace)
             d = EncodeBrackets(target)
-            if isAllPunctuations(d['encoded'].strip('"')) == False:
+            if not isAllPunctuations(d['encoded'].strip('"')):
                 transList.append(d['encoded'].strip('"'))
                 dic['target'] = target
                 dic['d'] = d
-                trans_ori_dic[d['encoded'].strip('"')] = dic
+                trans_ori_dic.append((dic, d['encoded'].strip('"')))
 
         if client.__class__.__name__ == 'Translate' and local_glossary is not None and len(local_glossary) > 0:
             fmt = 'html'
@@ -131,14 +131,13 @@ class translateThread(threading.Thread):
             f = io.open(p + '.bak', 'w', encoding='utf-8')
             f.writelines(_read_lines)
             f.close()
-        for trans_item in transList:
-            ori_dic = trans_ori_dic[trans_item]
-            line = ori_dic['line'] - 1
-            ori_line = ori_dic['ori_line'] - 1
-            original = ori_dic['original']
-            current = ori_dic['current']
-            target = ori_dic['target']
-            d = ori_dic['d']
+        for dic, trans_key in trans_ori_dic:
+            line = dic['line'] - 1
+            ori_line = dic['ori_line'] - 1
+            original = dic['original']
+            current = dic['current']
+            target = dic['target']
+            d = dic['d']
             translated = get_translated(trans_dic, d)
             if translated is None:
                 translated = ''
@@ -159,7 +158,6 @@ class translateThread(threading.Thread):
                         '#').lstrip()
                     if _read_lines[line].startswith('    old '):
                         _read_lines[line] = _read_lines[line].replace('    old ', '    new ', 1)
-
         f = io.open(p, 'w', encoding='utf-8')
         f.writelines(_read_lines)
         f.close()
