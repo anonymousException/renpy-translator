@@ -70,8 +70,9 @@ https://github.com/anonymousException/renpy-translator/assets/157234942/381ad014
 
 https://github.com/anonymousException/renpy-translator/assets/157234942/a26f7186-fcc2-461e-9ae4-416d7b8ae293
 
-
 https://github.com/anonymousException/renpy-translator/assets/157234942/676bea79-3083-469b-805a-520f44907bbd
+
+https://github.com/anonymousException/renpy-translator/assets/157234942/dd579d7d-6f76-423f-8d64-2da002e37d34
 
 ### 增加入口
 
@@ -80,6 +81,10 @@ https://github.com/anonymousException/renpy-translator/assets/157234942/67a04032
 ### 运行时抽取
 
 https://github.com/anonymousException/renpy-translator/assets/157234942/64e82f3f-7d85-4e33-8226-a06a7ba60270
+
+### 官方抽取
+
+https://github.com/anonymousException/renpy-translator/assets/157234942/bdc122d8-4334-461f-8ce0-70206a5b7a8b
 
 ### 解包游戏
 
@@ -269,43 +274,47 @@ https://github.com/anonymousException/renpy-translator/assets/157234942/cd069ac4
 
 #### <span id = "jump_official_extract">官方抽取(推荐) </span>
 
-https://github.com/anonymousException/renpy-translator/assets/157234942/b032480f-fc2f-4438-9730-611b3e219556
+官方抽取现在已在本工具中支持
 
-你可以前往 https://www.renpy.org/ 去下载最新版本的 ren'py 引擎
+https://github.com/anonymousException/renpy-translator/assets/157234942/bdc122d8-4334-461f-8ce0-70206a5b7a8b
 
-解压你下载的 ren'py 引擎
+~~https://github.com/anonymousException/renpy-translator/assets/157234942/b032480f-fc2f-4438-9730-611b3e219556~~
 
-![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/renpy_folder.png)
+~~你可以前往 https://www.renpy.org/ 去下载最新版本的 ren'py 引擎~~
 
-在右下角点击 "preferences"  (设置)
+~~解压你下载的 ren'py 引擎~~
 
-![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/renpy_interface.png)
+~~![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/renpy_folder.png)~~
 
-重新把 "Projects Directory" 设置为你要翻译游戏的上一层文件夹
+~~在右下角点击 "preferences"  (设置)~~
 
-![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/renpy_preference.png)
+~~![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/renpy_interface.png)~~
 
-返回上一个界面然后点击 "Generate Translations" (生成翻译)
+~~重新把 "Projects Directory" 设置为你要翻译游戏的上一层文件夹~~
 
-![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/renpy_interface2.png)
+~~![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/renpy_preference.png)~~
 
-填写 "Lanauge" ， 这只是一个用来翻译的标签 (它相当于本工具里的 "tl name") ，你可以随便起名，但是最好用要被翻译的语言的名称来命名。比如 "japanese" 或 "chinese" 等
+~~返回上一个界面然后点击 "Generate Translations" (生成翻译)~~
 
-其他设置保持默认即可，注意 在 "Generate Translations"  (生成翻译) 里的 "Generate empty strings for translations" (为翻译生成空子串) 不要勾选
+~~![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/renpy_interface2.png)~~
 
-![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/renpy_gen_translate.png)
+~~填写 "Lanauge" ， 这只是一个用来翻译的标签 (它相当于本工具里的 "tl name") ，你可以随便起名，但是最好用要被翻译的语言的名称来命名。比如 "japanese" 或 "chinese" 等~~
 
-当这些都设置好以后，点击 "Generate Translations"  (生成翻译) 然后等待翻译完成
+~~其他设置保持默认即可，注意 在 "Generate Translations"  (生成翻译) 里的 "Generate empty strings for translations" (为翻译生成空子串) 不要勾选~~
 
-![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/renpy_gen_tranlate_over.png)
+~~![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/renpy_gen_translate.png)~~
 
-翻译完成以后就可以关闭软件了，官方抽取已经完成了
+~~当这些都设置好以后，点击 "Generate Translations"  (生成翻译) 然后等待翻译完成~~
 
-你可以看到生成好的文件夹，记住这个路径
+~~![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/renpy_gen_tranlate_over.png)~~
 
-![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/renpy_gen_translate_folder.png)
+~~翻译完成以后就可以关闭软件了，官方抽取已经完成了~~
 
-教程里的路径是:
+~~你可以看到生成好的文件夹，记住这个路径~~
+
+~~![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/renpy_gen_translate_folder.png)~~
+
+~~教程里的路径是:~~
 
 ```
 F:\Games\RenPy\DemoGame\game\tl\japanese

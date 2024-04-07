@@ -73,8 +73,9 @@ The video shows in order :
 
 https://github.com/anonymousException/renpy-translator/assets/157234942/a26f7186-fcc2-461e-9ae4-416d7b8ae293
 
-
 https://github.com/anonymousException/renpy-translator/assets/157234942/676bea79-3083-469b-805a-520f44907bbd
+
+https://github.com/anonymousException/renpy-translator/assets/157234942/dd579d7d-6f76-423f-8d64-2da002e37d34
 
 ### Add Entrance
 
@@ -83,6 +84,10 @@ https://github.com/anonymousException/renpy-translator/assets/157234942/67a04032
 ### Runtime Extract
 
 https://github.com/anonymousException/renpy-translator/assets/157234942/64e82f3f-7d85-4e33-8226-a06a7ba60270
+
+### Official Extract
+
+https://github.com/anonymousException/renpy-translator/assets/157234942/bdc122d8-4334-461f-8ce0-70206a5b7a8b
 
 ### Unpack Game
 
@@ -267,43 +272,47 @@ It's recommended to use [Offical Extract](#jump_official_extract) first and then
 
 #### <span id = "jump_official_extract">Official Extract(Recommend) </span>
 
-https://github.com/anonymousException/renpy-translator/assets/157234942/b032480f-fc2f-4438-9730-611b3e219556
+Offcial Extract is supported in this tool now 
 
-you can forward to https://www.renpy.org/ and then download the latest version
+https://github.com/anonymousException/renpy-translator/assets/157234942/bdc122d8-4334-461f-8ce0-70206a5b7a8b
 
-Unzip the ren'py engine you download
+~~https://github.com/anonymousException/renpy-translator/assets/157234942/b032480f-fc2f-4438-9730-611b3e219556~~
 
-![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/renpy_folder.png)
+~~you can forward to https://www.renpy.org/ and then download the latest version~~
 
-Click "preferences" in the lower right corner
+~~Unzip the ren'py engine you download~~
 
-![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/renpy_interface.png)
+~~![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/renpy_folder.png)~~
 
-Reset the "Projects Directory" to the parent directory of the game you want to translate
+~~Click "preferences" in the lower right corner~~
 
-![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/renpy_preference.png)
+~~![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/renpy_interface.png)~~
 
-Return back to the last interface and Click "Generate Translations"
+~~Reset the "Projects Directory" to the parent directory of the game you want to translate~~
 
-![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/renpy_interface2.png)
+~~![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/renpy_preference.png)~~
 
-Fill the "Language" , this is just a tag (It's related to the "tl name" label in this tool) used for the translation that you can name whatever you want. But it's recommended to name the target language you want to translate. Such as "japanese" or "chinese" etc.
+~~Return back to the last interface and Click "Generate Translations"~~
 
-It would be alright to keep other options default ,Especially for "Generate Translations" option , do not tick the "Generate empty strings for translations"
+~~![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/renpy_interface2.png)~~
 
-![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/renpy_gen_translate.png)
+~~Fill the "Language" , this is just a tag (It's related to the "tl name" label in this tool) used for the translation that you can name whatever you want. But it's recommended to name the target language you want to translate. Such as "japanese" or "chinese" etc.~~
 
-After all options have been set . Click the "Generate Translations" and wait to complete
+~~It would be alright to keep other options default ,Especially for "Generate Translations" option , do not tick the "Generate empty strings for translations"~~
 
-![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/renpy_gen_tranlate_over.png)
+~~![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/renpy_gen_translate.png)~~
 
-And then you can close the software , the official extract is done
+~~After all options have been set . Click the "Generate Translations" and wait to complete~~
 
-You can see the generated folder , remember the path
+~~![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/renpy_gen_tranlate_over.png)~~
 
-![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/renpy_gen_translate_folder.png)
+~~And then you can close the software , the official extract is done~~
 
-The folder path in this tutorial is : 
+~~You can see the generated folder , remember the path~~
+
+~~![img](https://github.com/anonymousException/renpy-translator/blob/main/docs/img/renpy_gen_translate_folder.png)~~
+
+~~The folder path in this tutorial is :~~ 
 
 ```
 F:\Games\RenPy\DemoGame\game\tl\japanese
