@@ -19,6 +19,8 @@ from PySide6.QtWidgets import QFileDialog, QListView, QAbstractItemView, QTreeVi
 
 from copyright import Ui_CopyrightDialog
 from my_log import log_print, log_path
+from extraction_official_form import MyExtractionOfficialForm
+
 os.environ['REQUESTS_CA_BUNDLE'] = os.path.join(os.path.dirname(sys.argv[0]), 'cacert.pem')
 os.environ['NO_PROXY'] = '*'
 from local_glossary_form import MyLocalGlossaryForm
@@ -116,6 +118,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.myOneKeyTranslateForm = None
         self.editor_form = None
         self.myFontReplaceForm = None
+        self.myExtractionOfficialForm = None
         self.actioncopyright.triggered.connect(lambda: self.show_copyright_form())
         self.proxySettings.triggered.connect(lambda: self.show_proxy_settings())
         self.engineSettings.triggered.connect(lambda: self.show_engine_settings())
@@ -127,6 +130,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.actionunpack_game.triggered.connect(lambda: self.unpack_game())
         self.actionadd_change_langauge_entrance.triggered.connect(lambda: self.show_add_entrance_form())
         self.actionone_key_translate.triggered.connect(lambda: self.show_one_key_translate_form())
+        self.actionofficial_extraction.triggered.connect(lambda: self.show_extraction_official_form())
         self.actionArabic.triggered.connect(lambda: self.to_language('arabic'))
         self.actionBengali.triggered.connect(lambda: self.to_language('bengali'))
         self.actionChinese.triggered.connect(lambda: self.to_language('chinese'))
@@ -162,6 +166,11 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.actiondark_yellow.triggered.connect(lambda: self.change_theme(self.actiondark_yellow.text()))
 
         _thread.start_new_thread(self.update_log, ())
+
+    def show_extraction_official_form(self):
+        if self.myExtractionOfficialForm is None:
+            self.myExtractionOfficialForm = MyExtractionOfficialForm(parent=self)
+        self.myExtractionOfficialForm.exec()
 
     def show_one_key_translate_form(self):
         self.hide()
@@ -265,6 +274,8 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
             self.myAddChangeLanguageEntranceForm.retranslateUi(self.myAddChangeLanguageEntranceForm)
         if self.myExtractionForm is not None:
             self.myExtractionForm.retranslateUi(self.myExtractionForm)
+        if self.myExtractionOfficialForm is not None:
+            self.myExtractionOfficialForm.retranslateUi(self.myExtractionOfficialForm)
 
 
     def switch_to_default_language(self):

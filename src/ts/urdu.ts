@@ -254,7 +254,7 @@
         <location filename="../editor_form.py" line="198"/>
         <location filename="../editor_form.py" line="250"/>
         <location filename="../editor_form.py" line="284"/>
-        <location filename="../editor_form.py" line="730"/>
+        <location filename="../editor_form.py" line="732"/>
         <location filename="../editor.ui" line="454"/>
         <source>Translated</source>
         <translation>ترجمہ شدہ</translation>
@@ -262,41 +262,41 @@
     <message>
         <location filename="../editor_form.py" line="179"/>
         <location filename="../editor_form.py" line="333"/>
-        <location filename="../editor_form.py" line="479"/>
-        <location filename="../editor_form.py" line="527"/>
-        <location filename="../editor_form.py" line="538"/>
-        <location filename="../editor_form.py" line="880"/>
-        <location filename="../editor_form.py" line="932"/>
+        <location filename="../editor_form.py" line="481"/>
+        <location filename="../editor_form.py" line="529"/>
+        <location filename="../editor_form.py" line="540"/>
+        <location filename="../editor_form.py" line="882"/>
+        <location filename="../editor_form.py" line="934"/>
         <source>Export to html file</source>
         <translation>html فائل میں ایکسپورٹ کریں۔</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="182"/>
         <location filename="../editor_form.py" line="337"/>
-        <location filename="../editor_form.py" line="882"/>
+        <location filename="../editor_form.py" line="884"/>
         <source>Import html and relative translated contents</source>
         <translation>HTML اور متعلقہ ترجمہ شدہ مواد درآمد کریں۔</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="192"/>
         <location filename="../editor_form.py" line="280"/>
-        <location filename="../editor_form.py" line="726"/>
+        <location filename="../editor_form.py" line="728"/>
         <source>line</source>
         <translation>لائن</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="193"/>
         <location filename="../editor_form.py" line="281"/>
-        <location filename="../editor_form.py" line="727"/>
+        <location filename="../editor_form.py" line="729"/>
         <source>refer</source>
         <translation>رجوع کریں</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="195"/>
         <location filename="../editor_form.py" line="282"/>
-        <location filename="../editor_form.py" line="583"/>
-        <location filename="../editor_form.py" line="728"/>
-        <location filename="../editor_form.py" line="1477"/>
+        <location filename="../editor_form.py" line="585"/>
+        <location filename="../editor_form.py" line="730"/>
+        <location filename="../editor_form.py" line="1480"/>
         <location filename="../editor.ui" line="334"/>
         <location filename="../editor.ui" line="413"/>
         <source>Original</source>
@@ -305,9 +305,9 @@
     <message>
         <location filename="../editor_form.py" line="196"/>
         <location filename="../editor_form.py" line="283"/>
-        <location filename="../editor_form.py" line="584"/>
-        <location filename="../editor_form.py" line="729"/>
-        <location filename="../editor_form.py" line="1478"/>
+        <location filename="../editor_form.py" line="586"/>
+        <location filename="../editor_form.py" line="731"/>
+        <location filename="../editor_form.py" line="1481"/>
         <location filename="../editor.ui" line="255"/>
         <location filename="../editor.ui" line="432"/>
         <source>Current</source>
@@ -319,107 +319,107 @@
         <translation>دور</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="456"/>
+        <location filename="../editor_form.py" line="458"/>
         <source>Import to files</source>
         <translation>فائلوں میں درآمد کریں۔</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="459"/>
+        <location filename="../editor_form.py" line="461"/>
         <source>Do you want to make advanced settings (the default setting is to import to all files in the directory)</source>
         <translation>کیا آپ ایڈوانس سیٹنگز بنانا چاہتے ہیں (ڈیفالٹ سیٹنگ ڈائرکٹری میں موجود تمام فائلوں کو امپورٹ کرنا ہے)</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="496"/>
-        <location filename="../editor_form.py" line="546"/>
-        <location filename="../editor_form.py" line="942"/>
+        <location filename="../editor_form.py" line="498"/>
+        <location filename="../editor_form.py" line="548"/>
+        <location filename="../editor_form.py" line="944"/>
         <source>Do you want to replace special symbols?</source>
         <translation>کیا آپ خصوصی علامتوں کو تبدیل کرنا چاہتے ہیں؟</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="541"/>
-        <location filename="../editor_form.py" line="611"/>
+        <location filename="../editor_form.py" line="543"/>
+        <location filename="../editor_form.py" line="613"/>
         <source>Do you want to make advanced settings (the default setting is to export all files in the directory)</source>
         <translation>کیا آپ ایڈوانس سیٹنگز بنانا چاہتے ہیں (ڈیفالٹ سیٹنگ ڈائرکٹری میں موجود تمام فائلوں کو ایکسپورٹ کرنا ہے)</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="660"/>
+        <location filename="../editor_form.py" line="662"/>
         <source>Case Sensitive</source>
         <translation>حساس کیس</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="663"/>
+        <location filename="../editor_form.py" line="665"/>
         <source>Search refer column</source>
         <translation>حوالہ کالم تلاش کریں۔</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="666"/>
+        <location filename="../editor_form.py" line="668"/>
         <source>Search Original column</source>
         <translation>اصل کالم تلاش کریں۔</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="669"/>
+        <location filename="../editor_form.py" line="671"/>
         <source>Search Current column</source>
         <translation>موجودہ کالم تلاش کریں۔</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="672"/>
+        <location filename="../editor_form.py" line="674"/>
         <source>Search Translated column</source>
         <translation>ترجمہ شدہ کالم تلاش کریں۔</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="767"/>
-        <location filename="../editor_form.py" line="779"/>
+        <location filename="../editor_form.py" line="769"/>
+        <location filename="../editor_form.py" line="781"/>
         <source>Input Dialog</source>
         <translation>ان پٹ ڈائیلاگ</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="769"/>
+        <location filename="../editor_form.py" line="771"/>
         <source>Please Input the line number you want to jump</source>
         <translation>براہ کرم وہ لائن نمبر درج کریں جو آپ کودنا چاہتے ہیں۔</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="781"/>
+        <location filename="../editor_form.py" line="783"/>
         <source>Please Input the content you want to search</source>
         <translation>براہ کرم وہ مواد درج کریں جسے آپ تلاش کرنا چاہتے ہیں۔</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="868"/>
+        <location filename="../editor_form.py" line="870"/>
         <source>Translate Translation Source to Translated</source>
         <translation>ترجمہ ترجمہ ماخذ کو ترجمہ شدہ سے ترجمہ کریں۔</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="871"/>
+        <location filename="../editor_form.py" line="873"/>
         <source>Copy Original to Current</source>
         <translation>اصل کو موجودہ میں کاپی کریں۔</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="873"/>
+        <location filename="../editor_form.py" line="875"/>
         <source>Copy Translated to Current</source>
         <translation>موجودہ میں ترجمہ شدہ کاپی کریں۔</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="876"/>
+        <location filename="../editor_form.py" line="878"/>
         <source>Rollback Current to First Load</source>
         <translation>پہلے لوڈ پر کرنٹ کو رول بیک کریں۔</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1359"/>
+        <location filename="../editor_form.py" line="1362"/>
         <source>select the directory you want to edit</source>
         <translation>وہ ڈائریکٹری منتخب کریں جس میں آپ ترمیم کرنا چاہتے ہیں۔</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1366"/>
+        <location filename="../editor_form.py" line="1369"/>
         <source>select the file(s) you want to edit</source>
         <translation>وہ فائل منتخب کریں جس میں آپ ترمیم کرنا چاہتے ہیں۔</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="177"/>
         <location filename="../editor_form.py" line="330"/>
-        <location filename="../editor_form.py" line="570"/>
-        <location filename="../editor_form.py" line="599"/>
-        <location filename="../editor_form.py" line="608"/>
-        <location filename="../editor_form.py" line="878"/>
-        <location filename="../editor_form.py" line="982"/>
+        <location filename="../editor_form.py" line="572"/>
+        <location filename="../editor_form.py" line="601"/>
+        <location filename="../editor_form.py" line="610"/>
+        <location filename="../editor_form.py" line="880"/>
+        <location filename="../editor_form.py" line="984"/>
         <source>Export to xlsx file</source>
         <translation>xlsx فائل میں برآمد کریں۔</translation>
     </message>
@@ -742,6 +742,49 @@
     </message>
 </context>
 <context>
+    <name>ExtractionOfficialDialog</name>
+    <message>
+        <location filename="../extraction_official_form.py" line="72"/>
+        <source>select the game file you want to extract</source>
+        <translation>گیم فائل کو منتخب کریں جسے آپ نکالنا چاہتے ہیں۔</translation>
+    </message>
+    <message>
+        <location filename="../extraction_official.ui" line="14"/>
+        <source>Official Extraction</source>
+        <translation>سرکاری نکالنا</translation>
+    </message>
+    <message>
+        <location filename="../extraction_official.ui" line="39"/>
+        <source>tl name</source>
+        <translation>tl نام</translation>
+    </message>
+    <message>
+        <location filename="../extraction_official.ui" line="58"/>
+        <source>input or choose or drag the game you want to extract it&apos;s dialogues.Example:F:/DemoGame.exe</source>
+        <translation>جس گیم کو آپ ڈائیلاگز نکالنا چاہتے ہیں اسے داخل کریں یا منتخب کریں یا گھسیٹیں۔ مثال:F:/DemoGame.exe</translation>
+    </message>
+    <message>
+        <location filename="../extraction_official.ui" line="71"/>
+        <source>extract</source>
+        <translation>نکالنا</translation>
+    </message>
+    <message>
+        <location filename="../extraction_official.ui" line="84"/>
+        <source>Input the directory name under game\tl  Example: &apos;japanese&apos; or &apos;chinese&apos;.If the folder already exists, the content will be appended to the original file</source>
+        <translation>گیم کے تحت ڈائرکٹری کا نام داخل کریں\tl مثال: &apos;جاپانی&apos; یا &apos;چینی&apos;اگر فولڈر پہلے سے موجود ہے تو، مواد کو اصل فائل میں شامل کر دیا جائے گا۔</translation>
+    </message>
+    <message>
+        <location filename="../extraction_official.ui" line="97"/>
+        <source>file</source>
+        <translation>فائل</translation>
+    </message>
+    <message>
+        <location filename="../extraction_official.ui" line="113"/>
+        <source>Generate empty strings instead of original</source>
+        <translation>اصلی کے بجائے خالی ڈور تیار کریں۔</translation>
+    </message>
+</context>
+<context>
     <name>ExtractionRuntimeDialog</name>
     <message>
         <location filename="../extraction_runtime.ui" line="14"/>
@@ -793,7 +836,7 @@
     </message>
     <message>
         <location filename="../font_replace_form.py" line="28"/>
-        <location filename="../one_key_translate_form.py" line="281"/>
+        <location filename="../one_key_translate_form.py" line="306"/>
         <source>select the file font which supports the translated language</source>
         <translation>فائل کا فونٹ منتخب کریں جو ترجمہ شدہ زبان کو سپورٹ کرتا ہے۔</translation>
     </message>
@@ -1033,24 +1076,26 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../main.py" line="425"/>
+        <location filename="../main.py" line="440"/>
+        <location filename="../extraction_official_form.py" line="66"/>
         <source>extracting...</source>
         <translation>نکال رہا ہے...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="417"/>
-        <location filename="../main.py" line="504"/>
+        <location filename="../main.py" line="432"/>
+        <location filename="../main.py" line="519"/>
         <source>translating...</source>
         <translation>ترجمہ...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="420"/>
+        <location filename="../main.py" line="435"/>
         <location filename="../ui.ui" line="100"/>
         <source>translate</source>
         <translation>ترجمہ</translation>
     </message>
     <message>
-        <location filename="../main.py" line="429"/>
+        <location filename="../main.py" line="444"/>
+        <location filename="../extraction_official_form.py" line="88"/>
         <source>extract</source>
         <translation>نکالنا</translation>
     </message>
@@ -1063,12 +1108,12 @@
         <translation type="vanished">وہ ڈائریکٹری منتخب کریں جسے آپ نکالنا چاہتے ہیں۔</translation>
     </message>
     <message>
-        <location filename="../main.py" line="451"/>
+        <location filename="../main.py" line="466"/>
         <source>select the file(s) you want to translate</source>
         <translation>وہ فائل (فائلیں) منتخب کریں جس کا آپ ترجمہ کرنا چاہتے ہیں۔</translation>
     </message>
     <message>
-        <location filename="../main.py" line="462"/>
+        <location filename="../main.py" line="477"/>
         <source>select the directory you want to translate</source>
         <translation>وہ ڈائریکٹری منتخب کریں جس کا آپ ترجمہ کرنا چاہتے ہیں۔</translation>
     </message>
@@ -1079,8 +1124,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.0.8</source>
-        <translation>ورژن 2.0.8</translation>
+        <source>Version 2.0.9</source>
+        <translation>ورژن 2.0.9</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="113"/>
@@ -1159,34 +1204,39 @@
         <translation>اعلی درجے کے اختیارات</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="463"/>
+        <location filename="../ui.ui" line="464"/>
         <source>theme</source>
         <translation>خیالیہ</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="582"/>
+        <location filename="../ui.ui" line="583"/>
         <source>unpack game package</source>
         <translation>گیم پیکج کھولیں۔</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="682"/>
+        <location filename="../ui.ui" line="683"/>
         <source>extract translation</source>
         <translation>ترجمہ نکالیں۔</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="687"/>
+        <location filename="../ui.ui" line="688"/>
         <source>runtime extraction</source>
         <translation>رن ٹائم نکالنا</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="702"/>
+        <location filename="../ui.ui" line="703"/>
         <source>add change langauge entrance</source>
         <translation>تبدیلی کی زبان کا داخلہ شامل کریں۔</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="707"/>
+        <location filename="../ui.ui" line="708"/>
         <source>one key translate</source>
         <translation>ایک اہم ترجمہ</translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="713"/>
+        <source>official extraction</source>
+        <translation>سرکاری نکالنا</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="270"/>
@@ -1212,7 +1262,7 @@
         <translation type="vanished">ترجمہ کے بعد زبان کو سپورٹ کرنے والا فونٹ داخل کریں یا منتخب کریں یا گھسیٹیں۔ مثال: DejaVuSans.ttf (ren&apos;py کا ڈیفالٹ فونٹ)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="577"/>
+        <location filename="../ui.ui" line="578"/>
         <source>replace font</source>
         <translation>فونٹ تبدیل کریں</translation>
     </message>
@@ -1293,32 +1343,32 @@
         <translation type="vanished">ایڈیٹر</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="444"/>
+        <location filename="../ui.ui" line="445"/>
         <source>language</source>
         <translation>زبان</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="494"/>
+        <location filename="../ui.ui" line="495"/>
         <source>copyright</source>
         <translation>کاپی رائٹ</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="499"/>
+        <location filename="../ui.ui" line="500"/>
         <source>proxy settings</source>
         <translation>پراکسی ترتیبات</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="504"/>
+        <location filename="../ui.ui" line="505"/>
         <source>engine settings</source>
         <translation>انجن کی ترتیبات</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="509"/>
+        <location filename="../ui.ui" line="510"/>
         <source>custom engine</source>
         <translation>اپنی مرضی کے انجن</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="514"/>
+        <location filename="../ui.ui" line="515"/>
         <source>edit from rpy</source>
         <translation>rpy سے ترمیم کریں۔</translation>
     </message>
@@ -1432,12 +1482,17 @@
         <translation>شروع کریں۔</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="401"/>
+        <location filename="../one_key_translate.ui" line="368"/>
+        <source>Official Extraction</source>
+        <translation>سرکاری نکالنا</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate_form.py" line="426"/>
         <source>select the game file</source>
         <translation>گیم فائل کو منتخب کریں۔</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="462"/>
+        <location filename="../one_key_translate_form.py" line="493"/>
         <source>One Key Translate Complete</source>
         <translation>ایک کلیدی ترجمہ مکمل</translation>
     </message>

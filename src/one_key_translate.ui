@@ -237,7 +237,7 @@
    <property name="geometry">
     <rect>
      <x>620</x>
-     <y>170</y>
+     <y>230</y>
      <width>411</width>
      <height>20</height>
     </rect>
@@ -253,7 +253,7 @@
    <property name="geometry">
     <rect>
      <x>620</x>
-     <y>230</y>
+     <y>290</y>
      <width>411</width>
      <height>20</height>
     </rect>
@@ -269,7 +269,7 @@
    <property name="geometry">
     <rect>
      <x>620</x>
-     <y>290</y>
+     <y>350</y>
      <width>411</width>
      <height>20</height>
     </rect>
@@ -285,7 +285,7 @@
    <property name="geometry">
     <rect>
      <x>620</x>
-     <y>350</y>
+     <y>410</y>
      <width>411</width>
      <height>20</height>
     </rect>
@@ -346,13 +346,29 @@
    <property name="geometry">
     <rect>
      <x>620</x>
-     <y>390</y>
+     <y>470</y>
      <width>401</width>
-     <height>171</height>
+     <height>91</height>
     </rect>
    </property>
    <property name="text">
     <string>Start</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="officialExtractionCheckBox">
+   <property name="geometry">
+    <rect>
+     <x>620</x>
+     <y>170</y>
+     <width>411</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Official Extraction</string>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
    </property>
   </widget>
  </widget>

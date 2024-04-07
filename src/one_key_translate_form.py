@@ -22,6 +22,8 @@ import renpy_extract
 from renpy_fonts import GenGuiFonts
 import game_unpacker_form
 import add_change_language_entrance_form
+from extraction_official_form import exec_official_translate
+import extraction_official_form
 
 
 class MyQueue(queue.Queue):
@@ -49,6 +51,7 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
         self.selectFontBtn.clicked.connect(self.select_font)
         self.startButton.clicked.connect(self.on_start_button_clicked)
         self.path = None
+        self.official_extract_thread = None
         _thread.start_new_thread(self.update, ())
 
     def on_start_button_clicked(self):
@@ -61,6 +64,9 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
         if self.runtimeExtractionCheckBox.isChecked():
             q.put(self.runtime_extract)
             qDic[self.runtime_extract] = False
+        if self.officialExtractionCheckBox.isChecked():
+            q.put(self.official_extract)
+            qDic[self.official_extract] = False
         if self.extractionCheckBox.isChecked():
             q.put(self.extract)
             qDic[self.extract] = False
@@ -73,6 +79,23 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
         if self.translateCheckBox.isChecked():
             q.put(self.translate)
             qDic[self.translate] = False
+
+    def official_extract(self):
+        select_file = self.selectFileText.toPlainText()
+        if len(select_file) > 0:
+            select_file = select_file.replace('file:///', '')
+            tl_name = self.tlNameText.toPlainText()
+            if len(tl_name) == 0:
+                log_print('tl_name should not be empty!')
+                qDic[self.official_extract] = True
+                return
+            if os.path.isfile(select_file):
+                if select_file.endswith('.exe'):
+                    t = extraction_official_form.extractThread(select_file, tl_name, False, True)
+                    self.official_extract_thread = t
+                    t.start()
+                    self.setDisabled(True)
+
 
     def translate(self):
         select_file = self.selectFileText.toPlainText()
@@ -113,6 +136,8 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
                     _thread.start_new_thread(self.translate_threads_over, ())
                 else:
                     qDic[self.translate] = True
+        else:
+            qDic[self.translate] = True
 
 
 
@@ -436,6 +461,12 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
                     self.setEnabled(True)
                     self.parent.showNormal()
                     self.parent.raise_()
+
+            if self.official_extract_thread is not None:
+                if not self.official_extract_thread.is_alive():
+                    self.official_extract_thread = None
+                    qDic[self.official_extract] = True
+                    self.setEnabled(True)
 
             if not q.empty():
                 if self.parent.isHidden():

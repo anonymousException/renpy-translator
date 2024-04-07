@@ -144,6 +144,7 @@ def DecodeBracketContent(s, bracketLeft, bracketRight, l):
                     start = i
         if (s[i] == bracketRight):
             if (i == 0):
+                i = i + 1
                 continue
             else:
                 if (s[i - 1] == '\\'):

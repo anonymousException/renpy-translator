@@ -75,7 +75,7 @@
        </size>
       </property>
       <property name="text">
-       <string>Version 2.0.8</string>
+       <string>Version 2.0.9</string>
       </property>
      </widget>
     </item>
@@ -432,6 +432,7 @@
     </property>
     <addaction name="actionedit"/>
     <addaction name="actionruntime_extraction"/>
+    <addaction name="actionofficial_extraction"/>
     <addaction name="actionextract_translation"/>
     <addaction name="actionadd_change_langauge_entrance"/>
     <addaction name="actionreplace_font"/>
@@ -705,6 +706,11 @@
   <action name="actionone_key_translate">
    <property name="text">
     <string>one key translate</string>
+   </property>
+  </action>
+  <action name="actionofficial_extraction">
+   <property name="text">
+    <string>official extraction</string>
    </property>
   </action>
  </widget>

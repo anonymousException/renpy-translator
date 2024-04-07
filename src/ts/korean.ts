@@ -254,7 +254,7 @@
         <location filename="../editor_form.py" line="198"/>
         <location filename="../editor_form.py" line="250"/>
         <location filename="../editor_form.py" line="284"/>
-        <location filename="../editor_form.py" line="730"/>
+        <location filename="../editor_form.py" line="732"/>
         <location filename="../editor.ui" line="454"/>
         <source>Translated</source>
         <translation>번역됨</translation>
@@ -262,41 +262,41 @@
     <message>
         <location filename="../editor_form.py" line="179"/>
         <location filename="../editor_form.py" line="333"/>
-        <location filename="../editor_form.py" line="479"/>
-        <location filename="../editor_form.py" line="527"/>
-        <location filename="../editor_form.py" line="538"/>
-        <location filename="../editor_form.py" line="880"/>
-        <location filename="../editor_form.py" line="932"/>
+        <location filename="../editor_form.py" line="481"/>
+        <location filename="../editor_form.py" line="529"/>
+        <location filename="../editor_form.py" line="540"/>
+        <location filename="../editor_form.py" line="882"/>
+        <location filename="../editor_form.py" line="934"/>
         <source>Export to html file</source>
         <translation>HTML 파일로 내보내기</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="182"/>
         <location filename="../editor_form.py" line="337"/>
-        <location filename="../editor_form.py" line="882"/>
+        <location filename="../editor_form.py" line="884"/>
         <source>Import html and relative translated contents</source>
         <translation>HTML 및 상대 번역된 콘텐츠 가져오기</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="192"/>
         <location filename="../editor_form.py" line="280"/>
-        <location filename="../editor_form.py" line="726"/>
+        <location filename="../editor_form.py" line="728"/>
         <source>line</source>
         <translation>선</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="193"/>
         <location filename="../editor_form.py" line="281"/>
-        <location filename="../editor_form.py" line="727"/>
+        <location filename="../editor_form.py" line="729"/>
         <source>refer</source>
         <translation>나타내다</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="195"/>
         <location filename="../editor_form.py" line="282"/>
-        <location filename="../editor_form.py" line="583"/>
-        <location filename="../editor_form.py" line="728"/>
-        <location filename="../editor_form.py" line="1477"/>
+        <location filename="../editor_form.py" line="585"/>
+        <location filename="../editor_form.py" line="730"/>
+        <location filename="../editor_form.py" line="1480"/>
         <location filename="../editor.ui" line="334"/>
         <location filename="../editor.ui" line="413"/>
         <source>Original</source>
@@ -305,9 +305,9 @@
     <message>
         <location filename="../editor_form.py" line="196"/>
         <location filename="../editor_form.py" line="283"/>
-        <location filename="../editor_form.py" line="584"/>
-        <location filename="../editor_form.py" line="729"/>
-        <location filename="../editor_form.py" line="1478"/>
+        <location filename="../editor_form.py" line="586"/>
+        <location filename="../editor_form.py" line="731"/>
+        <location filename="../editor_form.py" line="1481"/>
         <location filename="../editor.ui" line="255"/>
         <location filename="../editor.ui" line="432"/>
         <source>Current</source>
@@ -319,107 +319,107 @@
         <translation>제거하다</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="456"/>
+        <location filename="../editor_form.py" line="458"/>
         <source>Import to files</source>
         <translation>파일로 가져오기</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="459"/>
+        <location filename="../editor_form.py" line="461"/>
         <source>Do you want to make advanced settings (the default setting is to import to all files in the directory)</source>
         <translation>고급 설정을 하시겠습니까(기본 설정은 디렉터리의 모든 파일을 가져오는 것입니다)</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="496"/>
-        <location filename="../editor_form.py" line="546"/>
-        <location filename="../editor_form.py" line="942"/>
+        <location filename="../editor_form.py" line="498"/>
+        <location filename="../editor_form.py" line="548"/>
+        <location filename="../editor_form.py" line="944"/>
         <source>Do you want to replace special symbols?</source>
         <translation>특수 기호를 바꾸시겠습니까?</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="541"/>
-        <location filename="../editor_form.py" line="611"/>
+        <location filename="../editor_form.py" line="543"/>
+        <location filename="../editor_form.py" line="613"/>
         <source>Do you want to make advanced settings (the default setting is to export all files in the directory)</source>
         <translation>고급 설정을 하시겠습니까(기본 설정은 디렉터리의 모든 파일을 내보내는 것입니다)</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="660"/>
+        <location filename="../editor_form.py" line="662"/>
         <source>Case Sensitive</source>
         <translation>대소문자 구분</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="663"/>
+        <location filename="../editor_form.py" line="665"/>
         <source>Search refer column</source>
         <translation>검색 참조 항목</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="666"/>
+        <location filename="../editor_form.py" line="668"/>
         <source>Search Original column</source>
         <translation>원본 열 검색</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="669"/>
+        <location filename="../editor_form.py" line="671"/>
         <source>Search Current column</source>
         <translation>현재 열 검색</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="672"/>
+        <location filename="../editor_form.py" line="674"/>
         <source>Search Translated column</source>
         <translation>번역된 열 검색</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="767"/>
-        <location filename="../editor_form.py" line="779"/>
+        <location filename="../editor_form.py" line="769"/>
+        <location filename="../editor_form.py" line="781"/>
         <source>Input Dialog</source>
         <translation>입력 대화 상자</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="769"/>
+        <location filename="../editor_form.py" line="771"/>
         <source>Please Input the line number you want to jump</source>
         <translation>점프하고 싶은 라인 번호를 입력해주세요</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="781"/>
+        <location filename="../editor_form.py" line="783"/>
         <source>Please Input the content you want to search</source>
         <translation>검색하고 싶은 내용을 입력해주세요</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="868"/>
+        <location filename="../editor_form.py" line="870"/>
         <source>Translate Translation Source to Translated</source>
         <translation>번역 소스를 번역으로 번역</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="871"/>
+        <location filename="../editor_form.py" line="873"/>
         <source>Copy Original to Current</source>
         <translation>원본을 현재로 복사</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="873"/>
+        <location filename="../editor_form.py" line="875"/>
         <source>Copy Translated to Current</source>
         <translation>현재로 번역된 사본</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="876"/>
+        <location filename="../editor_form.py" line="878"/>
         <source>Rollback Current to First Load</source>
         <translation>전류를 첫 번째 부하로 롤백</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1359"/>
+        <location filename="../editor_form.py" line="1362"/>
         <source>select the directory you want to edit</source>
         <translation>편집하려는 디렉토리를 선택하십시오</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1366"/>
+        <location filename="../editor_form.py" line="1369"/>
         <source>select the file(s) you want to edit</source>
         <translation>편집하고 싶은 파일을 선택하세요</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="177"/>
         <location filename="../editor_form.py" line="330"/>
-        <location filename="../editor_form.py" line="570"/>
-        <location filename="../editor_form.py" line="599"/>
-        <location filename="../editor_form.py" line="608"/>
-        <location filename="../editor_form.py" line="878"/>
-        <location filename="../editor_form.py" line="982"/>
+        <location filename="../editor_form.py" line="572"/>
+        <location filename="../editor_form.py" line="601"/>
+        <location filename="../editor_form.py" line="610"/>
+        <location filename="../editor_form.py" line="880"/>
+        <location filename="../editor_form.py" line="984"/>
         <source>Export to xlsx file</source>
         <translation>xlsx 파일로 내보내기</translation>
     </message>
@@ -742,6 +742,49 @@
     </message>
 </context>
 <context>
+    <name>ExtractionOfficialDialog</name>
+    <message>
+        <location filename="../extraction_official_form.py" line="72"/>
+        <source>select the game file you want to extract</source>
+        <translation>추출하려는 게임 파일을 선택하세요</translation>
+    </message>
+    <message>
+        <location filename="../extraction_official.ui" line="14"/>
+        <source>Official Extraction</source>
+        <translation>공식 추출</translation>
+    </message>
+    <message>
+        <location filename="../extraction_official.ui" line="39"/>
+        <source>tl name</source>
+        <translation>이름</translation>
+    </message>
+    <message>
+        <location filename="../extraction_official.ui" line="58"/>
+        <source>input or choose or drag the game you want to extract it&apos;s dialogues.Example:F:/DemoGame.exe</source>
+        <translation>대화 상자를 추출하려는 게임을 입력하거나 선택하거나 드래그하세요. 예:F:/DemoGame.exe</translation>
+    </message>
+    <message>
+        <location filename="../extraction_official.ui" line="71"/>
+        <source>extract</source>
+        <translation>발췌</translation>
+    </message>
+    <message>
+        <location filename="../extraction_official.ui" line="84"/>
+        <source>Input the directory name under game\tl  Example: &apos;japanese&apos; or &apos;chinese&apos;.If the folder already exists, the content will be appended to the original file</source>
+        <translation>game\tl 아래에 디렉터리 이름을 입력합니다. 예: &apos;japanese&apos; 또는 &apos;chinese&apos;. 폴더가 이미 있는 경우 콘텐츠가 원본 파일에 추가됩니다</translation>
+    </message>
+    <message>
+        <location filename="../extraction_official.ui" line="97"/>
+        <source>file</source>
+        <translation>파일</translation>
+    </message>
+    <message>
+        <location filename="../extraction_official.ui" line="113"/>
+        <source>Generate empty strings instead of original</source>
+        <translation>원본 대신 빈 문자열 생성</translation>
+    </message>
+</context>
+<context>
     <name>ExtractionRuntimeDialog</name>
     <message>
         <location filename="../extraction_runtime.ui" line="14"/>
@@ -793,7 +836,7 @@
     </message>
     <message>
         <location filename="../font_replace_form.py" line="28"/>
-        <location filename="../one_key_translate_form.py" line="281"/>
+        <location filename="../one_key_translate_form.py" line="306"/>
         <source>select the file font which supports the translated language</source>
         <translation>번역된 언어를 지원하는 파일 글꼴을 선택하세요</translation>
     </message>
@@ -1013,34 +1056,36 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../main.py" line="425"/>
+        <location filename="../main.py" line="440"/>
+        <location filename="../extraction_official_form.py" line="66"/>
         <source>extracting...</source>
         <translation>적출...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="417"/>
-        <location filename="../main.py" line="504"/>
+        <location filename="../main.py" line="432"/>
+        <location filename="../main.py" line="519"/>
         <source>translating...</source>
         <translation>번역하는 중...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="420"/>
+        <location filename="../main.py" line="435"/>
         <location filename="../ui.ui" line="100"/>
         <source>translate</source>
         <translation>번역하다</translation>
     </message>
     <message>
-        <location filename="../main.py" line="429"/>
+        <location filename="../main.py" line="444"/>
+        <location filename="../extraction_official_form.py" line="88"/>
         <source>extract</source>
         <translation>발췌</translation>
     </message>
     <message>
-        <location filename="../main.py" line="451"/>
+        <location filename="../main.py" line="466"/>
         <source>select the file(s) you want to translate</source>
         <translation>번역하려는 파일을 선택하세요</translation>
     </message>
     <message>
-        <location filename="../main.py" line="462"/>
+        <location filename="../main.py" line="477"/>
         <source>select the directory you want to translate</source>
         <translation>번역하려는 디렉토리를 선택하십시오</translation>
     </message>
@@ -1126,34 +1171,39 @@
         <translation>고급 옵션</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="463"/>
+        <location filename="../ui.ui" line="464"/>
         <source>theme</source>
         <translation>주제</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="582"/>
+        <location filename="../ui.ui" line="583"/>
         <source>unpack game package</source>
         <translation>게임 패키지 풀기</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="682"/>
+        <location filename="../ui.ui" line="683"/>
         <source>extract translation</source>
         <translation>번역 추출</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="687"/>
+        <location filename="../ui.ui" line="688"/>
         <source>runtime extraction</source>
         <translation>런타임 추출</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="702"/>
+        <location filename="../ui.ui" line="703"/>
         <source>add change langauge entrance</source>
         <translation>언어 변경 입구 추가</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="707"/>
+        <location filename="../ui.ui" line="708"/>
         <source>one key translate</source>
         <translation>하나의 키 번역</translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="713"/>
+        <source>official extraction</source>
+        <translation>공식 추출</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="270"/>
@@ -1162,8 +1212,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.0.8</source>
-        <translation>버전 2.0.8</translation>
+        <source>Version 2.0.9</source>
+        <translation>버전 2.0.9</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="391"/>
@@ -1176,7 +1226,7 @@
         <translation>©2024 마지막 순간, 모든 권리 보유.</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="577"/>
+        <location filename="../ui.ui" line="578"/>
         <source>replace font</source>
         <translation>글꼴 교체</translation>
     </message>
@@ -1201,32 +1251,32 @@
         <translation>번역 엔진</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="444"/>
+        <location filename="../ui.ui" line="445"/>
         <source>language</source>
         <translation>언어</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="494"/>
+        <location filename="../ui.ui" line="495"/>
         <source>copyright</source>
         <translation>저작권</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="499"/>
+        <location filename="../ui.ui" line="500"/>
         <source>proxy settings</source>
         <translation>프록시 설정</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="504"/>
+        <location filename="../ui.ui" line="505"/>
         <source>engine settings</source>
         <translation>엔진 설정</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="509"/>
+        <location filename="../ui.ui" line="510"/>
         <source>custom engine</source>
         <translation>커스텀 엔진</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="514"/>
+        <location filename="../ui.ui" line="515"/>
         <source>edit from rpy</source>
         <translation>rpy에서 편집</translation>
     </message>
@@ -1340,12 +1390,17 @@
         <translation>시작</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="401"/>
+        <location filename="../one_key_translate.ui" line="368"/>
+        <source>Official Extraction</source>
+        <translation>공식 추출</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate_form.py" line="426"/>
         <source>select the game file</source>
         <translation>게임 파일을 선택하세요</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="462"/>
+        <location filename="../one_key_translate_form.py" line="493"/>
         <source>One Key Translate Complete</source>
         <translation>하나의 키 번역 완료</translation>
     </message>

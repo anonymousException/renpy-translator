@@ -22,7 +22,7 @@ extract_finish = 'extract_runtime.finish'
 
 
 class extractThread(threading.Thread):
-    def __init__(self, path, tl_name,is_gen_empty,is_show_directory):
+    def __init__(self, path, tl_name,is_gen_empty, is_show_directory):
         threading.Thread.__init__(self)
         self.path = path
         self.tl_name = tl_name
