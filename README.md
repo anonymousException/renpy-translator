@@ -77,6 +77,10 @@ https://github.com/anonymousException/renpy-translator/assets/157234942/676bea79
 
 https://github.com/anonymousException/renpy-translator/assets/157234942/dd579d7d-6f76-423f-8d64-2da002e37d34
 
+### Convert To Html
+
+https://github.com/anonymousException/renpy-translator/assets/157234942/30d5bedb-60c2-4369-aea4-de5bc18b0549
+
 ### Add Entrance
 
 https://github.com/anonymousException/renpy-translator/assets/157234942/67a04032-c8d7-46bf-bfa1-bd9307764d08
