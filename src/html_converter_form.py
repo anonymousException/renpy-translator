@@ -2,10 +2,11 @@ import os.path
 
 from PySide6.QtCore import QCoreApplication
 from PySide6.QtGui import QIcon
-from PySide6.QtWidgets import QDialog, QFileDialog
+from PySide6.QtWidgets import QDialog, QFileDialog, QMessageBox
 
 from html_converter import Ui_HtmlConverterDialog
 from html_util import plain_text_to_html
+from editor_form import open_directory_and_select_file
 
 
 class MyHtmlConverterForm(QDialog, Ui_HtmlConverterDialog):
@@ -20,11 +21,17 @@ class MyHtmlConverterForm(QDialog, Ui_HtmlConverterDialog):
 
     def on_convert_button_clicked(self):
         select_files = self.selectFilesText.toPlainText().split('\n')
+        last_i = None
+        self.setDisabled(True)
         for i in select_files:
             i = i.replace('file:///', '')
             if len(i) > 0 and os.path.isfile(i):
                 save_file_name = os.path.splitext(i)[0] + '.html'
                 plain_text_to_html(i, save_file_name, self.replaceCheckBox.isChecked())
+                last_i = save_file_name
+        if last_i is not None:
+            open_directory_and_select_file(last_i)
+        self.setEnabled(True)
 
     def select_file(self):
         files, filetype = QFileDialog.getOpenFileNames(self,
