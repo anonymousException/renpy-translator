@@ -371,18 +371,18 @@ def get_rpy_info(p):
                         dic = dict()
                         dic['original'] = original
                         dic['current'] = e.strip('"')
-                        dic['is_voice'] = isVoice
+                        dic['is_empty'] = is_empty
+                        dic['ori_line'] = target_index + 1
+                        dic['line'] = line_index + 1
+                        start = line_index - 2
                         if is_empty and dic['current'] == ' ':
+                            dic['ori_content'] = _read_line[dic['ori_line'] - 1]
+                            dic['current_content'] = _read_line[dic['line'] - 1]
                             dic['current'] = ''
                             if not is_match:
                                 unmatch_cnt = unmatch_cnt - 1
                                 is_match = True
-                        dic['ori_line'] = target_index + 1
-                        dic['line'] = line_index + 1
-                        start = line_index - 2
                         if isVoice:
-                            dic['ori_content'] = _read_line[dic['ori_line'] - 1]
-                            dic['current_content'] = _read_line[dic['line'] - 1]
                             start = start - 2
                             isVoice = False
                         if line_content.strip().startswith('new '):

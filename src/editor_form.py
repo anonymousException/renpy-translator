@@ -1576,8 +1576,8 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
                             if _read_lines[ori_line].startswith('    old '):
                                 _read_lines[line] = '    new ' + '"' + current + '"' + '\n'
                             else:
-                                is_voice = bool(data['is_voice'])
-                                if is_voice:
+                                is_empty = bool(data['is_empty'])
+                                if is_empty:
                                     ori_content = str(data['ori_content'])
                                     current_content = str(data['current_content'])
                                     _read_lines[line] = current_content.rstrip('""') + f'"{current}"' + '\n'
