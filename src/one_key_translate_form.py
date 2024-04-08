@@ -100,7 +100,6 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
                     t.start()
                     self.setDisabled(True)
 
-
     def translate(self):
         select_file = self.selectFileText.toPlainText()
         if len(select_file) > 0:
@@ -143,13 +142,12 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
         else:
             qDic[self.translate] = True
 
-
-
     def translate_threads_over(self):
         for t in translate_threads:
             if t.is_alive():
                 t.join()
             translate_threads.remove(t)
+        translate_threads.clear()
         log_print('translate all complete!')
         qDic[self.translate] = True
         self.setEnabled(True)
@@ -234,6 +232,7 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
             if t.is_alive():
                 t.join()
             renpy_extract.extract_threads.remove(t)
+        renpy_extract.extract_threads.clear()
         log_print('extract all complete!')
         qDic[self.extract] = True
         self.setEnabled(True)

@@ -125,13 +125,14 @@ class MyExtractionForm(QDialog, Ui_ExtractionDialog):
                                       is_open_filter=self.filterCheckBox.isChecked(),
                                       filter_length=int(self.filterLengthLineEdit.text()),
                                       is_gen_empty=self.emptyCheckBox.isChecked())
-                    t.start()
                     extract_threads.append(t)
                     cnt = cnt + 1
             if len(extract_threads) > 0:
                 self.parent.extracting = True
                 self.extractBtn.setText(QCoreApplication.translate('MainWindow', 'extracting...', None))
                 self.extractBtn.setDisabled(True)
+                for t in extract_threads:
+                    t.start()
                 _thread.start_new_thread(self.extract_threads_over, ())
         except Exception:
             msg = traceback.format_exc()
@@ -144,6 +145,7 @@ class MyExtractionForm(QDialog, Ui_ExtractionDialog):
             if t.is_alive():
                 t.join()
             extract_threads.remove(t)
+        extract_threads.clear()
         if threads_len > 0:
             log_print('extract all complete!')
         self.parent.extracting = False

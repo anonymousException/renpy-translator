@@ -493,7 +493,6 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
                     t = translateThread(cnt, i, target_language, source_language,
                                         self.multiTranslateCheckBox.isChecked(), self.backupCheckBox.isChecked(),
                                         self.local_glossary, self.is_current, self.skipTranslatedCheckBox.isChecked())
-                    t.start()
                     translate_threads.append(t)
                     cnt = cnt + 1
             select_dir = self.selectDirText.toPlainText()
@@ -515,13 +514,14 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
                                                 self.multiTranslateCheckBox.isChecked(),
                                                 self.backupCheckBox.isChecked(), self.local_glossary, self.is_current,
                                                 self.skipTranslatedCheckBox.isChecked())
-                            t.start()
                             translate_threads.append(t)
                             cnt = cnt + 1
             if len(translate_threads) > 0:
                 self.translateBtn.setText(QCoreApplication.translate('MainWindow', 'translating...', None))
                 self.translateBtn.setDisabled(True)
                 self.translating = True
+                for t in translate_threads:
+                    t.start()
                 _thread.start_new_thread(self.translate_threads_over, ())
             else:
                 self.translating = False
@@ -536,6 +536,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
             if t.is_alive():
                 t.join()
             translate_threads.remove(t)
+        translate_threads.clear()
         if threads_len > 0:
             log_print('translate all complete!')
         self.translating = False
