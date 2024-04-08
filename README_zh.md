@@ -392,17 +392,23 @@ textbutton "LanguageName" action Language("The Tag you fill in official Extract"
 
 ------
 
-#### 翻译
+#### 替换字体
 
 https://github.com/anonymousException/renpy-translator/assets/157234942/46e524d7-14ef-472e-8426-ac47d923bef0
 
-翻译前你需要有一个能够正常显示你想要翻译的语言字体文件 (.*ttf or .otf)
+翻译前你需要有一个能够正常显示你想要翻译的语言字体文件 (*.ttf or *.otf)
+
+默认字体路径填充您的默认系统字体，该字体与您现在使用的语言兼容
+
+例如：如果您是日文用户，并且您的系统字体是日文，那么默认字体文件就可以支持日文，那么您无需从网上下载日文字体来解决乱码问题
 
 对于日语，我一般是用 [hanazomefont](https://www.asterism-m.com/font/hanazomefont/) 这个字体
 
 对于中文，我一般是用 [SourceHanSansCN](https://github.com/CyanoHao/WFM-Free-Font/tree/master/SourceHanSansCN) 这个字体
 
 对于其它语言，你可以很简单地在网上搜到相关的字体
+
+#### 翻译
 
 打开本工具然后填写下面的内容
 

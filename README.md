@@ -390,17 +390,23 @@ textbutton "LanguageName" action Language("The Tag you fill in official Extract"
 
 ------
 
-#### Translation
+#### Replace font
 
 https://github.com/anonymousException/renpy-translator/assets/157234942/46e524d7-14ef-472e-8426-ac47d923bef0
 
-Before translation you need to get the font file (.*ttf or .otf) you want to translate
+Before translation you need to get the font file (*.ttf or *.otf) you want to translate
+
+The default font path is filled with your default system font which is compatible with the language you used now
+
+For example , if you are a japanese user and your system font is japanese , the default font file can support japanese , you need not to download a japanese font from the internet to solve the garbled code problem
 
 For japanese, I usually use the [hanazomefont](https://www.asterism-m.com/font/hanazomefont/)
 
 For chinese, I usally use the [SourceHanSansCN](https://github.com/CyanoHao/WFM-Free-Font/tree/master/SourceHanSansCN)
 
 For other language , you can find relative font files using search engine easily
+
+#### Translation
 
 Open the ren'py translator and fill the following blanks
 
