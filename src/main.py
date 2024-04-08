@@ -143,6 +143,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.actionPortuguese.triggered.connect(lambda: self.to_language('portuguese'))
         self.actionRussian.triggered.connect(lambda: self.to_language('russian'))
         self.actionSpanish.triggered.connect(lambda: self.to_language('spanish'))
+        self.actionTurkish.triggered.connect(lambda: self.to_language('turkish'))
         self.actionUrdu.triggered.connect(lambda: self.to_language('urdu'))
 
         self.actionlight_amber.triggered.connect(lambda: self.change_theme(self.actionlight_amber.text()))

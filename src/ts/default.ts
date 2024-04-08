@@ -1061,36 +1061,36 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../main.py" line="443"/>
+        <location filename="../main.py" line="444"/>
         <location filename="../extraction_official_form.py" line="66"/>
         <source>extracting...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="434"/>
-        <location filename="../main.py" line="521"/>
+        <location filename="../main.py" line="435"/>
+        <location filename="../main.py" line="522"/>
         <source>translating...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="437"/>
+        <location filename="../main.py" line="438"/>
         <location filename="../ui.ui" line="100"/>
         <source>translate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="447"/>
+        <location filename="../main.py" line="448"/>
         <location filename="../extraction_official_form.py" line="88"/>
         <source>extract</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="468"/>
+        <location filename="../main.py" line="469"/>
         <source>select the file(s) you want to translate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="479"/>
+        <location filename="../main.py" line="480"/>
         <source>select the directory you want to translate</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1176,42 +1176,42 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="465"/>
+        <location filename="../ui.ui" line="466"/>
         <source>theme</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="584"/>
+        <location filename="../ui.ui" line="585"/>
         <source>unpack game package</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="684"/>
+        <location filename="../ui.ui" line="685"/>
         <source>extract translation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="689"/>
+        <location filename="../ui.ui" line="690"/>
         <source>runtime extraction</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="704"/>
+        <location filename="../ui.ui" line="705"/>
         <source>add change langauge entrance</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="709"/>
+        <location filename="../ui.ui" line="710"/>
         <source>one key translate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="714"/>
+        <location filename="../ui.ui" line="715"/>
         <source>official extraction</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="719"/>
+        <location filename="../ui.ui" line="720"/>
         <source>convert txt to html</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1222,7 +1222,7 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.1.0</source>
+        <source>Version 2.1.1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1236,7 +1236,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="579"/>
+        <location filename="../ui.ui" line="580"/>
         <source>replace font</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1266,27 +1266,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="496"/>
+        <location filename="../ui.ui" line="497"/>
         <source>copyright</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="501"/>
+        <location filename="../ui.ui" line="502"/>
         <source>proxy settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="506"/>
+        <location filename="../ui.ui" line="507"/>
         <source>engine settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="511"/>
+        <location filename="../ui.ui" line="512"/>
         <source>custom engine</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="516"/>
+        <location filename="../ui.ui" line="517"/>
         <source>edit from rpy</source>
         <translation type="unfinished"></translation>
     </message>

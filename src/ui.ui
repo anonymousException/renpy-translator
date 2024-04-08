@@ -75,7 +75,7 @@
        </size>
       </property>
       <property name="text">
-       <string>Version 2.1.0</string>
+       <string>Version 2.1.1</string>
       </property>
      </widget>
     </item>
@@ -457,6 +457,7 @@
     <addaction name="actionPortuguese"/>
     <addaction name="actionRussian"/>
     <addaction name="actionSpanish"/>
+    <addaction name="actionTurkish"/>
     <addaction name="separator"/>
     <addaction name="actionUrdu"/>
    </widget>
@@ -717,6 +718,11 @@
   <action name="actionconvert_txt_to_html">
    <property name="text">
     <string>convert txt to html</string>
+   </property>
+  </action>
+  <action name="actionTurkish">
+   <property name="text">
+    <string notr="true">Turkish</string>
    </property>
   </action>
  </widget>

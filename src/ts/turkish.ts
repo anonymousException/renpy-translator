@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="de">
+<TS version="2.1" language="tr_TR">
 <context>
     <name>AddEntranceDialog</name>
     <message>
         <location filename="../add_change_langauge_entrance.ui" line="14"/>
         <source>Add change language entrance</source>
-        <translation>Spracheingabe hinzufügen</translation>
+        <translation>Dili değiştir</translation>
     </message>
     <message>
         <location filename="../add_change_langauge_entrance.ui" line="39"/>
         <source>file</source>
-        <translation>Datei</translation>
+        <translation>dosya</translation>
     </message>
     <message>
         <location filename="../add_change_langauge_entrance.ui" line="58"/>
         <source>Input or choose or drag the game you want to add entrance.Example:F:/DemoGame.exe</source>
-        <translation>Geben Sie das Spiel ein, dem Sie den Eingang hinzufügen möchten, oder wählen Sie es aus oder ziehen Sie es per Drag &amp; Drop. Beispiel: F:/DemoGame.exe</translation>
+        <translation>Eklemek istediğiniz oyunu girin veya seçin veya sürükleyin. Örnek:  F:/DemoGame.exe</translation>
     </message>
     <message>
         <location filename="../add_change_langauge_entrance.ui" line="71"/>
         <source>Add an entrance to change language in preference option</source>
-        <translation>Fügen Sie einen Eingang hinzu, um die Sprache in der Einstellungsoption zu ändern</translation>
+        <translation>Tercih edilen dili değiştirmek için bir giriş ekleyin</translation>
     </message>
 </context>
 <context>
@@ -29,17 +29,17 @@
     <message>
         <location filename="../copyright.ui" line="14"/>
         <source>CopyRight</source>
-        <translation>Urheberrechte ©</translation>
+        <translation>Telif Hakkı</translation>
     </message>
     <message>
         <location filename="../copyright.ui" line="31"/>
         <source>The software is completely free and open-source</source>
-        <translation>Die Software ist völlig kostenlos und Open Source</translation>
+        <translation>Yazılım tamamen ücretsiz ve açık kaynaklıdır</translation>
     </message>
     <message>
         <location filename="../copyright.ui" line="52"/>
         <source>You can view the source code from </source>
-        <translation>Sie können den Quellcode unter einsehen </translation>
+        <translation>Kaynak kodunu şuradan görüntüleyebilirsiniz: </translation>
     </message>
     <message>
         <location filename="../copyright.ui" line="71"/>
@@ -49,7 +49,7 @@
     <message>
         <location filename="../copyright.ui" line="89"/>
         <source>This item is available for research and study. In no event shall the author or copyright holder be liable for any claims, damages, or other liabilities arising out of or in connection with the software or the use of the software or other dealings with the software, whether in an action in contract, an action for infringement, or any other proceeding</source>
-        <translation>Dieser Artikel steht für Forschungs- und Studienzwecke zur Verfügung. In keinem Fall haftet der Autor oder Urheberrechtsinhaber für Ansprüche, Schäden oder andere Verbindlichkeiten, die sich aus oder im Zusammenhang mit der Software oder der Nutzung der Software oder anderen Geschäften mit der Software ergeben, sei es im Rahmen einer Vertragsklage oder einer anderen Art von Haftung Klage wegen Vertragsverletzung oder ein anderes Verfahren</translation>
+        <translation>Bu madde araştırma ve çalışma için mevcuttur. Bu madde araştırma ve çalışma için mevcuttur. Yazar veya telif hakkı sahibi, sözleşmedeki bir işlem, ihlal davası veya diğer herhangi bir işlemde, yazılımdan veya yazılımın kullanımından veya yazılımla diğer işlemlerden kaynaklanan veya bunlarla bağlantılı olarak ortaya çıkan herhangi bir talep, hasar veya diğer yükümlülüklerden hiçbir durumda sorumlu olmayacaktır.</translation>
     </message>
 </context>
 <context>
@@ -57,12 +57,12 @@
     <message>
         <location filename="../custom_engine.ui" line="14"/>
         <source>Custom Translation Engine</source>
-        <translation>Benutzerdefinierte Übersetzungs-Engine</translation>
+        <translation>Özel Çeviri Motoru</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="20"/>
         <source>clear log</source>
-        <translation>Protokoll löschen</translation>
+        <translation>Kayıtları temizle</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="45"/>
@@ -76,138 +76,138 @@
         <location filename="../custom_engine.ui" line="112"/>
         <location filename="../custom_engine.ui" line="283"/>
         <source>rename</source>
-        <translation>umbenennen</translation>
+        <translation>Yeniden adlandır</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="71"/>
         <source>relative to Active Translation Engine</source>
-        <translation>relativ zur Active Translation Engine</translation>
+        <translation>active Translation Engine&apos;e göre</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="85"/>
         <source>add a new custom engine</source>
-        <translation>Fügen Sie eine neue benutzerdefinierte Engine hinzu</translation>
+        <translation>Yeni bir arama motoru ekle.</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="99"/>
         <source>Rename Script</source>
-        <translation>Skript umbenennen</translation>
+        <translation>Betiği Yeniden Adlandır</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="125"/>
         <location filename="../custom_engine.ui" line="128"/>
         <source>rename the  source name in  &apos;supported_language&apos; folder</source>
-        <translation>Benennen Sie den Quellnamen im Ordner „supported_sprache“ um</translation>
+        <translation>&apos;SUPPORTED_LANGUAGE&apos; klasöründeki  kaynak adını yeniden adlandırın</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="141"/>
         <source>Save the key and secret in the upper right corner</source>
-        <translation>Speichern Sie den Schlüssel und das Geheimnis in der oberen rechten Ecke</translation>
+        <translation>Anahtarı ve gizli anahtarı sağ üst köşeye kaydedin</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="157"/>
         <source>input or choose or drag the python script which supports translation api.  The script will be copied to &apos;custom_engine&apos; folder</source>
-        <translation>Geben Sie das Python-Skript ein, das die Übersetzungs-API unterstützt, oder wählen Sie es aus oder ziehen Sie es. Das Skript wird in den Ordner „custom_engine“ kopiert</translation>
+        <translation>çeviri api&apos;sini destekleyen python betiğini girin veya seçin veya sürükleyin. Komut dosyası &apos;custom_engine&apos; klasörüne kopyalanacak</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="170"/>
         <source>Rename Source</source>
-        <translation>Quelle umbenennen</translation>
+        <translation>Kaynağı Yeniden Adlandır</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="183"/>
         <source>Rename Target</source>
-        <translation>Ziel umbenennen</translation>
+        <translation>Hedefi Yeniden Adlandır</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="196"/>
         <source>Key Support(API_KEY)</source>
-        <translation>Schlüsselunterstützung (API_KEY)</translation>
+        <translation>Anahtar Desteği(API_KEY)</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="209"/>
         <location filename="../custom_engine.ui" line="212"/>
         <source>Queue Support (Can the api support list input in one request such as:[&apos;Hello&apos;,&apos;World&apos;])</source>
-        <translation>Warteschlangenunterstützung (Kann die API Listeneingaben in einer Anfrage unterstützen, z.&#xa0;B.:[&apos;Hallo&apos;,&apos;Welt&apos;])</translation>
+        <translation>Kuyruk Desteği (API destek listesi aşağıdaki gibi bir istekte girilebilir:[&apos; Merhaba&apos;, &apos;Dünya &apos;])</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="225"/>
         <location filename="../custom_engine.ui" line="487"/>
         <source>target</source>
-        <translation>Ziel</translation>
+        <translation>hedef</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="244"/>
         <source>input or choose or drag the source language file which applies language map.  The file will be copied to &apos;supported_language&apos; folder</source>
-        <translation>Geben Sie die Quellsprachendatei ein, auf die die Sprachzuordnung angewendet wird, oder wählen Sie sie aus oder ziehen Sie sie per Drag &amp; Drop. Die Datei wird in den Ordner „supported_sprache“ kopiert</translation>
+        <translation>dil haritasını uygulayan kaynak dil dosyasını girin veya seçin veya sürükleyin. Dosya &apos;supported_language&apos; klasörüne kopyalanacak</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="257"/>
         <source>relative to detail information</source>
-        <translation>bezogen auf Detailinformationen</translation>
+        <translation>detay bilgilere göre</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="270"/>
         <source>Delete</source>
-        <translation>Löschen</translation>
+        <translation>Sil</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="299"/>
         <source>input or choose or drag the target language file which applies language map.  The file will be copied to &apos;supported_language&apos; folder</source>
-        <translation>Geben Sie die Zielsprachendatei ein, auf die die Sprachzuordnung angewendet wird, oder wählen Sie sie aus oder ziehen Sie sie per Drag &amp; Drop. Die Datei wird in den Ordner „supported_sprache“ kopiert</translation>
+        <translation>dil haritasını uygulayan kaynak dil dosyasını girin veya seçin veya sürükleyin. Dosya &apos;supported_language&apos; klasörüne kopyalanacak</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="312"/>
         <source>custom engine list</source>
-        <translation>benutzerdefinierte Engine-Liste</translation>
+        <translation>özel motor listesi</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="341"/>
         <source>Secret Support(API_SECRET)</source>
-        <translation>Geheime Unterstützung (API_SECRET)</translation>
+        <translation>Gizli Destek(API_SECRET)</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="367"/>
         <location filename="../custom_engine.ui" line="373"/>
         <source>rename the  target name in  &apos;supported_language&apos; folder</source>
-        <translation>Benennen Sie den Zielnamen im Ordner „supported_sprache“ um</translation>
+        <translation>&apos;SUPPORTED_LANGUAGE&apos; klasöründeki  hedef adını yeniden adlandırın</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="386"/>
         <source>Save</source>
-        <translation>Speichern</translation>
+        <translation>Kaydet</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="399"/>
         <source>url</source>
-        <translation>URL</translation>
+        <translation>url</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="412"/>
         <location filename="../custom_engine.ui" line="415"/>
         <source>rename the  script name in  &apos;custom engine&apos; folder</source>
-        <translation>Benennen Sie den Skriptnamen im Ordner „Custom Engine“ um</translation>
+        <translation>&apos;özel motor&apos; klasöründeki  komut dosyası adını yeniden adlandır</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="428"/>
         <source>script</source>
-        <translation>Skript</translation>
+        <translation>betik</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="444"/>
         <location filename="../custom_engine.ui" line="494"/>
         <source>source</source>
-        <translation>Quelle</translation>
+        <translation>kaynak</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="460"/>
         <source>name</source>
-        <translation>Name</translation>
+        <translation>isim</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="514"/>
         <source>API_KEY:</source>
-        <translation>API-SCHLÜSSEL:</translation>
+        <translation>API_KEY:</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="521"/>
@@ -217,22 +217,22 @@
     <message>
         <location filename="../custom_engine.ui" line="585"/>
         <source>Active Translation Engine:</source>
-        <translation>Aktive Übersetzungsmaschine:</translation>
+        <translation>Aktif Çeviri Motoru:</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="563"/>
         <source>detail information</source>
-        <translation>Detail Information</translation>
+        <translation>Detaylar</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="595"/>
         <source>untranslated text</source>
-        <translation>unübersetzter Text</translation>
+        <translation>çevrilmemiş metin</translation>
     </message>
     <message>
         <location filename="../custom_engine.ui" line="551"/>
         <source>Test</source>
-        <translation>Prüfen</translation>
+        <translation>Test</translation>
     </message>
 </context>
 <context>
@@ -241,13 +241,13 @@
         <location filename="../editor_form.py" line="122"/>
         <location filename="../editor_form.py" line="248"/>
         <source>Path</source>
-        <translation>Weg</translation>
+        <translation>Path</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="126"/>
         <location filename="../editor_form.py" line="249"/>
         <source>Units</source>
-        <translation>Einheiten</translation>
+        <translation>Birimler</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="130"/>
@@ -257,7 +257,7 @@
         <location filename="../editor_form.py" line="732"/>
         <location filename="../editor.ui" line="454"/>
         <source>Translated</source>
-        <translation>Übersetzt</translation>
+        <translation>Çevrilmiş</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="179"/>
@@ -268,28 +268,28 @@
         <location filename="../editor_form.py" line="882"/>
         <location filename="../editor_form.py" line="934"/>
         <source>Export to html file</source>
-        <translation>In eine HTML-Datei exportieren</translation>
+        <translation>Bir HTML Dosyasına Aktar</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="182"/>
         <location filename="../editor_form.py" line="337"/>
         <location filename="../editor_form.py" line="884"/>
         <source>Import html and relative translated contents</source>
-        <translation>Importieren Sie HTML und relativ übersetzte Inhalte</translation>
+        <translation>html ve göreceli çevrilmiş içerikleri içe aktar</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="192"/>
         <location filename="../editor_form.py" line="280"/>
         <location filename="../editor_form.py" line="728"/>
         <source>line</source>
-        <translation>Linie</translation>
+        <translation>çizgi</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="193"/>
         <location filename="../editor_form.py" line="281"/>
         <location filename="../editor_form.py" line="729"/>
         <source>refer</source>
-        <translation>verweisen</translation>
+        <translation>bahset</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="195"/>
@@ -300,7 +300,7 @@
         <location filename="../editor.ui" line="334"/>
         <location filename="../editor.ui" line="413"/>
         <source>Original</source>
-        <translation>Original</translation>
+        <translation>Orijinal</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="196"/>
@@ -311,106 +311,106 @@
         <location filename="../editor.ui" line="255"/>
         <location filename="../editor.ui" line="432"/>
         <source>Current</source>
-        <translation>Aktuell</translation>
+        <translation>Geçerli</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="321"/>
         <source>Remove</source>
-        <translation>Entfernen</translation>
+        <translation>Kaldır</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="458"/>
         <source>Import to files</source>
-        <translation>In Dateien importieren</translation>
+        <translation>Dosyalara aktar</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="461"/>
         <source>Do you want to make advanced settings (the default setting is to import to all files in the directory)</source>
-        <translation>Möchten Sie erweiterte Einstellungen vornehmen (die Standardeinstellung ist der Import in alle Dateien im Verzeichnis)</translation>
+        <translation>Gelişmiş ayarlar yapmak istiyor musunuz (varsayılan ayar dizindeki tüm dosyaları dışa aktarmaktır)</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="498"/>
         <location filename="../editor_form.py" line="548"/>
         <location filename="../editor_form.py" line="944"/>
         <source>Do you want to replace special symbols?</source>
-        <translation>Möchten Sie Sonderzeichen ersetzen?</translation>
+        <translation>Özel sembolleri değiştirmek istiyor musunuz?</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="543"/>
         <location filename="../editor_form.py" line="613"/>
         <source>Do you want to make advanced settings (the default setting is to export all files in the directory)</source>
-        <translation>Möchten Sie erweiterte Einstellungen vornehmen (Standardeinstellung ist der Export aller Dateien im Verzeichnis)</translation>
+        <translation>Gelişmiş ayarlar yapmak istiyor musunuz (varsayılan ayar dizindeki tüm dosyaları dışa aktarmaktır)</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="662"/>
         <source>Case Sensitive</source>
-        <translation>Groß- und Kleinschreibung beachten</translation>
+        <translation>Büyük Küçük Harfe Duyarlı</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="665"/>
         <source>Search refer column</source>
-        <translation>Referenzspalte durchsuchen</translation>
+        <translation>Yönlendirme sütununu ara</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="668"/>
         <source>Search Original column</source>
-        <translation>Originalspalte durchsuchen</translation>
+        <translation>Orijinal sütunu ara</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="671"/>
         <source>Search Current column</source>
-        <translation>Aktuelle Spalte durchsuchen</translation>
+        <translation>Geçerli sütunu ara</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="674"/>
         <source>Search Translated column</source>
-        <translation>Durchsuchen Sie die Spalte „Übersetzt“</translation>
+        <translation>Çevrilmiş sütunda ara</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="769"/>
         <location filename="../editor_form.py" line="781"/>
         <source>Input Dialog</source>
-        <translation>Eingabedialog</translation>
+        <translation>Giriş Penceresi</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="771"/>
         <source>Please Input the line number you want to jump</source>
-        <translation>Bitte geben Sie die Zeilennummer ein, zu der Sie springen möchten</translation>
+        <translation>Lütfen gitmek istediğiniz satır numarasını girin</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="783"/>
         <source>Please Input the content you want to search</source>
-        <translation>Bitte geben Sie den Inhalt ein, nach dem Sie suchen möchten</translation>
+        <translation>Lütfen aramak istediğiniz içeriği girin</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="870"/>
         <source>Translate Translation Source to Translated</source>
-        <translation>Übersetzen Sie die Übersetzungsquelle in „Übersetzt“</translation>
+        <translation>Çeviri Kaynağını Çevrilmişe Çevir</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="873"/>
         <source>Copy Original to Current</source>
-        <translation>Original auf Aktuelle kopieren</translation>
+        <translation>Orijinali Geçerli Olana Kopyala</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="875"/>
         <source>Copy Translated to Current</source>
-        <translation>In „Aktuell“ übersetzt kopieren</translation>
+        <translation>Geçerliye Çevrilen Kopyala</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="878"/>
         <source>Rollback Current to First Load</source>
-        <translation>Rollback-Strom zum ersten Laden</translation>
+        <translation>İlk yüklemeye geri al</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="1366"/>
         <source>select the directory you want to edit</source>
-        <translation>Wählen Sie das Verzeichnis aus, das Sie bearbeiten möchten</translation>
+        <translation>düzenlemek istediğiniz dizini seçin</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="1373"/>
         <source>select the file(s) you want to edit</source>
-        <translation>Wählen Sie die Datei(en) aus, die Sie bearbeiten möchten</translation>
+        <translation>düzenlemek istediğiniz dosya(ları) seçin</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="177"/>
@@ -421,27 +421,27 @@
         <location filename="../editor_form.py" line="880"/>
         <location filename="../editor_form.py" line="984"/>
         <source>Export to xlsx file</source>
-        <translation>In eine XLSX-Datei exportieren</translation>
+        <translation>Xlsx dosyasına aktar</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="14"/>
         <source>Ren&apos;py Translator Editor</source>
-        <translation>Ren&apos;py Übersetzer-Editor</translation>
+        <translation>Ren&apos;py Çeviri Editörü</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="41"/>
         <source>Change Translation Engine</source>
-        <translation>Übersetzungs-Engine ändern</translation>
+        <translation>Çeviri Motorunu Değiştir</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="54"/>
         <source>input or choose or drag the directory you want to edit here.  Example:F:\GameName\game\tl\language</source>
-        <translation>Geben Sie hier ein oder wählen oder ziehen Sie das Verzeichnis, das Sie bearbeiten möchten. Beispiel:F:\GameName\game\tl\sprache</translation>
+        <translation>düzenlemek istediğiniz dizini buraya girin veya seçin veya sürükleyin. Örnek: F:\GameName\game\tl\language</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="77"/>
         <source>directory</source>
-        <translation>Verzeichnis</translation>
+        <translation>dizin</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="100"/>
@@ -452,82 +452,82 @@
     <message>
         <location filename="../editor.ui" line="116"/>
         <source>input or choose or drag the file(s) you want to edit here. Examaple : F:\GameName\game\tl\language\script.rpy</source>
-        <translation>Geben Sie hier die Datei(en) ein, die Sie bearbeiten möchten, oder wählen Sie sie aus oder ziehen Sie sie per Drag &amp; Drop. Beispiel: F:\GameName\game\tl\sprache\script.rpy</translation>
+        <translation>düzenlemek istediğiniz dosyaları buraya girin veya seçin veya sürükleyin. Örnek: F:\GameName\game\tl\language\script.rpy</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="129"/>
         <source>file(s)</source>
-        <translation>Datei(en)</translation>
+        <translation>dosya(lar)</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="145"/>
         <source>Show .rpy File Only</source>
-        <translation>Nur .rpy-Datei anzeigen</translation>
+        <translation>Yalnızca .rpy dosyasını göster</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="158"/>
         <source>source</source>
-        <translation>Quelle</translation>
+        <translation>kaynak</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="184"/>
         <source>target</source>
-        <translation>Ziel</translation>
+        <translation>hedef</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="197"/>
         <source>Add to file list</source>
-        <translation>Zur Dateiliste hinzufügen</translation>
+        <translation>Dosya listesine ekle</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="210"/>
         <source>Show Log Form</source>
-        <translation>Protokollformular anzeigen</translation>
+        <translation>Günlük Formunu Göster</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="223"/>
         <source>Local Glossary (replace certain words with preset content)</source>
-        <translation>Lokales Glossar (bestimmte Wörter durch voreingestellte Inhalte ersetzen)</translation>
+        <translation>Yerel Sözlük (belirli kelimeleri önceden ayarlanmış içerikle değiştirin)</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="277"/>
         <source>Translation Source</source>
-        <translation>Übersetzungsquelle</translation>
+        <translation>Çeviri Kaynağı</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="296"/>
         <source>Save to file</source>
-        <translation>Speichern unter</translation>
+        <translation>Dosyaya kaydet</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="315"/>
         <source>Show Untranslated Only</source>
-        <translation>Nur unübersetzt anzeigen</translation>
+        <translation>Yalnızca Çevrilmemişleri Göster</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="347"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Multi-Select is supportable (Hold down the &apos;Ctrl&apos; to Active) &lt;/p&gt;&lt;p&gt;Besides you can use &apos;Shift&apos; to select a continuous line&lt;/p&gt;&lt;p&gt;Select the line(s) you want to operate , right click to show menu&lt;/p&gt;&lt;p&gt;&apos;Ctrl + A&apos; to select all the lines&lt;br/&gt;&apos;Ctrl + F&apos; to search the content&lt;br/&gt;&apos;Ctrl + G&apos; to jump to line&lt;/p&gt;&lt;p&gt;As for save , only the contents in column &apos;Current&apos; will be replaced to the file&lt;/p&gt;&lt;p&gt;At last , you can modify the &apos;Current&apos; and &apos;Translated&apos; column through  Double-Click&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Mehrfachauswahl ist unterstützbar (Halten Sie die „Strg“-Taste gedrückt, um sie zu aktivieren) &lt;/p&gt;&lt;p&gt;Außerdem können Sie mit der „Umschalttaste“ eine durchgehende Linie auswählen&lt;/p &gt;&lt;p&gt;Wählen Sie die Zeile(n) aus, die Sie bedienen möchten, klicken Sie mit der rechten Maustaste, um das Menü anzuzeigen&lt;/p&gt;&lt;p&gt;&apos;Strg + A&apos;, um alle Zeilen auszuwählen&lt;br/&gt;&apos;Strg + F&apos;, um den Inhalt zu durchsuchen &lt;br/&gt;&apos;Strg + G&apos;, um zur Zeile zu springen&lt;/p&gt;&lt;p&gt;Beim Speichern wird nur der Inhalt in der Spalte „Aktuell“ in der Datei ersetzt&lt;/p&gt;&lt;p&gt;Endlich können Sie Ändern Sie die Spalten „Aktuell“ und „Übersetzt“ durch Doppelklick&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Çoklu Seçim destekli (Etkinleştirmek için &apos;Ctrl&apos; tuşunu basılı tutun) &lt;/p&gt;&lt;p&gt;Ayrıca devam eden çizgi seçmek için &apos;Shift&apos;i kullanabilirsiniz&lt;/p&gt;&lt;p&gt;Değiştirmek istediğiniz satır(lar)ı seçin, menüyü göstermek için sağ tıklayın&lt;/p&gt;&lt;p&gt;&apos;Ctrl + A&apos; tüm satırları seçmek için&lt;br/&gt;&apos;Ctrl + F&apos; içeriği aramak için&lt;br/&gt;&apos;Ctrl + G&apos; satırına atlamak için&lt;/p&gt;&lt;p&gt;Kaydetme için, yalnızca &apos;Geçerli&apos; sütunundaki içerik dosyaya değiştirilecektir&lt;/p&gt;&lt;p&gt;En azından, &apos;Geçerli&apos; ve &apos;Çevrilmiş&apos; sütununu Çift Tıklama ile değiştirebilirsiniz&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="372"/>
         <source>Show Searched Only</source>
-        <translation>Nur gesucht anzeigen</translation>
+        <translation>Sadece Arananları Göster</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="391"/>
         <source>Show Log After Search</source>
-        <translation>Protokoll nach der Suche anzeigen</translation>
+        <translation>Aramadan Sonra Günlüğü Göster</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="470"/>
         <source>Copy selected to clipboard   Copy Source</source>
-        <translation>Ausgewählte Quelle in die Zwischenablage kopieren</translation>
+        <translation>Seçilenleri panoya kopyala   Kaynağı Kopyala</translation>
     </message>
     <message>
         <location filename="../editor.ui" line="483"/>
         <source>Auto copy to Current after translation</source>
-        <translation>Nach der Übersetzung automatisch auf „Aktuell“ kopieren</translation>
+        <translation>Çeviriden sonra Geçerli&apos;ye otomatik kopyala</translation>
     </message>
 </context>
 <context>
@@ -535,17 +535,17 @@
     <message>
         <location filename="../engine.ui" line="14"/>
         <source>Translation Engine Settings</source>
-        <translation>Einstellungen der Übersetzungsmaschine</translation>
+        <translation>Çeviri Motoru Ayarları</translation>
     </message>
     <message>
         <location filename="../engine.ui" line="36"/>
         <source>Active Translation Engine:</source>
-        <translation>Aktive Übersetzungsmaschine:</translation>
+        <translation>Aktif Çeviri Motoru:</translation>
     </message>
     <message>
         <location filename="../engine.ui" line="52"/>
         <source>API_KEY:</source>
-        <translation>API-SCHLÜSSEL:</translation>
+        <translation>API_KEY:</translation>
     </message>
     <message>
         <location filename="../engine.ui" line="78"/>
@@ -555,12 +555,12 @@
     <message>
         <location filename="../engine.ui" line="107"/>
         <source>Confirm</source>
-        <translation>Bestätigen</translation>
+        <translation>Onayla</translation>
     </message>
     <message>
         <location filename="../engine.ui" line="125"/>
         <source>detail information</source>
-        <translation>Detail Information</translation>
+        <translation>detaylar</translation>
     </message>
     <message>
         <location filename="../engine.ui" line="144"/>
@@ -571,17 +571,17 @@
     <message>
         <location filename="../engine.ui" line="157"/>
         <source>RPM (requests per minute):</source>
-        <translation>RPM (Anfragen pro Minute):</translation>
+        <translation>RPM (dakika başına talep):</translation>
     </message>
     <message>
         <location filename="../engine.ui" line="173"/>
         <source>RPS (requests per second):</source>
-        <translation>RPS (Anfragen pro Sekunde):</translation>
+        <translation>RPS (saniyedeki istek sayısı):</translation>
     </message>
     <message>
         <location filename="../engine.ui" line="205"/>
         <source>TPM (requests token limits):</source>
-        <translation>TPM (Anforderungs-Token-Limits):</translation>
+        <translation>TPM (gerekli token limitleri):</translation>
     </message>
     <message>
         <location filename="../engine.ui" line="221"/>
@@ -591,7 +591,7 @@
     <message>
         <location filename="../engine.ui" line="244"/>
         <source>model:</source>
-        <translation>Modell:</translation>
+        <translation>model:</translation>
     </message>
     <message>
         <location filename="../engine.ui" line="263"/>
@@ -606,7 +606,7 @@
     <message>
         <location filename="../engine.ui" line="295"/>
         <source>custom model</source>
-        <translation>kundenspezifisches Modell</translation>
+        <translation>özel model</translation>
     </message>
 </context>
 <context>
@@ -614,51 +614,28 @@
     <message>
         <location filename="../export_setting.ui" line="14"/>
         <source>Export Setting</source>
-        <translation>Exporteinstellung</translation>
+        <translation>Ayarları Dışa Aktar</translation>
     </message>
     <message>
         <location filename="../export_setting.ui" line="26"/>
         <source>Filter the Units</source>
-        <translation>Filtern Sie die Einheiten</translation>
+        <translation>Birimleri Filtrele</translation>
     </message>
     <message>
         <location filename="../export_setting.ui" line="55"/>
         <location filename="../export_setting.ui" line="84"/>
         <source>and</source>
-        <translation>Und</translation>
+        <translation>ve</translation>
     </message>
     <message>
         <location filename="../export_setting.ui" line="100"/>
         <source>Filter the Translated</source>
-        <translation>Filtern Sie die Übersetzten</translation>
+        <translation>Çevrilmiş öğesini filtreleyin</translation>
     </message>
     <message>
         <location filename="../export_setting.ui" line="142"/>
         <source>Confirm</source>
-        <translation>Bestätigen</translation>
-    </message>
-</context>
-<context>
-    <name>ExportXlsxSettingDialog</name>
-    <message>
-        <source>Export Xlsx Setting</source>
-        <translation type="vanished">Xlsx-Einstellung exportieren</translation>
-    </message>
-    <message>
-        <source>Filter the Units</source>
-        <translation type="vanished">Filtern Sie die Einheiten</translation>
-    </message>
-    <message>
-        <source>and</source>
-        <translation type="vanished">Und</translation>
-    </message>
-    <message>
-        <source>Filter the Translated</source>
-        <translation type="vanished">Filtern Sie die Übersetzten</translation>
-    </message>
-    <message>
-        <source>Confirm</source>
-        <translation type="vanished">Bestätigen</translation>
+        <translation>Onayla</translation>
     </message>
 </context>
 <context>
@@ -666,17 +643,17 @@
     <message>
         <location filename="../extraction.ui" line="14"/>
         <source>Extraction</source>
-        <translation>Extraktion</translation>
+        <translation>Çıkarma</translation>
     </message>
     <message>
         <location filename="../extraction.ui" line="44"/>
         <source>input or choose or drag the file(s) you want to extract here.    Examaple : F:\GameName\game\script.rpy</source>
-        <translation>Geben Sie hier die Datei(en) ein, die Sie extrahieren möchten, oder wählen Sie sie aus oder ziehen Sie sie per Drag &amp; Drop. Beispiel: F:\GameName\game\script.rpy</translation>
+        <translation>düzenlemek istediğiniz dosyaları buraya girin veya seçin veya sürükleyin. Örnek: F:\GameName\game\script.rpy</translation>
     </message>
     <message>
         <location filename="../extraction.ui" line="57"/>
         <source>file(s)</source>
-        <translation>Datei(en)</translation>
+        <translation>dosya(lar)</translation>
     </message>
     <message>
         <location filename="../extraction.ui" line="73"/>
@@ -688,57 +665,57 @@
     <message>
         <location filename="../extraction.ui" line="91"/>
         <source>extraction</source>
-        <translation>Extraktion</translation>
+        <translation>çıkarma</translation>
     </message>
     <message>
         <location filename="../extraction.ui" line="117"/>
         <source>tl directory</source>
-        <translation>tl-Verzeichnis</translation>
+        <translation>tl dizini</translation>
     </message>
     <message>
         <location filename="../extraction.ui" line="133"/>
         <source>input or choose or drag the directory you want to translate here.  Example:F:\GameName\game\tl\language</source>
-        <translation>Geben Sie hier das Verzeichnis ein, das Sie übersetzen möchten, oder wählen Sie es aus oder ziehen Sie es per Drag &amp; Drop. Beispiel:F:\GameName\game\tl\sprache</translation>
+        <translation>düzenlemek istediğiniz dizini buraya girin veya seçin veya sürükleyin. Örnek: F:\GameName\game\tl\language</translation>
     </message>
     <message>
         <location filename="../extraction.ui" line="146"/>
         <source>extract</source>
-        <translation>Extrakt</translation>
+        <translation>çıkar</translation>
     </message>
     <message>
         <location filename="../extraction.ui" line="159"/>
         <source>tl name</source>
-        <translation>tl Name</translation>
+        <translation>tl ad</translation>
     </message>
     <message>
         <location filename="../extraction.ui" line="175"/>
         <source>only force needs in file(s)/directory(s) mode , for tl directory , fill nothing is acceptable. input the directory name under game\tl  Example: japanese or chinese</source>
-        <translation>Erzwingen muss nur im Datei(en)/Verzeichnis(en)-Modus erfolgen, für das TL-Verzeichnis ist das Ausfüllen nichts akzeptabel. Geben Sie den Verzeichnisnamen unter game\tl ein. Beispiel: Japanisch oder Chinesisch</translation>
+        <translation>sadece dosya(lar)/ dizin(ler) modundaki ihtiyaçları zorla, tl dizini için hiçbir şey doldurmak kabul edilemez. gametl altında dizin adını girin.\ Örnek: japanese or chinese</translation>
     </message>
     <message>
         <location filename="../extraction.ui" line="188"/>
         <source>directory(s)</source>
-        <translation>Verzeichnis(se)</translation>
+        <translation>dizin(ler)</translation>
     </message>
     <message>
         <location filename="../extraction.ui" line="207"/>
         <source>input or choose or drag the directory(s) you want to extract here.    Examaple : F:\GameName\game\character</source>
-        <translation>Geben Sie hier die Verzeichnisse ein, die Sie extrahieren möchten, oder wählen Sie sie aus oder ziehen Sie sie per Drag &amp; Drop. Beispiel: F:\GameName\game\character</translation>
+        <translation>düzenlemek istediğiniz dosyaları buraya girin veya seçin veya sürükleyin. Örnek: F:\GameName\game\character</translation>
     </message>
     <message>
         <location filename="../extraction.ui" line="233"/>
         <source>Enable filter for extract</source>
-        <translation>Filter für Extrakt aktivieren</translation>
+        <translation>Çıkarma için filtreyi etkinleştir</translation>
     </message>
     <message>
         <location filename="../extraction.ui" line="246"/>
         <source>filter length less than</source>
-        <translation>Filterlänge kleiner als</translation>
+        <translation>filtre uzunluğu daha az</translation>
     </message>
     <message>
         <location filename="../extraction.ui" line="272"/>
         <source>Generate empty strings instead of original</source>
-        <translation>Erzeugen Sie leere Zeichenfolgen anstelle von Originalzeichenfolgen</translation>
+        <translation>Orijinal yerine boş dizeler oluştur</translation>
     </message>
 </context>
 <context>
@@ -746,42 +723,42 @@
     <message>
         <location filename="../extraction_official_form.py" line="72"/>
         <source>select the game file you want to extract</source>
-        <translation>Wählen Sie die Spieldatei aus, die Sie extrahieren möchten</translation>
+        <translation>ayıklamak istediğiniz oyun dosyasını seçin</translation>
     </message>
     <message>
         <location filename="../extraction_official.ui" line="14"/>
         <source>Official Extraction</source>
-        <translation>Offizielle Extraktion</translation>
+        <translation>Resmi Çıkarma</translation>
     </message>
     <message>
         <location filename="../extraction_official.ui" line="39"/>
         <source>tl name</source>
-        <translation>tl Name</translation>
+        <translation>tl ad</translation>
     </message>
     <message>
         <location filename="../extraction_official.ui" line="58"/>
         <source>input or choose or drag the game you want to extract it&apos;s dialogues.Example:F:/DemoGame.exe</source>
-        <translation>Geben Sie das Spiel ein oder wählen oder ziehen Sie es, dessen Dialoge Sie extrahieren möchten. Beispiel: F:/DemoGame.exe</translation>
+        <translation>diyaloglarını çıkarmak istediğiniz oyunu girin veya seçin veya sürükleyin. Örnek: F:/DemoGame.exe</translation>
     </message>
     <message>
         <location filename="../extraction_official.ui" line="71"/>
         <source>extract</source>
-        <translation>Extrakt</translation>
+        <translation>çıkar</translation>
     </message>
     <message>
         <location filename="../extraction_official.ui" line="84"/>
         <source>Input the directory name under game\tl  Example: &apos;japanese&apos; or &apos;chinese&apos;.If the folder already exists, the content will be appended to the original file</source>
-        <translation>Geben Sie den Verzeichnisnamen unter game\tl ein. Beispiel: „japanese“ oder „chinese“. Wenn der Ordner bereits vorhanden ist, wird der Inhalt an die Originaldatei angehängt</translation>
+        <translation>Oyunun altındaki dizin adını girin\tl örnek: &apos;japanese&apos; veya &apos;chinese&apos;.Klasör zaten varsa, içerik orijinal dosyaya eklenecektir</translation>
     </message>
     <message>
         <location filename="../extraction_official.ui" line="97"/>
         <source>file</source>
-        <translation>Datei</translation>
+        <translation>dosya</translation>
     </message>
     <message>
         <location filename="../extraction_official.ui" line="113"/>
         <source>Generate empty strings instead of original</source>
-        <translation>Erzeugen Sie leere Zeichenfolgen anstelle von Originalzeichenfolgen</translation>
+        <translation>Orijinal yerine boş dizeler oluştur</translation>
     </message>
 </context>
 <context>
@@ -789,27 +766,27 @@
     <message>
         <location filename="../extraction_runtime.ui" line="14"/>
         <source>Runtime Extraction</source>
-        <translation>Laufzeitextraktion</translation>
+        <translation>Çalışma Zamanı Çıkarma</translation>
     </message>
     <message>
         <location filename="../extraction_runtime.ui" line="26"/>
         <source>tl name</source>
-        <translation>tl Name</translation>
+        <translation>tl ad</translation>
     </message>
     <message>
         <location filename="../extraction_runtime.ui" line="42"/>
         <source>Input the directory name under game\tl  Example: &apos;japanese&apos; or &apos;chinese&apos;.If the folder already exists, the content will be appended to the original file</source>
-        <translation>Geben Sie den Verzeichnisnamen unter game\tl ein. Beispiel: „japanese“ oder „chinese“. Wenn der Ordner bereits vorhanden ist, wird der Inhalt an die Originaldatei angehängt</translation>
+        <translation>Oyunun altındaki dizin adını girin\tl örnek: &apos;japanese&apos; veya &apos;chinese&apos;.Klasör zaten varsa, içerik orijinal dosyaya eklenecektir</translation>
     </message>
     <message>
         <location filename="../extraction_runtime.ui" line="55"/>
         <source>Generate empty strings instead of original</source>
-        <translation>Erzeugen Sie leere Zeichenfolgen anstelle von Originalzeichenfolgen</translation>
+        <translation>Orijinal yerine boş dizeler oluştur</translation>
     </message>
     <message>
         <location filename="../extraction_runtime.ui" line="68"/>
         <source>file</source>
-        <translation>Datei</translation>
+        <translation>dosya</translation>
     </message>
     <message>
         <location filename="../extraction_runtime.ui" line="84"/>
@@ -819,12 +796,12 @@
     <message>
         <location filename="../extraction_runtime.ui" line="100"/>
         <source>input or choose or drag the game you want to extract it&apos;s dialogues.Example:F:/DemoGame.exe</source>
-        <translation>Geben Sie das Spiel ein oder wählen oder ziehen Sie es, dessen Dialoge Sie extrahieren möchten. Beispiel: F:/DemoGame.exe</translation>
+        <translation>diyaloglarını çıkarmak istediğiniz oyunu girin veya seçin veya sürükleyin. Örnek: F:/DemoGame.exe</translation>
     </message>
     <message>
         <location filename="../extraction_runtime.ui" line="113"/>
         <source>extract</source>
-        <translation>Extrakt</translation>
+        <translation>çıkar</translation>
     </message>
 </context>
 <context>
@@ -832,29 +809,29 @@
     <message>
         <location filename="../font_replace_form.py" line="23"/>
         <source>select the directory you want to extract</source>
-        <translation>Wählen Sie das Verzeichnis aus, das Sie extrahieren möchten</translation>
+        <translation>ayıklamak istediğiniz dizini seçin</translation>
     </message>
     <message>
         <location filename="../font_replace_form.py" line="28"/>
         <location filename="../one_key_translate_form.py" line="306"/>
         <source>select the file font which supports the translated language</source>
-        <translation>Wählen Sie die Dateischriftart aus, die die übersetzte Sprache unterstützt</translation>
+        <translation>çevrilmiş dili destekleyen dosya yazı tipini seçin</translation>
     </message>
     <message>
         <location filename="../font_replace.ui" line="14"/>
         <source>Font Replace</source>
-        <translation>Schriftart ersetzen</translation>
+        <translation>Yazı Tipi Değiştirme</translation>
     </message>
     <message>
         <location filename="../font_replace.ui" line="46"/>
         <location filename="../font_replace.ui" line="72"/>
         <source>font</source>
-        <translation>Schriftart</translation>
+        <translation>yazı tipi</translation>
     </message>
     <message>
         <location filename="../font_replace.ui" line="59"/>
         <source>input or choose or drag the font which supports the language after translation. Example : DejaVuSans.ttf (ren&apos;py &apos;s default font)</source>
-        <translation>Geben Sie die Schriftart ein oder wählen oder ziehen Sie sie, die die Sprache nach der Übersetzung unterstützt. Beispiel: DejaVuSans.ttf (Ren&apos;pys Standardschriftart)</translation>
+        <translation>çeviriden sonra dili destekleyen yazı tipini girin veya seçin veya sürükleyin. Örnek : DejaVuSans.ttf (ren&apos;py&apos;nin varsayılan yazı tipi)</translation>
     </message>
     <message>
         <location filename="../font_replace.ui" line="88"/>
@@ -865,22 +842,22 @@
     <message>
         <location filename="../font_replace.ui" line="101"/>
         <source>replace font</source>
-        <translation>Schriftart ersetzen</translation>
+        <translation>yazı tipini değiştir</translation>
     </message>
     <message>
         <location filename="../font_replace.ui" line="114"/>
         <source>open font style file</source>
-        <translation>Schriftstildatei öffnen</translation>
+        <translation>yazı tipi stili dosyasını aç</translation>
     </message>
     <message>
         <location filename="../font_replace.ui" line="127"/>
         <source>directory</source>
-        <translation>Verzeichnis</translation>
+        <translation>dizin</translation>
     </message>
     <message>
         <location filename="../font_replace.ui" line="143"/>
         <source>input or choose or drag the directory you want to replace font here.  Example:F:\GameName\game\tl\language</source>
-        <translation>Geben Sie hier ein oder wählen oder ziehen Sie das Verzeichnis, in dem Sie die Schriftart ersetzen möchten. Beispiel:F:\GameName\game\tl\sprache</translation>
+        <translation>düzenlemek istediğiniz dizini buraya girin veya seçin veya sürükleyin. Örnek: F:\GameName\game\tl\language</translation>
     </message>
 </context>
 <context>
@@ -888,22 +865,22 @@
     <message>
         <location filename="../game_unpacker_form.py" line="38"/>
         <source>select the game file you want to unpack</source>
-        <translation>Wählen Sie die Spieldatei aus, die Sie entpacken möchten</translation>
+        <translation>açmak istediğiniz oyun dosyasını seçin</translation>
     </message>
     <message>
         <location filename="../game_unpacker_form.py" line="82"/>
         <source>Clean Complete</source>
-        <translation>Reinigung abgeschlossen</translation>
+        <translation>Temizleme Tamamlandı</translation>
     </message>
     <message>
         <location filename="../game_unpacker.ui" line="14"/>
         <source>Game Unpacker</source>
-        <translation>Spiele-Entpacker</translation>
+        <translation>Oyun Paket Açıcı</translation>
     </message>
     <message>
         <location filename="../game_unpacker.ui" line="26"/>
         <source>file</source>
-        <translation>Datei</translation>
+        <translation>dosya</translation>
     </message>
     <message>
         <location filename="../game_unpacker.ui" line="42"/>
@@ -913,22 +890,22 @@
     <message>
         <location filename="../game_unpacker.ui" line="58"/>
         <source>input or choose or drag the game you want to unpack it&apos;s rpa files.Example:F:/DemoGame.exe</source>
-        <translation>Geben Sie das Spiel ein oder wählen Sie es aus oder ziehen Sie es per Drag &amp; Drop, um seine RPA-Dateien zu entpacken. Beispiel: F:/DemoGame.exe</translation>
+        <translation>rpa dosyalarını açmak istediğiniz oyunu girin veya seçin veya sürükleyin. Örnek: F:/DemoGame.exe</translation>
     </message>
     <message>
         <location filename="../game_unpacker.ui" line="71"/>
         <source>Unpack</source>
-        <translation>Auspacken</translation>
+        <translation>Pakedi aç</translation>
     </message>
     <message>
         <location filename="../game_unpacker.ui" line="84"/>
         <source>Clean temporary files</source>
-        <translation>Temporäre Dateien bereinigen</translation>
+        <translation>Geçici dosyaları temizle</translation>
     </message>
     <message>
         <location filename="../game_unpacker.ui" line="97"/>
         <source>Auto Clean after unpack</source>
-        <translation>Automatische Reinigung nach dem Auspacken</translation>
+        <translation>Dosyaları çıkardıktan sonra otomatik temizle</translation>
     </message>
 </context>
 <context>
@@ -936,27 +913,27 @@
     <message>
         <location filename="../html_converter.ui" line="14"/>
         <source>Html Converter</source>
-        <translation>HTML-Konverter</translation>
+        <translation>Html Dönüştürücü</translation>
     </message>
     <message>
         <location filename="../html_converter.ui" line="26"/>
         <source>file(s)</source>
-        <translation>Datei(en)</translation>
+        <translation>dosya(lar)</translation>
     </message>
     <message>
         <location filename="../html_converter.ui" line="45"/>
         <source>input or choose or drag the file(s) you want to convert to html here. Examaple : F:\example.txt</source>
-        <translation>Geben Sie hier die Datei(en) ein, die Sie in HTML konvertieren möchten, oder wählen Sie sie aus oder ziehen Sie sie per Drag &amp; Drop. Beispiel: F:\example.txt</translation>
+        <translation>html&apos;ye dönüştürmek istediğiniz dosyaları buraya girin veya seçin veya sürükleyin. Examaple: F:\example.txt</translation>
     </message>
     <message>
         <location filename="../html_converter.ui" line="71"/>
         <source>convert</source>
-        <translation>Konvertieren</translation>
+        <translation>dönüştür</translation>
     </message>
     <message>
         <location filename="../html_converter.ui" line="84"/>
         <source>Replace Special Symbols</source>
-        <translation>Ersetzen Sie Sondersymbole</translation>
+        <translation>Özel Sembolleri Değiştir</translation>
     </message>
 </context>
 <context>
@@ -964,47 +941,47 @@
     <message>
         <location filename="../import_html_form.py" line="36"/>
         <source>The html file does not match the translated file , please check the input files</source>
-        <translation>Die HTML-Datei stimmt nicht mit der übersetzten Datei überein. Bitte überprüfen Sie die Eingabedateien</translation>
+        <translation>Html dosyası çevrilen dosyayla eşleşmiyor, lütfen dosyaları kontrol edin</translation>
     </message>
     <message>
         <location filename="../import_html_form.py" line="45"/>
         <source>select the relative translated file</source>
-        <translation>Wählen Sie die entsprechende übersetzte Datei aus</translation>
+        <translation>ilgili çevrilmiş dosyayı seçin</translation>
     </message>
     <message>
         <location filename="../import_html_form.py" line="56"/>
         <source>select the html file exported before</source>
-        <translation>Wählen Sie die zuvor exportierte HTML-Datei aus</translation>
+        <translation>önce dışa aktarılan, html dosyasını seçin</translation>
     </message>
     <message>
         <location filename="../import_html.ui" line="14"/>
         <source>Import html and relative translated contents</source>
-        <translation>Importieren Sie HTML und relativ übersetzte Inhalte</translation>
+        <translation>html ve göreceli çevrilmiş içerikleri içe aktar</translation>
     </message>
     <message>
         <location filename="../import_html.ui" line="29"/>
         <source>input or choose or drag the html file exported before.Example:F:/exported.html</source>
-        <translation>Geben Sie die zuvor exportierte HTML-Datei ein oder wählen Sie sie aus oder ziehen Sie sie.Beispiel:F:/exported.html</translation>
+        <translation>daha önce dışa aktarılan html dosyasını girin veya seçin veya sürükleyin.Örnek: F:/exported.html</translation>
     </message>
     <message>
         <location filename="../import_html.ui" line="55"/>
         <source>html file</source>
-        <translation>html-Datei</translation>
+        <translation>Html dosyası</translation>
     </message>
     <message>
         <location filename="../import_html.ui" line="74"/>
         <source>input or choose or drag the relative translated file.Example:F:/translated.txt</source>
-        <translation>Geben Sie die entsprechende übersetzte Datei ein oder wählen Sie sie aus oder ziehen Sie sie. Beispiel: F:/translated.txt</translation>
+        <translation>ilgili çevrilmiş dosyayı girin veya seçin veya sürükleyin. Örnek: F:/translated.txt</translation>
     </message>
     <message>
         <location filename="../import_html.ui" line="100"/>
         <source>translated file</source>
-        <translation>übersetzte Datei</translation>
+        <translation>çevrilmiş dosya</translation>
     </message>
     <message>
         <location filename="../import_html.ui" line="116"/>
         <source>Import Files</source>
-        <translation>Dateien importieren</translation>
+        <translation>Dosyaları içe aktar</translation>
     </message>
 </context>
 <context>
@@ -1013,52 +990,52 @@
         <location filename="../local_glossary_form.py" line="49"/>
         <location filename="../local_glossary_form.py" line="131"/>
         <source>Row</source>
-        <translation>Reihe</translation>
+        <translation>Satır</translation>
     </message>
     <message>
         <location filename="../local_glossary_form.py" line="132"/>
         <source>Original</source>
-        <translation>Original</translation>
+        <translation>Orijinal</translation>
     </message>
     <message>
         <location filename="../local_glossary_form.py" line="133"/>
         <source>Replace</source>
-        <translation>Ersetzen</translation>
+        <translation>Değiştir</translation>
     </message>
     <message>
         <location filename="../local_glossary_form.py" line="220"/>
         <source>select the file you want to import</source>
-        <translation>Wählen Sie die Datei aus, die Sie importieren möchten</translation>
+        <translation>içe aktarmak istediğiniz dosyayı seçin</translation>
     </message>
     <message>
         <location filename="../local_glossary.ui" line="14"/>
         <source>Local Glossary</source>
-        <translation>Lokales Glossar</translation>
+        <translation>Yerel Sözlük</translation>
     </message>
     <message>
         <location filename="../local_glossary.ui" line="35"/>
         <source>input or choose or drag the file(s) you want to edit here. Examaple : F:\xxx.xslx</source>
-        <translation>Geben Sie hier die Datei(en) ein, die Sie bearbeiten möchten, oder wählen Sie sie aus oder ziehen Sie sie per Drag &amp; Drop. Beispiel: F:\xxx.xslx</translation>
+        <translation>düzenlemek istediğiniz dosyaları buraya girin veya seçin veya sürükleyin. Examaple: F:\xxx.xslx</translation>
     </message>
     <message>
         <location filename="../local_glossary.ui" line="95"/>
         <source>Previous</source>
-        <translation>Vorherige</translation>
+        <translation>Önceki</translation>
     </message>
     <message>
         <location filename="../local_glossary.ui" line="120"/>
         <source>Next</source>
-        <translation>Nächste</translation>
+        <translation>İleri</translation>
     </message>
     <message>
         <location filename="../local_glossary.ui" line="70"/>
         <source>file</source>
-        <translation>Datei</translation>
+        <translation>dosya</translation>
     </message>
     <message>
         <location filename="../local_glossary.ui" line="48"/>
         <source>Confirm</source>
-        <translation>Bestätigen</translation>
+        <translation>Onayla</translation>
     </message>
     <message>
         <location filename="../local_glossary.ui" line="136"/>
@@ -1068,17 +1045,17 @@
     <message>
         <location filename="../local_glossary.ui" line="173"/>
         <source>Go to page</source>
-        <translation>Gehe zur Seite</translation>
+        <translation>Sayfaya git</translation>
     </message>
     <message>
         <location filename="../local_glossary.ui" line="227"/>
         <source>Max Page Rows</source>
-        <translation>Maximale Seitenzeilen</translation>
+        <translation>Maksimum Sayfa Satırı</translation>
     </message>
     <message>
         <location filename="../local_glossary.ui" line="255"/>
         <source>For more advanced editing functions, it is recommended to use professional software such as Excel.</source>
-        <translation>Für erweiterte Bearbeitungsfunktionen empfiehlt sich der Einsatz professioneller Software wie Excel.</translation>
+        <translation>Daha gelişmiş düzenleme işlevleri için Excel gibi profesyonel yazılımların kullanılması önerilir.</translation>
     </message>
 </context>
 <context>
@@ -1087,40 +1064,40 @@
         <location filename="../main.py" line="443"/>
         <location filename="../extraction_official_form.py" line="66"/>
         <source>extracting...</source>
-        <translation>extrahieren...</translation>
+        <translation>çıkartılıyor...</translation>
     </message>
     <message>
         <location filename="../main.py" line="434"/>
         <location filename="../main.py" line="521"/>
         <source>translating...</source>
-        <translation>übersetzen...</translation>
+        <translation>Çevriliyor...</translation>
     </message>
     <message>
         <location filename="../main.py" line="437"/>
         <location filename="../ui.ui" line="100"/>
         <source>translate</source>
-        <translation>übersetzen</translation>
+        <translation>Çevir</translation>
     </message>
     <message>
         <location filename="../main.py" line="447"/>
         <location filename="../extraction_official_form.py" line="88"/>
         <source>extract</source>
-        <translation>Extrakt</translation>
+        <translation>çıkar</translation>
     </message>
     <message>
         <location filename="../main.py" line="468"/>
         <source>select the file(s) you want to translate</source>
-        <translation>Wählen Sie die Datei(en) aus, die Sie übersetzen möchten</translation>
+        <translation>çevirmek istediğiniz dosya(lar)ı seçin</translation>
     </message>
     <message>
         <location filename="../main.py" line="479"/>
         <source>select the directory you want to translate</source>
-        <translation>Wählen Sie das Verzeichnis aus, das Sie übersetzen möchten</translation>
+        <translation>çevirmek istediğiniz dizini seçin</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="14"/>
         <source>Ren&apos;py Translator</source>
-        <translation>Ren&apos;py-Übersetzer</translation>
+        <translation>Ren&apos;py Çevirici</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="113"/>
@@ -1131,187 +1108,187 @@
     <message>
         <location filename="../ui.ui" line="126"/>
         <source>directory</source>
-        <translation>Verzeichnis</translation>
+        <translation>dizin</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="142"/>
         <source>file(s)</source>
-        <translation>Datei(en)</translation>
+        <translation>dosya(lar)</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="161"/>
         <source>input or choose or drag the file(s) you want to translate here. Examaple : F:\GameName\game\tl\language\script.rpy</source>
-        <translation>Geben Sie hier die Datei(en) ein, die Sie übersetzen möchten, oder wählen Sie sie aus oder ziehen Sie sie per Drag &amp; Drop. Beispiel: F:\GameName\game\tl\sprache\script.rpy</translation>
+        <translation>düzenlemek istediğiniz dosyaları buraya girin veya seçin veya sürükleyin. Örnek: F:\GameName\game\tl\language\script.rpy</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="187"/>
         <source>input or choose or drag the directory you want translate here.  Example:F:\GameName\game\tl\language</source>
-        <translation>Geben Sie hier das Verzeichnis ein, das Sie übersetzen möchten, oder wählen Sie es aus oder ziehen Sie es per Drag &amp; Drop. Beispiel:F:\GameName\game\tl\sprache</translation>
+        <translation>düzenlemek istediğiniz dizini buraya girin veya seçin veya sürükleyin. Örnek: F:\GameName\game\tl\language</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="205"/>
         <source>translation</source>
-        <translation>Übersetzung</translation>
+        <translation>çeviri</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="218"/>
         <source>target</source>
-        <translation>Ziel</translation>
+        <translation>hedef</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="234"/>
         <source>source</source>
-        <translation>Quelle</translation>
+        <translation>kaynak</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="289"/>
         <source>Generate Backup Files (xxx.rpy.bak)</source>
-        <translation>Sicherungsdateien generieren (xxx.rpy.bak)</translation>
+        <translation>Yedekleme Dosyaları Oluştur (xxx.rpy.bak)</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="302"/>
         <source>Local Glossary (replace certain words with preset content)</source>
-        <translation>Lokales Glossar (bestimmte Wörter durch voreingestellte Inhalte ersetzen)</translation>
+        <translation>Yerel Sözlük (belirli kelimeleri önceden ayarlanmış içerikle değiştirin)</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="321"/>
         <source>Translation Source</source>
-        <translation>Übersetzungsquelle</translation>
+        <translation>Çeviri Kaynağı</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="340"/>
         <source>Original</source>
-        <translation>Original</translation>
+        <translation>Orijinal</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="359"/>
         <source>Current</source>
-        <translation>Aktuell</translation>
+        <translation>Şimdiki</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="375"/>
         <source>Skip Translated (Original != Current)</source>
-        <translation>Übersetzt überspringen (Original != Aktuell)</translation>
+        <translation>Çevrileni Atla (Orijinal != Şimdiki)</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="431"/>
         <source>advanced options</source>
-        <translation>erweiterte Optionen</translation>
+        <translation>gelişmiş ayarlar</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="465"/>
         <source>theme</source>
-        <translation>Thema</translation>
+        <translation>tema</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="584"/>
         <source>unpack game package</source>
-        <translation>Spielpaket auspacken</translation>
+        <translation>oyun paketini aç</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="684"/>
         <source>extract translation</source>
-        <translation>Übersetzung extrahieren</translation>
+        <translation>çeviriyi çıkar</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="689"/>
         <source>runtime extraction</source>
-        <translation>Laufzeitextraktion</translation>
+        <translation>çalışma zamanı çıkarma</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="704"/>
         <source>add change langauge entrance</source>
-        <translation>Spracheingabe hinzufügen</translation>
+        <translation>değişim dili girişi ekle</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="709"/>
         <source>one key translate</source>
-        <translation>eine Schlüsselübersetzung</translation>
+        <translation>bir anahtar çeviri</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="714"/>
         <source>official extraction</source>
-        <translation>Offizielle Extraktion</translation>
+        <translation>resmi çıkarma</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="719"/>
         <source>convert txt to html</source>
-        <translation>txt in html konvertieren</translation>
+        <translation>txt&apos;yi html&apos;ye dönüştür</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="270"/>
         <source>Multi-threaded translation</source>
-        <translation>Multithread-Übersetzung</translation>
+        <translation>Çok iş parçacıklı çeviri</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
         <source>Version 2.1.1</source>
-        <translation>Version 2.1.1</translation>
+        <translation>Sürüm 2.1.1</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="391"/>
         <source>(If disable, translation will continue after the previous file has been translated)</source>
-        <translation>(Wenn deaktiviert, wird die Übersetzung fortgesetzt, nachdem die vorherige Datei übersetzt wurde)</translation>
+        <translation>(Devre dışı bırakılırsa, önceki dosya çevrildikten sonra çeviri devam edecektir)</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="46"/>
         <source>©2024 Last moment,All rights reserved.</source>
-        <translation>©2024 Last Moment, Alle Rechte vorbehalten.</translation>
+        <translation>©2024 Son an,Tüm hakları saklıdır.</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="579"/>
         <source>replace font</source>
-        <translation>Schriftart ersetzen</translation>
+        <translation>yazı tipini değiştir</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="33"/>
         <source>clear log</source>
-        <translation>Protokoll löschen</translation>
+        <translation>Kayıtları temizle</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="412"/>
         <source>about</source>
-        <translation>um</translation>
+        <translation>hakkında</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="418"/>
         <source>proxy</source>
-        <translation>Proxy</translation>
+        <translation>vekil sunucu</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="424"/>
         <source>translation engine</source>
-        <translation>Übersetzungsmaschine</translation>
+        <translation>çeviri motoru</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="446"/>
         <source>language</source>
-        <translation>Sprache</translation>
+        <translation>dil</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="496"/>
         <source>copyright</source>
-        <translation>Urheberrechte ©</translation>
+        <translation>telif hakkı</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="501"/>
         <source>proxy settings</source>
-        <translation>Proxy-Einstellungen</translation>
+        <translation>vekil sunucu ayarları</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="506"/>
         <source>engine settings</source>
-        <translation>Motoreinstellungen</translation>
+        <translation>motor ayarları</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="511"/>
         <source>custom engine</source>
-        <translation>benutzerdefinierte Engine</translation>
+        <translation>özel motor</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="516"/>
         <source>edit from rpy</source>
-        <translation>Bearbeiten von rpy</translation>
+        <translation>rpy&apos;dan düzenle</translation>
     </message>
 </context>
 <context>
@@ -1319,7 +1296,7 @@
     <message>
         <location filename="../one_key_translate.ui" line="14"/>
         <source>One Key Translate</source>
-        <translation>eine Schlüsselübersetzung</translation>
+        <translation>bir anahtar çeviri</translation>
     </message>
     <message>
         <location filename="../one_key_translate.ui" line="26"/>
@@ -1330,112 +1307,112 @@
     <message>
         <location filename="../one_key_translate.ui" line="42"/>
         <source>input or choose or drag the game you want to extract it&apos;s dialogues.Example:F:/DemoGame.exe</source>
-        <translation>Geben Sie das Spiel ein oder wählen oder ziehen Sie es, dessen Dialoge Sie extrahieren möchten. Beispiel: F:/DemoGame.exe</translation>
+        <translation>diyaloglarını çıkarmak istediğiniz oyunu girin veya seçin veya sürükleyin. Örnek: F:/DemoGame.exe</translation>
     </message>
     <message>
         <location filename="../one_key_translate.ui" line="55"/>
         <source>Input the directory name under game\tl  Example: &apos;japanese&apos; or &apos;chinese&apos;.If the folder already exists, the content will be appended to the original file</source>
-        <translation>Geben Sie den Verzeichnisnamen unter game\tl ein. Beispiel: „japanese“ oder „chinese“. Wenn der Ordner bereits vorhanden ist, wird der Inhalt an die Originaldatei angehängt</translation>
+        <translation>Oyunun altındaki dizin adını girin\tl örnek: &apos;japanese&apos; veya &apos;chinese&apos;.Klasör zaten varsa, içerik orijinal dosyaya eklenecektir</translation>
     </message>
     <message>
         <location filename="../one_key_translate.ui" line="68"/>
         <source>tl name</source>
-        <translation>tl Name</translation>
+        <translation>tl ad</translation>
     </message>
     <message>
         <location filename="../one_key_translate.ui" line="84"/>
         <source>file</source>
-        <translation>Datei</translation>
+        <translation>dosya</translation>
     </message>
     <message>
         <location filename="../one_key_translate.ui" line="100"/>
         <source>target</source>
-        <translation>Ziel</translation>
+        <translation>hedef</translation>
     </message>
     <message>
         <location filename="../one_key_translate.ui" line="113"/>
         <source>Change Translation Engine</source>
-        <translation>Übersetzungs-Engine ändern</translation>
+        <translation>Çeviri Motorunu Değiştir</translation>
     </message>
     <message>
         <location filename="../one_key_translate.ui" line="146"/>
         <source>source</source>
-        <translation>Quelle</translation>
+        <translation>kaynak</translation>
     </message>
     <message>
         <location filename="../one_key_translate.ui" line="159"/>
         <source>Local Glossary (replace certain words with preset content)</source>
-        <translation>Lokales Glossar (bestimmte Wörter durch voreingestellte Inhalte ersetzen)</translation>
+        <translation>Yerel Sözlük (belirli kelimeleri önceden ayarlanmış içerikle değiştirin)</translation>
     </message>
     <message>
         <location filename="../one_key_translate.ui" line="185"/>
         <source>font</source>
-        <translation>Schriftart</translation>
+        <translation>yazı tipi</translation>
     </message>
     <message>
         <location filename="../one_key_translate.ui" line="201"/>
         <source>input or choose or drag the font which supports the language after translation. Example : DejaVuSans.ttf (ren&apos;py &apos;s default font)</source>
-        <translation>Geben Sie die Schriftart ein oder wählen oder ziehen Sie sie, die die Sprache nach der Übersetzung unterstützt. Beispiel: DejaVuSans.ttf (Ren&apos;pys Standardschriftart)</translation>
+        <translation>çeviriden sonra dili destekleyen yazı tipini girin veya seçin veya sürükleyin. Örnek : DejaVuSans.ttf (ren&apos;py&apos;nin varsayılan yazı tipi)</translation>
     </message>
     <message>
         <location filename="../one_key_translate.ui" line="214"/>
         <source>Unpack Game Package</source>
-        <translation>Spielpaket auspacken</translation>
+        <translation>oyun paketini aç</translation>
     </message>
     <message>
         <location filename="../one_key_translate.ui" line="230"/>
         <source>Runtime Extraction</source>
-        <translation>Laufzeitextraktion</translation>
+        <translation>Çalışma Zamanı Çıkarma</translation>
     </message>
     <message>
         <location filename="../one_key_translate.ui" line="246"/>
         <source>Extraction</source>
-        <translation>Extraktion</translation>
+        <translation>Çıkarma</translation>
     </message>
     <message>
         <location filename="../one_key_translate.ui" line="262"/>
         <source>Replace Font</source>
-        <translation>Schriftart ersetzen</translation>
+        <translation>yazı tipini değiştir</translation>
     </message>
     <message>
         <location filename="../one_key_translate.ui" line="278"/>
         <source>Add Change Langauge Entrance</source>
-        <translation>Spracheingabe hinzufügen</translation>
+        <translation>değişim dili girişi ekle</translation>
     </message>
     <message>
         <location filename="../one_key_translate.ui" line="294"/>
         <source>Translate</source>
-        <translation>übersetzen</translation>
+        <translation>Çevir</translation>
     </message>
     <message>
         <location filename="../one_key_translate.ui" line="310"/>
         <source>Enable filter for extract</source>
-        <translation>Filter für Extrakt aktivieren</translation>
+        <translation>Çıkarma için filtreyi etkinleştir</translation>
     </message>
     <message>
         <location filename="../one_key_translate.ui" line="339"/>
         <source>filter length less than</source>
-        <translation>Filterlänge kleiner als</translation>
+        <translation>filtre uzunluğu daha az</translation>
     </message>
     <message>
         <location filename="../one_key_translate.ui" line="355"/>
         <source>Start</source>
-        <translation>Start</translation>
+        <translation>Başlangıç</translation>
     </message>
     <message>
         <location filename="../one_key_translate.ui" line="368"/>
         <source>Official Extraction</source>
-        <translation>Offizielle Extraktion</translation>
+        <translation>Resmi Çıkarma</translation>
     </message>
     <message>
         <location filename="../one_key_translate_form.py" line="426"/>
         <source>select the game file</source>
-        <translation>Wählen Sie die Spieldatei aus</translation>
+        <translation>Dosyayı seçin</translation>
     </message>
     <message>
         <location filename="../one_key_translate_form.py" line="493"/>
         <source>One Key Translate Complete</source>
-        <translation>One-Key-Übersetzung abgeschlossen</translation>
+        <translation>Tek Tuşla Çeviri Tamamlandı</translation>
     </message>
 </context>
 <context>
@@ -1443,27 +1420,27 @@
     <message>
         <location filename="../proxy.ui" line="14"/>
         <source>ProxySettings</source>
-        <translation>Proxy-Einstellungen</translation>
+        <translation>Vekil Sunucu Ayarları</translation>
     </message>
     <message>
         <location filename="../proxy.ui" line="26"/>
         <source>Enable Proxy</source>
-        <translation>Proxy aktivieren</translation>
+        <translation>Vekil Sunucuyu Etkinleştir</translation>
     </message>
     <message>
         <location filename="../proxy.ui" line="39"/>
         <source>example : http://localhost:10809</source>
-        <translation>Beispiel: http://localhost:10809</translation>
+        <translation>örnek: http://localhost:10809</translation>
     </message>
     <message>
         <location filename="../proxy.ui" line="52"/>
         <source>proxy address:</source>
-        <translation>Proxy-Adresse:</translation>
+        <translation>vekil sunucu adresi:</translation>
     </message>
     <message>
         <location filename="../proxy.ui" line="68"/>
         <source>confirm</source>
-        <translation>bestätigen</translation>
+        <translation>onayla</translation>
     </message>
 </context>
 </TS>
