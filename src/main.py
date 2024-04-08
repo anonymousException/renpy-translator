@@ -531,14 +531,16 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
             self.translating = False
 
     def translate_threads_over(self):
-        threads_len = len(translate_threads)
-        for t in translate_threads:
-            if t.is_alive():
-                t.join()
-            translate_threads.remove(t)
-        translate_threads.clear()
-        if threads_len > 0:
-            log_print('translate all complete!')
+        while True:
+            threads_len = len(translate_threads)
+            if threads_len > 0:
+                for t in translate_threads:
+                    if t.is_alive():
+                        t.join()
+                    translate_threads.remove(t)
+            else:
+                break
+        log_print('translate all complete!')
         self.translating = False
 
 

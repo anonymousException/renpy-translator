@@ -143,11 +143,15 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
             qDic[self.translate] = True
 
     def translate_threads_over(self):
-        for t in translate_threads:
-            if t.is_alive():
-                t.join()
-            translate_threads.remove(t)
-        translate_threads.clear()
+        while True:
+            threads_len = len(translate_threads)
+            if threads_len > 0:
+                for t in translate_threads:
+                    if t.is_alive():
+                        t.join()
+                    translate_threads.remove(t)
+            else:
+                break
         log_print('translate all complete!')
         qDic[self.translate] = True
         self.setEnabled(True)

@@ -140,12 +140,14 @@ class MyExtractionForm(QDialog, Ui_ExtractionDialog):
             self.parent.extracting = False
 
     def extract_threads_over(self):
-        threads_len = len(extract_threads)
-        for t in extract_threads:
-            if t.is_alive():
-                t.join()
-            extract_threads.remove(t)
-        extract_threads.clear()
-        if threads_len > 0:
-            log_print('extract all complete!')
+        while True:
+            threads_len = len(extract_threads)
+            if threads_len > 0:
+                for t in extract_threads:
+                    if t.is_alive():
+                        t.join()
+                    extract_threads.remove(t)
+            else:
+                break
+        log_print('extract all complete!')
         self.parent.extracting = False
