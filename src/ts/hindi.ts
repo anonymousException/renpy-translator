@@ -608,6 +608,11 @@
         <source>custom model</source>
         <translation>कस्टम मॉडल</translation>
     </message>
+    <message>
+        <location filename="../engine.ui" line="308"/>
+        <source>time_out (The max time wait for each request .for gpt-3.5 it&apos;s recommended to 120s , for gpt-4 it&apos;s recommened to 240s) :</source>
+        <translation>टाइम_आउट (प्रत्येक अनुरोध के लिए प्रतीक्षा का अधिकतम समय। gpt-3.5 के लिए इसे 120s तक अनुशंसित किया जाता है, gpt-4 के लिए इसे 240s तक अनुशंसित किया जाता है):</translation>
+    </message>
 </context>
 <context>
     <name>ExportSettingDialog</name>
@@ -830,13 +835,13 @@
 <context>
     <name>FontReplaceDialog</name>
     <message>
-        <location filename="../font_replace_form.py" line="23"/>
+        <location filename="../font_replace_form.py" line="27"/>
         <source>select the directory you want to extract</source>
         <translation>वह निर्देशिका चुनें जिसे आप निकालना चाहते हैं</translation>
     </message>
     <message>
-        <location filename="../font_replace_form.py" line="28"/>
-        <location filename="../one_key_translate_form.py" line="306"/>
+        <location filename="../font_replace_form.py" line="32"/>
+        <location filename="../one_key_translate_form.py" line="310"/>
         <source>select the file font which supports the translated language</source>
         <translation>उस फ़ाइल फ़ॉन्ट का चयन करें जो अनुवादित भाषा का समर्थन करता है</translation>
     </message>
@@ -1104,25 +1109,25 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../main.py" line="443"/>
+        <location filename="../main.py" line="444"/>
         <location filename="../extraction_official_form.py" line="66"/>
         <source>extracting...</source>
         <translation>निकाल रहा हूँ...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="434"/>
-        <location filename="../main.py" line="521"/>
+        <location filename="../main.py" line="435"/>
+        <location filename="../main.py" line="522"/>
         <source>translating...</source>
         <translation>अनुवाद कर रहा हूँ...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="437"/>
+        <location filename="../main.py" line="438"/>
         <location filename="../ui.ui" line="100"/>
         <source>translate</source>
         <translation>अनुवाद</translation>
     </message>
     <message>
-        <location filename="../main.py" line="447"/>
+        <location filename="../main.py" line="448"/>
         <location filename="../extraction_official_form.py" line="88"/>
         <source>extract</source>
         <translation>निकालना</translation>
@@ -1136,12 +1141,12 @@
         <translation type="vanished">वह निर्देशिका चुनें जिसे आप निकालना चाहते हैं</translation>
     </message>
     <message>
-        <location filename="../main.py" line="468"/>
+        <location filename="../main.py" line="469"/>
         <source>select the file(s) you want to translate</source>
         <translation>वह फ़ाइल चुनें जिसका आप अनुवाद करना चाहते हैं</translation>
     </message>
     <message>
-        <location filename="../main.py" line="479"/>
+        <location filename="../main.py" line="480"/>
         <source>select the directory you want to translate</source>
         <translation>वह निर्देशिका चुनें जिसका आप अनुवाद करना चाहते हैं</translation>
     </message>
@@ -1152,8 +1157,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.1.1</source>
-        <translation>संस्करण 2.1.1</translation>
+        <source>Version 2.1.2</source>
+        <translation>संस्करण 2.1.2</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="113"/>
@@ -1232,42 +1237,42 @@
         <translation>उन्नत विकल्प</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="465"/>
+        <location filename="../ui.ui" line="466"/>
         <source>theme</source>
         <translation>विषय</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="584"/>
+        <location filename="../ui.ui" line="585"/>
         <source>unpack game package</source>
         <translation>गेम पैकेज को अनपैक करें</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="684"/>
+        <location filename="../ui.ui" line="685"/>
         <source>extract translation</source>
         <translation>अनुवाद निकालें</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="689"/>
+        <location filename="../ui.ui" line="690"/>
         <source>runtime extraction</source>
         <translation>रनटाइम निष्कर्षण</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="704"/>
+        <location filename="../ui.ui" line="705"/>
         <source>add change langauge entrance</source>
         <translation>परिवर्तन भाषा प्रवेश द्वार जोड़ें</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="709"/>
+        <location filename="../ui.ui" line="710"/>
         <source>one key translate</source>
         <translation>एक कुंजी अनुवाद</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="714"/>
+        <location filename="../ui.ui" line="715"/>
         <source>official extraction</source>
         <translation>आधिकारिक निष्कर्षण</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="719"/>
+        <location filename="../ui.ui" line="720"/>
         <source>convert txt to html</source>
         <translation>txt को html में बदलें</translation>
     </message>
@@ -1295,7 +1300,7 @@
         <translation type="vanished">अनुवाद के बाद भाषा का समर्थन करने वाले फ़ॉन्ट को इनपुट करें या चुनें या खींचें। उदाहरण: DejaVuSans.ttf (ren&apos;py का डिफ़ॉल्ट फ़ॉन्ट)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="579"/>
+        <location filename="../ui.ui" line="580"/>
         <source>replace font</source>
         <translation>फ़ॉन्ट बदलें</translation>
     </message>
@@ -1381,27 +1386,27 @@
         <translation>भाषा</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="496"/>
+        <location filename="../ui.ui" line="497"/>
         <source>copyright</source>
         <translation>कॉपीराइट</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="501"/>
+        <location filename="../ui.ui" line="502"/>
         <source>proxy settings</source>
         <translation>प्रॉक्सी सेटिंग</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="506"/>
+        <location filename="../ui.ui" line="507"/>
         <source>engine settings</source>
         <translation>इंजन सेटिंग्स</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="511"/>
+        <location filename="../ui.ui" line="512"/>
         <source>custom engine</source>
         <translation>कस्टम इंजन</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="516"/>
+        <location filename="../ui.ui" line="517"/>
         <source>edit from rpy</source>
         <translation>rpy से संपादित करें</translation>
     </message>
@@ -1520,12 +1525,12 @@
         <translation>आधिकारिक निष्कर्षण</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="426"/>
+        <location filename="../one_key_translate_form.py" line="430"/>
         <source>select the game file</source>
         <translation>गेम फ़ाइल का चयन करें</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="493"/>
+        <location filename="../one_key_translate_form.py" line="497"/>
         <source>One Key Translate Complete</source>
         <translation>एक कुंजी अनुवाद पूर्ण</translation>
     </message>

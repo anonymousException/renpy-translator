@@ -608,6 +608,11 @@
         <source>custom model</source>
         <translation>пользовательская модель</translation>
     </message>
+    <message>
+        <location filename="../engine.ui" line="308"/>
+        <source>time_out (The max time wait for each request .for gpt-3.5 it&apos;s recommended to 120s , for gpt-4 it&apos;s recommened to 240s) :</source>
+        <translation>time_out (Максимальное время ожидания каждого запроса. Для gpt-3.5 рекомендуется 120 с, для gpt-4 рекомендуется 240 с):</translation>
+    </message>
 </context>
 <context>
     <name>ExportSettingDialog</name>
@@ -830,13 +835,13 @@
 <context>
     <name>FontReplaceDialog</name>
     <message>
-        <location filename="../font_replace_form.py" line="23"/>
+        <location filename="../font_replace_form.py" line="27"/>
         <source>select the directory you want to extract</source>
         <translation>выберите каталог, который вы хотите извлечь</translation>
     </message>
     <message>
-        <location filename="../font_replace_form.py" line="28"/>
-        <location filename="../one_key_translate_form.py" line="306"/>
+        <location filename="../font_replace_form.py" line="32"/>
+        <location filename="../one_key_translate_form.py" line="310"/>
         <source>select the file font which supports the translated language</source>
         <translation>выберите шрифт файла, который поддерживает переведенный язык</translation>
     </message>
@@ -1104,25 +1109,25 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../main.py" line="443"/>
+        <location filename="../main.py" line="444"/>
         <location filename="../extraction_official_form.py" line="66"/>
         <source>extracting...</source>
         <translation>извлечение...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="434"/>
-        <location filename="../main.py" line="521"/>
+        <location filename="../main.py" line="435"/>
+        <location filename="../main.py" line="522"/>
         <source>translating...</source>
         <translation>Идет перевод...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="437"/>
+        <location filename="../main.py" line="438"/>
         <location filename="../ui.ui" line="100"/>
         <source>translate</source>
         <translation>переводить</translation>
     </message>
     <message>
-        <location filename="../main.py" line="447"/>
+        <location filename="../main.py" line="448"/>
         <location filename="../extraction_official_form.py" line="88"/>
         <source>extract</source>
         <translation>извлекать</translation>
@@ -1136,12 +1141,12 @@
         <translation type="vanished">выберите каталог, который вы хотите извлечь</translation>
     </message>
     <message>
-        <location filename="../main.py" line="468"/>
+        <location filename="../main.py" line="469"/>
         <source>select the file(s) you want to translate</source>
         <translation>выберите файл(ы), которые вы хотите перевести</translation>
     </message>
     <message>
-        <location filename="../main.py" line="479"/>
+        <location filename="../main.py" line="480"/>
         <source>select the directory you want to translate</source>
         <translation>выберите каталог, который вы хотите перевести</translation>
     </message>
@@ -1152,8 +1157,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.1.1</source>
-        <translation>Версия 2.1.1</translation>
+        <source>Version 2.1.2</source>
+        <translation>Версия 2.1.2</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="113"/>
@@ -1232,42 +1237,42 @@
         <translation>Расширенные опции</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="465"/>
+        <location filename="../ui.ui" line="466"/>
         <source>theme</source>
         <translation>тема</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="584"/>
+        <location filename="../ui.ui" line="585"/>
         <source>unpack game package</source>
         <translation>распаковать пакет игры</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="684"/>
+        <location filename="../ui.ui" line="685"/>
         <source>extract translation</source>
         <translation>извлечь перевод</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="689"/>
+        <location filename="../ui.ui" line="690"/>
         <source>runtime extraction</source>
         <translation>Извлечение во время выполнения</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="704"/>
+        <location filename="../ui.ui" line="705"/>
         <source>add change langauge entrance</source>
         <translation>Добавить вход на смену языка</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="709"/>
+        <location filename="../ui.ui" line="710"/>
         <source>one key translate</source>
         <translation>один ключ, перевод</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="714"/>
+        <location filename="../ui.ui" line="715"/>
         <source>official extraction</source>
         <translation>Официальное извлечение</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="719"/>
+        <location filename="../ui.ui" line="720"/>
         <source>convert txt to html</source>
         <translation>конвертировать txt в html</translation>
     </message>
@@ -1295,7 +1300,7 @@
         <translation type="vanished">введите или выберите или перетащите шрифт, который поддерживает язык после перевода. Пример: DejaVuSans.ttf (шрифт ren&apos;py по умолчанию)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="579"/>
+        <location filename="../ui.ui" line="580"/>
         <source>replace font</source>
         <translation>заменить шрифт</translation>
     </message>
@@ -1381,27 +1386,27 @@
         <translation>язык</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="496"/>
+        <location filename="../ui.ui" line="497"/>
         <source>copyright</source>
         <translation>Авторские права</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="501"/>
+        <location filename="../ui.ui" line="502"/>
         <source>proxy settings</source>
         <translation>настройки прокси</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="506"/>
+        <location filename="../ui.ui" line="507"/>
         <source>engine settings</source>
         <translation>настройки двигателя</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="511"/>
+        <location filename="../ui.ui" line="512"/>
         <source>custom engine</source>
         <translation>специальный движок</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="516"/>
+        <location filename="../ui.ui" line="517"/>
         <source>edit from rpy</source>
         <translation>редактировать из rpy</translation>
     </message>
@@ -1520,12 +1525,12 @@
         <translation>Официальное извлечение</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="426"/>
+        <location filename="../one_key_translate_form.py" line="430"/>
         <source>select the game file</source>
         <translation>выберите файл игры</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="493"/>
+        <location filename="../one_key_translate_form.py" line="497"/>
         <source>One Key Translate Complete</source>
         <translation>One Key Translate завершен</translation>
     </message>

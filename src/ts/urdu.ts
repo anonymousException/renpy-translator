@@ -608,6 +608,11 @@
         <source>custom model</source>
         <translation>اپنی مرضی کے مطابق ماڈل</translation>
     </message>
+    <message>
+        <location filename="../engine.ui" line="308"/>
+        <source>time_out (The max time wait for each request .for gpt-3.5 it&apos;s recommended to 120s , for gpt-4 it&apos;s recommened to 240s) :</source>
+        <translation>time_out (ہر درخواست کے لیے انتظار کرنے کا زیادہ سے زیادہ وقت .gpt-3.5 کے لیے 120s پر تجویز کیا جاتا ہے، gpt-4 کے لیے اسے 240s کرنے کی سفارش کی جاتی ہے):</translation>
+    </message>
 </context>
 <context>
     <name>ExportSettingDialog</name>
@@ -830,13 +835,13 @@
 <context>
     <name>FontReplaceDialog</name>
     <message>
-        <location filename="../font_replace_form.py" line="23"/>
+        <location filename="../font_replace_form.py" line="27"/>
         <source>select the directory you want to extract</source>
         <translation>وہ ڈائریکٹری منتخب کریں جسے آپ نکالنا چاہتے ہیں۔</translation>
     </message>
     <message>
-        <location filename="../font_replace_form.py" line="28"/>
-        <location filename="../one_key_translate_form.py" line="306"/>
+        <location filename="../font_replace_form.py" line="32"/>
+        <location filename="../one_key_translate_form.py" line="310"/>
         <source>select the file font which supports the translated language</source>
         <translation>فائل کا فونٹ منتخب کریں جو ترجمہ شدہ زبان کو سپورٹ کرتا ہے۔</translation>
     </message>
@@ -1104,25 +1109,25 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../main.py" line="443"/>
+        <location filename="../main.py" line="444"/>
         <location filename="../extraction_official_form.py" line="66"/>
         <source>extracting...</source>
         <translation>نکال رہا ہے...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="434"/>
-        <location filename="../main.py" line="521"/>
+        <location filename="../main.py" line="435"/>
+        <location filename="../main.py" line="522"/>
         <source>translating...</source>
         <translation>ترجمہ...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="437"/>
+        <location filename="../main.py" line="438"/>
         <location filename="../ui.ui" line="100"/>
         <source>translate</source>
         <translation>ترجمہ</translation>
     </message>
     <message>
-        <location filename="../main.py" line="447"/>
+        <location filename="../main.py" line="448"/>
         <location filename="../extraction_official_form.py" line="88"/>
         <source>extract</source>
         <translation>نکالنا</translation>
@@ -1136,12 +1141,12 @@
         <translation type="vanished">وہ ڈائریکٹری منتخب کریں جسے آپ نکالنا چاہتے ہیں۔</translation>
     </message>
     <message>
-        <location filename="../main.py" line="468"/>
+        <location filename="../main.py" line="469"/>
         <source>select the file(s) you want to translate</source>
         <translation>وہ فائل (فائلیں) منتخب کریں جس کا آپ ترجمہ کرنا چاہتے ہیں۔</translation>
     </message>
     <message>
-        <location filename="../main.py" line="479"/>
+        <location filename="../main.py" line="480"/>
         <source>select the directory you want to translate</source>
         <translation>وہ ڈائریکٹری منتخب کریں جس کا آپ ترجمہ کرنا چاہتے ہیں۔</translation>
     </message>
@@ -1152,8 +1157,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.1.1</source>
-        <translation>ورژن 2.1.1</translation>
+        <source>Version 2.1.2</source>
+        <translation>ورژن 2.1.2</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="113"/>
@@ -1232,42 +1237,42 @@
         <translation>اعلی درجے کے اختیارات</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="465"/>
+        <location filename="../ui.ui" line="466"/>
         <source>theme</source>
         <translation>خیالیہ</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="584"/>
+        <location filename="../ui.ui" line="585"/>
         <source>unpack game package</source>
         <translation>گیم پیکج کھولیں۔</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="684"/>
+        <location filename="../ui.ui" line="685"/>
         <source>extract translation</source>
         <translation>ترجمہ نکالیں۔</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="689"/>
+        <location filename="../ui.ui" line="690"/>
         <source>runtime extraction</source>
         <translation>رن ٹائم نکالنا</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="704"/>
+        <location filename="../ui.ui" line="705"/>
         <source>add change langauge entrance</source>
         <translation>تبدیلی کی زبان کا داخلہ شامل کریں۔</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="709"/>
+        <location filename="../ui.ui" line="710"/>
         <source>one key translate</source>
         <translation>ایک اہم ترجمہ</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="714"/>
+        <location filename="../ui.ui" line="715"/>
         <source>official extraction</source>
         <translation>سرکاری نکالنا</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="719"/>
+        <location filename="../ui.ui" line="720"/>
         <source>convert txt to html</source>
         <translation>txt کو html میں تبدیل کریں۔</translation>
     </message>
@@ -1295,7 +1300,7 @@
         <translation type="vanished">ترجمہ کے بعد زبان کو سپورٹ کرنے والا فونٹ داخل کریں یا منتخب کریں یا گھسیٹیں۔ مثال: DejaVuSans.ttf (ren&apos;py کا ڈیفالٹ فونٹ)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="579"/>
+        <location filename="../ui.ui" line="580"/>
         <source>replace font</source>
         <translation>فونٹ تبدیل کریں</translation>
     </message>
@@ -1381,27 +1386,27 @@
         <translation>زبان</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="496"/>
+        <location filename="../ui.ui" line="497"/>
         <source>copyright</source>
         <translation>کاپی رائٹ</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="501"/>
+        <location filename="../ui.ui" line="502"/>
         <source>proxy settings</source>
         <translation>پراکسی ترتیبات</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="506"/>
+        <location filename="../ui.ui" line="507"/>
         <source>engine settings</source>
         <translation>انجن کی ترتیبات</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="511"/>
+        <location filename="../ui.ui" line="512"/>
         <source>custom engine</source>
         <translation>اپنی مرضی کے انجن</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="516"/>
+        <location filename="../ui.ui" line="517"/>
         <source>edit from rpy</source>
         <translation>rpy سے ترمیم کریں۔</translation>
     </message>
@@ -1520,12 +1525,12 @@
         <translation>سرکاری نکالنا</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="426"/>
+        <location filename="../one_key_translate_form.py" line="430"/>
         <source>select the game file</source>
         <translation>گیم فائل کو منتخب کریں۔</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="493"/>
+        <location filename="../one_key_translate_form.py" line="497"/>
         <source>One Key Translate Complete</source>
         <translation>ایک کلیدی ترجمہ مکمل</translation>
     </message>

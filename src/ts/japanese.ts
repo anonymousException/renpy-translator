@@ -608,6 +608,11 @@
         <source>custom model</source>
         <translation>カスタムモデル</translation>
     </message>
+    <message>
+        <location filename="../engine.ui" line="308"/>
+        <source>time_out (The max time wait for each request .for gpt-3.5 it&apos;s recommended to 120s , for gpt-4 it&apos;s recommened to 240s) :</source>
+        <translation>time_out (各リクエストの最大待機時間。gpt-3.5 の場合は 120 秒が推奨され、gpt-4 の場合は 240 秒が推奨されます):</translation>
+    </message>
 </context>
 <context>
     <name>ExportSettingDialog</name>
@@ -830,13 +835,13 @@
 <context>
     <name>FontReplaceDialog</name>
     <message>
-        <location filename="../font_replace_form.py" line="23"/>
+        <location filename="../font_replace_form.py" line="27"/>
         <source>select the directory you want to extract</source>
         <translation>抽出したいディレクトリを選択します</translation>
     </message>
     <message>
-        <location filename="../font_replace_form.py" line="28"/>
-        <location filename="../one_key_translate_form.py" line="306"/>
+        <location filename="../font_replace_form.py" line="32"/>
+        <location filename="../one_key_translate_form.py" line="310"/>
         <source>select the file font which supports the translated language</source>
         <translation>翻訳された言語をサポートするファイルフォントを選択します</translation>
     </message>
@@ -1109,19 +1114,19 @@
         <translation>レンピー翻訳者</translation>
     </message>
     <message>
-        <location filename="../main.py" line="443"/>
+        <location filename="../main.py" line="444"/>
         <location filename="../extraction_official_form.py" line="66"/>
         <source>extracting...</source>
         <translation>抽出中...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="434"/>
-        <location filename="../main.py" line="521"/>
+        <location filename="../main.py" line="435"/>
+        <location filename="../main.py" line="522"/>
         <source>translating...</source>
         <translation>翻訳中...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="437"/>
+        <location filename="../main.py" line="438"/>
         <location filename="../ui.ui" line="100"/>
         <source>translate</source>
         <translation>翻訳する</translation>
@@ -1135,19 +1140,19 @@
         <translation type="vanished">抽出したいディレクトリを選択します</translation>
     </message>
     <message>
-        <location filename="../main.py" line="468"/>
+        <location filename="../main.py" line="469"/>
         <source>select the file(s) you want to translate</source>
         <translation>翻訳したいファイルを選択します</translation>
     </message>
     <message>
-        <location filename="../main.py" line="479"/>
+        <location filename="../main.py" line="480"/>
         <source>select the directory you want to translate</source>
         <translation>翻訳したいディレクトリを選択します</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.1.1</source>
-        <translation>バージョン2.1.1</translation>
+        <source>Version 2.1.2</source>
+        <translation>バージョン2.1.2</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="113"/>
@@ -1226,32 +1231,32 @@
         <translation>翻訳をスキップ (オリジナル != 現在)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="684"/>
+        <location filename="../ui.ui" line="685"/>
         <source>extract translation</source>
         <translation>翻訳を抜粋</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="689"/>
+        <location filename="../ui.ui" line="690"/>
         <source>runtime extraction</source>
         <translation>ランタイム抽出</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="704"/>
+        <location filename="../ui.ui" line="705"/>
         <source>add change langauge entrance</source>
         <translation>言語変更の入り口を追加</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="709"/>
+        <location filename="../ui.ui" line="710"/>
         <source>one key translate</source>
         <translation>ワンキー翻訳</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="714"/>
+        <location filename="../ui.ui" line="715"/>
         <source>official extraction</source>
         <translation>公式抽出</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="719"/>
+        <location filename="../ui.ui" line="720"/>
         <source>convert txt to html</source>
         <translation>txtをhtmlに変換する</translation>
     </message>
@@ -1266,7 +1271,7 @@
         <translation>高度なオプション</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="584"/>
+        <location filename="../ui.ui" line="585"/>
         <source>unpack game package</source>
         <translation>ゲームパッケージを解凍する</translation>
     </message>
@@ -1279,7 +1284,7 @@
         <translation type="vanished">翻訳後の言語をサポートするフォントを入力または選択またはドラッグします。例: DejaVuSans.ttf (ren&apos;py のデフォルトのフォント)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="579"/>
+        <location filename="../ui.ui" line="580"/>
         <source>replace font</source>
         <translation>フォントを置き換える</translation>
     </message>
@@ -1308,7 +1313,7 @@
         <translation type="vanished">ここに翻訳したいディレクトリを入力または選択またはドラッグします。例:F:\GameName\game\tl\language</translation>
     </message>
     <message>
-        <location filename="../main.py" line="447"/>
+        <location filename="../main.py" line="448"/>
         <location filename="../extraction_official_form.py" line="88"/>
         <source>extract</source>
         <translation>抽出する</translation>
@@ -1376,32 +1381,32 @@
         <translation>言語</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="465"/>
+        <location filename="../ui.ui" line="466"/>
         <source>theme</source>
         <translation>テーマ</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="496"/>
+        <location filename="../ui.ui" line="497"/>
         <source>copyright</source>
         <translation>著作権</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="501"/>
+        <location filename="../ui.ui" line="502"/>
         <source>proxy settings</source>
         <translation>プロキシ設定</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="506"/>
+        <location filename="../ui.ui" line="507"/>
         <source>engine settings</source>
         <translation>エンジン設定</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="511"/>
+        <location filename="../ui.ui" line="512"/>
         <source>custom engine</source>
         <translation>カスタムエンジン</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="516"/>
+        <location filename="../ui.ui" line="517"/>
         <source>edit from rpy</source>
         <translation>rpyから編集する</translation>
     </message>
@@ -1520,12 +1525,12 @@
         <translation>公式抽出</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="426"/>
+        <location filename="../one_key_translate_form.py" line="430"/>
         <source>select the game file</source>
         <translation>ゲームファイルを選択します</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="493"/>
+        <location filename="../one_key_translate_form.py" line="497"/>
         <source>One Key Translate Complete</source>
         <translation>ワンキー翻訳完了</translation>
     </message>

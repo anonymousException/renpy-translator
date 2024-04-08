@@ -4,6 +4,7 @@ import os
 import webbrowser
 
 from PySide6 import QtCore
+from PySide6.QtGui import QIntValidator
 from PySide6.QtWidgets import QDialog
 
 from engine import Ui_EngineDialog
@@ -32,6 +33,7 @@ class MyEngineForm(QDialog, Ui_EngineDialog):
             for i in customEngineDic.keys():
                 self.engineComboBox.addItem(i)
         self.init_openai_model_combobox()
+        self.init_openai_time_out()
         if os.path.isfile('engine.txt'):
             with open('engine.txt', 'r') as json_file:
                 loaded_data = json.load(json_file)
@@ -48,9 +50,11 @@ class MyEngineForm(QDialog, Ui_EngineDialog):
                     self.modelComboBox.setCurrentIndex(loaded_data['openai_model_index'])
                 if "openai_base_url" in loaded_data:
                     self.baseUrlEdit.setText(loaded_data['openai_base_url'])
+                if 'time_out' in loaded_data:
+                    self.timeoutEdit.setText(loaded_data['time_out'])
             self.init_edit_status()
             if self.engineComboBox.currentText() == engineList[4]:
-                self.setFixedHeight(300)
+                self.setFixedHeight(370)
         else:
             self.engineComboBox.setCurrentIndex(0)
             self.on_combobox_change()
@@ -59,6 +63,18 @@ class MyEngineForm(QDialog, Ui_EngineDialog):
         self.detailLabel.mousePressEvent = self.open_url
         self.detailLabel.setCursor(QtCore.Qt.CursorShape.PointingHandCursor)
         self.customButton.clicked.connect(self.on_custom_button_clicked)
+        self.modelComboBox.currentIndexChanged.connect(self.init_openai_time_out)
+        validator = QIntValidator()
+        self.timeoutEdit.setValidator(validator)
+        self.tpmEdit.setValidator(validator)
+        self.rpsEdit.setValidator(validator)
+        self.rpmEdit.setValidator(validator)
+
+    def init_openai_time_out(self):
+        if self.modelComboBox.currentText().startswith('gpt-3.5'):
+            self.timeoutEdit.setText('120')
+        else:
+            self.timeoutEdit.setText('240')
 
     def on_custom_button_clicked(self):
         if os.path.isfile('openai_model.txt'):
@@ -97,12 +113,11 @@ class MyEngineForm(QDialog, Ui_EngineDialog):
     def init_openai_model_combobox(self):
         self.modelComboBox.clear()
         if os.path.isfile('openai_model.txt'):
-            f = io.open('openai_model.txt', 'r',encoding='utf-8')
+            f = io.open('openai_model.txt', 'r', encoding='utf-8')
             models = f.readlines()
             f.close()
             for i in models:
                 self.modelComboBox.addItem(i.rstrip('\n'))
-
 
     def open_url(self, event):
         current_text = self.engineComboBox.currentText()
@@ -119,7 +134,8 @@ class MyEngineForm(QDialog, Ui_EngineDialog):
     def on_combobox_change(self):
         self.setFixedHeight(200)
         if self.engineComboBox.currentText() == engineList[4]:
-            self.setFixedHeight(300)
+            self.setFixedHeight(370)
+            self.init_openai_time_out()
         self.init_edit_status()
         if os.path.isfile('engine.txt'):
             with open('engine.txt', 'r') as json_file:
@@ -147,7 +163,8 @@ class MyEngineForm(QDialog, Ui_EngineDialog):
                     "tpm": self.tpmEdit.text(),
                     "openai_model": self.modelComboBox.currentText(),
                     "openai_base_url": self.baseUrlEdit.text(),
-                    "openai_model_index": self.modelComboBox.currentIndex()}
+                    "openai_model_index": self.modelComboBox.currentIndex(),
+                    "time_out": self.timeoutEdit.text()}
             json.dump(data, f)
             f.close()
         else:
@@ -166,6 +183,7 @@ class MyEngineForm(QDialog, Ui_EngineDialog):
             loaded_data['openai_model'] = self.modelComboBox.currentText()
             loaded_data['openai_base_url'] = self.baseUrlEdit.text()
             loaded_data['openai_model_index'] = self.modelComboBox.currentIndex()
+            loaded_data['time_out'] = self.timeoutEdit.text()
             json.dump(loaded_data, f)
             f.close()
         self.close()

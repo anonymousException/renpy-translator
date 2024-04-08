@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1011</width>
-    <height>300</height>
+    <height>390</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -293,6 +293,35 @@
    </property>
    <property name="text">
     <string>custom model</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_9">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>300</y>
+     <width>601</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>time_out (The max time wait for each request .for gpt-3.5 it's recommended to 120s , for gpt-4 it's recommened to 240s) :</string>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="timeoutEdit">
+   <property name="geometry">
+    <rect>
+     <x>630</x>
+     <y>310</y>
+     <width>371</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string notr="true"/>
    </property>
   </widget>
  </widget>

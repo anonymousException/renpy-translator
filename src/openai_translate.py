@@ -27,7 +27,7 @@ class OpenAITranslate(object):
     lock = threading.Lock()
     count = 0
 
-    def __init__(self, app_key, rpm, rps, tpm, model, base_url, proxies=None):
+    def __init__(self, app_key, rpm, rps, tpm, model, base_url, time_out, proxies=None):
         self.app_key = app_key
         self.rpm = int(rpm)
         self.rps = int(rps)
@@ -35,11 +35,9 @@ class OpenAITranslate(object):
         self.model = model
         self.base_url = base_url
         self.proxies = proxies
-        self.timeout = 120
-        if model == 'gpt-4':
-            self.timeout = 240
+        self.timeout = int(time_out)
 
-    def reset(self, app_key, rpm, rps, tpm, model, base_url, proxies=None):
+    def reset(self, app_key, rpm, rps, tpm, model, base_url, time_out, proxies=None):
         self.app_key = app_key
         self.rpm = int(rpm)
         self.rps = int(rps)
@@ -47,9 +45,7 @@ class OpenAITranslate(object):
         self.model = model
         self.base_url = base_url
         self.proxies = proxies
-        self.timeout = 120
-        if model == 'gpt-4':
-            self.timeout = 240
+        self.timeout = time_out
 
     def translate(self, q, source, target):
         result_arrays = split_strings(q, 4800)

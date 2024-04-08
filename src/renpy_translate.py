@@ -218,20 +218,28 @@ def init_client():
                 client = DeeplTranslate(app_key=loaded_data['key'], proxies=proxies)
             elif loaded_data['engine'] == engineList[4]:
                 base_url = ''
-                if proxies == None:
+                if proxies is None:
                     proxies = dict()
                     proxies['https'] = None
                 if 'openai_base_url' in loaded_data and len(loaded_data['openai_base_url']) > 0:
                     base_url = loaded_data['openai_base_url']
                 global client_openai
+                if 'time_out' not in loaded_data or len(loaded_data['openai_model']) == 0:
+                    if loaded_data['openai_model'].startswith('gpt-3.5'):
+                        loaded_data['time_out'] = 120
+                    else:
+                        loaded_data['time_out'] = 240
+
                 if client_openai is None:
                     client_openai = OpenAITranslate(app_key=loaded_data['key'], rpm=loaded_data['rpm'],
                                                     rps=loaded_data['rps'], tpm=loaded_data['tpm'],
                                                     model=loaded_data['openai_model'], base_url=base_url,
+                                                    time_out=loaded_data['time_out'],
                                                     proxies=proxies['https'])
                 else:
                     client_openai.reset(app_key=loaded_data['key'], rpm=loaded_data['rpm'], rps=loaded_data['rps'],
                                         tpm=loaded_data['tpm'], model=loaded_data['openai_model'], base_url=base_url,
+                                        time_out=loaded_data['time_out'],
                                         proxies=proxies['https'])
                 client = client_openai
             elif loaded_data['engine'] == engineList[5]:
@@ -264,7 +272,7 @@ def init_client():
 
 def get_translated(trans_dic, d):
     try:
-        if isAllPunctuations(d['encoded'].strip('"')) == False:
+        if not isAllPunctuations(d['encoded'].strip('"')):
             translated = trans_dic[d['encoded'].strip('"')]
             translated = translated.replace('\u200b', '')
             translated = translated.replace('\u200b1', '')

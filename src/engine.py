@@ -22,7 +22,7 @@ class Ui_EngineDialog(object):
     def setupUi(self, EngineDialog):
         if not EngineDialog.objectName():
             EngineDialog.setObjectName(u"EngineDialog")
-        EngineDialog.resize(1011, 300)
+        EngineDialog.resize(1011, 390)
         self.engineComboBox = QComboBox(EngineDialog)
         self.engineComboBox.setObjectName(u"engineComboBox")
         self.engineComboBox.setGeometry(QRect(240, 20, 491, 22))
@@ -95,6 +95,14 @@ class Ui_EngineDialog(object):
         self.customButton = QPushButton(EngineDialog)
         self.customButton.setObjectName(u"customButton")
         self.customButton.setGeometry(QRect(460, 240, 281, 24))
+        self.label_9 = QLabel(EngineDialog)
+        self.label_9.setObjectName(u"label_9")
+        self.label_9.setGeometry(QRect(20, 300, 601, 61))
+        self.label_9.setWordWrap(True)
+        self.timeoutEdit = QLineEdit(EngineDialog)
+        self.timeoutEdit.setObjectName(u"timeoutEdit")
+        self.timeoutEdit.setGeometry(QRect(630, 310, 371, 41))
+        self.timeoutEdit.setText(u"")
 
         self.retranslateUi(EngineDialog)
 
@@ -120,5 +128,6 @@ class Ui_EngineDialog(object):
         self.baseUrlEdit.setText("")
         self.baseUrlEdit.setPlaceholderText(QCoreApplication.translate("EngineDialog", u"http://my.test.server.example.com:8083", None))
         self.customButton.setText(QCoreApplication.translate("EngineDialog", u"custom model", None))
+        self.label_9.setText(QCoreApplication.translate("EngineDialog", u"time_out (The max time wait for each request .for gpt-3.5 it's recommended to 120s , for gpt-4 it's recommened to 240s) :", None))
     # retranslateUi
 
