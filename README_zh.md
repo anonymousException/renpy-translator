@@ -402,6 +402,8 @@ https://github.com/anonymousException/renpy-translator/assets/157234942/46e524d7
 
 例如：如果您是日文用户，并且您的系统字体是日文，那么默认字体文件就可以支持日文，那么您无需从网上下载日文字体来解决乱码问题
 
+https://github.com/anonymousException/renpy-translator/assets/157234942/2d1a841a-723e-4408-a4c3-e30ea114e764
+
 对于日语，我一般是用 [hanazomefont](https://www.asterism-m.com/font/hanazomefont/) 这个字体
 
 对于中文，我一般是用 [SourceHanSansCN](https://github.com/CyanoHao/WFM-Free-Font/tree/master/SourceHanSansCN) 这个字体

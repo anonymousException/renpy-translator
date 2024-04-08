@@ -400,6 +400,8 @@ The default font path is filled with your default system font which is compatibl
 
 For example , if you are a japanese user and your system font is japanese , the default font file can support japanese , you need not to download a japanese font from the internet to solve the garbled code problem
 
+https://github.com/anonymousException/renpy-translator/assets/157234942/2d1a841a-723e-4408-a4c3-e30ea114e764
+
 For japanese, I usually use the [hanazomefont](https://www.asterism-m.com/font/hanazomefont/)
 
 For chinese, I usally use the [SourceHanSansCN](https://github.com/CyanoHao/WFM-Free-Font/tree/master/SourceHanSansCN)
