@@ -22,7 +22,7 @@ class Ui_EngineDialog(object):
     def setupUi(self, EngineDialog):
         if not EngineDialog.objectName():
             EngineDialog.setObjectName(u"EngineDialog")
-        EngineDialog.resize(1011, 390)
+        EngineDialog.resize(1011, 510)
         self.engineComboBox = QComboBox(EngineDialog)
         self.engineComboBox.setObjectName(u"engineComboBox")
         self.engineComboBox.setGeometry(QRect(240, 20, 491, 22))
@@ -103,6 +103,15 @@ class Ui_EngineDialog(object):
         self.timeoutEdit.setObjectName(u"timeoutEdit")
         self.timeoutEdit.setGeometry(QRect(630, 310, 371, 41))
         self.timeoutEdit.setText(u"")
+        self.label_10 = QLabel(EngineDialog)
+        self.label_10.setObjectName(u"label_10")
+        self.label_10.setGeometry(QRect(20, 370, 981, 81))
+        self.label_10.setWordWrap(True)
+        self.maxLengthEdit = QLineEdit(EngineDialog)
+        self.maxLengthEdit.setObjectName(u"maxLengthEdit")
+        self.maxLengthEdit.setGeometry(QRect(20, 460, 981, 31))
+        self.maxLengthEdit.setText(u"5000")
+        self.maxLengthEdit.setAlignment(Qt.AlignCenter)
 
         self.retranslateUi(EngineDialog)
 
@@ -129,5 +138,6 @@ class Ui_EngineDialog(object):
         self.baseUrlEdit.setPlaceholderText(QCoreApplication.translate("EngineDialog", u"http://my.test.server.example.com:8083", None))
         self.customButton.setText(QCoreApplication.translate("EngineDialog", u"custom model", None))
         self.label_9.setText(QCoreApplication.translate("EngineDialog", u"time_out (The max time wait for each request .for gpt-3.5 it's recommended to 120s , for gpt-4 it's recommened to 240s) :", None))
+        self.label_10.setText(QCoreApplication.translate("EngineDialog", u"max_length (The max character length for each request. The actual limit unit of openai is token which is normally a word. But it'hard to define,so use max_length as a replacement. The max tokens of openai are 4096 for each request. Make sure the token is under the exceed limit , my suggestion is to set to 5000)", None))
     # retranslateUi
 

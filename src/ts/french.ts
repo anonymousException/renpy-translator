@@ -613,6 +613,11 @@
         <source>time_out (The max time wait for each request .for gpt-3.5 it&apos;s recommended to 120s , for gpt-4 it&apos;s recommened to 240s) :</source>
         <translation>time_out (Le temps d&apos;attente maximum pour chaque requête .pour gpt-3.5 il est recommandé à 120s, pour gpt-4 il est recommandé à 240s) :</translation>
     </message>
+    <message>
+        <location filename="../engine.ui" line="337"/>
+        <source>max_length (The max character length for each request. The actual limit unit of openai is token which is normally a word. But it&apos;hard to define,so use max_length as a replacement. The max tokens of openai are 4096 for each request. Make sure the token is under the exceed limit , my suggestion is to set to 5000)</source>
+        <translation>max_length (La longueur maximale des caractères pour chaque requête. L&apos;unité limite réelle d&apos;openai est un jeton qui est normalement un mot. Mais c&apos;est difficile à définir, alors utilisez max_length en remplacement. Le maximum de jetons d&apos;openai est de 4096 pour chaque requête. Faites assurez-vous que le jeton est sous la limite de dépassement, ma suggestion est de le définir sur 5000)</translation>
+    </message>
 </context>
 <context>
     <name>ExportSettingDialog</name>

@@ -613,6 +613,11 @@
         <source>time_out (The max time wait for each request .for gpt-3.5 it&apos;s recommended to 120s , for gpt-4 it&apos;s recommened to 240s) :</source>
         <translation>time_out (各リクエストの最大待機時間。gpt-3.5 の場合は 120 秒が推奨され、gpt-4 の場合は 240 秒が推奨されます):</translation>
     </message>
+    <message>
+        <location filename="../engine.ui" line="337"/>
+        <source>max_length (The max character length for each request. The actual limit unit of openai is token which is normally a word. But it&apos;hard to define,so use max_length as a replacement. The max tokens of openai are 4096 for each request. Make sure the token is under the exceed limit , my suggestion is to set to 5000)</source>
+        <translation>max_length (各リクエストの最大文字長。openai の実際の制限単位は、通常は単語であるトークンです。しかし定義が難しいため、代わりに max_length を使用します。openai の最大トークンはリクエストごとに 4096 です。 トークンが制限を超えていることを確認してください。私の提案は 5000 に設定することです)</translation>
+    </message>
 </context>
 <context>
     <name>ExportSettingDialog</name>

@@ -229,17 +229,19 @@ def init_client():
                         loaded_data['time_out'] = 120
                     else:
                         loaded_data['time_out'] = 240
+                if 'max_length' not in loaded_data or len(loaded_data['max_length']) == 0:
+                    loaded_data['max_length'] = 5000
 
                 if client_openai is None:
                     client_openai = OpenAITranslate(app_key=loaded_data['key'], rpm=loaded_data['rpm'],
                                                     rps=loaded_data['rps'], tpm=loaded_data['tpm'],
                                                     model=loaded_data['openai_model'], base_url=base_url,
-                                                    time_out=loaded_data['time_out'],
+                                                    time_out=loaded_data['time_out'], max_length=loaded_data['max_length'],
                                                     proxies=proxies['https'])
                 else:
                     client_openai.reset(app_key=loaded_data['key'], rpm=loaded_data['rpm'], rps=loaded_data['rps'],
                                         tpm=loaded_data['tpm'], model=loaded_data['openai_model'], base_url=base_url,
-                                        time_out=loaded_data['time_out'],
+                                        time_out=loaded_data['time_out'], max_length=loaded_data['max_length'],
                                         proxies=proxies['https'])
                 client = client_openai
             elif loaded_data['engine'] == engineList[5]:

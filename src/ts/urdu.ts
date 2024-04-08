@@ -613,6 +613,11 @@
         <source>time_out (The max time wait for each request .for gpt-3.5 it&apos;s recommended to 120s , for gpt-4 it&apos;s recommened to 240s) :</source>
         <translation>time_out (ہر درخواست کے لیے انتظار کرنے کا زیادہ سے زیادہ وقت .gpt-3.5 کے لیے 120s پر تجویز کیا جاتا ہے، gpt-4 کے لیے اسے 240s کرنے کی سفارش کی جاتی ہے):</translation>
     </message>
+    <message>
+        <location filename="../engine.ui" line="337"/>
+        <source>max_length (The max character length for each request. The actual limit unit of openai is token which is normally a word. But it&apos;hard to define,so use max_length as a replacement. The max tokens of openai are 4096 for each request. Make sure the token is under the exceed limit , my suggestion is to set to 5000)</source>
+        <translation type="unfinished">max_length (ہر درخواست کے لیے زیادہ سے زیادہ کریکٹر کی لمبائی۔ Openai کی اصل حد کی اکائی ٹوکن ہے جو کہ عام طور پر ایک لفظ ہے۔ لیکن اس کی وضاحت کرنا مشکل ہے، اس لیے max_length کو متبادل کے طور پر استعمال کریں۔ اوپنائی کے زیادہ سے زیادہ ٹوکن ہر درخواست کے لیے 4096 ہیں۔ بنائیں۔یقین ہے کہ ٹوکن حد سے زیادہ ہے، میری تجویز ہے کہ 5000 پر سیٹ کیا جائے)</translation>
+    </message>
 </context>
 <context>
     <name>ExportSettingDialog</name>

@@ -52,9 +52,11 @@ class MyEngineForm(QDialog, Ui_EngineDialog):
                     self.baseUrlEdit.setText(loaded_data['openai_base_url'])
                 if 'time_out' in loaded_data:
                     self.timeoutEdit.setText(loaded_data['time_out'])
+                if 'max_length' in loaded_data:
+                    self.maxLengthEdit.setText(loaded_data['max_length'])
             self.init_edit_status()
             if self.engineComboBox.currentText() == engineList[4]:
-                self.setFixedHeight(370)
+                self.setFixedHeight(510)
         else:
             self.engineComboBox.setCurrentIndex(0)
             self.on_combobox_change()
@@ -69,6 +71,7 @@ class MyEngineForm(QDialog, Ui_EngineDialog):
         self.tpmEdit.setValidator(validator)
         self.rpsEdit.setValidator(validator)
         self.rpmEdit.setValidator(validator)
+        self.maxLengthEdit.setValidator(validator)
 
     def init_openai_time_out(self):
         if self.modelComboBox.currentText().startswith('gpt-3.5'):
@@ -134,7 +137,7 @@ class MyEngineForm(QDialog, Ui_EngineDialog):
     def on_combobox_change(self):
         self.setFixedHeight(200)
         if self.engineComboBox.currentText() == engineList[4]:
-            self.setFixedHeight(370)
+            self.setFixedHeight(510)
             self.init_openai_time_out()
         self.init_edit_status()
         if os.path.isfile('engine.txt'):
@@ -164,7 +167,8 @@ class MyEngineForm(QDialog, Ui_EngineDialog):
                     "openai_model": self.modelComboBox.currentText(),
                     "openai_base_url": self.baseUrlEdit.text(),
                     "openai_model_index": self.modelComboBox.currentIndex(),
-                    "time_out": self.timeoutEdit.text()}
+                    "time_out": self.timeoutEdit.text(),
+                    "max_length": self.maxLengthEdit.text()}
             json.dump(data, f)
             f.close()
         else:
@@ -184,6 +188,7 @@ class MyEngineForm(QDialog, Ui_EngineDialog):
             loaded_data['openai_base_url'] = self.baseUrlEdit.text()
             loaded_data['openai_model_index'] = self.modelComboBox.currentIndex()
             loaded_data['time_out'] = self.timeoutEdit.text()
+            loaded_data['max_length'] = self.maxLengthEdit.text()
             json.dump(loaded_data, f)
             f.close()
         self.close()
