@@ -24,6 +24,7 @@ import game_unpacker_form
 import add_change_language_entrance_form
 from extraction_official_form import exec_official_translate
 import extraction_official_form
+from font_util import get_default_font_path
 
 
 class MyQueue(queue.Queue):
@@ -52,6 +53,9 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
         self.startButton.clicked.connect(self.on_start_button_clicked)
         self.path = None
         self.official_extract_thread = None
+        default_font = get_default_font_path()
+        if default_font is not None:
+            self.selectFontText.setText(default_font)
         _thread.start_new_thread(self.update, ())
 
     def on_start_button_clicked(self):
@@ -91,7 +95,7 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
                 return
             if os.path.isfile(select_file):
                 if select_file.endswith('.exe'):
-                    t = extraction_official_form.extractThread(select_file, tl_name, False, True)
+                    t = extraction_official_form.extractThread(select_file, tl_name, False, False)
                     self.official_extract_thread = t
                     t.start()
                     self.setDisabled(True)

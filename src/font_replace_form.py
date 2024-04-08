@@ -6,6 +6,7 @@ from PySide6.QtWidgets import QDialog, QFileDialog
 from font_replace import Ui_FontReplaceDialog
 from my_log import log_print
 from renpy_fonts import GenGuiFonts
+from font_util import get_default_font_path
 
 
 class MyFontReplaceForm(QDialog, Ui_FontReplaceDialog):
@@ -18,6 +19,9 @@ class MyFontReplaceForm(QDialog, Ui_FontReplaceDialog):
         self.openFontStyleBtn.clicked.connect(self.openFontStyleFile)
         self.setFixedHeight(self.height())
         self.setFixedWidth(self.width())
+        default_font = get_default_font_path()
+        if default_font is not None:
+            self.selectFontText.setText(default_font)
 
     def select_directory3(self):
         directory = QFileDialog.getExistingDirectory(self, QCoreApplication.translate("FontReplaceDialog", "select the directory you want to extract", None))
