@@ -363,7 +363,7 @@ class Ui_MainWindow(object):
         self.actionconvert_txt_to_html.setText(QCoreApplication.translate("MainWindow", u"convert txt to html", None))
         self.clearLogBtn.setText(QCoreApplication.translate("MainWindow", u"clear log", None))
         self.copyrightLabel.setText(QCoreApplication.translate("MainWindow", u"\u00a92024 Last moment,All rights reserved.", None))
-        self.versionLabel.setText(QCoreApplication.translate("MainWindow", u"Version 2.1.3", None))
+        self.versionLabel.setText(QCoreApplication.translate("MainWindow", u"Version 2.1.4", None))
         self.translateBtn.setText(QCoreApplication.translate("MainWindow", u"translate", None))
         self.selectFilesBtn.setText(QCoreApplication.translate("MainWindow", u"...", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"directory", None))
