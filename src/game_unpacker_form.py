@@ -2,6 +2,7 @@ import _thread
 import io
 import os
 import shutil
+import subprocess
 import threading
 import time
 import traceback
@@ -57,7 +58,9 @@ class MyGameUnpackerForm(QDialog, Ui_GameUnpackerDialog):
                 f.write('waiting')
                 f.close()
                 self.setDisabled(True)
-                os.system(command)
+                p = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                                     creationflags=0x08000000)
+                p.wait()
 
     def clean(self, is_auto_clean=False):
         path = self.selectFileText.toPlainText()
@@ -98,7 +101,9 @@ class MyGameUnpackerForm(QDialog, Ui_GameUnpackerDialog):
             if not os.path.isfile(target):
                 bat = dir + '/UnRen-forall.bat'
                 command = 'start "" /d "' + dir + '"  "' + bat + '"'
-                os.system(command)
+                p = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                                     creationflags=0x08000000)
+                p.wait()
                 while (True):
                     time.sleep(0.1)
                     if os.path.isfile(dir + '/unren.finish'):

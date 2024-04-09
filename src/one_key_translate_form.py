@@ -4,10 +4,12 @@ import json
 import os
 import queue
 import shutil
+import subprocess
 import time
 import traceback
 
 from PySide6.QtCore import QCoreApplication, QThread, Signal
+from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QDialog, QFileDialog, QMessageBox
 
 from one_key_translate import Ui_OneKeyTranslateDialog
@@ -34,14 +36,11 @@ class MyQueue(queue.Queue):
             return self.queue[0]
 
 
-q = MyQueue()
-qDic = dict()
-
-
 class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
     def __init__(self, parent=None):
         super(MyOneKeyTranslateForm, self).__init__(parent)
         self.setupUi(self)
+        self.setWindowIcon(QIcon('main.ico'))
         self.setFixedHeight(self.height())
         self.setFixedWidth(self.width())
         self.selectFileBtn.clicked.connect(self.select_file)
@@ -53,36 +52,45 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
         self.startButton.clicked.connect(self.on_start_button_clicked)
         self.path = None
         self.official_extract_thread = None
+        self.is_queue_task_empty = True
+        self.q = MyQueue()
+        # a dict records the task status
+        # is_finished
+        # is_executed
+        self.qDic = dict()
         default_font = get_default_font_path()
         if default_font is not None:
             self.selectFontText.setText(default_font)
         _thread.start_new_thread(self.update, ())
 
     def on_start_button_clicked(self):
-        global q, qDic
-        q = MyQueue()
-        qDic = dict()
+        self.q = MyQueue()
+        self.qDic = dict()
         if self.unpackCheckBox.isChecked():
-            q.put(self.unpack)
-            qDic[self.unpack] = False
+            self.q.put(self.unpack)
+            self.qDic[self.unpack] = (False, False)
         if self.runtimeExtractionCheckBox.isChecked():
-            q.put(self.runtime_extract)
-            qDic[self.runtime_extract] = False
+            self.q.put(self.runtime_extract)
+            self.qDic[self.runtime_extract] = (False, False)
         if self.officialExtractionCheckBox.isChecked():
-            q.put(self.official_extract)
-            qDic[self.official_extract] = False
+            self.q.put(self.official_extract)
+            self.qDic[self.official_extract] = (False, False)
         if self.extractionCheckBox.isChecked():
-            q.put(self.extract)
-            qDic[self.extract] = False
+            self.q.put(self.extract)
+            self.qDic[self.extract] = (False, False)
         if self.replaceFontCheckBox.isChecked():
-            q.put(self.replaceFont)
-            qDic[self.replaceFont] = False
+            self.q.put(self.replaceFont)
+            self.qDic[self.replaceFont] = (False, False)
         if self.addEntranceCheckBox.isChecked():
-            q.put(self.add_entrance)
-            qDic[self.add_entrance] = False
+            self.q.put(self.add_entrance)
+            self.qDic[self.add_entrance] = (False, False)
         if self.translateCheckBox.isChecked():
-            q.put(self.translate)
-            qDic[self.translate] = False
+            self.q.put(self.translate)
+            self.qDic[self.translate] = (False, False)
+        if len(self.qDic) > 0:
+            self.hide()
+            self.parent.showNormal()
+            self.parent.raise_()
 
     def official_extract(self):
         select_file = self.selectFileText.toPlainText()
@@ -91,7 +99,9 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
             tl_name = self.tlNameText.toPlainText()
             if len(tl_name) == 0:
                 log_print('tl_name should not be empty!')
-                qDic[self.official_extract] = True
+                is_finished, is_executed = self.qDic[self.official_extract]
+                is_finished = True
+                self.qDic[self.official_extract] = is_finished, is_executed
                 return
             if os.path.isfile(select_file):
                 if select_file.endswith('.exe'):
@@ -107,12 +117,16 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
             tl_name = self.tlNameText.toPlainText()
             if len(tl_name) == 0:
                 log_print('tl_name should not be empty!')
-                qDic[self.translate] = True
+                is_finished, is_executed = self.qDic[self.translate]
+                is_finished = True
+                self.qDic[self.translate] = is_finished, is_executed
                 return
             select_dir = os.path.dirname(select_file) + '/game/tl/' + tl_name
             if not os.path.exists(select_dir):
                 log_print(select_dir + ' directory does not exist!')
-                qDic[self.translate] = True
+                is_finished, is_executed = self.qDic[self.translate]
+                is_finished = True
+                self.qDic[self.translate] = is_finished, is_executed
             else:
                 if select_dir[len(select_dir) - 1] != '/' and select_dir[len(select_dir) - 1] != '\\':
                     select_dir = select_dir + '/'
@@ -132,15 +146,21 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
                         translate_threads.append(t)
                         cnt = cnt + 1
                 if len(translate_threads) > 0:
-                    qDic[self.translate] = False
+                    is_finished, is_executed = self.qDic[self.translate]
+                    is_finished = False
+                    self.qDic[self.translate] = is_finished, is_executed
                     for t in translate_threads:
                         t.start()
                     self.setDisabled(True)
                     _thread.start_new_thread(self.translate_threads_over, ())
                 else:
-                    qDic[self.translate] = True
+                    is_finished, is_executed = self.qDic[self.translate]
+                    is_finished = True
+                    self.qDic[self.translate] = is_finished, is_executed
         else:
-            qDic[self.translate] = True
+            is_finished, is_executed = self.qDic[self.translate]
+            is_finished = True
+            self.qDic[self.translate] = is_finished, is_executed
 
     def translate_threads_over(self):
         while True:
@@ -153,15 +173,18 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
             else:
                 break
         log_print('translate all complete!')
-        qDic[self.translate] = True
-        self.setEnabled(True)
+        is_finished, is_executed = self.qDic[self.translate]
+        is_finished = True
+        self.qDic[self.translate] = is_finished, is_executed
 
     def add_entrance(self):
         target = self.get_add_entrance_target()
         if target is not None:
             shutil.copyfile(add_change_language_entrance_form.hook_script, target)
             log_print('add entrance success!')
-        qDic[self.add_entrance] = True
+        is_finished, is_executed = self.qDic[self.add_entrance]
+        is_finished = True
+        self.qDic[self.add_entrance] = is_finished, is_executed
 
     def get_add_entrance_target(self):
         path = self.selectFileText.toPlainText()
@@ -182,7 +205,9 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
             tl_name = self.tlNameText.toPlainText()
             if len(tl_name) == 0:
                 log_print('tl_name should not be empty!')
-                qDic[self.replaceFont] = True
+                is_finished, is_executed = self.qDic[self.replaceFont]
+                is_finished = True
+                self.qDic[self.replaceFont] = is_finished, is_executed
                 return
             select_dir = os.path.dirname(select_file) + '/game/tl/' + tl_name
             if not os.path.exists(select_dir):
@@ -193,7 +218,9 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
                 font_path = self.selectFontText.toPlainText()
                 font_path = font_path.replace('file:///', '')
                 GenGuiFonts(select_dir, font_path)
-        qDic[self.replaceFont] = True
+        is_finished, is_executed = self.qDic[self.replaceFont]
+        is_finished = True
+        self.qDic[self.replaceFont] = is_finished, is_executed
 
     def extract(self):
         # noinspection PyBroadException
@@ -204,7 +231,9 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
                 tl_name = self.tlNameText.toPlainText()
                 if len(tl_name) == 0:
                     log_print('tl_name should not be empty!')
-                    qDic[self.extract] = True
+                    is_finished, is_executed = self.qDic[self.extract]
+                    is_finished = True
+                    self.qDic[self.extract] = is_finished, is_executed
                     return
                 select_dir = os.path.dirname(select_file) + '/game/tl/' + tl_name
                 if not os.path.exists(select_dir):
@@ -219,27 +248,38 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
                     renpy_extract.extract_threads.append(t)
 
             if len(renpy_extract.extract_threads) > 0:
-                qDic[self.extract] = False
+                is_finished, is_executed = self.qDic[self.extract]
+                is_finished = False
+                self.qDic[self.extract] = is_finished, is_executed
                 for t in renpy_extract.extract_threads:
                     t.start()
                 self.setDisabled(True)
                 _thread.start_new_thread(self.extract_threads_over, ())
             else:
-                qDic[self.extract] = True
+                is_finished, is_executed = self.qDic[self.extract]
+                is_finished = True
+                self.qDic[self.extract] = is_finished, is_executed
         except Exception:
             msg = traceback.format_exc()
             log_print(msg)
-            qDic[self.extract] = True
+            is_finished, is_executed = self.qDic[self.extract]
+            is_finished = True
+            self.qDic[self.extract] = is_finished, is_executed
 
     def extract_threads_over(self):
-        for t in renpy_extract.extract_threads:
-            if t.is_alive():
-                t.join()
-            renpy_extract.extract_threads.remove(t)
-        renpy_extract.extract_threads.clear()
+        while True:
+            threads_len = len(renpy_extract.extract_threads)
+            if threads_len > 0:
+                for t in renpy_extract.extract_threads:
+                    if t.is_alive():
+                        t.join()
+                    renpy_extract.extract_threads.remove(t)
+                else:
+                    break
         log_print('extract all complete!')
-        qDic[self.extract] = True
-        self.setEnabled(True)
+        is_finished, is_executed = self.qDic[self.extract]
+        is_finished = True
+        self.qDic[self.extract] = is_finished, is_executed
 
     def runtime_extract(self):
         path = self.selectFileText.toPlainText()
@@ -247,15 +287,22 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
         tl_name = self.tlNameText.toPlainText().strip('\n').strip()
         if len(tl_name) == 0:
             log_print('tl_name should not be empty')
-            qDic[self.runtime_extract] = True
+            is_finished, is_executed = self.qDic[self.runtime_extract]
+            is_finished = True
+            self.qDic[self.runtime_extract] = is_finished, is_executed
             return
         if os.path.isfile(path):
             if path.endswith('.exe'):
+                is_finished, is_executed = self.qDic[self.runtime_extract]
+                is_finished = False
+                self.qDic[self.runtime_extract] = is_finished, is_executed
                 t = extract_runtime_form.extractThread(path, tl_name, False, False)
                 t.start()
                 self.setDisabled(True)
                 return
-        qDic[self.runtime_extract] = True
+        is_finished, is_executed = self.qDic[self.runtime_extract]
+        is_finished = True
+        self.qDic[self.runtime_extract] = is_finished, is_executed
 
     def closeEvent(self, event):
         self.parent.widget.show()
@@ -302,9 +349,14 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
                 f.write('waiting')
                 f.close()
                 self.setDisabled(True)
-                os.system(command)
+                log_print('start unpacking...')
+                p = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                                     creationflags=0x08000000)
+                p.wait()
                 return
-        qDic[self.unpack] = True
+        is_finished, is_executed = self.qDic[self.unpack]
+        is_finished = True
+        self.qDic[self.unpack] = is_finished, is_executed
 
     def select_font(self):
         file, filetype = QFileDialog.getOpenFileName(self,
@@ -444,61 +496,68 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
 
     def update_progress(self):
         try:
-            if not self.isEnabled():
+            if self.runtime_extract in self.qDic:
                 if os.path.isfile(extract_finish):
                     os.remove(extract_finish)
                     if not os.path.isfile(extract_finish):
-                        qDic[self.runtime_extract] = True
-                        self.setEnabled(True)
+                        is_finished, is_executed = self.qDic[self.runtime_extract]
+                        is_finished = True
+                        self.qDic[self.runtime_extract] = is_finished, is_executed
             if self.path is not None:
                 dir = os.path.dirname(self.path)
                 target = dir + finish_flag
                 if not os.path.isfile(target):
                     bat = dir + '/UnRen-forall.bat'
                     command = 'start "" /d "' + dir + '"  "' + bat + '"'
-                    os.system(command)
+                    p = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                                         creationflags=0x08000000)
+                    p.wait()
                     while (True):
                         time.sleep(0.1)
                         if os.path.isfile(dir + '/unren.finish'):
                             os.remove(dir + '/unren.finish')
                             break
-                    qDic[self.unpack] = True
+                    is_finished, is_executed = self.qDic[self.unpack]
+                    is_finished = True
+                    self.qDic[self.unpack] = is_finished, is_executed
                     self.clean()
                     self.path = None
-                    self.setEnabled(True)
-                    self.parent.showNormal()
-                    self.parent.raise_()
 
             if self.official_extract_thread is not None:
                 if not self.official_extract_thread.is_alive():
                     self.official_extract_thread = None
-                    qDic[self.official_extract] = True
-                    self.setEnabled(True)
+                    is_finished, is_executed = self.qDic[self.official_extract]
+                    is_finished = True
+                    self.qDic[self.official_extract] = is_finished, is_executed
 
-            if not q.empty():
+            if not self.q.empty():
                 if self.parent.isHidden():
-                    self.parent.showNormal()
-                    self.parent.raise_()
-                if not self.isHidden():
-                    self.hide()
-                func = q.peek()
-                if not qDic[func]:
-                    if self.isEnabled():
+                    self.parent.show()
+                self.is_queue_task_empty = False
+                func = self.q.peek()
+                # the task is not finished and executed
+                if not self.qDic[func][0]:
+                    if not self.qDic[func][1]:
                         func()
+                        is_finished, is_executed = self.qDic[func]
+                        is_executed = True
+                        self.qDic[func] = is_finished, is_executed
                 else:
-                    q.get()
+                    self.q.get()
+                    self.qDic.pop(func, None)
             else:
-                if self.isHidden() and self.parent.widget.isHidden():
-                    if self.parent.editor_form is not None and not self.parent.editor_form.isHidden():
-                        pass
-                    else:
-                        self.show()
-                        self.raise_()
-                        msg_box = QMessageBox()
-                        msg_box.setWindowTitle('o(≧口≦)o')
-                        msg_box.setText(
-                            QCoreApplication.translate('OneKeyTranslateDialog', 'One Key Translate Complete', None))
-                        msg_box.exec()
+                if not self.is_queue_task_empty:
+                    self.is_queue_task_empty = True
+                    self.show()
+                    self.raise_()
+                    msg_box = QMessageBox(parent=self)
+                    msg_box.setWindowTitle('o(≧口≦)o')
+                    msg_box.setText(
+                        QCoreApplication.translate('OneKeyTranslateDialog', 'One Key Translate Complete', None))
+                    msg_box.exec()
+                    self.setEnabled(True)
+                    self.qDic.clear()
+
         except Exception:
             msg = traceback.format_exc()
             log_print(msg)

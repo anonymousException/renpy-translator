@@ -16,14 +16,12 @@ from PySide6.QtCore import Qt, QDir, QThread, Signal, QCoreApplication, QTransla
 from PySide6.QtGui import QIcon, QIntValidator, QTextCursor
 from PySide6.QtWidgets import QFileDialog, QListView, QAbstractItemView, QTreeView, QDialog, QPushButton, QLineEdit, \
     QVBoxLayout, QMainWindow, QApplication, QButtonGroup
-
+os.environ['REQUESTS_CA_BUNDLE'] = os.path.join(os.path.dirname(sys.argv[0]), 'cacert.pem')
+os.environ['NO_PROXY'] = '*'
 from copyright import Ui_CopyrightDialog
 from my_log import log_print, log_path
 from extraction_official_form import MyExtractionOfficialForm
 from html_converter_form import MyHtmlConverterForm
-
-os.environ['REQUESTS_CA_BUNDLE'] = os.path.join(os.path.dirname(sys.argv[0]), 'cacert.pem')
-os.environ['NO_PROXY'] = '*'
 from local_glossary_form import MyLocalGlossaryForm
 from font_replace_form import MyFontReplaceForm
 from game_unpacker_form import MyGameUnpackerForm
@@ -92,6 +90,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.selectDirBtn.clicked.connect(self.select_directory)
         self.translateBtn.clicked.connect(self.translate)
         self.clearLogBtn.clicked.connect(self.clear_log)
+        self.caller = None
         self.translating = False
         self.extracting = False
         self.local_glossary = None
@@ -184,7 +183,8 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.menubar.hide()
         self.versionLabel.hide()
         if self.myOneKeyTranslateForm is None:
-            self.myOneKeyTranslateForm = MyOneKeyTranslateForm(parent=self)
+            self.myOneKeyTranslateForm = MyOneKeyTranslateForm(parent=None)
+        self.caller = self.myOneKeyTranslateForm
         self.myOneKeyTranslateForm.parent = self
         self.myOneKeyTranslateForm.showNormal()
         self.myOneKeyTranslateForm.raise_()
@@ -307,6 +307,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.versionLabel.hide()
         if self.editor_form is None:
             self.editor_form = MyEditorForm(parent=None)
+        self.caller = self.editor_form
         self.editor_form.parent = self
         self.editor_form.showNormal()
         self.editor_form.raise_()
@@ -320,6 +321,9 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
     def closeEvent(self, event):
         if self.menubar.isHidden():
             self.hide()
+            if self.caller is not None:
+                self.caller.show()
+                self.caller.raise_()
             event.ignore()
             return
 

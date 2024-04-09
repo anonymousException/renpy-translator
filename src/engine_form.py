@@ -1,6 +1,7 @@
 import io
 import json
 import os
+import subprocess
 import webbrowser
 
 from PySide6 import QtCore
@@ -81,7 +82,10 @@ class MyEngineForm(QDialog, Ui_EngineDialog):
 
     def on_custom_button_clicked(self):
         if os.path.isfile('openai_model.txt'):
-            os.system('notepad ' + 'openai_model.txt')
+            command = 'notepad ' + 'openai_model.txt'
+            p = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                                 creationflags=0x08000000)
+            p.wait()
             self.init_openai_model_combobox()
 
     def init_edit_status(self):
