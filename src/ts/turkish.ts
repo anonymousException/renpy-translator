@@ -1232,8 +1232,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.1.3</source>
-        <translation>Sürüm 2.1.3</translation>
+        <source>Version 2.1.4</source>
+        <translation>Sürüm 2.1.4</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="391"/>
