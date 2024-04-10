@@ -1,4 +1,5 @@
 import _thread
+import ctypes
 import io
 import multiprocessing
 import os.path
@@ -16,6 +17,7 @@ from PySide6.QtCore import Qt, QDir, QThread, Signal, QCoreApplication, QTransla
 from PySide6.QtGui import QIcon, QIntValidator, QTextCursor
 from PySide6.QtWidgets import QFileDialog, QListView, QAbstractItemView, QTreeView, QDialog, QPushButton, QLineEdit, \
     QVBoxLayout, QMainWindow, QApplication, QButtonGroup
+
 os.environ['REQUESTS_CA_BUNDLE'] = os.path.join(os.path.dirname(sys.argv[0]), 'cacert.pem')
 os.environ['NO_PROXY'] = '*'
 from copyright import Ui_CopyrightDialog
@@ -133,7 +135,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.actionArabic.triggered.connect(lambda: self.to_language('arabic'))
         self.actionBengali.triggered.connect(lambda: self.to_language('bengali'))
         self.actionChinese.triggered.connect(lambda: self.to_language('chinese'))
-        self.actionEnglish.triggered.connect(lambda: self.switch_to_default_language())
+        self.actionEnglish.triggered.connect(lambda: self.to_language('english'))
         self.actionFrench.triggered.connect(lambda: self.to_language('french'))
         self.actionGerman.triggered.connect(lambda: self.to_language('german'))
         self.actionHindi.triggered.connect(lambda: self.to_language('hindi'))
@@ -285,14 +287,12 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         if self.myHtmlConverterForm is not None:
             self.myHtmlConverterForm.retranslateUi(self.myHtmlConverterForm)
 
-    def switch_to_default_language(self):
-        app = QCoreApplication.instance()
-        if app is not None:
-            app.removeTranslator(translator)
-            self.retranslate_ui()
-            os.remove('language.txt')
-
     def to_language(self, lan):
+        if lan == 'english':
+            app = QCoreApplication.instance()
+            if app is not None:
+                app.removeTranslator(translator)
+                self.retranslate_ui()
         translator.load("qm/" + lan + ".qm")
         QCoreApplication.instance().installTranslator(translator)
         self.retranslate_ui()
@@ -548,6 +548,21 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.translating = False
 
 
+def get_default_langauge():
+    dll_h = ctypes.windll.kernel32
+    language_code = hex(dll_h.GetSystemDefaultUILanguage())
+    language_dic = {
+        '401': 'arabic', '0x845': 'bengali', '0x445': 'bengali', '0x804': 'chinese', '0xc04': 'chinese',
+        '0x404': 'chinese',
+        '0x40c': 'french', '0x407': 'german', '0x439': 'hindi', '0x411': 'japanese', '0x412': 'korean',
+        '0x816': 'portuguese', '0x416': 'portuguese', '0x419': 'russian', '0xc0a': 'spanish', '0x40a': 'spanish',
+        '0x41f': 'turkish', '0x843': 'urdu', '0x820': 'urdu'}
+
+    if language_code in language_dic:
+        return language_dic[language_code]
+    return None
+
+
 if __name__ == "__main__":
     multiprocessing.freeze_support()
     app = QApplication(sys.argv)
@@ -556,8 +571,14 @@ if __name__ == "__main__":
         f = io.open('language.txt', 'r', encoding='utf-8')
         lan = f.read()
         f.close()
-        translator.load("qm/" + lan + ".qm")
-        QCoreApplication.instance().installTranslator(translator)
+        if lan != 'english':
+            translator.load("qm/" + lan + ".qm")
+            QCoreApplication.instance().installTranslator(translator)
+    else:
+        lan = get_default_langauge()
+        if lan is not None:
+            translator.load("qm/" + lan + ".qm")
+            QCoreApplication.instance().installTranslator(translator)
     myWin = MyMainForm()
     myWin.app = app
     if os.path.isfile('theme'):

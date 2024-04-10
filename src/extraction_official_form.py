@@ -29,7 +29,7 @@ class extractThread(threading.Thread):
             is_show_directory = self.is_show_directory
             log_print('start official extraction ...')
             exec_official_translate(self.path, tl_name, is_gen_empty)
-            log_print('official extract success!')
+            log_print('official extraction complete!')
             if is_show_directory:
                 show_dir = os.path.dirname(self.path) + '/game/tl/' + tl_name
                 open_directory_and_select_file(show_dir)

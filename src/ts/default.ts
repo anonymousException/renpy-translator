@@ -1232,7 +1232,7 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.1.4</source>
+        <source>Version 2.1.5</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

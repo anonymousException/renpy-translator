@@ -121,7 +121,7 @@ class extractThread(threading.Thread):
                         f.close()
                 if self.is_show_directory:
                     open_directory_and_select_file(target)
-                log_print('runtime extract success!')
+                log_print('runtime extract complete!')
                 f = io.open(extract_finish, 'w', encoding='utf-8')
                 f.close()
         except Exception as e:

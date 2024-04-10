@@ -149,6 +149,7 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
                     is_finished, is_executed = self.qDic[self.translate]
                     is_finished = False
                     self.qDic[self.translate] = is_finished, is_executed
+                    log_print('start translate...')
                     for t in translate_threads:
                         t.start()
                     self.setDisabled(True)
@@ -180,8 +181,9 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
     def add_entrance(self):
         target = self.get_add_entrance_target()
         if target is not None:
+            log_print('start add entrance...')
             shutil.copyfile(add_change_language_entrance_form.hook_script, target)
-            log_print('add entrance success!')
+            log_print('add entrance complete!')
         is_finished, is_executed = self.qDic[self.add_entrance]
         is_finished = True
         self.qDic[self.add_entrance] = is_finished, is_executed
@@ -217,7 +219,9 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
                     select_dir = select_dir + '/'
                 font_path = self.selectFontText.toPlainText()
                 font_path = font_path.replace('file:///', '')
+                log_print('start replace font...')
                 GenGuiFonts(select_dir, font_path)
+                log_print('replace font complete!')
         is_finished, is_executed = self.qDic[self.replaceFont]
         is_finished = True
         self.qDic[self.replaceFont] = is_finished, is_executed
@@ -251,6 +255,7 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
                 is_finished, is_executed = self.qDic[self.extract]
                 is_finished = False
                 self.qDic[self.extract] = is_finished, is_executed
+                log_print('start extract...')
                 for t in renpy_extract.extract_threads:
                     t.start()
                 self.setDisabled(True)
@@ -296,6 +301,7 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
                 is_finished, is_executed = self.qDic[self.runtime_extract]
                 is_finished = False
                 self.qDic[self.runtime_extract] = is_finished, is_executed
+                log_print('start runtime extract...')
                 t = extract_runtime_form.extractThread(path, tl_name, False, False)
                 t.start()
                 self.setDisabled(True)
@@ -522,6 +528,7 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
                     self.qDic[self.unpack] = is_finished, is_executed
                     self.clean()
                     self.path = None
+                    log_print('unpack complete!')
 
             if self.official_extract_thread is not None:
                 if not self.official_extract_thread.is_alive():
