@@ -886,13 +886,13 @@
         <translation>在此处输入或选择或拖动要替换字体的目录。示例：F:\GameName\game\tl\language</translation>
     </message>
     <message>
-        <location filename="../font_replace_form.py" line="27"/>
+        <location filename="../font_replace_form.py" line="28"/>
         <source>select the directory you want to extract</source>
         <translation>选择你要解压的目录</translation>
     </message>
     <message>
-        <location filename="../font_replace_form.py" line="32"/>
-        <location filename="../one_key_translate_form.py" line="310"/>
+        <location filename="../font_replace_form.py" line="33"/>
+        <location filename="../one_key_translate_form.py" line="353"/>
         <source>select the file font which supports the translated language</source>
         <translation>选择支持翻译语言的文件字体</translation>
     </message>
@@ -900,14 +900,13 @@
 <context>
     <name>GameUnpackerDialog</name>
     <message>
-        <location filename="../game_unpacker_form.py" line="38"/>
+        <location filename="../game_unpacker_form.py" line="89"/>
         <source>select the game file you want to unpack</source>
         <translation>选择你要解压的游戏文件</translation>
     </message>
     <message>
-        <location filename="../game_unpacker_form.py" line="82"/>
         <source>Clean Complete</source>
-        <translation>清理完成</translation>
+        <translation type="vanished">清理完成</translation>
     </message>
     <message>
         <location filename="../game_unpacker.ui" line="14"/>
@@ -936,13 +935,16 @@
     </message>
     <message>
         <location filename="../game_unpacker.ui" line="84"/>
-        <source>Clean temporary files</source>
-        <translation>清理临时文件</translation>
+        <source>Auto close the game after unpacked</source>
+        <translation>解压后自动关闭游戏</translation>
     </message>
     <message>
-        <location filename="../game_unpacker.ui" line="97"/>
+        <source>Clean temporary files</source>
+        <translation type="vanished">清理临时文件</translation>
+    </message>
+    <message>
         <source>Auto Clean after unpack</source>
-        <translation>解包后自动清理</translation>
+        <translation type="vanished">解包后自动清理</translation>
     </message>
 </context>
 <context>
@@ -1123,19 +1125,19 @@
         <translation>Ren&apos;py 翻译器</translation>
     </message>
     <message>
-        <location filename="../main.py" line="444"/>
+        <location filename="../main.py" line="455"/>
         <location filename="../extraction_official_form.py" line="66"/>
         <source>extracting...</source>
         <translation>抽取中...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="435"/>
-        <location filename="../main.py" line="522"/>
+        <location filename="../main.py" line="446"/>
+        <location filename="../main.py" line="531"/>
         <source>translating...</source>
         <translation>翻译中...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="438"/>
+        <location filename="../main.py" line="449"/>
         <location filename="../ui.ui" line="100"/>
         <source>translate</source>
         <translation>翻译</translation>
@@ -1149,19 +1151,19 @@
         <translation type="vanished">选择你要解压的目录</translation>
     </message>
     <message>
-        <location filename="../main.py" line="469"/>
+        <location filename="../main.py" line="480"/>
         <source>select the file(s) you want to translate</source>
         <translation>选择您要翻译的文件</translation>
     </message>
     <message>
-        <location filename="../main.py" line="480"/>
+        <location filename="../main.py" line="491"/>
         <source>select the directory you want to translate</source>
         <translation>选择要翻译的目录</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.1.5</source>
-        <translation>版本 2.1.5</translation>
+        <source>Version 2.1.6</source>
+        <translation>版本 2.1.6</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="113"/>
@@ -1326,7 +1328,7 @@
         <translation type="vanished">在此处输入或选择或拖动要翻译的目录。示例：F:\GameName\game\tl\language</translation>
     </message>
     <message>
-        <location filename="../main.py" line="448"/>
+        <location filename="../main.py" line="459"/>
         <location filename="../extraction_official_form.py" line="88"/>
         <source>extract</source>
         <translation>抽取</translation>
@@ -1538,12 +1540,12 @@
         <translation>官方提取</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="430"/>
+        <location filename="../one_key_translate_form.py" line="473"/>
         <source>select the game file</source>
         <translation>选择游戏文件</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="497"/>
+        <location filename="../one_key_translate_form.py" line="553"/>
         <source>One Key Translate Complete</source>
         <translation>一键翻译完成</translation>
     </message>

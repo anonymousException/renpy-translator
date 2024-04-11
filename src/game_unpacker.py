@@ -22,7 +22,7 @@ class Ui_GameUnpackerDialog(object):
     def setupUi(self, GameUnpackerDialog):
         if not GameUnpackerDialog.objectName():
             GameUnpackerDialog.setObjectName(u"GameUnpackerDialog")
-        GameUnpackerDialog.resize(661, 239)
+        GameUnpackerDialog.resize(661, 217)
         self.label = QLabel(GameUnpackerDialog)
         self.label.setObjectName(u"label")
         self.label.setGeometry(QRect(20, 40, 71, 61))
@@ -36,12 +36,9 @@ class Ui_GameUnpackerDialog(object):
         self.unpackBtn = QPushButton(GameUnpackerDialog)
         self.unpackBtn.setObjectName(u"unpackBtn")
         self.unpackBtn.setGeometry(QRect(100, 130, 491, 24))
-        self.cleanBtn = QPushButton(GameUnpackerDialog)
-        self.cleanBtn.setObjectName(u"cleanBtn")
-        self.cleanBtn.setGeometry(QRect(100, 170, 491, 24))
         self.autoCheckBox = QCheckBox(GameUnpackerDialog)
         self.autoCheckBox.setObjectName(u"autoCheckBox")
-        self.autoCheckBox.setGeometry(QRect(260, 210, 331, 20))
+        self.autoCheckBox.setGeometry(QRect(100, 180, 551, 20))
         self.autoCheckBox.setChecked(True)
 
         self.retranslateUi(GameUnpackerDialog)
@@ -58,7 +55,6 @@ class Ui_GameUnpackerDialog(object):
 #endif // QT_CONFIG(tooltip)
         self.selectFileText.setPlaceholderText(QCoreApplication.translate("GameUnpackerDialog", u"input or choose or drag the game you want to unpack it's rpa files.Example:F:/DemoGame.exe", None))
         self.unpackBtn.setText(QCoreApplication.translate("GameUnpackerDialog", u"Unpack", None))
-        self.cleanBtn.setText(QCoreApplication.translate("GameUnpackerDialog", u"Clean temporary files", None))
-        self.autoCheckBox.setText(QCoreApplication.translate("GameUnpackerDialog", u"Auto Clean after unpack", None))
+        self.autoCheckBox.setText(QCoreApplication.translate("GameUnpackerDialog", u"Auto close the game after unpacked", None))
     # retranslateUi
 

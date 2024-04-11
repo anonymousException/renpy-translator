@@ -616,7 +616,7 @@
     <message>
         <location filename="../engine.ui" line="337"/>
         <source>max_length (The max character length for each request. The actual limit unit of openai is token which is normally a word. But it&apos;hard to define,so use max_length as a replacement. The max tokens of openai are 4096 for each request. Make sure the token is under the exceed limit , my suggestion is to set to 5000)</source>
-        <translation type="unfinished">max_length (ہر درخواست کے لیے زیادہ سے زیادہ کریکٹر کی لمبائی۔ Openai کی اصل حد کی اکائی ٹوکن ہے جو کہ عام طور پر ایک لفظ ہے۔ لیکن اس کی وضاحت کرنا مشکل ہے، اس لیے max_length کو متبادل کے طور پر استعمال کریں۔ اوپنائی کے زیادہ سے زیادہ ٹوکن ہر درخواست کے لیے 4096 ہیں۔ بنائیں۔یقین ہے کہ ٹوکن حد سے زیادہ ہے، میری تجویز ہے کہ 5000 پر سیٹ کیا جائے)</translation>
+        <translation>max_length (ہر درخواست کے لیے زیادہ سے زیادہ کریکٹر کی لمبائی۔ Openai کی اصل حد کی اکائی ٹوکن ہے جو کہ عام طور پر ایک لفظ ہے۔ لیکن اس کی وضاحت کرنا مشکل ہے، اس لیے max_length کو متبادل کے طور پر استعمال کریں۔ اوپنائی کے زیادہ سے زیادہ ٹوکن ہر درخواست کے لیے 4096 ہیں۔ بنائیں۔یقین ہے کہ ٹوکن حد سے زیادہ ہے، میری تجویز ہے کہ 5000 پر سیٹ کیا جائے)</translation>
     </message>
 </context>
 <context>
@@ -840,13 +840,13 @@
 <context>
     <name>FontReplaceDialog</name>
     <message>
-        <location filename="../font_replace_form.py" line="27"/>
+        <location filename="../font_replace_form.py" line="28"/>
         <source>select the directory you want to extract</source>
         <translation>وہ ڈائریکٹری منتخب کریں جسے آپ نکالنا چاہتے ہیں۔</translation>
     </message>
     <message>
-        <location filename="../font_replace_form.py" line="32"/>
-        <location filename="../one_key_translate_form.py" line="310"/>
+        <location filename="../font_replace_form.py" line="33"/>
+        <location filename="../one_key_translate_form.py" line="353"/>
         <source>select the file font which supports the translated language</source>
         <translation>فائل کا فونٹ منتخب کریں جو ترجمہ شدہ زبان کو سپورٹ کرتا ہے۔</translation>
     </message>
@@ -896,14 +896,13 @@
 <context>
     <name>GameUnpackerDialog</name>
     <message>
-        <location filename="../game_unpacker_form.py" line="38"/>
+        <location filename="../game_unpacker_form.py" line="89"/>
         <source>select the game file you want to unpack</source>
         <translation>وہ گیم فائل منتخب کریں جسے آپ پیک کھولنا چاہتے ہیں۔</translation>
     </message>
     <message>
-        <location filename="../game_unpacker_form.py" line="82"/>
         <source>Clean Complete</source>
-        <translation>کلین مکمل</translation>
+        <translation type="vanished">کلین مکمل</translation>
     </message>
     <message>
         <location filename="../game_unpacker.ui" line="14"/>
@@ -932,13 +931,16 @@
     </message>
     <message>
         <location filename="../game_unpacker.ui" line="84"/>
-        <source>Clean temporary files</source>
-        <translation>عارضی فائلوں کو صاف کریں۔</translation>
+        <source>Auto close the game after unpacked</source>
+        <translation>پیک کھولنے کے بعد گیم کو آٹو بند کریں۔</translation>
     </message>
     <message>
-        <location filename="../game_unpacker.ui" line="97"/>
+        <source>Clean temporary files</source>
+        <translation type="vanished">عارضی فائلوں کو صاف کریں۔</translation>
+    </message>
+    <message>
         <source>Auto Clean after unpack</source>
-        <translation>پیک کھولنے کے بعد آٹو کلین</translation>
+        <translation type="vanished">پیک کھولنے کے بعد آٹو کلین</translation>
     </message>
 </context>
 <context>
@@ -1114,25 +1116,25 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../main.py" line="444"/>
+        <location filename="../main.py" line="455"/>
         <location filename="../extraction_official_form.py" line="66"/>
         <source>extracting...</source>
         <translation>نکال رہا ہے...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="435"/>
-        <location filename="../main.py" line="522"/>
+        <location filename="../main.py" line="446"/>
+        <location filename="../main.py" line="531"/>
         <source>translating...</source>
         <translation>ترجمہ...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="438"/>
+        <location filename="../main.py" line="449"/>
         <location filename="../ui.ui" line="100"/>
         <source>translate</source>
         <translation>ترجمہ</translation>
     </message>
     <message>
-        <location filename="../main.py" line="448"/>
+        <location filename="../main.py" line="459"/>
         <location filename="../extraction_official_form.py" line="88"/>
         <source>extract</source>
         <translation>نکالنا</translation>
@@ -1146,12 +1148,12 @@
         <translation type="vanished">وہ ڈائریکٹری منتخب کریں جسے آپ نکالنا چاہتے ہیں۔</translation>
     </message>
     <message>
-        <location filename="../main.py" line="469"/>
+        <location filename="../main.py" line="480"/>
         <source>select the file(s) you want to translate</source>
         <translation>وہ فائل (فائلیں) منتخب کریں جس کا آپ ترجمہ کرنا چاہتے ہیں۔</translation>
     </message>
     <message>
-        <location filename="../main.py" line="480"/>
+        <location filename="../main.py" line="491"/>
         <source>select the directory you want to translate</source>
         <translation>وہ ڈائریکٹری منتخب کریں جس کا آپ ترجمہ کرنا چاہتے ہیں۔</translation>
     </message>
@@ -1162,8 +1164,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.1.5</source>
-        <translation>ورژن 2.1.5</translation>
+        <source>Version 2.1.6</source>
+        <translation>ورژن 2.1.6</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="113"/>
@@ -1530,12 +1532,12 @@
         <translation>سرکاری نکالنا</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="430"/>
+        <location filename="../one_key_translate_form.py" line="473"/>
         <source>select the game file</source>
         <translation>گیم فائل کو منتخب کریں۔</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="497"/>
+        <location filename="../one_key_translate_form.py" line="553"/>
         <source>One Key Translate Complete</source>
         <translation>ایک کلیدی ترجمہ مکمل</translation>
     </message>

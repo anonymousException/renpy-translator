@@ -817,13 +817,13 @@
 <context>
     <name>FontReplaceDialog</name>
     <message>
-        <location filename="../font_replace_form.py" line="27"/>
+        <location filename="../font_replace_form.py" line="28"/>
         <source>select the directory you want to extract</source>
         <translation>ayıklamak istediğiniz dizini seçin</translation>
     </message>
     <message>
-        <location filename="../font_replace_form.py" line="32"/>
-        <location filename="../one_key_translate_form.py" line="310"/>
+        <location filename="../font_replace_form.py" line="33"/>
+        <location filename="../one_key_translate_form.py" line="353"/>
         <source>select the file font which supports the translated language</source>
         <translation>çevrilmiş dili destekleyen dosya yazı tipini seçin</translation>
     </message>
@@ -873,14 +873,13 @@
 <context>
     <name>GameUnpackerDialog</name>
     <message>
-        <location filename="../game_unpacker_form.py" line="38"/>
+        <location filename="../game_unpacker_form.py" line="89"/>
         <source>select the game file you want to unpack</source>
         <translation>açmak istediğiniz oyun dosyasını seçin</translation>
     </message>
     <message>
-        <location filename="../game_unpacker_form.py" line="82"/>
         <source>Clean Complete</source>
-        <translation>Temizleme Tamamlandı</translation>
+        <translation type="vanished">Temizleme Tamamlandı</translation>
     </message>
     <message>
         <location filename="../game_unpacker.ui" line="14"/>
@@ -909,13 +908,16 @@
     </message>
     <message>
         <location filename="../game_unpacker.ui" line="84"/>
-        <source>Clean temporary files</source>
-        <translation>Geçici dosyaları temizle</translation>
+        <source>Auto close the game after unpacked</source>
+        <translation>Paketi açtıktan sonra oyunu otomatik olarak kapat</translation>
     </message>
     <message>
-        <location filename="../game_unpacker.ui" line="97"/>
+        <source>Clean temporary files</source>
+        <translation type="vanished">Geçici dosyaları temizle</translation>
+    </message>
+    <message>
         <source>Auto Clean after unpack</source>
-        <translation>Dosyaları çıkardıktan sonra otomatik temizle</translation>
+        <translation type="vanished">Dosyaları çıkardıktan sonra otomatik temizle</translation>
     </message>
 </context>
 <context>
@@ -1071,36 +1073,36 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../main.py" line="444"/>
+        <location filename="../main.py" line="455"/>
         <location filename="../extraction_official_form.py" line="66"/>
         <source>extracting...</source>
         <translation>çıkartılıyor...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="435"/>
-        <location filename="../main.py" line="522"/>
+        <location filename="../main.py" line="446"/>
+        <location filename="../main.py" line="531"/>
         <source>translating...</source>
         <translation>Çevriliyor...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="438"/>
+        <location filename="../main.py" line="449"/>
         <location filename="../ui.ui" line="100"/>
         <source>translate</source>
         <translation>Çevir</translation>
     </message>
     <message>
-        <location filename="../main.py" line="448"/>
+        <location filename="../main.py" line="459"/>
         <location filename="../extraction_official_form.py" line="88"/>
         <source>extract</source>
         <translation>çıkar</translation>
     </message>
     <message>
-        <location filename="../main.py" line="469"/>
+        <location filename="../main.py" line="480"/>
         <source>select the file(s) you want to translate</source>
         <translation>çevirmek istediğiniz dosya(lar)ı seçin</translation>
     </message>
     <message>
-        <location filename="../main.py" line="480"/>
+        <location filename="../main.py" line="491"/>
         <source>select the directory you want to translate</source>
         <translation>çevirmek istediğiniz dizini seçin</translation>
     </message>
@@ -1232,8 +1234,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.1.5</source>
-        <translation>Sürüm 2.1.5</translation>
+        <source>Version 2.1.6</source>
+        <translation>Sürüm 2.1.6</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="391"/>
@@ -1415,12 +1417,12 @@
         <translation>Resmi Çıkarma</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="430"/>
+        <location filename="../one_key_translate_form.py" line="473"/>
         <source>select the game file</source>
         <translation>Dosyayı seçin</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="497"/>
+        <location filename="../one_key_translate_form.py" line="553"/>
         <source>One Key Translate Complete</source>
         <translation>Tek Tuşla Çeviri Tamamlandı</translation>
     </message>

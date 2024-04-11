@@ -218,9 +218,16 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         f.close()
 
     def unpack_game(self):
+        self.hide()
+        self.widget.hide()
+        self.menubar.hide()
+        self.versionLabel.hide()
         if self.myGameUnpackerForm is None:
-            self.myGameUnpackerForm = MyGameUnpackerForm(parent=self)
-        self.myGameUnpackerForm.exec()
+            self.myGameUnpackerForm = MyGameUnpackerForm(parent=None)
+        self.caller = self.myGameUnpackerForm
+        self.myGameUnpackerForm.parent = self
+        self.myGameUnpackerForm.show()
+        self.actionunpack_game.triggered.disconnect()
 
     def replace_font(self):
         if self.myFontReplaceForm is None:

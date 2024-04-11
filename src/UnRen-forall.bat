@@ -492,8 +492,6 @@ echo  ----------------------------------------------------
 echo.
 echo	Finished!
 echo.
-echo	Press Any Key to Close
-set /p exitoption=
 echo end > unren.finish
 echo.
 echo  ----------------------------------------------------

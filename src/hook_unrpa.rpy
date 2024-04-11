@@ -29,7 +29,8 @@ init python early hide:
             renpy.loader.load_from_apk = None
             file.write(_read)
             if path.endswith((".rpyc", ".rpymc")) and not target_dir.endswith("None") and not base_name=='common':
-                print(path)
+                if path is not None and isinstance(path,str):
+                    print(path)
 
         rv = load_from_archive(name)
         file_open_callbacks.append(my_load_from_archive)
@@ -50,7 +51,6 @@ init python:
         if renpy.loader.load_from_apk == None:
             if os.path.isfile(finish_flag):
                 os.remove(finish_flag)
-            renpy.quit()
         else:
              if os.path.isfile(finish_flag):
                 os.remove(finish_flag)

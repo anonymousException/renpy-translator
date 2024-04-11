@@ -840,13 +840,13 @@
 <context>
     <name>FontReplaceDialog</name>
     <message>
-        <location filename="../font_replace_form.py" line="27"/>
+        <location filename="../font_replace_form.py" line="28"/>
         <source>select the directory you want to extract</source>
         <translation>seleccione el directorio que desea extraer</translation>
     </message>
     <message>
-        <location filename="../font_replace_form.py" line="32"/>
-        <location filename="../one_key_translate_form.py" line="310"/>
+        <location filename="../font_replace_form.py" line="33"/>
+        <location filename="../one_key_translate_form.py" line="353"/>
         <source>select the file font which supports the translated language</source>
         <translation>seleccione la fuente del archivo que admita el idioma traducido</translation>
     </message>
@@ -896,14 +896,13 @@
 <context>
     <name>GameUnpackerDialog</name>
     <message>
-        <location filename="../game_unpacker_form.py" line="38"/>
+        <location filename="../game_unpacker_form.py" line="89"/>
         <source>select the game file you want to unpack</source>
         <translation>selecciona el archivo del juego que deseas descomprimir</translation>
     </message>
     <message>
-        <location filename="../game_unpacker_form.py" line="82"/>
         <source>Clean Complete</source>
-        <translation>Limpio completo</translation>
+        <translation type="vanished">Limpio completo</translation>
     </message>
     <message>
         <location filename="../game_unpacker.ui" line="14"/>
@@ -932,13 +931,16 @@
     </message>
     <message>
         <location filename="../game_unpacker.ui" line="84"/>
-        <source>Clean temporary files</source>
-        <translation>Limpiar los archivos temporales</translation>
+        <source>Auto close the game after unpacked</source>
+        <translation>Cierra automáticamente el juego después de descomprimirlo</translation>
     </message>
     <message>
-        <location filename="../game_unpacker.ui" line="97"/>
+        <source>Clean temporary files</source>
+        <translation type="vanished">Limpiar los archivos temporales</translation>
+    </message>
+    <message>
         <source>Auto Clean after unpack</source>
-        <translation>Limpieza automática después de desembalar</translation>
+        <translation type="vanished">Limpieza automática después de desembalar</translation>
     </message>
 </context>
 <context>
@@ -1114,25 +1116,25 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../main.py" line="444"/>
+        <location filename="../main.py" line="455"/>
         <location filename="../extraction_official_form.py" line="66"/>
         <source>extracting...</source>
         <translation>extrayendo...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="435"/>
-        <location filename="../main.py" line="522"/>
+        <location filename="../main.py" line="446"/>
+        <location filename="../main.py" line="531"/>
         <source>translating...</source>
         <translation>traductorio...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="438"/>
+        <location filename="../main.py" line="449"/>
         <location filename="../ui.ui" line="100"/>
         <source>translate</source>
         <translation>traducir</translation>
     </message>
     <message>
-        <location filename="../main.py" line="448"/>
+        <location filename="../main.py" line="459"/>
         <location filename="../extraction_official_form.py" line="88"/>
         <source>extract</source>
         <translation>extracto</translation>
@@ -1146,12 +1148,12 @@
         <translation type="vanished">seleccione el directorio que desea extraer</translation>
     </message>
     <message>
-        <location filename="../main.py" line="469"/>
+        <location filename="../main.py" line="480"/>
         <source>select the file(s) you want to translate</source>
         <translation>seleccione el archivo(s) que desea traducir</translation>
     </message>
     <message>
-        <location filename="../main.py" line="480"/>
+        <location filename="../main.py" line="491"/>
         <source>select the directory you want to translate</source>
         <translation>seleccione el directorio que desea traducir</translation>
     </message>
@@ -1162,8 +1164,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.1.5</source>
-        <translation>Versión 2.1.5</translation>
+        <source>Version 2.1.6</source>
+        <translation>Versión 2.1.6</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="113"/>
@@ -1534,12 +1536,12 @@
         <translation>Extracción Oficial</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="430"/>
+        <location filename="../one_key_translate_form.py" line="473"/>
         <source>select the game file</source>
         <translation>selecciona el archivo del juego</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="497"/>
+        <location filename="../one_key_translate_form.py" line="553"/>
         <source>One Key Translate Complete</source>
         <translation>Traducción completa con una tecla</translation>
     </message>

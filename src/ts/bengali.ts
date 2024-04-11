@@ -840,13 +840,13 @@
 <context>
     <name>FontReplaceDialog</name>
     <message>
-        <location filename="../font_replace_form.py" line="27"/>
+        <location filename="../font_replace_form.py" line="28"/>
         <source>select the directory you want to extract</source>
         <translation>আপনি নিষ্কাশন করতে চান ডিরেক্টরি নির্বাচন করুন</translation>
     </message>
     <message>
-        <location filename="../font_replace_form.py" line="32"/>
-        <location filename="../one_key_translate_form.py" line="310"/>
+        <location filename="../font_replace_form.py" line="33"/>
+        <location filename="../one_key_translate_form.py" line="353"/>
         <source>select the file font which supports the translated language</source>
         <translation>ফাইল ফন্ট নির্বাচন করুন যা অনুবাদিত ভাষা সমর্থন করে</translation>
     </message>
@@ -896,14 +896,13 @@
 <context>
     <name>GameUnpackerDialog</name>
     <message>
-        <location filename="../game_unpacker_form.py" line="38"/>
+        <location filename="../game_unpacker_form.py" line="89"/>
         <source>select the game file you want to unpack</source>
         <translation>আপনি যে গেম ফাইলটি আনপ্যাক করতে চান তা নির্বাচন করুন</translation>
     </message>
     <message>
-        <location filename="../game_unpacker_form.py" line="82"/>
         <source>Clean Complete</source>
-        <translation>পরিষ্কার সম্পূর্ণ</translation>
+        <translation type="vanished">পরিষ্কার সম্পূর্ণ</translation>
     </message>
     <message>
         <location filename="../game_unpacker.ui" line="14"/>
@@ -932,13 +931,16 @@
     </message>
     <message>
         <location filename="../game_unpacker.ui" line="84"/>
-        <source>Clean temporary files</source>
-        <translation>অস্থায়ী ফাইল পরিষ্কার করুন</translation>
+        <source>Auto close the game after unpacked</source>
+        <translation>আনপ্যাক করার পরে গেমটি স্বয়ংক্রিয়ভাবে বন্ধ করুন</translation>
     </message>
     <message>
-        <location filename="../game_unpacker.ui" line="97"/>
+        <source>Clean temporary files</source>
+        <translation type="vanished">অস্থায়ী ফাইল পরিষ্কার করুন</translation>
+    </message>
+    <message>
         <source>Auto Clean after unpack</source>
-        <translation>আনপ্যাক করার পরে অটো ক্লিন</translation>
+        <translation type="vanished">আনপ্যাক করার পরে অটো ক্লিন</translation>
     </message>
 </context>
 <context>
@@ -1114,25 +1116,25 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../main.py" line="444"/>
+        <location filename="../main.py" line="455"/>
         <location filename="../extraction_official_form.py" line="66"/>
         <source>extracting...</source>
         <translation>নিষ্কাশন করা হচ্ছে...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="435"/>
-        <location filename="../main.py" line="522"/>
+        <location filename="../main.py" line="446"/>
+        <location filename="../main.py" line="531"/>
         <source>translating...</source>
         <translation>অনুবাদ করা হচ্ছে...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="438"/>
+        <location filename="../main.py" line="449"/>
         <location filename="../ui.ui" line="100"/>
         <source>translate</source>
         <translation>অনুবাদ করা</translation>
     </message>
     <message>
-        <location filename="../main.py" line="448"/>
+        <location filename="../main.py" line="459"/>
         <location filename="../extraction_official_form.py" line="88"/>
         <source>extract</source>
         <translation>নির্যাস</translation>
@@ -1146,12 +1148,12 @@
         <translation type="vanished">আপনি নিষ্কাশন করতে চান ডিরেক্টরি নির্বাচন করুন</translation>
     </message>
     <message>
-        <location filename="../main.py" line="469"/>
+        <location filename="../main.py" line="480"/>
         <source>select the file(s) you want to translate</source>
         <translation>আপনি যে ফাইলটি অনুবাদ করতে চান সেটি নির্বাচন করুন</translation>
     </message>
     <message>
-        <location filename="../main.py" line="480"/>
+        <location filename="../main.py" line="491"/>
         <source>select the directory you want to translate</source>
         <translation>আপনি যে ডিরেক্টরিটি অনুবাদ করতে চান তা নির্বাচন করুন</translation>
     </message>
@@ -1162,8 +1164,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.1.5</source>
-        <translation>সংস্করণ 2.1.5</translation>
+        <source>Version 2.1.6</source>
+        <translation>সংস্করণ 2.1.6</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="113"/>
@@ -1530,12 +1532,12 @@
         <translation>অফিসিয়াল নিষ্কাশন</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="430"/>
+        <location filename="../one_key_translate_form.py" line="473"/>
         <source>select the game file</source>
         <translation>গেম ফাইল নির্বাচন করুন</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="497"/>
+        <location filename="../one_key_translate_form.py" line="553"/>
         <source>One Key Translate Complete</source>
         <translation>এক কী অনুবাদ সম্পূর্ণ</translation>
     </message>

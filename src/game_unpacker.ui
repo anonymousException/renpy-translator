@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>661</width>
-    <height>239</height>
+    <height>217</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -71,30 +71,17 @@
     <string>Unpack</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="cleanBtn">
-   <property name="geometry">
-    <rect>
-     <x>100</x>
-     <y>170</y>
-     <width>491</width>
-     <height>24</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Clean temporary files</string>
-   </property>
-  </widget>
   <widget class="QCheckBox" name="autoCheckBox">
    <property name="geometry">
     <rect>
-     <x>260</x>
-     <y>210</y>
-     <width>331</width>
+     <x>100</x>
+     <y>180</y>
+     <width>551</width>
      <height>20</height>
     </rect>
    </property>
    <property name="text">
-    <string>Auto Clean after unpack</string>
+    <string>Auto close the game after unpacked</string>
    </property>
    <property name="checked">
     <bool>true</bool>

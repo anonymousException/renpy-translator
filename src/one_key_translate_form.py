@@ -8,6 +8,7 @@ import subprocess
 import time
 import traceback
 
+import win32gui
 from PySide6.QtCore import QCoreApplication, QThread, Signal
 from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QDialog, QFileDialog, QMessageBox
@@ -27,6 +28,7 @@ import add_change_language_entrance_form
 from extraction_official_form import exec_official_translate
 import extraction_official_form
 from font_util import get_default_font_path
+import my_log
 
 
 class MyQueue(queue.Queue):
@@ -58,6 +60,8 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
         # is_finished
         # is_executed
         self.qDic = dict()
+        self.p = None
+        self.dir = None
         default_font = get_default_font_path()
         if default_font is not None:
             self.selectFontText.setText(default_font)
@@ -320,45 +324,23 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
         event.ignore()
         return
 
-    def clean(self):
-        path = self.selectFileText.toPlainText()
-        path = path.replace('file:///', '')
-        if os.path.isfile(path):
-            if path.endswith('.exe'):
-                dir = os.path.dirname(path)
-                hook_script_path = dir + '/game/' + game_unpacker_form.hook_script
-                if os.path.isfile(hook_script_path):
-                    os.remove(hook_script_path)
-                if os.path.isfile(hook_script_path + 'c'):
-                    os.remove(hook_script_path + 'c')
-                bat_path = dir + '/' + bat
-                if os.path.isfile(bat_path):
-                    os.remove(bat_path)
-                expand_path = dir + '/' + expand_file
-                if os.path.isfile(expand_path):
-                    os.remove(expand_path)
-
     def unpack(self):
         path = self.selectFileText.toPlainText()
         path = path.replace('file:///', '')
         if os.path.isfile(path):
             if path.endswith('.exe'):
                 dir = os.path.dirname(path)
-
-                shutil.copyfile(bat, dir + '/' + bat)
-                shutil.copyfile(expand_file, dir + '/' + expand_file)
-
                 shutil.copyfile(game_unpacker_form.hook_script, dir + '/game/' + game_unpacker_form.hook_script)
-                command = 'start "" /d "' + dir + '"  "' + path + '"'
+                command = path
                 self.path = path
                 f = io.open(dir + finish_flag, 'w')
                 f.write('waiting')
                 f.close()
                 self.setDisabled(True)
                 log_print('start unpacking...')
-                p = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
-                                     creationflags=0x08000000)
-                p.wait()
+                p = subprocess.Popen(command, shell=False, stdout=my_log.f, stderr=my_log.f,
+                                     creationflags=0x08000000, text=True, cwd=dir, encoding='utf-8')
+                self.p = p
                 return
         is_finished, is_executed = self.qDic[self.unpack]
         is_finished = True
@@ -502,6 +484,18 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
 
     def update_progress(self):
         try:
+            if self.p is not None:
+                if self.p.poll() is not None:
+                    self.p = None
+            if self.dir is not None:
+                if os.path.isfile(self.dir + '/unren.finish'):
+                    os.remove(self.dir + '/unren.finish')
+                    self.dir = None
+                    is_finished, is_executed = self.qDic[self.unpack]
+                    is_finished = True
+                    self.qDic[self.unpack] = is_finished, is_executed
+                    self.path = None
+                    log_print('unpack complete!')
             if self.runtime_extract in self.qDic:
                 if os.path.isfile(extract_finish):
                     os.remove(extract_finish)
@@ -513,22 +507,15 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
                 dir = os.path.dirname(self.path)
                 target = dir + finish_flag
                 if not os.path.isfile(target):
-                    bat = dir + '/UnRen-forall.bat'
-                    command = 'start "" /d "' + dir + '"  "' + bat + '"'
-                    p = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
-                                         creationflags=0x08000000)
-                    p.wait()
-                    while (True):
-                        time.sleep(0.1)
-                        if os.path.isfile(dir + '/unren.finish'):
-                            os.remove(dir + '/unren.finish')
-                            break
-                    is_finished, is_executed = self.qDic[self.unpack]
-                    is_finished = True
-                    self.qDic[self.unpack] = is_finished, is_executed
-                    self.clean()
+                    hook_script_path = dir + '/game/' + game_unpacker_form.hook_script
+                    if os.path.isfile(hook_script_path):
+                        os.remove(hook_script_path)
+                    if os.path.isfile(hook_script_path + 'c'):
+                        os.remove(hook_script_path + 'c')
+                    t = game_unpacker_form.unrpycThread(dir, self.p, True)
+                    t.start()
                     self.path = None
-                    log_print('unpack complete!')
+                    self.dir = dir
 
             if self.official_extract_thread is not None:
                 if not self.official_extract_thread.is_alive():
