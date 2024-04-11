@@ -25,13 +25,16 @@ expand_file = 'expand.exe'
 
 
 def set_window_on_top(hwnd):
-    win32gui.ShowWindow(hwnd, win32con.SW_NORMAL)
-    win32gui.SetWindowPos(hwnd, win32con.HWND_TOPMOST, 0, 0, 0, 0,
-                          win32con.SWP_NOMOVE | win32con.SWP_NOSIZE)
-    win32gui.SetWindowPos(hwnd, win32con.HWND_NOTOPMOST, 0, 0, 0, 0,
-                          win32con.SWP_NOMOVE | win32con.SWP_NOSIZE)
-    win32gui.SetForegroundWindow(hwnd)
-    win32gui.SetActiveWindow(hwnd)
+    try:
+        win32gui.ShowWindow(hwnd, win32con.SW_NORMAL)
+        win32gui.SetWindowPos(hwnd, win32con.HWND_TOPMOST, 0, 0, 0, 0,
+                              win32con.SWP_NOMOVE | win32con.SWP_NOSIZE)
+        win32gui.SetWindowPos(hwnd, win32con.HWND_NOTOPMOST, 0, 0, 0, 0,
+                              win32con.SWP_NOMOVE | win32con.SWP_NOSIZE)
+        win32gui.SetForegroundWindow(hwnd)
+        win32gui.SetActiveWindow(hwnd)
+    except:
+        pass
 
 
 class unrpycThread(threading.Thread):
@@ -104,6 +107,7 @@ class MyGameUnpackerForm(QDialog, Ui_GameUnpackerDialog):
                 f.write('waiting')
                 f.close()
                 self.setDisabled(True)
+                log_print('start unpacking...')
                 p = subprocess.Popen(command, shell=False, stdout=my_log.f, stderr=my_log.f,
                                      creationflags=0x08000000, text=True, cwd=dir, encoding='utf-8')
                 self.p = p
@@ -133,6 +137,7 @@ class MyGameUnpackerForm(QDialog, Ui_GameUnpackerDialog):
                     set_window_on_top(self.hwnd)
                     self.dir = None
                     self.setEnabled(True)
+                    log_print('unpack complete!')
             if self.path is None:
                 return
             dir = os.path.dirname(self.path)
