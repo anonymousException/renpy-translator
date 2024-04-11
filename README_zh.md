@@ -49,7 +49,7 @@ https://github.com/anonymousException/renpy-translator/blob/feature/ai-translate
 
 这等价于后面的完整教程
 
-https://github.com/anonymousException/renpy-translator/assets/157234942/d586e2b8-6bcc-4ab7-83cf-ea5f6d4fedc3
+https://github.com/anonymousException/renpy-translator/assets/157234942/ae7ea5c8-233b-4708-bd52-2248e0602628
 
 ### 完整教程
 
@@ -92,7 +92,7 @@ https://github.com/anonymousException/renpy-translator/assets/157234942/bdc122d8
 
 ### 解包游戏
 
-https://github.com/anonymousException/renpy-translator/assets/157234942/cd069ac4-f18b-48cf-94a4-e07d9305efc5
+https://github.com/anonymousException/renpy-translator/assets/157234942/a3fac173-8555-42de-ae36-e375684728b0
 
 ### 编辑器模式
 
@@ -257,7 +257,7 @@ https://github.com/anonymousException/renpy-translator/assets/157234942/718b2b71
 
 解包出来的文件格式是 rpyc，因此会自动调用 [UnRen-forall(v9.4)](https://f95zone.to/threads/unrengui-unren-forall-v9-4-unren-powershell-forall-v9-4-unren-old.92717/) 转换为 rpy
 
-https://github.com/anonymousException/renpy-translator/assets/157234942/cd069ac4-f18b-48cf-94a4-e07d9305efc5
+https://github.com/anonymousException/renpy-translator/assets/157234942/a3fac173-8555-42de-ae36-e375684728b0
 
 ------
 

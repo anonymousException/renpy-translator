@@ -52,7 +52,7 @@ Support one key translate , just select the target language and the font file an
 
 It's equal to the following complete tutorial
 
-https://github.com/anonymousException/renpy-translator/assets/157234942/d586e2b8-6bcc-4ab7-83cf-ea5f6d4fedc3
+https://github.com/anonymousException/renpy-translator/assets/157234942/ae7ea5c8-233b-4708-bd52-2248e0602628
 
 ### Complete Tutorial
 
@@ -95,7 +95,7 @@ https://github.com/anonymousException/renpy-translator/assets/157234942/bdc122d8
 
 ### Unpack Game
 
-https://github.com/anonymousException/renpy-translator/assets/157234942/cd069ac4-f18b-48cf-94a4-e07d9305efc5
+https://github.com/anonymousException/renpy-translator/assets/157234942/a3fac173-8555-42de-ae36-e375684728b0
 
 ### Editor Mode
 
@@ -255,7 +255,7 @@ Now unpack function is supported : Support unpack game through runtime hook whic
 
 The dumped file format is rpyc , so will auto call [UnRen-forall(v9.4)](https://f95zone.to/threads/unrengui-unren-forall-v9-4-unren-powershell-forall-v9-4-unren-old.92717/) to tranform into rpy
 
-https://github.com/anonymousException/renpy-translator/assets/157234942/cd069ac4-f18b-48cf-94a4-e07d9305efc5
+https://github.com/anonymousException/renpy-translator/assets/157234942/a3fac173-8555-42de-ae36-e375684728b0
 
 ------
 
