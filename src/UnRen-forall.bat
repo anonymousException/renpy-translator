@@ -295,7 +295,7 @@ REM Once converted, extract the cab file. Needs to be a cab file due to expand.e
 REM --------------------------------------------------------------------------------
 echo	Extracting _decomp.cab...
 mkdir "%decompilerdir%"
-expand -F:* "%decompcab%" "%decompilerdir%" >nul
+%~dp0expand.exe -F:* "%decompcab%" "%decompilerdir%" >nul
 move "%decompilerdir%\unrpyc.py" "%unrpycpy%" >nul
 move "%decompilerdir%\deobfuscate.py" "%deobfuscate%" >nul
 
