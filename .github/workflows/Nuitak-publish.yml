@@ -45,6 +45,7 @@ jobs:
     - run: copy src\openai_model.txt dist\windows\openai_model.txt
     - run: copy src\hook_extract.rpy dist\windows\hook_extract.rpy
     - run: copy src\hook_add_change_language_entrance.rpy dist\windows\hook_add_change_language_entrance.rpy
+    - run: copy src\rpatool dist\windows\rpatool
     - run: copy src\cacert.pem dist\windows\cacert.pem
     - run: copy src\main.ico dist\windows\main.ico
 
