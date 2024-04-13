@@ -107,14 +107,11 @@ class MyExtractionOfficialForm(QDialog, Ui_ExtractionOfficialDialog):
             self.update_date.emit()
 
 
-
-
-
 def get_translate_cmd(game_path, tl_name):
     python_path = get_python_path(game_path)
     py_path = get_py_path(game_path)
     game_dir = os.path.dirname(game_path)
-    command = python_path + ' ' + py_path + ' ' + game_dir + ' translate ' + tl_name
+    command = python_path + ' "' + py_path + '" "' + game_dir + '" translate "' + tl_name + '"'
     return command
 
 
@@ -122,6 +119,7 @@ def exec_official_translate(game_path, tl_name, is_gen_empty):
     command = get_translate_cmd(game_path, tl_name)
     if is_gen_empty:
         command = command + ' --empty'
+    log_print(command)
     p = subprocess.Popen(command, shell=True, stdout=my_log.f, stderr=my_log.f,
                          creationflags=0x08000000)
     p.wait()
