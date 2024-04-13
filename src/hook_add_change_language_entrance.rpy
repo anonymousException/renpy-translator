@@ -37,5 +37,5 @@ screen my_preferences():
                 textbutton "Default" action Language(None)
                 $ cnt = 0
                 for i in l:
-                    if i != 'None':
+                    if i is not None and i != 'None':
                         textbutton "%s" % i action Language(i)
