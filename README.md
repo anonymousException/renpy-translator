@@ -69,6 +69,10 @@ The video shows in order :
 7. translate
 8. show the translated game
 
+### Pack Game(Generate Translation Mod)
+
+https://github.com/anonymousException/renpy-translator/assets/157234942/4816245b-3690-47ba-9501-4b50cf03eedb
+
 ### Translate with brower
 
 https://github.com/anonymousException/renpy-translator/assets/157234942/a26f7186-fcc2-461e-9ae4-416d7b8ae293

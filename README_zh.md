@@ -66,6 +66,10 @@ https://github.com/anonymousException/renpy-translator/assets/157234942/381ad014
 7. 翻译
 8. 展示翻译后的游戏
 
+### 打包游戏(生成翻译 Mod)
+
+https://github.com/anonymousException/renpy-translator/assets/157234942/4816245b-3690-47ba-9501-4b50cf03eedb
+
 ### 借助浏览器翻译
 
 https://github.com/anonymousException/renpy-translator/assets/157234942/a26f7186-fcc2-461e-9ae4-416d7b8ae293
