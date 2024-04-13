@@ -8,6 +8,9 @@ import traceback
 
 from my_log import log_print
 
+font_style_tempalte_path = 'font_style_template.txt'
+
+
 def ExtractStyleList(data):
     _read_line = data.split('\n')
     last_i = 0
@@ -92,7 +95,7 @@ def ExtractStyleFontListFromDirectory(p):
     if (p[len(p) - 1] != '/' and p[len(p) - 1] != '\\'):
         p = p + '/'
     ret_d = dict()
-    paths = os.walk(p,topdown=False)
+    paths = os.walk(p, topdown=False)
     for path, dir_lst, file_lst in paths:
         for file_name in file_lst:
             i = os.path.join(path, file_name)
@@ -165,12 +168,13 @@ def GenGuiFontsOriginal(p, tl_name, font_path):
             msg = traceback.format_exc()
             log_print(msg)
             log_print('copy font file:' + abs_font_path + ' to ' + copy_font_path + ' fail!')
+        f = io.open(font_style_tempalte_path, 'r', encoding='utf-8')
+        template = f.read()
+        f.close()
+        template = template.replace('{tl_name}', tl_name)
+        template = template.replace('{font_path}', 'fonts/' + font_path)
         f = io.open(guiPath, 'w', encoding='utf-8')
-        header = pythonBeginLine + '\n'
-        header = header + '    font_path = ' + '"fonts/' + font_path + '"' + '\n'
-        header = header + '    gui.text_font = gui.interface_text_font = gui.button_text_font = gui.choice_button_text_font = FontGroup().add(font_path, 0x5187, 0x5187).add(font_path, 0x5463, 0x5463).add(font_path, 0x5c44, 0x5c44).add(font_path, 0x5c4c, 0x5c4c).add(font_path, 0x808f, 0x808f).add(font_path, 0x6294, 0x6294).add(font_path, 0x2014, 0x201F).add(font_path, 0x2E80, 0xffff).add(font_path, 0x0000, 0xffff)' + '\n'
-        header = header + '    gui.name_text_font = font_path' + '\n'
-        header = header + '    gui.headline_text_font = FontGroup().add(font_path, 0x2E80, 0xffff).add(font_path, 0x0000, 0xffff)'
+        header = template
         # print(header)
         f.write(header)
         f.write('\n')
@@ -189,21 +193,22 @@ def GenGuiFontsOriginal(p, tl_name, font_path):
         f.close()
         log_print(guiPath + ' generated success!')
 
-def GenGuiFonts(path,fp):
+
+def GenGuiFonts(path, fp):
     index = path.rfind('tl\\')
     if index == -1:
         index = path.rfind('tl/')
-    if(index == -1):
+    if (index == -1):
         log_print(path + ' no tl found!')
         return
-    index2 = path.find('\\',index+3)
+    index2 = path.find('\\', index + 3)
     if index2 == -1:
-        index2 = path.find('/',index+3)
-    if(index2 == -1):
+        index2 = path.find('/', index + 3)
+    if (index2 == -1):
         log_print(path + ' no tl found2!')
         return
-    tl = path[index+3:index2]
-    GenGuiFontsOriginal(path[:index],tl,fp)
+    tl = path[index + 3:index2]
+    GenGuiFontsOriginal(path[:index], tl, fp)
 
 # path = 'F:/Games/RenPy/Outland-Wanderer-0.0.21-win/game'
 # tl = 'schinese'

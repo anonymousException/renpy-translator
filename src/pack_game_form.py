@@ -80,7 +80,8 @@ class MyPackGameForm(QDialog, Ui_PackGameDialog):
                 if self.autoCopyFontCheckBox.isChecked():
                     for i in font_file_list:
                         if i not in item_list:
-                            item = QStandardItem(f'{os.path.basename(i)}')
+                            basename = i[len(game_dir):].strip('/').strip('\\')
+                            item = QStandardItem(f'{basename}')
                             item.setToolTip(i)
                             item.setData(i)
                             self.model.appendRow(item)
@@ -113,14 +114,16 @@ class MyPackGameForm(QDialog, Ui_PackGameDialog):
                     item_list.append(item)
                 if self.autoCopyTranslationCheckBox.isChecked():
                     if tl_dir not in item_list:
-                        item = QStandardItem(f'{os.path.basename(tl_dir)}')
+                        basename = tl_dir[len(game_dir):].strip('/').strip('\\')
+                        item = QStandardItem(f'{basename}')
                         item.setToolTip(tl_dir)
                         item.setData(tl_dir)
                         self.model.appendRow(item)
                         item_list.append(item)
                     for i in target_list:
                         if i not in item_list:
-                            item = QStandardItem(f'{os.path.basename(i)}')
+                            basename = i[len(game_dir):].strip('/').strip('\\')
+                            item = QStandardItem(f'{basename}')
                             item.setToolTip(i)
                             item.setData(i)
                             self.model.appendRow(item)
@@ -156,35 +159,41 @@ class MyPackGameForm(QDialog, Ui_PackGameDialog):
             self.model.removeRow(index.row())
 
     def on_append_button_clicked(self):
-        item_list = []
-        for row in range(self.model.rowCount()):
-            item = self.model.item(row).data()
-            item_list.append(item)
-        select_files = self.selectFilesText.toPlainText().split('\n')
-        select_dirs = self.selectDirsText.toPlainText().split('\n')
-        for i in select_files:
-            i = i.replace('file:///', '')
-            if len(i) > 0 and os.path.isfile(i):
-                if i not in item_list:
-                    item = QStandardItem(f'{os.path.basename(i)}')
-                    item.setToolTip(i)
-                    item.setData(i)
-                    self.model.appendRow(item)
+        path = self.selectFileText.toPlainText()
+        path = path.replace('file:///', '')
+        if os.path.isfile(path):
+            if path.endswith('.exe'):
+                dir = os.path.dirname(path)
+                game_dir = dir + '/game'
+                item_list = []
+                for row in range(self.model.rowCount()):
+                    item = self.model.item(row).data()
                     item_list.append(item)
-        for i in select_dirs:
-            i = i.replace('file:///', '')
-            if len(i) > 0 and os.path.isdir(i):
-                if i not in item_list:
-                    dir_name = os.path.dirname(i)
-                    if not i.endswith('/') and not i.endswith('\\'):
-                        dir_name = os.path.dirname(i + '/')
-                    item = QStandardItem(f'{os.path.basename(dir_name)}')
-                    item.setToolTip(i)
-                    item.setData(i)
-                    self.model.appendRow(item)
-                    item_list.append(item)
-        self.on_auto_copy_translation_clicked()
-        self.on_auto_copy_font_clicked()
+                select_files = self.selectFilesText.toPlainText().split('\n')
+                select_dirs = self.selectDirsText.toPlainText().split('\n')
+                for i in select_files:
+                    i = i.replace('file:///', '')
+                    if len(i) > 0 and os.path.isfile(i):
+                        if i not in item_list:
+                            basename = i[len(game_dir):].strip('/').strip('\\')
+                            item = QStandardItem(f'{basename}')
+                            item.setToolTip(i)
+                            item.setData(i)
+                            self.model.appendRow(item)
+                            item_list.append(item)
+                for i in select_dirs:
+                    i = i.replace('file:///', '')
+                    if len(i) > 0 and os.path.isdir(i):
+                        if i not in item_list:
+                            dir_name = os.path.dirname(i)
+                            basename = dir_name[len(game_dir):].strip('/').strip('\\')
+                            item = QStandardItem(f'{basename}')
+                            item.setToolTip(i)
+                            item.setData(i)
+                            self.model.appendRow(item)
+                            item_list.append(item)
+                self.on_auto_copy_translation_clicked()
+                self.on_auto_copy_font_clicked()
 
     def on_select_file_text_changed(self):
         path = self.selectFileText.toPlainText()
@@ -201,7 +210,8 @@ class MyPackGameForm(QDialog, Ui_PackGameDialog):
                     font_file_list = get_font_file_list(game_dir)
                     for i in font_file_list:
                         if i not in item_list:
-                            item = QStandardItem(f'{os.path.basename(i)}')
+                            basename = i[len(game_dir):].strip('/').strip('\\')
+                            item = QStandardItem(f'{basename}')
                             item.setToolTip(i)
                             item.setData(i)
                             self.model.appendRow(item)
@@ -210,7 +220,8 @@ class MyPackGameForm(QDialog, Ui_PackGameDialog):
                     script_file_list = get_script_file_list(game_dir)
                     for i in script_file_list:
                         if i not in item_list:
-                            item = QStandardItem(f'{os.path.basename(i)}')
+                            basename = i[len(game_dir):].strip('/').strip('\\')
+                            item = QStandardItem(f'{basename}')
                             item.setToolTip(i)
                             item.setData(i)
                             self.model.appendRow(item)
@@ -218,7 +229,8 @@ class MyPackGameForm(QDialog, Ui_PackGameDialog):
                     tl_dir = game_dir + '/tl'
                     if os.path.isdir(tl_dir):
                         if tl_dir not in item_list:
-                            item = QStandardItem(f'{os.path.basename(tl_dir)}')
+                            basename = tl_dir[len(game_dir):].strip('/').strip('\\')
+                            item = QStandardItem(f'{basename}')
                             item.setToolTip(tl_dir)
                             item.setData(tl_dir)
                             self.model.appendRow(item)
@@ -360,10 +372,11 @@ def get_font_file_list(game_dir):
 
 def pack_from_list(python_path, pack_list, target_path):
     rpa_script_path = os.getcwd() + '/rpatool'
+    game_dir = os.path.dirname(target_path)
     if len(pack_list) > 0:
         if not os.path.isfile(target_path):
             i = pack_list[0]
-            basename = os.path.basename(i)
+            basename = i[len(game_dir):].strip('/').strip('\\')
             command = python_path + f' -O "{rpa_script_path}" -c "{target_path}" "{basename}"="{i}"'
             log_print(command)
             p = subprocess.Popen(command, shell=True, stdout=my_log.f, stderr=my_log.f,
@@ -371,11 +384,7 @@ def pack_from_list(python_path, pack_list, target_path):
             p.wait()
             pack_list.pop(0)
         for i in pack_list:
-            if os.path.isdir(i):
-                if not i.endswith('/') or i.endswith('\\'):
-                    i = i + '/'
-                i = os.path.dirname(i)
-            basename = os.path.basename(i)
+            basename = i[len(game_dir):].strip('/').strip('\\')
             command = python_path + f' -O "{rpa_script_path}" -a "{target_path}" "{basename}"="{i}"'
             log_print(command)
             p = subprocess.Popen(command, shell=True, stdout=my_log.f, stderr=my_log.f,
