@@ -13,14 +13,16 @@ init python early hide:
 screen my_preferences():
     python:
         def traverse_first_dir(path):
-            l = []
+            translator = renpy.game.script.translator
+            languages = translator.languages
+            l = languages
             if (os.path.exists(path)):
                 files = os.listdir(path)
                 for file in files:
                     m = os.path.join(path,file)
                     if (os.path.isdir(m)):
                         h = os.path.split(m)
-                        l.append(h[1])
+                        l.add(h[1])
             return l
         l = traverse_first_dir('game/tl')
     tag menu
@@ -33,6 +35,7 @@ screen my_preferences():
                 style_prefix "radio"
                 label _("Language")
                 textbutton "Default" action Language(None)
-                for i in range(len(l)):
-                    if l[i] != 'None':
-                        textbutton "%s" % l[i] action Language(l[i])
+                $ cnt = 0
+                for i in l:
+                    if i != 'None':
+                        textbutton "%s" % i action Language(i)

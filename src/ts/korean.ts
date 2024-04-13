@@ -754,7 +754,7 @@
 <context>
     <name>ExtractionOfficialDialog</name>
     <message>
-        <location filename="../extraction_official_form.py" line="72"/>
+        <location filename="../extraction_official_form.py" line="73"/>
         <source>select the game file you want to extract</source>
         <translation>추출하려는 게임 파일을 선택하세요</translation>
     </message>
@@ -896,7 +896,7 @@
 <context>
     <name>GameUnpackerDialog</name>
     <message>
-        <location filename="../game_unpacker_form.py" line="89"/>
+        <location filename="../game_unpacker_form.py" line="92"/>
         <source>select the game file you want to unpack</source>
         <translation>압축을 풀고 싶은 게임 파일을 선택하세요</translation>
     </message>
@@ -1096,36 +1096,36 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../main.py" line="455"/>
-        <location filename="../extraction_official_form.py" line="66"/>
-        <source>extracting...</source>
+        <location filename="../main.py" line="472"/>
+        <location filename="../extraction_official_form.py" line="67"/>
+        <source>is extracting...</source>
         <translation>적출...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="446"/>
-        <location filename="../main.py" line="531"/>
-        <source>translating...</source>
+        <location filename="../main.py" line="463"/>
+        <location filename="../main.py" line="548"/>
+        <source>is translating...</source>
         <translation>번역하는 중...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="449"/>
+        <location filename="../main.py" line="466"/>
         <location filename="../ui.ui" line="100"/>
         <source>translate</source>
         <translation>번역하다</translation>
     </message>
     <message>
-        <location filename="../main.py" line="459"/>
-        <location filename="../extraction_official_form.py" line="88"/>
+        <location filename="../main.py" line="476"/>
+        <location filename="../extraction_official_form.py" line="89"/>
         <source>extract</source>
         <translation>발췌</translation>
     </message>
     <message>
-        <location filename="../main.py" line="480"/>
+        <location filename="../main.py" line="497"/>
         <source>select the file(s) you want to translate</source>
         <translation>번역하려는 파일을 선택하세요</translation>
     </message>
     <message>
-        <location filename="../main.py" line="491"/>
+        <location filename="../main.py" line="508"/>
         <source>select the directory you want to translate</source>
         <translation>번역하려는 디렉토리를 선택하십시오</translation>
     </message>
@@ -1211,44 +1211,49 @@
         <translation>고급 옵션</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="466"/>
+        <location filename="../ui.ui" line="467"/>
         <source>theme</source>
         <translation>주제</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="585"/>
+        <location filename="../ui.ui" line="586"/>
         <source>unpack game package</source>
         <translation>게임 패키지 풀기</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="685"/>
+        <location filename="../ui.ui" line="686"/>
         <source>extract translation</source>
         <translation>번역 추출</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="690"/>
+        <location filename="../ui.ui" line="691"/>
         <source>runtime extraction</source>
         <translation>런타임 추출</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="705"/>
+        <location filename="../ui.ui" line="706"/>
         <source>add change langauge entrance</source>
         <translation>언어 변경 입구 추가</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="710"/>
+        <location filename="../ui.ui" line="711"/>
         <source>one key translate</source>
         <translation>하나의 키 번역</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="715"/>
+        <location filename="../ui.ui" line="716"/>
         <source>official extraction</source>
         <translation>공식 추출</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="720"/>
+        <location filename="../ui.ui" line="721"/>
         <source>convert txt to html</source>
         <translation>txt를 html로 변환</translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="731"/>
+        <source>pack game files</source>
+        <translation>게임 파일 압축</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="270"/>
@@ -1257,8 +1262,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.1.6</source>
-        <translation>버전 2.1.6</translation>
+        <source>Version 2.1.7</source>
+        <translation>버전 2.1.7</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="391"/>
@@ -1271,7 +1276,7 @@
         <translation>©2024 마지막 순간, 모든 권리 보유.</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="580"/>
+        <location filename="../ui.ui" line="581"/>
         <source>replace font</source>
         <translation>글꼴 교체</translation>
     </message>
@@ -1296,32 +1301,32 @@
         <translation>번역 엔진</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="446"/>
+        <location filename="../ui.ui" line="447"/>
         <source>language</source>
         <translation>언어</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="497"/>
+        <location filename="../ui.ui" line="498"/>
         <source>copyright</source>
         <translation>저작권</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="502"/>
+        <location filename="../ui.ui" line="503"/>
         <source>proxy settings</source>
         <translation>프록시 설정</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="507"/>
+        <location filename="../ui.ui" line="508"/>
         <source>engine settings</source>
         <translation>엔진 설정</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="512"/>
+        <location filename="../ui.ui" line="513"/>
         <source>custom engine</source>
         <translation>커스텀 엔진</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="517"/>
+        <location filename="../ui.ui" line="518"/>
         <source>edit from rpy</source>
         <translation>rpy에서 편집</translation>
     </message>
@@ -1445,9 +1450,98 @@
         <translation>게임 파일을 선택하세요</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="553"/>
+        <location filename="../one_key_translate_form.py" line="548"/>
         <source>One Key Translate Complete</source>
         <translation>하나의 키 번역 완료</translation>
+    </message>
+</context>
+<context>
+    <name>PackGameDialog</name>
+    <message>
+        <location filename="../pack_game_form.py" line="149"/>
+        <source>Delete</source>
+        <translation>삭제</translation>
+    </message>
+    <message>
+        <location filename="../pack_game_form.py" line="239"/>
+        <source>select the file(s) you want to pack</source>
+        <translation>압축하려는 파일을 선택하십시오</translation>
+    </message>
+    <message>
+        <location filename="../pack_game_form.py" line="296"/>
+        <source>is packing...</source>
+        <translation>짐을 싸고 있다...</translation>
+    </message>
+    <message>
+        <location filename="../pack_game_form.py" line="302"/>
+        <source>select the game file you want to pack it&apos;s files</source>
+        <translation>압축하려는 게임 파일을 선택하세요</translation>
+    </message>
+    <message>
+        <location filename="../pack_game_form.py" line="318"/>
+        <location filename="../pack_game.ui" line="236"/>
+        <source>pack game files</source>
+        <translation>게임 파일 압축</translation>
+    </message>
+    <message>
+        <location filename="../pack_game.ui" line="14"/>
+        <source>Pack game files into rpa package</source>
+        <translation>게임 파일을 rpa 패키지로 압축</translation>
+    </message>
+    <message>
+        <location filename="../pack_game.ui" line="35"/>
+        <source>file</source>
+        <translation>파일</translation>
+    </message>
+    <message>
+        <location filename="../pack_game.ui" line="64"/>
+        <source>directory(s)</source>
+        <translation>디렉토리</translation>
+    </message>
+    <message>
+        <location filename="../pack_game.ui" line="80"/>
+        <source>file(s)</source>
+        <translation>파일</translation>
+    </message>
+    <message>
+        <location filename="../pack_game.ui" line="96"/>
+        <source>name</source>
+        <translation>이름</translation>
+    </message>
+    <message>
+        <location filename="../pack_game.ui" line="128"/>
+        <source>input or choose or drag the directory(s) you want to pack here.Examaple:D:\GameName\game\character</source>
+        <translation>여기에 압축하려는 디렉터리를 입력하거나 선택하거나 드래그하세요. 예:D:\GameName\game\character</translation>
+    </message>
+    <message>
+        <location filename="../pack_game.ui" line="157"/>
+        <source>input or choose or drag the game you want to pack it&apos;s files.Example:F:/DemoGame.exe</source>
+        <translation>파일을 압축하려는 게임을 입력하거나 선택하거나 드래그하세요. 예:F:/DemoGame.exe</translation>
+    </message>
+    <message>
+        <location filename="../pack_game.ui" line="170"/>
+        <source>input the rpa name as your wish , if the file already exists under game folder , the files will be appened into it</source>
+        <translation>원하는 대로 rpa 이름을 입력하세요. 파일이 이미 게임 폴더 아래에 있으면 해당 파일이 해당 폴더에 추가됩니다</translation>
+    </message>
+    <message>
+        <location filename="../pack_game.ui" line="186"/>
+        <source>input or choose or drag the file(s) you want to pack here.Examaple:D:\GameName\game\script.rpy</source>
+        <translation>여기에 압축하려는 파일을 입력하거나 선택하거나 드래그하세요. 예:D:\GameName\game\script.rpy</translation>
+    </message>
+    <message>
+        <location filename="../pack_game.ui" line="197"/>
+        <source>Append to file list</source>
+        <translation>파일 목록에 추가</translation>
+    </message>
+    <message>
+        <location filename="../pack_game.ui" line="210"/>
+        <source>Auto append translation files</source>
+        <translation>번역 파일 자동 추가</translation>
+    </message>
+    <message>
+        <location filename="../pack_game.ui" line="226"/>
+        <source>Auto append font files</source>
+        <translation>글꼴 파일 자동 추가</translation>
     </message>
 </context>
 <context>

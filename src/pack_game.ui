@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PackGameDialog</class>
+ <widget class="QDialog" name="PackGameDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1082</width>
+    <height>592</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Pack game files into rpa package</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QWidget" name="widget" native="true">
+     <property name="minimumSize">
+      <size>
+       <width>600</width>
+       <height>410</height>
+      </size>
+     </property>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>71</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>file</string>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="selectDirsBtn">
+      <property name="geometry">
+       <rect>
+        <x>500</x>
+        <y>320</y>
+        <width>81</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string notr="true">...</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_13">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>330</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>directory(s)</string>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_5">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>235</y>
+        <width>71</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>file(s)</string>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_8">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>130</y>
+        <width>61</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>name</string>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="selectFilesBtn">
+      <property name="geometry">
+       <rect>
+        <x>500</x>
+        <y>220</y>
+        <width>81</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string notr="true">...</string>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="selectDirsText">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>320</y>
+        <width>411</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string/>
+      </property>
+      <property name="placeholderText">
+       <string>input or choose or drag the directory(s) you want to pack here.Examaple:D:\GameName\game\character</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="selectFileBtn">
+      <property name="geometry">
+       <rect>
+        <x>500</x>
+        <y>5</y>
+        <width>81</width>
+        <height>91</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string notr="true">...</string>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="selectFileText">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>5</y>
+        <width>411</width>
+        <height>91</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string/>
+      </property>
+      <property name="placeholderText">
+       <string>input or choose or drag the game you want to pack it's files.Example:F:/DemoGame.exe</string>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="packageNameText">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>120</y>
+        <width>491</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>input the rpa name as your wish , if the file already exists under game folder , the files will be appened into it</string>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="selectFilesText">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>220</y>
+        <width>411</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string/>
+      </property>
+      <property name="placeholderText">
+       <string>input or choose or drag the file(s) you want to pack here.Examaple:D:\GameName\game\script.rpy</string>
+      </property>
+     </widget>
+    </widget>
+   </item>
+   <item row="0" column="1" rowspan="5">
+    <widget class="QListView" name="listView"/>
+   </item>
+   <item row="1" column="0">
+    <widget class="QPushButton" name="appendButton">
+     <property name="text">
+      <string>Append to file list</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <widget class="QCheckBox" name="autoCopyTranslationCheckBox">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>50</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>Auto append translation files</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0">
+    <widget class="QCheckBox" name="autoCopyFontCheckBox">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>50</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>Auto append font files</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0">
+    <widget class="QPushButton" name="packBtn">
+     <property name="text">
+      <string>pack game files</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

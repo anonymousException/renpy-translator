@@ -25,8 +25,6 @@ init python early hide:
             else:
                 os.makedirs(target_dir)
         with open(path, 'wb') as file:
-            # use this to mark whether the rpa file is extracted
-            renpy.loader.load_from_apk = None
             file.write(_read)
             if path.endswith((".rpyc", ".rpymc")) and not target_dir.endswith("None") and not base_name=='common':
                 if path is not None and isinstance(path,str):
@@ -48,12 +46,8 @@ init python:
 
     def my_show_screen(_screen_name, *_args, **kwargs):
         finish_flag = 'unpack.finish'
-        if renpy.loader.load_from_apk == None:
-            if os.path.isfile(finish_flag):
-                os.remove(finish_flag)
-        else:
-             if os.path.isfile(finish_flag):
-                os.remove(finish_flag)
+        if os.path.isfile(finish_flag):
+            os.remove(finish_flag)
         renpy.show_screen = my_old_show_screen
         return my_old_show_screen(_screen_name, *_args, **kwargs)
 

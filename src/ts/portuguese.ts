@@ -754,7 +754,7 @@
 <context>
     <name>ExtractionOfficialDialog</name>
     <message>
-        <location filename="../extraction_official_form.py" line="72"/>
+        <location filename="../extraction_official_form.py" line="73"/>
         <source>select the game file you want to extract</source>
         <translation>selecione o arquivo do jogo que deseja extrair</translation>
     </message>
@@ -896,7 +896,7 @@
 <context>
     <name>GameUnpackerDialog</name>
     <message>
-        <location filename="../game_unpacker_form.py" line="89"/>
+        <location filename="../game_unpacker_form.py" line="92"/>
         <source>select the game file you want to unpack</source>
         <translation>selecione o arquivo do jogo que deseja descompactar</translation>
     </message>
@@ -1116,26 +1116,26 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../main.py" line="455"/>
-        <location filename="../extraction_official_form.py" line="66"/>
-        <source>extracting...</source>
+        <location filename="../main.py" line="472"/>
+        <location filename="../extraction_official_form.py" line="67"/>
+        <source>is extracting...</source>
         <translation>extraindo...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="446"/>
-        <location filename="../main.py" line="531"/>
-        <source>translating...</source>
+        <location filename="../main.py" line="463"/>
+        <location filename="../main.py" line="548"/>
+        <source>is translating...</source>
         <translation>traduzindo...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="449"/>
+        <location filename="../main.py" line="466"/>
         <location filename="../ui.ui" line="100"/>
         <source>translate</source>
         <translation>traduzir</translation>
     </message>
     <message>
-        <location filename="../main.py" line="459"/>
-        <location filename="../extraction_official_form.py" line="88"/>
+        <location filename="../main.py" line="476"/>
+        <location filename="../extraction_official_form.py" line="89"/>
         <source>extract</source>
         <translation>extrair</translation>
     </message>
@@ -1148,12 +1148,12 @@
         <translation type="vanished">selecione o diretório que deseja extrair</translation>
     </message>
     <message>
-        <location filename="../main.py" line="480"/>
+        <location filename="../main.py" line="497"/>
         <source>select the file(s) you want to translate</source>
         <translation>selecione o(s) arquivo(s) que deseja traduzir</translation>
     </message>
     <message>
-        <location filename="../main.py" line="491"/>
+        <location filename="../main.py" line="508"/>
         <source>select the directory you want to translate</source>
         <translation>selecione o diretório que deseja traduzir</translation>
     </message>
@@ -1164,8 +1164,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.1.6</source>
-        <translation>Versão 2.1.6</translation>
+        <source>Version 2.1.7</source>
+        <translation>Versão 2.1.7</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="113"/>
@@ -1249,34 +1249,39 @@
         <translation>(Se desabilitado, a tradução continuará após a tradução do arquivo anterior)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="685"/>
+        <location filename="../ui.ui" line="686"/>
         <source>extract translation</source>
         <translation>extrair tradução</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="690"/>
+        <location filename="../ui.ui" line="691"/>
         <source>runtime extraction</source>
         <translation>Extração de tempo de execução</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="705"/>
+        <location filename="../ui.ui" line="706"/>
         <source>add change langauge entrance</source>
         <translation>Adicionar entrada para alteração de idioma</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="710"/>
+        <location filename="../ui.ui" line="711"/>
         <source>one key translate</source>
         <translation>uma chave traduz</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="715"/>
+        <location filename="../ui.ui" line="716"/>
         <source>official extraction</source>
         <translation>Extração Oficial</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="720"/>
+        <location filename="../ui.ui" line="721"/>
         <source>convert txt to html</source>
         <translation>converter txt para html</translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="731"/>
+        <source>pack game files</source>
+        <translation>empacotar arquivos do jogo</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="46"/>
@@ -1289,7 +1294,7 @@
         <translation>opções avançadas</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="585"/>
+        <location filename="../ui.ui" line="586"/>
         <source>unpack game package</source>
         <translation>descompacte o pacote do jogo</translation>
     </message>
@@ -1302,7 +1307,7 @@
         <translation type="vanished">insira ou escolha ou arraste a fonte que suporta o idioma após a tradução. Exemplo: DejaVuSans.ttf (fonte padrão de ren&apos;py)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="580"/>
+        <location filename="../ui.ui" line="581"/>
         <source>replace font</source>
         <translation>substituir fonte</translation>
     </message>
@@ -1383,37 +1388,37 @@
         <translation type="vanished">editor</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="446"/>
+        <location filename="../ui.ui" line="447"/>
         <source>language</source>
         <translation>linguagem</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="466"/>
+        <location filename="../ui.ui" line="467"/>
         <source>theme</source>
         <translation>tema</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="497"/>
+        <location filename="../ui.ui" line="498"/>
         <source>copyright</source>
         <translation>direito autoral</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="502"/>
+        <location filename="../ui.ui" line="503"/>
         <source>proxy settings</source>
         <translation>configurações de proxy</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="507"/>
+        <location filename="../ui.ui" line="508"/>
         <source>engine settings</source>
         <translation>configurações do motor</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="512"/>
+        <location filename="../ui.ui" line="513"/>
         <source>custom engine</source>
         <translation>mecanismo personalizado</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="517"/>
+        <location filename="../ui.ui" line="518"/>
         <source>edit from rpy</source>
         <translation>editar do rpy</translation>
     </message>
@@ -1537,9 +1542,98 @@
         <translation>selecione o arquivo do jogo</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="553"/>
+        <location filename="../one_key_translate_form.py" line="548"/>
         <source>One Key Translate Complete</source>
         <translation>Tradução completa de uma chave</translation>
+    </message>
+</context>
+<context>
+    <name>PackGameDialog</name>
+    <message>
+        <location filename="../pack_game_form.py" line="149"/>
+        <source>Delete</source>
+        <translation>Excluir</translation>
+    </message>
+    <message>
+        <location filename="../pack_game_form.py" line="239"/>
+        <source>select the file(s) you want to pack</source>
+        <translation>selecione o(s) arquivo(s) que deseja compactar</translation>
+    </message>
+    <message>
+        <location filename="../pack_game_form.py" line="296"/>
+        <source>is packing...</source>
+        <translation>está fazendo as malas...</translation>
+    </message>
+    <message>
+        <location filename="../pack_game_form.py" line="302"/>
+        <source>select the game file you want to pack it&apos;s files</source>
+        <translation>selecione o arquivo do jogo que deseja compactar seus arquivos</translation>
+    </message>
+    <message>
+        <location filename="../pack_game_form.py" line="318"/>
+        <location filename="../pack_game.ui" line="236"/>
+        <source>pack game files</source>
+        <translation>empacotar arquivos do jogo</translation>
+    </message>
+    <message>
+        <location filename="../pack_game.ui" line="14"/>
+        <source>Pack game files into rpa package</source>
+        <translation>Empacote os arquivos do jogo no pacote rpa</translation>
+    </message>
+    <message>
+        <location filename="../pack_game.ui" line="35"/>
+        <source>file</source>
+        <translation>arquivo</translation>
+    </message>
+    <message>
+        <location filename="../pack_game.ui" line="64"/>
+        <source>directory(s)</source>
+        <translation>diretório(s)</translation>
+    </message>
+    <message>
+        <location filename="../pack_game.ui" line="80"/>
+        <source>file(s)</source>
+        <translation>arquivos)</translation>
+    </message>
+    <message>
+        <location filename="../pack_game.ui" line="96"/>
+        <source>name</source>
+        <translation>nome</translation>
+    </message>
+    <message>
+        <location filename="../pack_game.ui" line="128"/>
+        <source>input or choose or drag the directory(s) you want to pack here.Examaple:D:\GameName\game\character</source>
+        <translation>insira ou escolha ou arraste o(s) diretório(s) que deseja compactar aqui.Exemplo:D:\GameName\game\character</translation>
+    </message>
+    <message>
+        <location filename="../pack_game.ui" line="157"/>
+        <source>input or choose or drag the game you want to pack it&apos;s files.Example:F:/DemoGame.exe</source>
+        <translation>insira ou escolha ou arraste o jogo cujos arquivos deseja compactar.Exemplo:F:/DemoGame.exe</translation>
+    </message>
+    <message>
+        <location filename="../pack_game.ui" line="170"/>
+        <source>input the rpa name as your wish , if the file already exists under game folder , the files will be appened into it</source>
+        <translation>insira o nome do rpa como desejar, se o arquivo já existir na pasta do jogo, os arquivos serão anexados a ele</translation>
+    </message>
+    <message>
+        <location filename="../pack_game.ui" line="186"/>
+        <source>input or choose or drag the file(s) you want to pack here.Examaple:D:\GameName\game\script.rpy</source>
+        <translation>insira ou escolha ou arraste o(s) arquivo(s) que deseja compactar aqui. Exemplo:D:\GameName\game\script.rpy</translation>
+    </message>
+    <message>
+        <location filename="../pack_game.ui" line="197"/>
+        <source>Append to file list</source>
+        <translation>Anexar à lista de arquivos</translation>
+    </message>
+    <message>
+        <location filename="../pack_game.ui" line="210"/>
+        <source>Auto append translation files</source>
+        <translation>Anexar automaticamente arquivos de tradução</translation>
+    </message>
+    <message>
+        <location filename="../pack_game.ui" line="226"/>
+        <source>Auto append font files</source>
+        <translation>Anexar automaticamente arquivos de fonte</translation>
     </message>
 </context>
 <context>

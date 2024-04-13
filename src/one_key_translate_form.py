@@ -525,8 +525,6 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
                     self.qDic[self.official_extract] = is_finished, is_executed
 
             if not self.q.empty():
-                if self.parent.isHidden():
-                    self.parent.show()
                 self.is_queue_task_empty = False
                 func = self.q.peek()
                 # the task is not finished and executed

@@ -754,7 +754,7 @@
 <context>
     <name>ExtractionOfficialDialog</name>
     <message>
-        <location filename="../extraction_official_form.py" line="72"/>
+        <location filename="../extraction_official_form.py" line="73"/>
         <source>select the game file you want to extract</source>
         <translation>वह गेम फ़ाइल चुनें जिसे आप निकालना चाहते हैं</translation>
     </message>
@@ -896,7 +896,7 @@
 <context>
     <name>GameUnpackerDialog</name>
     <message>
-        <location filename="../game_unpacker_form.py" line="89"/>
+        <location filename="../game_unpacker_form.py" line="92"/>
         <source>select the game file you want to unpack</source>
         <translation>वह गेम फ़ाइल चुनें जिसे आप अनपैक करना चाहते हैं</translation>
     </message>
@@ -1116,26 +1116,26 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../main.py" line="455"/>
-        <location filename="../extraction_official_form.py" line="66"/>
-        <source>extracting...</source>
+        <location filename="../main.py" line="472"/>
+        <location filename="../extraction_official_form.py" line="67"/>
+        <source>is extracting...</source>
         <translation>निकाल रहा हूँ...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="446"/>
-        <location filename="../main.py" line="531"/>
-        <source>translating...</source>
+        <location filename="../main.py" line="463"/>
+        <location filename="../main.py" line="548"/>
+        <source>is translating...</source>
         <translation>अनुवाद कर रहा हूँ...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="449"/>
+        <location filename="../main.py" line="466"/>
         <location filename="../ui.ui" line="100"/>
         <source>translate</source>
         <translation>अनुवाद</translation>
     </message>
     <message>
-        <location filename="../main.py" line="459"/>
-        <location filename="../extraction_official_form.py" line="88"/>
+        <location filename="../main.py" line="476"/>
+        <location filename="../extraction_official_form.py" line="89"/>
         <source>extract</source>
         <translation>निकालना</translation>
     </message>
@@ -1148,12 +1148,12 @@
         <translation type="vanished">वह निर्देशिका चुनें जिसे आप निकालना चाहते हैं</translation>
     </message>
     <message>
-        <location filename="../main.py" line="480"/>
+        <location filename="../main.py" line="497"/>
         <source>select the file(s) you want to translate</source>
         <translation>वह फ़ाइल चुनें जिसका आप अनुवाद करना चाहते हैं</translation>
     </message>
     <message>
-        <location filename="../main.py" line="491"/>
+        <location filename="../main.py" line="508"/>
         <source>select the directory you want to translate</source>
         <translation>वह निर्देशिका चुनें जिसका आप अनुवाद करना चाहते हैं</translation>
     </message>
@@ -1164,8 +1164,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.1.6</source>
-        <translation>संस्करण 2.1.6</translation>
+        <source>Version 2.1.7</source>
+        <translation>संस्करण 2.1.7</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="113"/>
@@ -1244,44 +1244,49 @@
         <translation>उन्नत विकल्प</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="466"/>
+        <location filename="../ui.ui" line="467"/>
         <source>theme</source>
         <translation>विषय</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="585"/>
+        <location filename="../ui.ui" line="586"/>
         <source>unpack game package</source>
         <translation>गेम पैकेज को अनपैक करें</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="685"/>
+        <location filename="../ui.ui" line="686"/>
         <source>extract translation</source>
         <translation>अनुवाद निकालें</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="690"/>
+        <location filename="../ui.ui" line="691"/>
         <source>runtime extraction</source>
         <translation>रनटाइम निष्कर्षण</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="705"/>
+        <location filename="../ui.ui" line="706"/>
         <source>add change langauge entrance</source>
         <translation>परिवर्तन भाषा प्रवेश द्वार जोड़ें</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="710"/>
+        <location filename="../ui.ui" line="711"/>
         <source>one key translate</source>
         <translation>एक कुंजी अनुवाद</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="715"/>
+        <location filename="../ui.ui" line="716"/>
         <source>official extraction</source>
         <translation>आधिकारिक निष्कर्षण</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="720"/>
+        <location filename="../ui.ui" line="721"/>
         <source>convert txt to html</source>
         <translation>txt को html में बदलें</translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="731"/>
+        <source>pack game files</source>
+        <translation>गेम फ़ाइलें पैक करें</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="270"/>
@@ -1307,7 +1312,7 @@
         <translation type="vanished">अनुवाद के बाद भाषा का समर्थन करने वाले फ़ॉन्ट को इनपुट करें या चुनें या खींचें। उदाहरण: DejaVuSans.ttf (ren&apos;py का डिफ़ॉल्ट फ़ॉन्ट)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="580"/>
+        <location filename="../ui.ui" line="581"/>
         <source>replace font</source>
         <translation>फ़ॉन्ट बदलें</translation>
     </message>
@@ -1388,32 +1393,32 @@
         <translation type="vanished">संपादक</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="446"/>
+        <location filename="../ui.ui" line="447"/>
         <source>language</source>
         <translation>भाषा</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="497"/>
+        <location filename="../ui.ui" line="498"/>
         <source>copyright</source>
         <translation>कॉपीराइट</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="502"/>
+        <location filename="../ui.ui" line="503"/>
         <source>proxy settings</source>
         <translation>प्रॉक्सी सेटिंग</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="507"/>
+        <location filename="../ui.ui" line="508"/>
         <source>engine settings</source>
         <translation>इंजन सेटिंग्स</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="512"/>
+        <location filename="../ui.ui" line="513"/>
         <source>custom engine</source>
         <translation>कस्टम इंजन</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="517"/>
+        <location filename="../ui.ui" line="518"/>
         <source>edit from rpy</source>
         <translation>rpy से संपादित करें</translation>
     </message>
@@ -1537,9 +1542,98 @@
         <translation>गेम फ़ाइल का चयन करें</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="553"/>
+        <location filename="../one_key_translate_form.py" line="548"/>
         <source>One Key Translate Complete</source>
         <translation>एक कुंजी अनुवाद पूर्ण</translation>
+    </message>
+</context>
+<context>
+    <name>PackGameDialog</name>
+    <message>
+        <location filename="../pack_game_form.py" line="149"/>
+        <source>Delete</source>
+        <translation>मिटाना</translation>
+    </message>
+    <message>
+        <location filename="../pack_game_form.py" line="239"/>
+        <source>select the file(s) you want to pack</source>
+        <translation>वह फ़ाइल चुनें जिसे आप पैक करना चाहते हैं</translation>
+    </message>
+    <message>
+        <location filename="../pack_game_form.py" line="296"/>
+        <source>is packing...</source>
+        <translation>पैकिंग कर रहा है...</translation>
+    </message>
+    <message>
+        <location filename="../pack_game_form.py" line="302"/>
+        <source>select the game file you want to pack it&apos;s files</source>
+        <translation>उस गेम फ़ाइल का चयन करें जिसे आप उसकी फ़ाइलों को पैक करना चाहते हैं</translation>
+    </message>
+    <message>
+        <location filename="../pack_game_form.py" line="318"/>
+        <location filename="../pack_game.ui" line="236"/>
+        <source>pack game files</source>
+        <translation>गेम फ़ाइलें पैक करें</translation>
+    </message>
+    <message>
+        <location filename="../pack_game.ui" line="14"/>
+        <source>Pack game files into rpa package</source>
+        <translation>गेम फ़ाइलों को आरपीए पैकेज में पैक करें</translation>
+    </message>
+    <message>
+        <location filename="../pack_game.ui" line="35"/>
+        <source>file</source>
+        <translation>फ़ाइल</translation>
+    </message>
+    <message>
+        <location filename="../pack_game.ui" line="64"/>
+        <source>directory(s)</source>
+        <translation>निर्देशिका</translation>
+    </message>
+    <message>
+        <location filename="../pack_game.ui" line="80"/>
+        <source>file(s)</source>
+        <translation>फ़ाइल</translation>
+    </message>
+    <message>
+        <location filename="../pack_game.ui" line="96"/>
+        <source>name</source>
+        <translation>नाम</translation>
+    </message>
+    <message>
+        <location filename="../pack_game.ui" line="128"/>
+        <source>input or choose or drag the directory(s) you want to pack here.Examaple:D:\GameName\game\character</source>
+        <translation>उस निर्देशिका को इनपुट करें या चुनें या खींचें जिसे आप यहां पैक करना चाहते हैं। उदाहरण:D:\GameName\game\character</translation>
+    </message>
+    <message>
+        <location filename="../pack_game.ui" line="157"/>
+        <source>input or choose or drag the game you want to pack it&apos;s files.Example:F:/DemoGame.exe</source>
+        <translation>उस गेम को इनपुट करें या चुनें या खींचें जिसे आप उसकी फ़ाइलों में पैक करना चाहते हैं। उदाहरण: F:/DemoGame.exe</translation>
+    </message>
+    <message>
+        <location filename="../pack_game.ui" line="170"/>
+        <source>input the rpa name as your wish , if the file already exists under game folder , the files will be appened into it</source>
+        <translation>अपनी इच्छानुसार आरपीए नाम इनपुट करें, यदि फ़ाइल गेम फ़ोल्डर के अंतर्गत पहले से मौजूद है, तो फ़ाइलें उसमें जोड़ दी जाएंगी</translation>
+    </message>
+    <message>
+        <location filename="../pack_game.ui" line="186"/>
+        <source>input or choose or drag the file(s) you want to pack here.Examaple:D:\GameName\game\script.rpy</source>
+        <translation>उस फ़ाइल को इनपुट करें या चुनें या खींचें जिसे आप यहां पैक करना चाहते हैं। उदाहरण:D:\GameName\game\script.rpy</translation>
+    </message>
+    <message>
+        <location filename="../pack_game.ui" line="197"/>
+        <source>Append to file list</source>
+        <translation>फ़ाइल सूची में जोड़ें</translation>
+    </message>
+    <message>
+        <location filename="../pack_game.ui" line="210"/>
+        <source>Auto append translation files</source>
+        <translation>अनुवाद फ़ाइलों को स्वतः जोड़ें</translation>
+    </message>
+    <message>
+        <location filename="../pack_game.ui" line="226"/>
+        <source>Auto append font files</source>
+        <translation>फ़ॉन्ट फ़ाइलें स्वतः जोड़ें</translation>
     </message>
 </context>
 <context>

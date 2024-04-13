@@ -12,11 +12,14 @@ from renpy_extract import extractThread, extract_threads
 
 
 class DirectorySelector(QFileDialog):
-    def __init__(self):
+    def __init__(self, base_dir=None):
         super(DirectorySelector, self).__init__()
         self.setFileMode(QFileDialog.FileMode.Directory)
         self.setOption(QFileDialog.Option.DontUseNativeDialog, True)
-        self.setDirectory(QDir.rootPath())
+        if base_dir is None:
+            self.setDirectory(QDir.rootPath())
+        else:
+            self.setDirectory(base_dir)
         listView = self.findChild(QListView, "listView")
         if listView:
             listView.setSelectionMode(QAbstractItemView.SelectionMode.ExtendedSelection)
@@ -129,7 +132,7 @@ class MyExtractionForm(QDialog, Ui_ExtractionDialog):
                     cnt = cnt + 1
             if len(extract_threads) > 0:
                 self.parent.extracting = True
-                self.extractBtn.setText(QCoreApplication.translate('MainWindow', 'extracting...', None))
+                self.extractBtn.setText(QCoreApplication.translate('MainWindow', 'is extracting...', None))
                 self.extractBtn.setDisabled(True)
                 for t in extract_threads:
                     t.start()

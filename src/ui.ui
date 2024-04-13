@@ -75,7 +75,7 @@
        </size>
       </property>
       <property name="text">
-       <string>Version 2.1.6</string>
+       <string>Version 2.1.7</string>
       </property>
      </widget>
     </item>
@@ -439,6 +439,7 @@
     <addaction name="actionunpack_game"/>
     <addaction name="separator"/>
     <addaction name="actionone_key_translate"/>
+    <addaction name="actionpack_game_files"/>
     <addaction name="actionconvert_txt_to_html"/>
    </widget>
    <widget class="QMenu" name="menulanguage">
@@ -723,6 +724,11 @@
   <action name="actionTurkish">
    <property name="text">
     <string notr="true">Turkish</string>
+   </property>
+  </action>
+  <action name="actionpack_game_files">
+   <property name="text">
+    <string>pack game files</string>
    </property>
   </action>
  </widget>

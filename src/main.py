@@ -31,6 +31,7 @@ from extraction_form import MyExtractionForm
 from extract_runtime_form import MyExtractionRuntimeForm
 from add_change_language_entrance_form import MyAddChangeLanguageEntranceForm
 from one_key_translate_form import MyOneKeyTranslateForm
+from pack_game_form import MyPackGameForm
 from renpy_translate import translateThread, translate_threads, engineList, engineDic, language_header
 from proxy import Ui_ProxyDialog
 from engine import Ui_EngineDialog
@@ -119,6 +120,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.myFontReplaceForm = None
         self.myExtractionOfficialForm = None
         self.myHtmlConverterForm = None
+        self.myPackGameForm = None
         self.actioncopyright.triggered.connect(lambda: self.show_copyright_form())
         self.proxySettings.triggered.connect(lambda: self.show_proxy_settings())
         self.engineSettings.triggered.connect(lambda: self.show_engine_settings())
@@ -132,6 +134,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.actionone_key_translate.triggered.connect(lambda: self.show_one_key_translate_form())
         self.actionofficial_extraction.triggered.connect(lambda: self.show_extraction_official_form())
         self.actionconvert_txt_to_html.triggered.connect(lambda: self.show_html_converter_form())
+        self.actionpack_game_files.triggered.connect(lambda: self.show_pack_game_files_form())
         self.actionArabic.triggered.connect(lambda: self.to_language('arabic'))
         self.actionBengali.triggered.connect(lambda: self.to_language('bengali'))
         self.actionChinese.triggered.connect(lambda: self.to_language('chinese'))
@@ -168,6 +171,18 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.actiondark_yellow.triggered.connect(lambda: self.change_theme(self.actiondark_yellow.text()))
 
         _thread.start_new_thread(self.update_log, ())
+
+    def show_pack_game_files_form(self):
+        self.hide()
+        self.widget.hide()
+        self.menubar.hide()
+        self.versionLabel.hide()
+        if self.myPackGameForm is None:
+            self.myPackGameForm = MyPackGameForm(parent=None)
+        self.caller = self.myPackGameForm
+        self.myPackGameForm.parent = self
+        self.myPackGameForm.show()
+        self.actionpack_game_files.triggered.disconnect()
 
     def show_html_converter_form(self):
         if self.myHtmlConverterForm is None:
@@ -293,6 +308,8 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
             self.myExtractionOfficialForm.retranslateUi(self.myExtractionOfficialForm)
         if self.myHtmlConverterForm is not None:
             self.myHtmlConverterForm.retranslateUi(self.myHtmlConverterForm)
+        if self.myPackGameForm is not None:
+            self.myPackGameForm.retranslateUi(self.myPackGameForm)
 
     def to_language(self, lan):
         if lan == 'english':
@@ -443,7 +460,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
             self.log_text.setText(data)
             self.log_text.moveCursor(QTextCursor.End)
         if self.translating:
-            self.translateBtn.setText(QCoreApplication.translate('MainWindow', 'translating...', None))
+            self.translateBtn.setText(QCoreApplication.translate('MainWindow', 'is translating...', None))
             self.translateBtn.setDisabled(True)
         else:
             self.translateBtn.setText(QCoreApplication.translate('MainWindow', 'translate', None))
@@ -452,7 +469,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         if self.extracting:
             if self.myExtractionForm is not None:
                 self.myExtractionForm.extractBtn.setText(
-                    QCoreApplication.translate('MainWindow', 'extracting...', None))
+                    QCoreApplication.translate('MainWindow', 'is extracting...', None))
                 self.myExtractionForm.extractBtn.setDisabled(True)
         else:
             if self.myExtractionForm is not None:
@@ -528,7 +545,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
                             translate_threads.append(t)
                             cnt = cnt + 1
             if len(translate_threads) > 0:
-                self.translateBtn.setText(QCoreApplication.translate('MainWindow', 'translating...', None))
+                self.translateBtn.setText(QCoreApplication.translate('MainWindow', 'is translating...', None))
                 self.translateBtn.setDisabled(True)
                 self.translating = True
                 for t in translate_threads:

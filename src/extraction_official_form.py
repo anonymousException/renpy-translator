@@ -1,6 +1,5 @@
 import _thread
 import os
-import platform
 import subprocess
 import threading
 import time
@@ -12,6 +11,8 @@ from PySide6.QtWidgets import QDialog, QFileDialog
 from my_log import log_print
 from editor_form import open_directory_and_select_file
 from extraction_official import Ui_ExtractionOfficialDialog
+from call_game_python import get_py_path, get_python_path
+import my_log
 
 
 class extractThread(threading.Thread):
@@ -63,7 +64,7 @@ class MyExtractionOfficialForm(QDialog, Ui_ExtractionOfficialDialog):
                 self.extract_thread = t
                 t.start()
                 self.setDisabled(True)
-                self.extractBtn.setText(QCoreApplication.translate('MainWindow', 'extracting...', None))
+                self.extractBtn.setText(QCoreApplication.translate('MainWindow', 'is extracting...', None))
 
     def select_file(self):
         file, filetype = QFileDialog.getOpenFileName(self,
@@ -106,34 +107,7 @@ class MyExtractionOfficialForm(QDialog, Ui_ExtractionOfficialDialog):
             self.update_date.emit()
 
 
-def is_64_bit():
-    return platform.architecture()[0] == '64bit'
 
-
-def get_python_path(game_path):
-    game_dir = os.path.dirname(game_path) + '/'
-    lib_list_64 = ['windows-x86_64', 'py2-windows-x86_64', 'py3-windows-x86_64']
-    lib_list_86 = ['windows-i686', 'py2-windows-i686', 'py3-windows-i686']
-    python_path = None
-    if is_64_bit():
-        lib_list_64.extend(lib_list_86)
-        for i in lib_list_64:
-            target = game_dir + 'lib/' + i + '/python.exe'
-            if os.path.isfile(target):
-                python_path = target
-                break
-    else:
-        for i in lib_list_86:
-            target = game_dir + 'lib/' + i + '/python.exe'
-            if os.path.isfile(target):
-                python_path = target
-                break
-    return python_path
-
-
-def get_py_path(game_path):
-    base_name = os.path.splitext(game_path)[0]
-    return base_name + '.py'
 
 
 def get_translate_cmd(game_path, tl_name):
@@ -148,6 +122,6 @@ def exec_official_translate(game_path, tl_name, is_gen_empty):
     command = get_translate_cmd(game_path, tl_name)
     if is_gen_empty:
         command = command + ' --empty'
-    p = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+    p = subprocess.Popen(command, shell=True, stdout=my_log.f, stderr=my_log.f,
                          creationflags=0x08000000)
     p.wait()

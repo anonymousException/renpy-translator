@@ -754,7 +754,7 @@
 <context>
     <name>ExtractionOfficialDialog</name>
     <message>
-        <location filename="../extraction_official_form.py" line="72"/>
+        <location filename="../extraction_official_form.py" line="73"/>
         <source>select the game file you want to extract</source>
         <translation>选择你要解压的游戏文件</translation>
     </message>
@@ -900,7 +900,7 @@
 <context>
     <name>GameUnpackerDialog</name>
     <message>
-        <location filename="../game_unpacker_form.py" line="89"/>
+        <location filename="../game_unpacker_form.py" line="92"/>
         <source>select the game file you want to unpack</source>
         <translation>选择你要解压的游戏文件</translation>
     </message>
@@ -1125,19 +1125,19 @@
         <translation>Ren&apos;py 翻译器</translation>
     </message>
     <message>
-        <location filename="../main.py" line="455"/>
-        <location filename="../extraction_official_form.py" line="66"/>
-        <source>extracting...</source>
+        <location filename="../main.py" line="472"/>
+        <location filename="../extraction_official_form.py" line="67"/>
+        <source>is extracting...</source>
         <translation>抽取中...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="446"/>
-        <location filename="../main.py" line="531"/>
-        <source>translating...</source>
+        <location filename="../main.py" line="463"/>
+        <location filename="../main.py" line="548"/>
+        <source>is translating...</source>
         <translation>翻译中...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="449"/>
+        <location filename="../main.py" line="466"/>
         <location filename="../ui.ui" line="100"/>
         <source>translate</source>
         <translation>翻译</translation>
@@ -1151,19 +1151,19 @@
         <translation type="vanished">选择你要解压的目录</translation>
     </message>
     <message>
-        <location filename="../main.py" line="480"/>
+        <location filename="../main.py" line="497"/>
         <source>select the file(s) you want to translate</source>
         <translation>选择您要翻译的文件</translation>
     </message>
     <message>
-        <location filename="../main.py" line="491"/>
+        <location filename="../main.py" line="508"/>
         <source>select the directory you want to translate</source>
         <translation>选择要翻译的目录</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.1.6</source>
-        <translation>版本 2.1.6</translation>
+        <source>Version 2.1.7</source>
+        <translation>版本 2.1.7</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="113"/>
@@ -1242,34 +1242,39 @@
         <translation>跳过翻译（原始！=当前）</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="685"/>
+        <location filename="../ui.ui" line="686"/>
         <source>extract translation</source>
         <translation>提取翻译</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="690"/>
+        <location filename="../ui.ui" line="691"/>
         <source>runtime extraction</source>
         <translation>运行时提取</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="705"/>
+        <location filename="../ui.ui" line="706"/>
         <source>add change langauge entrance</source>
         <translation>添加更改语言入口</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="710"/>
+        <location filename="../ui.ui" line="711"/>
         <source>one key translate</source>
         <translation>一键翻译</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="715"/>
+        <location filename="../ui.ui" line="716"/>
         <source>official extraction</source>
         <translation>官方提取</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="720"/>
+        <location filename="../ui.ui" line="721"/>
         <source>convert txt to html</source>
         <translation>将 txt 转换为 html</translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="731"/>
+        <source>pack game files</source>
+        <translation>打包游戏文件</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="46"/>
@@ -1282,7 +1287,7 @@
         <translation>高级选项</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="585"/>
+        <location filename="../ui.ui" line="586"/>
         <source>unpack game package</source>
         <translation>解压游戏包</translation>
     </message>
@@ -1299,7 +1304,7 @@
         <translation type="vanished">输入或选择或拖动支持翻译后语言的字体。示例：DejaVuSans.ttf（ren&apos;py 的默认字体）</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="580"/>
+        <location filename="../ui.ui" line="581"/>
         <source>replace font</source>
         <translation>替换字体</translation>
     </message>
@@ -1328,8 +1333,8 @@
         <translation type="vanished">在此处输入或选择或拖动要翻译的目录。示例：F:\GameName\game\tl\language</translation>
     </message>
     <message>
-        <location filename="../main.py" line="459"/>
-        <location filename="../extraction_official_form.py" line="88"/>
+        <location filename="../main.py" line="476"/>
+        <location filename="../extraction_official_form.py" line="89"/>
         <source>extract</source>
         <translation>抽取</translation>
     </message>
@@ -1391,37 +1396,37 @@
         <translation type="vanished">编辑器</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="446"/>
+        <location filename="../ui.ui" line="447"/>
         <source>language</source>
         <translation>语言</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="466"/>
+        <location filename="../ui.ui" line="467"/>
         <source>theme</source>
         <translation>主题</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="497"/>
+        <location filename="../ui.ui" line="498"/>
         <source>copyright</source>
         <translation>版权</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="502"/>
+        <location filename="../ui.ui" line="503"/>
         <source>proxy settings</source>
         <translation>代理设置</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="507"/>
+        <location filename="../ui.ui" line="508"/>
         <source>engine settings</source>
         <translation>引擎设置</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="512"/>
+        <location filename="../ui.ui" line="513"/>
         <source>custom engine</source>
         <translation>自定义引擎</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="517"/>
+        <location filename="../ui.ui" line="518"/>
         <source>edit from rpy</source>
         <translation>从 rpy 编辑</translation>
     </message>
@@ -1545,9 +1550,102 @@
         <translation>选择游戏文件</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="553"/>
+        <location filename="../one_key_translate_form.py" line="548"/>
         <source>One Key Translate Complete</source>
         <translation>一键翻译完成</translation>
+    </message>
+</context>
+<context>
+    <name>PackGameDialog</name>
+    <message>
+        <location filename="../pack_game_form.py" line="149"/>
+        <source>Delete</source>
+        <translation>删除</translation>
+    </message>
+    <message>
+        <location filename="../pack_game_form.py" line="239"/>
+        <source>select the file(s) you want to pack</source>
+        <translation>选择您要打包的文件</translation>
+    </message>
+    <message>
+        <location filename="../pack_game_form.py" line="296"/>
+        <source>is packing...</source>
+        <translation>正在打包...</translation>
+    </message>
+    <message>
+        <location filename="../pack_game_form.py" line="302"/>
+        <source>select the game file you want to pack it&apos;s files</source>
+        <translation>选择您要打包的游戏文件</translation>
+    </message>
+    <message>
+        <location filename="../pack_game_form.py" line="318"/>
+        <location filename="../pack_game.ui" line="236"/>
+        <source>pack game files</source>
+        <translation>打包游戏文件</translation>
+    </message>
+    <message>
+        <location filename="../pack_game.ui" line="14"/>
+        <source>Pack game files into rpa package</source>
+        <translation>将游戏文件打包到rpa包中</translation>
+    </message>
+    <message>
+        <location filename="../pack_game.ui" line="35"/>
+        <source>file</source>
+        <translation>文件</translation>
+    </message>
+    <message>
+        <location filename="../pack_game.ui" line="64"/>
+        <source>directory(s)</source>
+        <translation>目录</translation>
+    </message>
+    <message>
+        <location filename="../pack_game.ui" line="80"/>
+        <source>file(s)</source>
+        <translation>文件</translation>
+    </message>
+    <message>
+        <location filename="../pack_game.ui" line="96"/>
+        <source>name</source>
+        <translation>名称</translation>
+    </message>
+    <message>
+        <location filename="../pack_game.ui" line="128"/>
+        <source>input or choose or drag the directory(s) you want to pack here.Examaple:D:\GameName\game\character</source>
+        <translation>在此处输入或选择或拖动要打包的目录。示例：D:\游戏名称\游戏\角色</translation>
+    </message>
+    <message>
+        <location filename="../pack_game.ui" line="186"/>
+        <source>input or choose or drag the file(s) you want to pack here.Examaple:D:\GameName\game\script.rpy</source>
+        <translation>在此处输入或选择或拖动要打包的文件。示例：D:\GameName\game\script.rpy</translation>
+    </message>
+    <message>
+        <location filename="../pack_game.ui" line="157"/>
+        <source>input or choose or drag the game you want to pack it&apos;s files.Example:F:/DemoGame.exe</source>
+        <translation>输入或选择或拖动要打包的游戏文件。示例：F:/DemoGame.exe</translation>
+    </message>
+    <message>
+        <location filename="../pack_game.ui" line="170"/>
+        <source>input the rpa name as your wish , if the file already exists under game folder , the files will be appened into it</source>
+        <translation>输入你想要的rpa名称，如果该文件已存在于游戏文件夹下，则文件将被附加到其中</translation>
+    </message>
+    <message>
+        <source>input or choose or drag the file(s) you want to pack here. Examaple：F:\GameName\game\script.rpy</source>
+        <translation type="vanished">在此处输入或选择或拖动要打包的文件。 示例：F:\GameName\game\script.rpy</translation>
+    </message>
+    <message>
+        <location filename="../pack_game.ui" line="197"/>
+        <source>Append to file list</source>
+        <translation>追加到文件列表</translation>
+    </message>
+    <message>
+        <location filename="../pack_game.ui" line="210"/>
+        <source>Auto append translation files</source>
+        <translation>自动附加翻译文件</translation>
+    </message>
+    <message>
+        <location filename="../pack_game.ui" line="226"/>
+        <source>Auto append font files</source>
+        <translation>自动附加字体文件</translation>
     </message>
 </context>
 <context>
