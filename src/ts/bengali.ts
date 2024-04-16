@@ -296,7 +296,7 @@
         <location filename="../editor_form.py" line="282"/>
         <location filename="../editor_form.py" line="585"/>
         <location filename="../editor_form.py" line="730"/>
-        <location filename="../editor_form.py" line="1484"/>
+        <location filename="../editor_form.py" line="1502"/>
         <location filename="../editor.ui" line="334"/>
         <location filename="../editor.ui" line="413"/>
         <source>Original</source>
@@ -307,7 +307,7 @@
         <location filename="../editor_form.py" line="283"/>
         <location filename="../editor_form.py" line="586"/>
         <location filename="../editor_form.py" line="731"/>
-        <location filename="../editor_form.py" line="1485"/>
+        <location filename="../editor_form.py" line="1503"/>
         <location filename="../editor.ui" line="255"/>
         <location filename="../editor.ui" line="432"/>
         <source>Current</source>
@@ -403,12 +403,12 @@
         <translation>রোলব্যাক বর্তমান প্রথম লোড</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1366"/>
+        <location filename="../editor_form.py" line="1384"/>
         <source>select the directory you want to edit</source>
         <translation>আপনি যে ডিরেক্টরিটি সম্পাদনা করতে চান তা নির্বাচন করুন</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1373"/>
+        <location filename="../editor_form.py" line="1391"/>
         <source>select the file(s) you want to edit</source>
         <translation>আপনি সম্পাদনা করতে চান ফাইল(গুলি) নির্বাচন করুন</translation>
     </message>
@@ -528,6 +528,16 @@
         <location filename="../editor.ui" line="483"/>
         <source>Auto copy to Current after translation</source>
         <translation>অনুবাদের পরে কারেন্টে স্বয়ংক্রিয় অনুলিপি</translation>
+    </message>
+    <message>
+        <location filename="../editor.ui" line="512"/>
+        <source>filter length less than</source>
+        <translation>ফিল্টারের দৈর্ঘ্য কম</translation>
+    </message>
+    <message>
+        <location filename="../editor.ui" line="528"/>
+        <source>Enable filter for translate</source>
+        <translation>অনুবাদের জন্য ফিল্টার সক্ষম করুন</translation>
     </message>
 </context>
 <context>
@@ -846,7 +856,7 @@
     </message>
     <message>
         <location filename="../font_replace_form.py" line="33"/>
-        <location filename="../one_key_translate_form.py" line="353"/>
+        <location filename="../one_key_translate_form.py" line="355"/>
         <source>select the file font which supports the translated language</source>
         <translation>ফাইল ফন্ট নির্বাচন করুন যা অনুবাদিত ভাষা সমর্থন করে</translation>
     </message>
@@ -1116,25 +1126,25 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../main.py" line="472"/>
+        <location filename="../main.py" line="473"/>
         <location filename="../extraction_official_form.py" line="67"/>
         <source>is extracting...</source>
         <translation>নিষ্কাশন করা হচ্ছে...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="463"/>
-        <location filename="../main.py" line="548"/>
+        <location filename="../main.py" line="464"/>
+        <location filename="../main.py" line="549"/>
         <source>is translating...</source>
         <translation>অনুবাদ করা হচ্ছে...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="466"/>
+        <location filename="../main.py" line="467"/>
         <location filename="../ui.ui" line="100"/>
         <source>translate</source>
         <translation>অনুবাদ করা</translation>
     </message>
     <message>
-        <location filename="../main.py" line="476"/>
+        <location filename="../main.py" line="477"/>
         <location filename="../extraction_official_form.py" line="89"/>
         <source>extract</source>
         <translation>নির্যাস</translation>
@@ -1148,12 +1158,12 @@
         <translation type="vanished">আপনি নিষ্কাশন করতে চান ডিরেক্টরি নির্বাচন করুন</translation>
     </message>
     <message>
-        <location filename="../main.py" line="497"/>
+        <location filename="../main.py" line="498"/>
         <source>select the file(s) you want to translate</source>
         <translation>আপনি যে ফাইলটি অনুবাদ করতে চান সেটি নির্বাচন করুন</translation>
     </message>
     <message>
-        <location filename="../main.py" line="508"/>
+        <location filename="../main.py" line="509"/>
         <source>select the directory you want to translate</source>
         <translation>আপনি যে ডিরেক্টরিটি অনুবাদ করতে চান তা নির্বাচন করুন</translation>
     </message>
@@ -1164,8 +1174,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.1.7</source>
-        <translation>সংস্করণ 2.1.7</translation>
+        <source>Version 2.1.8</source>
+        <translation>সংস্করণ 2.1.8</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="113"/>
@@ -1239,52 +1249,57 @@
         <translation>অনুবাদ করা এড়িয়ে যান (মূল!= বর্তমান)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="431"/>
+        <location filename="../ui.ui" line="423"/>
+        <source>Enable filter for translate</source>
+        <translation>অনুবাদের জন্য ফিল্টার সক্ষম করুন</translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="479"/>
         <source>advanced options</source>
         <translation>উন্নত বিকল্প</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="467"/>
+        <location filename="../ui.ui" line="515"/>
         <source>theme</source>
         <translation>থিম</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="586"/>
+        <location filename="../ui.ui" line="634"/>
         <source>unpack game package</source>
         <translation>গেম প্যাকেজ আনপ্যাক করুন</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="686"/>
+        <location filename="../ui.ui" line="734"/>
         <source>extract translation</source>
         <translation>অনুবাদ নির্যাস</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="691"/>
+        <location filename="../ui.ui" line="739"/>
         <source>runtime extraction</source>
         <translation>রানটাইম নিষ্কাশন</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="706"/>
+        <location filename="../ui.ui" line="754"/>
         <source>add change langauge entrance</source>
         <translation>পরিবর্তন ভাষা প্রবেশদ্বার যোগ করুন</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="711"/>
+        <location filename="../ui.ui" line="759"/>
         <source>one key translate</source>
         <translation>একটি মূল অনুবাদ</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="716"/>
+        <location filename="../ui.ui" line="764"/>
         <source>official extraction</source>
         <translation>অফিসিয়াল নিষ্কাশন</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="721"/>
+        <location filename="../ui.ui" line="769"/>
         <source>convert txt to html</source>
         <translation>txt কে html এ রূপান্তর করুন</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="731"/>
+        <location filename="../ui.ui" line="779"/>
         <source>pack game files</source>
         <translation></translation>
     </message>
@@ -1312,7 +1327,7 @@
         <translation type="vanished">ইনপুট বা চয়ন করুন বা ফন্ট যা অনুবাদের পরে ভাষা সমর্থন করে টেনে আনুন। উদাহরণ: DejaVuSans.ttf (ren&apos;py এর ডিফল্ট ফন্ট)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="581"/>
+        <location filename="../ui.ui" line="629"/>
         <source>replace font</source>
         <translation>ফন্ট প্রতিস্থাপন</translation>
     </message>
@@ -1361,8 +1376,9 @@
         <translation type="vanished">নিষ্কাশনের জন্য ফিল্টার সক্ষম করুন</translation>
     </message>
     <message>
+        <location filename="../ui.ui" line="407"/>
         <source>filter length less than</source>
-        <translation type="vanished">ফিল্টারের দৈর্ঘ্য কম</translation>
+        <translation>ফিল্টারের দৈর্ঘ্য কম</translation>
     </message>
     <message>
         <source>Generate empty strings instead of original</source>
@@ -1374,17 +1390,17 @@
         <translation>স্পষ্ট লগ</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="412"/>
+        <location filename="../ui.ui" line="460"/>
         <source>about</source>
         <translation>সম্পর্কিত</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="418"/>
+        <location filename="../ui.ui" line="466"/>
         <source>proxy</source>
         <translation>প্রক্সি</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="424"/>
+        <location filename="../ui.ui" line="472"/>
         <source>translation engine</source>
         <translation>অনুবাদ ইঞ্জিন</translation>
     </message>
@@ -1393,32 +1409,32 @@
         <translation type="vanished">সম্পাদক</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="447"/>
+        <location filename="../ui.ui" line="495"/>
         <source>language</source>
         <translation>ভাষা</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="498"/>
+        <location filename="../ui.ui" line="546"/>
         <source>copyright</source>
         <translation>কপিরাইট</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="503"/>
+        <location filename="../ui.ui" line="551"/>
         <source>proxy settings</source>
         <translation>প্রক্সি সেটিংস</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="508"/>
+        <location filename="../ui.ui" line="556"/>
         <source>engine settings</source>
         <translation>ইঞ্জিন সেটিংস</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="513"/>
+        <location filename="../ui.ui" line="561"/>
         <source>custom engine</source>
         <translation>কাস্টম ইঞ্জিন</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="518"/>
+        <location filename="../ui.ui" line="566"/>
         <source>edit from rpy</source>
         <translation>rpy থেকে সম্পাদনা করুন</translation>
     </message>
@@ -1522,27 +1538,33 @@
         <translation>নিষ্কাশনের জন্য ফিল্টার সক্ষম করুন</translation>
     </message>
     <message>
-        <location filename="../one_key_translate.ui" line="339"/>
+        <location filename="../one_key_translate.ui" line="342"/>
+        <location filename="../one_key_translate.ui" line="419"/>
         <source>filter length less than</source>
         <translation>ফিল্টারের দৈর্ঘ্য কম</translation>
     </message>
     <message>
-        <location filename="../one_key_translate.ui" line="355"/>
+        <location filename="../one_key_translate.ui" line="358"/>
         <source>Start</source>
         <translation>শুরু করুন</translation>
     </message>
     <message>
-        <location filename="../one_key_translate.ui" line="368"/>
+        <location filename="../one_key_translate.ui" line="371"/>
         <source>Official Extraction</source>
         <translation>অফিসিয়াল নিষ্কাশন</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="473"/>
+        <location filename="../one_key_translate.ui" line="387"/>
+        <source>Enable filter for translate</source>
+        <translation>অনুবাদের জন্য ফিল্টার সক্ষম করুন</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate_form.py" line="475"/>
         <source>select the game file</source>
         <translation>গেম ফাইল নির্বাচন করুন</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="548"/>
+        <location filename="../one_key_translate_form.py" line="550"/>
         <source>One Key Translate Complete</source>
         <translation>এক কী অনুবাদ সম্পূর্ণ</translation>
     </message>
@@ -1550,27 +1572,27 @@
 <context>
     <name>PackGameDialog</name>
     <message>
-        <location filename="../pack_game_form.py" line="149"/>
+        <location filename="../pack_game_form.py" line="152"/>
         <source>Delete</source>
         <translation>মুছে ফেলা</translation>
     </message>
     <message>
-        <location filename="../pack_game_form.py" line="239"/>
+        <location filename="../pack_game_form.py" line="251"/>
         <source>select the file(s) you want to pack</source>
         <translation>আপনি প্যাক করতে চান ফাইল(গুলি) নির্বাচন করুন</translation>
     </message>
     <message>
-        <location filename="../pack_game_form.py" line="296"/>
+        <location filename="../pack_game_form.py" line="308"/>
         <source>is packing...</source>
         <translation>প্যাক করা হচ্ছে...</translation>
     </message>
     <message>
-        <location filename="../pack_game_form.py" line="302"/>
+        <location filename="../pack_game_form.py" line="314"/>
         <source>select the game file you want to pack it&apos;s files</source>
         <translation>আপনি যে গেম ফাইলটি প্যাক করতে চান সেটি নির্বাচন করুন</translation>
     </message>
     <message>
-        <location filename="../pack_game_form.py" line="318"/>
+        <location filename="../pack_game_form.py" line="330"/>
         <location filename="../pack_game.ui" line="236"/>
         <source>pack game files</source>
         <translation>গেম ফাইল প্যাক করুন</translation>

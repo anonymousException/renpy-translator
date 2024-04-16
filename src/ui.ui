@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1051</width>
-    <height>512</height>
+    <height>540</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -75,24 +75,24 @@
        </size>
       </property>
       <property name="text">
-       <string>Version 2.1.7</string>
+       <string>Version 2.1.8</string>
       </property>
      </widget>
     </item>
-    <item row="0" column="0" rowspan="3">
+    <item row="0" column="0" rowspan="4">
      <widget class="QWidget" name="widget" native="true">
       <property name="minimumSize">
        <size>
         <width>600</width>
-        <height>420</height>
+        <height>480</height>
        </size>
       </property>
       <widget class="QPushButton" name="translateBtn">
        <property name="geometry">
         <rect>
-         <x>384</x>
-         <y>390</y>
-         <width>181</width>
+         <x>0</x>
+         <y>450</y>
+         <width>571</width>
          <height>24</height>
         </rect>
        </property>
@@ -261,7 +261,7 @@
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>340</y>
+         <y>350</y>
          <width>191</width>
          <height>31</height>
         </rect>
@@ -280,8 +280,8 @@
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>390</y>
-         <width>481</width>
+         <y>385</y>
+         <width>581</width>
          <height>24</height>
         </rect>
        </property>
@@ -392,6 +392,54 @@
        </property>
        <property name="wordWrap">
         <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_14">
+       <property name="geometry">
+        <rect>
+         <x>310</x>
+         <y>422</y>
+         <width>211</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>filter length less than</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="filterCheckBox">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>420</y>
+         <width>301</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Enable filter for translate</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="filterLengthLineEdit">
+       <property name="geometry">
+        <rect>
+         <x>520</x>
+         <y>420</y>
+         <width>51</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string notr="true">3</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </widget>

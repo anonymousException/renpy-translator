@@ -16,14 +16,15 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QDialog,
-    QGridLayout, QLabel, QPushButton, QRadioButton,
-    QSizePolicy, QTextEdit, QVBoxLayout, QWidget)
+    QGridLayout, QLabel, QLineEdit, QPushButton,
+    QRadioButton, QSizePolicy, QTextEdit, QVBoxLayout,
+    QWidget)
 
 class Ui_EditorDialog(object):
     def setupUi(self, EditorDialog):
         if not EditorDialog.objectName():
             EditorDialog.setObjectName(u"EditorDialog")
-        EditorDialog.resize(1260, 772)
+        EditorDialog.resize(1284, 772)
         self.gridLayout = QGridLayout(EditorDialog)
         self.gridLayout.setObjectName(u"gridLayout")
         self.widget = QWidget(EditorDialog)
@@ -98,7 +99,7 @@ class Ui_EditorDialog(object):
         self.label_3.setMaximumSize(QSize(16777215, 20))
         self.saveFileButton = QPushButton(self.widget_2)
         self.saveFileButton.setObjectName(u"saveFileButton")
-        self.saveFileButton.setGeometry(QRect(140, 75, 335, 24))
+        self.saveFileButton.setGeometry(QRect(140, 100, 335, 24))
         self.saveFileButton.setMaximumSize(QSize(16777215, 24))
         self.untranslatedCheckBox = QCheckBox(self.widget_2)
         self.untranslatedCheckBox.setObjectName(u"untranslatedCheckBox")
@@ -110,7 +111,7 @@ class Ui_EditorDialog(object):
         self.originalRadioButton.setMaximumSize(QSize(16777215, 20))
         self.label_4 = QLabel(self.widget_2)
         self.label_4.setObjectName(u"label_4")
-        self.label_4.setGeometry(QRect(0, 100, 601, 241))
+        self.label_4.setGeometry(QRect(0, 130, 601, 231))
         self.label_4.setAlignment(Qt.AlignCenter)
         self.label_4.setWordWrap(True)
         self.searchedOnlyCheckBox = QCheckBox(self.widget_2)
@@ -142,6 +143,19 @@ class Ui_EditorDialog(object):
         self.autoCopyCheckBox = QCheckBox(self.widget_2)
         self.autoCopyCheckBox.setObjectName(u"autoCopyCheckBox")
         self.autoCopyCheckBox.setGeometry(QRect(20, 25, 311, 20))
+        self.filterLengthLineEdit = QLineEdit(self.widget_2)
+        self.filterLengthLineEdit.setObjectName(u"filterLengthLineEdit")
+        self.filterLengthLineEdit.setGeometry(QRect(540, 75, 51, 20))
+        self.filterLengthLineEdit.setText(u"3")
+        self.filterLengthLineEdit.setAlignment(Qt.AlignCenter)
+        self.label_14 = QLabel(self.widget_2)
+        self.label_14.setObjectName(u"label_14")
+        self.label_14.setGeometry(QRect(330, 75, 211, 20))
+        self.label_14.setAlignment(Qt.AlignCenter)
+        self.filterCheckBox = QCheckBox(self.widget_2)
+        self.filterCheckBox.setObjectName(u"filterCheckBox")
+        self.filterCheckBox.setGeometry(QRect(20, 75, 301, 20))
+        self.filterCheckBox.setChecked(True)
 
         self.gridLayout.addWidget(self.widget_2, 0, 2, 1, 2)
 
@@ -187,5 +201,7 @@ class Ui_EditorDialog(object):
         self.copyTranslatedRadioButton.setText(QCoreApplication.translate("EditorDialog", u"Translated", None))
         self.copySelectedCheckBox.setText(QCoreApplication.translate("EditorDialog", u"Copy selected to clipboard   Copy Source", None))
         self.autoCopyCheckBox.setText(QCoreApplication.translate("EditorDialog", u"Auto copy to Current after translation", None))
+        self.label_14.setText(QCoreApplication.translate("EditorDialog", u"filter length less than", None))
+        self.filterCheckBox.setText(QCoreApplication.translate("EditorDialog", u"Enable filter for translate", None))
     # retranslateUi
 

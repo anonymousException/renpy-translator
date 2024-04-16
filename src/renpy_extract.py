@@ -10,7 +10,7 @@ import traceback
 import pathlib
 
 from my_log import log_print
-from string_tool import remove_upprintable_chars, EncodeBracketContent, EncodeBrackets
+from string_tool import remove_upprintable_chars, EncodeBracketContent, EncodeBrackets, replace_all_blank
 
 extract_threads = []
 
@@ -60,10 +60,6 @@ class extractThread(threading.Thread):
             msg = traceback.format_exc()
             log_print(msg)
 
-
-def replace_all_blank(value):
-    result = re.sub('\\W+', '', value).replace("_", '')
-    return result
 
 def ExtractFromFile(p, is_open_filter, filter_length):
     e = set()

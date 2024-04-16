@@ -10,7 +10,7 @@ import traceback
 
 import win32gui
 from PySide6.QtCore import QCoreApplication, QThread, Signal
-from PySide6.QtGui import QIcon
+from PySide6.QtGui import QIcon, QIntValidator
 from PySide6.QtWidgets import QDialog, QFileDialog, QMessageBox
 
 from one_key_translate import Ui_OneKeyTranslateDialog
@@ -48,6 +48,8 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
         self.selectFileBtn.clicked.connect(self.select_file)
         self.init_combobox()
         self.changeTranslationEngineButton.clicked.connect(self.show_engine_settings)
+        self.filterLengthLineEdit.setValidator(QIntValidator(1, 99, self))
+        self.filterLengthLineEdit_2.setValidator(QIntValidator(1, 99, self))
         self.local_glossary = None
         self.localGlossaryCheckBox.clicked.connect(self.on_local_glossary_checkbox_state_changed)
         self.selectFontBtn.clicked.connect(self.select_font)
@@ -146,7 +148,7 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
                         t = translateThread(cnt, i, target_language, source_language,
                                             True,
                                             False, self.local_glossary, True,
-                                            True)
+                                            True, self.filterCheckBox_2.isChecked(), self.filterLengthLineEdit_2.text())
                         translate_threads.append(t)
                         cnt = cnt + 1
                 if len(translate_threads) > 0:

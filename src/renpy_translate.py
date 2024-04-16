@@ -59,7 +59,7 @@ client_openai = None
 
 class translateThread(threading.Thread):
     def __init__(self, threadID, p, lang_target, lang_source, is_open_multi_thread, is_gen_bak, local_glossary,
-                 is_translate_current, is_skip_translated):
+                 is_translate_current, is_skip_translated, is_open_filter, filter_length):
         threading.Thread.__init__(self)
         self.threadID = threadID
         self.p = p
@@ -70,6 +70,10 @@ class translateThread(threading.Thread):
         self.local_glossary = local_glossary
         self.is_translate_current = is_translate_current
         self.is_skip_translated = is_skip_translated
+        self.is_open_filter = is_open_filter
+        if len(filter_length) == 0:
+            filter_length = '0'
+        self.filter_length = int(filter_length)
 
     def run(self):
         if not self.is_open_multi_thread:
@@ -77,7 +81,7 @@ class translateThread(threading.Thread):
         try:
             log_print(self.p + ' begin translate!')
             self.TranslateFile(self.p, self.lang_target, self.lang_source, self.is_gen_bak, self.local_glossary,
-                               self.is_translate_current, self.is_skip_translated)
+                               self.is_translate_current, self.is_skip_translated, self.is_open_filter, self.filter_length)
         except Exception as e:
             msg = traceback.format_exc()
             log_print(msg)
@@ -87,7 +91,7 @@ class translateThread(threading.Thread):
             translate_lock.release()
 
     def TranslateFile(self, p, lang_target, lang_source, is_gen_bak, local_glossary, is_translate_current,
-                      is_skip_translated):
+                      is_skip_translated, is_open_filter, filter_length):
         client = init_client()
         if client is None:
             return
@@ -110,6 +114,18 @@ class translateThread(threading.Thread):
                 for original, replace in local_glossary.items():
                     target = target.replace(original, replace)
             d = EncodeBrackets(target)
+            strip_i = target
+            for j in (d['en_1']):
+                strip_i = strip_i.replace(j, '')
+            for j in (d['en_2']):
+                strip_i = strip_i.replace(j, '')
+            for j in (d['en_3']):
+                strip_i = strip_i.replace(j, '')
+            _strip_i = replace_all_blank(strip_i)
+            if is_open_filter:
+                if len(_strip_i) < filter_length:
+                    # log_print(len(strip_i),i)
+                    continue
             if not isAllPunctuations(d['encoded'].strip('"')):
                 transList.append(d['encoded'].strip('"'))
                 dic['target'] = target
@@ -278,7 +294,8 @@ def get_translated(trans_dic, d):
             translated = trans_dic[d['encoded'].strip('"')]
             translated = translated.replace('\u200b', '')
             translated = translated.replace('\u200b1', '')
-            translated = translated.replace('"', '\\"')
+            #translated = translated.replace('"', '\\"')
+            translated = replace_unescaped_quotes(translated)
             translated = translated.replace('【', '[')
             translated = translated.replace('】', ']')
             translated = translated.rstrip('\\')

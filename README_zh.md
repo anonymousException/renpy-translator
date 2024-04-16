@@ -68,6 +68,8 @@ https://github.com/anonymousException/renpy-translator/assets/157234942/381ad014
 
 ### 打包游戏(生成翻译 Mod)
 
+支持打包游戏包体基于 [rpatool](https://github.com/shizmob/rpatool) , 你现在可以制作一个翻译 Mod 了
+
 https://github.com/anonymousException/renpy-translator/assets/157234942/4816245b-3690-47ba-9501-4b50cf03eedb
 
 ### 借助浏览器翻译

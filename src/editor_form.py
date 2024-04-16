@@ -13,7 +13,7 @@ import traceback
 import pyperclip
 from PySide6 import QtCore
 from PySide6.QtCore import Qt, QDir, QModelIndex, QSortFilterProxyModel, Signal, QThread, QCoreApplication
-from PySide6.QtGui import QStandardItemModel, QStandardItem, QIcon, QColor, QTextCursor, QKeySequence
+from PySide6.QtGui import QStandardItemModel, QStandardItem, QIcon, QColor, QTextCursor, QKeySequence, QIntValidator
 from PySide6.QtWidgets import QDialog, QHeaderView, QTableView, QMenu, QListView, QFileDialog, QTreeView, \
     QFileSystemModel, QStyle, QMessageBox, QButtonGroup, QInputDialog, QVBoxLayout, QLabel, QTextEdit, QPushButton, \
     QCheckBox, QLineEdit, QAbstractItemView
@@ -1034,6 +1034,23 @@ class MyTableView(QTableView):
                 for original, replace in local_glossary.items():
                     target = target.replace(original, replace)
             d = EncodeBrackets(target)
+            strip_i = target
+            for j in (d['en_1']):
+                strip_i = strip_i.replace(j, '')
+            for j in (d['en_2']):
+                strip_i = strip_i.replace(j, '')
+            for j in (d['en_3']):
+                strip_i = strip_i.replace(j, '')
+            _strip_i = replace_all_blank(strip_i)
+            self.editorForm : MyEditorForm
+            filter_length = self.editorForm.filterLengthLineEdit.text()
+            if len(filter_length) == 0:
+                filter_length = '0'
+            filter_length = int(filter_length)
+            if self.editorForm.filterCheckBox.isChecked():
+                if len(_strip_i) < filter_length:
+                    # log_print(len(strip_i),i)
+                    continue
             if (isAllPunctuations(d['encoded'].strip('"')) == False):
                 transList.append(d['encoded'].strip('"'))
         if len(transList) == 0:
@@ -1124,6 +1141,7 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
         self.localGlossaryCheckBox.clicked.connect(self.on_local_glossary_checkbox_state_changed)
         self.myImportHtmlForm = None
         self.myExportXlsxSettingForm = None
+        self.filterLengthLineEdit.setValidator(QIntValidator(1, 99, self))
         _thread.start_new_thread(self.update_log, ())
 
     def on_local_glossary_checkbox_state_changed(self):

@@ -296,7 +296,7 @@
         <location filename="../editor_form.py" line="282"/>
         <location filename="../editor_form.py" line="585"/>
         <location filename="../editor_form.py" line="730"/>
-        <location filename="../editor_form.py" line="1484"/>
+        <location filename="../editor_form.py" line="1502"/>
         <location filename="../editor.ui" line="334"/>
         <location filename="../editor.ui" line="413"/>
         <source>Original</source>
@@ -307,7 +307,7 @@
         <location filename="../editor_form.py" line="283"/>
         <location filename="../editor_form.py" line="586"/>
         <location filename="../editor_form.py" line="731"/>
-        <location filename="../editor_form.py" line="1485"/>
+        <location filename="../editor_form.py" line="1503"/>
         <location filename="../editor.ui" line="255"/>
         <location filename="../editor.ui" line="432"/>
         <source>Current</source>
@@ -403,12 +403,12 @@
         <translation>Revertir la corriente a la primera carga</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1366"/>
+        <location filename="../editor_form.py" line="1384"/>
         <source>select the directory you want to edit</source>
         <translation>seleccione el directorio que desea editar</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1373"/>
+        <location filename="../editor_form.py" line="1391"/>
         <source>select the file(s) you want to edit</source>
         <translation>seleccione el archivo(s) que desea editar</translation>
     </message>
@@ -528,6 +528,16 @@
         <location filename="../editor.ui" line="483"/>
         <source>Auto copy to Current after translation</source>
         <translation>Copia automática a Actual después de la traducción</translation>
+    </message>
+    <message>
+        <location filename="../editor.ui" line="512"/>
+        <source>filter length less than</source>
+        <translation>longitud del filtro inferior a</translation>
+    </message>
+    <message>
+        <location filename="../editor.ui" line="528"/>
+        <source>Enable filter for translate</source>
+        <translation>Habilitar filtro para traducir</translation>
     </message>
 </context>
 <context>
@@ -846,7 +856,7 @@
     </message>
     <message>
         <location filename="../font_replace_form.py" line="33"/>
-        <location filename="../one_key_translate_form.py" line="353"/>
+        <location filename="../one_key_translate_form.py" line="355"/>
         <source>select the file font which supports the translated language</source>
         <translation>seleccione la fuente del archivo que admita el idioma traducido</translation>
     </message>
@@ -1116,25 +1126,25 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../main.py" line="472"/>
+        <location filename="../main.py" line="473"/>
         <location filename="../extraction_official_form.py" line="67"/>
         <source>is extracting...</source>
         <translation>extrayendo...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="463"/>
-        <location filename="../main.py" line="548"/>
+        <location filename="../main.py" line="464"/>
+        <location filename="../main.py" line="549"/>
         <source>is translating...</source>
         <translation>traductorio...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="466"/>
+        <location filename="../main.py" line="467"/>
         <location filename="../ui.ui" line="100"/>
         <source>translate</source>
         <translation>traducir</translation>
     </message>
     <message>
-        <location filename="../main.py" line="476"/>
+        <location filename="../main.py" line="477"/>
         <location filename="../extraction_official_form.py" line="89"/>
         <source>extract</source>
         <translation>extracto</translation>
@@ -1148,12 +1158,12 @@
         <translation type="vanished">seleccione el directorio que desea extraer</translation>
     </message>
     <message>
-        <location filename="../main.py" line="497"/>
+        <location filename="../main.py" line="498"/>
         <source>select the file(s) you want to translate</source>
         <translation>seleccione el archivo(s) que desea traducir</translation>
     </message>
     <message>
-        <location filename="../main.py" line="508"/>
+        <location filename="../main.py" line="509"/>
         <source>select the directory you want to translate</source>
         <translation>seleccione el directorio que desea traducir</translation>
     </message>
@@ -1164,8 +1174,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.1.7</source>
-        <translation>Versión 2.1.7</translation>
+        <source>Version 2.1.8</source>
+        <translation>Versión 2.1.8</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="113"/>
@@ -1249,37 +1259,42 @@
         <translation>(Si está deshabilitado, la traducción continuará después de que se haya traducido el archivo anterior)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="686"/>
+        <location filename="../ui.ui" line="423"/>
+        <source>Enable filter for translate</source>
+        <translation>Habilitar filtro para traducir</translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="734"/>
         <source>extract translation</source>
         <translation>extraer traducción</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="691"/>
+        <location filename="../ui.ui" line="739"/>
         <source>runtime extraction</source>
         <translation>Extracción en tiempo de ejecución</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="706"/>
+        <location filename="../ui.ui" line="754"/>
         <source>add change langauge entrance</source>
         <translation>Agregar entrada para cambiar idioma</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="711"/>
+        <location filename="../ui.ui" line="759"/>
         <source>one key translate</source>
         <translation>una clave traducir</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="716"/>
+        <location filename="../ui.ui" line="764"/>
         <source>official extraction</source>
         <translation>Extracción Oficial</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="721"/>
+        <location filename="../ui.ui" line="769"/>
         <source>convert txt to html</source>
         <translation>convertir texto a html</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="731"/>
+        <location filename="../ui.ui" line="779"/>
         <source>pack game files</source>
         <translation>empaquetar archivos del juego</translation>
     </message>
@@ -1289,12 +1304,12 @@
         <translation>©2024 Último momento,Todos los derechos reservados.</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="431"/>
+        <location filename="../ui.ui" line="479"/>
         <source>advanced options</source>
         <translation>opciones avanzadas</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="586"/>
+        <location filename="../ui.ui" line="634"/>
         <source>unpack game package</source>
         <translation>desempaquetar el paquete del juego</translation>
     </message>
@@ -1307,7 +1322,7 @@
         <translation type="vanished">ingrese o elija o arrastre la fuente que admite el idioma después de la traducción. Ejemplo: DejaVuSans.ttf (fuente predeterminada de ren&apos;py)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="581"/>
+        <location filename="../ui.ui" line="629"/>
         <source>replace font</source>
         <translation>reemplazar fuente</translation>
     </message>
@@ -1356,8 +1371,9 @@
         <translation type="vanished">Habilitar filtro para extracto</translation>
     </message>
     <message>
+        <location filename="../ui.ui" line="407"/>
         <source>filter length less than</source>
-        <translation type="vanished">longitud del filtro inferior a</translation>
+        <translation>longitud del filtro inferior a</translation>
     </message>
     <message>
         <source>Generate empty strings instead of original</source>
@@ -1369,17 +1385,17 @@
         <translation>borrar registro</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="412"/>
+        <location filename="../ui.ui" line="460"/>
         <source>about</source>
         <translation>acerca de</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="418"/>
+        <location filename="../ui.ui" line="466"/>
         <source>proxy</source>
         <translation>apoderado</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="424"/>
+        <location filename="../ui.ui" line="472"/>
         <source>translation engine</source>
         <translation>motor de traducción</translation>
     </message>
@@ -1388,37 +1404,37 @@
         <translation type="vanished">editor</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="447"/>
+        <location filename="../ui.ui" line="495"/>
         <source>language</source>
         <translation>idioma</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="467"/>
+        <location filename="../ui.ui" line="515"/>
         <source>theme</source>
         <translation>tema</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="498"/>
+        <location filename="../ui.ui" line="546"/>
         <source>copyright</source>
         <translation>derechos de autor</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="503"/>
+        <location filename="../ui.ui" line="551"/>
         <source>proxy settings</source>
         <translation>configuración de proxy</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="508"/>
+        <location filename="../ui.ui" line="556"/>
         <source>engine settings</source>
         <translation>configuración del motor</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="513"/>
+        <location filename="../ui.ui" line="561"/>
         <source>custom engine</source>
         <translation>motor personalizado</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="518"/>
+        <location filename="../ui.ui" line="566"/>
         <source>edit from rpy</source>
         <translation>editar desde rpy</translation>
     </message>
@@ -1526,27 +1542,33 @@
         <translation>Habilitar filtro para extracto</translation>
     </message>
     <message>
-        <location filename="../one_key_translate.ui" line="339"/>
+        <location filename="../one_key_translate.ui" line="342"/>
+        <location filename="../one_key_translate.ui" line="419"/>
         <source>filter length less than</source>
         <translation>longitud del filtro inferior a</translation>
     </message>
     <message>
-        <location filename="../one_key_translate.ui" line="355"/>
+        <location filename="../one_key_translate.ui" line="358"/>
         <source>Start</source>
         <translation>Comenzar</translation>
     </message>
     <message>
-        <location filename="../one_key_translate.ui" line="368"/>
+        <location filename="../one_key_translate.ui" line="371"/>
         <source>Official Extraction</source>
         <translation>Extracción Oficial</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="473"/>
+        <location filename="../one_key_translate.ui" line="387"/>
+        <source>Enable filter for translate</source>
+        <translation>Habilitar filtro para traducir</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate_form.py" line="475"/>
         <source>select the game file</source>
         <translation>selecciona el archivo del juego</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="548"/>
+        <location filename="../one_key_translate_form.py" line="550"/>
         <source>One Key Translate Complete</source>
         <translation>Traducción completa con una tecla</translation>
     </message>
@@ -1554,27 +1576,27 @@
 <context>
     <name>PackGameDialog</name>
     <message>
-        <location filename="../pack_game_form.py" line="149"/>
+        <location filename="../pack_game_form.py" line="152"/>
         <source>Delete</source>
         <translation>Borrar</translation>
     </message>
     <message>
-        <location filename="../pack_game_form.py" line="239"/>
+        <location filename="../pack_game_form.py" line="251"/>
         <source>select the file(s) you want to pack</source>
         <translation>seleccione los archivos que desea empaquetar</translation>
     </message>
     <message>
-        <location filename="../pack_game_form.py" line="296"/>
+        <location filename="../pack_game_form.py" line="308"/>
         <source>is packing...</source>
         <translation>está empacando...</translation>
     </message>
     <message>
-        <location filename="../pack_game_form.py" line="302"/>
+        <location filename="../pack_game_form.py" line="314"/>
         <source>select the game file you want to pack it&apos;s files</source>
         <translation>Selecciona el archivo del juego que deseas empaquetar</translation>
     </message>
     <message>
-        <location filename="../pack_game_form.py" line="318"/>
+        <location filename="../pack_game_form.py" line="330"/>
         <location filename="../pack_game.ui" line="236"/>
         <source>pack game files</source>
         <translation>empaquetar archivos del juego</translation>

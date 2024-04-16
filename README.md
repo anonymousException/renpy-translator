@@ -71,6 +71,8 @@ The video shows in order :
 
 ### Pack Game(Generate Translation Mod)
 
+Support pack game package based on [rpatool](https://github.com/shizmob/rpatool) , you can make a translation mod now
+
 https://github.com/anonymousException/renpy-translator/assets/157234942/4816245b-3690-47ba-9501-4b50cf03eedb
 
 ### Translate with brower

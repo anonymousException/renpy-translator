@@ -104,6 +104,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.is_current = True
         self.buttonGroup.buttonClicked.connect(self.button_group_clicked)
         self.local_glossary_form = MyLocalGlossaryForm(parent=self)
+        self.filterLengthLineEdit.setValidator(QIntValidator(1, 99, self))
         try:
             self.init_combobox()
         except Exception as e:
@@ -520,7 +521,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
                 if len(i) > 0:
                     t = translateThread(cnt, i, target_language, source_language,
                                         self.multiTranslateCheckBox.isChecked(), self.backupCheckBox.isChecked(),
-                                        self.local_glossary, self.is_current, self.skipTranslatedCheckBox.isChecked())
+                                        self.local_glossary, self.is_current, self.skipTranslatedCheckBox.isChecked(), self.filterCheckBox.isChecked(), self.filterLengthLineEdit.text())
                     translate_threads.append(t)
                     cnt = cnt + 1
             select_dir = self.selectDirText.toPlainText()
@@ -541,7 +542,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
                             t = translateThread(cnt, i, target_language, source_language,
                                                 self.multiTranslateCheckBox.isChecked(),
                                                 self.backupCheckBox.isChecked(), self.local_glossary, self.is_current,
-                                                self.skipTranslatedCheckBox.isChecked())
+                                                self.skipTranslatedCheckBox.isChecked(), self.filterCheckBox.isChecked(), self.filterLengthLineEdit.text())
                             translate_threads.append(t)
                             cnt = cnt + 1
             if len(translate_threads) > 0:

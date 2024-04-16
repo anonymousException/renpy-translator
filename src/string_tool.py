@@ -219,3 +219,14 @@ def encode_say_string(s):
     s = s.replace("\"", "\\\"")
     s = re.sub(r'(?<= ) ', '\\ ', s)
     return s
+
+
+def replace_all_blank(value):
+    result = re.sub('\\W+', '', value).replace("_", '')
+    return result
+
+
+def replace_unescaped_quotes(text):
+    pattern = r'(?<!\\)"'
+    replaced_text = re.sub(pattern, r'\\"', text)
+    return replaced_text

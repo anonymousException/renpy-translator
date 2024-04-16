@@ -17,15 +17,15 @@ from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
     QPainter, QPalette, QPixmap, QRadialGradient,
     QTransform)
 from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QGridLayout,
-    QLabel, QMainWindow, QMenu, QMenuBar,
-    QPushButton, QRadioButton, QSizePolicy, QTextEdit,
-    QWidget)
+    QLabel, QLineEdit, QMainWindow, QMenu,
+    QMenuBar, QPushButton, QRadioButton, QSizePolicy,
+    QTextEdit, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1051, 512)
+        MainWindow.resize(1051, 540)
         self.actioncopyright = QAction(MainWindow)
         self.actioncopyright.setObjectName(u"actioncopyright")
         self.proxySettings = QAction(MainWindow)
@@ -191,10 +191,10 @@ class Ui_MainWindow(object):
 
         self.widget = QWidget(self.centralwidget)
         self.widget.setObjectName(u"widget")
-        self.widget.setMinimumSize(QSize(600, 420))
+        self.widget.setMinimumSize(QSize(600, 480))
         self.translateBtn = QPushButton(self.widget)
         self.translateBtn.setObjectName(u"translateBtn")
-        self.translateBtn.setGeometry(QRect(384, 390, 181, 24))
+        self.translateBtn.setGeometry(QRect(0, 450, 571, 24))
         self.selectFilesBtn = QPushButton(self.widget)
         self.selectFilesBtn.setObjectName(u"selectFilesBtn")
         self.selectFilesBtn.setGeometry(QRect(490, 25, 81, 81))
@@ -237,12 +237,12 @@ class Ui_MainWindow(object):
         self.sourceComboBox.setGeometry(QRect(80, 240, 491, 22))
         self.multiTranslateCheckBox = QCheckBox(self.widget)
         self.multiTranslateCheckBox.setObjectName(u"multiTranslateCheckBox")
-        self.multiTranslateCheckBox.setGeometry(QRect(0, 340, 191, 31))
+        self.multiTranslateCheckBox.setGeometry(QRect(0, 350, 191, 31))
         self.multiTranslateCheckBox.setChecked(True)
         self.multiTranslateCheckBox.setTristate(False)
         self.backupCheckBox = QCheckBox(self.widget)
         self.backupCheckBox.setObjectName(u"backupCheckBox")
-        self.backupCheckBox.setGeometry(QRect(0, 390, 481, 24))
+        self.backupCheckBox.setGeometry(QRect(0, 385, 581, 24))
         self.localGlossaryCheckBox = QCheckBox(self.widget)
         self.localGlossaryCheckBox.setObjectName(u"localGlossaryCheckBox")
         self.localGlossaryCheckBox.setGeometry(QRect(0, 300, 591, 20))
@@ -267,8 +267,21 @@ class Ui_MainWindow(object):
         self.label_16.setObjectName(u"label_16")
         self.label_16.setGeometry(QRect(190, 310, 411, 51))
         self.label_16.setWordWrap(True)
+        self.label_14 = QLabel(self.widget)
+        self.label_14.setObjectName(u"label_14")
+        self.label_14.setGeometry(QRect(310, 422, 211, 20))
+        self.label_14.setAlignment(Qt.AlignCenter)
+        self.filterCheckBox = QCheckBox(self.widget)
+        self.filterCheckBox.setObjectName(u"filterCheckBox")
+        self.filterCheckBox.setGeometry(QRect(0, 420, 301, 20))
+        self.filterCheckBox.setChecked(True)
+        self.filterLengthLineEdit = QLineEdit(self.widget)
+        self.filterLengthLineEdit.setObjectName(u"filterLengthLineEdit")
+        self.filterLengthLineEdit.setGeometry(QRect(520, 420, 51, 20))
+        self.filterLengthLineEdit.setText(u"3")
+        self.filterLengthLineEdit.setAlignment(Qt.AlignCenter)
 
-        self.gridLayout.addWidget(self.widget, 0, 0, 3, 1)
+        self.gridLayout.addWidget(self.widget, 0, 0, 4, 1)
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
@@ -367,7 +380,7 @@ class Ui_MainWindow(object):
         self.actionpack_game_files.setText(QCoreApplication.translate("MainWindow", u"pack game files", None))
         self.clearLogBtn.setText(QCoreApplication.translate("MainWindow", u"clear log", None))
         self.copyrightLabel.setText(QCoreApplication.translate("MainWindow", u"\u00a92024 Last moment,All rights reserved.", None))
-        self.versionLabel.setText(QCoreApplication.translate("MainWindow", u"Version 2.1.7", None))
+        self.versionLabel.setText(QCoreApplication.translate("MainWindow", u"Version 2.1.8", None))
         self.translateBtn.setText(QCoreApplication.translate("MainWindow", u"translate", None))
         self.selectFilesBtn.setText(QCoreApplication.translate("MainWindow", u"...", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"directory", None))
@@ -389,6 +402,8 @@ class Ui_MainWindow(object):
         self.currentRadioButton.setText(QCoreApplication.translate("MainWindow", u"Current", None))
         self.skipTranslatedCheckBox.setText(QCoreApplication.translate("MainWindow", u"Skip Translated (Original != Current)", None))
         self.label_16.setText(QCoreApplication.translate("MainWindow", u"(If disable, translation will continue after the previous file has been translated)", None))
+        self.label_14.setText(QCoreApplication.translate("MainWindow", u"filter length less than", None))
+        self.filterCheckBox.setText(QCoreApplication.translate("MainWindow", u"Enable filter for translate", None))
         self.aboutMenu.setTitle(QCoreApplication.translate("MainWindow", u"about", None))
         self.proxyMenu.setTitle(QCoreApplication.translate("MainWindow", u"proxy", None))
         self.translationEngineMenu.setTitle(QCoreApplication.translate("MainWindow", u"translation engine", None))
