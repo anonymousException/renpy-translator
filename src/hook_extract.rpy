@@ -8,6 +8,8 @@ init python:
     dic = dict()
     for identifier,value in default_translates.items():
         say = value.block[0]
+        if not hasattr(say,'what'):
+            continue
         what = say.what
         who = say.who
         filename = value.filename
