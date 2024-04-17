@@ -1174,8 +1174,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.1.9</source>
-        <translation>সংস্করণ 2.1.9</translation>
+        <source>Version 2.2.0</source>
+        <translation>সংস্করণ 2.2.0</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="113"/>

@@ -55,21 +55,21 @@ def ExtractStyleFontList(data, file=None):
         # print(i)
         # dic[i[0]] = i[1]
         # print(len(i))
-        if (len(i) > 1):
+        if len(i) > 1:
             content = ''
             flag = False
             font_line = ''
             for _i, e in enumerate(i):
-                if (_i != 0):
-                    if ('font "' in e):
+                if _i != 0:
+                    if 'font "' in e or "font '" in e:
                         font_line = e
                         flag = True
                         continue
-                    if (len(e.strip()) > 0):
+                    if len(e.strip()) > 0:
                         content = content + e.rstrip() + '\n'
 
             # print(content)
-            if (flag):
+            if flag:
                 d = dict()
                 d['font'] = font_line
                 d['content'] = content
@@ -105,7 +105,8 @@ def ExtractStyleFontListFromDirectory(p):
                 continue
             # print(i)
             d = ExtractStyleFontListFromFile(i)
-            ret_d.update(d)
+            if len(d) > 0:
+                ret_d.update(d)
     return ret_d
 
 
@@ -135,15 +136,16 @@ def GenGuiFontsOriginal(p, tl_name, font_path):
     if (appendMode):
         f = io.open(guiPath, 'a+', encoding='utf-8')
         for key, value in result.items():
-            if (key in _read):
+            if key in _read:
                 continue
+            f.write('\n')
             # content = 'translate ' + tl_name + ' ' + key + '\n'  +value['content'] +'    #' +value['font'].lstrip() + '\n' + value['font']
             fontLine = value['font']
             fontContent = ExtractFontContent(fontLine)
             replacedFont = fontLine.replace(fontContent, 'font gui.text_font')
             # print(replacedFont)
             content = 'translate ' + tl_name + ' ' + key + '\n' + value['content'] + '    #' + value[
-                'font'].lstrip() + '\n' + replacedFont
+                'font'].lstrip() + '\n    ' + replacedFont
             # print(value['file'])
             # print(content)
             f.write(content)
@@ -179,13 +181,14 @@ def GenGuiFontsOriginal(p, tl_name, font_path):
         f.write(header)
         f.write('\n')
         for key, value in result.items():
+            f.write('\n')
             # content = 'translate ' + tl_name + ' ' + key + '\n'  +value['content'] +'    #' +value['font'].lstrip() + '\n' + value['font']
             fontLine = value['font']
             fontContent = ExtractFontContent(fontLine)
             replacedFont = fontLine.replace(fontContent, 'font gui.text_font')
             # print(replacedFont)
             content = 'translate ' + tl_name + ' ' + key + '\n' + value['content'] + '    #' + value[
-                'font'].lstrip() + '\n' + replacedFont
+                'font'].lstrip() + '\n    ' + replacedFont
             # print(value['file'])
             # print(content)
             f.write(content)
