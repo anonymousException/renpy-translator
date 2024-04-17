@@ -95,7 +95,6 @@ class MyExtractionForm(QDialog, Ui_ExtractionDialog):
                                       is_open_filter=self.filterCheckBox.isChecked(),
                                       filter_length=int(self.filterLengthLineEdit.text()),
                                       is_gen_empty=self.emptyCheckBox.isChecked())
-                    t.start()
                     extract_threads.append(t)
                     cnt = cnt + 1
             select_dirs = self.selectDirsText.toPlainText().split('\n')
@@ -110,7 +109,6 @@ class MyExtractionForm(QDialog, Ui_ExtractionDialog):
                                       is_open_filter=self.filterCheckBox.isChecked(),
                                       filter_length=int(self.filterLengthLineEdit.text()),
                                       is_gen_empty=self.emptyCheckBox.isChecked())
-                    t.start()
                     extract_threads.append(t)
                     cnt = cnt + 1
                 pass

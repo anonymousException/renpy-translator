@@ -850,15 +850,20 @@
 <context>
     <name>FontReplaceDialog</name>
     <message>
-        <location filename="../font_replace_form.py" line="28"/>
+        <location filename="../font_replace_form.py" line="49"/>
         <source>select the directory you want to extract</source>
         <translation>আপনি নিষ্কাশন করতে চান ডিরেক্টরি নির্বাচন করুন</translation>
     </message>
     <message>
-        <location filename="../font_replace_form.py" line="33"/>
-        <location filename="../one_key_translate_form.py" line="355"/>
+        <location filename="../font_replace_form.py" line="54"/>
+        <location filename="../one_key_translate_form.py" line="362"/>
         <source>select the file font which supports the translated language</source>
         <translation>ফাইল ফন্ট নির্বাচন করুন যা অনুবাদিত ভাষা সমর্থন করে</translation>
+    </message>
+    <message>
+        <location filename="../font_replace_form.py" line="74"/>
+        <source>is replacing font...</source>
+        <translation>ফন্ট প্রতিস্থাপন করা হচ্ছে...</translation>
     </message>
     <message>
         <location filename="../font_replace.ui" line="14"/>
@@ -883,6 +888,7 @@
         <translation>...</translation>
     </message>
     <message>
+        <location filename="../font_replace_form.py" line="98"/>
         <location filename="../font_replace.ui" line="101"/>
         <source>replace font</source>
         <translation>ফন্ট প্রতিস্থাপন</translation>
@@ -1174,8 +1180,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.2.0</source>
-        <translation>সংস্করণ 2.2.0</translation>
+        <source>Version 2.2.1</source>
+        <translation>সংস্করণ 2.2.1</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="113"/>
@@ -1559,12 +1565,12 @@
         <translation>অনুবাদের জন্য ফিল্টার সক্ষম করুন</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="475"/>
+        <location filename="../one_key_translate_form.py" line="482"/>
         <source>select the game file</source>
         <translation>গেম ফাইল নির্বাচন করুন</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="550"/>
+        <location filename="../one_key_translate_form.py" line="564"/>
         <source>One Key Translate Complete</source>
         <translation>এক কী অনুবাদ সম্পূর্ণ</translation>
     </message>

@@ -29,6 +29,7 @@ from extraction_official_form import exec_official_translate
 import extraction_official_form
 from font_util import get_default_font_path
 import my_log
+from font_replace_form import replaceFontThread
 
 
 class MyQueue(queue.Queue):
@@ -56,6 +57,7 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
         self.startButton.clicked.connect(self.on_start_button_clicked)
         self.path = None
         self.official_extract_thread = None
+        self.replace_font_thread = None
         self.is_queue_task_empty = True
         self.q = MyQueue()
         # a dict records the task status
@@ -225,9 +227,14 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
                     select_dir = select_dir + '/'
                 font_path = self.selectFontText.toPlainText()
                 font_path = font_path.replace('file:///', '')
-                log_print('start replace font...')
-                GenGuiFonts(select_dir, font_path)
-                log_print('replace font complete!')
+                t = replaceFontThread(select_dir, font_path)
+                self.replace_font_thread = t
+                t.start()
+                self.setDisabled(True)
+                is_finished, is_executed = self.qDic[self.replaceFont]
+                is_finished = False
+                self.qDic[self.replaceFont] = is_finished, is_executed
+                return
         is_finished, is_executed = self.qDic[self.replaceFont]
         is_finished = True
         self.qDic[self.replaceFont] = is_finished, is_executed
@@ -525,6 +532,13 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
                     is_finished, is_executed = self.qDic[self.official_extract]
                     is_finished = True
                     self.qDic[self.official_extract] = is_finished, is_executed
+
+            if self.replace_font_thread is not None:
+                if not self.replace_font_thread.is_alive():
+                    self.replace_font_thread = None
+                    is_finished, is_executed = self.qDic[self.replaceFont]
+                    is_finished = True
+                    self.qDic[self.replaceFont] = is_finished, is_executed
 
             if not self.q.empty():
                 self.is_queue_task_empty = False

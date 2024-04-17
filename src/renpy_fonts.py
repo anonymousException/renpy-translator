@@ -1,5 +1,6 @@
 # -*- coding: utf-8
 import io
+import re
 import shutil
 import sys
 import os
@@ -9,6 +10,12 @@ import traceback
 from my_log import log_print
 
 font_style_tempalte_path = 'font_style_template.txt'
+
+
+def replace_font_content(text, new_content):
+    pattern = r'\{font\s*=\s*.*?\}.*?\{/font\}'
+    replacement = lambda m: re.sub(r'{font\s*=\s*.*?}', f'{{font={new_content}}}', m.group(0))
+    return re.sub(pattern, replacement, text)
 
 
 def ExtractStyleList(data):
@@ -99,9 +106,9 @@ def ExtractStyleFontListFromDirectory(p):
     for path, dir_lst, file_lst in paths:
         for file_name in file_lst:
             i = os.path.join(path, file_name)
-            if (file_name.endswith("rpy") == False):
+            if file_name.endswith("rpy") == False:
                 continue
-            if (i[len(p):len(p) + 3] == 'tl\\'):
+            if i[len(p):len(p) + 3] == 'tl\\':
                 continue
             # print(i)
             d = ExtractStyleFontListFromFile(i)
@@ -111,15 +118,19 @@ def ExtractStyleFontListFromDirectory(p):
 
 
 def ExtractFontContent(data):
+    tag = '"'
     index = data.find('font "')
-    if (index == -1):
-        return data
-    index2 = data[index + 6:].find('"') + index + 6 + 1
+    if index == -1:
+        index = data.find("font '")
+        tag = "'"
+        if index == -1:
+            return data
+    index2 = data[index + 6:].find(tag) + index + 6 + 1
     return data[index:index2]
 
 
 def GenGuiFontsOriginal(p, tl_name, font_path):
-    if (p[len(p) - 1] != '/' and p[len(p) - 1] != '\\'):
+    if p[len(p) - 1] != '/' and p[len(p) - 1] != '\\':
         p = p + '/'
     guiPath = p + 'tl/' + tl_name + '/gui.rpy'
     # print(guiPath)
@@ -145,7 +156,7 @@ def GenGuiFontsOriginal(p, tl_name, font_path):
             replacedFont = fontLine.replace(fontContent, 'font gui.text_font')
             # print(replacedFont)
             content = 'translate ' + tl_name + ' ' + key + '\n' + value['content'] + '    #' + value[
-                'font'].lstrip() + '\n    ' + replacedFont
+                'font'].lstrip() + '\n' + replacedFont
             # print(value['file'])
             # print(content)
             f.write(content)
@@ -188,13 +199,35 @@ def GenGuiFontsOriginal(p, tl_name, font_path):
             replacedFont = fontLine.replace(fontContent, 'font gui.text_font')
             # print(replacedFont)
             content = 'translate ' + tl_name + ' ' + key + '\n' + value['content'] + '    #' + value[
-                'font'].lstrip() + '\n    ' + replacedFont
+                'font'].lstrip() + '\n' + replacedFont
             # print(value['file'])
             # print(content)
             f.write(content)
             f.write('\n')
         f.close()
         log_print(guiPath + ' generated success!')
+
+
+def replace_tl_folder(full_tl_path, font_name):
+    paths = os.walk(full_tl_path, topdown=False)
+    for path, dir_lst, file_lst in paths:
+        for file_name in file_lst:
+            i = os.path.join(path, file_name)
+            if file_name.endswith("rpy") == False:
+                continue
+            f = io.open(i, 'r', encoding='utf-8')
+            lines = f.readlines()
+            f.close()
+
+            for index, line in enumerate(lines):
+                if not '{font' in line:
+                    continue
+                if not line.strip().startswith('#') and not line.strip().startswith('old '):
+                    data = replace_font_content(line, 'fonts/' + font_name)
+                    lines[index] = data
+            f = io.open(i, 'w', encoding='utf-8')
+            f.writelines(lines)
+            f.close()
 
 
 def GenGuiFonts(path, fp):
@@ -212,6 +245,8 @@ def GenGuiFonts(path, fp):
         return
     tl = path[index + 3:index2]
     GenGuiFontsOriginal(path[:index], tl, fp)
+    font_name = os.path.basename(fp)
+    replace_tl_folder(path[:index] + 'tl/' + tl, font_name)
 
 # path = 'F:/Games/RenPy/Outland-Wanderer-0.0.21-win/game'
 # tl = 'schinese'

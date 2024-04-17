@@ -10,7 +10,8 @@ import traceback
 import pathlib
 
 from my_log import log_print
-from string_tool import remove_upprintable_chars, EncodeBracketContent, EncodeBrackets, replace_all_blank
+from string_tool import remove_upprintable_chars, EncodeBracketContent, EncodeBrackets, replace_all_blank, \
+    replace_unescaped_quotes
 
 extract_threads = []
 
@@ -20,7 +21,7 @@ num = 0
 
 
 class extractThread(threading.Thread):
-    def __init__(self, threadID, p, tl_name,dir, tl_dir, is_open_filter, filter_length,is_gen_empty):
+    def __init__(self, threadID, p, tl_name, dir, tl_dir, is_open_filter, filter_length, is_gen_empty):
         threading.Thread.__init__(self)
         self.threadID = threadID
         self.p = p
@@ -34,17 +35,18 @@ class extractThread(threading.Thread):
     def run(self):
         try:
             if self.tl_dir is not None and os.path.exists(self.tl_dir):
-                self.tl_dir=self.tl_dir.rstrip('/')
-                self.tl_dir=self.tl_dir.rstrip('\\')
+                self.tl_dir = self.tl_dir.rstrip('/')
+                self.tl_dir = self.tl_dir.rstrip('\\')
                 if self.tl_name is not None and len(self.tl_name) > 0:
                     ori_tl = os.path.basename(self.tl_dir)
                     self.tl_dir = self.tl_dir[:-len(ori_tl)] + self.tl_name
                 log_print(self.tl_dir + ' begin extract!')
-                ExtractAllFilesInDir(self.tl_dir, self.is_open_filter, self.filter_length,self.is_gen_empty)
+                ExtractAllFilesInDir(self.tl_dir, self.is_open_filter, self.filter_length, self.is_gen_empty)
             else:
                 if self.p is not None:
                     log_print(self.p + ' begin extract!')
-                    ExtractWriteFile(self.p, self.tl_name, self.is_open_filter, self.filter_length,self.is_gen_empty,set())
+                    ExtractWriteFile(self.p, self.tl_name, self.is_open_filter, self.filter_length, self.is_gen_empty,
+                                     set())
                 if self.dir is not None:
                     log_print(self.dir + ' begin extract!')
                     paths = os.walk(self.dir, topdown=False)
@@ -54,7 +56,8 @@ class extractThread(threading.Thread):
                             i = os.path.join(path, file_name)
                             if not file_name.endswith("rpy"):
                                 continue
-                            global_e = ExtractWriteFile(i, self.tl_name, self.is_open_filter, self.filter_length,self.is_gen_empty,global_e)
+                            global_e = ExtractWriteFile(i, self.tl_name, self.is_open_filter, self.filter_length,
+                                                        self.is_gen_empty, global_e)
 
         except Exception as e:
             msg = traceback.format_exc()
@@ -90,10 +93,12 @@ def ExtractFromFile(p, is_open_filter, filter_length):
             # if(line_content.strip().startswith('default ')):
             # 	continue
         # log_print(line_content)
+        suffix_list = ['.ogg', '.webp', '.png', '.ttf', '.otf', '.webm', '.svg', '.gif', '.jpg', '.wav',
+                       '.mp3']
         d = EncodeBracketContent(line_content, '"', '"')
-        if ('oriList' in d.keys() and len(d['oriList']) > 0):
+        if 'oriList' in d.keys() and len(d['oriList']) > 0:
             for i in d['oriList']:
-                if (len(i) > 2):
+                if len(i) > 2:
                     strip_i = ''.join(i)
                     d2 = EncodeBrackets(i)
 
@@ -107,11 +112,11 @@ def ExtractFromFile(p, is_open_filter, filter_length):
                     diff_len = len(i) - len(strip_i)
                     _strip_i = replace_all_blank(strip_i)
                     cmp_i = i.lower().strip('"')
-                    suffix_list = ['.ogg', '.webp', '.png', '.ttf', '.otf', '.webm', '.svg', '.gif', '.jpg', '.wav',
-                                   '.mp3']
                     skip = False
                     if cmp_i.startswith('#'):
                         skip = True
+                    # if not line_content.strip().startswith('text ') or line_content.strip().find(i) != 5:
+                    #     skip = True
                     for suffix in suffix_list:
                         if cmp_i.endswith(suffix) == False:
                             continue
@@ -120,11 +125,53 @@ def ExtractFromFile(p, is_open_filter, filter_length):
                             break
                     if skip:
                         continue
+                    i = i[1:-1]
+                    i = replace_unescaped_quotes(i)
+                    i = i.replace("\\'", "'")
                     if is_open_filter:
                         if len(_strip_i) < filter_length:
                             # log_print(len(strip_i),i)
                             continue
-                        i = i.replace('\\\'', "'")
+                        e.add(i)
+                    else:
+                        e.add(i)
+        d = EncodeBracketContent(line_content, "'", "'")
+        if 'oriList' in d.keys() and len(d['oriList']) > 0:
+            for i in d['oriList']:
+                if len(i) > 2:
+                    strip_i = ''.join(i)
+                    d2 = EncodeBrackets(i)
+
+                    for j in (d2['en_1']):
+                        strip_i = strip_i.replace(j, '')
+                    for j in (d2['en_2']):
+                        strip_i = strip_i.replace(j, '')
+                    for j in (d2['en_3']):
+                        strip_i = strip_i.replace(j, '')
+
+                    diff_len = len(i) - len(strip_i)
+                    _strip_i = replace_all_blank(strip_i)
+                    cmp_i = i.lower().strip("'")
+                    skip = False
+                    if cmp_i.startswith('#'):
+                        skip = True
+                    # if not line_content.strip().startswith('text ') or line_content.strip().find(i) != 5:
+                    #     skip = True
+                    for suffix in suffix_list:
+                        if cmp_i.endswith(suffix) == False:
+                            continue
+                        else:
+                            skip = True
+                            break
+                    if skip:
+                        continue
+                    i = i[1:-1]
+                    i = replace_unescaped_quotes(i)
+                    i = i.replace("\\'", "'")
+                    if is_open_filter:
+                        if len(_strip_i) < filter_length:
+                            # log_print(len(strip_i),i)
+                            continue
                         e.add(i)
                     else:
                         e.add(i)
@@ -168,10 +215,11 @@ def GetExtractedSet(p):
                 lines = f.readlines()
                 f.close()
                 for j in both:
-                    for index,line in enumerate(lines):
+                    j = '"' + j + '"'
+                    for index, line in enumerate(lines):
                         if line.startswith('    old ' + j):
                             lines[index] = '\n'
-                            lines[index+1] = '\n'
+                            lines[index + 1] = '\n'
                 f = io.open(i, 'w', encoding='utf-8')
                 f.writelines(lines)
                 f.close()
@@ -180,7 +228,7 @@ def GetExtractedSet(p):
     return e
 
 
-def WriteExtracted(p, extractedSet,is_open_filter, filter_length,is_gen_empty):
+def WriteExtracted(p, extractedSet, is_open_filter, filter_length, is_gen_empty):
     if (p[len(p) - 1] != '/' and p[len(p) - 1] != '\\'):
         p = p + '/'
     index = p.rfind('tl\\')
@@ -207,9 +255,9 @@ def WriteExtracted(p, extractedSet,is_open_filter, filter_length,is_gen_empty):
                 log_print(target + " not exists skip!")
                 continue
 
-            e = ExtractFromFile(target,is_open_filter,filter_length)
+            e = ExtractFromFile(target, is_open_filter, filter_length)
             eDiff = e - extractedSet
-            if (len(eDiff) > 0):
+            if len(eDiff) > 0:
                 f = io.open(i, 'a+', encoding='utf-8')
                 f.write('\ntranslate ' + tl + ' strings:\n')
                 lock.acquire()
@@ -224,6 +272,7 @@ def WriteExtracted(p, extractedSet,is_open_filter, filter_length,is_gen_empty):
                 head = head + 'new ' + timestamp + '\n\n'
                 f.write(head)
                 for j in eDiff:
+                    j = '"' + j + '"'
                     if not is_gen_empty:
                         writeData = '    old ' + j + '\n    new ' + j + '\n'
                     else:
@@ -255,7 +304,7 @@ def GetHeaderPath(p):
         return dic
 
 
-def ExtractWriteFile(p, tl_name, is_open_filter, filter_length,is_gen_empty,global_e):
+def ExtractWriteFile(p, tl_name, is_open_filter, filter_length, is_gen_empty, global_e):
     dic = GetHeaderPath(p)
     header = dic['header']
     if (header == ''):
@@ -291,6 +340,7 @@ def ExtractWriteFile(p, tl_name, is_open_filter, filter_length,is_gen_empty,glob
         head = head + 'new ' + timestamp + '\n\n'
         f.write(head)
         for j in eDiff:
+            j = '"' + j + '"'
             if not is_gen_empty:
                 writeData = '    old ' + j + '\n    new ' + j + '\n'
             else:
@@ -302,8 +352,8 @@ def ExtractWriteFile(p, tl_name, is_open_filter, filter_length,is_gen_empty,glob
     return global_e
 
 
-def ExtractAllFilesInDir(dirName, is_open_filter, filter_length,is_gen_empty):
+def ExtractAllFilesInDir(dirName, is_open_filter, filter_length, is_gen_empty):
     CreateEmptyFileIfNotExsit(dirName)
     ret = GetExtractedSet(dirName)
-    WriteExtracted(dirName,ret,is_open_filter, filter_length,is_gen_empty)
+    WriteExtracted(dirName, ret, is_open_filter, filter_length, is_gen_empty)
     ret = GetExtractedSet(dirName)

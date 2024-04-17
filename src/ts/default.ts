@@ -827,14 +827,19 @@
 <context>
     <name>FontReplaceDialog</name>
     <message>
-        <location filename="../font_replace_form.py" line="28"/>
+        <location filename="../font_replace_form.py" line="49"/>
         <source>select the directory you want to extract</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../font_replace_form.py" line="33"/>
-        <location filename="../one_key_translate_form.py" line="355"/>
+        <location filename="../font_replace_form.py" line="54"/>
+        <location filename="../one_key_translate_form.py" line="362"/>
         <source>select the file font which supports the translated language</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../font_replace_form.py" line="74"/>
+        <source>is replacing font...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -860,6 +865,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../font_replace_form.py" line="98"/>
         <location filename="../font_replace.ui" line="101"/>
         <source>replace font</source>
         <translation type="unfinished"></translation>
@@ -1247,7 +1253,7 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.2.0</source>
+        <source>Version 2.2.1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1436,12 +1442,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="475"/>
+        <location filename="../one_key_translate_form.py" line="482"/>
         <source>select the game file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="550"/>
+        <location filename="../one_key_translate_form.py" line="564"/>
         <source>One Key Translate Complete</source>
         <translation type="unfinished"></translation>
     </message>

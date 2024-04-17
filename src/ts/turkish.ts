@@ -827,15 +827,20 @@
 <context>
     <name>FontReplaceDialog</name>
     <message>
-        <location filename="../font_replace_form.py" line="28"/>
+        <location filename="../font_replace_form.py" line="49"/>
         <source>select the directory you want to extract</source>
         <translation>ayıklamak istediğiniz dizini seçin</translation>
     </message>
     <message>
-        <location filename="../font_replace_form.py" line="33"/>
-        <location filename="../one_key_translate_form.py" line="355"/>
+        <location filename="../font_replace_form.py" line="54"/>
+        <location filename="../one_key_translate_form.py" line="362"/>
         <source>select the file font which supports the translated language</source>
         <translation>çevrilmiş dili destekleyen dosya yazı tipini seçin</translation>
+    </message>
+    <message>
+        <location filename="../font_replace_form.py" line="74"/>
+        <source>is replacing font...</source>
+        <translation>yazı tipini değiştiriyor...</translation>
     </message>
     <message>
         <location filename="../font_replace.ui" line="14"/>
@@ -860,6 +865,7 @@
         <translation>...</translation>
     </message>
     <message>
+        <location filename="../font_replace_form.py" line="98"/>
         <location filename="../font_replace.ui" line="101"/>
         <source>replace font</source>
         <translation>yazı tipini değiştir</translation>
@@ -1259,8 +1265,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.2.0</source>
-        <translation>Sürüm 2.2.0</translation>
+        <source>Version 2.2.1</source>
+        <translation>Sürüm 2.2.1</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="391"/>
@@ -1448,12 +1454,12 @@
         <translation>Çeviri için filtreyi etkinleştir</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="475"/>
+        <location filename="../one_key_translate_form.py" line="482"/>
         <source>select the game file</source>
         <translation>Dosyayı seçin</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="550"/>
+        <location filename="../one_key_translate_form.py" line="564"/>
         <source>One Key Translate Complete</source>
         <translation>Tek Tuşla Çeviri Tamamlandı</translation>
     </message>

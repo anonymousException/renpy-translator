@@ -850,15 +850,20 @@
 <context>
     <name>FontReplaceDialog</name>
     <message>
-        <location filename="../font_replace_form.py" line="28"/>
+        <location filename="../font_replace_form.py" line="49"/>
         <source>select the directory you want to extract</source>
         <translation>Wählen Sie das Verzeichnis aus, das Sie extrahieren möchten</translation>
     </message>
     <message>
-        <location filename="../font_replace_form.py" line="33"/>
-        <location filename="../one_key_translate_form.py" line="355"/>
+        <location filename="../font_replace_form.py" line="54"/>
+        <location filename="../one_key_translate_form.py" line="362"/>
         <source>select the file font which supports the translated language</source>
         <translation>Wählen Sie die Dateischriftart aus, die die übersetzte Sprache unterstützt</translation>
+    </message>
+    <message>
+        <location filename="../font_replace_form.py" line="74"/>
+        <source>is replacing font...</source>
+        <translation>ersetzt Schriftart...</translation>
     </message>
     <message>
         <location filename="../font_replace.ui" line="14"/>
@@ -883,6 +888,7 @@
         <translation>...</translation>
     </message>
     <message>
+        <location filename="../font_replace_form.py" line="98"/>
         <location filename="../font_replace.ui" line="101"/>
         <source>replace font</source>
         <translation>Schriftart ersetzen</translation>
@@ -1282,8 +1288,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.2.0</source>
-        <translation>Version 2.2.0</translation>
+        <source>Version 2.2.1</source>
+        <translation>Version 2.2.1</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="391"/>
@@ -1471,12 +1477,12 @@
         <translation>Filter zum Übersetzen aktivieren</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="475"/>
+        <location filename="../one_key_translate_form.py" line="482"/>
         <source>select the game file</source>
         <translation>Wählen Sie die Spieldatei aus</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="550"/>
+        <location filename="../one_key_translate_form.py" line="564"/>
         <source>One Key Translate Complete</source>
         <translation>One-Key-Übersetzung abgeschlossen</translation>
     </message>

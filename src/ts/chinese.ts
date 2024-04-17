@@ -876,6 +876,7 @@
         <translation>...</translation>
     </message>
     <message>
+        <location filename="../font_replace_form.py" line="98"/>
         <location filename="../font_replace.ui" line="101"/>
         <source>replace font</source>
         <translation>替换字体</translation>
@@ -896,15 +897,20 @@
         <translation>在此处输入或选择或拖动要替换字体的目录。示例：F:\GameName\game\tl\language</translation>
     </message>
     <message>
-        <location filename="../font_replace_form.py" line="28"/>
+        <location filename="../font_replace_form.py" line="49"/>
         <source>select the directory you want to extract</source>
         <translation>选择你要解压的目录</translation>
     </message>
     <message>
-        <location filename="../font_replace_form.py" line="33"/>
-        <location filename="../one_key_translate_form.py" line="355"/>
+        <location filename="../font_replace_form.py" line="54"/>
+        <location filename="../one_key_translate_form.py" line="362"/>
         <source>select the file font which supports the translated language</source>
         <translation>选择支持翻译语言的文件字体</translation>
+    </message>
+    <message>
+        <location filename="../font_replace_form.py" line="74"/>
+        <source>is replacing font...</source>
+        <translation>正在更换字体...</translation>
     </message>
 </context>
 <context>
@@ -1172,8 +1178,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.2.0</source>
-        <translation>版本 2.2.0</translation>
+        <source>Version 2.2.1</source>
+        <translation>版本 2.2.1</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="113"/>
@@ -1567,12 +1573,12 @@
         <translation>启用翻译过滤器</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="475"/>
+        <location filename="../one_key_translate_form.py" line="482"/>
         <source>select the game file</source>
         <translation>选择游戏文件</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="550"/>
+        <location filename="../one_key_translate_form.py" line="564"/>
         <source>One Key Translate Complete</source>
         <translation>一键翻译完成</translation>
     </message>

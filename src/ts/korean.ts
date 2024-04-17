@@ -850,15 +850,20 @@
 <context>
     <name>FontReplaceDialog</name>
     <message>
-        <location filename="../font_replace_form.py" line="28"/>
+        <location filename="../font_replace_form.py" line="49"/>
         <source>select the directory you want to extract</source>
         <translation>추출하려는 디렉토리를 선택하십시오</translation>
     </message>
     <message>
-        <location filename="../font_replace_form.py" line="33"/>
-        <location filename="../one_key_translate_form.py" line="355"/>
+        <location filename="../font_replace_form.py" line="54"/>
+        <location filename="../one_key_translate_form.py" line="362"/>
         <source>select the file font which supports the translated language</source>
         <translation>번역된 언어를 지원하는 파일 글꼴을 선택하세요</translation>
+    </message>
+    <message>
+        <location filename="../font_replace_form.py" line="74"/>
+        <source>is replacing font...</source>
+        <translation>글꼴을 바꾸는 중입니다...</translation>
     </message>
     <message>
         <location filename="../font_replace.ui" line="14"/>
@@ -883,6 +888,7 @@
         <translation>...</translation>
     </message>
     <message>
+        <location filename="../font_replace_form.py" line="98"/>
         <location filename="../font_replace.ui" line="101"/>
         <source>replace font</source>
         <translation>글꼴 교체</translation>
@@ -1282,8 +1288,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.2.0</source>
-        <translation>버전 2.2.0</translation>
+        <source>Version 2.2.1</source>
+        <translation>버전 2.2.1</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="391"/>
@@ -1471,12 +1477,12 @@
         <translation>번역을 위한 필터 활성화</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="475"/>
+        <location filename="../one_key_translate_form.py" line="482"/>
         <source>select the game file</source>
         <translation>게임 파일을 선택하세요</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="550"/>
+        <location filename="../one_key_translate_form.py" line="564"/>
         <source>One Key Translate Complete</source>
         <translation>하나의 키 번역 완료</translation>
     </message>
