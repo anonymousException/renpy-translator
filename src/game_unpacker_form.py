@@ -49,7 +49,7 @@ class unrpycThread(threading.Thread):
             if self.is_auto_close:
                 self.p.kill()
             dir = self.dir
-            bat = os.getcwd() + '/UnRen-forall.bat'
+            bat = '"' + os.getcwd() + '/UnRen-forall.bat' + '"'
             command = bat
             p = subprocess.Popen(command, shell=False, stdout=my_log.f, stderr=my_log.f,
                                  creationflags=0x08000000, text=True, cwd=dir, encoding='utf-8')
