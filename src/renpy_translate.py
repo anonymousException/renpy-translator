@@ -387,17 +387,17 @@ def get_rpy_info(p):
                         original = ''
                         if 'oriList' in d_o.keys() and len(d_o['oriList']) > 0:
                             if len(d_o['oriList']) > i:
-                                original = d_o['oriList'][i].strip('"')
+                                original = d_o['oriList'][i][1:-1]
                             else:
                                 continue
 
                         is_match = True
-                        if original != e.strip('"') and e.strip('"') != '':
+                        if original != e[1:-1] and e[1:-1] != '':
                             unmatch_cnt = unmatch_cnt + 1
                             is_match = False
                         dic = dict()
                         dic['original'] = original
-                        dic['current'] = e.strip('"')
+                        dic['current'] = e[1:-1]
                         dic['is_empty'] = is_empty
                         dic['ori_line'] = target_index + 1
                         dic['line'] = line_index + 1
