@@ -258,7 +258,7 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
                 else:
                     if select_dir[len(select_dir) - 1] != '/' and select_dir[len(select_dir) - 1] != '\\':
                         select_dir = select_dir + '/'
-                    t = renpy_extract.extractThread(threadID=0, p=None, tl_name=tl_name, dir=None, tl_dir=select_dir,
+                    t = renpy_extract.extractThread(threadID=0, p=None, tl_name=tl_name, dirs=None, tl_dir=select_dir,
                                                     is_open_filter=self.filterCheckBox.isChecked(),
                                                     filter_length=int(self.filterLengthLineEdit.text()),
                                                     is_gen_empty=False)

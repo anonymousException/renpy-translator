@@ -21,12 +21,12 @@ num = 0
 
 
 class extractThread(threading.Thread):
-    def __init__(self, threadID, p, tl_name, dir, tl_dir, is_open_filter, filter_length, is_gen_empty):
+    def __init__(self, threadID, p, tl_name, dirs, tl_dir, is_open_filter, filter_length, is_gen_empty):
         threading.Thread.__init__(self)
         self.threadID = threadID
         self.p = p
         self.tl_name = tl_name
-        self.dir = dir
+        self.dirs = dirs
         self.tl_dir = tl_dir
         self.is_open_filter = is_open_filter
         self.filter_length = filter_length
@@ -47,17 +47,19 @@ class extractThread(threading.Thread):
                     log_print(self.p + ' begin extract!')
                     ExtractWriteFile(self.p, self.tl_name, self.is_open_filter, self.filter_length, self.is_gen_empty,
                                      set())
-                if self.dir is not None:
-                    log_print(self.dir + ' begin extract!')
-                    paths = os.walk(self.dir, topdown=False)
+                if self.dirs is not None:
                     global_e = set()
-                    for path, dir_lst, file_lst in paths:
-                        for file_name in file_lst:
-                            i = os.path.join(path, file_name)
-                            if not file_name.endswith("rpy"):
-                                continue
-                            global_e = ExtractWriteFile(i, self.tl_name, self.is_open_filter, self.filter_length,
-                                                        self.is_gen_empty, global_e)
+                    for _dir in self.dirs:
+                        log_print(_dir + ' begin extract!')
+                        paths = os.walk(_dir, topdown=False)
+                        for path, dir_lst, file_lst in paths:
+                            for file_name in file_lst:
+                                i = os.path.join(path, file_name)
+                                if not file_name.endswith("rpy"):
+                                    continue
+                                ret_e = ExtractWriteFile(i, self.tl_name, self.is_open_filter, self.filter_length,
+                                                            self.is_gen_empty, global_e)
+                                global_e = global_e | ret_e
 
         except Exception as e:
             msg = traceback.format_exc()
@@ -322,10 +324,9 @@ def ExtractWriteFile(p, tl_name, is_open_filter, filter_length, is_gen_empty, gl
     if (os.path.isfile(target) == False):
         open(target, 'w').close()
     e = ExtractFromFile(p, is_open_filter, filter_length)
-    global_e = global_e | e
     extractedSet = ExtractFromFile(target, False, 9999)
-    eDiff = global_e - extractedSet
-    if (len(eDiff) > 0):
+    eDiff = e - extractedSet
+    if len(eDiff) > 0:
         f = io.open(target, 'a+', encoding='utf-8')
         f.write('\ntranslate ' + tl_name + ' strings:\n')
         lock.acquire()
@@ -340,6 +341,8 @@ def ExtractWriteFile(p, tl_name, is_open_filter, filter_length, is_gen_empty, gl
         head = head + 'new ' + timestamp + '\n\n'
         f.write(head)
         for j in eDiff:
+            if j in global_e:
+                continue
             j = '"' + j + '"'
             if not is_gen_empty:
                 writeData = '    old ' + j + '\n    new ' + j + '\n'
@@ -347,6 +350,7 @@ def ExtractWriteFile(p, tl_name, is_open_filter, filter_length, is_gen_empty, gl
                 writeData = '    old ' + j + '\n    new ' + '""' + '\n'
             f.write(writeData + '\n')
         f.close()
+    global_e = global_e | e
     global_e = global_e | extractedSet
     log_print(target + ' extracted success!')
     return global_e

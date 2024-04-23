@@ -91,28 +91,29 @@ class MyExtractionForm(QDialog, Ui_ExtractionDialog):
                     if len(tl_name) == 0:
                         log_print('tl name is empty skip extract file(s)')
                         continue
-                    t = extractThread(threadID=cnt, p=i, tl_name=tl_name, dir=None, tl_dir=None,
+                    t = extractThread(threadID=cnt, p=i, tl_name=tl_name, dirs=None, tl_dir=None,
                                       is_open_filter=self.filterCheckBox.isChecked(),
                                       filter_length=int(self.filterLengthLineEdit.text()),
                                       is_gen_empty=self.emptyCheckBox.isChecked())
                     extract_threads.append(t)
                     cnt = cnt + 1
             select_dirs = self.selectDirsText.toPlainText().split('\n')
+            _dirs = []
             for i in select_dirs:
                 i = i.replace('file:///', '')
                 if len(i) > 0:
-                    tl_name = self.tlNameText.toPlainText()
-                    if len(tl_name) == 0:
-                        log_print('tl name is empty skip extract directory(s)')
-                        continue
-                    t = extractThread(threadID=cnt, p=None, tl_name=tl_name, dir=i, tl_dir=None,
+                    _dirs.append(i)
+            if len(_dirs) > 0:
+                tl_name = self.tlNameText.toPlainText()
+                if len(tl_name) == 0:
+                    log_print('tl name is empty skip extract directory(s)')
+                else:
+                    t = extractThread(threadID=cnt, p=None, tl_name=tl_name, dirs=_dirs, tl_dir=None,
                                       is_open_filter=self.filterCheckBox.isChecked(),
                                       filter_length=int(self.filterLengthLineEdit.text()),
                                       is_gen_empty=self.emptyCheckBox.isChecked())
                     extract_threads.append(t)
                     cnt = cnt + 1
-                pass
-
             select_dir = self.selectDirText_2.toPlainText()
             if len(select_dir) > 0:
                 select_dir = select_dir.replace('file:///', '')
@@ -122,7 +123,7 @@ class MyExtractionForm(QDialog, Ui_ExtractionDialog):
                 else:
                     if select_dir[len(select_dir) - 1] != '/' and select_dir[len(select_dir) - 1] != '\\':
                         select_dir = select_dir + '/'
-                    t = extractThread(threadID=cnt, p=None, tl_name=tl_name, dir=None, tl_dir=select_dir,
+                    t = extractThread(threadID=cnt, p=None, tl_name=tl_name, dirs=None, tl_dir=select_dir,
                                       is_open_filter=self.filterCheckBox.isChecked(),
                                       filter_length=int(self.filterLengthLineEdit.text()),
                                       is_gen_empty=self.emptyCheckBox.isChecked())

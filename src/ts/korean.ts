@@ -1288,8 +1288,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.2.1</source>
-        <translation>버전 2.2.1</translation>
+        <source>Version 2.2.2</source>
+        <translation>버전 2.2.2</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="391"/>
