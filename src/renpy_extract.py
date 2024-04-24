@@ -44,12 +44,15 @@ class extractThread(threading.Thread):
                 ExtractAllFilesInDir(self.tl_dir, self.is_open_filter, self.filter_length, self.is_gen_empty)
             else:
                 if self.p is not None:
+                    self.p = self.p.replace('\\', '/')
                     log_print(self.p + ' begin extract!')
                     ExtractWriteFile(self.p, self.tl_name, self.is_open_filter, self.filter_length, self.is_gen_empty,
                                      set())
                 if self.dirs is not None:
                     global_e = set()
                     for _dir in self.dirs:
+                        _dir = _dir.replace('\\', '/')
+                        _dir = _dir.rstrip('/')
                         log_print(_dir + ' begin extract!')
                         paths = os.walk(_dir, topdown=False)
                         for path, dir_lst, file_lst in paths:
@@ -311,7 +314,7 @@ def ExtractWriteFile(p, tl_name, is_open_filter, filter_length, is_gen_empty, gl
     header = dic['header']
     if (header == ''):
         log_print(p + ' not in game path!')
-        return dic
+        return set()
     subPath = dic['subPath']
     fileName = dic['fileName']
     targetDir = header + 'tl/' + tl_name + '/' + subPath
