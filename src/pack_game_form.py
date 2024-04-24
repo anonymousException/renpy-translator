@@ -165,6 +165,8 @@ class MyPackGameForm(QDialog, Ui_PackGameDialog):
             if path.endswith('.exe'):
                 dir = os.path.dirname(path)
                 game_dir = dir + '/game'
+                game_dir = game_dir.replace('\\', '/')
+                game_dir = game_dir.strip('/').strip('\\')
                 item_list = []
                 for row in range(self.model.rowCount()):
                     item = self.model.item(row).data()
@@ -173,9 +175,11 @@ class MyPackGameForm(QDialog, Ui_PackGameDialog):
                 select_dirs = self.selectDirsText.toPlainText().split('\n')
                 for i in select_files:
                     i = i.replace('file:///', '')
+                    i = i.replace('\\', '/')
+                    i = i.strip('/').strip('\\')
                     if len(i) > 0 and os.path.isfile(i):
                         if i not in item_list:
-                            basename = i[len(game_dir):].strip('/').strip('\\')
+                            basename = i[len(game_dir) + 1:]
                             item = QStandardItem(f'{basename}')
                             item.setToolTip(i)
                             item.setData(i)
@@ -183,10 +187,11 @@ class MyPackGameForm(QDialog, Ui_PackGameDialog):
                             item_list.append(item)
                 for i in select_dirs:
                     i = i.replace('file:///', '')
+                    i = i.replace('\\', '/')
+                    i = i.strip('/').strip('\\')
                     if len(i) > 0 and os.path.isdir(i):
                         if i not in item_list:
-                            dir_name = os.path.dirname(i)
-                            basename = dir_name[len(game_dir):].strip('/').strip('\\')
+                            basename = i[len(game_dir) + 1:]
                             item = QStandardItem(f'{basename}')
                             item.setToolTip(i)
                             item.setData(i)
