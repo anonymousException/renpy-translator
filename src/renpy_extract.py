@@ -104,6 +104,8 @@ def ExtractFromFile(p, is_open_filter, filter_length):
             if line_content.endswith('""")'):
                 p_content = p_content.rstrip('\n')
                 #log_print(p_content)
+                if filter_length != 9999:
+                    log_print(f'Found _p() in {p}:{index+1}')
                 e.add(p_content)
                 is_in__p = False
                 p_content = ''
