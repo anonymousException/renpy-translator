@@ -218,8 +218,14 @@ def replace_tl_folder(full_tl_path, font_name):
             f = io.open(i, 'r', encoding='utf-8')
             lines = f.readlines()
             f.close()
-
+            is_p = False
             for index, line in enumerate(lines):
+                if line.strip().startswith('old _p("""'):
+                    is_p = True
+                if is_p:
+                    if line.endswith('""")\n'):
+                        is_p = False
+                    continue
                 if not '{font' in line:
                     continue
                 if not line.strip().startswith('#') and not line.strip().startswith('old '):

@@ -340,12 +340,12 @@ def get_rpy_info(p):
             if line_content.startswith('translate '):
                 isNeedSkip = False
                 split_s = line_content.split(' ')
-                if (len(split_s) > 2):
+                if len(split_s) > 2:
                     target = split_s[2].strip('\n')
-                    if (target == 'python:' or target == 'style'):
+                    if target == 'python:' or target == 'style':
                         isNeedSkip = True
                 continue
-            if line_content.strip().startswith('old _p("""'):
+            if line_content.strip().startswith('old _p("""') or line_content.strip().startswith('new _p("""'):
                 is_p = True
             if is_p:
                 if line_content.endswith('""")'):
@@ -357,7 +357,7 @@ def get_rpy_info(p):
             if line_content.strip().startswith('#') or line_content.strip().startswith('old '):
                 isLastFiltered = True
                 continue
-            if (isLastFiltered):
+            if isLastFiltered:
                 isLastFiltered = False
                 # if (_read_line[line_index - 1].strip()[4:] != _read_line[line_index].strip()[4:] and _read_line[
                 #                                                                                          line_index - 1].strip()[
@@ -370,7 +370,7 @@ def get_rpy_info(p):
                 if line_index > 0 and not _read_line[line_index - 1].strip().startswith('#') and not _read_line[
                     line_index - 1].strip().startswith('old '):
                     continue
-            if (line_content.strip().lstrip('#').strip().startswith('voice ')):
+            if line_content.strip().lstrip('#').strip().startswith('voice '):
                 isVoice = True
                 continue
             d = EncodeBracketContent(line_content, '"', '"')
@@ -380,10 +380,10 @@ def get_rpy_info(p):
                     line_content = line_content[:-2] + '" "'
                     d = EncodeBracketContent(line_content, '"', '"')
                     is_empty = True
-            if ('oriList' in d.keys() and len(d['oriList']) > 0):
+            if 'oriList' in d.keys() and len(d['oriList']) > 0:
                 # print(d['oriList'])
                 for i, e in enumerate(d['oriList']):
-                    if (isAllPunctuations(d['encoded'].strip('"')) == False):
+                    if isAllPunctuations(d['encoded'].strip('"')) == False:
                         target_index = line_index - 1
                         if isVoice:
                             target_index = target_index - 1

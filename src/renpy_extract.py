@@ -77,6 +77,8 @@ def ExtractFromFile(p, is_open_filter, filter_length):
     # print(_read)
     _read_line = _read.split('\n')
     is_in_condition_switch = False
+    is_in__p = False
+    p_content = ''
     for index, line_content in enumerate(_read_line):
         if 'ConditionSwitch(' in line_content:
             is_in_condition_switch = True
@@ -92,18 +94,22 @@ def ExtractFromFile(p, is_open_filter, filter_length):
             continue
 
         if '_p("""' in line_content:
+            is_in__p = True
             position = line_content.find('_p("""')
             p_content = line_content[position:] + '\n'
-            for idx in range(index + 1, len(_read_line)):
-                content = _read_line[idx]
-                p_content = p_content + content + '\n'
-                if content.endswith('""")'):
-                    p_content = p_content.rstrip('\n')
-                    break
-            #log_print(p_content)
-            e.add(p_content)
+            continue
 
-        if (is_open_filter):
+        if is_in__p:
+            p_content = p_content + line_content + '\n'
+            if line_content.endswith('""")'):
+                p_content = p_content.rstrip('\n')
+                #log_print(p_content)
+                e.add(p_content)
+                is_in__p = False
+                p_content = ''
+            continue
+
+        if is_open_filter:
             if cmp_line_content.startswith('label '):
                 continue
             if line_content.strip().startswith('default '):
