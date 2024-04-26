@@ -61,7 +61,7 @@ class extractThread(threading.Thread):
                                 if not file_name.endswith("rpy"):
                                     continue
                                 ret_e = ExtractWriteFile(i, self.tl_name, self.is_open_filter, self.filter_length,
-                                                            self.is_gen_empty, global_e)
+                                                         self.is_gen_empty, global_e)
                                 global_e = global_e | ret_e
 
         except Exception as e:
@@ -77,7 +77,7 @@ def ExtractFromFile(p, is_open_filter, filter_length):
     # print(_read)
     _read_line = _read.split('\n')
     is_in_condition_switch = False
-    for line_content in _read_line:
+    for index, line_content in enumerate(_read_line):
         if 'ConditionSwitch(' in line_content:
             is_in_condition_switch = True
             continue
@@ -90,16 +90,29 @@ def ExtractFromFile(p, is_open_filter, filter_length):
         cmp_line_content = remove_upprintable_chars(line_content.strip())
         if cmp_line_content.startswith('#') or len(line_content.strip()) == 0:
             continue
+
+        if '_p("""' in line_content:
+            position = line_content.find('_p("""')
+            p_content = line_content[position:] + '\n'
+            for idx in range(index + 1, len(_read_line)):
+                content = _read_line[idx]
+                p_content = p_content + content + '\n'
+                if content.endswith('""")'):
+                    p_content = p_content.rstrip('\n')
+                    break
+            #log_print(p_content)
+            e.add(p_content)
+
         if (is_open_filter):
             if cmp_line_content.startswith('label '):
                 continue
-            if cmp_line_content.startswith('define '):
-                continue
-            # if(line_content.strip().startswith('default ')):
-            # 	continue
+            if line_content.strip().startswith('default '):
+            	continue
         # log_print(line_content)
+
         suffix_list = ['.ogg', '.webp', '.png', '.ttf', '.otf', '.webm', '.svg', '.gif', '.jpg', '.wav',
-                       '.mp3']
+                       '.mp3','.rpyc','.rpy','.db']
+        is_add = False
         d = EncodeBracketContent(line_content, '"', '"')
         if 'oriList' in d.keys() and len(d['oriList']) > 0:
             for i in d['oriList']:
@@ -138,8 +151,12 @@ def ExtractFromFile(p, is_open_filter, filter_length):
                             # log_print(len(strip_i),i)
                             continue
                         e.add(i)
+                        is_add = True
                     else:
                         e.add(i)
+                        is_add = True
+        if is_add:
+            continue
         d = EncodeBracketContent(line_content, "'", "'")
         if 'oriList' in d.keys() and len(d['oriList']) > 0:
             for i in d['oriList']:
@@ -220,7 +237,8 @@ def GetExtractedSet(p):
                 lines = f.readlines()
                 f.close()
                 for j in both:
-                    j = '"' + j + '"'
+                    if not j.startswith('_p("""') and not j.endswith('""")'):
+                        j = '"' + j + '"'
                     for index, line in enumerate(lines):
                         if line.startswith('    old ' + j):
                             lines[index] = '\n'
@@ -277,7 +295,8 @@ def WriteExtracted(p, extractedSet, is_open_filter, filter_length, is_gen_empty)
                 head = head + 'new ' + timestamp + '\n\n'
                 f.write(head)
                 for j in eDiff:
-                    j = '"' + j + '"'
+                    if not j.startswith('_p("""') and not j.endswith('""")'):
+                        j = '"' + j + '"'
                     if not is_gen_empty:
                         writeData = '    old ' + j + '\n    new ' + j + '\n'
                     else:
@@ -346,7 +365,8 @@ def ExtractWriteFile(p, tl_name, is_open_filter, filter_length, is_gen_empty, gl
         for j in eDiff:
             if j in global_e:
                 continue
-            j = '"' + j + '"'
+            if not j.startswith('_p("""') and not j.endswith('""")'):
+                j = '"' + j + '"'
             if not is_gen_empty:
                 writeData = '    old ' + j + '\n    new ' + j + '\n'
             else:

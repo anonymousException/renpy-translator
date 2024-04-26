@@ -333,10 +333,11 @@ def get_rpy_info(p):
         _read_line = _read.split('\n')
         isLastFiltered = False
         isNeedSkip = False
+        is_p = False
         isVoice = False
         unmatch_cnt = 0
         for line_index, line_content in enumerate(_read_line):
-            if (line_content.startswith('translate ')):
+            if line_content.startswith('translate '):
                 isNeedSkip = False
                 split_s = line_content.split(' ')
                 if (len(split_s) > 2):
@@ -344,10 +345,16 @@ def get_rpy_info(p):
                     if (target == 'python:' or target == 'style'):
                         isNeedSkip = True
                 continue
-            if (isNeedSkip):
+            if line_content.strip().startswith('old _p("""'):
+                is_p = True
+            if is_p:
+                if line_content.endswith('""")'):
+                    is_p = False
+                continue
+            if isNeedSkip:
                 continue
             isNeedSkip = False
-            if (line_content.strip().startswith('#') or line_content.strip().startswith('old ')):
+            if line_content.strip().startswith('#') or line_content.strip().startswith('old '):
                 isLastFiltered = True
                 continue
             if (isLastFiltered):
