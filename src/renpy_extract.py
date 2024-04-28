@@ -80,8 +80,9 @@ def ExtractFromFile(p, is_open_filter, filter_length):
     is_in__p = False
     p_content = ''
     for index, line_content in enumerate(_read_line):
-        if 'ConditionSwitch(' in line_content:
-            is_in_condition_switch = True
+        if 'ConditionSwitch('  in line_content:
+            if not line_content.strip().endswith(')'):
+                is_in_condition_switch = True
             continue
         if _read_line[-1] == ')':
             is_in_condition_switch = False
