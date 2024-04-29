@@ -68,7 +68,7 @@ def ExtractStyleFontList(data, file=None):
             font_line = ''
             for _i, e in enumerate(i):
                 if _i != 0:
-                    if 'font "' in e or "font '" in e:
+                    if 'font ' in e:
                         font_line = e
                         flag = True
                         continue
@@ -118,15 +118,10 @@ def ExtractStyleFontListFromDirectory(p):
 
 
 def ExtractFontContent(data):
-    tag = '"'
-    index = data.find('font "')
+    index = data.find('font ')
     if index == -1:
-        index = data.find("font '")
-        tag = "'"
-        if index == -1:
-            return data
-    index2 = data[index + 6:].find(tag) + index + 6 + 1
-    return data[index:index2]
+        return data
+    return data[index:]
 
 
 def GenGuiFontsOriginal(p, tl_name, font_path):
