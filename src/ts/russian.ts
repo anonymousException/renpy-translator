@@ -1180,8 +1180,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.2.7</source>
-        <translation>Версия 2.2.7</translation>
+        <source>Version 2.2.8</source>
+        <translation>Версия 2.2.8</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="113"/>
