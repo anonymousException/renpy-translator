@@ -7,11 +7,18 @@ init python:
     default_translates = translator.default_translates
     dic = dict()
     for identifier,value in default_translates.items():
-        say = value.block[0]
-        if not hasattr(say,'what'):
-            continue
-        what = say.what
-        who = say.who
+        if hasattr(value,"block"):
+            say = value.block[0]
+            if not hasattr(say,'what'):
+                continue
+            what = say.what
+            who = say.who
+        else:
+            if not hasattr(value,'what') or not hasattr(value,"who"):
+                continue
+            what = value.what
+            who = value.who
+
         filename = value.filename
         linenumber = value.linenumber
         if filename not in dic:

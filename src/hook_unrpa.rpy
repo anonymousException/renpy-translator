@@ -1,13 +1,16 @@
 init python early hide:
     import renpy.loader
     import threading
-    from renpy.loader import file_open_callbacks,load_from_archive,SubFile
+    import io
+    from renpy.loader import file_open_callbacks,load_from_archive
 
     def my_load_from_archive(name):
         rv = load_from_archive(name)
         if rv is None:
             return rv
-        if isinstance(rv,SubFile):
+        if hasattr(renpy.loader,"SubFile") and isinstance(rv,renpy.loader.SubFile):
+            _read = rv.read()
+        elif isinstance(rv,io.BufferedReader):
             _read = rv.read()
         elif 'RWops' in str(type(rv)):
             _read = rv.readall()

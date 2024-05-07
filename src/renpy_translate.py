@@ -108,6 +108,7 @@ class translateThread(threading.Thread):
                 target = current
             else:
                 target = original
+            dic['target'] = target
             if is_skip_translated and original != current:
                 continue
             if local_glossary is not None and len(local_glossary) > 0:
@@ -128,7 +129,6 @@ class translateThread(threading.Thread):
                     continue
             if not isAllPunctuations(d['encoded'].strip('"')):
                 transList.append(d['encoded'].strip('"'))
-                dic['target'] = target
                 dic['d'] = d
                 trans_ori_dic.append((dic, d['encoded'].strip('"')))
 
