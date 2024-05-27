@@ -43,12 +43,19 @@ class extractThread(threading.Thread):
             p = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
                              creationflags=0x08000000)
             p.wait()
-            if os.path.exists(target):
-                os.remove(target)
-            target = target + 'c'
-            if os.path.exists(target):
-                os.remove(target)
+
             target = dir + '/' + hooked_result
+            while True:
+                if os.path.isfile(target) and os.path.getsize(target) > 0:
+                    target = dir + '/game/' + hook_script
+                    if os.path.exists(target):
+                        os.remove(target)
+                    target = target + 'c'
+                    if os.path.exists(target):
+                        os.remove(target)
+                    target = dir + '/' + hooked_result
+                    break
+                time.sleep(1)
             if os.path.isfile(target):
                 f = io.open(target, 'r', encoding='utf-8')
                 dic = json.load(f)

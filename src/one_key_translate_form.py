@@ -64,7 +64,6 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
         # is_finished
         # is_executed
         self.qDic = dict()
-        self.p = None
         self.dir = None
         default_font = get_default_font_path()
         if default_font is not None:
@@ -349,7 +348,6 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
                 log_print('start unpacking...')
                 p = subprocess.Popen(command, shell=False, stdout=my_log.f, stderr=my_log.f,
                                      creationflags=0x08000000, text=True, cwd=dir, encoding='utf-8')
-                self.p = p
                 return
         is_finished, is_executed = self.qDic[self.unpack]
         is_finished = True
@@ -493,9 +491,6 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
 
     def update_progress(self):
         try:
-            if self.p is not None:
-                if self.p.poll() is not None:
-                    self.p = None
             if self.dir is not None:
                 if os.path.isfile(self.dir + '/unren.finish'):
                     os.remove(self.dir + '/unren.finish')
@@ -521,7 +516,14 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
                         os.remove(hook_script_path)
                     if os.path.isfile(hook_script_path + 'c'):
                         os.remove(hook_script_path + 'c')
-                    t = game_unpacker_form.unrpycThread(dir, self.p, True)
+                    pid = None
+                    target = dir + game_unpacker_form.pid_flag
+                    if os.path.isfile(target):
+                        f = io.open(target, 'r', encoding='utf-8')
+                        pid = f.read()
+                        f.close()
+                        os.remove(target)
+                    t = game_unpacker_form.unrpycThread(dir, pid, True)
                     t.start()
                     self.path = None
                     self.dir = dir

@@ -21,6 +21,7 @@ from game_unpacker import Ui_GameUnpackerDialog
 bat = 'UnRen-forall.bat'
 hook_script = 'hook_unrpa.rpy'
 finish_flag = '/unpack.finish'
+pid_flag = '/game.pid'
 expand_file = 'expand.exe'
 
 
@@ -46,8 +47,9 @@ class unrpycThread(threading.Thread):
 
     def run(self):
         try:
-            if self.is_auto_close:
-                self.p.kill()
+            if self.is_auto_close and self.p is not None:
+                subprocess.Popen("taskkill /F /T /PID " + self.p, shell=False, stdout=my_log.f, stderr=my_log.f,
+                                 creationflags=0x08000000, text=True)
             dir = self.dir
             bat = '"' + os.getcwd() + '/UnRen-forall.bat' + '"'
             command = bat
@@ -71,7 +73,6 @@ class MyGameUnpackerForm(QDialog, Ui_GameUnpackerDialog):
         self.hwnd = win32gui.GetForegroundWindow()
         self.parent_hwnd = None
         self.path = None
-        self.p = None
         self.dir = None
         _thread.start_new_thread(self.update, ())
 
@@ -126,9 +127,6 @@ class MyGameUnpackerForm(QDialog, Ui_GameUnpackerDialog):
 
     def update_progress(self):
         try:
-            if self.p is not None:
-                if self.p.poll() is not None:
-                    self.p = None
             if self.dir is not None:
                 if os.path.isfile(self.dir + '/unren.finish'):
                     os.remove(self.dir + '/unren.finish')
@@ -149,7 +147,14 @@ class MyGameUnpackerForm(QDialog, Ui_GameUnpackerDialog):
                 if os.path.isfile(hook_script_path + 'c'):
                     os.remove(hook_script_path + 'c')
                 set_window_on_top(self.parent_hwnd)
-                t = unrpycThread(dir, self.p, self.autoCheckBox.isChecked())
+                target = dir + pid_flag
+                pid = None
+                if os.path.isfile(target):
+                    f = io.open(target, 'r',encoding='utf-8')
+                    pid = f.read()
+                    f.close()
+                    os.remove(target)
+                t = unrpycThread(dir, pid, self.autoCheckBox.isChecked())
                 t.start()
                 self.path = None
                 self.dir = dir
