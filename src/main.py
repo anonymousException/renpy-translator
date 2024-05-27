@@ -487,8 +487,15 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
             self.wait()
 
         def run(self):
-            f = io.open(log_path, 'r+')
-            self.update_date.emit(f.read())
+            f = io.open(log_path, 'r+',encoding='utf-8')
+            try:
+                self.update_date.emit(f.read())
+            except Exception as e:
+                f.close()
+                f = io.open(log_path, 'w')
+                f.write('Log Format UnicodeEncodeError! Log Cleared')
+                f.close()
+                f = io.open(log_path, 'r+', encoding='utf-8')
             f.close()
 
     def select_file(self):

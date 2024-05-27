@@ -48,7 +48,7 @@ class unrpycThread(threading.Thread):
     def run(self):
         try:
             if self.is_auto_close and self.p is not None:
-                subprocess.Popen("taskkill /F /T /PID " + self.p, shell=False, stdout=my_log.f, stderr=my_log.f,
+                subprocess.Popen("taskkill /F /T /PID " + self.p, shell=False,
                                  creationflags=0x08000000, text=True)
             dir = self.dir
             bat = '"' + os.getcwd() + '/UnRen-forall.bat' + '"'
