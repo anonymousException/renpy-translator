@@ -760,6 +760,11 @@
         <source>Generate empty strings instead of original</source>
         <translation>元の文字列の代わりに空の文字列を生成する</translation>
     </message>
+    <message>
+        <location filename="../extraction.ui" line="285"/>
+        <source>Skip extract the contents which include underline</source>
+        <translation>下線を含む内容の抽出をスキップ</translation>
+    </message>
 </context>
 <context>
     <name>ExtractionOfficialDialog</name>
@@ -856,7 +861,7 @@
     </message>
     <message>
         <location filename="../font_replace_form.py" line="54"/>
-        <location filename="../one_key_translate_form.py" line="362"/>
+        <location filename="../one_key_translate_form.py" line="360"/>
         <source>select the file font which supports the translated language</source>
         <translation>翻訳された言語をサポートするファイルフォントを選択します</translation>
     </message>
@@ -912,7 +917,7 @@
 <context>
     <name>GameUnpackerDialog</name>
     <message>
-        <location filename="../game_unpacker_form.py" line="92"/>
+        <location filename="../game_unpacker_form.py" line="93"/>
         <source>select the game file you want to unpack</source>
         <translation>解凍したいゲームファイルを選択します</translation>
     </message>
@@ -1144,7 +1149,7 @@
     </message>
     <message>
         <location filename="../main.py" line="464"/>
-        <location filename="../main.py" line="549"/>
+        <location filename="../main.py" line="556"/>
         <source>is translating...</source>
         <translation>翻訳中...</translation>
     </message>
@@ -1163,19 +1168,19 @@
         <translation type="vanished">抽出したいディレクトリを選択します</translation>
     </message>
     <message>
-        <location filename="../main.py" line="498"/>
+        <location filename="../main.py" line="505"/>
         <source>select the file(s) you want to translate</source>
         <translation>翻訳したいファイルを選択します</translation>
     </message>
     <message>
-        <location filename="../main.py" line="509"/>
+        <location filename="../main.py" line="516"/>
         <source>select the directory you want to translate</source>
         <translation>翻訳したいディレクトリを選択します</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.2.9</source>
-        <translation>バージョン2.2.9</translation>
+        <source>Version 2.3.0</source>
+        <translation>バージョン2.3.0</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="113"/>
@@ -1565,12 +1570,17 @@
         <translation>翻訳用のフィルターを有効にする</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="482"/>
+        <location filename="../one_key_translate.ui" line="435"/>
+        <source>Skip extract the contents which include underline</source>
+        <translation>下線を含む内容の抽出をスキップ</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate_form.py" line="480"/>
         <source>select the game file</source>
         <translation>ゲームファイルを選択します</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="564"/>
+        <location filename="../one_key_translate_form.py" line="566"/>
         <source>One Key Translate Complete</source>
         <translation>ワンキー翻訳完了</translation>
     </message>
@@ -1583,22 +1593,22 @@
         <translation>消去</translation>
     </message>
     <message>
-        <location filename="../pack_game_form.py" line="251"/>
+        <location filename="../pack_game_form.py" line="256"/>
         <source>select the file(s) you want to pack</source>
         <translation>パックするファイルを選択します</translation>
     </message>
     <message>
-        <location filename="../pack_game_form.py" line="308"/>
+        <location filename="../pack_game_form.py" line="313"/>
         <source>is packing...</source>
         <translation>梱包中です...</translation>
     </message>
     <message>
-        <location filename="../pack_game_form.py" line="314"/>
+        <location filename="../pack_game_form.py" line="319"/>
         <source>select the game file you want to pack it&apos;s files</source>
         <translation>パックしたいゲームファイルを選択します</translation>
     </message>
     <message>
-        <location filename="../pack_game_form.py" line="330"/>
+        <location filename="../pack_game_form.py" line="335"/>
         <location filename="../pack_game.ui" line="236"/>
         <source>pack game files</source>
         <translation>ゲームファイルをパックする</translation>

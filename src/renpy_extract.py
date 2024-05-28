@@ -21,7 +21,7 @@ num = 0
 
 
 class extractThread(threading.Thread):
-    def __init__(self, threadID, p, tl_name, dirs, tl_dir, is_open_filter, filter_length, is_gen_empty):
+    def __init__(self, threadID, p, tl_name, dirs, tl_dir, is_open_filter, filter_length, is_gen_empty, is_skip_underline):
         threading.Thread.__init__(self)
         self.threadID = threadID
         self.p = p
@@ -31,6 +31,7 @@ class extractThread(threading.Thread):
         self.is_open_filter = is_open_filter
         self.filter_length = filter_length
         self.is_gen_empty = is_gen_empty
+        self.is_skip_underline = is_skip_underline
 
     def run(self):
         try:
@@ -41,13 +42,13 @@ class extractThread(threading.Thread):
                     ori_tl = os.path.basename(self.tl_dir)
                     self.tl_dir = self.tl_dir[:-len(ori_tl)] + self.tl_name
                 log_print(self.tl_dir + ' begin extract!')
-                ExtractAllFilesInDir(self.tl_dir, self.is_open_filter, self.filter_length, self.is_gen_empty)
+                ExtractAllFilesInDir(self.tl_dir, self.is_open_filter, self.filter_length, self.is_gen_empty, self.is_skip_underline)
             else:
                 if self.p is not None:
                     self.p = self.p.replace('\\', '/')
                     log_print(self.p + ' begin extract!')
                     ExtractWriteFile(self.p, self.tl_name, self.is_open_filter, self.filter_length, self.is_gen_empty,
-                                     set())
+                                     set(), self.is_skip_underline)
                 if self.dirs is not None:
                     global_e = set()
                     for _dir in self.dirs:
@@ -61,7 +62,7 @@ class extractThread(threading.Thread):
                                 if not file_name.endswith("rpy"):
                                     continue
                                 ret_e = ExtractWriteFile(i, self.tl_name, self.is_open_filter, self.filter_length,
-                                                         self.is_gen_empty, global_e)
+                                                         self.is_gen_empty, global_e, self.is_skip_underline)
                                 global_e = global_e | ret_e
 
         except Exception as e:
@@ -69,7 +70,7 @@ class extractThread(threading.Thread):
             log_print(msg)
 
 
-def ExtractFromFile(p, is_open_filter, filter_length):
+def ExtractFromFile(p, is_open_filter, filter_length, is_skip_underline):
     e = set()
     f = io.open(p, 'r+', encoding='utf-8')
     _read = f.read()
@@ -142,6 +143,8 @@ def ExtractFromFile(p, is_open_filter, filter_length):
                     skip = False
                     if cmp_i.startswith('#'):
                         skip = True
+                    if is_skip_underline and strip_i.find('_') > -1:
+                        skip = True
                     # if not line_content.strip().startswith('text ') or line_content.strip().find(i) != 5:
                     #     skip = True
                     for suffix in suffix_list:
@@ -186,6 +189,8 @@ def ExtractFromFile(p, is_open_filter, filter_length):
                     skip = False
                     if cmp_i.startswith('#'):
                         skip = True
+                    if is_skip_underline and _strip_i.find('_') > -1:
+                        skip = True
                     # if not line_content.strip().startswith('text ') or line_content.strip().find(i) != 5:
                     #     skip = True
                     for suffix in suffix_list:
@@ -229,7 +234,7 @@ def CreateEmptyFileIfNotExsit(p):
                 open(target, 'w').close()
 
 
-def GetExtractedSet(p):
+def GetExtractedSet(p, is_skip_underline):
     if (p[len(p) - 1] != '/' and p[len(p) - 1] != '\\'):
         p = p + '/'
     e = set()
@@ -239,7 +244,7 @@ def GetExtractedSet(p):
             i = os.path.join(path, file_name)
             if (file_name.endswith("rpy") == False):
                 continue
-            extracted = ExtractFromFile(i, False, 9999)
+            extracted = ExtractFromFile(i, False, 9999, is_skip_underline)
             both = e & extracted
             if len(both) > 0:
                 f = io.open(i, 'r', encoding='utf-8')
@@ -260,7 +265,7 @@ def GetExtractedSet(p):
     return e
 
 
-def WriteExtracted(p, extractedSet, is_open_filter, filter_length, is_gen_empty):
+def WriteExtracted(p, extractedSet, is_open_filter, filter_length, is_gen_empty, is_skip_underline):
     if (p[len(p) - 1] != '/' and p[len(p) - 1] != '\\'):
         p = p + '/'
     index = p.rfind('tl\\')
@@ -287,7 +292,7 @@ def WriteExtracted(p, extractedSet, is_open_filter, filter_length, is_gen_empty)
                 log_print(target + " not exists skip!")
                 continue
 
-            e = ExtractFromFile(target, is_open_filter, filter_length)
+            e = ExtractFromFile(target, is_open_filter, filter_length, is_skip_underline)
             eDiff = e - extractedSet
             if len(eDiff) > 0:
                 f = io.open(i, 'a+', encoding='utf-8')
@@ -337,7 +342,7 @@ def GetHeaderPath(p):
         return dic
 
 
-def ExtractWriteFile(p, tl_name, is_open_filter, filter_length, is_gen_empty, global_e):
+def ExtractWriteFile(p, tl_name, is_open_filter, filter_length, is_gen_empty, global_e, is_skip_underline):
     dic = GetHeaderPath(p)
     header = dic['header']
     if (header == ''):
@@ -354,8 +359,8 @@ def ExtractWriteFile(p, tl_name, is_open_filter, filter_length, is_gen_empty, gl
             pass
     if (os.path.isfile(target) == False):
         open(target, 'w').close()
-    e = ExtractFromFile(p, is_open_filter, filter_length)
-    extractedSet = ExtractFromFile(target, False, 9999)
+    e = ExtractFromFile(p, is_open_filter, filter_length, is_skip_underline)
+    extractedSet = ExtractFromFile(target, False, 9999, is_skip_underline)
     eDiff = e - extractedSet
     if len(eDiff) > 0:
         f = io.open(target, 'a+', encoding='utf-8')
@@ -388,8 +393,8 @@ def ExtractWriteFile(p, tl_name, is_open_filter, filter_length, is_gen_empty, gl
     return global_e
 
 
-def ExtractAllFilesInDir(dirName, is_open_filter, filter_length, is_gen_empty):
+def ExtractAllFilesInDir(dirName, is_open_filter, filter_length, is_gen_empty, is_skip_underline):
     CreateEmptyFileIfNotExsit(dirName)
-    ret = GetExtractedSet(dirName)
-    WriteExtracted(dirName, ret, is_open_filter, filter_length, is_gen_empty)
-    ret = GetExtractedSet(dirName)
+    ret = GetExtractedSet(dirName, is_skip_underline)
+    WriteExtracted(dirName, ret, is_open_filter, filter_length, is_gen_empty, is_skip_underline)
+    ret = GetExtractedSet(dirName, is_skip_underline)

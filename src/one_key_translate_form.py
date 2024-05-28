@@ -260,7 +260,7 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
                     t = renpy_extract.extractThread(threadID=0, p=None, tl_name=tl_name, dirs=None, tl_dir=select_dir,
                                                     is_open_filter=self.filterCheckBox.isChecked(),
                                                     filter_length=int(self.filterLengthLineEdit.text()),
-                                                    is_gen_empty=False)
+                                                    is_gen_empty=False, is_skip_underline=self.underlineCheckBox.isChecked())
                     renpy_extract.extract_threads.append(t)
 
             if len(renpy_extract.extract_threads) > 0:

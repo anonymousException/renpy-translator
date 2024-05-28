@@ -4,6 +4,7 @@ translate {tl_name} python:
     def change_font(font_path):
         gui.text_font = gui.interface_text_font = gui.button_text_font = gui.choice_button_text_font = FontGroup().add(font_path, 0x5187, 0x5187).add(font_path, 0x5463, 0x5463).add(font_path, 0x5c44, 0x5c44).add(font_path, 0x5c4c, 0x5c4c).add(font_path, 0x808f, 0x808f).add(font_path, 0x6294, 0x6294).add(font_path, 0x2014, 0x201F).add(font_path, 0x2E80, 0xffff).add(font_path, 0x0000, 0xffff)
         gui.name_text_font = font_path
+        style.default.font = font_path
         gui.headline_text_font = FontGroup().add(font_path, 0x2E80, 0xffff).add(font_path, 0x0000, 0xffff)
     font_path = "{font_path}"
     change_font(font_path)

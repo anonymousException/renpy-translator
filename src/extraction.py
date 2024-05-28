@@ -23,10 +23,10 @@ class Ui_ExtractionDialog(object):
     def setupUi(self, ExtractionDialog):
         if not ExtractionDialog.objectName():
             ExtractionDialog.setObjectName(u"ExtractionDialog")
-        ExtractionDialog.resize(652, 452)
+        ExtractionDialog.resize(652, 472)
         self.widget_2 = QWidget(ExtractionDialog)
         self.widget_2.setObjectName(u"widget_2")
-        self.widget_2.setGeometry(QRect(20, 10, 600, 430))
+        self.widget_2.setGeometry(QRect(20, 10, 600, 451))
         self.widget_2.setMinimumSize(QSize(600, 430))
         self.selectFilesText_2 = QTextEdit(self.widget_2)
         self.selectFilesText_2.setObjectName(u"selectFilesText_2")
@@ -56,7 +56,7 @@ class Ui_ExtractionDialog(object):
         self.selectDirText_2.setGeometry(QRect(80, 170, 411, 61))
         self.extractBtn = QPushButton(self.widget_2)
         self.extractBtn.setObjectName(u"extractBtn")
-        self.extractBtn.setGeometry(QRect(84, 390, 411, 24))
+        self.extractBtn.setGeometry(QRect(84, 420, 411, 24))
         self.label_8 = QLabel(self.widget_2)
         self.label_8.setObjectName(u"label_8")
         self.label_8.setGeometry(QRect(0, 250, 71, 31))
@@ -86,7 +86,11 @@ class Ui_ExtractionDialog(object):
         self.filterLengthLineEdit.setGeometry(QRect(470, 330, 31, 20))
         self.emptyCheckBox = QCheckBox(self.widget_2)
         self.emptyCheckBox.setObjectName(u"emptyCheckBox")
-        self.emptyCheckBox.setGeometry(QRect(0, 360, 501, 20))
+        self.emptyCheckBox.setGeometry(QRect(0, 390, 601, 20))
+        self.underlineCheckBox = QCheckBox(self.widget_2)
+        self.underlineCheckBox.setObjectName(u"underlineCheckBox")
+        self.underlineCheckBox.setGeometry(QRect(0, 360, 601, 20))
+        self.underlineCheckBox.setChecked(True)
 
         self.retranslateUi(ExtractionDialog)
 
@@ -117,5 +121,6 @@ class Ui_ExtractionDialog(object):
         self.filterCheckBox.setText(QCoreApplication.translate("ExtractionDialog", u"Enable filter for extract", None))
         self.label_14.setText(QCoreApplication.translate("ExtractionDialog", u"filter length less than", None))
         self.emptyCheckBox.setText(QCoreApplication.translate("ExtractionDialog", u"Generate empty strings instead of original", None))
+        self.underlineCheckBox.setText(QCoreApplication.translate("ExtractionDialog", u"Skip extract the contents which include underline", None))
     # retranslateUi
 

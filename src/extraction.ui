@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>652</width>
-    <height>452</height>
+    <height>472</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,7 +19,7 @@
      <x>20</x>
      <y>10</y>
      <width>600</width>
-     <height>430</height>
+     <height>451</height>
     </rect>
    </property>
    <property name="minimumSize">
@@ -137,7 +137,7 @@
     <property name="geometry">
      <rect>
       <x>84</x>
-      <y>390</y>
+      <y>420</y>
       <width>411</width>
       <height>24</height>
      </rect>
@@ -263,13 +263,29 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>360</y>
-      <width>501</width>
+      <y>390</y>
+      <width>601</width>
       <height>20</height>
      </rect>
     </property>
     <property name="text">
      <string>Generate empty strings instead of original</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="underlineCheckBox">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>360</y>
+      <width>601</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Skip extract the contents which include underline</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
     </property>
    </widget>
   </widget>

@@ -94,7 +94,7 @@ class MyExtractionForm(QDialog, Ui_ExtractionDialog):
                     t = extractThread(threadID=cnt, p=i, tl_name=tl_name, dirs=None, tl_dir=None,
                                       is_open_filter=self.filterCheckBox.isChecked(),
                                       filter_length=int(self.filterLengthLineEdit.text()),
-                                      is_gen_empty=self.emptyCheckBox.isChecked())
+                                      is_gen_empty=self.emptyCheckBox.isChecked(), is_skip_underline=self.underlineCheckBox.isChecked())
                     extract_threads.append(t)
                     cnt = cnt + 1
             select_dirs = self.selectDirsText.toPlainText().split('\n')
@@ -111,7 +111,7 @@ class MyExtractionForm(QDialog, Ui_ExtractionDialog):
                     t = extractThread(threadID=cnt, p=None, tl_name=tl_name, dirs=_dirs, tl_dir=None,
                                       is_open_filter=self.filterCheckBox.isChecked(),
                                       filter_length=int(self.filterLengthLineEdit.text()),
-                                      is_gen_empty=self.emptyCheckBox.isChecked())
+                                      is_gen_empty=self.emptyCheckBox.isChecked(), is_skip_underline=self.underlineCheckBox.isChecked())
                     extract_threads.append(t)
                     cnt = cnt + 1
             select_dir = self.selectDirText_2.toPlainText()
@@ -126,7 +126,7 @@ class MyExtractionForm(QDialog, Ui_ExtractionDialog):
                     t = extractThread(threadID=cnt, p=None, tl_name=tl_name, dirs=None, tl_dir=select_dir,
                                       is_open_filter=self.filterCheckBox.isChecked(),
                                       filter_length=int(self.filterLengthLineEdit.text()),
-                                      is_gen_empty=self.emptyCheckBox.isChecked())
+                                      is_gen_empty=self.emptyCheckBox.isChecked(), is_skip_underline=self.underlineCheckBox.isChecked())
                     extract_threads.append(t)
                     cnt = cnt + 1
             if len(extract_threads) > 0:

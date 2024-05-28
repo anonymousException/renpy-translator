@@ -760,6 +760,11 @@
         <source>Generate empty strings instead of original</source>
         <translation>মূলের পরিবর্তে খালি স্ট্রিং তৈরি করুন</translation>
     </message>
+    <message>
+        <location filename="../extraction.ui" line="285"/>
+        <source>Skip extract the contents which include underline</source>
+        <translation>আন্ডারলাইন অন্তর্ভুক্ত বিষয়বস্তু নিষ্কাশন এড়িয়ে যান</translation>
+    </message>
 </context>
 <context>
     <name>ExtractionOfficialDialog</name>
@@ -856,7 +861,7 @@
     </message>
     <message>
         <location filename="../font_replace_form.py" line="54"/>
-        <location filename="../one_key_translate_form.py" line="362"/>
+        <location filename="../one_key_translate_form.py" line="360"/>
         <source>select the file font which supports the translated language</source>
         <translation>ফাইল ফন্ট নির্বাচন করুন যা অনুবাদিত ভাষা সমর্থন করে</translation>
     </message>
@@ -912,7 +917,7 @@
 <context>
     <name>GameUnpackerDialog</name>
     <message>
-        <location filename="../game_unpacker_form.py" line="92"/>
+        <location filename="../game_unpacker_form.py" line="93"/>
         <source>select the game file you want to unpack</source>
         <translation>আপনি যে গেম ফাইলটি আনপ্যাক করতে চান তা নির্বাচন করুন</translation>
     </message>
@@ -1139,7 +1144,7 @@
     </message>
     <message>
         <location filename="../main.py" line="464"/>
-        <location filename="../main.py" line="549"/>
+        <location filename="../main.py" line="556"/>
         <source>is translating...</source>
         <translation>অনুবাদ করা হচ্ছে...</translation>
     </message>
@@ -1164,12 +1169,12 @@
         <translation type="vanished">আপনি নিষ্কাশন করতে চান ডিরেক্টরি নির্বাচন করুন</translation>
     </message>
     <message>
-        <location filename="../main.py" line="498"/>
+        <location filename="../main.py" line="505"/>
         <source>select the file(s) you want to translate</source>
         <translation>আপনি যে ফাইলটি অনুবাদ করতে চান সেটি নির্বাচন করুন</translation>
     </message>
     <message>
-        <location filename="../main.py" line="509"/>
+        <location filename="../main.py" line="516"/>
         <source>select the directory you want to translate</source>
         <translation>আপনি যে ডিরেক্টরিটি অনুবাদ করতে চান তা নির্বাচন করুন</translation>
     </message>
@@ -1180,8 +1185,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.2.9</source>
-        <translation>সংস্করণ 2.2.9</translation>
+        <source>Version 2.3.0</source>
+        <translation>সংস্করণ 2.3.0</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="113"/>
@@ -1565,12 +1570,17 @@
         <translation>অনুবাদের জন্য ফিল্টার সক্ষম করুন</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="482"/>
+        <location filename="../one_key_translate.ui" line="435"/>
+        <source>Skip extract the contents which include underline</source>
+        <translation>আন্ডারলাইন অন্তর্ভুক্ত বিষয়বস্তু নিষ্কাশন এড়িয়ে যান</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate_form.py" line="480"/>
         <source>select the game file</source>
         <translation>গেম ফাইল নির্বাচন করুন</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="564"/>
+        <location filename="../one_key_translate_form.py" line="566"/>
         <source>One Key Translate Complete</source>
         <translation>এক কী অনুবাদ সম্পূর্ণ</translation>
     </message>
@@ -1583,22 +1593,22 @@
         <translation>মুছে ফেলা</translation>
     </message>
     <message>
-        <location filename="../pack_game_form.py" line="251"/>
+        <location filename="../pack_game_form.py" line="256"/>
         <source>select the file(s) you want to pack</source>
         <translation>আপনি প্যাক করতে চান ফাইল(গুলি) নির্বাচন করুন</translation>
     </message>
     <message>
-        <location filename="../pack_game_form.py" line="308"/>
+        <location filename="../pack_game_form.py" line="313"/>
         <source>is packing...</source>
         <translation>প্যাক করা হচ্ছে...</translation>
     </message>
     <message>
-        <location filename="../pack_game_form.py" line="314"/>
+        <location filename="../pack_game_form.py" line="319"/>
         <source>select the game file you want to pack it&apos;s files</source>
         <translation>আপনি যে গেম ফাইলটি প্যাক করতে চান সেটি নির্বাচন করুন</translation>
     </message>
     <message>
-        <location filename="../pack_game_form.py" line="330"/>
+        <location filename="../pack_game_form.py" line="335"/>
         <location filename="../pack_game.ui" line="236"/>
         <source>pack game files</source>
         <translation>গেম ফাইল প্যাক করুন</translation>

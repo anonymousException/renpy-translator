@@ -760,6 +760,11 @@
         <source>Generate empty strings instead of original</source>
         <translation>원본 대신 빈 문자열 생성</translation>
     </message>
+    <message>
+        <location filename="../extraction.ui" line="285"/>
+        <source>Skip extract the contents which include underline</source>
+        <translation>밑줄이 포함된 내용 추출 건너뛰기</translation>
+    </message>
 </context>
 <context>
     <name>ExtractionOfficialDialog</name>
@@ -856,7 +861,7 @@
     </message>
     <message>
         <location filename="../font_replace_form.py" line="54"/>
-        <location filename="../one_key_translate_form.py" line="362"/>
+        <location filename="../one_key_translate_form.py" line="360"/>
         <source>select the file font which supports the translated language</source>
         <translation>번역된 언어를 지원하는 파일 글꼴을 선택하세요</translation>
     </message>
@@ -912,7 +917,7 @@
 <context>
     <name>GameUnpackerDialog</name>
     <message>
-        <location filename="../game_unpacker_form.py" line="92"/>
+        <location filename="../game_unpacker_form.py" line="93"/>
         <source>select the game file you want to unpack</source>
         <translation>압축을 풀고 싶은 게임 파일을 선택하세요</translation>
     </message>
@@ -1119,7 +1124,7 @@
     </message>
     <message>
         <location filename="../main.py" line="464"/>
-        <location filename="../main.py" line="549"/>
+        <location filename="../main.py" line="556"/>
         <source>is translating...</source>
         <translation>번역하는 중...</translation>
     </message>
@@ -1136,12 +1141,12 @@
         <translation>발췌</translation>
     </message>
     <message>
-        <location filename="../main.py" line="498"/>
+        <location filename="../main.py" line="505"/>
         <source>select the file(s) you want to translate</source>
         <translation>번역하려는 파일을 선택하세요</translation>
     </message>
     <message>
-        <location filename="../main.py" line="509"/>
+        <location filename="../main.py" line="516"/>
         <source>select the directory you want to translate</source>
         <translation>번역하려는 디렉토리를 선택하십시오</translation>
     </message>
@@ -1288,8 +1293,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.2.9</source>
-        <translation>버전 2.2.9</translation>
+        <source>Version 2.3.0</source>
+        <translation>버전 2.3.0</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="391"/>
@@ -1477,12 +1482,17 @@
         <translation>번역을 위한 필터 활성화</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="482"/>
+        <location filename="../one_key_translate.ui" line="435"/>
+        <source>Skip extract the contents which include underline</source>
+        <translation>밑줄이 포함된 내용 추출 건너뛰기</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate_form.py" line="480"/>
         <source>select the game file</source>
         <translation>게임 파일을 선택하세요</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="564"/>
+        <location filename="../one_key_translate_form.py" line="566"/>
         <source>One Key Translate Complete</source>
         <translation>하나의 키 번역 완료</translation>
     </message>
@@ -1495,22 +1505,22 @@
         <translation>삭제</translation>
     </message>
     <message>
-        <location filename="../pack_game_form.py" line="251"/>
+        <location filename="../pack_game_form.py" line="256"/>
         <source>select the file(s) you want to pack</source>
         <translation>압축하려는 파일을 선택하십시오</translation>
     </message>
     <message>
-        <location filename="../pack_game_form.py" line="308"/>
+        <location filename="../pack_game_form.py" line="313"/>
         <source>is packing...</source>
         <translation>짐을 싸고 있다...</translation>
     </message>
     <message>
-        <location filename="../pack_game_form.py" line="314"/>
+        <location filename="../pack_game_form.py" line="319"/>
         <source>select the game file you want to pack it&apos;s files</source>
         <translation>압축하려는 게임 파일을 선택하세요</translation>
     </message>
     <message>
-        <location filename="../pack_game_form.py" line="330"/>
+        <location filename="../pack_game_form.py" line="335"/>
         <location filename="../pack_game.ui" line="236"/>
         <source>pack game files</source>
         <translation>게임 파일 압축</translation>
