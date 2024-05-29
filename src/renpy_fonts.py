@@ -18,6 +18,25 @@ def replace_font_content(text, new_content):
     return re.sub(pattern, replacement, text)
 
 
+def ExtractDefineList(data):
+    define_list = set()
+    _read_line = data.split('\n')
+    for idx, line in enumerate(_read_line):
+        line = line.strip()
+        if line.endswith('"'):
+            line = line.strip('"')
+        if line.endswith("'"):
+            line = line.strip("'")
+        if line.startswith('define '):
+            suffix_list = ['.otf', '.ttf', '.ttc', '.otc', '.woff', '.woff2']
+            for suffix in suffix_list:
+                if line.endswith(suffix):
+                    line = _read_line[idx].strip()
+                    defined_var = line[7:line.find('=')].strip()
+                    define_list.add(defined_var)
+                    break
+    return define_list
+
 def ExtractStyleList(data):
     _read_line = data.split('\n')
     last_i = 0
@@ -98,10 +117,20 @@ def ExtractStyleFontListFromFile(p):
     return d
 
 
+def ExtractDefinedFontListFromFile(p):
+    f = io.open(p, 'r+', encoding='utf-8')
+    _read = f.read()
+    f.close()
+    return ExtractDefineList(_read)
+
+# ExtractDefinedFontListFromFile(f'F:\Games\RenPy\MilkyTouch-Finale.Official-pc\game\screens.rpy')
+
+
 def ExtractStyleFontListFromDirectory(p):
     if (p[len(p) - 1] != '/' and p[len(p) - 1] != '\\'):
         p = p + '/'
     ret_d = dict()
+    ret_set = set()
     paths = os.walk(p, topdown=False)
     for path, dir_lst, file_lst in paths:
         for file_name in file_lst:
@@ -112,9 +141,10 @@ def ExtractStyleFontListFromDirectory(p):
                 continue
             # print(i)
             d = ExtractStyleFontListFromFile(i)
+            ret_set = ret_set | ExtractDefinedFontListFromFile(i)
             if len(d) > 0:
                 ret_d.update(d)
-    return ret_d
+    return ret_d, ret_set
 
 
 def ExtractFontContent(data):
@@ -138,7 +168,10 @@ def GenGuiFontsOriginal(p, tl_name, font_path):
         f.close()
         if (pythonBeginLine in _read):
             appendMode = True
-    result = ExtractStyleFontListFromDirectory(p)
+    result, defined_set = ExtractStyleFontListFromDirectory(p)
+    defined_contents = ''
+    for defined in defined_set:
+        defined_contents = defined_contents + f'    {defined} = gui.text_font\n'
     if (appendMode):
         f = io.open(guiPath, 'a+', encoding='utf-8')
         for key, value in result.items():
@@ -181,6 +214,7 @@ def GenGuiFontsOriginal(p, tl_name, font_path):
         f.close()
         template = template.replace('{tl_name}', tl_name)
         template = template.replace('{font_path}', 'fonts/' + font_path)
+        template = template.replace('#replace defined font', defined_contents)
         f = io.open(guiPath, 'w', encoding='utf-8')
         header = template
         # print(header)

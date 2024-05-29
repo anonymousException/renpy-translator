@@ -1183,8 +1183,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.3.0</source>
-        <translation>版本 2.3.0</translation>
+        <source>Version 2.3.1</source>
+        <translation>版本 2.3.1</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="113"/>
