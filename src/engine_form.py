@@ -84,7 +84,7 @@ class MyEngineForm(QDialog, Ui_EngineDialog):
         if os.path.isfile('openai_model.txt'):
             command = 'notepad ' + 'openai_model.txt'
             p = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
-                                 creationflags=0x08000000)
+                                 creationflags=0x08000000, text=True, encoding='utf-8')
             p.wait()
             self.init_openai_model_combobox()
 

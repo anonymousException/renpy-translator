@@ -385,7 +385,7 @@ def pack_from_list(python_path, pack_list, target_path):
             command = python_path + f' -O "{rpa_script_path}" -c "{target_path}" "{basename}"="{i}"'
             log_print(command)
             p = subprocess.Popen(command, shell=True, stdout=my_log.f, stderr=my_log.f,
-                                 creationflags=0x08000000)
+                                 creationflags=0x08000000, text=True, encoding='utf-8')
             p.wait()
             pack_list.pop(0)
         for i in pack_list:
@@ -393,7 +393,7 @@ def pack_from_list(python_path, pack_list, target_path):
             command = python_path + f' -O "{rpa_script_path}" -a "{target_path}" "{basename}"="{i}"'
             log_print(command)
             p = subprocess.Popen(command, shell=True, stdout=my_log.f, stderr=my_log.f,
-                                 creationflags=0x08000000)
+                                 creationflags=0x08000000, text=True, encoding='utf-8')
             p.wait()
 
 

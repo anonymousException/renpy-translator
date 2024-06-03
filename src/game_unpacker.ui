@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>661</width>
-    <height>217</height>
+    <height>260</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -75,7 +75,7 @@
    <property name="geometry">
     <rect>
      <x>100</x>
-     <y>180</y>
+     <y>220</y>
      <width>551</width>
      <height>20</height>
     </rect>
@@ -85,6 +85,32 @@
    </property>
    <property name="checked">
     <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>190</y>
+     <width>161</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string notr="true">MAX_UNPACK_THREADS : </string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="maxThreadsLineEdit">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>188</y>
+     <width>391</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="placeholderText">
+    <string notr="true"/>
    </property>
   </widget>
  </widget>

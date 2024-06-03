@@ -41,7 +41,7 @@ class extractThread(threading.Thread):
             command = 'start "" /wait /d "' + dir + '"  "' + path + '"'
             self.path = path
             p = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
-                             creationflags=0x08000000)
+                             creationflags=0x08000000, text=True, encoding='utf-8')
             p.wait()
 
             target = dir + '/' + hooked_result

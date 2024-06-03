@@ -68,6 +68,15 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
         default_font = get_default_font_path()
         if default_font is not None:
             self.selectFontText.setText(default_font)
+        f = io.open(game_unpacker_form.hook_script, mode='r', encoding='utf-8')
+        _read_lines = f.readlines()
+        f.close()
+        max_thread_num = 12
+        for idx, _line in enumerate(_read_lines):
+            if _line.startswith('    MAX_UNPACK_THREADS = '):
+                max_thread_num = _line[len('    MAX_UNPACK_THREADS = '):].strip().strip('\n')
+                break
+        self.maxThreadsLineEdit.setText(str(max_thread_num))
         _thread.start_new_thread(self.update, ())
 
     def on_start_button_clicked(self):
@@ -338,7 +347,20 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
         if os.path.isfile(path):
             if path.endswith('.exe'):
                 dir = os.path.dirname(path)
-                shutil.copyfile(game_unpacker_form.hook_script, dir + '/game/' + game_unpacker_form.hook_script)
+                #shutil.copyfile(game_unpacker_form.hook_script, dir + '/game/' + game_unpacker_form.hook_script)
+                f = io.open(game_unpacker_form.hook_script, mode='r', encoding='utf-8')
+                _read_lines = f.readlines()
+                f.close()
+                for idx, _line in enumerate(_read_lines):
+                    if _line.startswith('    MAX_UNPACK_THREADS = '):
+                        _read_lines[idx] = f'    MAX_UNPACK_THREADS = {self.maxThreadsLineEdit.text()}\n'
+                        break
+                f = io.open(dir + '/game/' + game_unpacker_form.hook_script, mode='w', encoding='utf-8')
+                f.writelines(_read_lines)
+                f.close()
+                f = io.open(game_unpacker_form.hook_script, mode='w', encoding='utf-8')
+                f.writelines(_read_lines)
+                f.close()
                 command = path
                 self.path = path
                 f = io.open(dir + finish_flag, 'w')
@@ -346,7 +368,7 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
                 f.close()
                 self.setDisabled(True)
                 log_print('start unpacking...')
-                p = subprocess.Popen(command, shell=False, stdout=my_log.f, stderr=my_log.f,
+                p = subprocess.Popen(command, shell=True, stdout=my_log.f, stderr=my_log.f,
                                      creationflags=0x08000000, text=True, cwd=dir, encoding='utf-8')
                 return
         is_finished, is_executed = self.qDic[self.unpack]

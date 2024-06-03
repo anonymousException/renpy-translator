@@ -5,7 +5,13 @@ init python early hide:
     import importlib
     import inspect
     import os
+    import re
     from renpy.loader import archives
+
+    unpack_file_threads = []
+    MAX_UNPACK_THREADS = 12
+    unpack_semaphore = threading.Semaphore(MAX_UNPACK_THREADS)
+    non_ascii_file_list = []
 
     def check_function_exists(module_name, function_name):
         try:
@@ -23,6 +29,19 @@ init python early hide:
         except AttributeError:
             #print(f"The function '{function_name}' does not exist in the module '{module_name}'.")
             return False
+
+    def is_ascii(string):
+        return all(ord(char) < 128 for char in string)
+
+    def write_out_to_file(semaphore, name, write_path, _write_data):
+        with semaphore:
+            if is_ascii(name):
+                print(write_path)
+            else:
+                #print(write_path)
+                non_ascii_file_list.append(write_path)
+            with open(write_path, 'wb') as file:
+                file.write(_write_data)
 
     def my_load_from_archive(name):
         load_packed_file_source = None
@@ -61,10 +80,9 @@ init python early hide:
                 os.makedirs(target_dir,exist_ok=True)
             else:
                 os.makedirs(target_dir)
-        with open(path, 'wb') as file:
-            file.write(_read)
-            print(path)
-
+        thread = threading.Thread(target=write_out_to_file, args=([unpack_semaphore, name, path, _read]))
+        thread.start()
+        unpack_file_threads.append(thread)
         rv = load_packed_file(name)
         return rv
 
@@ -73,6 +91,10 @@ init python early hide:
             #print(name)
             my_load_from_archive(name)
 
+    for t in unpack_file_threads:
+        t.join()
+    for non_ascii_file in non_ascii_file_list:
+        print('The file name is not ascii : ' + non_ascii_file)
     finish_flag = 'unpack.finish'
     pid_flag = 'game.pid'
     f = io.open(pid_flag, 'w',encoding='utf-8')

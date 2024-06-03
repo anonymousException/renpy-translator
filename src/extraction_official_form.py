@@ -121,5 +121,5 @@ def exec_official_translate(game_path, tl_name, is_gen_empty):
         command = command + ' --empty'
     log_print(command)
     p = subprocess.Popen(command, shell=True, stdout=my_log.f, stderr=my_log.f,
-                         creationflags=0x08000000)
+                         creationflags=0x08000000, text=True, encoding='utf-8')
     p.wait()

@@ -16,13 +16,14 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QCheckBox, QDialog, QLabel,
-    QPushButton, QSizePolicy, QTextEdit, QWidget)
+    QLineEdit, QPushButton, QSizePolicy, QTextEdit,
+    QWidget)
 
 class Ui_GameUnpackerDialog(object):
     def setupUi(self, GameUnpackerDialog):
         if not GameUnpackerDialog.objectName():
             GameUnpackerDialog.setObjectName(u"GameUnpackerDialog")
-        GameUnpackerDialog.resize(661, 217)
+        GameUnpackerDialog.resize(661, 260)
         self.label = QLabel(GameUnpackerDialog)
         self.label.setObjectName(u"label")
         self.label.setGeometry(QRect(20, 40, 71, 61))
@@ -38,8 +39,16 @@ class Ui_GameUnpackerDialog(object):
         self.unpackBtn.setGeometry(QRect(100, 130, 491, 24))
         self.autoCheckBox = QCheckBox(GameUnpackerDialog)
         self.autoCheckBox.setObjectName(u"autoCheckBox")
-        self.autoCheckBox.setGeometry(QRect(100, 180, 551, 20))
+        self.autoCheckBox.setGeometry(QRect(100, 220, 551, 20))
         self.autoCheckBox.setChecked(True)
+        self.label_2 = QLabel(GameUnpackerDialog)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setGeometry(QRect(20, 190, 161, 16))
+        self.label_2.setText(u"MAX_UNPACK_THREADS : ")
+        self.maxThreadsLineEdit = QLineEdit(GameUnpackerDialog)
+        self.maxThreadsLineEdit.setObjectName(u"maxThreadsLineEdit")
+        self.maxThreadsLineEdit.setGeometry(QRect(200, 188, 391, 20))
+        self.maxThreadsLineEdit.setPlaceholderText(u"")
 
         self.retranslateUi(GameUnpackerDialog)
 
