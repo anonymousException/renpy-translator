@@ -36,6 +36,7 @@ jobs:
     - run: mkdir dist\windows
     - run: xcopy build\main.dist dist\windows /E
     - run: xcopy src\supported_language dist\windows\supported_language\
+    - run: xcopy src\unrpyc dist\windows\unrpyc\
     - run: xcopy src\qm dist\windows\qm\
     - run: xcopy src\custom_engine dist\windows\custom_engine\
     - run: copy src\custom.txt dist\windows\custom.txt
