@@ -10,6 +10,7 @@ init python early hide:
 
     unpack_file_threads = []
     MAX_UNPACK_THREADS = 12
+    SCRIPT_ONLY = False
     unpack_semaphore = threading.Semaphore(MAX_UNPACK_THREADS)
     non_ascii_file_list = []
 
@@ -69,7 +70,9 @@ init python early hide:
             _read = rv.readall()
         else:
             return rv
-
+        if SCRIPT_ONLY:
+            if not name.endswith('.rpy') and not name.endswith('.rpyc'):
+                return rv
         current_file_path = os.path.abspath(sys.argv[0])
         current_dir_path = os.path.dirname(current_file_path)
         path = current_dir_path + '/game/' + name

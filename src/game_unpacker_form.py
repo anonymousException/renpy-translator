@@ -17,12 +17,12 @@ from my_log import log_print
 import my_log
 from renpy_fonts import GenGuiFonts
 from game_unpacker import Ui_GameUnpackerDialog
+from call_game_python import *
+from unzipdir import zip_dir, unzip_file
 
-bat = 'UnRen-forall.bat'
 hook_script = 'hook_unrpa.rpy'
 finish_flag = '/unpack.finish'
 pid_flag = '/game.pid'
-expand_file = 'expand.exe'
 
 
 def set_window_on_top(hwnd):
@@ -38,11 +38,41 @@ def set_window_on_top(hwnd):
         pass
 
 
+def get_unrpyc_command(game_path):
+    python_path = get_python_path(game_path)
+    game_dir = os.path.dirname(game_path)
+    unrpyc_path = game_dir + '/unrpyc.py'
+    command = python_path + ' "' + unrpyc_path + '" "' + game_dir + '"'
+    return command
+
+
+def clean_unrpyc(dir):
+    try:
+        shutil.rmtree(dir + '/renpy/common')
+    except FileNotFoundError:
+        pass
+    try:
+        shutil.rmtree(dir + '/__pycache__')
+    except FileNotFoundError:
+        pass
+    shutil.rmtree(dir + '/decompiler')
+    unzip_file(dir + '/common_backup.zip', dir + '/renpy/common')
+    os.remove(dir + '/common_backup.zip')
+    os.remove(dir + '/deobfuscate.py')
+    os.remove(dir + '/unrpyc.py')
+    if os.path.isfile(dir + '/unrpyc.pyo'):
+        os.remove(dir + '/unrpyc.pyo')
+    if os.path.isfile(dir + '/deobfuscate.pyo'):
+        os.remove(dir + '/deobfuscate.pyo')
+
+
 class unrpycThread(threading.Thread):
-    def __init__(self, dir, p, is_auto_close):
+    def __init__(self, dir, path, p, is_over_write, is_auto_close):
         threading.Thread.__init__(self)
         self.dir = dir
         self.p = p
+        self.path = path
+        self.is_over_write = is_over_write
         self.is_auto_close = is_auto_close
 
     def run(self):
@@ -50,12 +80,18 @@ class unrpycThread(threading.Thread):
             if self.is_auto_close and self.p is not None:
                 subprocess.Popen("taskkill /F /T /PID " + self.p, shell=True,
                                  creationflags=0x08000000, text=True, encoding='utf-8')
-            dir = self.dir
-            bat = '"' + os.getcwd() + '/UnRen-forall.bat' + '"'
-            command = bat
-            p = subprocess.Popen(command, shell=False, stdout=my_log.f, stderr=my_log.f,
-                                 creationflags=0x08000000, text=True, cwd=dir, encoding='utf-8')
+            zip_dir(self.dir + '/renpy/common', self.dir + '/common_backup.zip')
+            copy_files_under_directory_to_directory(os.getcwd() + '/unrpyc', self.dir)
+            command = get_unrpyc_command(self.path)
+            if self.is_over_write:
+                command = command + ' --clobber'
+            log_print(command)
+            p = subprocess.Popen(command, shell=True, stdout=my_log.f, stderr=my_log.f,
+                                 creationflags=0x08000000, text=True, encoding='utf-8')
             p.wait()
+            time.sleep(1)
+            clean_unrpyc(self.dir)
+            io.open(self.dir + '/unren.finish', mode='w', encoding='utf-8').close()
         except Exception as e:
             msg = traceback.format_exc()
             log_print(msg)
@@ -78,11 +114,17 @@ class MyGameUnpackerForm(QDialog, Ui_GameUnpackerDialog):
         _read_lines = f.readlines()
         f.close()
         max_thread_num = 12
+        is_script_only = True
         for idx, _line in enumerate(_read_lines):
             if _line.startswith('    MAX_UNPACK_THREADS = '):
                 max_thread_num = _line[len('    MAX_UNPACK_THREADS = '):].strip().strip('\n')
                 break
+        for idx, _line in enumerate(_read_lines):
+            if _line.startswith('    SCRIPT_ONLY = '):
+                is_script_only = _line[len('    SCRIPT_ONLY = '):].strip().strip('\n') == 'True'
+                break
         self.maxThreadsLineEdit.setText(str(max_thread_num))
+        self.unpackAllCheckBox.setChecked(not is_script_only)
         _thread.start_new_thread(self.update, ())
 
     def closeEvent(self, event):
@@ -110,7 +152,7 @@ class MyGameUnpackerForm(QDialog, Ui_GameUnpackerDialog):
         if os.path.isfile(path):
             if path.endswith('.exe'):
                 dir = os.path.dirname(path)
-                #shutil.copyfile(hook_script, dir + '/game/' + hook_script)
+                # shutil.copyfile(hook_script, dir + '/game/' + hook_script)
                 f = io.open(hook_script, mode='r', encoding='utf-8')
                 _read_lines = f.readlines()
                 f.close()
@@ -118,10 +160,15 @@ class MyGameUnpackerForm(QDialog, Ui_GameUnpackerDialog):
                     if _line.startswith('    MAX_UNPACK_THREADS = '):
                         _read_lines[idx] = f'    MAX_UNPACK_THREADS = {self.maxThreadsLineEdit.text()}\n'
                         break
+                for idx, _line in enumerate(_read_lines):
+                    if _line.startswith('    SCRIPT_ONLY = '):
+                        _read_lines[idx] = f'    SCRIPT_ONLY = {str(not self.unpackAllCheckBox.isChecked())}\n'
+                        break
+
                 f = io.open(dir + '/game/' + hook_script, mode='w', encoding='utf-8')
                 f.writelines(_read_lines)
                 f.close()
-                f = io.open( hook_script, mode='w', encoding='utf-8')
+                f = io.open(hook_script, mode='w', encoding='utf-8')
                 f.writelines(_read_lines)
                 f.close()
                 command = path
@@ -172,11 +219,11 @@ class MyGameUnpackerForm(QDialog, Ui_GameUnpackerDialog):
                 target = dir + pid_flag
                 pid = None
                 if os.path.isfile(target):
-                    f = io.open(target, 'r',encoding='utf-8')
+                    f = io.open(target, 'r', encoding='utf-8')
                     pid = f.read()
                     f.close()
                     os.remove(target)
-                t = unrpycThread(dir, pid, self.autoCheckBox.isChecked())
+                t = unrpycThread(dir, self.path, pid, self.overwriteCheckBox.isChecked(), self.autoCheckBox.isChecked())
                 t.start()
                 self.path = None
                 self.dir = dir

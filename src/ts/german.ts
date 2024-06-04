@@ -861,7 +861,7 @@
     </message>
     <message>
         <location filename="../font_replace_form.py" line="54"/>
-        <location filename="../one_key_translate_form.py" line="360"/>
+        <location filename="../one_key_translate_form.py" line="393"/>
         <source>select the file font which supports the translated language</source>
         <translation>Wählen Sie die Dateischriftart aus, die die übersetzte Sprache unterstützt</translation>
     </message>
@@ -917,7 +917,7 @@
 <context>
     <name>GameUnpackerDialog</name>
     <message>
-        <location filename="../game_unpacker_form.py" line="93"/>
+        <location filename="../game_unpacker_form.py" line="144"/>
         <source>select the game file you want to unpack</source>
         <translation>Wählen Sie die Spieldatei aus, die Sie entpacken möchten</translation>
     </message>
@@ -954,6 +954,16 @@
         <location filename="../game_unpacker.ui" line="84"/>
         <source>Auto close the game after unpacked</source>
         <translation>Schließen Sie das Spiel nach dem Entpacken automatisch</translation>
+    </message>
+    <message>
+        <location filename="../game_unpacker.ui" line="126"/>
+        <source>Overwrite the rpy file if exsits</source>
+        <translation>Überschreibe die rpy-Datei, falls vorhanden</translation>
+    </message>
+    <message>
+        <location filename="../game_unpacker.ui" line="139"/>
+        <source>Unpack all files (if disabled only script files will be unpacked)</source>
+        <translation>Alle Dateien entpacken (wenn deaktiviert, werden nur Skriptdateien entpackt)</translation>
     </message>
     <message>
         <source>Clean temporary files</source>
@@ -1293,8 +1303,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.3.3</source>
-        <translation>Version 2.3.3</translation>
+        <source>Version 2.3.4</source>
+        <translation>Version 2.3.4</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="391"/>
@@ -1487,12 +1497,22 @@
         <translation>Überspringen Sie das Extrahieren des Inhalts, der Unterstreichungen enthält</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="480"/>
+        <location filename="../one_key_translate.ui" line="477"/>
+        <source>Overwrite the rpy file if exsits</source>
+        <translation>Überschreibe die rpy-Datei, falls vorhanden</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="490"/>
+        <source>Unpack all files (if disabled only script files will be unpacked)</source>
+        <translation>Alle Dateien entpacken (wenn deaktiviert, werden nur Skriptdateien entpackt)</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate_form.py" line="513"/>
         <source>select the game file</source>
         <translation>Wählen Sie die Spieldatei aus</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="566"/>
+        <location filename="../one_key_translate_form.py" line="599"/>
         <source>One Key Translate Complete</source>
         <translation>One-Key-Übersetzung abgeschlossen</translation>
     </message>

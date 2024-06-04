@@ -26,9 +26,7 @@ jobs:
     - run: cp -r src/supported_language src/dist/windows/main
     - run: cp -r src/qm src/dist/windows/main
     - run: cp src/custom.txt src/dist/windows/main/custom.txt
-    - run: cp src/UnRen-forall.bat src/dist/windows/main/UnRen-forall.bat
     - run: cp src/hook_unrpa.rpy src/dist/windows/main/hook_unrpa.rpy
-    - run: cp src/expand.exe src/dist/windows/main/expand.exe
     - run: cp src/openai_model.txt src/dist/windows/main/openai_model.txt
     - run: cp src/hook_extract.rpy src/dist/windows/main/hook_extract.rpy
     - run: cp src/hook_add_change_language_entrance.rpy src/dist/windows/main/hook_add_change_language_entrance.rpy

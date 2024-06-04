@@ -39,9 +39,7 @@ jobs:
     - run: xcopy src\qm dist\windows\qm\
     - run: xcopy src\custom_engine dist\windows\custom_engine\
     - run: copy src\custom.txt dist\windows\custom.txt
-    - run: copy src\UnRen-forall.bat dist\windows\UnRen-forall.bat
     - run: copy src\hook_unrpa.rpy dist\windows\hook_unrpa.rpy
-    - run: copy src\expand.exe dist\windows\expand.exe
     - run: copy src\openai_model.txt dist\windows\openai_model.txt
     - run: copy src\hook_extract.rpy dist\windows\hook_extract.rpy
     - run: copy src\hook_add_change_language_entrance.rpy dist\windows\hook_add_change_language_entrance.rpy

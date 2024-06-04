@@ -861,7 +861,7 @@
     </message>
     <message>
         <location filename="../font_replace_form.py" line="54"/>
-        <location filename="../one_key_translate_form.py" line="360"/>
+        <location filename="../one_key_translate_form.py" line="393"/>
         <source>select the file font which supports the translated language</source>
         <translation>حدد خط الملف الذي يدعم اللغة المترجمة</translation>
     </message>
@@ -917,7 +917,7 @@
 <context>
     <name>GameUnpackerDialog</name>
     <message>
-        <location filename="../game_unpacker_form.py" line="93"/>
+        <location filename="../game_unpacker_form.py" line="144"/>
         <source>select the game file you want to unpack</source>
         <translation>حدد ملف اللعبة الذي تريد فك ضغطه</translation>
     </message>
@@ -954,6 +954,16 @@
         <location filename="../game_unpacker.ui" line="84"/>
         <source>Auto close the game after unpacked</source>
         <translation>إغلاق اللعبة تلقائيًا بعد تفريغها</translation>
+    </message>
+    <message>
+        <location filename="../game_unpacker.ui" line="126"/>
+        <source>Overwrite the rpy file if exsits</source>
+        <translation>قم بالكتابة فوق ملف rpy إذا كان موجودًا</translation>
+    </message>
+    <message>
+        <location filename="../game_unpacker.ui" line="139"/>
+        <source>Unpack all files (if disabled only script files will be unpacked)</source>
+        <translation>قم بفك ضغط جميع الملفات (إذا تم تعطيلها، فسيتم فك ضغط ملفات البرامج النصية فقط)</translation>
     </message>
     <message>
         <source>Clean temporary files</source>
@@ -1185,8 +1195,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.3.3</source>
-        <translation>الإصدار2.3.3</translation>
+        <source>Version 2.3.4</source>
+        <translation>الإصدار2.3.4</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="113"/>
@@ -1575,12 +1585,22 @@
         <translation>تخطي استخراج المحتويات التي تتضمن تسطير</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="480"/>
+        <location filename="../one_key_translate.ui" line="477"/>
+        <source>Overwrite the rpy file if exsits</source>
+        <translation>قم بالكتابة فوق ملف rpy إذا كان موجودًا</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="490"/>
+        <source>Unpack all files (if disabled only script files will be unpacked)</source>
+        <translation>قم بفك ضغط جميع الملفات (إذا تم تعطيلها، فسيتم فك ضغط ملفات البرامج النصية فقط)</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate_form.py" line="513"/>
         <source>select the game file</source>
         <translation>حدد ملف اللعبة</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="566"/>
+        <location filename="../one_key_translate_form.py" line="599"/>
         <source>One Key Translate Complete</source>
         <translation>اكتملت ترجمة مفتاح واحد</translation>
     </message>

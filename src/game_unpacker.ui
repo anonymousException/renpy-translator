@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>661</width>
-    <height>260</height>
+    <height>323</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -74,8 +74,8 @@
   <widget class="QCheckBox" name="autoCheckBox">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>220</y>
+     <x>20</x>
+     <y>290</y>
      <width>551</width>
      <height>20</height>
     </rect>
@@ -111,6 +111,35 @@
    </property>
    <property name="placeholderText">
     <string notr="true"/>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="overwriteCheckBox">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>230</y>
+     <width>571</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Overwrite the rpy file if exsits</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="unpackAllCheckBox">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>260</y>
+     <width>631</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Unpack all files (if disabled only script files will be unpacked)</string>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
    </property>
   </widget>
  </widget>

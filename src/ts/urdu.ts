@@ -861,7 +861,7 @@
     </message>
     <message>
         <location filename="../font_replace_form.py" line="54"/>
-        <location filename="../one_key_translate_form.py" line="360"/>
+        <location filename="../one_key_translate_form.py" line="393"/>
         <source>select the file font which supports the translated language</source>
         <translation>فائل کا فونٹ منتخب کریں جو ترجمہ شدہ زبان کو سپورٹ کرتا ہے۔</translation>
     </message>
@@ -917,7 +917,7 @@
 <context>
     <name>GameUnpackerDialog</name>
     <message>
-        <location filename="../game_unpacker_form.py" line="93"/>
+        <location filename="../game_unpacker_form.py" line="144"/>
         <source>select the game file you want to unpack</source>
         <translation>وہ گیم فائل منتخب کریں جسے آپ پیک کھولنا چاہتے ہیں۔</translation>
     </message>
@@ -954,6 +954,16 @@
         <location filename="../game_unpacker.ui" line="84"/>
         <source>Auto close the game after unpacked</source>
         <translation>پیک کھولنے کے بعد گیم کو آٹو بند کریں۔</translation>
+    </message>
+    <message>
+        <location filename="../game_unpacker.ui" line="126"/>
+        <source>Overwrite the rpy file if exsits</source>
+        <translation>اگر موجود ہو تو rpy فائل کو اوور رائٹ کریں۔</translation>
+    </message>
+    <message>
+        <location filename="../game_unpacker.ui" line="139"/>
+        <source>Unpack all files (if disabled only script files will be unpacked)</source>
+        <translation>تمام فائلوں کو کھولیں (اگر غیر فعال ہو تو صرف اسکرپٹ فائلوں کو پیک کیا جائے گا)</translation>
     </message>
     <message>
         <source>Clean temporary files</source>
@@ -1185,8 +1195,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.3.3</source>
-        <translation>ورژن 2.3.3</translation>
+        <source>Version 2.3.4</source>
+        <translation>ورژن 2.3.4</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="113"/>
@@ -1575,12 +1585,22 @@
         <translation>ان مواد کو نکالیں جس میں انڈر لائن شامل ہے۔</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="480"/>
+        <location filename="../one_key_translate.ui" line="477"/>
+        <source>Overwrite the rpy file if exsits</source>
+        <translation>اگر موجود ہو تو rpy فائل کو اوور رائٹ کریں۔</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="490"/>
+        <source>Unpack all files (if disabled only script files will be unpacked)</source>
+        <translation>تمام فائلوں کو کھولیں (اگر غیر فعال ہو تو صرف اسکرپٹ فائلوں کو پیک کیا جائے گا)</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate_form.py" line="513"/>
         <source>select the game file</source>
         <translation>گیم فائل کو منتخب کریں۔</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="566"/>
+        <location filename="../one_key_translate_form.py" line="599"/>
         <source>One Key Translate Complete</source>
         <translation>ایک کلیدی ترجمہ مکمل</translation>
     </message>

@@ -908,7 +908,7 @@
     </message>
     <message>
         <location filename="../font_replace_form.py" line="54"/>
-        <location filename="../one_key_translate_form.py" line="360"/>
+        <location filename="../one_key_translate_form.py" line="393"/>
         <source>select the file font which supports the translated language</source>
         <translation>选择支持翻译语言的文件字体</translation>
     </message>
@@ -921,7 +921,7 @@
 <context>
     <name>GameUnpackerDialog</name>
     <message>
-        <location filename="../game_unpacker_form.py" line="93"/>
+        <location filename="../game_unpacker_form.py" line="144"/>
         <source>select the game file you want to unpack</source>
         <translation>选择你要解压的游戏文件</translation>
     </message>
@@ -958,6 +958,16 @@
         <location filename="../game_unpacker.ui" line="84"/>
         <source>Auto close the game after unpacked</source>
         <translation>解压后自动关闭游戏</translation>
+    </message>
+    <message>
+        <location filename="../game_unpacker.ui" line="126"/>
+        <source>Overwrite the rpy file if exsits</source>
+        <translation>如果存在则覆盖 rpy 文件</translation>
+    </message>
+    <message>
+        <location filename="../game_unpacker.ui" line="139"/>
+        <source>Unpack all files (if disabled only script files will be unpacked)</source>
+        <translation>解压所有文件（如果禁用，则仅解压脚本文件）</translation>
     </message>
     <message>
         <source>Clean temporary files</source>
@@ -1183,8 +1193,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.3.3</source>
-        <translation>版本 2.3.3</translation>
+        <source>Version 2.3.4</source>
+        <translation>版本 2.3.4</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="113"/>
@@ -1583,12 +1593,22 @@
         <translation>跳过提取包含下划线的内容</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="480"/>
+        <location filename="../one_key_translate.ui" line="477"/>
+        <source>Overwrite the rpy file if exsits</source>
+        <translation>如果存在则覆盖 rpy 文件</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="490"/>
+        <source>Unpack all files (if disabled only script files will be unpacked)</source>
+        <translation>解压所有文件（如果禁用，则仅解压脚本文件）</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate_form.py" line="513"/>
         <source>select the game file</source>
         <translation>选择游戏文件</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="566"/>
+        <location filename="../one_key_translate_form.py" line="599"/>
         <source>One Key Translate Complete</source>
         <translation>一键翻译完成</translation>
     </message>

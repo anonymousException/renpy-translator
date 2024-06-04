@@ -23,7 +23,7 @@ class Ui_GameUnpackerDialog(object):
     def setupUi(self, GameUnpackerDialog):
         if not GameUnpackerDialog.objectName():
             GameUnpackerDialog.setObjectName(u"GameUnpackerDialog")
-        GameUnpackerDialog.resize(661, 260)
+        GameUnpackerDialog.resize(661, 323)
         self.label = QLabel(GameUnpackerDialog)
         self.label.setObjectName(u"label")
         self.label.setGeometry(QRect(20, 40, 71, 61))
@@ -39,7 +39,7 @@ class Ui_GameUnpackerDialog(object):
         self.unpackBtn.setGeometry(QRect(100, 130, 491, 24))
         self.autoCheckBox = QCheckBox(GameUnpackerDialog)
         self.autoCheckBox.setObjectName(u"autoCheckBox")
-        self.autoCheckBox.setGeometry(QRect(100, 220, 551, 20))
+        self.autoCheckBox.setGeometry(QRect(20, 290, 551, 20))
         self.autoCheckBox.setChecked(True)
         self.label_2 = QLabel(GameUnpackerDialog)
         self.label_2.setObjectName(u"label_2")
@@ -49,6 +49,13 @@ class Ui_GameUnpackerDialog(object):
         self.maxThreadsLineEdit.setObjectName(u"maxThreadsLineEdit")
         self.maxThreadsLineEdit.setGeometry(QRect(200, 188, 391, 20))
         self.maxThreadsLineEdit.setPlaceholderText(u"")
+        self.overwriteCheckBox = QCheckBox(GameUnpackerDialog)
+        self.overwriteCheckBox.setObjectName(u"overwriteCheckBox")
+        self.overwriteCheckBox.setGeometry(QRect(20, 230, 571, 20))
+        self.unpackAllCheckBox = QCheckBox(GameUnpackerDialog)
+        self.unpackAllCheckBox.setObjectName(u"unpackAllCheckBox")
+        self.unpackAllCheckBox.setGeometry(QRect(20, 260, 631, 20))
+        self.unpackAllCheckBox.setChecked(False)
 
         self.retranslateUi(GameUnpackerDialog)
 
@@ -65,5 +72,7 @@ class Ui_GameUnpackerDialog(object):
         self.selectFileText.setPlaceholderText(QCoreApplication.translate("GameUnpackerDialog", u"input or choose or drag the game you want to unpack it's rpa files.Example:F:/DemoGame.exe", None))
         self.unpackBtn.setText(QCoreApplication.translate("GameUnpackerDialog", u"Unpack", None))
         self.autoCheckBox.setText(QCoreApplication.translate("GameUnpackerDialog", u"Auto close the game after unpacked", None))
+        self.overwriteCheckBox.setText(QCoreApplication.translate("GameUnpackerDialog", u"Overwrite the rpy file if exsits", None))
+        self.unpackAllCheckBox.setText(QCoreApplication.translate("GameUnpackerDialog", u"Unpack all files (if disabled only script files will be unpacked)", None))
     # retranslateUi
 

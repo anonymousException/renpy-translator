@@ -18,7 +18,7 @@ from custom_engine_form import sourceDic, targetDic
 from my_log import log_print
 from renpy_translate import engineDic, language_header, translateThread, translate_threads
 from engine_form import MyEngineForm
-from game_unpacker_form import bat, expand_file, finish_flag
+from game_unpacker_form import finish_flag
 from extract_runtime_form import extract_finish
 import extract_runtime_form
 import renpy_extract
@@ -72,11 +72,18 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
         _read_lines = f.readlines()
         f.close()
         max_thread_num = 12
+        is_script_only = True
         for idx, _line in enumerate(_read_lines):
             if _line.startswith('    MAX_UNPACK_THREADS = '):
                 max_thread_num = _line[len('    MAX_UNPACK_THREADS = '):].strip().strip('\n')
                 break
+        for idx, _line in enumerate(_read_lines):
+            if _line.startswith('    SCRIPT_ONLY = '):
+                is_script_only = _line[len('    SCRIPT_ONLY = '):].strip().strip('\n') == 'True'
+                break
         self.maxThreadsLineEdit.setText(str(max_thread_num))
+
+        self.unpackAllCheckBox.setChecked(not is_script_only)
         _thread.start_new_thread(self.update, ())
 
     def on_start_button_clicked(self):
@@ -355,6 +362,10 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
                     if _line.startswith('    MAX_UNPACK_THREADS = '):
                         _read_lines[idx] = f'    MAX_UNPACK_THREADS = {self.maxThreadsLineEdit.text()}\n'
                         break
+                for idx, _line in enumerate(_read_lines):
+                    if _line.startswith('    SCRIPT_ONLY = '):
+                        _read_lines[idx] = f'    SCRIPT_ONLY = {str(not self.unpackAllCheckBox.isChecked())}\n'
+                        break
                 f = io.open(dir + '/game/' + game_unpacker_form.hook_script, mode='w', encoding='utf-8')
                 f.writelines(_read_lines)
                 f.close()
@@ -545,7 +556,7 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
                         pid = f.read()
                         f.close()
                         os.remove(target)
-                    t = game_unpacker_form.unrpycThread(dir, pid, True)
+                    t = game_unpacker_form.unrpycThread(dir, self.path, pid, self.overwriteCheckBox.isChecked(), True)
                     t.start()
                     self.path = None
                     self.dir = dir

@@ -861,7 +861,7 @@
     </message>
     <message>
         <location filename="../font_replace_form.py" line="54"/>
-        <location filename="../one_key_translate_form.py" line="360"/>
+        <location filename="../one_key_translate_form.py" line="393"/>
         <source>select the file font which supports the translated language</source>
         <translation>ফাইল ফন্ট নির্বাচন করুন যা অনুবাদিত ভাষা সমর্থন করে</translation>
     </message>
@@ -917,7 +917,7 @@
 <context>
     <name>GameUnpackerDialog</name>
     <message>
-        <location filename="../game_unpacker_form.py" line="93"/>
+        <location filename="../game_unpacker_form.py" line="144"/>
         <source>select the game file you want to unpack</source>
         <translation>আপনি যে গেম ফাইলটি আনপ্যাক করতে চান তা নির্বাচন করুন</translation>
     </message>
@@ -954,6 +954,16 @@
         <location filename="../game_unpacker.ui" line="84"/>
         <source>Auto close the game after unpacked</source>
         <translation>আনপ্যাক করার পরে গেমটি স্বয়ংক্রিয়ভাবে বন্ধ করুন</translation>
+    </message>
+    <message>
+        <location filename="../game_unpacker.ui" line="126"/>
+        <source>Overwrite the rpy file if exsits</source>
+        <translation>rpy ফাইলটি বিদ্যমান থাকলে ওভাররাইট করুন</translation>
+    </message>
+    <message>
+        <location filename="../game_unpacker.ui" line="139"/>
+        <source>Unpack all files (if disabled only script files will be unpacked)</source>
+        <translation>সমস্ত ফাইল আনপ্যাক করুন (অক্ষম থাকলে শুধুমাত্র স্ক্রিপ্ট ফাইলগুলি আনপ্যাক করা হবে)</translation>
     </message>
     <message>
         <source>Clean temporary files</source>
@@ -1185,8 +1195,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.3.3</source>
-        <translation>সংস্করণ 2.3.3</translation>
+        <source>Version 2.3.4</source>
+        <translation>সংস্করণ 2.3.4</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="113"/>
@@ -1575,12 +1585,22 @@
         <translation>আন্ডারলাইন অন্তর্ভুক্ত বিষয়বস্তু নিষ্কাশন এড়িয়ে যান</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="480"/>
+        <location filename="../one_key_translate.ui" line="477"/>
+        <source>Overwrite the rpy file if exsits</source>
+        <translation>rpy ফাইলটি বিদ্যমান থাকলে ওভাররাইট করুন</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="490"/>
+        <source>Unpack all files (if disabled only script files will be unpacked)</source>
+        <translation>সমস্ত ফাইল আনপ্যাক করুন (অক্ষম থাকলে শুধুমাত্র স্ক্রিপ্ট ফাইলগুলি আনপ্যাক করা হবে)</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate_form.py" line="513"/>
         <source>select the game file</source>
         <translation>গেম ফাইল নির্বাচন করুন</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="566"/>
+        <location filename="../one_key_translate_form.py" line="599"/>
         <source>One Key Translate Complete</source>
         <translation>এক কী অনুবাদ সম্পূর্ণ</translation>
     </message>
