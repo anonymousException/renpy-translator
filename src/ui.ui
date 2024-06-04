@@ -500,6 +500,7 @@
     <addaction name="actionEnglish"/>
     <addaction name="actionFrench"/>
     <addaction name="actionGerman"/>
+    <addaction name="actionGreek"/>
     <addaction name="actionHindi"/>
     <addaction name="actionJapanese"/>
     <addaction name="actionKorean"/>
@@ -777,6 +778,11 @@
   <action name="actionpack_game_files">
    <property name="text">
     <string>pack game files</string>
+   </property>
+  </action>
+  <action name="actionGreek">
+   <property name="text">
+    <string>Greek</string>
    </property>
   </action>
  </widget>

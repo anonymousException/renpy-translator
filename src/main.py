@@ -142,6 +142,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.actionEnglish.triggered.connect(lambda: self.to_language('english'))
         self.actionFrench.triggered.connect(lambda: self.to_language('french'))
         self.actionGerman.triggered.connect(lambda: self.to_language('german'))
+        self.actionGreek.triggered.connect(lambda: self.to_language('greek'))
         self.actionHindi.triggered.connect(lambda: self.to_language('hindi'))
         self.actionJapanese.triggered.connect(lambda: self.to_language('japanese'))
         self.actionKorean.triggered.connect(lambda: self.to_language('korean'))
