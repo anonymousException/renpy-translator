@@ -24,7 +24,8 @@ jobs:
         spec: "main.spec"
 
     - run: cp -r src/supported_language src/dist/windows/main
-    - run: cp -r src/unrpyc src/dist/windows/main
+    - run: cp -r src/unrpyc_python3 src/dist/windows/main
+    - run: cp -r src/unrpyc_python2 src/dist/windows/main
     - run: cp -r src/qm src/dist/windows/main
     - run: cp src/custom.txt src/dist/windows/main/custom.txt
     - run: cp src/hook_unrpa.rpy src/dist/windows/main/hook_unrpa.rpy
