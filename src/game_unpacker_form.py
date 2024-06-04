@@ -42,7 +42,7 @@ def get_unrpyc_command(game_path):
     python_path = get_python_path(game_path)
     game_dir = os.path.dirname(game_path)
     unrpyc_path = game_dir + '/unrpyc.py'
-    command = python_path + ' "' + unrpyc_path + '" "' + game_dir + '"'
+    command = python_path + ' -O "' + unrpyc_path + '" "' + game_dir + '"'
     return command
 
 
@@ -81,7 +81,10 @@ class unrpycThread(threading.Thread):
                 subprocess.Popen("taskkill /F /T /PID " + self.p, shell=True,
                                  creationflags=0x08000000, text=True, encoding='utf-8')
             zip_dir(self.dir + '/renpy/common', self.dir + '/common_backup.zip')
-            copy_files_under_directory_to_directory(os.getcwd() + '/unrpyc', self.dir)
+            if is_python2(self.path):
+                copy_files_under_directory_to_directory(os.getcwd() + '/unrpyc_python2', self.dir)
+            else:
+                copy_files_under_directory_to_directory(os.getcwd() + '/unrpyc_python3', self.dir)
             command = get_unrpyc_command(self.path)
             if self.is_over_write:
                 command = command + ' --clobber'

@@ -356,6 +356,9 @@ def worker(t):
             print(traceback.format_exc())
         return False
 
+def is_ascii(string):
+    return all(ord(char) < 128 for char in string)
+
 def main():
     # python27 unrpyc.py [-c] [-d] [--python-screens|--ast-screens|--no-screens] file [file ...]
     parser = argparse.ArgumentParser(description="Decompile .rpyc/.rpymc files")
@@ -433,9 +436,10 @@ def main():
     for i in filesAndDirs:
         if path.isdir(i):
             for dirpath, dirnames, filenames in walk(i):
-                files.extend(path.join(dirpath, j) for j in filenames if len(j) >= 5 and j.endswith(('.rpyc', '.rpymc', '.rpypig')))
+                files.extend(path.join(dirpath, j) for j in filenames if len(j) >= 5 and is_ascii(j) and j.endswith(('.rpyc', '.rpymc', '.rpypig')))
         else:
-            files.append(i)
+            if is_ascii(i):
+                files.append(i)
 
     # Check if we actually have files. Don't worry about
     # no parameters passed, since ArgumentParser catches that

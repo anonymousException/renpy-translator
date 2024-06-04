@@ -1,6 +1,8 @@
+import io
 import os
 import platform
 import shutil
+import subprocess
 
 
 def is_64_bit():
@@ -26,6 +28,24 @@ def get_python_path(game_path):
                 python_path = target
                 break
     return python_path
+
+
+def get_python_version(game_path):
+    command = get_python_path(game_path) + ' -O --version'
+    f = io.open(os.getcwd() + '/tmp_python_version.txt', 'w', encoding='utf-8')
+    p = subprocess.Popen(command, shell=True, stdout=f, stderr=f,
+                         creationflags=0x08000000, text=True, encoding='utf-8')
+    p.wait()
+    f.close()
+    f = io.open(os.getcwd() + '/tmp_python_version.txt', 'r', encoding='utf-8')
+    python_version = f.read()
+    f.close()
+    os.remove(os.getcwd() + '/tmp_python_version.txt')
+    return python_version
+
+
+def is_python2(game_path):
+    return get_python_version(game_path).startswith('Python 2.')
 
 
 def get_py_path(game_path):
