@@ -89,10 +89,15 @@ class unrpycThread(threading.Thread):
             if self.is_over_write:
                 command = command + ' --clobber'
             log_print(command)
+            if os.path.isfile('unrpyc.complete'):
+                os.remove('unrpyc.complete')
             p = subprocess.Popen(command, shell=True, stdout=my_log.f, stderr=my_log.f,
                                  creationflags=0x08000000, text=True, encoding='utf-8')
             p.wait()
-            time.sleep(1)
+            while True:
+                if os.path.isfile('unrpyc.complete'):
+                    os.remove('unrpyc.complete')
+                    break
             clean_unrpyc(self.dir)
             io.open(self.dir + '/unren.finish', mode='w', encoding='utf-8').close()
         except Exception as e:

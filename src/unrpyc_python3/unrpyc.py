@@ -20,6 +20,8 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 import argparse
+import io
+import os
 import sys
 from os import path, walk
 import glob
@@ -483,3 +485,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+    io.open(os.getcwd() + '/unrpyc.complete', 'w', encoding='utf-8').close()

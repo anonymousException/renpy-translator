@@ -21,6 +21,8 @@
 # SOFTWARE.
 
 import argparse
+import io
+import os
 from os import path, walk
 import codecs
 import glob
@@ -371,3 +373,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+    io.open(os.getcwd() + '/unrpyc.complete', 'w', encoding='utf-8').close()
