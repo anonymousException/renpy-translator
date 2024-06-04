@@ -10,7 +10,7 @@ init python early hide:
 
     unpack_file_threads = []
     MAX_UNPACK_THREADS = 12
-    SCRIPT_ONLY = False
+    SCRIPT_ONLY = True
     unpack_semaphore = threading.Semaphore(MAX_UNPACK_THREADS)
     non_ascii_file_list = []
 
