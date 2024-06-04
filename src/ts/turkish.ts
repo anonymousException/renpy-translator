@@ -1270,8 +1270,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.3.2</source>
-        <translation>Sürüm 2.3.2</translation>
+        <source>Version 2.3.3</source>
+        <translation>Sürüm 2.3.3</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="391"/>

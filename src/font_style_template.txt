@@ -1,3 +1,13 @@
+init python early hide:
+    old_load_face = renpy.text.font.load_face
+
+    def my_load_face(fn):
+        if renpy.game.preferences.language == "{tl_name}":
+            fn = "{font_path}"
+        return old_load_face(fn)
+
+    renpy.text.font.load_face = my_load_face
+
 translate {tl_name} python:
     import os
     import sys
