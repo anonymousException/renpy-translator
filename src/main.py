@@ -3,6 +3,7 @@ import ctypes
 import io
 import multiprocessing
 import os.path
+import shutil
 import subprocess
 import sys
 import time
@@ -488,14 +489,18 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
             self.wait()
 
         def run(self):
-            f = io.open(log_path, 'r+',encoding='utf-8')
+            f = io.open(log_path, 'r+', encoding='utf-8')
             try:
                 self.update_date.emit(f.read())
             except Exception as e:
                 f.close()
+                shutil.copyfile(log_path, log_path + '.error.txt')
                 f = io.open(log_path, 'w')
                 f.write('Log Format UnicodeEncodeError! Log Cleared')
                 f.close()
+                command = 'notepad ' + log_path + '.error.txt'
+                p = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                                     creationflags=0x08000000, text=True, encoding='utf-8')
                 f = io.open(log_path, 'r+', encoding='utf-8')
             f.close()
 

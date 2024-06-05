@@ -42,7 +42,7 @@ def get_unrpyc_command(game_path):
     python_path = get_python_path(game_path)
     game_dir = os.path.dirname(game_path)
     unrpyc_path = game_dir + '/unrpyc.py'
-    command = python_path + ' -O "' + unrpyc_path + '" "' + game_dir + '"'
+    command = '"' + python_path + '" -O "' + unrpyc_path + '" "' + game_dir + '"'
     return command
 
 
@@ -179,7 +179,7 @@ class MyGameUnpackerForm(QDialog, Ui_GameUnpackerDialog):
                 f = io.open(hook_script, mode='w', encoding='utf-8')
                 f.writelines(_read_lines)
                 f.close()
-                command = path
+                command = '"' + path + '"'
                 self.path = path
                 f = io.open(dir + finish_flag, 'w')
                 f.write('waiting')

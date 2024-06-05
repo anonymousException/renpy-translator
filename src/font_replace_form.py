@@ -79,7 +79,7 @@ class MyFontReplaceForm(QDialog, Ui_FontReplaceDialog):
             select_dir = select_dir.replace('file:///', '')
             if select_dir[len(select_dir) - 1] != '/' and select_dir[len(select_dir) - 1] != '\\':
                 select_dir = select_dir + '/'
-            command = 'notepad ' + select_dir + 'gui.rpy'
+            command = 'notepad ' + '"' + select_dir + 'gui.rpy' + '"'
             p = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
                                  creationflags=0x08000000, text=True, encoding='utf-8')
             p.wait()

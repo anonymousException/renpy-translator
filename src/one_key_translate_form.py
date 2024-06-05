@@ -372,7 +372,7 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
                 f = io.open(game_unpacker_form.hook_script, mode='w', encoding='utf-8')
                 f.writelines(_read_lines)
                 f.close()
-                command = path
+                command = '"' +path+'"'
                 self.path = path
                 f = io.open(dir + finish_flag, 'w')
                 f.write('waiting')

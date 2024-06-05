@@ -382,7 +382,7 @@ def pack_from_list(python_path, pack_list, target_path):
         if not os.path.isfile(target_path):
             i = pack_list[0]
             basename = i[len(game_dir):].strip('/').strip('\\')
-            command = python_path + f' -O "{rpa_script_path}" -c "{target_path}" "{basename}"="{i}"'
+            command = '"' + python_path + '"' + f' -O "{rpa_script_path}" -c "{target_path}" "{basename}"="{i}"'
             log_print(command)
             p = subprocess.Popen(command, shell=True, stdout=my_log.f, stderr=my_log.f,
                                  creationflags=0x08000000, text=True, encoding='utf-8')
@@ -390,7 +390,7 @@ def pack_from_list(python_path, pack_list, target_path):
             pack_list.pop(0)
         for i in pack_list:
             basename = i[len(game_dir):].strip('/').strip('\\')
-            command = python_path + f' -O "{rpa_script_path}" -a "{target_path}" "{basename}"="{i}"'
+            command = '"' + python_path + '"' + f' -O "{rpa_script_path}" -a "{target_path}" "{basename}"="{i}"'
             log_print(command)
             p = subprocess.Popen(command, shell=True, stdout=my_log.f, stderr=my_log.f,
                                  creationflags=0x08000000, text=True, encoding='utf-8')
