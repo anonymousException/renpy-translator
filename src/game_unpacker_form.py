@@ -82,9 +82,9 @@ class unrpycThread(threading.Thread):
                                  creationflags=0x08000000, text=True, encoding='utf-8')
             zip_dir(self.dir + '/renpy/common', self.dir + '/common_backup.zip')
             if is_python2(self.path):
-                copy_files_under_directory_to_directory(os.getcwd() + '/unrpyc_python2', self.dir)
+                copy_files_under_directory_to_directory(os.getcwd() + '/resource/unrpyc_python2', self.dir)
             else:
-                copy_files_under_directory_to_directory(os.getcwd() + '/unrpyc_python3', self.dir)
+                copy_files_under_directory_to_directory(os.getcwd() + '/resource/unrpyc_python3', self.dir)
             command = get_unrpyc_command(self.path)
             if self.is_over_write:
                 command = command + ' --clobber'
