@@ -30,22 +30,17 @@ def get_python_path(game_path):
     return python_path
 
 
-def get_python_version(game_path):
-    command = get_python_path(game_path) + ' -O --version'
-    f = io.open(os.getcwd() + '/tmp_python_version.txt', 'w', encoding='utf-8')
-    p = subprocess.Popen(command, shell=True, stdout=f, stderr=f,
-                         creationflags=0x08000000, text=True, encoding='utf-8')
-    p.wait()
-    f.close()
-    f = io.open(os.getcwd() + '/tmp_python_version.txt', 'r', encoding='utf-8')
-    python_version = f.read()
-    f.close()
-    os.remove(os.getcwd() + '/tmp_python_version.txt')
-    return python_version
-
-
 def is_python2(game_path):
-    return get_python_version(game_path).startswith('Python 2.')
+    python_dir = os.path.dirname(get_python_path(game_path))
+    paths = os.walk(python_dir, topdown=False)
+    is_py2 = False
+    for path, dir_lst, file_lst in paths:
+        for file_name in file_lst:
+            i = os.path.join(path, file_name)
+            if 'python2' in i or 'py2' in i:
+                is_py2 = True
+                break
+    return is_py2
 
 
 def get_py_path(game_path):
