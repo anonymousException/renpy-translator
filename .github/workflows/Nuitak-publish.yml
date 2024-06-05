@@ -35,8 +35,8 @@ jobs:
         noinclude-data-files: src\resource
 
     - run: mkdir dist\windows
-    - run: xcopy src\resource dist\windows\resource /E
-    - run: xcopy build\main.dist dist\windows /E
+    - run: xcopy /E src\resource\ dist\windows\resource\
+    - run: xcopy /E build\main.dist\ dist\windows\
     - run: xcopy src\supported_language dist\windows\supported_language\
     - run: xcopy src\qm dist\windows\qm\
     - run: xcopy src\custom_engine dist\windows\custom_engine\
