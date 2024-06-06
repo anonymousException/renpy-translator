@@ -150,32 +150,15 @@ def GenGuiFontsOriginal(p, tl_name, font_path):
     appendMode = False
     _read = ''
     pythonBeginLine = 'translate ' + tl_name + ' python:'
-    if (os.path.isfile(guiPath)):
+    if os.path.isfile(guiPath):
         f = io.open(guiPath, 'r', encoding='utf-8')
         _read = f.read()
         f.close()
         if (pythonBeginLine in _read):
             appendMode = True
-    result = ExtractStyleFontListFromDirectory(p)
-    if (appendMode):
-        f = io.open(guiPath, 'a+', encoding='utf-8')
-        for key, value in result.items():
-            if key in _read:
-                continue
-            f.write('\n')
-            # content = 'translate ' + tl_name + ' ' + key + '\n'  +value['content'] +'    #' +value['font'].lstrip() + '\n' + value['font']
-            fontLine = value['font']
-            fontContent = ExtractFontContent(fontLine)
-            replacedFont = fontLine.replace(fontContent, 'font gui.text_font')
-            # print(replacedFont)
-            content = 'translate ' + tl_name + ' ' + key + '\n' + value['content'] + '    #' + value[
-                'font'].lstrip() + '\n' + replacedFont
-            # print(value['file'])
-            # print(content)
-            f.write(content)
-            f.write('\n')
-        f.close()
-        log_print(guiPath + ' generated append!')
+    #result = ExtractStyleFontListFromDirectory(p)
+    if appendMode:
+        pass
     else:
         game_fonts_path = p + '/fonts/'
         if os.path.exists(game_fonts_path) == False:
@@ -204,19 +187,19 @@ def GenGuiFontsOriginal(p, tl_name, font_path):
         # print(header)
         f.write(header)
         f.write('\n')
-        for key, value in result.items():
-            f.write('\n')
-            # content = 'translate ' + tl_name + ' ' + key + '\n'  +value['content'] +'    #' +value['font'].lstrip() + '\n' + value['font']
-            fontLine = value['font']
-            fontContent = ExtractFontContent(fontLine)
-            replacedFont = fontLine.replace(fontContent, 'font gui.text_font')
-            # print(replacedFont)
-            content = 'translate ' + tl_name + ' ' + key + '\n' + value['content'] + '    #' + value[
-                'font'].lstrip() + '\n' + replacedFont
-            # print(value['file'])
-            # print(content)
-            f.write(content)
-            f.write('\n')
+        # for key, value in result.items():
+        #     f.write('\n')
+        #     # content = 'translate ' + tl_name + ' ' + key + '\n'  +value['content'] +'    #' +value['font'].lstrip() + '\n' + value['font']
+        #     fontLine = value['font']
+        #     fontContent = ExtractFontContent(fontLine)
+        #     replacedFont = fontLine.replace(fontContent, 'font gui.text_font')
+        #     # print(replacedFont)
+        #     content = 'translate ' + tl_name + ' ' + key + '\n' + value['content'] + '    #' + value[
+        #         'font'].lstrip() + '\n' + replacedFont
+        #     # print(value['file'])
+        #     # print(content)
+        #     f.write(content)
+        #     f.write('\n')
         f.close()
         log_print(guiPath + ' generated success!')
 
@@ -265,7 +248,7 @@ def GenGuiFonts(path, fp):
     tl = path[index + 3:index2]
     GenGuiFontsOriginal(path[:index], tl, fp)
     font_name = os.path.basename(fp)
-    replace_tl_folder(path[:index] + 'tl/' + tl, font_name)
+    #replace_tl_folder(path[:index] + 'tl/' + tl, font_name)
 
 # path = 'F:/Games/RenPy/Outland-Wanderer-0.0.21-win/game'
 # tl = 'schinese'
