@@ -102,9 +102,10 @@ def ExtractFromFile(p, is_open_filter, filter_length, is_skip_underline):
             continue
 
         if is_in__p:
-            p_content = p_content + line_content + '\n'
+            p_content = p_content + line_content
             if line_content.endswith('""")'):
-                p_content = p_content.rstrip('\n')
+                p_content = p_content.strip()[6:-4]
+                p_content = p_content.rstrip('\n').replace('\n','\\n')
                 #log_print(p_content)
                 if filter_length != 9999:
                     log_print(f'Found _p() in {p}:{index+1}')
