@@ -1189,8 +1189,8 @@
     </message>
     <message>
         <location filename="../ui.ui" line="78"/>
-        <source>Version 2.3.6</source>
-        <translation>バージョン2.3.6</translation>
+        <source>Version 2.3.7</source>
+        <translation>バージョン2.3.7</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="113"/>
