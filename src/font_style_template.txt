@@ -18,5 +18,4 @@ translate {tl_name} python:
         gui.headline_text_font = FontGroup().add(font_path, 0x2E80, 0xffff).add(font_path, 0x0000, 0xffff)
 
     font_path = "{font_path}"
-#replace defined font
     change_font(font_path)
