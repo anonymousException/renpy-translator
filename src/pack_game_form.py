@@ -12,7 +12,7 @@ from PySide6.QtWidgets import QDialog, QFileDialog, QMenu
 from my_log import log_print
 from editor_form import open_directory_and_select_file
 
-from call_game_python import get_py_path, get_python_path
+from call_game_python import get_py_path, get_python_path_from_game_path
 from pack_game import Ui_PackGameDialog
 import add_change_language_entrance_form
 import my_log
@@ -411,7 +411,7 @@ def get_script_file_list(game_dir):
 def pack_game_files(path, package_name, pack_list, is_show_directory):
     dir = os.path.dirname(path)
     game_dir = dir + '/game'
-    python_path = get_python_path(path)
+    python_path = get_python_path_from_game_path(path)
     if python_path is None:
         log_print(f'can not locate python.exe , please check {path}')
     target_path = dir + '/game/' + package_name + '.rpa'

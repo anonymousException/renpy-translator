@@ -10,6 +10,7 @@ import traceback
 import pathlib
 
 from my_log import log_print
+from call_game_python import is_python2_from_game_dir
 from string_tool import remove_upprintable_chars, EncodeBracketContent, EncodeBrackets, replace_all_blank, \
     replace_unescaped_quotes
 
@@ -70,7 +71,7 @@ class extractThread(threading.Thread):
             log_print(msg)
 
 
-def ExtractFromFile(p, is_open_filter, filter_length, is_skip_underline):
+def ExtractFromFile(p, is_open_filter, filter_length, is_skip_underline, is_py2):
     e = set()
     f = io.open(p, 'r+', encoding='utf-8')
     _read = f.read()
@@ -102,10 +103,15 @@ def ExtractFromFile(p, is_open_filter, filter_length, is_skip_underline):
             continue
 
         if is_in__p:
-            p_content = p_content + line_content
+            sep = '\n'
+            if is_py2:
+                sep = '\\n'
+            p_content = p_content + line_content + sep
             if line_content.endswith('""")'):
-                p_content = p_content.strip()[6:-4]
-                p_content = p_content.rstrip('\n').replace('\n','\\n')
+                p_content = p_content.rstrip(sep)
+                if is_py2:
+                    p_content = p_content.strip()[6:-4]
+                    p_content = p_content.rstrip('\n').replace('\n', '\\n')
                 #log_print(p_content)
                 if filter_length != 9999:
                     log_print(f'Found _p() in {p}:{index+1}')
@@ -235,7 +241,7 @@ def CreateEmptyFileIfNotExsit(p):
                 open(target, 'w').close()
 
 
-def GetExtractedSet(p, is_skip_underline):
+def GetExtractedSet(p, is_skip_underline, is_py2):
     if (p[len(p) - 1] != '/' and p[len(p) - 1] != '\\'):
         p = p + '/'
     e = set()
@@ -245,7 +251,7 @@ def GetExtractedSet(p, is_skip_underline):
             i = os.path.join(path, file_name)
             if (file_name.endswith("rpy") == False):
                 continue
-            extracted = ExtractFromFile(i, False, 9999, is_skip_underline)
+            extracted = ExtractFromFile(i, False, 9999, is_skip_underline, is_py2)
             both = e & extracted
             if len(both) > 0:
                 f = io.open(i, 'r', encoding='utf-8')
@@ -266,7 +272,7 @@ def GetExtractedSet(p, is_skip_underline):
     return e
 
 
-def WriteExtracted(p, extractedSet, is_open_filter, filter_length, is_gen_empty, is_skip_underline):
+def WriteExtracted(p, extractedSet, is_open_filter, filter_length, is_gen_empty, is_skip_underline, is_py2):
     if (p[len(p) - 1] != '/' and p[len(p) - 1] != '\\'):
         p = p + '/'
     index = p.rfind('tl\\')
@@ -293,7 +299,7 @@ def WriteExtracted(p, extractedSet, is_open_filter, filter_length, is_gen_empty,
                 log_print(target + " not exists skip!")
                 continue
 
-            e = ExtractFromFile(target, is_open_filter, filter_length, is_skip_underline)
+            e = ExtractFromFile(target, is_open_filter, filter_length, is_skip_underline, is_py2)
             eDiff = e - extractedSet
             if len(eDiff) > 0:
                 f = io.open(i, 'a+', encoding='utf-8')
@@ -360,8 +366,9 @@ def ExtractWriteFile(p, tl_name, is_open_filter, filter_length, is_gen_empty, gl
             pass
     if (os.path.isfile(target) == False):
         open(target, 'w').close()
-    e = ExtractFromFile(p, is_open_filter, filter_length, is_skip_underline)
-    extractedSet = ExtractFromFile(target, False, 9999, is_skip_underline)
+    is_py2 = is_python2_from_game_dir(targetDir.rstrip('/').rstrip('\\') + '/../../../')
+    e = ExtractFromFile(p, is_open_filter, filter_length, is_skip_underline, is_py2)
+    extractedSet = ExtractFromFile(target, False, 9999, is_skip_underline, is_py2)
     eDiff = e - extractedSet
     if len(eDiff) > 0:
         f = io.open(target, 'a+', encoding='utf-8')
@@ -395,7 +402,8 @@ def ExtractWriteFile(p, tl_name, is_open_filter, filter_length, is_gen_empty, gl
 
 
 def ExtractAllFilesInDir(dirName, is_open_filter, filter_length, is_gen_empty, is_skip_underline):
+    is_py2 = is_python2_from_game_dir(dirName + '/../../../')
     CreateEmptyFileIfNotExsit(dirName)
-    ret = GetExtractedSet(dirName, is_skip_underline)
-    WriteExtracted(dirName, ret, is_open_filter, filter_length, is_gen_empty, is_skip_underline)
-    ret = GetExtractedSet(dirName, is_skip_underline)
+    ret = GetExtractedSet(dirName, is_skip_underline, is_py2)
+    WriteExtracted(dirName, ret, is_open_filter, filter_length, is_gen_empty, is_skip_underline, is_py2)
+    ret = GetExtractedSet(dirName, is_skip_underline, is_py2)

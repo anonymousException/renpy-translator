@@ -9,8 +9,7 @@ def is_64_bit():
     return platform.architecture()[0] == '64bit'
 
 
-def get_python_path(game_path):
-    game_dir = os.path.dirname(game_path) + '/'
+def get_python_path_from_game_dir(game_dir):
     lib_list_64 = ['windows-x86_64', 'py2-windows-x86_64', 'py3-windows-x86_64']
     lib_list_86 = ['windows-i686', 'py2-windows-i686', 'py3-windows-i686']
     python_path = None
@@ -30,8 +29,12 @@ def get_python_path(game_path):
     return python_path
 
 
-def is_python2(game_path):
-    python_dir = os.path.dirname(get_python_path(game_path))
+def get_python_path_from_game_path(game_path):
+    game_dir = os.path.dirname(game_path) + '/'
+    return get_python_path_from_game_dir(game_dir)
+
+
+def is_python2_with_python_dir(python_dir):
     paths = os.walk(python_dir, topdown=False)
     is_py2 = False
     for path, dir_lst, file_lst in paths:
@@ -41,6 +44,22 @@ def is_python2(game_path):
                 is_py2 = True
                 break
     return is_py2
+
+
+def is_python2_from_game_dir(game_dir):
+    try:
+        python_dir = os.path.dirname(get_python_path_from_game_dir(game_dir))
+    except Exception:
+        return True
+    return is_python2_with_python_dir(python_dir)
+
+
+def is_python2_from_game_path(game_path):
+    try:
+        python_dir = os.path.dirname(get_python_path_from_game_path(game_path))
+    except Exception:
+        return True
+    return is_python2_with_python_dir(python_dir)
 
 
 def get_py_path(game_path):

@@ -11,7 +11,7 @@ from PySide6.QtWidgets import QDialog, QFileDialog
 from my_log import log_print
 from editor_form import open_directory_and_select_file
 from extraction_official import Ui_ExtractionOfficialDialog
-from call_game_python import get_py_path, get_python_path
+from call_game_python import get_py_path
 import my_log
 
 
