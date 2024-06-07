@@ -39,7 +39,7 @@ def set_window_on_top(hwnd):
 
 
 def get_unrpyc_command(game_path):
-    python_path = get_python_path(game_path)
+    python_path = get_python_path_from_game_path(game_path)
     game_dir = os.path.dirname(game_path)
     unrpyc_path = game_dir + '/unrpyc.py'
     command = '"' + python_path + '" -O "' + unrpyc_path + '" "' + game_dir + '"'
