@@ -10,7 +10,7 @@ from PySide6.QtGui import QIcon, QStandardItem, QStandardItemModel, QAction
 from PySide6.QtWidgets import QDialog, QFileDialog, QMenu
 
 from my_log import log_print
-from editor_form import open_directory_and_select_file
+from html_util import open_directory_and_select_file
 
 from call_game_python import get_py_path, get_python_path_from_game_path
 from pack_game import Ui_PackGameDialog

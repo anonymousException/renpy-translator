@@ -11,13 +11,18 @@ import traceback
 import webbrowser
 import json
 
+import requests
 from PySide6 import QtWidgets, QtCore
 import sys
 
-from PySide6.QtCore import Qt, QDir, QThread, Signal, QCoreApplication, QTranslator, QLocale, QLibraryInfo
+from PySide6.QtCore import Qt, QDir, QThread, Signal, QCoreApplication, QTranslator, QLocale, QLibraryInfo, QEvent, \
+    QObject
 from PySide6.QtGui import QIcon, QIntValidator, QTextCursor
 from PySide6.QtWidgets import QFileDialog, QListView, QAbstractItemView, QTreeView, QDialog, QPushButton, QLineEdit, \
-    QVBoxLayout, QMainWindow, QApplication, QButtonGroup
+    QVBoxLayout, QMainWindow, QApplication, QButtonGroup, QLabel, QMessageBox
+
+from string_tool import EncodeBrackets, isAllPunctuations
+from translated_form import MyTranslatedForm
 
 os.environ['REQUESTS_CA_BUNDLE'] = os.path.join(os.path.dirname(sys.argv[0]), 'cacert.pem')
 os.environ['NO_PROXY'] = '*'
@@ -33,7 +38,8 @@ from extract_runtime_form import MyExtractionRuntimeForm
 from add_change_language_entrance_form import MyAddChangeLanguageEntranceForm
 from one_key_translate_form import MyOneKeyTranslateForm
 from pack_game_form import MyPackGameForm
-from renpy_translate import translateThread, translate_threads, engineList, engineDic, language_header
+from renpy_translate import translateThread, translate_threads, engineList, engineDic, language_header, \
+    get_translated_dic, web_brower_export_name, get_rpy_info, rpy_info_dic, get_translated, web_brower_translate
 from proxy import Ui_ProxyDialog
 from engine import Ui_EngineDialog
 from ui import Ui_MainWindow
@@ -45,6 +51,8 @@ from qt_material import apply_stylesheet
 targetDic = dict()
 sourceDic = dict()
 translator = QTranslator()
+
+VERSION = '2.3.8'
 
 
 class MyProxyForm(QDialog, Ui_ProxyDialog):
@@ -85,6 +93,29 @@ class MyCopyrightForm(QDialog, Ui_CopyrightDialog):
         webbrowser.open(self.url_label.text())
 
 
+def get_latest_release(user, repo):
+    url = f"https://api.github.com/repos/{user}/{repo}/releases/latest"
+    response = requests.get(url)
+    if response.status_code == 200:
+        data = response.json()
+        return data['tag_name']
+    else:
+        return None
+
+
+class ClickableLabel(QLabel):
+    # 定义一个信号
+    clicked = Signal()
+
+    def __init__(self, parent=None):
+        super(ClickableLabel, self).__init__(parent)
+        self.setStyleSheet("background-color: lightgray;")
+
+    def mousePressEvent(self, event):
+        if event.button() == Qt.LeftButton:
+            self.clicked.emit()
+
+
 class MyMainForm(QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
         super(MyMainForm, self).__init__(parent)
@@ -98,6 +129,9 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.translating = False
         self.extracting = False
         self.local_glossary = None
+        self.is_waiting_translated = False
+        self.select_files = None
+        self.select_dir = None
         self.localGlossaryCheckBox.clicked.connect(self.on_local_glossary_checkbox_state_changed)
         self.buttonGroup = QButtonGroup()
         self.buttonGroup.addButton(self.originalRadioButton, 1)
@@ -106,6 +140,14 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.buttonGroup.buttonClicked.connect(self.button_group_clicked)
         self.local_glossary_form = MyLocalGlossaryForm(parent=self)
         self.filterLengthLineEdit.setValidator(QIntValidator(1, 99, self))
+        buttonClickedLabel = ClickableLabel()
+        self.versionLabel = buttonClickedLabel
+        self.versionLabel.setText(QCoreApplication.translate('MainWindow', 'Version',
+                                                             None) + ' ' + VERSION + ' (' + QCoreApplication.translate(
+            'MainWindow', 'Click to check for update', None) + ')')
+        self.versionLabel.setCursor(Qt.PointingHandCursor)
+        buttonClickedLabel.clicked.connect(self.on_version_label_clicked)
+        self.verticalLayout.addWidget(buttonClickedLabel)
         try:
             self.init_combobox()
         except Exception as e:
@@ -175,6 +217,42 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
 
         _thread.start_new_thread(self.update_log, ())
 
+    def on_combobox_changed(self):
+        if os.path.isfile('engine.txt'):
+            json_file = open('engine.txt', 'r',encoding='utf-8')
+            ori = json.load(json_file)
+            json_file.close()
+            current_engine = ori['engine']
+            dic = dict()
+            dic['target'] = self.targetComboBox.currentText()
+            dic['source'] = self.sourceComboBox.currentText()
+            ori[current_engine] = dic
+            json_file = open('engine.txt', 'w', encoding='utf-8')
+            json.dump(ori, json_file)
+
+
+    def on_version_label_clicked(self):
+        try:
+            latest_release = get_latest_release('anonymousException', 'renpy-translator')
+        except Exception as e:
+            log_print('unable to get the latest version')
+            msg = traceback.format_exc()
+            log_print(msg)
+        if latest_release == 'v' + VERSION:
+            QMessageBox.information(self, "o(≧口≦)o", QCoreApplication.translate('MainWindow', "It's up to date now",
+                                                                                 None))
+        else:
+            latest_url = 'https://github.com/anonymousException/renpy-translator/releases/latest'
+            reply = QMessageBox.question(self,
+                                         'o((>ω< ))o',
+                                         QCoreApplication.translate('MainWindow', 'New version detected',
+                                                                    None) + f' : {latest_release}, ' + QCoreApplication.translate(
+                                             'MainWindow',
+                                             'Would you like to open the website to get the latest verison?', None),
+                                         QMessageBox.Yes | QMessageBox.No, QMessageBox.Yes)
+            if reply == QMessageBox.Yes:
+                webbrowser.open(latest_url)
+
     def show_pack_game_files_form(self):
         self.hide()
         self.widget.hide()
@@ -206,6 +284,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
             self.myOneKeyTranslateForm = MyOneKeyTranslateForm(parent=None)
         self.caller = self.myOneKeyTranslateForm
         self.myOneKeyTranslateForm.parent = self
+        self.myOneKeyTranslateForm.init_combobox()
         self.myOneKeyTranslateForm.showNormal()
         self.myOneKeyTranslateForm.raise_()
         self.actionone_key_translate.triggered.disconnect()
@@ -323,6 +402,9 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         translator.load("qm/" + lan + ".qm")
         QCoreApplication.instance().installTranslator(translator)
         self.retranslate_ui()
+        self.versionLabel.setText(QCoreApplication.translate('MainWindow', 'Version',
+                                                             None) + ' ' + VERSION + ' (' + QCoreApplication.translate(
+            'MainWindow', 'Click to check for update', None) + ')')
         f = io.open("language.txt", "w", encoding='utf-8')
         f.write(lan)
         f.close()
@@ -337,6 +419,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.caller = self.editor_form
         self.editor_form.parent = self
         self.editor_form.showNormal()
+        self.editor_form.init_combobox()
         self.editor_form.raise_()
         self.actionedit.triggered.disconnect()
         # self.show()
@@ -389,6 +472,8 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
             f = io.open(p, 'r', encoding='utf-8')
             _read = f.read()
             f.close()
+            if len(_read) == 0:
+                return []
             _read_line = _read.split('\n')
             ret_l = []
             for i in _read_line:
@@ -404,10 +489,16 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
             return []
 
     def init_combobox(self):
+        self.targetComboBox.currentTextChanged.connect(self.on_combobox_changed)
+        self.sourceComboBox.currentTextChanged.connect(self.on_combobox_changed)
+        self.targetComboBox.currentTextChanged.disconnect()
+        self.sourceComboBox.currentTextChanged.disconnect()
         self.targetComboBox.clear()
         self.sourceComboBox.clear()
         targetDic.clear()
         sourceDic.clear()
+        self.frame.setFixedSize(0, 0)
+        self.widget.setMinimumSize(600, 480)
         target = 'google.target.rst'
         source = 'google.source.rst'
         customEngineDic = dict()
@@ -421,6 +512,9 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
                 if loaded_data['engine'] in engineDic:
                     target = engineDic[loaded_data['engine']]['target']
                     source = engineDic[loaded_data['engine']]['source']
+                    if loaded_data['engine'] == 'Webbrower(Custom)':
+                        self.frame.setFixedSize(600, 150)
+                        self.widget.setMinimumSize(600, 630)
                 elif loaded_data['engine'] in customEngineDic:
                     target = customEngineDic[loaded_data['engine']]['target']
                     source = customEngineDic[loaded_data['engine']]['source']
@@ -444,6 +538,24 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
             self.sourceComboBox.setCurrentIndex(source_l.index('Auto Detect'))
         except Exception:
             pass
+        json_file = open('engine.txt', 'r', encoding='utf-8')
+        json_data = json.load(json_file)
+        json_file.close()
+        current_engine = json_data['engine']
+        if current_engine in json_data:
+            combobox_data = json_data[current_engine]
+            if 'source' in combobox_data:
+                try:
+                    self.sourceComboBox.setCurrentIndex(source_l.index(combobox_data['source']))
+                except:
+                    pass
+            if 'target' in combobox_data:
+                try:
+                    self.targetComboBox.setCurrentIndex(target_l.index(combobox_data['target']))
+                except:
+                    pass
+        self.targetComboBox.currentTextChanged.connect(self.on_combobox_changed)
+        self.sourceComboBox.currentTextChanged.connect(self.on_combobox_changed)
 
     @staticmethod
     def clear_log():
@@ -468,6 +580,53 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         else:
             self.translateBtn.setText(QCoreApplication.translate('MainWindow', 'translate', None))
             self.translateBtn.setEnabled(True)
+            global rpy_info_dic
+            if len(rpy_info_dic) > 0 and self.widget.isVisible() and not self.is_waiting_translated:
+                self.is_waiting_translated = True
+                translated_form = MyTranslatedForm()
+                translated_form.exec()
+                f = io.open('translated.txt', 'w', encoding='utf-8')
+                f.write(translated_form.plainTextEdit.toPlainText())
+                f.close()
+                dic, is_replace_special_symbols = get_translated_dic(web_brower_export_name, 'translated.txt')
+                if dic is None:
+                    msg_box = QMessageBox()
+                    msg_box.setWindowTitle('o(≧口≦)o')
+                    msg_box.setText(
+                        QCoreApplication.translate('ImportHtmlDialog',
+                                                   'The html file does not match the translated file , please check the input files',
+                                                   None))
+                    msg_box.exec()
+                    rpy_info_dic.clear()
+                    self.is_waiting_translated = False
+                    return
+                if self.select_files is not None:
+                    for i in self.select_files:
+                        i = i.replace('file:///', '')
+                        if os.path.isfile(i):
+                            if i in rpy_info_dic.keys():
+                                ret, unmatch_cnt, p = rpy_info_dic[i]
+                            else:
+                                ret, unmatch_cnt, p = get_rpy_info(i)
+                                rpy_info_dic[i] = ret, unmatch_cnt, p
+                            web_brower_translate(self.filterCheckBox.isChecked(), self.filterLengthLineEdit.text(),
+                                                 self.is_current, is_replace_special_symbols, i, ret, dic)
+                if self.select_dir is not None and os.path.isdir(self.select_dir):
+                    paths = os.walk(self.select_dir, topdown=False)
+                    for path, dir_lst, file_lst in paths:
+                        for file_name in file_lst:
+                            i = path + '/' + file_name
+                            if not file_name.endswith("rpy"):
+                                continue
+                            if i in rpy_info_dic.keys():
+                                ret, unmatch_cnt, p = rpy_info_dic[i]
+                            else:
+                                ret, unmatch_cnt, p = get_rpy_info(i)
+                                rpy_info_dic[i] = ret, unmatch_cnt, p
+                            web_brower_translate(self.filterCheckBox.isChecked(), self.filterLengthLineEdit.text(),
+                                                 self.is_current, is_replace_special_symbols, i, ret, dic)
+                rpy_info_dic.clear()
+                self.is_waiting_translated = False
 
         if self.extracting:
             if self.myExtractionForm is not None:
@@ -501,6 +660,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
                 command = 'notepad ' + log_path + '.error.txt'
                 p = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
                                      creationflags=0x08000000, text=True, encoding='utf-8')
+                p.wait()
                 f = io.open(log_path, 'r+', encoding='utf-8')
             f.close()
 
@@ -525,26 +685,38 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
     def translate(self):
         # noinspection PyBroadException
         try:
+            if os.path.isfile(web_brower_export_name):
+                os.remove(web_brower_export_name)
+            self.select_files = None
+            self.select_dir = None
             select_files = self.selectFilesText.toPlainText().split('\n')
-            target_language = targetDic[self.targetComboBox.currentText()]
-            source_language = sourceDic[self.sourceComboBox.currentText()]
+            self.select_files = select_files
+            target_language = ''
+            source_language = ''
+            if self.targetComboBox.currentText() != '':
+                target_language = targetDic[self.targetComboBox.currentText()]
+            if self.sourceComboBox.currentText() != '':
+                source_language = sourceDic[self.sourceComboBox.currentText()]
             cnt = 0
             for i in select_files:
                 i = i.replace('file:///', '')
                 if len(i) > 0:
                     t = translateThread(cnt, i, target_language, source_language,
                                         self.multiTranslateCheckBox.isChecked(), self.backupCheckBox.isChecked(),
-                                        self.local_glossary, self.is_current, self.skipTranslatedCheckBox.isChecked(), self.filterCheckBox.isChecked(), self.filterLengthLineEdit.text())
+                                        self.local_glossary, self.is_current, self.skipTranslatedCheckBox.isChecked(),
+                                        self.filterCheckBox.isChecked(), self.filterLengthLineEdit.text(),
+                                        self.replaceCheckBox.isChecked(), self.radioButton.isChecked())
                     translate_threads.append(t)
                     cnt = cnt + 1
             select_dir = self.selectDirText.toPlainText()
             if len(select_dir) > 0:
                 select_dir = select_dir.replace('file:///', '')
-                if not os.path.exists(select_dir):
+                if not os.path.isdir(select_dir):
                     log_print(select_dir + ' directory does not exist!')
                 else:
                     if select_dir[len(select_dir) - 1] != '/' and select_dir[len(select_dir) - 1] != '\\':
                         select_dir = select_dir + '/'
+                    self.select_dir = select_dir
                     paths = os.walk(select_dir, topdown=False)
                     for path, dir_lst, file_lst in paths:
                         for file_name in file_lst:
@@ -555,7 +727,9 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
                             t = translateThread(cnt, i, target_language, source_language,
                                                 self.multiTranslateCheckBox.isChecked(),
                                                 self.backupCheckBox.isChecked(), self.local_glossary, self.is_current,
-                                                self.skipTranslatedCheckBox.isChecked(), self.filterCheckBox.isChecked(), self.filterLengthLineEdit.text())
+                                                self.skipTranslatedCheckBox.isChecked(),
+                                                self.filterCheckBox.isChecked(), self.filterLengthLineEdit.text(),
+                                                self.replaceCheckBox.isChecked(), self.radioButton.isChecked())
                             translate_threads.append(t)
                             cnt = cnt + 1
             if len(translate_threads) > 0:

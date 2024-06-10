@@ -12,6 +12,8 @@ from my_log import log_print
 from deepl_translate import DeeplTranslate
 from openai_translate import OpenAITranslate
 from custom_translate import CustomTranslate
+from html_util import plain_text_to_html_from_list, read_strings_from_html, read_strings_from_translated, \
+    open_directory_and_select_file
 from translator_translate import TranslatorTranslate
 from youdao_translate import YoudaoTranslate
 from string_tool import *
@@ -21,12 +23,14 @@ custom_header = 'custom_engine/'
 
 engineList = ['Google(Free)', 'Google(Token Required)', 'YouDao(Token Required)', 'DeepL(Token Required)',
               'OpenAI(Token Required)', 'Alibaba(Free)', 'ModernMt(Free)', 'Bing(Free)', 'Lingvanex(Free)',
-              'CloudTranslation(Free)', 'YouDao(Free)', 'Caiyun(Free)']
+              'CloudTranslation(Free)', 'YouDao(Free)', 'Caiyun(Free)', 'Webbrower(Custom)']
 
 engineDic = {engineList[0]: {'url': 'https://cloud.google.com/translate/docs/quickstarts', 'key_edit': False,
                              'secret_edit': False, 'target': 'google.target.rst', 'source': 'google.source.rst'},
              engineList[1]: {'url': 'https://cloud.google.com/translate/docs/quickstarts', 'key_edit': True,
                              'secret_edit': False, 'target': 'google.target.rst', 'source': 'google.source.rst'},
+             engineList[12]: {'url': '', 'key_edit': False,
+                              'secret_edit': False, 'target': 'empty.rst', 'source': 'empty.rst'},
              engineList[10]: {'url': 'https://ai.youdao.com/doc.s#guide', 'key_edit': False,
                               'secret_edit': False, 'target': 'youdao_free.target.rst',
                               'source': 'youdao_free.source.rst'},
@@ -55,11 +59,14 @@ engineDic = {engineList[0]: {'url': 'https://cloud.google.com/translate/docs/qui
 translate_threads = []
 translate_lock = threading.Lock()
 client_openai = None
+web_brower_export_name = 'translate_with_web_brower.html'
+rpy_info_dic = dict()
 
 
 class translateThread(threading.Thread):
     def __init__(self, threadID, p, lang_target, lang_source, is_open_multi_thread, is_gen_bak, local_glossary,
-                 is_translate_current, is_skip_translated, is_open_filter, filter_length):
+                 is_translate_current, is_skip_translated, is_open_filter, filter_length, is_replace_special_symbols,
+                 is_directly_open):
         threading.Thread.__init__(self)
         self.threadID = threadID
         self.p = p
@@ -74,6 +81,8 @@ class translateThread(threading.Thread):
         if len(filter_length) == 0:
             filter_length = '0'
         self.filter_length = int(filter_length)
+        self.is_replace_special_symbols = is_replace_special_symbols
+        self.is_directly_open = is_directly_open
 
     def run(self):
         if not self.is_open_multi_thread:
@@ -81,7 +90,8 @@ class translateThread(threading.Thread):
         try:
             log_print(self.p + ' begin translate!')
             self.TranslateFile(self.p, self.lang_target, self.lang_source, self.is_gen_bak, self.local_glossary,
-                               self.is_translate_current, self.is_skip_translated, self.is_open_filter, self.filter_length)
+                               self.is_translate_current, self.is_skip_translated, self.is_open_filter,
+                               self.filter_length, self.is_replace_special_symbols, self.is_directly_open)
         except Exception as e:
             msg = traceback.format_exc()
             log_print(msg)
@@ -91,7 +101,8 @@ class translateThread(threading.Thread):
             translate_lock.release()
 
     def TranslateFile(self, p, lang_target, lang_source, is_gen_bak, local_glossary, is_translate_current,
-                      is_skip_translated, is_open_filter, filter_length):
+                      is_skip_translated, is_open_filter, filter_length, is_replace_special_symbols, is_directly_open):
+        global rpy_info_dic
         client = init_client()
         if client is None:
             return
@@ -100,6 +111,7 @@ class translateThread(threading.Thread):
         ret, unmatch_cnt, p = get_rpy_info(p)
         if len(ret) == 0:
             log_print(p + ' unable to get translated info')
+            rpy_info_dic.pop(p)
             return
         for dic in ret:
             original = dic['original']
@@ -128,18 +140,31 @@ class translateThread(threading.Thread):
                     # log_print(len(strip_i),i)
                     continue
             if not isAllPunctuations(d['encoded'].strip('"')):
-                transList.append(d['encoded'].strip('"'))
-                dic['d'] = d
+                if is_replace_special_symbols:
+                    transList.append(d['encoded'].strip('"'))
+                    dic['d'] = d
+                else:
+                    dic['d'] = None
+                    transList.append(target)
                 trans_ori_dic.append((dic, d['encoded'].strip('"')))
 
         if client.__class__.__name__ == 'Translate' and local_glossary is not None and len(local_glossary) > 0:
             fmt = 'html'
         else:
             fmt = 'text'
-        trans_dic = TranslateToList(client, transList, lang_target, lang_source, fmt=fmt)
         if len(transList) == 0:
             log_print(p + ' translate skip!')
+            rpy_info_dic.pop(p)
             return
+        if isinstance(client, str) and client == 'web_brower':
+            plain_text_to_html_from_list(transList, web_brower_export_name, is_replace_special_symbols)
+            if is_directly_open:
+                import webbrowser
+                webbrowser.open(web_brower_export_name)
+            else:
+                open_directory_and_select_file(web_brower_export_name)
+            return
+        trans_dic = TranslateToList(client, transList, lang_target, lang_source, fmt=fmt)
         f = io.open(p, 'r', encoding='utf-8')
         _read_lines = f.readlines()
         f.close()
@@ -154,7 +179,10 @@ class translateThread(threading.Thread):
             current = dic['current']
             target = dic['target']
             d = dic['d']
-            translated = get_translated(trans_dic, d)
+            if is_replace_special_symbols:
+                translated = get_translated(trans_dic, d)
+            else:
+                translated = target
             if translated is None:
                 translated = ''
                 encoded = d['encoded'].strip('"')
@@ -178,6 +206,7 @@ class translateThread(threading.Thread):
         f.writelines(_read_lines)
         f.close()
         log_print(p + ' translate success!')
+        rpy_info_dic.clear()
 
 
 def TranslateToList(cli, inList, lang_target, lang_source, fmt='text'):
@@ -252,7 +281,8 @@ def init_client():
                     client_openai = OpenAITranslate(app_key=loaded_data['key'], rpm=loaded_data['rpm'],
                                                     rps=loaded_data['rps'], tpm=loaded_data['tpm'],
                                                     model=loaded_data['openai_model'], base_url=base_url,
-                                                    time_out=loaded_data['time_out'], max_length=loaded_data['max_length'],
+                                                    time_out=loaded_data['time_out'],
+                                                    max_length=loaded_data['max_length'],
                                                     proxies=proxies['https'])
                 else:
                     client_openai.reset(app_key=loaded_data['key'], rpm=loaded_data['rpm'], rps=loaded_data['rps'],
@@ -278,6 +308,8 @@ def init_client():
                 config = customEngineDic[loaded_data['engine']]
                 client = CustomTranslate(custom_header + config['file_name'], loaded_data['key'], loaded_data['secret'],
                                          proxies, config['is_queue'])
+            elif loaded_data['engine'] == engineList[12]:
+                client = 'web_brower'
             else:
                 log_print('engine.txt' + ' file format error!')
                 msg = traceback.format_exc()
@@ -294,7 +326,7 @@ def get_translated(trans_dic, d):
             translated = trans_dic[d['encoded'].strip('"')]
             translated = translated.replace('\u200b', '')
             translated = translated.replace('\u200b1', '')
-            #translated = translated.replace('"', '\\"')
+            # translated = translated.replace('"', '\\"')
             translated = replace_unescaped_quotes(translated)
             translated = translated.replace('【', '[')
             translated = translated.replace('】', ']')
@@ -434,9 +466,111 @@ def get_rpy_info(p):
                         dic['is_match'] = is_match
                         infoList.append(dic)
         # sorted(infoList, key=lambda x: x['line'])
+        rpy_info_dic[p] = infoList, unmatch_cnt, p
         return infoList, unmatch_cnt, p
     except:
         f.close()
         msg = traceback.format_exc()
         log_print(msg)
+        rpy_info_dic[p] = infoList, 0, p
         return infoList, 0, p
+
+
+def get_translated_dic(html_path, translated_path):
+    dic = dict()
+    ori_strings, data = read_strings_from_html(html_path)
+    if data is not None:
+        data = json.loads(data)
+    global last_translated_dic
+    if ori_strings is None or len(ori_strings) == 0:
+        last_translated_dic = None
+        return None, None
+    translated_strings = read_strings_from_translated(translated_path)
+    if translated_strings is None or len(translated_strings) == 0:
+        last_translated_dic = None
+        return None, None
+    if len(ori_strings) != len(translated_strings):
+        log_print('Error:translated file does not match the html file')
+        last_translated_dic = None
+        return None, None
+    if data is not None:
+        for i, e in enumerate(data):
+            translated_dic = dict()
+            target = e['target']
+            line = e['line']
+            if 'd' not in e:
+                dic[ori_strings[i]] = translated_strings[i]
+                continue
+            d = e['d']
+            translated = translated_strings[i]
+            translated_dic[target] = translated
+            translated = get_translated(translated_dic, d)
+            if translated is None:
+                translated = ''
+                encoded = d['encoded'].strip('"')
+                if encoded in translated_dic:
+                    translated = translated_dic[encoded]
+                log_print(
+                    f'{translated_path} Error in line:{str(i + 1)} row:{line}\n{target}\n{encoded}\n{translated}\nError')
+            dic[ori_strings[i]] = translated
+    else:
+        for i, e in enumerate(ori_strings):
+            dic[e] = translated_strings[i]
+    last_translated_dic = dic
+    return dic, data is not None
+
+
+def web_brower_translate(is_open_filter, filter_length, is_current, is_replace_special_symbols, path, ret, dic):
+    if len(filter_length) == 0:
+        filter_length = 0
+    else:
+        filter_length = int(filter_length)
+    f = io.open(path, 'r', encoding='utf-8')
+    _read_lines = f.readlines()
+    f.close()
+    for i, e in enumerate(ret):
+        ori_line = e['ori_line'] - 1
+        line = e['line'] - 1
+        original = e['original']
+        current = e['current']
+        if is_current:
+            target = current
+        else:
+            target = original
+        replaced = None
+        target_key = target
+        if is_replace_special_symbols:
+            d = EncodeBrackets(target)
+            target_key = d['encoded'].strip('"')
+            translated = get_translated(dic, d)
+            replaced = translated
+        else:
+            if target_key in dic.keys():
+                replaced = dic[target_key]
+        if replaced is None:
+            translated = ''
+            if target_key in dic:
+                translated = dic[target_key]
+            strip_i = target
+            if is_replace_special_symbols:
+                for j in (d['en_1']):
+                    strip_i = strip_i.replace(j, '')
+                for j in (d['en_2']):
+                    strip_i = strip_i.replace(j, '')
+                for j in (d['en_3']):
+                    strip_i = strip_i.replace(j, '')
+                _strip_i = replace_all_blank(strip_i)
+                if is_open_filter:
+                    if len(_strip_i) < filter_length:
+                        continue
+            log_print(f'{path} Error in line:{str(line)}\n{target}\n{target_key}\n{translated}\nError')
+            continue
+        if _read_lines[line].startswith('    new '):
+            header = _read_lines[line][:7]
+            content = _read_lines[line][7:]
+            _read_lines[line] = header + content.replace(current, replaced, 1)
+        else:
+            _read_lines[line] = _read_lines[line].replace(current, replaced, 1)
+    f = io.open(path, 'w', encoding='utf-8')
+    f.writelines(_read_lines)
+    f.close()

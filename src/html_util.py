@@ -1,25 +1,38 @@
+import io
 import json
 import os.path
+import subprocess
+import threading
 
 from bs4 import BeautifulSoup, NavigableString
-
-from my_log import log_print
-from renpy_translate import get_translated
 from string_tool import EncodeBrackets, isAllPunctuations
 
 last_write_html = None
 last_translated_dic = None
 
+_write_lock = threading.Lock()
+
 
 def write_html_with_strings(p, strings, data):
     if strings is None:
         return
+    _write_lock.acquire()
+    if os.path.isfile(p):
+        _strings, _data = read_strings_from_html(p)
+        if data is not None:
+            data = json.loads(data)
+            _data = json.loads(_data)
+            for i in _data:
+                data.append(i)
+            data = json.dumps(data)
+            for i in _strings:
+                strings.append(i)
+
     soup = BeautifulSoup('<html><body></body></html>', 'html.parser')
     for s in strings:
-        b_tag = soup.new_tag("b",)
+        b_tag = soup.new_tag("h6", )
         b_tag.string = s
         soup.body.append(b_tag)
-        soup.body.append(soup.new_tag("br"))
     if data is not None:
         data_div = soup.new_tag("div", id="data", style="display: none;")
         data_div.string = data
@@ -28,19 +41,20 @@ def write_html_with_strings(p, strings, data):
         f.write(str(soup))
     global last_write_html
     last_write_html = p
+    _write_lock.release()
 
 
 def read_strings_from_html(p):
     if not os.path.isfile(p):
-        return None
+        return None, None
     with open(p, "r", encoding="utf-8") as f:
         soup = BeautifulSoup(f, 'html.parser')
-    b_tags = soup.find_all('b')
+    h6_tags = soup.find_all('h6')
     data_div = soup.find(id='data')
     data = None
     if data_div is not None:
         data = data_div.string
-    strings = [tag.get_text() for tag in b_tags]
+    strings = [tag.get_text() for tag in h6_tags]
     return strings, data
 
 
@@ -57,53 +71,8 @@ def read_strings_from_translated(p):
     return l
 
 
-def get_translated_dic(html_path, translated_path):
-    dic = dict()
-    ori_strings, data = read_strings_from_html(html_path)
-    if data is not None:
-        data = json.loads(data)
-    global last_translated_dic
-    if ori_strings is None or len(ori_strings) == 0:
-        last_translated_dic = None
-        return None
-    translated_strings = read_strings_from_translated(translated_path)
-    if translated_strings is None or len(translated_strings) == 0:
-        last_translated_dic = None
-        return None
-    if len(ori_strings) != len(translated_strings):
-        log_print('Error:translated file does not match the html file')
-        last_translated_dic = None
-        return None
-    if data is not None:
-        for i, e in enumerate(data):
-            translated_dic = dict()
-            target = e['target']
-            line = e['line']
-            if 'd' not in e:
-                dic[ori_strings[i]] = translated_strings[i]
-                continue
-            d = e['d']
-            translated = translated_strings[i]
-            translated_dic[target] = translated
-            translated = get_translated(translated_dic, d)
-            if translated is None:
-                translated = ''
-                encoded = d['encoded'].strip('"')
-                if encoded in translated_dic:
-                    translated = translated_dic[encoded]
-                log_print(
-                    f'{translated_path} Error in line:{str(i + 1)} row:{line}\n{target}\n{encoded}\n{translated}\nError')
-            dic[ori_strings[i]] = translated
-    else:
-        for i, e in enumerate(ori_strings):
-            dic[e] = translated_strings[i]
-    last_translated_dic = dic
-    return dic, data is not None
-
-
-def plain_text_to_html(p, output_p, is_replace_special_symbols):
+def plain_text_to_html_from_list(l, output_p, is_replace_special_symbols):
     ret = []
-    l = read_strings_from_translated(p)
     for i, e in enumerate(l):
         dic = dict()
         target = e
@@ -123,3 +92,12 @@ def plain_text_to_html(p, output_p, is_replace_special_symbols):
     if not is_replace_special_symbols:
         data = None
     write_html_with_strings(output_p, l, data)
+
+
+def plain_text_to_html(p, output_p, is_replace_special_symbols):
+    l = read_strings_from_translated(p)
+    return plain_text_to_html_from_list(l, output_p, is_replace_special_symbols)
+
+
+def open_directory_and_select_file(file_path):
+    subprocess.run(["explorer", "/select,", os.path.normpath(file_path)])

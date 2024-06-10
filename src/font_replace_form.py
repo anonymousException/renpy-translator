@@ -52,7 +52,7 @@ class MyFontReplaceForm(QDialog, Ui_FontReplaceDialog):
     def select_font(self):
         file, filetype = QFileDialog.getOpenFileName(self,
                                                      QCoreApplication.translate("FontReplaceDialog", "select the file font which supports the translated language", None),
-                                                     '',  # 起始路径
+                                                     '',
                                                      "Font Files (*.ttf || *.otf || *.ttc || *.otc || *.woff || *.woff2);;All Files (*)")
         self.selectFontText.setText(file)
 

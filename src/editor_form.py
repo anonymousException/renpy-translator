@@ -9,7 +9,7 @@ import sys
 import threading
 import time
 import traceback
-
+import webbrowser
 import pyperclip
 from PySide6 import QtCore
 from PySide6.QtCore import Qt, QDir, QModelIndex, QSortFilterProxyModel, Signal, QThread, QCoreApplication
@@ -21,7 +21,8 @@ from openpyxl.workbook import Workbook
 
 from editor import Ui_EditorDialog
 from my_log import log_print, log_path
-from renpy_translate import init_client, TranslateToList, engineDic, language_header, get_rpy_info, get_translated
+from renpy_translate import init_client, TranslateToList, engineDic, language_header, get_rpy_info, get_translated, \
+    rpy_info_dic, web_brower_export_name, get_translated_dic
 from custom_engine_form import targetDic, sourceDic
 from engine_form import MyEngineForm
 from local_glossary_form import MyLocalGlossaryForm
@@ -29,18 +30,18 @@ from export_setting_form import MyExportSettingForm
 from html_util import write_html_with_strings
 from import_html_form import MyImportHtmlForm
 import html_util
+from translated_form import MyTranslatedForm
 from string_tool import *
+from html_util import open_directory_and_select_file
 
-rpy_info_dic = dict()
+
 translated_thread = None
 translated_dic = None
 is_need_save = False
 rpy_lock = threading.Lock()
 
-
-def open_directory_and_select_file(file_path):
-    subprocess.run(["explorer", "/select,", os.path.normpath(file_path)])
-
+editor_main_trhead_lock = threading.Lock()
+editor_main_thread_tasks = []
 
 class CustomSortProxyModel(QSortFilterProxyModel):
     def __init__(self, parent=None):
@@ -77,6 +78,7 @@ class FileSystemModel(QFileSystemModel):
         return super().columnCount(parent) + 2
 
     def data(self, index, role=Qt.DisplayRole):
+        global rpy_info_dic
         if role == Qt.DisplayRole and index.column() == 4:
             path = index.sibling(index.row(), 0).data()
             full_path = self.filePath(index)
@@ -185,6 +187,7 @@ class MyTreeView(QTreeView):
             menu.exec(self.viewport().mapToGlobal(position))
 
     def refresh_table_view(self, full_path):
+        global rpy_info_dic
         if os.path.isfile(full_path):
             self.tableView.model.clear()
             self.tableView.searched.clear()
@@ -255,6 +258,7 @@ class MySelectTableView(QTableView):
         self.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
 
     def load_data(self, index):
+        global rpy_info_dic
         if index.isValid():
             select_one = index.data()
             if self.treeView.model.is_open_filter:
@@ -374,6 +378,7 @@ class MySelectTableView(QTableView):
                     pass
 
     def import_from_html(self, path, selected_rows, is_open_filter, treeView: MyTreeView):
+        global rpy_info_dic
         if path is None:
             return
         if selected_rows is not None:
@@ -416,12 +421,18 @@ class MySelectTableView(QTableView):
                 target_key = target
                 if treeView.is_replace_special_symbols:
                     d = EncodeBrackets(target)
-                    if isAllPunctuations(d['encoded'].strip('"')) == False:
-                        target_key = d['encoded'].strip('"')
-                if target_key in dic.keys():
-                    replaced = dic[target_key]
+                    target_key = d['encoded'].strip('"')
+                    translated = get_translated(dic, d)
+                    replaced = translated
+                else:
+                    if target_key in dic.keys():
+                        replaced = dic[target_key]
                 if replaced is None:
                     l.append(target)
+                    translated = ''
+                    if target_key in dic:
+                        translated = dic[target_key]
+                    log_print(f'{path} Error in line:{str(line)}\n{target}\n{target_key}\n{translated}\nError')
                     continue
                 l.append(replaced)
                 if _read_lines[line].startswith('    new '):
@@ -465,6 +476,7 @@ class MySelectTableView(QTableView):
             t.start()
 
     def export_to_html(self, path, selected_rows, is_open_filter, treeView):
+        global rpy_info_dic
         if path is None:
             return
         if selected_rows is not None:
@@ -556,6 +568,7 @@ class MySelectTableView(QTableView):
                 t.start()
 
     def export_to_xlsx(self, path, selected_rows, is_open_filter, treeView):
+        global rpy_info_dic
         if path is None:
             return
         if selected_rows is not None:
@@ -627,7 +640,7 @@ class MySelectTableView(QTableView):
 
 
 class translateThread(threading.Thread):
-    def __init__(self, threadID, client, transList, target_language, source_language, fmt):
+    def __init__(self, threadID, client, transList, target_language, source_language, fmt, is_open_filter, filter_length, is_replace_special_symbols):
         threading.Thread.__init__(self)
         self.threadID = threadID
         self.client = client
@@ -635,14 +648,31 @@ class translateThread(threading.Thread):
         self.target_language = target_language
         self.source_language = source_language
         self.fmt = fmt
+        self.is_open_filter = is_open_filter
+        self.filter_length = filter_length
+        self.is_replace_special_symbols = is_replace_special_symbols
+
 
     def run(self):
-        global translated_dic
+        global translated_dic, rpy_info_dic, editor_main_trhead_lock, editor_main_thread_tasks
         try:
             log_print('begin translate! please waiting...')
-
-            translated_dic = TranslateToList(self.client, self.transList, self.target_language, self.source_language,
-                                             fmt=self.fmt)
+            if isinstance(self.client, str) and self.client == 'web_brower':
+                editor_main_trhead_lock.acquire()
+                if os.path.isfile(web_brower_export_name):
+                    os.remove(web_brower_export_name)
+                html_util.plain_text_to_html_from_list(self.transList, web_brower_export_name, self.is_replace_special_symbols)
+                import webbrowser
+                webbrowser.open(web_brower_export_name)
+                dic = dict()
+                dic['task'] = 'web_brower_export'
+                dic['param'] = self.transList,self.is_open_filter, self.filter_length
+                editor_main_thread_tasks.append(dic)
+                editor_main_trhead_lock.release()
+            else:
+                translated_dic = TranslateToList(self.client, self.transList, self.target_language,
+                                                 self.source_language,
+                                                 fmt=self.fmt)
 
         except Exception as e:
             msg = traceback.format_exc()
@@ -916,10 +946,12 @@ class MyTableView(QTableView):
             target_key = target
             if is_replace_special_symbols:
                 d = EncodeBrackets(target)
-                if isAllPunctuations(d['encoded'].strip('"')) == False:
-                    target_key = d['encoded'].strip('"')
-            if target_key in dic.keys():
-                replaced = dic[target_key]
+                target_key = d['encoded'].strip('"')
+                translated = get_translated(dic, d)
+                replaced = translated
+            else:
+                if target_key in dic.keys():
+                    replaced = dic[target_key]
             if replaced is None:
                 l.append(target)
                 continue
@@ -1015,11 +1047,30 @@ class MyTableView(QTableView):
             self.model.item(row, 3).setText(current)
 
     def translate(self):
+        if os.path.isfile(web_brower_export_name):
+            os.remove(web_brower_export_name)
         selected_indexes = self.selectionModel().selectedRows()
         self.selected_rows = [index.row() for index in selected_indexes]
         self.selected_rows.sort(reverse=True)
         local_glossary = self.local_glossary
         transList = []
+        client = init_client()
+        is_replace_special_symbols = True
+        if isinstance(client, str) and client == 'web_brower':
+            target_language = None
+            source_language = None
+            reply = QMessageBox.question(self,
+                                         'o((>ω< ))o',
+                                         QCoreApplication.translate('EditorDialog',
+                                                                    'Do you want to replace special symbols?',
+                                                                    None),
+                                         QMessageBox.Yes | QMessageBox.No, QMessageBox.Yes)
+            if reply != QMessageBox.Yes:
+                is_replace_special_symbols = False
+        else:
+            target_language = targetDic[self.editorForm.targetComboBox.currentText()]
+            source_language = sourceDic[self.editorForm.sourceComboBox.currentText()]
+        self.editorForm.treeView.is_replace_special_symbols = is_replace_special_symbols
         for row in self.selected_rows:
             if self.is_original:
                 target = self.model.item(row, 2).text()
@@ -1052,28 +1103,29 @@ class MyTableView(QTableView):
                     # log_print(len(strip_i),i)
                     continue
             if (isAllPunctuations(d['encoded'].strip('"')) == False):
-                transList.append(d['encoded'].strip('"'))
+                if is_replace_special_symbols:
+                    transList.append(d['encoded'].strip('"'))
+                else:
+                    transList.append(target)
         if len(transList) == 0:
             log_print('The translation content is empty!')
             self.editorForm.parent.showNormal()
             self.editorForm.parent.raise_()
             return
-        client = init_client()
+
         if client is None:
             return
         if client.__class__.__name__ == 'Translate' and local_glossary is not None and len(local_glossary) > 0:
             fmt = 'html'
         else:
             fmt = 'text'
-        target_language = targetDic[self.editorForm.targetComboBox.currentText()]
-        source_language = sourceDic[self.editorForm.sourceComboBox.currentText()]
         self.editorForm.parent.showNormal()
         self.editorForm.parent.raise_()
         self.editorForm.hide()
         self.editorForm.setDisabled(True)
         # trans_dic = TranslateToList(client, transList, target_language, source_language)
         global translated_thread, translated_dic
-        translated_thread = translateThread(0, client, transList, target_language, source_language, fmt=fmt)
+        translated_thread = translateThread(0, client, transList, target_language, source_language, fmt=fmt, is_open_filter=self.editorForm.filterCheckBox.isChecked(), filter_length= filter_length, is_replace_special_symbols = is_replace_special_symbols)
         translated_thread.start()
 
     def copy_translated_to_cur(self):
@@ -1182,10 +1234,13 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
         self.parent.raise_()
 
     def closeEvent(self, event):
+        global rpy_info_dic
+        rpy_info_dic.clear()
         self.parent.widget.show()
         self.parent.menubar.show()
         self.parent.versionLabel.show()
         self.parent.actionedit.triggered.connect(lambda: self.parent.show_edit_form())
+        self.parent.init_combobox()
         self.parent.showNormal()
         self.hide()
         event.ignore()
@@ -1254,6 +1309,8 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
             f = io.open(p, 'r', encoding='utf-8')
             _read = f.read()
             f.close()
+            if len(_read) == 0:
+                return []
             _read_line = _read.split('\n')
             ret_l = []
             for i in _read_line:
@@ -1268,7 +1325,24 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
             log_print(msg)
             return []
 
+    def on_combobox_changed(self):
+        if os.path.isfile('engine.txt'):
+            json_file = open('engine.txt', 'r',encoding='utf-8')
+            ori = json.load(json_file)
+            json_file.close()
+            current_engine = ori['engine']
+            dic = dict()
+            dic['target'] = self.targetComboBox.currentText()
+            dic['source'] = self.sourceComboBox.currentText()
+            ori[current_engine] = dic
+            json_file = open('engine.txt', 'w', encoding='utf-8')
+            json.dump(ori, json_file)
+
     def init_combobox(self):
+        self.targetComboBox.currentTextChanged.connect(self.on_combobox_changed)
+        self.sourceComboBox.currentTextChanged.connect(self.on_combobox_changed)
+        self.targetComboBox.currentTextChanged.disconnect()
+        self.sourceComboBox.currentTextChanged.disconnect()
         self.targetComboBox.clear()
         self.sourceComboBox.clear()
         targetDic.clear()
@@ -1313,6 +1387,24 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
             self.sourceComboBox.setCurrentIndex(source_l.index('Auto Detect'))
         except Exception:
             pass
+        json_file = open('engine.txt', 'r', encoding='utf-8')
+        json_data = json.load(json_file)
+        json_file.close()
+        current_engine = json_data['engine']
+        if current_engine in json_data:
+            combobox_data = json_data[current_engine]
+            if 'source' in combobox_data:
+                try:
+                    self.sourceComboBox.setCurrentIndex(source_l.index(combobox_data['source']))
+                except:
+                    pass
+            if 'target' in combobox_data:
+                try:
+                    self.targetComboBox.setCurrentIndex(target_l.index(combobox_data['target']))
+                except:
+                    pass
+        self.targetComboBox.currentTextChanged.connect(self.on_combobox_changed)
+        self.sourceComboBox.currentTextChanged.connect(self.on_combobox_changed)
 
     def button_group_clicked2(self, item):
         self.tableView.copy_index = item.group().checkedId()
@@ -1405,6 +1497,39 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
 
     def update_progress(self):
         try:
+            global editor_main_trhead_lock, editor_main_thread_tasks, rpy_info_dic
+            global translated_thread, translated_dic
+            editor_main_trhead_lock.acquire()
+            if len(editor_main_thread_tasks) > 0:
+                task_info = editor_main_thread_tasks[0]
+                editor_main_trhead_lock.release()
+                task = task_info['task']
+                editor_main_thread_tasks.remove(task_info)
+                if task == 'web_brower_export':
+                    translate_list, is_open_filter, filter_length = task_info['param']
+                    translated_form = MyTranslatedForm()
+                    translated_form.exec()
+                    f = io.open('translated.txt', 'w', encoding='utf-8')
+                    f.write(translated_form.plainTextEdit.toPlainText())
+                    f.close()
+                    translated_dic, is_replace_special_symbols = get_translated_dic(web_brower_export_name, 'translated.txt')
+                    self.treeView.is_replace_special_symbols = is_replace_special_symbols
+                    if translated_dic is None:
+                        msg_box = QMessageBox()
+                        msg_box.setWindowTitle('o(≧口≦)o')
+                        msg_box.setText(
+                            QCoreApplication.translate('ImportHtmlDialog',
+                                                       'The html file does not match the translated file , please check the input files',
+                                                       None))
+                        msg_box.exec()
+                        rpy_info_dic.clear()
+                        self.is_waiting_translated = False
+                        translated_dic = []
+                        return
+                    rpy_info_dic.clear()
+            else:
+                editor_main_trhead_lock.release()
+
             rpy_lock.acquire()
             if os.path.isfile('rpy_info_got') and os.path.getsize('rpy_info_got') > 0:
                 f = io.open('rpy_info_got', 'r', encoding='utf-8')
@@ -1455,11 +1580,18 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
                                         target_key = target
                                         if self.treeView.is_replace_special_symbols:
                                             d = EncodeBrackets(target)
-                                            if isAllPunctuations(d['encoded'].strip('"')) == False:
-                                                target_key = d['encoded'].strip('"')
-                                        if target_key in last_translated_dic.keys():
-                                            replaced = last_translated_dic[target_key]
+                                            target_key = d['encoded'].strip('"')
+                                            translated = get_translated(dic, d)
+                                            replaced = translated
+                                        else:
+                                            if target_key in last_translated_dic.keys():
+                                                replaced = last_translated_dic[target_key]
                                         if replaced is None:
+                                            translated = ''
+                                            if target_key in dic:
+                                                translated = dic[target_key]
+                                            log_print(
+                                                f'{i} Error in line:{str(line)}\n{target}\n{target_key}\n{translated}\nError')
                                             continue
                                         dic['current'] = replaced
                                         is_match_now = replaced == original
@@ -1627,7 +1759,6 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
                 self.show()
                 self.raise_()
                 self.setEnabled(True)
-            global translated_thread, translated_dic
             if translated_thread is not None and translated_dic is not None:
                 translated_thread.join()
                 trans_dic = translated_dic
@@ -1644,8 +1775,12 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
                             target = target.replace(original, replace)
 
                     line_index = int(self.tableView.model.item(row, 0).text())
-                    d = EncodeBrackets(target)
-                    translated = get_translated(trans_dic, d)
+                    if self.treeView.is_replace_special_symbols:
+                        d = EncodeBrackets(target)
+                        translated = get_translated(trans_dic, d)
+                    else:
+                        if target in translated_dic:
+                            translated = trans_dic[target]
                     if translated is None:
                         d = EncodeBrackets(target)
                         encoded = d['encoded'].strip('"')
@@ -1704,6 +1839,7 @@ class getRpyInfoThread(threading.Thread):
 
 def get_rpy_info_from_dir(select_one, is_open_filter):
     try:
+        global rpy_info_dic
         cpu_num = multiprocessing.cpu_count()
         pool = multiprocessing.Pool(cpu_num)
         paths = os.walk(select_one, topdown=False)

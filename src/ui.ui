@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1051</width>
-    <height>542</height>
+    <width>1068</width>
+    <height>572</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -66,20 +66,7 @@
       </property>
      </widget>
     </item>
-    <item row="4" column="0">
-     <widget class="QLabel" name="versionLabel">
-      <property name="maximumSize">
-       <size>
-        <width>91</width>
-        <height>16</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>Version 2.3.7</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="0" rowspan="4">
+    <item row="0" column="0" rowspan="3">
      <widget class="QWidget" name="widget" native="true">
       <property name="minimumSize">
        <size>
@@ -442,7 +429,86 @@
         <set>Qt::AlignCenter</set>
        </property>
       </widget>
+      <widget class="QFrame" name="frame">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>480</y>
+         <width>600</width>
+         <height>130</height>
+        </rect>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>600</width>
+         <height>130</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QCheckBox" name="replaceCheckBox">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>20</y>
+          <width>561</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Enable replace special symbols</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QRadioButton" name="radioButton">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>60</y>
+          <width>571</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Auto open untranslated contents with brower</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QRadioButton" name="radioButton_2">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>100</y>
+          <width>571</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Show exported html file with explorer only</string>
+        </property>
+       </widget>
+      </widget>
      </widget>
+    </item>
+    <item row="4" column="0">
+     <layout class="QVBoxLayout" name="verticalLayout"/>
     </item>
    </layout>
   </widget>
@@ -451,7 +517,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1051</width>
+     <width>1068</width>
      <height>22</height>
     </rect>
    </property>

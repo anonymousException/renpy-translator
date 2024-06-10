@@ -13,7 +13,7 @@ from PySide6.QtWidgets import QDialog, QFileDialog
 
 from extraction_runtime import Ui_ExtractionRuntimeDialog
 from my_log import log_print
-from editor_form import open_directory_and_select_file
+from html_util import open_directory_and_select_file
 from string_tool import encode_say_string
 
 hook_script = 'hook_extract.rpy'

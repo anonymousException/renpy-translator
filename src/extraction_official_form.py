@@ -9,7 +9,7 @@ from PySide6.QtCore import QCoreApplication, QThread, Signal
 from PySide6.QtWidgets import QDialog, QFileDialog
 
 from my_log import log_print
-from editor_form import open_directory_and_select_file
+from html_util import open_directory_and_select_file
 from extraction_official import Ui_ExtractionOfficialDialog
 from call_game_python import get_python_path_from_game_path, get_py_path
 import my_log

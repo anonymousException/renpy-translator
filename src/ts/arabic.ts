@@ -238,188 +238,189 @@
 <context>
     <name>EditorDialog</name>
     <message>
-        <location filename="../editor_form.py" line="122"/>
-        <location filename="../editor_form.py" line="248"/>
+        <location filename="../editor_form.py" line="124"/>
+        <location filename="../editor_form.py" line="251"/>
         <source>Path</source>
         <translation>طريق</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="126"/>
-        <location filename="../editor_form.py" line="249"/>
+        <location filename="../editor_form.py" line="128"/>
+        <location filename="../editor_form.py" line="252"/>
         <source>Units</source>
         <translation>الوحدات</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="130"/>
-        <location filename="../editor_form.py" line="198"/>
-        <location filename="../editor_form.py" line="250"/>
-        <location filename="../editor_form.py" line="284"/>
-        <location filename="../editor_form.py" line="732"/>
+        <location filename="../editor_form.py" line="132"/>
+        <location filename="../editor_form.py" line="201"/>
+        <location filename="../editor_form.py" line="253"/>
+        <location filename="../editor_form.py" line="288"/>
+        <location filename="../editor_form.py" line="762"/>
         <location filename="../editor.ui" line="454"/>
         <source>Translated</source>
         <translation>مترجم</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="179"/>
-        <location filename="../editor_form.py" line="333"/>
-        <location filename="../editor_form.py" line="481"/>
-        <location filename="../editor_form.py" line="529"/>
-        <location filename="../editor_form.py" line="540"/>
-        <location filename="../editor_form.py" line="882"/>
-        <location filename="../editor_form.py" line="934"/>
+        <location filename="../editor_form.py" line="181"/>
+        <location filename="../editor_form.py" line="337"/>
+        <location filename="../editor_form.py" line="493"/>
+        <location filename="../editor_form.py" line="541"/>
+        <location filename="../editor_form.py" line="552"/>
+        <location filename="../editor_form.py" line="912"/>
+        <location filename="../editor_form.py" line="966"/>
         <source>Export to html file</source>
         <translation>تصدير إلى ملف HTML</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="182"/>
-        <location filename="../editor_form.py" line="337"/>
-        <location filename="../editor_form.py" line="884"/>
+        <location filename="../editor_form.py" line="184"/>
+        <location filename="../editor_form.py" line="341"/>
+        <location filename="../editor_form.py" line="914"/>
         <source>Import html and relative translated contents</source>
         <translation>استيراد HTML والمحتويات المترجمة النسبية</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="192"/>
-        <location filename="../editor_form.py" line="280"/>
-        <location filename="../editor_form.py" line="728"/>
+        <location filename="../editor_form.py" line="195"/>
+        <location filename="../editor_form.py" line="284"/>
+        <location filename="../editor_form.py" line="758"/>
         <source>line</source>
         <translation>خط</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="193"/>
-        <location filename="../editor_form.py" line="281"/>
-        <location filename="../editor_form.py" line="729"/>
+        <location filename="../editor_form.py" line="196"/>
+        <location filename="../editor_form.py" line="285"/>
+        <location filename="../editor_form.py" line="759"/>
         <source>refer</source>
         <translation>يشير إلى</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="195"/>
-        <location filename="../editor_form.py" line="282"/>
-        <location filename="../editor_form.py" line="585"/>
-        <location filename="../editor_form.py" line="730"/>
-        <location filename="../editor_form.py" line="1502"/>
+        <location filename="../editor_form.py" line="198"/>
+        <location filename="../editor_form.py" line="286"/>
+        <location filename="../editor_form.py" line="598"/>
+        <location filename="../editor_form.py" line="760"/>
+        <location filename="../editor_form.py" line="1634"/>
         <location filename="../editor.ui" line="334"/>
         <location filename="../editor.ui" line="413"/>
         <source>Original</source>
         <translation>إبداعي</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="196"/>
-        <location filename="../editor_form.py" line="283"/>
-        <location filename="../editor_form.py" line="586"/>
-        <location filename="../editor_form.py" line="731"/>
-        <location filename="../editor_form.py" line="1503"/>
+        <location filename="../editor_form.py" line="199"/>
+        <location filename="../editor_form.py" line="287"/>
+        <location filename="../editor_form.py" line="599"/>
+        <location filename="../editor_form.py" line="761"/>
+        <location filename="../editor_form.py" line="1635"/>
         <location filename="../editor.ui" line="255"/>
         <location filename="../editor.ui" line="432"/>
         <source>Current</source>
         <translation>حاضِر</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="321"/>
+        <location filename="../editor_form.py" line="325"/>
         <source>Remove</source>
         <translation>يزيل</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="458"/>
+        <location filename="../editor_form.py" line="469"/>
         <source>Import to files</source>
         <translation>الاستيراد إلى الملفات</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="461"/>
+        <location filename="../editor_form.py" line="472"/>
         <source>Do you want to make advanced settings (the default setting is to import to all files in the directory)</source>
         <translation>هل تريد إجراء إعدادات متقدمة (الإعداد الافتراضي هو الاستيراد إلى كافة الملفات الموجودة في الدليل)</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="498"/>
-        <location filename="../editor_form.py" line="548"/>
-        <location filename="../editor_form.py" line="944"/>
+        <location filename="../editor_form.py" line="510"/>
+        <location filename="../editor_form.py" line="560"/>
+        <location filename="../editor_form.py" line="976"/>
+        <location filename="../editor_form.py" line="1066"/>
         <source>Do you want to replace special symbols?</source>
         <translation>هل تريد استبدال الرموز الخاصة؟</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="543"/>
-        <location filename="../editor_form.py" line="613"/>
+        <location filename="../editor_form.py" line="555"/>
+        <location filename="../editor_form.py" line="626"/>
         <source>Do you want to make advanced settings (the default setting is to export all files in the directory)</source>
         <translation>هل تريد عمل إعدادات متقدمة (الإعداد الافتراضي هو تصدير جميع الملفات الموجودة في الدليل)</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="662"/>
+        <location filename="../editor_form.py" line="692"/>
         <source>Case Sensitive</source>
         <translation>حساسية الموضوع</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="665"/>
+        <location filename="../editor_form.py" line="695"/>
         <source>Search refer column</source>
         <translation>البحث في العمود المرجعي</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="668"/>
+        <location filename="../editor_form.py" line="698"/>
         <source>Search Original column</source>
         <translation>البحث في العمود الأصلي</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="671"/>
+        <location filename="../editor_form.py" line="701"/>
         <source>Search Current column</source>
         <translation>البحث في العمود الحالي</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="674"/>
+        <location filename="../editor_form.py" line="704"/>
         <source>Search Translated column</source>
         <translation>البحث في العمود المترجم</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="769"/>
-        <location filename="../editor_form.py" line="781"/>
+        <location filename="../editor_form.py" line="799"/>
+        <location filename="../editor_form.py" line="811"/>
         <source>Input Dialog</source>
         <translation>حوار الإدخال</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="771"/>
+        <location filename="../editor_form.py" line="801"/>
         <source>Please Input the line number you want to jump</source>
         <translation>الرجاء إدخال رقم السطر الذي تريد القفز عليه</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="783"/>
+        <location filename="../editor_form.py" line="813"/>
         <source>Please Input the content you want to search</source>
         <translation>الرجاء إدخال المحتوى الذي تريد البحث فيه</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="870"/>
+        <location filename="../editor_form.py" line="900"/>
         <source>Translate Translation Source to Translated</source>
         <translation>ترجمة مصدر الترجمة إلى مترجم</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="873"/>
+        <location filename="../editor_form.py" line="903"/>
         <source>Copy Original to Current</source>
         <translation>انسخ الأصل إلى الحالي</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="875"/>
+        <location filename="../editor_form.py" line="905"/>
         <source>Copy Translated to Current</source>
         <translation>نسخة مترجمة إلى الحالية</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="878"/>
+        <location filename="../editor_form.py" line="908"/>
         <source>Rollback Current to First Load</source>
         <translation>التراجع الحالي إلى التحميل الأول</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1384"/>
+        <location filename="../editor_form.py" line="1476"/>
         <source>select the directory you want to edit</source>
         <translation>حدد الدليل الذي تريد تحريره</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1391"/>
+        <location filename="../editor_form.py" line="1483"/>
         <source>select the file(s) you want to edit</source>
         <translation>حدد الملف (الملفات) الذي تريد تحريره</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="177"/>
-        <location filename="../editor_form.py" line="330"/>
-        <location filename="../editor_form.py" line="572"/>
-        <location filename="../editor_form.py" line="601"/>
-        <location filename="../editor_form.py" line="610"/>
-        <location filename="../editor_form.py" line="880"/>
-        <location filename="../editor_form.py" line="984"/>
+        <location filename="../editor_form.py" line="179"/>
+        <location filename="../editor_form.py" line="334"/>
+        <location filename="../editor_form.py" line="585"/>
+        <location filename="../editor_form.py" line="614"/>
+        <location filename="../editor_form.py" line="623"/>
+        <location filename="../editor_form.py" line="910"/>
+        <location filename="../editor_form.py" line="1016"/>
         <source>Export to xlsx file</source>
         <translation>تصدير إلى ملف XLSX</translation>
     </message>
@@ -861,7 +862,7 @@
     </message>
     <message>
         <location filename="../font_replace_form.py" line="54"/>
-        <location filename="../one_key_translate_form.py" line="393"/>
+        <location filename="../one_key_translate_form.py" line="414"/>
         <source>select the file font which supports the translated language</source>
         <translation>حدد خط الملف الذي يدعم اللغة المترجمة</translation>
     </message>
@@ -917,7 +918,7 @@
 <context>
     <name>GameUnpackerDialog</name>
     <message>
-        <location filename="../game_unpacker_form.py" line="144"/>
+        <location filename="../game_unpacker_form.py" line="149"/>
         <source>select the game file you want to unpack</source>
         <translation>حدد ملف اللعبة الذي تريد فك ضغطه</translation>
     </message>
@@ -1005,17 +1006,20 @@
 <context>
     <name>ImportHtmlDialog</name>
     <message>
-        <location filename="../import_html_form.py" line="36"/>
+        <location filename="../main.py" line="598"/>
+        <location filename="../editor_form.py" line="1523"/>
+        <location filename="../one_key_translate_form.py" line="665"/>
+        <location filename="../import_html_form.py" line="37"/>
         <source>The html file does not match the translated file , please check the input files</source>
         <translation>ملف html لا يتطابق مع الملف المترجم، يرجى التحقق من ملفات الإدخال</translation>
     </message>
     <message>
-        <location filename="../import_html_form.py" line="45"/>
+        <location filename="../import_html_form.py" line="46"/>
         <source>select the relative translated file</source>
         <translation>حدد الملف المترجم النسبي</translation>
     </message>
     <message>
-        <location filename="../import_html_form.py" line="56"/>
+        <location filename="../import_html_form.py" line="57"/>
         <source>select the html file exported before</source>
         <translation>حدد ملف html الذي تم تصديره من قبل</translation>
     </message>
@@ -1147,25 +1151,46 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../main.py" line="473"/>
+        <location filename="../main.py" line="634"/>
         <location filename="../extraction_official_form.py" line="67"/>
         <source>is extracting...</source>
         <translation>استخراج...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="464"/>
-        <location filename="../main.py" line="556"/>
+        <location filename="../main.py" line="578"/>
+        <location filename="../main.py" line="736"/>
         <source>is translating...</source>
         <translation>جار الترجمة...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="467"/>
-        <location filename="../ui.ui" line="100"/>
+        <location filename="../main.py" line="147"/>
+        <location filename="../main.py" line="407"/>
+        <source>Click to check for update</source>
+        <translation>انقر للتحقق من التحديث</translation>
+    </message>
+    <message>
+        <location filename="../main.py" line="243"/>
+        <source>It&apos;s up to date now</source>
+        <translation>إنه محدث الآن</translation>
+    </message>
+    <message>
+        <location filename="../main.py" line="249"/>
+        <source>New version detected</source>
+        <translation>تم اكتشاف نسخة جديدة</translation>
+    </message>
+    <message>
+        <location filename="../main.py" line="251"/>
+        <source>Would you like to open the website to get the latest verison?</source>
+        <translation>هل ترغب في فتح الموقع للحصول على أحدث إصدار؟</translation>
+    </message>
+    <message>
+        <location filename="../main.py" line="581"/>
+        <location filename="../ui.ui" line="87"/>
         <source>translate</source>
         <translation>يترجم</translation>
     </message>
     <message>
-        <location filename="../main.py" line="477"/>
+        <location filename="../main.py" line="638"/>
         <location filename="../extraction_official_form.py" line="89"/>
         <source>extract</source>
         <translation>يستخرج</translation>
@@ -1179,12 +1204,12 @@
         <translation type="vanished">حدد الدليل الذي تريد استخراجه</translation>
     </message>
     <message>
-        <location filename="../main.py" line="505"/>
+        <location filename="../main.py" line="671"/>
         <source>select the file(s) you want to translate</source>
         <translation>حدد الملف (الملفات) التي تريد ترجمتها</translation>
     </message>
     <message>
-        <location filename="../main.py" line="516"/>
+        <location filename="../main.py" line="682"/>
         <source>select the directory you want to translate</source>
         <translation>حدد الدليل الذي تريد ترجمته</translation>
     </message>
@@ -1194,128 +1219,138 @@
         <translation>مترجم رينبي</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="78"/>
-        <source>Version 2.3.7</source>
-        <translation>الإصدار2.3.7</translation>
-    </message>
-    <message>
-        <location filename="../ui.ui" line="113"/>
-        <location filename="../ui.ui" line="174"/>
+        <location filename="../ui.ui" line="100"/>
+        <location filename="../ui.ui" line="161"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="126"/>
+        <location filename="../ui.ui" line="113"/>
         <source>directory</source>
         <translation>الدليل</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="142"/>
+        <location filename="../ui.ui" line="129"/>
         <source>file(s)</source>
         <translation>الملف (الملفات)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="161"/>
+        <location filename="../ui.ui" line="148"/>
         <source>input or choose or drag the file(s) you want to translate here. Examaple : F:\GameName\game\tl\language\script.rpy</source>
         <translation>أدخل أو اختر أو اسحب الملف (الملفات) الذي تريد ترجمته هنا. على سبيل المثال: F:\GameName\game\tl\language\script.rpy</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="187"/>
+        <location filename="../ui.ui" line="174"/>
         <source>input or choose or drag the directory you want translate here.  Example:F:\GameName\game\tl\language</source>
         <translation>أدخل أو اختر أو اسحب الدليل الذي تريد ترجمته هنا. مثال:F:\GameName\game\tl\language</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="205"/>
+        <location filename="../ui.ui" line="192"/>
         <source>translation</source>
         <translation>ترجمة</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="218"/>
+        <location filename="../ui.ui" line="205"/>
         <source>target</source>
         <translation>هدف</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="234"/>
+        <location filename="../ui.ui" line="221"/>
         <source>source</source>
         <translation>مصدر</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="289"/>
+        <location filename="../ui.ui" line="276"/>
         <source>Generate Backup Files (xxx.rpy.bak)</source>
         <translation>إنشاء ملفات النسخ الاحتياطي (xxx.rpy.bak)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="302"/>
+        <location filename="../ui.ui" line="289"/>
         <source>Local Glossary (replace certain words with preset content)</source>
         <translation>المسرد المحلي (استبدال كلمات معينة بمحتوى محدد مسبقًا)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="321"/>
+        <location filename="../ui.ui" line="308"/>
         <source>Translation Source</source>
         <translation>مصدر الترجمة</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="340"/>
+        <location filename="../ui.ui" line="327"/>
         <source>Original</source>
         <translation>إبداعي</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="359"/>
+        <location filename="../ui.ui" line="346"/>
         <source>Current</source>
         <translation>حاضِر</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="375"/>
+        <location filename="../ui.ui" line="362"/>
         <source>Skip Translated (Original != Current)</source>
         <translation>تخطي الترجمة (الأصل! = الحالي)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="423"/>
+        <location filename="../ui.ui" line="410"/>
         <source>Enable filter for translate</source>
         <translation>تمكين عامل التصفية للترجمة</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="734"/>
+        <location filename="../ui.ui" line="472"/>
+        <source>Enable replace special symbols</source>
+        <translation>تمكين استبدال الرموز الخاصة</translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="488"/>
+        <source>Auto open untranslated contents with brower</source>
+        <translation>فتح المحتويات غير المترجمة تلقائيًا باستخدام المتصفح</translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="504"/>
+        <source>Show exported html file with explorer only</source>
+        <translation>إظهار ملف html المُصدَّر باستخدام المستكشف فقط</translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="801"/>
         <source>extract translation</source>
         <translation>اِستِخلاص</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="739"/>
+        <location filename="../ui.ui" line="806"/>
         <source>runtime extraction</source>
         <translation>استخراج وقت التشغيل</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="754"/>
+        <location filename="../ui.ui" line="821"/>
         <source>add change langauge entrance</source>
         <translation>إضافة تغيير مدخل اللغة</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="759"/>
+        <location filename="../ui.ui" line="826"/>
         <source>one key translate</source>
         <translation>ترجمة مفتاح واحد</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="764"/>
+        <location filename="../ui.ui" line="831"/>
         <source>official extraction</source>
         <translation>الاستخراج الرسمي</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="769"/>
+        <location filename="../ui.ui" line="836"/>
         <source>convert txt to html</source>
         <translation>تحويل النص إلى HTML</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="779"/>
+        <location filename="../ui.ui" line="846"/>
         <source>pack game files</source>
         <translation>حزمة ملفات اللعبة</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="270"/>
+        <location filename="../ui.ui" line="257"/>
         <source>Multi-threaded translation</source>
         <translation>ترجمة متعددة الخيوط</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="391"/>
+        <location filename="../ui.ui" line="378"/>
         <source>(If disable, translation will continue after the previous file has been translated)</source>
         <translation>(في حالة التعطيل، ستستمر الترجمة بعد ترجمة الملف السابق)</translation>
     </message>
@@ -1333,7 +1368,7 @@
         <translation type="vanished">أدخل أو اختر أو اسحب الخط الذي يدعم اللغة بعد الترجمة. مثال: DejaVuSans.ttf (الخط الافتراضي لـren&apos;py)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="629"/>
+        <location filename="../ui.ui" line="696"/>
         <source>replace font</source>
         <translation>استبدال الخط</translation>
     </message>
@@ -1382,7 +1417,7 @@
         <translation type="vanished">تمكين عامل التصفية للاستخراج</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="407"/>
+        <location filename="../ui.ui" line="394"/>
         <source>filter length less than</source>
         <translation>طول الفلتر أقل من</translation>
     </message>
@@ -1396,32 +1431,38 @@
         <translation>سجل نظيف</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="460"/>
+        <location filename="../main.py" line="146"/>
+        <location filename="../main.py" line="406"/>
+        <source>Version</source>
+        <translation>إصدار</translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="526"/>
         <source>about</source>
         <translation>عن</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="466"/>
+        <location filename="../ui.ui" line="532"/>
         <source>proxy</source>
         <translation>الوكيل</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="472"/>
+        <location filename="../ui.ui" line="538"/>
         <source>translation engine</source>
         <translation>محرك الترجمة</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="479"/>
+        <location filename="../ui.ui" line="545"/>
         <source>advanced options</source>
         <translation>خيارات متقدمة</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="515"/>
+        <location filename="../ui.ui" line="582"/>
         <source>theme</source>
         <translation>سمة</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="634"/>
+        <location filename="../ui.ui" line="701"/>
         <source>unpack game package</source>
         <translation>فك حزمة اللعبة</translation>
     </message>
@@ -1430,32 +1471,32 @@
         <translation type="vanished">محرر</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="495"/>
+        <location filename="../ui.ui" line="561"/>
         <source>language</source>
         <translation>لغة</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="546"/>
+        <location filename="../ui.ui" line="613"/>
         <source>copyright</source>
         <translation>حقوق النشر</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="551"/>
+        <location filename="../ui.ui" line="618"/>
         <source>proxy settings</source>
         <translation>إعدادات الوكيل</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="556"/>
+        <location filename="../ui.ui" line="623"/>
         <source>engine settings</source>
         <translation>إعدادات المحرك</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="561"/>
+        <location filename="../ui.ui" line="628"/>
         <source>custom engine</source>
         <translation>محرك مخصص</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="566"/>
+        <location filename="../ui.ui" line="633"/>
         <source>edit from rpy</source>
         <translation>تحرير من rpy</translation>
     </message>
@@ -1595,12 +1636,12 @@
         <translation>قم بفك ضغط جميع الملفات (إذا تم تعطيلها، فسيتم فك ضغط ملفات البرامج النصية فقط)</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="513"/>
+        <location filename="../one_key_translate_form.py" line="573"/>
         <source>select the game file</source>
         <translation>حدد ملف اللعبة</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="599"/>
+        <location filename="../one_key_translate_form.py" line="694"/>
         <source>One Key Translate Complete</source>
         <translation>اكتملت ترجمة مفتاح واحد</translation>
     </message>
@@ -1720,6 +1761,29 @@
         <location filename="../proxy.ui" line="68"/>
         <source>confirm</source>
         <translation>يتأكد</translation>
+    </message>
+</context>
+<context>
+    <name>TranslatedDialog</name>
+    <message>
+        <location filename="../translated.ui" line="14"/>
+        <source>Translate with translated contents</source>
+        <translation>ترجمة مع محتويات مترجمة</translation>
+    </message>
+    <message>
+        <location filename="../translated.ui" line="26"/>
+        <source>you can also just directly paste the translated contents here</source>
+        <translation>يمكنك أيضًا لصق المحتويات المترجمة مباشرة هنا</translation>
+    </message>
+    <message>
+        <location filename="../translated.ui" line="33"/>
+        <source>Confirm</source>
+        <translation>يتأكد</translation>
+    </message>
+    <message>
+        <location filename="../translated.ui" line="71"/>
+        <source>input or choose or drag the file already translated. Examaple : F:\translated.txt</source>
+        <translation>على سبيل المثال: F:\translated.txtأدخل أو اختر أو اسحب الملف المترجم بالفعل.</translation>
     </message>
 </context>
 </TS>

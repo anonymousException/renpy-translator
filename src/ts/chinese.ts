@@ -319,11 +319,11 @@
         <translation>启用翻译过滤器</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="196"/>
-        <location filename="../editor_form.py" line="283"/>
-        <location filename="../editor_form.py" line="586"/>
-        <location filename="../editor_form.py" line="731"/>
-        <location filename="../editor_form.py" line="1503"/>
+        <location filename="../editor_form.py" line="199"/>
+        <location filename="../editor_form.py" line="287"/>
+        <location filename="../editor_form.py" line="599"/>
+        <location filename="../editor_form.py" line="761"/>
+        <location filename="../editor_form.py" line="1635"/>
         <location filename="../editor.ui" line="255"/>
         <location filename="../editor.ui" line="432"/>
         <source>Current</source>
@@ -345,11 +345,11 @@
         <translation>仅显示未翻译的内容</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="195"/>
-        <location filename="../editor_form.py" line="282"/>
-        <location filename="../editor_form.py" line="585"/>
-        <location filename="../editor_form.py" line="730"/>
-        <location filename="../editor_form.py" line="1502"/>
+        <location filename="../editor_form.py" line="198"/>
+        <location filename="../editor_form.py" line="286"/>
+        <location filename="../editor_form.py" line="598"/>
+        <location filename="../editor_form.py" line="760"/>
+        <location filename="../editor_form.py" line="1634"/>
         <location filename="../editor.ui" line="334"/>
         <location filename="../editor.ui" line="413"/>
         <source>Original</source>
@@ -371,11 +371,11 @@
         <translation>搜索后显示日志</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="130"/>
-        <location filename="../editor_form.py" line="198"/>
-        <location filename="../editor_form.py" line="250"/>
-        <location filename="../editor_form.py" line="284"/>
-        <location filename="../editor_form.py" line="732"/>
+        <location filename="../editor_form.py" line="132"/>
+        <location filename="../editor_form.py" line="201"/>
+        <location filename="../editor_form.py" line="253"/>
+        <location filename="../editor_form.py" line="288"/>
+        <location filename="../editor_form.py" line="762"/>
         <location filename="../editor.ui" line="454"/>
         <source>Translated</source>
         <translation>已翻译</translation>
@@ -386,156 +386,157 @@
         <translation>将所选内容复制到剪贴板 复制源</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="126"/>
-        <location filename="../editor_form.py" line="249"/>
+        <location filename="../editor_form.py" line="128"/>
+        <location filename="../editor_form.py" line="252"/>
         <source>Units</source>
         <translation>单位</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="192"/>
-        <location filename="../editor_form.py" line="280"/>
-        <location filename="../editor_form.py" line="728"/>
+        <location filename="../editor_form.py" line="195"/>
+        <location filename="../editor_form.py" line="284"/>
+        <location filename="../editor_form.py" line="758"/>
         <source>line</source>
         <translation>行</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="193"/>
-        <location filename="../editor_form.py" line="281"/>
-        <location filename="../editor_form.py" line="729"/>
+        <location filename="../editor_form.py" line="196"/>
+        <location filename="../editor_form.py" line="285"/>
+        <location filename="../editor_form.py" line="759"/>
         <source>refer</source>
         <translation>指向</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="122"/>
-        <location filename="../editor_form.py" line="248"/>
+        <location filename="../editor_form.py" line="124"/>
+        <location filename="../editor_form.py" line="251"/>
         <source>Path</source>
         <translation>路径</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="179"/>
-        <location filename="../editor_form.py" line="333"/>
-        <location filename="../editor_form.py" line="481"/>
-        <location filename="../editor_form.py" line="529"/>
-        <location filename="../editor_form.py" line="540"/>
-        <location filename="../editor_form.py" line="882"/>
-        <location filename="../editor_form.py" line="934"/>
+        <location filename="../editor_form.py" line="181"/>
+        <location filename="../editor_form.py" line="337"/>
+        <location filename="../editor_form.py" line="493"/>
+        <location filename="../editor_form.py" line="541"/>
+        <location filename="../editor_form.py" line="552"/>
+        <location filename="../editor_form.py" line="912"/>
+        <location filename="../editor_form.py" line="966"/>
         <source>Export to html file</source>
         <translation>导出到 html 文件</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="182"/>
-        <location filename="../editor_form.py" line="337"/>
-        <location filename="../editor_form.py" line="884"/>
+        <location filename="../editor_form.py" line="184"/>
+        <location filename="../editor_form.py" line="341"/>
+        <location filename="../editor_form.py" line="914"/>
         <source>Import html and relative translated contents</source>
         <translation>导入html和相关翻译内容</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="321"/>
+        <location filename="../editor_form.py" line="325"/>
         <source>Remove</source>
         <translation>移除</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="458"/>
+        <location filename="../editor_form.py" line="469"/>
         <source>Import to files</source>
         <translation>导入到文件</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="461"/>
+        <location filename="../editor_form.py" line="472"/>
         <source>Do you want to make advanced settings (the default setting is to import to all files in the directory)</source>
         <translation>是否要进行高级设置（默认设置是导入到目录下的所有文件）</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="498"/>
-        <location filename="../editor_form.py" line="548"/>
-        <location filename="../editor_form.py" line="944"/>
+        <location filename="../editor_form.py" line="510"/>
+        <location filename="../editor_form.py" line="560"/>
+        <location filename="../editor_form.py" line="976"/>
+        <location filename="../editor_form.py" line="1066"/>
         <source>Do you want to replace special symbols?</source>
         <translation>您想替换特殊符号吗？</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="543"/>
-        <location filename="../editor_form.py" line="613"/>
+        <location filename="../editor_form.py" line="555"/>
+        <location filename="../editor_form.py" line="626"/>
         <source>Do you want to make advanced settings (the default setting is to export all files in the directory)</source>
         <translation>是否要进行高级设置（默认设置是导出目录下的所有文件）</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="662"/>
+        <location filename="../editor_form.py" line="692"/>
         <source>Case Sensitive</source>
         <translation>区分大小写</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="665"/>
+        <location filename="../editor_form.py" line="695"/>
         <source>Search refer column</source>
         <translation>搜索 refer 列</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="668"/>
+        <location filename="../editor_form.py" line="698"/>
         <source>Search Original column</source>
         <translation>搜索 Origina 列</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="671"/>
+        <location filename="../editor_form.py" line="701"/>
         <source>Search Current column</source>
         <translation>搜索 Current 列</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="674"/>
+        <location filename="../editor_form.py" line="704"/>
         <source>Search Translated column</source>
         <translation>搜索 Translated 列</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="769"/>
-        <location filename="../editor_form.py" line="781"/>
+        <location filename="../editor_form.py" line="799"/>
+        <location filename="../editor_form.py" line="811"/>
         <source>Input Dialog</source>
         <translation>输入对话框</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="771"/>
+        <location filename="../editor_form.py" line="801"/>
         <source>Please Input the line number you want to jump</source>
         <translation>请输入您要跳转的行号</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="783"/>
+        <location filename="../editor_form.py" line="813"/>
         <source>Please Input the content you want to search</source>
         <translation>输入您要搜索的内容</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="870"/>
+        <location filename="../editor_form.py" line="900"/>
         <source>Translate Translation Source to Translated</source>
         <translation>将翻译源翻译到翻译后的内容</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="873"/>
+        <location filename="../editor_form.py" line="903"/>
         <source>Copy Original to Current</source>
         <translation>将原始内容复制到当前内容</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="875"/>
+        <location filename="../editor_form.py" line="905"/>
         <source>Copy Translated to Current</source>
         <translation>复制翻译为当前</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="878"/>
+        <location filename="../editor_form.py" line="908"/>
         <source>Rollback Current to First Load</source>
         <translation>将 当前 回滚到刚加载时</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1384"/>
+        <location filename="../editor_form.py" line="1476"/>
         <source>select the directory you want to edit</source>
         <translation>选择要编辑的目录</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1391"/>
+        <location filename="../editor_form.py" line="1483"/>
         <source>select the file(s) you want to edit</source>
         <translation>选择您要编辑的文件</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="177"/>
-        <location filename="../editor_form.py" line="330"/>
-        <location filename="../editor_form.py" line="572"/>
-        <location filename="../editor_form.py" line="601"/>
-        <location filename="../editor_form.py" line="610"/>
-        <location filename="../editor_form.py" line="880"/>
-        <location filename="../editor_form.py" line="984"/>
+        <location filename="../editor_form.py" line="179"/>
+        <location filename="../editor_form.py" line="334"/>
+        <location filename="../editor_form.py" line="585"/>
+        <location filename="../editor_form.py" line="614"/>
+        <location filename="../editor_form.py" line="623"/>
+        <location filename="../editor_form.py" line="910"/>
+        <location filename="../editor_form.py" line="1016"/>
         <source>Export to xlsx file</source>
         <translation>导出到 xlsx 文件</translation>
     </message>
@@ -908,7 +909,7 @@
     </message>
     <message>
         <location filename="../font_replace_form.py" line="54"/>
-        <location filename="../one_key_translate_form.py" line="393"/>
+        <location filename="../one_key_translate_form.py" line="414"/>
         <source>select the file font which supports the translated language</source>
         <translation>选择支持翻译语言的文件字体</translation>
     </message>
@@ -921,7 +922,7 @@
 <context>
     <name>GameUnpackerDialog</name>
     <message>
-        <location filename="../game_unpacker_form.py" line="144"/>
+        <location filename="../game_unpacker_form.py" line="149"/>
         <source>select the game file you want to unpack</source>
         <translation>选择你要解压的游戏文件</translation>
     </message>
@@ -1009,17 +1010,20 @@
 <context>
     <name>ImportHtmlDialog</name>
     <message>
-        <location filename="../import_html_form.py" line="36"/>
+        <location filename="../main.py" line="598"/>
+        <location filename="../editor_form.py" line="1523"/>
+        <location filename="../one_key_translate_form.py" line="665"/>
+        <location filename="../import_html_form.py" line="37"/>
         <source>The html file does not match the translated file , please check the input files</source>
         <translation>html文件与翻译的文件不匹配，请检查输入文件</translation>
     </message>
     <message>
-        <location filename="../import_html_form.py" line="45"/>
+        <location filename="../import_html_form.py" line="46"/>
         <source>select the relative translated file</source>
         <translation>选择相对翻译的文件</translation>
     </message>
     <message>
-        <location filename="../import_html_form.py" line="56"/>
+        <location filename="../import_html_form.py" line="57"/>
         <source>select the html file exported before</source>
         <translation>选择之前导出的html文件</translation>
     </message>
@@ -1156,20 +1160,41 @@
         <translation>Ren&apos;py 翻译器</translation>
     </message>
     <message>
-        <location filename="../main.py" line="473"/>
+        <location filename="../main.py" line="634"/>
         <location filename="../extraction_official_form.py" line="67"/>
         <source>is extracting...</source>
         <translation>抽取中...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="464"/>
-        <location filename="../main.py" line="556"/>
+        <location filename="../main.py" line="578"/>
+        <location filename="../main.py" line="736"/>
         <source>is translating...</source>
         <translation>翻译中...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="467"/>
-        <location filename="../ui.ui" line="100"/>
+        <location filename="../main.py" line="147"/>
+        <location filename="../main.py" line="407"/>
+        <source>Click to check for update</source>
+        <translation>点击检查更新</translation>
+    </message>
+    <message>
+        <location filename="../main.py" line="243"/>
+        <source>It&apos;s up to date now</source>
+        <translation>现在是最新的</translation>
+    </message>
+    <message>
+        <location filename="../main.py" line="249"/>
+        <source>New version detected</source>
+        <translation>检测到新版本</translation>
+    </message>
+    <message>
+        <location filename="../main.py" line="251"/>
+        <source>Would you like to open the website to get the latest verison?</source>
+        <translation>您是否愿意打开网站获取最新版本？</translation>
+    </message>
+    <message>
+        <location filename="../main.py" line="581"/>
+        <location filename="../ui.ui" line="87"/>
         <source>translate</source>
         <translation>翻译</translation>
     </message>
@@ -1182,133 +1207,143 @@
         <translation type="vanished">选择你要解压的目录</translation>
     </message>
     <message>
-        <location filename="../main.py" line="505"/>
+        <location filename="../main.py" line="671"/>
         <source>select the file(s) you want to translate</source>
         <translation>选择您要翻译的文件</translation>
     </message>
     <message>
-        <location filename="../main.py" line="516"/>
+        <location filename="../main.py" line="682"/>
         <source>select the directory you want to translate</source>
         <translation>选择要翻译的目录</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="78"/>
-        <source>Version 2.3.7</source>
-        <translation>版本 2.3.7</translation>
-    </message>
-    <message>
-        <location filename="../ui.ui" line="113"/>
-        <location filename="../ui.ui" line="174"/>
+        <location filename="../ui.ui" line="100"/>
+        <location filename="../ui.ui" line="161"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="126"/>
+        <location filename="../ui.ui" line="113"/>
         <source>directory</source>
         <translation>目录</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="142"/>
+        <location filename="../ui.ui" line="129"/>
         <source>file(s)</source>
         <translation>文件</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="161"/>
+        <location filename="../ui.ui" line="148"/>
         <source>input or choose or drag the file(s) you want to translate here. Examaple : F:\GameName\game\tl\language\script.rpy</source>
         <translation>在此处输入或选择或拖动您要翻译的文件。示例：F:\GameName\game\tl\language\script.rpy</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="187"/>
+        <location filename="../ui.ui" line="174"/>
         <source>input or choose or drag the directory you want translate here.  Example:F:\GameName\game\tl\language</source>
         <translation>在此处输入或选择或拖动要翻译的目录。示例：F:\GameName\game\tl\language</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="205"/>
+        <location filename="../ui.ui" line="192"/>
         <source>translation</source>
         <translation>翻译</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="218"/>
+        <location filename="../ui.ui" line="205"/>
         <source>target</source>
         <translation>目标</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="234"/>
+        <location filename="../ui.ui" line="221"/>
         <source>source</source>
         <translation>源</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="270"/>
+        <location filename="../ui.ui" line="257"/>
         <source>Multi-threaded translation</source>
         <translation>多线程翻译</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="289"/>
+        <location filename="../ui.ui" line="276"/>
         <source>Generate Backup Files (xxx.rpy.bak)</source>
         <translation>生成备份文件（xxx.rpy.bak）</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="302"/>
+        <location filename="../ui.ui" line="289"/>
         <source>Local Glossary (replace certain words with preset content)</source>
         <translation>本地词汇表（用预设内容替换某些单词）</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="321"/>
+        <location filename="../ui.ui" line="308"/>
         <source>Translation Source</source>
         <translation>翻译来源</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="340"/>
+        <location filename="../ui.ui" line="327"/>
         <source>Original</source>
         <translation>原来的</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="359"/>
+        <location filename="../ui.ui" line="346"/>
         <source>Current</source>
         <translation>当前的</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="375"/>
+        <location filename="../ui.ui" line="362"/>
         <source>Skip Translated (Original != Current)</source>
         <translation>跳过翻译（原始！=当前）</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="423"/>
+        <location filename="../ui.ui" line="410"/>
         <source>Enable filter for translate</source>
         <translation>启用翻译过滤器</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="734"/>
+        <location filename="../ui.ui" line="472"/>
+        <source>Enable replace special symbols</source>
+        <translation>启用替换特殊符号</translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="488"/>
+        <source>Auto open untranslated contents with brower</source>
+        <translation>使用浏览器自动打开未翻译的内容</translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="504"/>
+        <source>Show exported html file with explorer only</source>
+        <translation>仅使用资源管理器显示导出的 html 文件</translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="801"/>
         <source>extract translation</source>
         <translation>提取翻译</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="739"/>
+        <location filename="../ui.ui" line="806"/>
         <source>runtime extraction</source>
         <translation>运行时提取</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="754"/>
+        <location filename="../ui.ui" line="821"/>
         <source>add change langauge entrance</source>
         <translation>添加更改语言入口</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="759"/>
+        <location filename="../ui.ui" line="826"/>
         <source>one key translate</source>
         <translation>一键翻译</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="764"/>
+        <location filename="../ui.ui" line="831"/>
         <source>official extraction</source>
         <translation>官方提取</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="769"/>
+        <location filename="../ui.ui" line="836"/>
         <source>convert txt to html</source>
         <translation>将 txt 转换为 html</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="779"/>
+        <location filename="../ui.ui" line="846"/>
         <source>pack game files</source>
         <translation>打包游戏文件</translation>
     </message>
@@ -1318,12 +1353,12 @@
         <translation>©2024 Last moment,All rights reserved.</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="479"/>
+        <location filename="../ui.ui" line="545"/>
         <source>advanced options</source>
         <translation>高级选项</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="634"/>
+        <location filename="../ui.ui" line="701"/>
         <source>unpack game package</source>
         <translation>解压游戏包</translation>
     </message>
@@ -1340,7 +1375,7 @@
         <translation type="vanished">输入或选择或拖动支持翻译后语言的字体。示例：DejaVuSans.ttf（ren&apos;py 的默认字体）</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="629"/>
+        <location filename="../ui.ui" line="696"/>
         <source>replace font</source>
         <translation>替换字体</translation>
     </message>
@@ -1369,13 +1404,13 @@
         <translation type="vanished">在此处输入或选择或拖动要翻译的目录。示例：F:\GameName\game\tl\language</translation>
     </message>
     <message>
-        <location filename="../main.py" line="477"/>
+        <location filename="../main.py" line="638"/>
         <location filename="../extraction_official_form.py" line="89"/>
         <source>extract</source>
         <translation>抽取</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="391"/>
+        <location filename="../ui.ui" line="378"/>
         <source>(If disable, translation will continue after the previous file has been translated)</source>
         <translation>（如果禁用，翻译将在前一个文件翻译完成后继续）</translation>
     </message>
@@ -1400,7 +1435,7 @@
         <translation type="vanished">启用提取过滤器</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="407"/>
+        <location filename="../ui.ui" line="394"/>
         <source>filter length less than</source>
         <translation>过滤器长度小于</translation>
     </message>
@@ -1414,17 +1449,23 @@
         <translation>清空日志</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="460"/>
+        <location filename="../main.py" line="146"/>
+        <location filename="../main.py" line="406"/>
+        <source>Version</source>
+        <translation>版本</translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="526"/>
         <source>about</source>
         <translation>关于</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="466"/>
+        <location filename="../ui.ui" line="532"/>
         <source>proxy</source>
         <translation>代理</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="472"/>
+        <location filename="../ui.ui" line="538"/>
         <source>translation engine</source>
         <translation>翻译引擎</translation>
     </message>
@@ -1433,37 +1474,37 @@
         <translation type="vanished">编辑器</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="495"/>
+        <location filename="../ui.ui" line="561"/>
         <source>language</source>
         <translation>语言</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="515"/>
+        <location filename="../ui.ui" line="582"/>
         <source>theme</source>
         <translation>主题</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="546"/>
+        <location filename="../ui.ui" line="613"/>
         <source>copyright</source>
         <translation>版权</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="551"/>
+        <location filename="../ui.ui" line="618"/>
         <source>proxy settings</source>
         <translation>代理设置</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="556"/>
+        <location filename="../ui.ui" line="623"/>
         <source>engine settings</source>
         <translation>引擎设置</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="561"/>
+        <location filename="../ui.ui" line="628"/>
         <source>custom engine</source>
         <translation>自定义引擎</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="566"/>
+        <location filename="../ui.ui" line="633"/>
         <source>edit from rpy</source>
         <translation>从 rpy 编辑</translation>
     </message>
@@ -1603,12 +1644,12 @@
         <translation>解压所有文件（如果禁用，则仅解压脚本文件）</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="513"/>
+        <location filename="../one_key_translate_form.py" line="573"/>
         <source>select the game file</source>
         <translation>选择游戏文件</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="599"/>
+        <location filename="../one_key_translate_form.py" line="694"/>
         <source>One Key Translate Complete</source>
         <translation>一键翻译完成</translation>
     </message>
@@ -1732,6 +1773,29 @@
         <location filename="../proxy.ui" line="68"/>
         <source>confirm</source>
         <translation>确认</translation>
+    </message>
+</context>
+<context>
+    <name>TranslatedDialog</name>
+    <message>
+        <location filename="../translated.ui" line="14"/>
+        <source>Translate with translated contents</source>
+        <translation>使用翻译内容进行翻译</translation>
+    </message>
+    <message>
+        <location filename="../translated.ui" line="26"/>
+        <source>you can also just directly paste the translated contents here</source>
+        <translation>您也可以直接将翻译的内容粘贴到此处</translation>
+    </message>
+    <message>
+        <location filename="../translated.ui" line="33"/>
+        <source>Confirm</source>
+        <translation>确认</translation>
+    </message>
+    <message>
+        <location filename="../translated.ui" line="71"/>
+        <source>input or choose or drag the file already translated. Examaple : F:\translated.txt</source>
+        <translation>输入或选择或拖动已翻译的文件。示例：F:\translated.txt</translation>
     </message>
 </context>
 </TS>

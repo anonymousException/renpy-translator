@@ -6,7 +6,7 @@ from PySide6.QtWidgets import QDialog, QFileDialog, QMessageBox
 
 from html_converter import Ui_HtmlConverterDialog
 from html_util import plain_text_to_html
-from editor_form import open_directory_and_select_file
+from html_util import open_directory_and_select_file
 
 
 class MyHtmlConverterForm(QDialog, Ui_HtmlConverterDialog):

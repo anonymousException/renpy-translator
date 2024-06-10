@@ -16,16 +16,16 @@ from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
     QIcon, QImage, QKeySequence, QLinearGradient,
     QPainter, QPalette, QPixmap, QRadialGradient,
     QTransform)
-from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QGridLayout,
-    QLabel, QLineEdit, QMainWindow, QMenu,
-    QMenuBar, QPushButton, QRadioButton, QSizePolicy,
-    QTextEdit, QWidget)
+from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QFrame,
+    QGridLayout, QLabel, QLineEdit, QMainWindow,
+    QMenu, QMenuBar, QPushButton, QRadioButton,
+    QSizePolicy, QTextEdit, QVBoxLayout, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1051, 542)
+        MainWindow.resize(1068, 572)
         self.actioncopyright = QAction(MainWindow)
         self.actioncopyright.setObjectName(u"actioncopyright")
         self.proxySettings = QAction(MainWindow)
@@ -186,12 +186,6 @@ class Ui_MainWindow(object):
 
         self.gridLayout.addWidget(self.log_text, 0, 1, 3, 2)
 
-        self.versionLabel = QLabel(self.centralwidget)
-        self.versionLabel.setObjectName(u"versionLabel")
-        self.versionLabel.setMaximumSize(QSize(91, 16))
-
-        self.gridLayout.addWidget(self.versionLabel, 4, 0, 1, 1)
-
         self.widget = QWidget(self.centralwidget)
         self.widget.setObjectName(u"widget")
         self.widget.setMinimumSize(QSize(600, 480))
@@ -283,13 +277,37 @@ class Ui_MainWindow(object):
         self.filterLengthLineEdit.setGeometry(QRect(520, 420, 51, 20))
         self.filterLengthLineEdit.setText(u"3")
         self.filterLengthLineEdit.setAlignment(Qt.AlignCenter)
+        self.frame = QFrame(self.widget)
+        self.frame.setObjectName(u"frame")
+        self.frame.setEnabled(True)
+        self.frame.setGeometry(QRect(0, 480, 600, 130))
+        self.frame.setMinimumSize(QSize(600, 130))
+        self.frame.setMaximumSize(QSize(0, 0))
+        self.frame.setFrameShape(QFrame.StyledPanel)
+        self.frame.setFrameShadow(QFrame.Raised)
+        self.replaceCheckBox = QCheckBox(self.frame)
+        self.replaceCheckBox.setObjectName(u"replaceCheckBox")
+        self.replaceCheckBox.setGeometry(QRect(20, 20, 561, 20))
+        self.replaceCheckBox.setChecked(True)
+        self.radioButton = QRadioButton(self.frame)
+        self.radioButton.setObjectName(u"radioButton")
+        self.radioButton.setGeometry(QRect(20, 60, 571, 20))
+        self.radioButton.setChecked(True)
+        self.radioButton_2 = QRadioButton(self.frame)
+        self.radioButton_2.setObjectName(u"radioButton_2")
+        self.radioButton_2.setGeometry(QRect(20, 100, 571, 20))
 
-        self.gridLayout.addWidget(self.widget, 0, 0, 4, 1)
+        self.gridLayout.addWidget(self.widget, 0, 0, 3, 1)
+
+        self.verticalLayout = QVBoxLayout()
+        self.verticalLayout.setObjectName(u"verticalLayout")
+
+        self.gridLayout.addLayout(self.verticalLayout, 4, 0, 1, 1)
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 1051, 22))
+        self.menubar.setGeometry(QRect(0, 0, 1068, 22))
         self.aboutMenu = QMenu(self.menubar)
         self.aboutMenu.setObjectName(u"aboutMenu")
         self.proxyMenu = QMenu(self.menubar)
@@ -384,7 +402,6 @@ class Ui_MainWindow(object):
         self.actionpack_game_files.setText(QCoreApplication.translate("MainWindow", u"pack game files", None))
         self.clearLogBtn.setText(QCoreApplication.translate("MainWindow", u"clear log", None))
         self.copyrightLabel.setText(QCoreApplication.translate("MainWindow", u"\u00a92024 Last moment,All rights reserved.", None))
-        self.versionLabel.setText(QCoreApplication.translate("MainWindow", u"Version 2.3.7", None))
         self.translateBtn.setText(QCoreApplication.translate("MainWindow", u"translate", None))
         self.selectFilesBtn.setText(QCoreApplication.translate("MainWindow", u"...", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"directory", None))
@@ -408,6 +425,9 @@ class Ui_MainWindow(object):
         self.label_16.setText(QCoreApplication.translate("MainWindow", u"(If disable, translation will continue after the previous file has been translated)", None))
         self.label_14.setText(QCoreApplication.translate("MainWindow", u"filter length less than", None))
         self.filterCheckBox.setText(QCoreApplication.translate("MainWindow", u"Enable filter for translate", None))
+        self.replaceCheckBox.setText(QCoreApplication.translate("MainWindow", u"Enable replace special symbols", None))
+        self.radioButton.setText(QCoreApplication.translate("MainWindow", u"Auto open untranslated contents with brower", None))
+        self.radioButton_2.setText(QCoreApplication.translate("MainWindow", u"Show exported html file with explorer only", None))
         self.aboutMenu.setTitle(QCoreApplication.translate("MainWindow", u"about", None))
         self.proxyMenu.setTitle(QCoreApplication.translate("MainWindow", u"proxy", None))
         self.translationEngineMenu.setTitle(QCoreApplication.translate("MainWindow", u"translation engine", None))

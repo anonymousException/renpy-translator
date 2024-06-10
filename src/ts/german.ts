@@ -238,188 +238,189 @@
 <context>
     <name>EditorDialog</name>
     <message>
-        <location filename="../editor_form.py" line="122"/>
-        <location filename="../editor_form.py" line="248"/>
+        <location filename="../editor_form.py" line="124"/>
+        <location filename="../editor_form.py" line="251"/>
         <source>Path</source>
         <translation>Weg</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="126"/>
-        <location filename="../editor_form.py" line="249"/>
+        <location filename="../editor_form.py" line="128"/>
+        <location filename="../editor_form.py" line="252"/>
         <source>Units</source>
         <translation>Einheiten</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="130"/>
-        <location filename="../editor_form.py" line="198"/>
-        <location filename="../editor_form.py" line="250"/>
-        <location filename="../editor_form.py" line="284"/>
-        <location filename="../editor_form.py" line="732"/>
+        <location filename="../editor_form.py" line="132"/>
+        <location filename="../editor_form.py" line="201"/>
+        <location filename="../editor_form.py" line="253"/>
+        <location filename="../editor_form.py" line="288"/>
+        <location filename="../editor_form.py" line="762"/>
         <location filename="../editor.ui" line="454"/>
         <source>Translated</source>
         <translation>Übersetzt</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="179"/>
-        <location filename="../editor_form.py" line="333"/>
-        <location filename="../editor_form.py" line="481"/>
-        <location filename="../editor_form.py" line="529"/>
-        <location filename="../editor_form.py" line="540"/>
-        <location filename="../editor_form.py" line="882"/>
-        <location filename="../editor_form.py" line="934"/>
+        <location filename="../editor_form.py" line="181"/>
+        <location filename="../editor_form.py" line="337"/>
+        <location filename="../editor_form.py" line="493"/>
+        <location filename="../editor_form.py" line="541"/>
+        <location filename="../editor_form.py" line="552"/>
+        <location filename="../editor_form.py" line="912"/>
+        <location filename="../editor_form.py" line="966"/>
         <source>Export to html file</source>
         <translation>In eine HTML-Datei exportieren</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="182"/>
-        <location filename="../editor_form.py" line="337"/>
-        <location filename="../editor_form.py" line="884"/>
+        <location filename="../editor_form.py" line="184"/>
+        <location filename="../editor_form.py" line="341"/>
+        <location filename="../editor_form.py" line="914"/>
         <source>Import html and relative translated contents</source>
         <translation>Importieren Sie HTML und relativ übersetzte Inhalte</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="192"/>
-        <location filename="../editor_form.py" line="280"/>
-        <location filename="../editor_form.py" line="728"/>
+        <location filename="../editor_form.py" line="195"/>
+        <location filename="../editor_form.py" line="284"/>
+        <location filename="../editor_form.py" line="758"/>
         <source>line</source>
         <translation>Linie</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="193"/>
-        <location filename="../editor_form.py" line="281"/>
-        <location filename="../editor_form.py" line="729"/>
+        <location filename="../editor_form.py" line="196"/>
+        <location filename="../editor_form.py" line="285"/>
+        <location filename="../editor_form.py" line="759"/>
         <source>refer</source>
         <translation>verweisen</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="195"/>
-        <location filename="../editor_form.py" line="282"/>
-        <location filename="../editor_form.py" line="585"/>
-        <location filename="../editor_form.py" line="730"/>
-        <location filename="../editor_form.py" line="1502"/>
+        <location filename="../editor_form.py" line="198"/>
+        <location filename="../editor_form.py" line="286"/>
+        <location filename="../editor_form.py" line="598"/>
+        <location filename="../editor_form.py" line="760"/>
+        <location filename="../editor_form.py" line="1634"/>
         <location filename="../editor.ui" line="334"/>
         <location filename="../editor.ui" line="413"/>
         <source>Original</source>
         <translation>Original</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="196"/>
-        <location filename="../editor_form.py" line="283"/>
-        <location filename="../editor_form.py" line="586"/>
-        <location filename="../editor_form.py" line="731"/>
-        <location filename="../editor_form.py" line="1503"/>
+        <location filename="../editor_form.py" line="199"/>
+        <location filename="../editor_form.py" line="287"/>
+        <location filename="../editor_form.py" line="599"/>
+        <location filename="../editor_form.py" line="761"/>
+        <location filename="../editor_form.py" line="1635"/>
         <location filename="../editor.ui" line="255"/>
         <location filename="../editor.ui" line="432"/>
         <source>Current</source>
         <translation>Aktuell</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="321"/>
+        <location filename="../editor_form.py" line="325"/>
         <source>Remove</source>
         <translation>Entfernen</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="458"/>
+        <location filename="../editor_form.py" line="469"/>
         <source>Import to files</source>
         <translation>In Dateien importieren</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="461"/>
+        <location filename="../editor_form.py" line="472"/>
         <source>Do you want to make advanced settings (the default setting is to import to all files in the directory)</source>
         <translation>Möchten Sie erweiterte Einstellungen vornehmen (die Standardeinstellung ist der Import in alle Dateien im Verzeichnis)</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="498"/>
-        <location filename="../editor_form.py" line="548"/>
-        <location filename="../editor_form.py" line="944"/>
+        <location filename="../editor_form.py" line="510"/>
+        <location filename="../editor_form.py" line="560"/>
+        <location filename="../editor_form.py" line="976"/>
+        <location filename="../editor_form.py" line="1066"/>
         <source>Do you want to replace special symbols?</source>
         <translation>Möchten Sie Sonderzeichen ersetzen?</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="543"/>
-        <location filename="../editor_form.py" line="613"/>
+        <location filename="../editor_form.py" line="555"/>
+        <location filename="../editor_form.py" line="626"/>
         <source>Do you want to make advanced settings (the default setting is to export all files in the directory)</source>
         <translation>Möchten Sie erweiterte Einstellungen vornehmen (Standardeinstellung ist der Export aller Dateien im Verzeichnis)</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="662"/>
+        <location filename="../editor_form.py" line="692"/>
         <source>Case Sensitive</source>
         <translation>Groß- und Kleinschreibung beachten</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="665"/>
+        <location filename="../editor_form.py" line="695"/>
         <source>Search refer column</source>
         <translation>Referenzspalte durchsuchen</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="668"/>
+        <location filename="../editor_form.py" line="698"/>
         <source>Search Original column</source>
         <translation>Originalspalte durchsuchen</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="671"/>
+        <location filename="../editor_form.py" line="701"/>
         <source>Search Current column</source>
         <translation>Aktuelle Spalte durchsuchen</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="674"/>
+        <location filename="../editor_form.py" line="704"/>
         <source>Search Translated column</source>
         <translation>Durchsuchen Sie die Spalte „Übersetzt“</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="769"/>
-        <location filename="../editor_form.py" line="781"/>
+        <location filename="../editor_form.py" line="799"/>
+        <location filename="../editor_form.py" line="811"/>
         <source>Input Dialog</source>
         <translation>Eingabedialog</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="771"/>
+        <location filename="../editor_form.py" line="801"/>
         <source>Please Input the line number you want to jump</source>
         <translation>Bitte geben Sie die Zeilennummer ein, zu der Sie springen möchten</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="783"/>
+        <location filename="../editor_form.py" line="813"/>
         <source>Please Input the content you want to search</source>
         <translation>Bitte geben Sie den Inhalt ein, nach dem Sie suchen möchten</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="870"/>
+        <location filename="../editor_form.py" line="900"/>
         <source>Translate Translation Source to Translated</source>
         <translation>Übersetzen Sie die Übersetzungsquelle in „Übersetzt“</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="873"/>
+        <location filename="../editor_form.py" line="903"/>
         <source>Copy Original to Current</source>
         <translation>Original auf Aktuelle kopieren</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="875"/>
+        <location filename="../editor_form.py" line="905"/>
         <source>Copy Translated to Current</source>
         <translation>In „Aktuell“ übersetzt kopieren</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="878"/>
+        <location filename="../editor_form.py" line="908"/>
         <source>Rollback Current to First Load</source>
         <translation>Rollback-Strom zum ersten Laden</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1384"/>
+        <location filename="../editor_form.py" line="1476"/>
         <source>select the directory you want to edit</source>
         <translation>Wählen Sie das Verzeichnis aus, das Sie bearbeiten möchten</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1391"/>
+        <location filename="../editor_form.py" line="1483"/>
         <source>select the file(s) you want to edit</source>
         <translation>Wählen Sie die Datei(en) aus, die Sie bearbeiten möchten</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="177"/>
-        <location filename="../editor_form.py" line="330"/>
-        <location filename="../editor_form.py" line="572"/>
-        <location filename="../editor_form.py" line="601"/>
-        <location filename="../editor_form.py" line="610"/>
-        <location filename="../editor_form.py" line="880"/>
-        <location filename="../editor_form.py" line="984"/>
+        <location filename="../editor_form.py" line="179"/>
+        <location filename="../editor_form.py" line="334"/>
+        <location filename="../editor_form.py" line="585"/>
+        <location filename="../editor_form.py" line="614"/>
+        <location filename="../editor_form.py" line="623"/>
+        <location filename="../editor_form.py" line="910"/>
+        <location filename="../editor_form.py" line="1016"/>
         <source>Export to xlsx file</source>
         <translation>In eine XLSX-Datei exportieren</translation>
     </message>
@@ -861,7 +862,7 @@
     </message>
     <message>
         <location filename="../font_replace_form.py" line="54"/>
-        <location filename="../one_key_translate_form.py" line="393"/>
+        <location filename="../one_key_translate_form.py" line="414"/>
         <source>select the file font which supports the translated language</source>
         <translation>Wählen Sie die Dateischriftart aus, die die übersetzte Sprache unterstützt</translation>
     </message>
@@ -917,7 +918,7 @@
 <context>
     <name>GameUnpackerDialog</name>
     <message>
-        <location filename="../game_unpacker_form.py" line="144"/>
+        <location filename="../game_unpacker_form.py" line="149"/>
         <source>select the game file you want to unpack</source>
         <translation>Wählen Sie die Spieldatei aus, die Sie entpacken möchten</translation>
     </message>
@@ -1005,17 +1006,20 @@
 <context>
     <name>ImportHtmlDialog</name>
     <message>
-        <location filename="../import_html_form.py" line="36"/>
+        <location filename="../main.py" line="598"/>
+        <location filename="../editor_form.py" line="1523"/>
+        <location filename="../one_key_translate_form.py" line="665"/>
+        <location filename="../import_html_form.py" line="37"/>
         <source>The html file does not match the translated file , please check the input files</source>
         <translation>Die HTML-Datei stimmt nicht mit der übersetzten Datei überein. Bitte überprüfen Sie die Eingabedateien</translation>
     </message>
     <message>
-        <location filename="../import_html_form.py" line="45"/>
+        <location filename="../import_html_form.py" line="46"/>
         <source>select the relative translated file</source>
         <translation>Wählen Sie die entsprechende übersetzte Datei aus</translation>
     </message>
     <message>
-        <location filename="../import_html_form.py" line="56"/>
+        <location filename="../import_html_form.py" line="57"/>
         <source>select the html file exported before</source>
         <translation>Wählen Sie die zuvor exportierte HTML-Datei aus</translation>
     </message>
@@ -1127,36 +1131,57 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../main.py" line="473"/>
+        <location filename="../main.py" line="634"/>
         <location filename="../extraction_official_form.py" line="67"/>
         <source>is extracting...</source>
         <translation>extrahieren...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="464"/>
-        <location filename="../main.py" line="556"/>
+        <location filename="../main.py" line="578"/>
+        <location filename="../main.py" line="736"/>
         <source>is translating...</source>
         <translation>übersetzen...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="467"/>
-        <location filename="../ui.ui" line="100"/>
+        <location filename="../main.py" line="147"/>
+        <location filename="../main.py" line="407"/>
+        <source>Click to check for update</source>
+        <translation>Klicken Sie hier, um nach Updates zu suchen</translation>
+    </message>
+    <message>
+        <location filename="../main.py" line="243"/>
+        <source>It&apos;s up to date now</source>
+        <translation>Es ist jetzt auf dem neuesten Stand</translation>
+    </message>
+    <message>
+        <location filename="../main.py" line="249"/>
+        <source>New version detected</source>
+        <translation>Neue Version erkannt</translation>
+    </message>
+    <message>
+        <location filename="../main.py" line="251"/>
+        <source>Would you like to open the website to get the latest verison?</source>
+        <translation>Möchten Sie die Website öffnen, um die neueste Version zu erhalten?</translation>
+    </message>
+    <message>
+        <location filename="../main.py" line="581"/>
+        <location filename="../ui.ui" line="87"/>
         <source>translate</source>
         <translation>übersetzen</translation>
     </message>
     <message>
-        <location filename="../main.py" line="477"/>
+        <location filename="../main.py" line="638"/>
         <location filename="../extraction_official_form.py" line="89"/>
         <source>extract</source>
         <translation>Extrakt</translation>
     </message>
     <message>
-        <location filename="../main.py" line="505"/>
+        <location filename="../main.py" line="671"/>
         <source>select the file(s) you want to translate</source>
         <translation>Wählen Sie die Datei(en) aus, die Sie übersetzen möchten</translation>
     </message>
     <message>
-        <location filename="../main.py" line="516"/>
+        <location filename="../main.py" line="682"/>
         <source>select the directory you want to translate</source>
         <translation>Wählen Sie das Verzeichnis aus, das Sie übersetzen möchten</translation>
     </message>
@@ -1166,148 +1191,164 @@
         <translation>Ren&apos;py-Übersetzer</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="113"/>
-        <location filename="../ui.ui" line="174"/>
+        <location filename="../main.py" line="146"/>
+        <location filename="../main.py" line="406"/>
+        <source>Version</source>
+        <translation>Ausführung</translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="100"/>
+        <location filename="../ui.ui" line="161"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="126"/>
+        <location filename="../ui.ui" line="113"/>
         <source>directory</source>
         <translation>Verzeichnis</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="142"/>
+        <location filename="../ui.ui" line="129"/>
         <source>file(s)</source>
         <translation>Datei(en)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="161"/>
+        <location filename="../ui.ui" line="148"/>
         <source>input or choose or drag the file(s) you want to translate here. Examaple : F:\GameName\game\tl\language\script.rpy</source>
         <translation>Geben Sie hier die Datei(en) ein, die Sie übersetzen möchten, oder wählen Sie sie aus oder ziehen Sie sie per Drag &amp; Drop. Beispiel: F:\GameName\game\tl\sprache\script.rpy</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="187"/>
+        <location filename="../ui.ui" line="174"/>
         <source>input or choose or drag the directory you want translate here.  Example:F:\GameName\game\tl\language</source>
         <translation>Geben Sie hier das Verzeichnis ein, das Sie übersetzen möchten, oder wählen Sie es aus oder ziehen Sie es per Drag &amp; Drop. Beispiel:F:\GameName\game\tl\sprache</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="205"/>
+        <location filename="../ui.ui" line="192"/>
         <source>translation</source>
         <translation>Übersetzung</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="218"/>
+        <location filename="../ui.ui" line="205"/>
         <source>target</source>
         <translation>Ziel</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="234"/>
+        <location filename="../ui.ui" line="221"/>
         <source>source</source>
         <translation>Quelle</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="289"/>
+        <location filename="../ui.ui" line="276"/>
         <source>Generate Backup Files (xxx.rpy.bak)</source>
         <translation>Sicherungsdateien generieren (xxx.rpy.bak)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="302"/>
+        <location filename="../ui.ui" line="289"/>
         <source>Local Glossary (replace certain words with preset content)</source>
         <translation>Lokales Glossar (bestimmte Wörter durch voreingestellte Inhalte ersetzen)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="321"/>
+        <location filename="../ui.ui" line="308"/>
         <source>Translation Source</source>
         <translation>Übersetzungsquelle</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="340"/>
+        <location filename="../ui.ui" line="327"/>
         <source>Original</source>
         <translation>Original</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="359"/>
+        <location filename="../ui.ui" line="346"/>
         <source>Current</source>
         <translation>Aktuell</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="375"/>
+        <location filename="../ui.ui" line="362"/>
         <source>Skip Translated (Original != Current)</source>
         <translation>Übersetzt überspringen (Original != Aktuell)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="407"/>
+        <location filename="../ui.ui" line="394"/>
         <source>filter length less than</source>
         <translation>Filterlänge kleiner als</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="423"/>
+        <location filename="../ui.ui" line="410"/>
         <source>Enable filter for translate</source>
         <translation>Filter zum Übersetzen aktivieren</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="479"/>
+        <location filename="../ui.ui" line="472"/>
+        <source>Enable replace special symbols</source>
+        <translation>Ersetzen von Sonderzeichen aktivieren</translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="488"/>
+        <source>Auto open untranslated contents with brower</source>
+        <translation>Nicht übersetzte Inhalte automatisch mit dem Browser öffnen</translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="504"/>
+        <source>Show exported html file with explorer only</source>
+        <translation>Exportierte HTML-Datei nur mit Explorer anzeigen</translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="545"/>
         <source>advanced options</source>
         <translation>erweiterte Optionen</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="515"/>
+        <location filename="../ui.ui" line="582"/>
         <source>theme</source>
         <translation>Thema</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="634"/>
+        <location filename="../ui.ui" line="701"/>
         <source>unpack game package</source>
         <translation>Spielpaket auspacken</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="734"/>
+        <location filename="../ui.ui" line="801"/>
         <source>extract translation</source>
         <translation>Übersetzung extrahieren</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="739"/>
+        <location filename="../ui.ui" line="806"/>
         <source>runtime extraction</source>
         <translation>Laufzeitextraktion</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="754"/>
+        <location filename="../ui.ui" line="821"/>
         <source>add change langauge entrance</source>
         <translation>Spracheingabe hinzufügen</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="759"/>
+        <location filename="../ui.ui" line="826"/>
         <source>one key translate</source>
         <translation>eine Schlüsselübersetzung</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="764"/>
+        <location filename="../ui.ui" line="831"/>
         <source>official extraction</source>
         <translation>Offizielle Extraktion</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="769"/>
+        <location filename="../ui.ui" line="836"/>
         <source>convert txt to html</source>
         <translation>txt in html konvertieren</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="779"/>
+        <location filename="../ui.ui" line="846"/>
         <source>pack game files</source>
         <translation>Spieldateien packen</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="270"/>
+        <location filename="../ui.ui" line="257"/>
         <source>Multi-threaded translation</source>
         <translation>Multithread-Übersetzung</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="78"/>
-        <source>Version 2.3.7</source>
-        <translation>Version 2.3.7</translation>
-    </message>
-    <message>
-        <location filename="../ui.ui" line="391"/>
+        <location filename="../ui.ui" line="378"/>
         <source>(If disable, translation will continue after the previous file has been translated)</source>
         <translation>(Wenn deaktiviert, wird die Übersetzung fortgesetzt, nachdem die vorherige Datei übersetzt wurde)</translation>
     </message>
@@ -1317,7 +1358,7 @@
         <translation>©2024 Last Moment, Alle Rechte vorbehalten.</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="629"/>
+        <location filename="../ui.ui" line="696"/>
         <source>replace font</source>
         <translation>Schriftart ersetzen</translation>
     </message>
@@ -1327,47 +1368,47 @@
         <translation>Protokoll löschen</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="460"/>
+        <location filename="../ui.ui" line="526"/>
         <source>about</source>
         <translation>um</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="466"/>
+        <location filename="../ui.ui" line="532"/>
         <source>proxy</source>
         <translation>Proxy</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="472"/>
+        <location filename="../ui.ui" line="538"/>
         <source>translation engine</source>
         <translation>Übersetzungsmaschine</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="495"/>
+        <location filename="../ui.ui" line="561"/>
         <source>language</source>
         <translation>Sprache</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="546"/>
+        <location filename="../ui.ui" line="613"/>
         <source>copyright</source>
         <translation>Urheberrechte ©</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="551"/>
+        <location filename="../ui.ui" line="618"/>
         <source>proxy settings</source>
         <translation>Proxy-Einstellungen</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="556"/>
+        <location filename="../ui.ui" line="623"/>
         <source>engine settings</source>
         <translation>Motoreinstellungen</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="561"/>
+        <location filename="../ui.ui" line="628"/>
         <source>custom engine</source>
         <translation>benutzerdefinierte Engine</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="566"/>
+        <location filename="../ui.ui" line="633"/>
         <source>edit from rpy</source>
         <translation>Bearbeiten von rpy</translation>
     </message>
@@ -1507,12 +1548,12 @@
         <translation>Alle Dateien entpacken (wenn deaktiviert, werden nur Skriptdateien entpackt)</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="513"/>
+        <location filename="../one_key_translate_form.py" line="573"/>
         <source>select the game file</source>
         <translation>Wählen Sie die Spieldatei aus</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="599"/>
+        <location filename="../one_key_translate_form.py" line="694"/>
         <source>One Key Translate Complete</source>
         <translation>One-Key-Übersetzung abgeschlossen</translation>
     </message>
@@ -1632,6 +1673,29 @@
         <location filename="../proxy.ui" line="68"/>
         <source>confirm</source>
         <translation>bestätigen</translation>
+    </message>
+</context>
+<context>
+    <name>TranslatedDialog</name>
+    <message>
+        <location filename="../translated.ui" line="14"/>
+        <source>Translate with translated contents</source>
+        <translation>Übersetzen mit übersetzten Inhalten</translation>
+    </message>
+    <message>
+        <location filename="../translated.ui" line="26"/>
+        <source>you can also just directly paste the translated contents here</source>
+        <translation>Sie können die übersetzten Inhalte auch einfach direkt hier einfügen</translation>
+    </message>
+    <message>
+        <location filename="../translated.ui" line="33"/>
+        <source>Confirm</source>
+        <translation>Bestätigen</translation>
+    </message>
+    <message>
+        <location filename="../translated.ui" line="71"/>
+        <source>input or choose or drag the file already translated. Examaple : F:\translated.txt</source>
+        <translation>Geben Sie die bereits übersetzte Datei ein, wählen Sie sie aus oder ziehen Sie sie. Beispiel: F:\translated.txt</translation>
     </message>
 </context>
 </TS>

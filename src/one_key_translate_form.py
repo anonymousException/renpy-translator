@@ -16,7 +16,8 @@ from PySide6.QtWidgets import QDialog, QFileDialog, QMessageBox
 from one_key_translate import Ui_OneKeyTranslateDialog
 from custom_engine_form import sourceDic, targetDic
 from my_log import log_print
-from renpy_translate import engineDic, language_header, translateThread, translate_threads
+from renpy_translate import engineDic, language_header, translateThread, translate_threads, get_translated_dic, \
+    web_brower_export_name, rpy_info_dic, get_rpy_info, web_brower_translate
 from engine_form import MyEngineForm
 from game_unpacker_form import finish_flag
 from extract_runtime_form import extract_finish
@@ -30,6 +31,7 @@ import extraction_official_form
 from font_util import get_default_font_path
 import my_log
 from font_replace_form import replaceFontThread
+from src.translated_form import MyTranslatedForm
 
 
 class MyQueue(queue.Queue):
@@ -48,6 +50,7 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
         self.setFixedWidth(self.width())
         self.selectFileBtn.clicked.connect(self.select_file)
         self.init_combobox()
+        self.tlNameText.textChanged.connect(self.on_tl_path_changed)
         self.changeTranslationEngineButton.clicked.connect(self.show_engine_settings)
         self.filterLengthLineEdit.setValidator(QIntValidator(1, 99, self))
         self.filterLengthLineEdit_2.setValidator(QIntValidator(1, 99, self))
@@ -65,6 +68,7 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
         # is_executed
         self.qDic = dict()
         self.dir = None
+        self.select_dir = None
         default_font = get_default_font_path()
         if default_font is not None:
             self.selectFontText.setText(default_font)
@@ -85,6 +89,15 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
 
         self.unpackAllCheckBox.setChecked(not is_script_only)
         _thread.start_new_thread(self.update, ())
+
+    def on_tl_path_changed(self):
+        if os.path.isfile('engine.txt'):
+            json_file = open('engine.txt', 'r',encoding='utf-8')
+            ori = json.load(json_file)
+            json_file.close()
+            ori['tl'] = self.tlNameText.toPlainText()
+            json_file = open('engine.txt', 'w', encoding='utf-8')
+            json.dump(ori, json_file)
 
     def on_start_button_clicked(self):
         self.q = MyQueue()
@@ -134,6 +147,8 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
                     self.setDisabled(True)
 
     def translate(self):
+        if os.path.isfile(web_brower_export_name):
+            os.remove(web_brower_export_name)
         select_file = self.selectFileText.toPlainText()
         if len(select_file) > 0:
             select_file = select_file.replace('file:///', '')
@@ -145,6 +160,7 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
                 self.qDic[self.translate] = is_finished, is_executed
                 return
             select_dir = os.path.dirname(select_file) + '/game/tl/' + tl_name
+            self.select_dir = select_dir
             if not os.path.exists(select_dir):
                 log_print(select_dir + ' directory does not exist!')
                 is_finished, is_executed = self.qDic[self.translate]
@@ -155,8 +171,12 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
                     select_dir = select_dir + '/'
                 paths = os.walk(select_dir, topdown=False)
                 cnt = 0
-                target_language = targetDic[self.targetComboBox.currentText()]
-                source_language = sourceDic[self.sourceComboBox.currentText()]
+                target_language = ''
+                source_language = ''
+                if self.targetComboBox.currentText() != '':
+                    target_language = targetDic[self.targetComboBox.currentText()]
+                if self.sourceComboBox.currentText() != '':
+                    source_language = sourceDic[self.sourceComboBox.currentText()]
                 for path, dir_lst, file_lst in paths:
                     for file_name in file_lst:
                         i = os.path.join(path, file_name)
@@ -165,7 +185,7 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
                         t = translateThread(cnt, i, target_language, source_language,
                                             True,
                                             False, self.local_glossary, True,
-                                            True, self.filterCheckBox_2.isChecked(), self.filterLengthLineEdit_2.text())
+                                            True, self.filterCheckBox_2.isChecked(), self.filterLengthLineEdit_2.text(), True, True)
                         translate_threads.append(t)
                         cnt = cnt + 1
                 if len(translate_threads) > 0:
@@ -343,6 +363,7 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
         self.parent.menubar.show()
         self.parent.versionLabel.show()
         self.parent.actionone_key_translate.triggered.connect(lambda: self.parent.show_one_key_translate_form())
+        self.parent.init_combobox()
         self.parent.showNormal()
         self.hide()
         event.ignore()
@@ -446,6 +467,8 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
             f = io.open(p, 'r', encoding='utf-8')
             _read = f.read()
             f.close()
+            if len(_read) == 0:
+                return []
             _read_line = _read.split('\n')
             ret_l = []
             for i in _read_line:
@@ -460,7 +483,24 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
             log_print(msg)
             return []
 
+    def on_combobox_changed(self):
+        if os.path.isfile('engine.txt'):
+            json_file = open('engine.txt', 'r',encoding='utf-8')
+            ori = json.load(json_file)
+            json_file.close()
+            current_engine = ori['engine']
+            dic = dict()
+            dic['target'] = self.targetComboBox.currentText()
+            dic['source'] = self.sourceComboBox.currentText()
+            ori[current_engine] = dic
+            json_file = open('engine.txt', 'w', encoding='utf-8')
+            json.dump(ori, json_file)
+
     def init_combobox(self):
+        self.targetComboBox.currentTextChanged.connect(self.on_combobox_changed)
+        self.sourceComboBox.currentTextChanged.connect(self.on_combobox_changed)
+        self.targetComboBox.currentTextChanged.disconnect()
+        self.sourceComboBox.currentTextChanged.disconnect()
         self.targetComboBox.clear()
         self.sourceComboBox.clear()
         targetDic.clear()
@@ -505,6 +545,26 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
             self.sourceComboBox.setCurrentIndex(source_l.index('Auto Detect'))
         except Exception:
             pass
+        json_file = open('engine.txt', 'r', encoding='utf-8')
+        json_data = json.load(json_file)
+        json_file.close()
+        current_engine = json_data['engine']
+        if 'tl' in json_data:
+            self.tlNameText.setPlainText(json_data['tl'])
+        if current_engine in json_data:
+            combobox_data = json_data[current_engine]
+            if 'source' in combobox_data:
+                try:
+                    self.sourceComboBox.setCurrentIndex(source_l.index(combobox_data['source']))
+                except:
+                    pass
+            if 'target' in combobox_data:
+                try:
+                    self.targetComboBox.setCurrentIndex(target_l.index(combobox_data['target']))
+                except:
+                    pass
+        self.targetComboBox.currentTextChanged.connect(self.on_combobox_changed)
+        self.sourceComboBox.currentTextChanged.connect(self.on_combobox_changed)
 
     def select_file(self):
         file, filetype = QFileDialog.getOpenFileName(self,
@@ -588,18 +648,53 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
                 else:
                     self.q.get()
                     self.qDic.pop(func, None)
+                    if func == self.translate:
+                        global rpy_info_dic
+                        translated_form = MyTranslatedForm()
+                        translated_form.exec()
+                        f = io.open('translated.txt', 'w', encoding='utf-8')
+                        f.write(translated_form.plainTextEdit.toPlainText())
+                        f.close()
+                        dic, is_replace_special_symbols = get_translated_dic(web_brower_export_name, 'translated.txt')
+                        if dic is None:
+                            msg_box = QMessageBox()
+                            msg_box.setWindowTitle('o(≧口≦)o')
+                            msg_box.setText(
+                                QCoreApplication.translate('ImportHtmlDialog',
+                                                           'The html file does not match the translated file , please check the input files',
+                                                           None))
+                            msg_box.exec()
+                            rpy_info_dic.clear()
+                        else:
+                            if self.select_dir is not None and os.path.isdir(self.select_dir):
+                                paths = os.walk(self.select_dir, topdown=False)
+                                for path, dir_lst, file_lst in paths:
+                                    for file_name in file_lst:
+                                        i = path + '/' + file_name
+                                        if not file_name.endswith("rpy"):
+                                            continue
+                                        if i in rpy_info_dic.keys():
+                                            ret, unmatch_cnt, p = rpy_info_dic[i]
+                                        else:
+                                            ret, unmatch_cnt, p = get_rpy_info(i)
+                                            rpy_info_dic[i] = ret, unmatch_cnt, p
+                                        web_brower_translate(self.filterCheckBox.isChecked(),
+                                                             self.filterLengthLineEdit.text(), True,
+                                                             is_replace_special_symbols, i, ret, dic)
+                        rpy_info_dic.clear()
             else:
                 if not self.is_queue_task_empty:
-                    self.is_queue_task_empty = True
-                    self.show()
-                    self.raise_()
-                    msg_box = QMessageBox(parent=self)
-                    msg_box.setWindowTitle('o(≧口≦)o')
-                    msg_box.setText(
-                        QCoreApplication.translate('OneKeyTranslateDialog', 'One Key Translate Complete', None))
-                    msg_box.exec()
-                    self.setEnabled(True)
-                    self.qDic.clear()
+                    if len(rpy_info_dic) == 0:
+                        self.is_queue_task_empty = True
+                        self.show()
+                        self.raise_()
+                        msg_box = QMessageBox(parent=self)
+                        msg_box.setWindowTitle('o(≧口≦)o')
+                        msg_box.setText(
+                            QCoreApplication.translate('OneKeyTranslateDialog', 'One Key Translate Complete', None))
+                        msg_box.exec()
+                        self.setEnabled(True)
+                        self.qDic.clear()
 
         except Exception:
             msg = traceback.format_exc()

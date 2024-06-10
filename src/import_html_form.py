@@ -2,7 +2,8 @@ from PySide6.QtCore import QCoreApplication
 from PySide6.QtWidgets import QDialog, QFileDialog, QMessageBox
 
 from import_html import Ui_ImportHtmlDialog
-import html_util
+from renpy_translate import get_translated_dic
+
 
 class MyImportHtmlForm(QDialog, Ui_ImportHtmlDialog):
     def __init__(self, parent=None):
@@ -26,7 +27,7 @@ class MyImportHtmlForm(QDialog, Ui_ImportHtmlDialog):
         translated_file = translated_file.replace('file:///', '')
         if len(translated_file) == 0:
             return
-        dic, is_replace_special_symbols = html_util.get_translated_dic(html_file, translated_file)
+        dic, is_replace_special_symbols = get_translated_dic(html_file, translated_file)
         self.dic = dic
         self.is_replace_special_symbols = is_replace_special_symbols
         if self.dic is None:
