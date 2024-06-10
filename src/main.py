@@ -784,7 +784,15 @@ def get_default_langauge():
 if __name__ == "__main__":
     multiprocessing.freeze_support()
     app = QApplication(sys.argv)
-
+    if not os.path.isfile('engine.txt'):
+        f = io.open('engine.txt', 'w', encoding='utf-8')
+        data = {"engine": engineList[0], "key": '',
+                "secret": '',
+                engineList[0] + '_key': '',
+                engineList[0] + '_secret': '',
+                }
+        json.dump(data, f)
+        f.close()
     if os.path.isfile('language.txt'):
         f = io.open('language.txt', 'r', encoding='utf-8')
         lan = f.read()
