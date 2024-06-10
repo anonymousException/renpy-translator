@@ -65,8 +65,7 @@ rpy_info_dic = dict()
 
 class translateThread(threading.Thread):
     def __init__(self, threadID, p, lang_target, lang_source, is_open_multi_thread, is_gen_bak, local_glossary,
-                 is_translate_current, is_skip_translated, is_open_filter, filter_length, is_replace_special_symbols,
-                 is_directly_open):
+                 is_translate_current, is_skip_translated, is_open_filter, filter_length, is_replace_special_symbols):
         threading.Thread.__init__(self)
         self.threadID = threadID
         self.p = p
@@ -82,7 +81,6 @@ class translateThread(threading.Thread):
             filter_length = '0'
         self.filter_length = int(filter_length)
         self.is_replace_special_symbols = is_replace_special_symbols
-        self.is_directly_open = is_directly_open
 
     def run(self):
         if not self.is_open_multi_thread:
@@ -91,7 +89,7 @@ class translateThread(threading.Thread):
             log_print(self.p + ' begin translate!')
             self.TranslateFile(self.p, self.lang_target, self.lang_source, self.is_gen_bak, self.local_glossary,
                                self.is_translate_current, self.is_skip_translated, self.is_open_filter,
-                               self.filter_length, self.is_replace_special_symbols, self.is_directly_open)
+                               self.filter_length, self.is_replace_special_symbols)
         except Exception as e:
             msg = traceback.format_exc()
             log_print(msg)
@@ -101,7 +99,7 @@ class translateThread(threading.Thread):
             translate_lock.release()
 
     def TranslateFile(self, p, lang_target, lang_source, is_gen_bak, local_glossary, is_translate_current,
-                      is_skip_translated, is_open_filter, filter_length, is_replace_special_symbols, is_directly_open):
+                      is_skip_translated, is_open_filter, filter_length, is_replace_special_symbols):
         global rpy_info_dic
         client = init_client()
         if client is None:
@@ -158,11 +156,6 @@ class translateThread(threading.Thread):
             return
         if isinstance(client, str) and client == 'web_brower':
             plain_text_to_html_from_list(transList, web_brower_export_name, is_replace_special_symbols)
-            if is_directly_open:
-                import webbrowser
-                webbrowser.open(web_brower_export_name)
-            else:
-                open_directory_and_select_file(web_brower_export_name)
             return
         trans_dic = TranslateToList(client, transList, lang_target, lang_source, fmt=fmt)
         f = io.open(p, 'r', encoding='utf-8')

@@ -7,6 +7,7 @@ import shutil
 import subprocess
 import time
 import traceback
+import webbrowser
 
 import win32gui
 from PySide6.QtCore import QCoreApplication, QThread, Signal
@@ -185,7 +186,7 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
                         t = translateThread(cnt, i, target_language, source_language,
                                             True,
                                             False, self.local_glossary, True,
-                                            True, self.filterCheckBox_2.isChecked(), self.filterLengthLineEdit_2.text(), True, True)
+                                            True, self.filterCheckBox_2.isChecked(), self.filterLengthLineEdit_2.text(), True)
                         translate_threads.append(t)
                         cnt = cnt + 1
                 if len(translate_threads) > 0:
@@ -651,6 +652,7 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
                     self.qDic.pop(func, None)
                     if func == self.translate:
                         global rpy_info_dic
+                        webbrowser.open(web_brower_export_name)
                         translated_form = MyTranslatedForm()
                         translated_form.exec()
                         f = io.open('translated.txt', 'w', encoding='utf-8')

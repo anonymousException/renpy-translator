@@ -21,6 +21,7 @@ from PySide6.QtGui import QIcon, QIntValidator, QTextCursor
 from PySide6.QtWidgets import QFileDialog, QListView, QAbstractItemView, QTreeView, QDialog, QPushButton, QLineEdit, \
     QVBoxLayout, QMainWindow, QApplication, QButtonGroup, QLabel, QMessageBox
 
+from html_util import open_directory_and_select_file
 from string_tool import EncodeBrackets, isAllPunctuations
 from translated_form import MyTranslatedForm
 
@@ -583,6 +584,10 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
             self.translateBtn.setEnabled(True)
             global rpy_info_dic
             if len(rpy_info_dic) > 0 and self.widget.isVisible() and not self.is_waiting_translated:
+                if self.radioButton.isChecked():
+                    webbrowser.open(web_brower_export_name)
+                else:
+                    open_directory_and_select_file(web_brower_export_name)
                 self.is_waiting_translated = True
                 translated_form = MyTranslatedForm()
                 translated_form.exec()
@@ -706,7 +711,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
                                         self.multiTranslateCheckBox.isChecked(), self.backupCheckBox.isChecked(),
                                         self.local_glossary, self.is_current, self.skipTranslatedCheckBox.isChecked(),
                                         self.filterCheckBox.isChecked(), self.filterLengthLineEdit.text(),
-                                        self.replaceCheckBox.isChecked(), self.radioButton.isChecked())
+                                        self.replaceCheckBox.isChecked())
                     translate_threads.append(t)
                     cnt = cnt + 1
             select_dir = self.selectDirText.toPlainText()
@@ -730,7 +735,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
                                                 self.backupCheckBox.isChecked(), self.local_glossary, self.is_current,
                                                 self.skipTranslatedCheckBox.isChecked(),
                                                 self.filterCheckBox.isChecked(), self.filterLengthLineEdit.text(),
-                                                self.replaceCheckBox.isChecked(), self.radioButton.isChecked())
+                                                self.replaceCheckBox.isChecked())
                             translate_threads.append(t)
                             cnt = cnt + 1
             if len(translate_threads) > 0:
