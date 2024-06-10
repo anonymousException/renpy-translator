@@ -1776,6 +1776,7 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
                             target = target.replace(original, replace)
 
                     line_index = int(self.tableView.model.item(row, 0).text())
+                    translated = None
                     if self.treeView.is_replace_special_symbols:
                         d = EncodeBrackets(target)
                         translated = get_translated(trans_dic, d)
