@@ -538,22 +538,23 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
             self.sourceComboBox.setCurrentIndex(source_l.index('Auto Detect'))
         except Exception:
             pass
-        json_file = open('engine.txt', 'r', encoding='utf-8')
-        json_data = json.load(json_file)
-        json_file.close()
-        current_engine = json_data['engine']
-        if current_engine in json_data:
-            combobox_data = json_data[current_engine]
-            if 'source' in combobox_data:
-                try:
-                    self.sourceComboBox.setCurrentIndex(source_l.index(combobox_data['source']))
-                except:
-                    pass
-            if 'target' in combobox_data:
-                try:
-                    self.targetComboBox.setCurrentIndex(target_l.index(combobox_data['target']))
-                except:
-                    pass
+        if os.path.isfile('engine.txt'):
+            json_file = open('engine.txt', 'r', encoding='utf-8')
+            json_data = json.load(json_file)
+            json_file.close()
+            current_engine = json_data['engine']
+            if current_engine in json_data:
+                combobox_data = json_data[current_engine]
+                if 'source' in combobox_data:
+                    try:
+                        self.sourceComboBox.setCurrentIndex(source_l.index(combobox_data['source']))
+                    except:
+                        pass
+                if 'target' in combobox_data:
+                    try:
+                        self.targetComboBox.setCurrentIndex(target_l.index(combobox_data['target']))
+                    except:
+                        pass
         self.targetComboBox.currentTextChanged.connect(self.on_combobox_changed)
         self.sourceComboBox.currentTextChanged.connect(self.on_combobox_changed)
 
