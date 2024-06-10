@@ -31,7 +31,7 @@ import extraction_official_form
 from font_util import get_default_font_path
 import my_log
 from font_replace_form import replaceFontThread
-from src.translated_form import MyTranslatedForm
+from translated_form import MyTranslatedForm
 
 
 class MyQueue(queue.Queue):
