@@ -96,6 +96,8 @@ class MyEngineForm(QDialog, Ui_EngineDialog):
         try:
             if len(url) > 0:
                 delay = get_ping_host(url)
+            else:
+                return
         except Exception as e:
             pass
         if delay != -1:
