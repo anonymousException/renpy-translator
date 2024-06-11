@@ -1526,8 +1526,9 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
                         rpy_info_dic.clear()
                         self.is_waiting_translated = False
                         translated_dic = []
-                        return
                     rpy_info_dic.clear()
+                    if os.path.isfile(web_brower_export_name):
+                        os.remove(web_brower_export_name)
             else:
                 editor_main_trhead_lock.release()
 

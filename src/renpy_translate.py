@@ -244,7 +244,7 @@ def init_client():
                     del os.environ['HTTP_PROXY']
                 os.environ['NO_PROXY'] = '*'
     if os.path.isfile('engine.txt'):
-        with open('engine.txt', 'r') as json_file:
+        with open('engine.txt', 'r', encoding='utf-8') as json_file:
             loaded_data = json.load(json_file)
             if loaded_data['engine'] == engineList[0]:
                 client = Translate(fmt='text', proxies=proxies)

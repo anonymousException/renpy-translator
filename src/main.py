@@ -53,7 +53,7 @@ targetDic = dict()
 sourceDic = dict()
 translator = QTranslator()
 
-VERSION = '2.3.9'
+VERSION = '2.4.0'
 
 
 class MyProxyForm(QDialog, Ui_ProxyDialog):
@@ -633,6 +633,8 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
                                                  self.is_current, is_replace_special_symbols, i, ret, dic)
                 rpy_info_dic.clear()
                 self.is_waiting_translated = False
+                if os.path.isfile(web_brower_export_name):
+                    os.remove(web_brower_export_name)
 
         if self.extracting:
             if self.myExtractionForm is not None:

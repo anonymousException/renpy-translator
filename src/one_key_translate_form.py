@@ -18,7 +18,7 @@ from one_key_translate import Ui_OneKeyTranslateDialog
 from custom_engine_form import sourceDic, targetDic
 from my_log import log_print
 from renpy_translate import engineDic, language_header, translateThread, translate_threads, get_translated_dic, \
-    web_brower_export_name, rpy_info_dic, get_rpy_info, web_brower_translate
+    web_brower_export_name, rpy_info_dic, get_rpy_info, web_brower_translate, engineList
 from engine_form import MyEngineForm
 from game_unpacker_form import finish_flag
 from extract_runtime_form import extract_finish
@@ -652,39 +652,48 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
                     self.qDic.pop(func, None)
                     if func == self.translate:
                         global rpy_info_dic
-                        webbrowser.open(web_brower_export_name)
-                        translated_form = MyTranslatedForm()
-                        translated_form.exec()
-                        f = io.open('translated.txt', 'w', encoding='utf-8')
-                        f.write(translated_form.plainTextEdit.toPlainText())
-                        f.close()
-                        dic, is_replace_special_symbols = get_translated_dic(web_brower_export_name, 'translated.txt')
-                        if dic is None:
-                            msg_box = QMessageBox()
-                            msg_box.setWindowTitle('o(≧口≦)o')
-                            msg_box.setText(
-                                QCoreApplication.translate('ImportHtmlDialog',
-                                                           'The html file does not match the translated file , please check the input files',
-                                                           None))
-                            msg_box.exec()
-                            rpy_info_dic.clear()
-                        else:
-                            if self.select_dir is not None and os.path.isdir(self.select_dir):
-                                paths = os.walk(self.select_dir, topdown=False)
-                                for path, dir_lst, file_lst in paths:
-                                    for file_name in file_lst:
-                                        i = path + '/' + file_name
-                                        if not file_name.endswith("rpy"):
-                                            continue
-                                        if i in rpy_info_dic.keys():
-                                            ret, unmatch_cnt, p = rpy_info_dic[i]
+                        if os.path.isfile('engine.txt'):
+                            with open('engine.txt', 'r', encoding='utf-8') as json_file:
+                                loaded_data = json.load(json_file)
+                                if loaded_data['engine'] == engineList[12]:
+                                    if os.path.isfile(web_brower_export_name):
+                                        webbrowser.open(web_brower_export_name)
+                                        translated_form = MyTranslatedForm()
+                                        translated_form.exec()
+                                        f = io.open('translated.txt', 'w', encoding='utf-8')
+                                        f.write(translated_form.plainTextEdit.toPlainText())
+                                        f.close()
+                                        dic, is_replace_special_symbols = get_translated_dic(web_brower_export_name, 'translated.txt')
+                                        if dic is None:
+                                            msg_box = QMessageBox()
+                                            msg_box.setWindowTitle('o(≧口≦)o')
+                                            msg_box.setText(
+                                                QCoreApplication.translate('ImportHtmlDialog',
+                                                                           'The html file does not match the translated file , please check the input files',
+                                                                           None))
+                                            msg_box.exec()
+                                            rpy_info_dic.clear()
                                         else:
-                                            ret, unmatch_cnt, p = get_rpy_info(i)
-                                            rpy_info_dic[i] = ret, unmatch_cnt, p
-                                        web_brower_translate(self.filterCheckBox.isChecked(),
-                                                             self.filterLengthLineEdit.text(), True,
-                                                             is_replace_special_symbols, i, ret, dic)
-                        rpy_info_dic.clear()
+                                            if self.select_dir is not None and os.path.isdir(self.select_dir):
+                                                paths = os.walk(self.select_dir, topdown=False)
+                                                for path, dir_lst, file_lst in paths:
+                                                    for file_name in file_lst:
+                                                        i = path + '/' + file_name
+                                                        if not file_name.endswith("rpy"):
+                                                            continue
+                                                        if i in rpy_info_dic.keys():
+                                                            ret, unmatch_cnt, p = rpy_info_dic[i]
+                                                        else:
+                                                            ret, unmatch_cnt, p = get_rpy_info(i)
+                                                            rpy_info_dic[i] = ret, unmatch_cnt, p
+                                                        web_brower_translate(self.filterCheckBox.isChecked(),
+                                                                             self.filterLengthLineEdit.text(), True,
+                                                                             is_replace_special_symbols, i, ret, dic)
+                                        rpy_info_dic.clear()
+                                        if os.path.isfile(web_brower_export_name):
+                                            os.remove(web_brower_export_name)
+                                    else:
+                                        log_print('nothing to translate')
             else:
                 if not self.is_queue_task_empty:
                     if len(rpy_info_dic) == 0:
