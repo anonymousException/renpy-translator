@@ -603,34 +603,32 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
                                                    'The html file does not match the translated file , please check the input files',
                                                    None))
                     msg_box.exec()
-                    rpy_info_dic.clear()
-                    self.is_waiting_translated = False
-                    return
-                if self.select_files is not None:
-                    for i in self.select_files:
-                        i = i.replace('file:///', '')
-                        if os.path.isfile(i):
-                            if i in rpy_info_dic.keys():
-                                ret, unmatch_cnt, p = rpy_info_dic[i]
-                            else:
-                                ret, unmatch_cnt, p = get_rpy_info(i)
-                                rpy_info_dic[i] = ret, unmatch_cnt, p
-                            web_brower_translate(self.filterCheckBox.isChecked(), self.filterLengthLineEdit.text(),
-                                                 self.is_current, is_replace_special_symbols, i, ret, dic)
-                if self.select_dir is not None and os.path.isdir(self.select_dir):
-                    paths = os.walk(self.select_dir, topdown=False)
-                    for path, dir_lst, file_lst in paths:
-                        for file_name in file_lst:
-                            i = path + '/' + file_name
-                            if not file_name.endswith("rpy"):
-                                continue
-                            if i in rpy_info_dic.keys():
-                                ret, unmatch_cnt, p = rpy_info_dic[i]
-                            else:
-                                ret, unmatch_cnt, p = get_rpy_info(i)
-                                rpy_info_dic[i] = ret, unmatch_cnt, p
-                            web_brower_translate(self.filterCheckBox.isChecked(), self.filterLengthLineEdit.text(),
-                                                 self.is_current, is_replace_special_symbols, i, ret, dic)
+                else:
+                    if self.select_files is not None:
+                        for i in self.select_files:
+                            i = i.replace('file:///', '')
+                            if os.path.isfile(i):
+                                if i in rpy_info_dic.keys():
+                                    ret, unmatch_cnt, p = rpy_info_dic[i]
+                                else:
+                                    ret, unmatch_cnt, p = get_rpy_info(i)
+                                    rpy_info_dic[i] = ret, unmatch_cnt, p
+                                web_brower_translate(self.filterCheckBox.isChecked(), self.filterLengthLineEdit.text(),
+                                                     self.is_current, is_replace_special_symbols, i, ret, dic)
+                    if self.select_dir is not None and os.path.isdir(self.select_dir):
+                        paths = os.walk(self.select_dir, topdown=False)
+                        for path, dir_lst, file_lst in paths:
+                            for file_name in file_lst:
+                                i = path + '/' + file_name
+                                if not file_name.endswith("rpy"):
+                                    continue
+                                if i in rpy_info_dic.keys():
+                                    ret, unmatch_cnt, p = rpy_info_dic[i]
+                                else:
+                                    ret, unmatch_cnt, p = get_rpy_info(i)
+                                    rpy_info_dic[i] = ret, unmatch_cnt, p
+                                web_brower_translate(self.filterCheckBox.isChecked(), self.filterLengthLineEdit.text(),
+                                                     self.is_current, is_replace_special_symbols, i, ret, dic)
                 rpy_info_dic.clear()
                 self.is_waiting_translated = False
                 if os.path.isfile(web_brower_export_name):
