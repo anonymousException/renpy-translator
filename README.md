@@ -77,6 +77,10 @@ https://github.com/anonymousException/renpy-translator/assets/157234942/4816245b
 
 ### Translate with brower
 
+https://github.com/anonymousException/renpy-translator/assets/157234942/e0e56ee3-4064-4655-8046-f49309fdfaad
+
+https://github.com/anonymousException/renpy-translator/assets/157234942/06008b44-8e46-4df9-8aa9-c978733dbd7d
+
 https://github.com/anonymousException/renpy-translator/assets/157234942/a26f7186-fcc2-461e-9ae4-416d7b8ae293
 
 https://github.com/anonymousException/renpy-translator/assets/157234942/676bea79-3083-469b-805a-520f44907bbd
