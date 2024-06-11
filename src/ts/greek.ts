@@ -296,7 +296,7 @@
         <location filename="../editor_form.py" line="286"/>
         <location filename="../editor_form.py" line="598"/>
         <location filename="../editor_form.py" line="760"/>
-        <location filename="../editor_form.py" line="1634"/>
+        <location filename="../editor_form.py" line="1635"/>
         <location filename="../editor.ui" line="334"/>
         <location filename="../editor.ui" line="413"/>
         <source>Original</source>
@@ -307,7 +307,7 @@
         <location filename="../editor_form.py" line="287"/>
         <location filename="../editor_form.py" line="599"/>
         <location filename="../editor_form.py" line="761"/>
-        <location filename="../editor_form.py" line="1635"/>
+        <location filename="../editor_form.py" line="1636"/>
         <location filename="../editor.ui" line="255"/>
         <location filename="../editor.ui" line="432"/>
         <source>Current</source>
@@ -404,12 +404,12 @@
         <translation>Ρεύμα επαναφοράς στο πρώτο φορτίο</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1476"/>
+        <location filename="../editor_form.py" line="1477"/>
         <source>select the directory you want to edit</source>
         <translation>επιλέξτε τον κατάλογο που θέλετε να επεξεργαστείτε</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1483"/>
+        <location filename="../editor_form.py" line="1484"/>
         <source>select the file(s) you want to edit</source>
         <translation>επιλέξτε τα αρχεία που θέλετε να επεξεργαστείτε</translation>
     </message>
@@ -569,65 +569,70 @@
         <translation>Επιβεβαιώνω</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="125"/>
+        <location filename="../engine.ui" line="128"/>
         <source>detail information</source>
         <translation>λεπτομερής πληροφορία</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="144"/>
-        <location filename="../engine.ui" line="192"/>
+        <location filename="../engine.ui" line="147"/>
+        <location filename="../engine.ui" line="195"/>
         <source>3</source>
         <translation>3</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="157"/>
+        <location filename="../engine.ui" line="160"/>
         <source>RPM (requests per minute):</source>
         <translation>RPM (αιτήματα ανά λεπτό):</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="173"/>
+        <location filename="../engine.ui" line="176"/>
         <source>RPS (requests per second):</source>
         <translation>RPS (αιτήματα ανά δευτερόλεπτο):</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="205"/>
+        <location filename="../engine.ui" line="208"/>
         <source>TPM (requests token limits):</source>
         <translation>TPM (αιτήματα ορίων διακριτικών):</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="221"/>
+        <location filename="../engine.ui" line="224"/>
         <source>40000</source>
         <translation>40000</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="244"/>
+        <location filename="../engine.ui" line="247"/>
         <source>model:</source>
         <translation>μοντέλο:</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="263"/>
+        <location filename="../engine.ui" line="266"/>
         <source>base_url:</source>
         <translation>base_url:</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="282"/>
+        <location filename="../engine.ui" line="285"/>
         <source>http://my.test.server.example.com:8083</source>
         <translation>http://my.test.server.example.com:8083</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="295"/>
+        <location filename="../engine.ui" line="298"/>
         <source>custom model</source>
         <translation>προσαρμοσμένο μοντέλο</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="308"/>
+        <location filename="../engine.ui" line="311"/>
         <source>time_out (The max time wait for each request .for gpt-3.5 it&apos;s recommended to 120s , for gpt-4 it&apos;s recommened to 240s) :</source>
         <translation>time_out (Ο μέγιστος χρόνος αναμονής για κάθε αίτημα .για gpt-3.5 συνιστάται σε 120 δευτερόλεπτα, για gpt-4 συνιστάται σε 240 δευτερόλεπτα):</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="337"/>
+        <location filename="../engine.ui" line="340"/>
         <source>max_length (The max character length for each request. The actual limit unit of openai is token which is normally a word. But it&apos;hard to define,so use max_length as a replacement. The max tokens of openai are 4096 for each request. Make sure the token is under the exceed limit , my suggestion is to set to 5000)</source>
         <translation>max_length (Το μέγιστο μήκος χαρακτήρων για κάθε αίτημα. Η πραγματική μονάδα ορίου του openai είναι το διακριτικό που είναι συνήθως μια λέξη. Αλλά είναι δύσκολο να οριστεί, γι&apos; αυτό χρησιμοποιήστε το max_length ως αντικατάσταση. Τα μέγιστα διακριτικά του openai είναι 4096 για κάθε αίτημα. Κάντε βεβαιωθείτε ότι το διακριτικό είναι κάτω από το όριο υπέρβασης, η πρότασή μου είναι να ορίσετε το 5000)</translation>
+    </message>
+    <message>
+        <location filename="../engine.ui" line="372"/>
+        <source>detect network delay</source>
+        <translation>εντοπισμός καθυστέρησης δικτύου</translation>
     </message>
 </context>
 <context>
@@ -839,7 +844,7 @@
     </message>
     <message>
         <location filename="../font_replace_form.py" line="54"/>
-        <location filename="../one_key_translate_form.py" line="414"/>
+        <location filename="../one_key_translate_form.py" line="415"/>
         <source>select the file font which supports the translated language</source>
         <translation>επιλέξτε τη γραμματοσειρά του αρχείου που υποστηρίζει τη μεταφρασμένη γλώσσα</translation>
     </message>
@@ -971,9 +976,9 @@
 <context>
     <name>ImportHtmlDialog</name>
     <message>
-        <location filename="../main.py" line="598"/>
-        <location filename="../editor_form.py" line="1523"/>
-        <location filename="../one_key_translate_form.py" line="665"/>
+        <location filename="../main.py" line="604"/>
+        <location filename="../editor_form.py" line="1524"/>
+        <location filename="../one_key_translate_form.py" line="668"/>
         <location filename="../import_html_form.py" line="37"/>
         <source>The html file does not match the translated file , please check the input files</source>
         <translation>Το αρχείο html δεν ταιριάζει με το μεταφρασμένο αρχείο, ελέγξτε τα αρχεία εισόδου</translation>
@@ -1096,57 +1101,57 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../main.py" line="634"/>
+        <location filename="../main.py" line="640"/>
         <location filename="../extraction_official_form.py" line="67"/>
         <source>is extracting...</source>
         <translation>εξάγει...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="578"/>
-        <location filename="../main.py" line="736"/>
+        <location filename="../main.py" line="580"/>
+        <location filename="../main.py" line="742"/>
         <source>is translating...</source>
         <translation>μεταφράζει...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="147"/>
-        <location filename="../main.py" line="407"/>
+        <location filename="../main.py" line="148"/>
+        <location filename="../main.py" line="408"/>
         <source>Click to check for update</source>
         <translation>Κάντε κλικ για να ελέγξετε για ενημέρωση</translation>
     </message>
     <message>
-        <location filename="../main.py" line="243"/>
+        <location filename="../main.py" line="244"/>
         <source>It&apos;s up to date now</source>
         <translation>Είναι ενημερωμένο τώρα</translation>
     </message>
     <message>
-        <location filename="../main.py" line="249"/>
+        <location filename="../main.py" line="250"/>
         <source>New version detected</source>
         <translation>Εντοπίστηκε νέα έκδοση</translation>
     </message>
     <message>
-        <location filename="../main.py" line="251"/>
+        <location filename="../main.py" line="252"/>
         <source>Would you like to open the website to get the latest verison?</source>
         <translation>Θέλετε να ανοίξετε τον ιστότοπο για να λάβετε την πιο πρόσφατη έκδοση;</translation>
     </message>
     <message>
-        <location filename="../main.py" line="581"/>
+        <location filename="../main.py" line="583"/>
         <location filename="../ui.ui" line="87"/>
         <source>translate</source>
         <translation>μεταφράζω</translation>
     </message>
     <message>
-        <location filename="../main.py" line="638"/>
+        <location filename="../main.py" line="644"/>
         <location filename="../extraction_official_form.py" line="89"/>
         <source>extract</source>
         <translation>εκχύλισμα</translation>
     </message>
     <message>
-        <location filename="../main.py" line="671"/>
+        <location filename="../main.py" line="677"/>
         <source>select the file(s) you want to translate</source>
         <translation>επιλέξτε τα αρχεία που θέλετε να μεταφράσετε</translation>
     </message>
     <message>
-        <location filename="../main.py" line="682"/>
+        <location filename="../main.py" line="688"/>
         <source>select the directory you want to translate</source>
         <translation>επιλέξτε τον κατάλογο που θέλετε να μεταφράσετε</translation>
     </message>
@@ -1156,8 +1161,8 @@
         <translation>Μεταφραστής Ren&apos;py</translation>
     </message>
     <message>
-        <location filename="../main.py" line="146"/>
-        <location filename="../main.py" line="406"/>
+        <location filename="../main.py" line="147"/>
+        <location filename="../main.py" line="407"/>
         <source>Version</source>
         <translation>Εκδοχή</translation>
     </message>
@@ -1513,12 +1518,12 @@
         <translation>Αποσυσκευάστε όλα τα αρχεία (εάν είναι απενεργοποιημένα μόνο τα αρχεία σεναρίου θα αποσυμπιεστούν)</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="573"/>
+        <location filename="../one_key_translate_form.py" line="575"/>
         <source>select the game file</source>
         <translation>επιλέξτε το αρχείο του παιχνιδιού</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="694"/>
+        <location filename="../one_key_translate_form.py" line="697"/>
         <source>One Key Translate Complete</source>
         <translation>Ολοκληρώθηκε η μετάφραση ενός κλειδιού</translation>
     </message>

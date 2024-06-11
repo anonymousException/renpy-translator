@@ -1,3 +1,4 @@
+import _thread
 import io
 import json
 import os
@@ -7,10 +8,25 @@ import webbrowser
 from PySide6 import QtCore
 from PySide6.QtGui import QIntValidator
 from PySide6.QtWidgets import QDialog
+from ping3 import ping
 
 from engine import Ui_EngineDialog
 from my_log import log_print
 from renpy_translate import engineDic, engineList
+
+
+def get_ping_host(ip):
+    """
+    :param node:
+    :return delay:
+    """
+    ip_address = ip
+    response = ping(ip_address)
+    if response is not None:
+        delay = int(response * 1000)
+        return delay
+    else:
+        return -1
 
 
 class MyEngineForm(QDialog, Ui_EngineDialog):
@@ -73,6 +89,29 @@ class MyEngineForm(QDialog, Ui_EngineDialog):
         self.rpsEdit.setValidator(validator)
         self.rpmEdit.setValidator(validator)
         self.maxLengthEdit.setValidator(validator)
+        self.detectButton.clicked.connect(self.dect_network)
+
+    def detect_network_thread(self, engine, url):
+        delay = -1
+        try:
+            if len(url) > 0:
+                delay = get_ping_host(url)
+        except Exception as e:
+            pass
+        if delay != -1:
+            log_print(f'{engine} : {delay} ms')
+        else:
+            log_print(f'{engine} unreachable')
+
+    def dect_network(self):
+        for engine, dic in engineDic.items():
+            url = dic['url']
+            url = url.replace('http://', '')
+            url = url.replace('https://', '')
+            index = url.find('/')
+            if index != -1:
+                url = url[:index]
+            _thread.start_new_thread(self.detect_network_thread, (engine, url))
 
     def init_openai_time_out(self):
         if self.modelComboBox.currentText().startswith('gpt-3.5'):

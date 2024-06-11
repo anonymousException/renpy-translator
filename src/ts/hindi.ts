@@ -296,7 +296,7 @@
         <location filename="../editor_form.py" line="286"/>
         <location filename="../editor_form.py" line="598"/>
         <location filename="../editor_form.py" line="760"/>
-        <location filename="../editor_form.py" line="1634"/>
+        <location filename="../editor_form.py" line="1635"/>
         <location filename="../editor.ui" line="334"/>
         <location filename="../editor.ui" line="413"/>
         <source>Original</source>
@@ -307,7 +307,7 @@
         <location filename="../editor_form.py" line="287"/>
         <location filename="../editor_form.py" line="599"/>
         <location filename="../editor_form.py" line="761"/>
-        <location filename="../editor_form.py" line="1635"/>
+        <location filename="../editor_form.py" line="1636"/>
         <location filename="../editor.ui" line="255"/>
         <location filename="../editor.ui" line="432"/>
         <source>Current</source>
@@ -404,12 +404,12 @@
         <translation>रोलबैक करंट को पहले लोड पर</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1476"/>
+        <location filename="../editor_form.py" line="1477"/>
         <source>select the directory you want to edit</source>
         <translation>वह निर्देशिका चुनें जिसे आप संपादित करना चाहते हैं</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1483"/>
+        <location filename="../editor_form.py" line="1484"/>
         <source>select the file(s) you want to edit</source>
         <translation>वह फ़ाइल चुनें जिसे आप संपादित करना चाहते हैं</translation>
     </message>
@@ -569,65 +569,70 @@
         <translation>पुष्टि करना</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="125"/>
+        <location filename="../engine.ui" line="128"/>
         <source>detail information</source>
         <translation>विस्तार से जानकारी</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="144"/>
-        <location filename="../engine.ui" line="192"/>
+        <location filename="../engine.ui" line="147"/>
+        <location filename="../engine.ui" line="195"/>
         <source>3</source>
         <translation>3</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="157"/>
+        <location filename="../engine.ui" line="160"/>
         <source>RPM (requests per minute):</source>
         <translation>आरपीएम (प्रति मिनट अनुरोध):</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="173"/>
+        <location filename="../engine.ui" line="176"/>
         <source>RPS (requests per second):</source>
         <translation>आरपीएस (प्रति सेकंड अनुरोध):</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="205"/>
+        <location filename="../engine.ui" line="208"/>
         <source>TPM (requests token limits):</source>
         <translation>टीपीएम (टोकन सीमा का अनुरोध):</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="221"/>
+        <location filename="../engine.ui" line="224"/>
         <source>40000</source>
         <translation>40000</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="244"/>
+        <location filename="../engine.ui" line="247"/>
         <source>model:</source>
         <translation>नमूना:</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="263"/>
+        <location filename="../engine.ui" line="266"/>
         <source>base_url:</source>
         <translation>आधार_यूआरएल:</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="282"/>
+        <location filename="../engine.ui" line="285"/>
         <source>http://my.test.server.example.com:8083</source>
         <translation>http://my.test.server.example.com:8083</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="295"/>
+        <location filename="../engine.ui" line="298"/>
         <source>custom model</source>
         <translation>कस्टम मॉडल</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="308"/>
+        <location filename="../engine.ui" line="311"/>
         <source>time_out (The max time wait for each request .for gpt-3.5 it&apos;s recommended to 120s , for gpt-4 it&apos;s recommened to 240s) :</source>
         <translation>टाइम_आउट (प्रत्येक अनुरोध के लिए प्रतीक्षा का अधिकतम समय। gpt-3.5 के लिए इसे 120s तक अनुशंसित किया जाता है, gpt-4 के लिए इसे 240s तक अनुशंसित किया जाता है):</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="337"/>
+        <location filename="../engine.ui" line="340"/>
         <source>max_length (The max character length for each request. The actual limit unit of openai is token which is normally a word. But it&apos;hard to define,so use max_length as a replacement. The max tokens of openai are 4096 for each request. Make sure the token is under the exceed limit , my suggestion is to set to 5000)</source>
         <translation>max_length (प्रत्येक अनुरोध के लिए अधिकतम वर्ण लंबाई। openai की वास्तविक सीमा इकाई टोकन है जो सामान्य रूप से एक शब्द है। लेकिन इसे परिभाषित करना कठिन है, इसलिए प्रतिस्थापन के रूप में max_length का उपयोग करें। प्रत्येक अनुरोध के लिए openai की अधिकतम टोकन 4096 हैं। बनाएं सुनिश्चित करें कि टोकन सीमा से अधिक है, मेरा सुझाव 5000 पर सेट करना है)</translation>
+    </message>
+    <message>
+        <location filename="../engine.ui" line="372"/>
+        <source>detect network delay</source>
+        <translation>नेटवर्क विलंब का पता लगाना</translation>
     </message>
 </context>
 <context>
@@ -862,7 +867,7 @@
     </message>
     <message>
         <location filename="../font_replace_form.py" line="54"/>
-        <location filename="../one_key_translate_form.py" line="414"/>
+        <location filename="../one_key_translate_form.py" line="415"/>
         <source>select the file font which supports the translated language</source>
         <translation>उस फ़ाइल फ़ॉन्ट का चयन करें जो अनुवादित भाषा का समर्थन करता है</translation>
     </message>
@@ -1006,9 +1011,9 @@
 <context>
     <name>ImportHtmlDialog</name>
     <message>
-        <location filename="../main.py" line="598"/>
-        <location filename="../editor_form.py" line="1523"/>
-        <location filename="../one_key_translate_form.py" line="665"/>
+        <location filename="../main.py" line="604"/>
+        <location filename="../editor_form.py" line="1524"/>
+        <location filename="../one_key_translate_form.py" line="668"/>
         <location filename="../import_html_form.py" line="37"/>
         <source>The html file does not match the translated file , please check the input files</source>
         <translation>HTML फ़ाइल अनुवादित फ़ाइल से मेल नहीं खाती, कृपया इनपुट फ़ाइलों की जाँच करें</translation>
@@ -1151,46 +1156,46 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../main.py" line="634"/>
+        <location filename="../main.py" line="640"/>
         <location filename="../extraction_official_form.py" line="67"/>
         <source>is extracting...</source>
         <translation>निकाल रहा हूँ...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="578"/>
-        <location filename="../main.py" line="736"/>
+        <location filename="../main.py" line="580"/>
+        <location filename="../main.py" line="742"/>
         <source>is translating...</source>
         <translation>अनुवाद कर रहा हूँ...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="147"/>
-        <location filename="../main.py" line="407"/>
+        <location filename="../main.py" line="148"/>
+        <location filename="../main.py" line="408"/>
         <source>Click to check for update</source>
         <translation>अपडेट देखने के लिए क्लिक करें</translation>
     </message>
     <message>
-        <location filename="../main.py" line="243"/>
+        <location filename="../main.py" line="244"/>
         <source>It&apos;s up to date now</source>
         <translation>यह अब अद्यतित है</translation>
     </message>
     <message>
-        <location filename="../main.py" line="249"/>
+        <location filename="../main.py" line="250"/>
         <source>New version detected</source>
         <translation>नया संस्करण पाया गया</translation>
     </message>
     <message>
-        <location filename="../main.py" line="251"/>
+        <location filename="../main.py" line="252"/>
         <source>Would you like to open the website to get the latest verison?</source>
         <translation>क्या आप नवीनतम संस्करण प्राप्त करने के लिए वेबसाइट खोलना चाहेंगे?</translation>
     </message>
     <message>
-        <location filename="../main.py" line="581"/>
+        <location filename="../main.py" line="583"/>
         <location filename="../ui.ui" line="87"/>
         <source>translate</source>
         <translation>अनुवाद</translation>
     </message>
     <message>
-        <location filename="../main.py" line="638"/>
+        <location filename="../main.py" line="644"/>
         <location filename="../extraction_official_form.py" line="89"/>
         <source>extract</source>
         <translation>निकालना</translation>
@@ -1204,12 +1209,12 @@
         <translation type="vanished">वह निर्देशिका चुनें जिसे आप निकालना चाहते हैं</translation>
     </message>
     <message>
-        <location filename="../main.py" line="671"/>
+        <location filename="../main.py" line="677"/>
         <source>select the file(s) you want to translate</source>
         <translation>वह फ़ाइल चुनें जिसका आप अनुवाद करना चाहते हैं</translation>
     </message>
     <message>
-        <location filename="../main.py" line="682"/>
+        <location filename="../main.py" line="688"/>
         <source>select the directory you want to translate</source>
         <translation>वह निर्देशिका चुनें जिसका आप अनुवाद करना चाहते हैं</translation>
     </message>
@@ -1219,8 +1224,8 @@
         <translation>रेन्पी अनुवादक</translation>
     </message>
     <message>
-        <location filename="../main.py" line="146"/>
-        <location filename="../main.py" line="406"/>
+        <location filename="../main.py" line="147"/>
+        <location filename="../main.py" line="407"/>
         <source>Version</source>
         <translation>संस्करण</translation>
     </message>
@@ -1636,12 +1641,12 @@
         <translation>सभी फ़ाइलें अनपैक करें (यदि अक्षम किया गया है तो केवल स्क्रिप्ट फ़ाइलें ही अनपैक होंगी)</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="573"/>
+        <location filename="../one_key_translate_form.py" line="575"/>
         <source>select the game file</source>
         <translation>गेम फ़ाइल का चयन करें</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="694"/>
+        <location filename="../one_key_translate_form.py" line="697"/>
         <source>One Key Translate Complete</source>
         <translation>एक कुंजी अनुवाद पूर्ण</translation>
     </message>

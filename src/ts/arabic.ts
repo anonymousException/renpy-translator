@@ -296,7 +296,7 @@
         <location filename="../editor_form.py" line="286"/>
         <location filename="../editor_form.py" line="598"/>
         <location filename="../editor_form.py" line="760"/>
-        <location filename="../editor_form.py" line="1634"/>
+        <location filename="../editor_form.py" line="1635"/>
         <location filename="../editor.ui" line="334"/>
         <location filename="../editor.ui" line="413"/>
         <source>Original</source>
@@ -307,7 +307,7 @@
         <location filename="../editor_form.py" line="287"/>
         <location filename="../editor_form.py" line="599"/>
         <location filename="../editor_form.py" line="761"/>
-        <location filename="../editor_form.py" line="1635"/>
+        <location filename="../editor_form.py" line="1636"/>
         <location filename="../editor.ui" line="255"/>
         <location filename="../editor.ui" line="432"/>
         <source>Current</source>
@@ -404,12 +404,12 @@
         <translation>التراجع الحالي إلى التحميل الأول</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1476"/>
+        <location filename="../editor_form.py" line="1477"/>
         <source>select the directory you want to edit</source>
         <translation>حدد الدليل الذي تريد تحريره</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1483"/>
+        <location filename="../editor_form.py" line="1484"/>
         <source>select the file(s) you want to edit</source>
         <translation>حدد الملف (الملفات) الذي تريد تحريره</translation>
     </message>
@@ -569,65 +569,70 @@
         <translation>يتأكد</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="125"/>
+        <location filename="../engine.ui" line="128"/>
         <source>detail information</source>
         <translation>معلومات مفصلة</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="144"/>
-        <location filename="../engine.ui" line="192"/>
+        <location filename="../engine.ui" line="147"/>
+        <location filename="../engine.ui" line="195"/>
         <source>3</source>
         <translation>3</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="157"/>
+        <location filename="../engine.ui" line="160"/>
         <source>RPM (requests per minute):</source>
         <translation>دورة في الدقيقة (الطلبات في الدقيقة):</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="173"/>
+        <location filename="../engine.ui" line="176"/>
         <source>RPS (requests per second):</source>
         <translation>RPS (الطلبات في الثانية):</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="205"/>
+        <location filename="../engine.ui" line="208"/>
         <source>TPM (requests token limits):</source>
         <translation>TPM (يطلب حدود الرمز المميز):</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="221"/>
+        <location filename="../engine.ui" line="224"/>
         <source>40000</source>
         <translation>40000</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="244"/>
+        <location filename="../engine.ui" line="247"/>
         <source>model:</source>
         <translation>نموذج:</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="263"/>
+        <location filename="../engine.ui" line="266"/>
         <source>base_url:</source>
         <translation>base_url:</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="282"/>
+        <location filename="../engine.ui" line="285"/>
         <source>http://my.test.server.example.com:8083</source>
         <translation>http://my.test.server.example.com:8083</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="295"/>
+        <location filename="../engine.ui" line="298"/>
         <source>custom model</source>
         <translation>نموذج مخصص</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="308"/>
+        <location filename="../engine.ui" line="311"/>
         <source>time_out (The max time wait for each request .for gpt-3.5 it&apos;s recommended to 120s , for gpt-4 it&apos;s recommened to 240s) :</source>
         <translation>time_out (الحد الأقصى لوقت الانتظار لكل طلب. بالنسبة لـ gpt-3.5 يوصى بـ 120 ثانية، بالنسبة لـ gpt-4 يوصى بـ 240 ثانية):</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="337"/>
+        <location filename="../engine.ui" line="340"/>
         <source>max_length (The max character length for each request. The actual limit unit of openai is token which is normally a word. But it&apos;hard to define,so use max_length as a replacement. The max tokens of openai are 4096 for each request. Make sure the token is under the exceed limit , my suggestion is to set to 5000)</source>
         <translation>max_length (الحد الأقصى لطول الحرف لكل طلب. وحدة الحد الفعلية لـ openai هي الرمز المميز الذي عادة ما يكون كلمة. ولكن من الصعب تحديده، لذا استخدم max_length كبديل. الحد الأقصى من الرموز المميزة لـ openai هي 4096 لكل طلب. قم بإجراءتأكد من أن الرمز المميز أقل من الحد الأقصى، واقتراحي هو التعيين على 5000)</translation>
+    </message>
+    <message>
+        <location filename="../engine.ui" line="372"/>
+        <source>detect network delay</source>
+        <translation>كشف تأخير الشبكة</translation>
     </message>
 </context>
 <context>
@@ -862,7 +867,7 @@
     </message>
     <message>
         <location filename="../font_replace_form.py" line="54"/>
-        <location filename="../one_key_translate_form.py" line="414"/>
+        <location filename="../one_key_translate_form.py" line="415"/>
         <source>select the file font which supports the translated language</source>
         <translation>حدد خط الملف الذي يدعم اللغة المترجمة</translation>
     </message>
@@ -1006,9 +1011,9 @@
 <context>
     <name>ImportHtmlDialog</name>
     <message>
-        <location filename="../main.py" line="598"/>
-        <location filename="../editor_form.py" line="1523"/>
-        <location filename="../one_key_translate_form.py" line="665"/>
+        <location filename="../main.py" line="604"/>
+        <location filename="../editor_form.py" line="1524"/>
+        <location filename="../one_key_translate_form.py" line="668"/>
         <location filename="../import_html_form.py" line="37"/>
         <source>The html file does not match the translated file , please check the input files</source>
         <translation>ملف html لا يتطابق مع الملف المترجم، يرجى التحقق من ملفات الإدخال</translation>
@@ -1151,46 +1156,46 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../main.py" line="634"/>
+        <location filename="../main.py" line="640"/>
         <location filename="../extraction_official_form.py" line="67"/>
         <source>is extracting...</source>
         <translation>استخراج...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="578"/>
-        <location filename="../main.py" line="736"/>
+        <location filename="../main.py" line="580"/>
+        <location filename="../main.py" line="742"/>
         <source>is translating...</source>
         <translation>جار الترجمة...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="147"/>
-        <location filename="../main.py" line="407"/>
+        <location filename="../main.py" line="148"/>
+        <location filename="../main.py" line="408"/>
         <source>Click to check for update</source>
         <translation>انقر للتحقق من التحديث</translation>
     </message>
     <message>
-        <location filename="../main.py" line="243"/>
+        <location filename="../main.py" line="244"/>
         <source>It&apos;s up to date now</source>
         <translation>إنه محدث الآن</translation>
     </message>
     <message>
-        <location filename="../main.py" line="249"/>
+        <location filename="../main.py" line="250"/>
         <source>New version detected</source>
         <translation>تم اكتشاف نسخة جديدة</translation>
     </message>
     <message>
-        <location filename="../main.py" line="251"/>
+        <location filename="../main.py" line="252"/>
         <source>Would you like to open the website to get the latest verison?</source>
         <translation>هل ترغب في فتح الموقع للحصول على أحدث إصدار؟</translation>
     </message>
     <message>
-        <location filename="../main.py" line="581"/>
+        <location filename="../main.py" line="583"/>
         <location filename="../ui.ui" line="87"/>
         <source>translate</source>
         <translation>يترجم</translation>
     </message>
     <message>
-        <location filename="../main.py" line="638"/>
+        <location filename="../main.py" line="644"/>
         <location filename="../extraction_official_form.py" line="89"/>
         <source>extract</source>
         <translation>يستخرج</translation>
@@ -1204,12 +1209,12 @@
         <translation type="vanished">حدد الدليل الذي تريد استخراجه</translation>
     </message>
     <message>
-        <location filename="../main.py" line="671"/>
+        <location filename="../main.py" line="677"/>
         <source>select the file(s) you want to translate</source>
         <translation>حدد الملف (الملفات) التي تريد ترجمتها</translation>
     </message>
     <message>
-        <location filename="../main.py" line="682"/>
+        <location filename="../main.py" line="688"/>
         <source>select the directory you want to translate</source>
         <translation>حدد الدليل الذي تريد ترجمته</translation>
     </message>
@@ -1431,8 +1436,8 @@
         <translation>سجل نظيف</translation>
     </message>
     <message>
-        <location filename="../main.py" line="146"/>
-        <location filename="../main.py" line="406"/>
+        <location filename="../main.py" line="147"/>
+        <location filename="../main.py" line="407"/>
         <source>Version</source>
         <translation>إصدار</translation>
     </message>
@@ -1636,12 +1641,12 @@
         <translation>قم بفك ضغط جميع الملفات (إذا تم تعطيلها، فسيتم فك ضغط ملفات البرامج النصية فقط)</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="573"/>
+        <location filename="../one_key_translate_form.py" line="575"/>
         <source>select the game file</source>
         <translation>حدد ملف اللعبة</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="694"/>
+        <location filename="../one_key_translate_form.py" line="697"/>
         <source>One Key Translate Complete</source>
         <translation>اكتملت ترجمة مفتاح واحد</translation>
     </message>

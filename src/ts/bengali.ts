@@ -296,7 +296,7 @@
         <location filename="../editor_form.py" line="286"/>
         <location filename="../editor_form.py" line="598"/>
         <location filename="../editor_form.py" line="760"/>
-        <location filename="../editor_form.py" line="1634"/>
+        <location filename="../editor_form.py" line="1635"/>
         <location filename="../editor.ui" line="334"/>
         <location filename="../editor.ui" line="413"/>
         <source>Original</source>
@@ -307,7 +307,7 @@
         <location filename="../editor_form.py" line="287"/>
         <location filename="../editor_form.py" line="599"/>
         <location filename="../editor_form.py" line="761"/>
-        <location filename="../editor_form.py" line="1635"/>
+        <location filename="../editor_form.py" line="1636"/>
         <location filename="../editor.ui" line="255"/>
         <location filename="../editor.ui" line="432"/>
         <source>Current</source>
@@ -404,12 +404,12 @@
         <translation>রোলব্যাক বর্তমান প্রথম লোড</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1476"/>
+        <location filename="../editor_form.py" line="1477"/>
         <source>select the directory you want to edit</source>
         <translation>আপনি যে ডিরেক্টরিটি সম্পাদনা করতে চান তা নির্বাচন করুন</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1483"/>
+        <location filename="../editor_form.py" line="1484"/>
         <source>select the file(s) you want to edit</source>
         <translation>আপনি সম্পাদনা করতে চান ফাইল(গুলি) নির্বাচন করুন</translation>
     </message>
@@ -569,65 +569,70 @@
         <translation>নিশ্চিত করুন</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="125"/>
+        <location filename="../engine.ui" line="128"/>
         <source>detail information</source>
         <translation>বিস্তারিত তথ্য</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="144"/>
-        <location filename="../engine.ui" line="192"/>
+        <location filename="../engine.ui" line="147"/>
+        <location filename="../engine.ui" line="195"/>
         <source>3</source>
         <translation>3</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="157"/>
+        <location filename="../engine.ui" line="160"/>
         <source>RPM (requests per minute):</source>
         <translation>RPM (প্রতি মিনিটে অনুরোধ):</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="173"/>
+        <location filename="../engine.ui" line="176"/>
         <source>RPS (requests per second):</source>
         <translation>RPS (প্রতি সেকেন্ডে অনুরোধ):</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="205"/>
+        <location filename="../engine.ui" line="208"/>
         <source>TPM (requests token limits):</source>
         <translation>TPM (টোকেন সীমার অনুরোধ করে):</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="221"/>
+        <location filename="../engine.ui" line="224"/>
         <source>40000</source>
         <translation>40000</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="244"/>
+        <location filename="../engine.ui" line="247"/>
         <source>model:</source>
         <translation>মডেল:</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="263"/>
+        <location filename="../engine.ui" line="266"/>
         <source>base_url:</source>
         <translation>base_url:</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="282"/>
+        <location filename="../engine.ui" line="285"/>
         <source>http://my.test.server.example.com:8083</source>
         <translation>http://my.test.server.example.com:8083</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="295"/>
+        <location filename="../engine.ui" line="298"/>
         <source>custom model</source>
         <translation>কাস্টম মডেল</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="308"/>
+        <location filename="../engine.ui" line="311"/>
         <source>time_out (The max time wait for each request .for gpt-3.5 it&apos;s recommended to 120s , for gpt-4 it&apos;s recommened to 240s) :</source>
         <translation>টাইম_আউট (প্রতিটি অনুরোধের জন্য অপেক্ষার সর্বোচ্চ সময় .gpt-3.5 এর জন্য এটি 120s এর জন্য সুপারিশ করা হয়েছে, gpt-4 এর জন্য এটি 240s এর জন্য সুপারিশ করা হয়েছে):</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="337"/>
+        <location filename="../engine.ui" line="340"/>
         <source>max_length (The max character length for each request. The actual limit unit of openai is token which is normally a word. But it&apos;hard to define,so use max_length as a replacement. The max tokens of openai are 4096 for each request. Make sure the token is under the exceed limit , my suggestion is to set to 5000)</source>
         <translation>max_length (প্রতিটি অনুরোধের জন্য সর্বাধিক অক্ষরের দৈর্ঘ্য। openai এর প্রকৃত সীমা ইউনিট হল টোকেন যা সাধারণত একটি শব্দ। কিন্তু এটি সংজ্ঞায়িত করা কঠিন, তাই max_length একটি প্রতিস্থাপন হিসাবে ব্যবহার করুন। প্রতিটি অনুরোধের জন্য openai-এর সর্বাধিক টোকেন 4096 হয়। করুননিশ্চিত করুন যে টোকেনটি সীমা ছাড়িয়ে গেছে, আমার পরামর্শ হল 5000 সেট করা)</translation>
+    </message>
+    <message>
+        <location filename="../engine.ui" line="372"/>
+        <source>detect network delay</source>
+        <translation>নেটওয়ার্ক বিলম্ব সনাক্ত করুন</translation>
     </message>
 </context>
 <context>
@@ -862,7 +867,7 @@
     </message>
     <message>
         <location filename="../font_replace_form.py" line="54"/>
-        <location filename="../one_key_translate_form.py" line="414"/>
+        <location filename="../one_key_translate_form.py" line="415"/>
         <source>select the file font which supports the translated language</source>
         <translation>ফাইল ফন্ট নির্বাচন করুন যা অনুবাদিত ভাষা সমর্থন করে</translation>
     </message>
@@ -1006,9 +1011,9 @@
 <context>
     <name>ImportHtmlDialog</name>
     <message>
-        <location filename="../main.py" line="598"/>
-        <location filename="../editor_form.py" line="1523"/>
-        <location filename="../one_key_translate_form.py" line="665"/>
+        <location filename="../main.py" line="604"/>
+        <location filename="../editor_form.py" line="1524"/>
+        <location filename="../one_key_translate_form.py" line="668"/>
         <location filename="../import_html_form.py" line="37"/>
         <source>The html file does not match the translated file , please check the input files</source>
         <translation>html ফাইলটি অনূদিত ফাইলের সাথে মেলে না, অনুগ্রহ করে ইনপুট ফাইলগুলি পরীক্ষা করুন৷</translation>
@@ -1151,46 +1156,46 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../main.py" line="634"/>
+        <location filename="../main.py" line="640"/>
         <location filename="../extraction_official_form.py" line="67"/>
         <source>is extracting...</source>
         <translation>নিষ্কাশন করা হচ্ছে...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="578"/>
-        <location filename="../main.py" line="736"/>
+        <location filename="../main.py" line="580"/>
+        <location filename="../main.py" line="742"/>
         <source>is translating...</source>
         <translation>অনুবাদ করা হচ্ছে...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="147"/>
-        <location filename="../main.py" line="407"/>
+        <location filename="../main.py" line="148"/>
+        <location filename="../main.py" line="408"/>
         <source>Click to check for update</source>
         <translation>আপডেট চেক করতে ক্লিক করুন</translation>
     </message>
     <message>
-        <location filename="../main.py" line="243"/>
+        <location filename="../main.py" line="244"/>
         <source>It&apos;s up to date now</source>
         <translation>এটা এখন আপ টু ডেট</translation>
     </message>
     <message>
-        <location filename="../main.py" line="249"/>
+        <location filename="../main.py" line="250"/>
         <source>New version detected</source>
         <translation>নতুন সংস্করণ সনাক্ত করা হয়েছে</translation>
     </message>
     <message>
-        <location filename="../main.py" line="251"/>
+        <location filename="../main.py" line="252"/>
         <source>Would you like to open the website to get the latest verison?</source>
         <translation>আপনি কি সর্বশেষ সংস্করণ পেতে ওয়েবসাইট খুলতে চান?</translation>
     </message>
     <message>
-        <location filename="../main.py" line="581"/>
+        <location filename="../main.py" line="583"/>
         <location filename="../ui.ui" line="87"/>
         <source>translate</source>
         <translation>অনুবাদ করা</translation>
     </message>
     <message>
-        <location filename="../main.py" line="638"/>
+        <location filename="../main.py" line="644"/>
         <location filename="../extraction_official_form.py" line="89"/>
         <source>extract</source>
         <translation>নির্যাস</translation>
@@ -1204,12 +1209,12 @@
         <translation type="vanished">আপনি নিষ্কাশন করতে চান ডিরেক্টরি নির্বাচন করুন</translation>
     </message>
     <message>
-        <location filename="../main.py" line="671"/>
+        <location filename="../main.py" line="677"/>
         <source>select the file(s) you want to translate</source>
         <translation>আপনি যে ফাইলটি অনুবাদ করতে চান সেটি নির্বাচন করুন</translation>
     </message>
     <message>
-        <location filename="../main.py" line="682"/>
+        <location filename="../main.py" line="688"/>
         <source>select the directory you want to translate</source>
         <translation>আপনি যে ডিরেক্টরিটি অনুবাদ করতে চান তা নির্বাচন করুন</translation>
     </message>
@@ -1219,8 +1224,8 @@
         <translation>Ren&apos;py অনুবাদক</translation>
     </message>
     <message>
-        <location filename="../main.py" line="146"/>
-        <location filename="../main.py" line="406"/>
+        <location filename="../main.py" line="147"/>
+        <location filename="../main.py" line="407"/>
         <source>Version</source>
         <translation>সংস্করণ</translation>
     </message>
@@ -1636,12 +1641,12 @@
         <translation>সমস্ত ফাইল আনপ্যাক করুন (অক্ষম থাকলে শুধুমাত্র স্ক্রিপ্ট ফাইলগুলি আনপ্যাক করা হবে)</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="573"/>
+        <location filename="../one_key_translate_form.py" line="575"/>
         <source>select the game file</source>
         <translation>গেম ফাইল নির্বাচন করুন</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="694"/>
+        <location filename="../one_key_translate_form.py" line="697"/>
         <source>One Key Translate Complete</source>
         <translation>এক কী অনুবাদ সম্পূর্ণ</translation>
     </message>

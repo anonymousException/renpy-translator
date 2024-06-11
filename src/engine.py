@@ -36,14 +36,14 @@ class Ui_EngineDialog(object):
         self.label_2.setWordWrap(True)
         self.keyEdit = QLineEdit(EngineDialog)
         self.keyEdit.setObjectName(u"keyEdit")
-        self.keyEdit.setGeometry(QRect(240, 68, 761, 20))
+        self.keyEdit.setGeometry(QRect(240, 68, 491, 20))
         self.label_3 = QLabel(EngineDialog)
         self.label_3.setObjectName(u"label_3")
         self.label_3.setGeometry(QRect(20, 117, 211, 31))
         self.label_3.setWordWrap(True)
         self.secretEdit = QLineEdit(EngineDialog)
         self.secretEdit.setObjectName(u"secretEdit")
-        self.secretEdit.setGeometry(QRect(240, 120, 761, 20))
+        self.secretEdit.setGeometry(QRect(240, 120, 491, 20))
         self.confirmButton = QPushButton(EngineDialog)
         self.confirmButton.setObjectName(u"confirmButton")
         self.confirmButton.setGeometry(QRect(20, 160, 981, 24))
@@ -53,6 +53,7 @@ class Ui_EngineDialog(object):
         font = QFont()
         font.setUnderline(True)
         self.detailLabel.setFont(font)
+        self.detailLabel.setCursor(QCursor(Qt.PointingHandCursor))
         self.detailLabel.setAlignment(Qt.AlignCenter)
         self.detailLabel.setWordWrap(True)
         self.rpmEdit = QLineEdit(EngineDialog)
@@ -112,6 +113,9 @@ class Ui_EngineDialog(object):
         self.maxLengthEdit.setGeometry(QRect(20, 460, 981, 31))
         self.maxLengthEdit.setText(u"5000")
         self.maxLengthEdit.setAlignment(Qt.AlignCenter)
+        self.detectButton = QPushButton(EngineDialog)
+        self.detectButton.setObjectName(u"detectButton")
+        self.detectButton.setGeometry(QRect(750, 70, 251, 71))
 
         self.retranslateUi(EngineDialog)
 
@@ -139,5 +143,6 @@ class Ui_EngineDialog(object):
         self.customButton.setText(QCoreApplication.translate("EngineDialog", u"custom model", None))
         self.label_9.setText(QCoreApplication.translate("EngineDialog", u"time_out (The max time wait for each request .for gpt-3.5 it's recommended to 120s , for gpt-4 it's recommened to 240s) :", None))
         self.label_10.setText(QCoreApplication.translate("EngineDialog", u"max_length (The max character length for each request. The actual limit unit of openai is token which is normally a word. But it'hard to define,so use max_length as a replacement. The max tokens of openai are 4096 for each request. Make sure the token is under the exceed limit , my suggestion is to set to 5000)", None))
+        self.detectButton.setText(QCoreApplication.translate("EngineDialog", u"detect network delay", None))
     # retranslateUi
 

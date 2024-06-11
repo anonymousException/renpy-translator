@@ -60,7 +60,7 @@
     <rect>
      <x>240</x>
      <y>68</y>
-     <width>761</width>
+     <width>491</width>
      <height>20</height>
     </rect>
    </property>
@@ -86,7 +86,7 @@
     <rect>
      <x>240</x>
      <y>120</y>
-     <width>761</width>
+     <width>491</width>
      <height>20</height>
     </rect>
    </property>
@@ -120,6 +120,9 @@
     <font>
      <underline>true</underline>
     </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <property name="text">
     <string>detail information</string>
@@ -354,6 +357,19 @@
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="detectButton">
+   <property name="geometry">
+    <rect>
+     <x>750</x>
+     <y>70</y>
+     <width>251</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>detect network delay</string>
    </property>
   </widget>
  </widget>

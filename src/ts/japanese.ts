@@ -323,7 +323,7 @@
         <location filename="../editor_form.py" line="287"/>
         <location filename="../editor_form.py" line="599"/>
         <location filename="../editor_form.py" line="761"/>
-        <location filename="../editor_form.py" line="1635"/>
+        <location filename="../editor_form.py" line="1636"/>
         <location filename="../editor.ui" line="255"/>
         <location filename="../editor.ui" line="432"/>
         <source>Current</source>
@@ -349,7 +349,7 @@
         <location filename="../editor_form.py" line="286"/>
         <location filename="../editor_form.py" line="598"/>
         <location filename="../editor_form.py" line="760"/>
-        <location filename="../editor_form.py" line="1634"/>
+        <location filename="../editor_form.py" line="1635"/>
         <location filename="../editor.ui" line="334"/>
         <location filename="../editor.ui" line="413"/>
         <source>Original</source>
@@ -520,12 +520,12 @@
         <translation>現在 をロードしたばかりの状態にロールバックします</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1476"/>
+        <location filename="../editor_form.py" line="1477"/>
         <source>select the directory you want to edit</source>
         <translation>編集したいディレクトリを選択します</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1483"/>
+        <location filename="../editor_form.py" line="1484"/>
         <source>select the file(s) you want to edit</source>
         <translation>編集したいファイルを選択します</translation>
     </message>
@@ -569,65 +569,70 @@
         <translation>確認する</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="125"/>
+        <location filename="../engine.ui" line="128"/>
         <source>detail information</source>
         <translation>詳細情報</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="144"/>
-        <location filename="../engine.ui" line="192"/>
+        <location filename="../engine.ui" line="147"/>
+        <location filename="../engine.ui" line="195"/>
         <source>3</source>
         <translation>3</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="157"/>
+        <location filename="../engine.ui" line="160"/>
         <source>RPM (requests per minute):</source>
         <translation>RPM (1 分あたりのリクエスト数):</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="173"/>
+        <location filename="../engine.ui" line="176"/>
         <source>RPS (requests per second):</source>
         <translation>RPS (1 秒あたりのリクエスト数):</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="205"/>
+        <location filename="../engine.ui" line="208"/>
         <source>TPM (requests token limits):</source>
         <translation>TPM (トークン制限を要求):</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="221"/>
+        <location filename="../engine.ui" line="224"/>
         <source>40000</source>
         <translation>40000</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="244"/>
+        <location filename="../engine.ui" line="247"/>
         <source>model:</source>
         <translation>モデル：</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="263"/>
+        <location filename="../engine.ui" line="266"/>
         <source>base_url:</source>
         <translation>base_url:</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="282"/>
+        <location filename="../engine.ui" line="285"/>
         <source>http://my.test.server.example.com:8083</source>
         <translation>http://my.test.server.example.com:8083</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="295"/>
+        <location filename="../engine.ui" line="298"/>
         <source>custom model</source>
         <translation>カスタムモデル</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="308"/>
+        <location filename="../engine.ui" line="311"/>
         <source>time_out (The max time wait for each request .for gpt-3.5 it&apos;s recommended to 120s , for gpt-4 it&apos;s recommened to 240s) :</source>
         <translation>time_out (各リクエストの最大待機時間。gpt-3.5 の場合は 120 秒が推奨され、gpt-4 の場合は 240 秒が推奨されます):</translation>
     </message>
     <message>
-        <location filename="../engine.ui" line="337"/>
+        <location filename="../engine.ui" line="340"/>
         <source>max_length (The max character length for each request. The actual limit unit of openai is token which is normally a word. But it&apos;hard to define,so use max_length as a replacement. The max tokens of openai are 4096 for each request. Make sure the token is under the exceed limit , my suggestion is to set to 5000)</source>
         <translation>max_length (各リクエストの最大文字長。openai の実際の制限単位は、通常は単語であるトークンです。しかし定義が難しいため、代わりに max_length を使用します。openai の最大トークンはリクエストごとに 4096 です。 トークンが制限を超えていることを確認してください。私の提案は 5000 に設定することです)</translation>
+    </message>
+    <message>
+        <location filename="../engine.ui" line="372"/>
+        <source>detect network delay</source>
+        <translation>ネットワーク遅延を検出する</translation>
     </message>
 </context>
 <context>
@@ -862,7 +867,7 @@
     </message>
     <message>
         <location filename="../font_replace_form.py" line="54"/>
-        <location filename="../one_key_translate_form.py" line="414"/>
+        <location filename="../one_key_translate_form.py" line="415"/>
         <source>select the file font which supports the translated language</source>
         <translation>翻訳された言語をサポートするファイルフォントを選択します</translation>
     </message>
@@ -1006,9 +1011,9 @@
 <context>
     <name>ImportHtmlDialog</name>
     <message>
-        <location filename="../main.py" line="598"/>
-        <location filename="../editor_form.py" line="1523"/>
-        <location filename="../one_key_translate_form.py" line="665"/>
+        <location filename="../main.py" line="604"/>
+        <location filename="../editor_form.py" line="1524"/>
+        <location filename="../one_key_translate_form.py" line="668"/>
         <location filename="../import_html_form.py" line="37"/>
         <source>The html file does not match the translated file , please check the input files</source>
         <translation>HTML ファイルが翻訳されたファイルと一致しません。入力ファイルを確認してください</translation>
@@ -1156,40 +1161,40 @@
         <translation>レンピー翻訳者</translation>
     </message>
     <message>
-        <location filename="../main.py" line="634"/>
+        <location filename="../main.py" line="640"/>
         <location filename="../extraction_official_form.py" line="67"/>
         <source>is extracting...</source>
         <translation>抽出中...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="578"/>
-        <location filename="../main.py" line="736"/>
+        <location filename="../main.py" line="580"/>
+        <location filename="../main.py" line="742"/>
         <source>is translating...</source>
         <translation>翻訳中...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="147"/>
-        <location filename="../main.py" line="407"/>
+        <location filename="../main.py" line="148"/>
+        <location filename="../main.py" line="408"/>
         <source>Click to check for update</source>
         <translation>クリックして更新を確認してください</translation>
     </message>
     <message>
-        <location filename="../main.py" line="243"/>
+        <location filename="../main.py" line="244"/>
         <source>It&apos;s up to date now</source>
         <translation>今は最新です</translation>
     </message>
     <message>
-        <location filename="../main.py" line="249"/>
+        <location filename="../main.py" line="250"/>
         <source>New version detected</source>
         <translation>新しいバージョンが検出されました</translation>
     </message>
     <message>
-        <location filename="../main.py" line="251"/>
+        <location filename="../main.py" line="252"/>
         <source>Would you like to open the website to get the latest verison?</source>
         <translation>最新バージョンを取得するためにWebサイトを開きますか?</translation>
     </message>
     <message>
-        <location filename="../main.py" line="581"/>
+        <location filename="../main.py" line="583"/>
         <location filename="../ui.ui" line="87"/>
         <source>translate</source>
         <translation>翻訳する</translation>
@@ -1203,12 +1208,12 @@
         <translation type="vanished">抽出したいディレクトリを選択します</translation>
     </message>
     <message>
-        <location filename="../main.py" line="671"/>
+        <location filename="../main.py" line="677"/>
         <source>select the file(s) you want to translate</source>
         <translation>翻訳したいファイルを選択します</translation>
     </message>
     <message>
-        <location filename="../main.py" line="682"/>
+        <location filename="../main.py" line="688"/>
         <source>select the directory you want to translate</source>
         <translation>翻訳したいディレクトリを選択します</translation>
     </message>
@@ -1396,7 +1401,7 @@
         <translation type="vanished">ここに翻訳したいディレクトリを入力または選択またはドラッグします。例:F:\GameName\game\tl\language</translation>
     </message>
     <message>
-        <location filename="../main.py" line="638"/>
+        <location filename="../main.py" line="644"/>
         <location filename="../extraction_official_form.py" line="89"/>
         <source>extract</source>
         <translation>抽出する</translation>
@@ -1441,8 +1446,8 @@
         <translation>ログをクリアする</translation>
     </message>
     <message>
-        <location filename="../main.py" line="146"/>
-        <location filename="../main.py" line="406"/>
+        <location filename="../main.py" line="147"/>
+        <location filename="../main.py" line="407"/>
         <source>Version</source>
         <translation>バージョン</translation>
     </message>
@@ -1636,12 +1641,12 @@
         <translation>すべてのファイルを解凍します（無効にするとスクリプト ファイルのみが解凍されます）</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="573"/>
+        <location filename="../one_key_translate_form.py" line="575"/>
         <source>select the game file</source>
         <translation>ゲームファイルを選択します</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="694"/>
+        <location filename="../one_key_translate_form.py" line="697"/>
         <source>One Key Translate Complete</source>
         <translation>ワンキー翻訳完了</translation>
     </message>
