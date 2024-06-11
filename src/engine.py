@@ -143,6 +143,9 @@ class Ui_EngineDialog(object):
         self.customButton.setText(QCoreApplication.translate("EngineDialog", u"custom model", None))
         self.label_9.setText(QCoreApplication.translate("EngineDialog", u"time_out (The max time wait for each request .for gpt-3.5 it's recommended to 120s , for gpt-4 it's recommened to 240s) :", None))
         self.label_10.setText(QCoreApplication.translate("EngineDialog", u"max_length (The max character length for each request. The actual limit unit of openai is token which is normally a word. But it'hard to define,so use max_length as a replacement. The max tokens of openai are 4096 for each request. Make sure the token is under the exceed limit , my suggestion is to set to 5000)", None))
+#if QT_CONFIG(tooltip)
+        self.detectButton.setToolTip(QCoreApplication.translate("EngineDialog", u"The proxy server will not take effect for network detection, If you use a proxy server, the result of detecting inaccessibility here may not be accurate", None))
+#endif // QT_CONFIG(tooltip)
         self.detectButton.setText(QCoreApplication.translate("EngineDialog", u"detect network delay", None))
     # retranslateUi
 

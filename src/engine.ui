@@ -368,6 +368,9 @@
      <height>71</height>
     </rect>
    </property>
+   <property name="toolTip">
+    <string>The proxy server will not take effect for network detection, If you use a proxy server, the result of detecting inaccessibility here may not be accurate</string>
+   </property>
    <property name="text">
     <string>detect network delay</string>
    </property>

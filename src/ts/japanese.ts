@@ -323,7 +323,7 @@
         <location filename="../editor_form.py" line="287"/>
         <location filename="../editor_form.py" line="599"/>
         <location filename="../editor_form.py" line="761"/>
-        <location filename="../editor_form.py" line="1636"/>
+        <location filename="../editor_form.py" line="1637"/>
         <location filename="../editor.ui" line="255"/>
         <location filename="../editor.ui" line="432"/>
         <source>Current</source>
@@ -349,7 +349,7 @@
         <location filename="../editor_form.py" line="286"/>
         <location filename="../editor_form.py" line="598"/>
         <location filename="../editor_form.py" line="760"/>
-        <location filename="../editor_form.py" line="1635"/>
+        <location filename="../editor_form.py" line="1636"/>
         <location filename="../editor.ui" line="334"/>
         <location filename="../editor.ui" line="413"/>
         <source>Original</source>
@@ -631,6 +631,11 @@
     </message>
     <message>
         <location filename="../engine.ui" line="372"/>
+        <source>The proxy server will not take effect for network detection, If you use a proxy server, the result of detecting inaccessibility here may not be accurate</source>
+        <translation>プロキシサーバーはネットワーク検出には影響しません。プロキシサーバーを使用している場合、ここでのアクセス不能の検出結果は正確ではない可能性があります</translation>
+    </message>
+    <message>
+        <location filename="../engine.ui" line="375"/>
         <source>detect network delay</source>
         <translation>ネットワーク遅延を検出する</translation>
     </message>
@@ -1013,7 +1018,7 @@
     <message>
         <location filename="../main.py" line="604"/>
         <location filename="../editor_form.py" line="1524"/>
-        <location filename="../one_key_translate_form.py" line="668"/>
+        <location filename="../one_key_translate_form.py" line="673"/>
         <location filename="../import_html_form.py" line="37"/>
         <source>The html file does not match the translated file , please check the input files</source>
         <translation>HTML ファイルが翻訳されたファイルと一致しません。入力ファイルを確認してください</translation>
@@ -1646,7 +1651,7 @@
         <translation>ゲームファイルを選択します</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="697"/>
+        <location filename="../one_key_translate_form.py" line="706"/>
         <source>One Key Translate Complete</source>
         <translation>ワンキー翻訳完了</translation>
     </message>
