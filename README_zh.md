@@ -49,22 +49,26 @@ https://github.com/anonymousException/renpy-translator/blob/feature/ai-translate
 
 这等价于后面的完整教程
 
-https://github.com/anonymousException/renpy-translator/assets/157234942/ae7ea5c8-233b-4708-bd52-2248e0602628
+https://github.com/anonymousException/renpy-translator/assets/157234942/1230607c-7313-4ba3-bf3e-ace19efa3c32
+
 
 ### 完整教程
 
-https://github.com/anonymousException/renpy-translator/assets/157234942/381ad014-442f-458d-a304-4547a4d6a38a
+
+https://github.com/anonymousException/renpy-translator/assets/157234942/6b71c914-8f64-45c4-a1f8-809299b3c8e6
+
 
 本视频按顺序展示了:
 
 1. 展示原始的游戏
 2. 解包游戏
 3. 运行时抽取(只抽取对话)
-4. 抽取
-5. 替换字体
-6. 在偏好设置中添加一个更改语言的入口
-7. 翻译
-8. 展示翻译后的游戏
+4. 官方抽取(等价于使用 renpy-sdk 里的提取翻译)
+5. 抽取
+6. 替换字体
+7. 在偏好设置中添加一个更改语言的入口
+8. 翻译
+9. 展示翻译后的游戏
 
 ### 打包游戏(生成翻译 Mod)
 
