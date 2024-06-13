@@ -52,22 +52,23 @@ Support one key translate , just select the target language and the font file an
 
 It's equal to the following complete tutorial
 
-https://github.com/anonymousException/renpy-translator/assets/157234942/ae7ea5c8-233b-4708-bd52-2248e0602628
+https://github.com/anonymousException/renpy-translator/assets/157234942/1230607c-7313-4ba3-bf3e-ace19efa3c32
 
 ### Complete Tutorial
 
-https://github.com/anonymousException/renpy-translator/assets/157234942/381ad014-442f-458d-a304-4547a4d6a38a
+https://github.com/anonymousException/renpy-translator/assets/157234942/6b71c914-8f64-45c4-a1f8-809299b3c8e6
 
 The video shows in order : 
 
 1. show the original game
 2. unpack game package
 3. runtime extraction (extract dialogues only)
-4. extraction
-5. replace font
-6. add an entrance to change langauge in preference
-7. translate
-8. show the translated game
+4. official extraction (equals to the extract function in official renpy-sdk)
+5. extraction
+6. replace font
+7. add an entrance to change langauge in preference
+8. translate
+9. show the translated game
 
 ### Pack Game(Generate Translation Mod)
 
