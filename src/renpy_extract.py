@@ -71,9 +71,9 @@ class extractThread(threading.Thread):
             log_print(msg)
 
 
-def is_path_string(str):
-    if ' ' not in str and '.' in str:
-        if '\\' in str or '/' in str:
+def is_path_or_dir_string(_string):
+    if ' ' not in _string and ':' not in _string and '[' not in _string and '{' not in _string:
+        if '\\' in _string or '/' in _string:
             return True
     return False
 
@@ -157,7 +157,7 @@ def ExtractFromFile(p, is_open_filter, filter_length, is_skip_underline, is_py2)
                         skip = True
                     # if not line_content.strip().startswith('text ') or line_content.strip().find(i) != 5:
                     #     skip = True
-                    if is_path_string(cmp_i):
+                    if is_path_or_dir_string(cmp_i):
                         skip = True
                     if skip:
                         continue
@@ -199,7 +199,7 @@ def ExtractFromFile(p, is_open_filter, filter_length, is_skip_underline, is_py2)
                         skip = True
                     # if not line_content.strip().startswith('text ') or line_content.strip().find(i) != 5:
                     #     skip = True
-                    if is_path_string(cmp_i):
+                    if is_path_or_dir_string(cmp_i):
                         skip = True
                     if skip:
                         continue
