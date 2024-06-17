@@ -892,7 +892,17 @@
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../font_replace_form.py" line="98"/>
+        <location filename="../font_replace.ui" line="175"/>
+        <source>Enable RTL (Right To Left)</source>
+        <translation>启用 RTL（从右到左）</translation>
+    </message>
+    <message>
+        <location filename="../font_replace.ui" line="188"/>
+        <source>(Fix reversed font problem for some languages like arabic, urdu)</source>
+        <translation>（修复阿拉伯语、乌尔都语等某些语言的字体反转问题）</translation>
+    </message>
+    <message>
+        <location filename="../font_replace_form.py" line="99"/>
         <location filename="../font_replace.ui" line="101"/>
         <source>replace font</source>
         <translation>替换字体</translation>
@@ -913,18 +923,18 @@
         <translation>在此处输入或选择或拖动要替换字体的目录。示例：F:\GameName\game\tl\language</translation>
     </message>
     <message>
-        <location filename="../font_replace_form.py" line="49"/>
+        <location filename="../font_replace_form.py" line="50"/>
         <source>select the directory you want to extract</source>
         <translation>选择你要解压的目录</translation>
     </message>
     <message>
-        <location filename="../font_replace_form.py" line="54"/>
+        <location filename="../font_replace_form.py" line="55"/>
         <location filename="../one_key_translate_form.py" line="415"/>
         <source>select the file font which supports the translated language</source>
         <translation>选择支持翻译语言的文件字体</translation>
     </message>
     <message>
-        <location filename="../font_replace_form.py" line="74"/>
+        <location filename="../font_replace_form.py" line="75"/>
         <source>is replacing font...</source>
         <translation>正在更换字体...</translation>
     </message>
@@ -1652,6 +1662,16 @@
         <location filename="../one_key_translate.ui" line="490"/>
         <source>Unpack all files (if disabled only script files will be unpacked)</source>
         <translation>解压所有文件（如果禁用，则仅解压脚本文件）</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="512"/>
+        <source>Enable RTL (Right To Left)</source>
+        <translation>启用 RTL（从右到左）</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="525"/>
+        <source>(Fix reversed font problem for some languages like arabic, urdu)</source>
+        <translation>（修复阿拉伯语、乌尔都语等某些语言的字体反转问题）</translation>
     </message>
     <message>
         <location filename="../one_key_translate_form.py" line="575"/>

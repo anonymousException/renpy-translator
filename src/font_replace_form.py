@@ -14,16 +14,17 @@ from renpy_fonts import GenGuiFonts
 from font_util import get_default_font_path
 
 class replaceFontThread(threading.Thread):
-    def __init__(self, select_dir, font_path):
+    def __init__(self, select_dir, font_path, is_rtl_enabled):
         threading.Thread.__init__(self)
         self.select_dir = select_dir
         self.font_path = font_path
+        self.is_rtl_enabled = is_rtl_enabled
 
 
     def run(self):
         try:
             log_print('start replace font ...')
-            GenGuiFonts(self.select_dir, self.font_path)
+            GenGuiFonts(self.select_dir, self.font_path, self.is_rtl_enabled)
             log_print('replace complete!')
         except Exception as e:
             msg = traceback.format_exc()
@@ -67,7 +68,7 @@ class MyFontReplaceForm(QDialog, Ui_FontReplaceDialog):
                     select_dir = select_dir + '/'
                 font_path = self.selectFontText.toPlainText()
                 font_path = font_path.replace('file:///', '')
-                t = replaceFontThread(select_dir, font_path)
+                t = replaceFontThread(select_dir, font_path, self.rtlCheckBox.isChecked())
                 self.replace_font_thread = t
                 t.start()
                 self.setDisabled(True)

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>663</width>
-    <height>346</height>
+    <width>733</width>
+    <height>438</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,8 +18,8 @@
     <rect>
      <x>30</x>
      <y>10</y>
-     <width>600</width>
-     <height>331</height>
+     <width>691</width>
+     <height>421</height>
     </rect>
    </property>
    <property name="minimumSize">
@@ -51,7 +51,7 @@
      <rect>
       <x>80</x>
       <y>160</y>
-      <width>411</width>
+      <width>521</width>
       <height>91</height>
      </rect>
     </property>
@@ -78,7 +78,7 @@
    <widget class="QPushButton" name="selectFontBtn">
     <property name="geometry">
      <rect>
-      <x>490</x>
+      <x>600</x>
       <y>160</y>
       <width>81</width>
       <height>91</height>
@@ -91,9 +91,9 @@
    <widget class="QPushButton" name="replaceFontBtn">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>260</y>
-      <width>411</width>
+      <x>0</x>
+      <y>350</y>
+      <width>681</width>
       <height>24</height>
      </rect>
     </property>
@@ -104,9 +104,9 @@
    <widget class="QPushButton" name="openFontStyleBtn">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>300</y>
-      <width>411</width>
+      <x>0</x>
+      <y>390</y>
+      <width>681</width>
       <height>24</height>
      </rect>
     </property>
@@ -135,7 +135,7 @@
      <rect>
       <x>80</x>
       <y>38</y>
-      <width>411</width>
+      <width>521</width>
       <height>101</height>
      </rect>
     </property>
@@ -146,7 +146,7 @@
    <widget class="QPushButton" name="selectDirBtn_3">
     <property name="geometry">
      <rect>
-      <x>490</x>
+      <x>600</x>
       <y>38</y>
       <width>81</width>
       <height>101</height>
@@ -154,6 +154,41 @@
     </property>
     <property name="text">
      <string>...</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="rtlCheckBox">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>270</y>
+      <width>681</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>ArrowCursor</cursorShape>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="text">
+     <string>Enable RTL (Right To Left)</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>290</y>
+      <width>681</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>(Fix reversed font problem for some languages like arabic, urdu)</string>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
     </property>
    </widget>
   </widget>

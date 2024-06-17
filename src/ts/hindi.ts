@@ -866,18 +866,18 @@
 <context>
     <name>FontReplaceDialog</name>
     <message>
-        <location filename="../font_replace_form.py" line="49"/>
+        <location filename="../font_replace_form.py" line="50"/>
         <source>select the directory you want to extract</source>
         <translation>वह निर्देशिका चुनें जिसे आप निकालना चाहते हैं</translation>
     </message>
     <message>
-        <location filename="../font_replace_form.py" line="54"/>
+        <location filename="../font_replace_form.py" line="55"/>
         <location filename="../one_key_translate_form.py" line="415"/>
         <source>select the file font which supports the translated language</source>
         <translation>उस फ़ाइल फ़ॉन्ट का चयन करें जो अनुवादित भाषा का समर्थन करता है</translation>
     </message>
     <message>
-        <location filename="../font_replace_form.py" line="74"/>
+        <location filename="../font_replace_form.py" line="75"/>
         <source>is replacing font...</source>
         <translation>फ़ॉन्ट बदल रहा है...</translation>
     </message>
@@ -904,7 +904,17 @@
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../font_replace_form.py" line="98"/>
+        <location filename="../font_replace.ui" line="175"/>
+        <source>Enable RTL (Right To Left)</source>
+        <translation>RTL सक्षम करें (दाएं से बाएं)</translation>
+    </message>
+    <message>
+        <location filename="../font_replace.ui" line="188"/>
+        <source>(Fix reversed font problem for some languages like arabic, urdu)</source>
+        <translation>(अरबी, उर्दू जैसी कुछ भाषाओं के लिए उलटे फ़ॉन्ट की समस्या को ठीक किया गया)</translation>
+    </message>
+    <message>
+        <location filename="../font_replace_form.py" line="99"/>
         <location filename="../font_replace.ui" line="101"/>
         <source>replace font</source>
         <translation>फ़ॉन्ट बदलें</translation>
@@ -1644,6 +1654,16 @@
         <location filename="../one_key_translate.ui" line="490"/>
         <source>Unpack all files (if disabled only script files will be unpacked)</source>
         <translation>सभी फ़ाइलें अनपैक करें (यदि अक्षम किया गया है तो केवल स्क्रिप्ट फ़ाइलें ही अनपैक होंगी)</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="512"/>
+        <source>Enable RTL (Right To Left)</source>
+        <translation>RTL सक्षम करें (दाएं से बाएं)</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="525"/>
+        <source>(Fix reversed font problem for some languages like arabic, urdu)</source>
+        <translation>(अरबी, उर्दू जैसी कुछ भाषाओं के लिए उलटे फ़ॉन्ट की समस्या को ठीक किया गया)</translation>
     </message>
     <message>
         <location filename="../one_key_translate_form.py" line="575"/>

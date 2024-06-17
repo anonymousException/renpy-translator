@@ -843,18 +843,18 @@
 <context>
     <name>FontReplaceDialog</name>
     <message>
-        <location filename="../font_replace_form.py" line="49"/>
+        <location filename="../font_replace_form.py" line="50"/>
         <source>select the directory you want to extract</source>
         <translation>επιλέξτε τον κατάλογο που θέλετε να εξαγάγετε</translation>
     </message>
     <message>
-        <location filename="../font_replace_form.py" line="54"/>
+        <location filename="../font_replace_form.py" line="55"/>
         <location filename="../one_key_translate_form.py" line="415"/>
         <source>select the file font which supports the translated language</source>
         <translation>επιλέξτε τη γραμματοσειρά του αρχείου που υποστηρίζει τη μεταφρασμένη γλώσσα</translation>
     </message>
     <message>
-        <location filename="../font_replace_form.py" line="74"/>
+        <location filename="../font_replace_form.py" line="75"/>
         <source>is replacing font...</source>
         <translation>αντικαθιστά τη γραμματοσειρά...</translation>
     </message>
@@ -881,7 +881,17 @@
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../font_replace_form.py" line="98"/>
+        <location filename="../font_replace.ui" line="175"/>
+        <source>Enable RTL (Right To Left)</source>
+        <translation>Ενεργοποίηση RTL (Δεξιά προς Αριστερά)</translation>
+    </message>
+    <message>
+        <location filename="../font_replace.ui" line="188"/>
+        <source>(Fix reversed font problem for some languages like arabic, urdu)</source>
+        <translation>(Διόρθωση προβλήματος αντίστροφης γραμματοσειράς για ορισμένες γλώσσες όπως τα αραβικά, τα ουρντού)</translation>
+    </message>
+    <message>
+        <location filename="../font_replace_form.py" line="99"/>
         <location filename="../font_replace.ui" line="101"/>
         <source>replace font</source>
         <translation>αντικαταστήστε τη γραμματοσειρά</translation>
@@ -1521,6 +1531,16 @@
         <location filename="../one_key_translate.ui" line="490"/>
         <source>Unpack all files (if disabled only script files will be unpacked)</source>
         <translation>Αποσυσκευάστε όλα τα αρχεία (εάν είναι απενεργοποιημένα μόνο τα αρχεία σεναρίου θα αποσυμπιεστούν)</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="512"/>
+        <source>Enable RTL (Right To Left)</source>
+        <translation>Ενεργοποίηση RTL (Δεξιά προς Αριστερά)</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="525"/>
+        <source>(Fix reversed font problem for some languages like arabic, urdu)</source>
+        <translation>(Διόρθωση προβλήματος αντίστροφης γραμματοσειράς για ορισμένες γλώσσες όπως τα αραβικά, τα ουρντού)</translation>
     </message>
     <message>
         <location filename="../one_key_translate_form.py" line="575"/>

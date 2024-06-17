@@ -843,18 +843,18 @@
 <context>
     <name>FontReplaceDialog</name>
     <message>
-        <location filename="../font_replace_form.py" line="49"/>
+        <location filename="../font_replace_form.py" line="50"/>
         <source>select the directory you want to extract</source>
         <translation>ayıklamak istediğiniz dizini seçin</translation>
     </message>
     <message>
-        <location filename="../font_replace_form.py" line="54"/>
+        <location filename="../font_replace_form.py" line="55"/>
         <location filename="../one_key_translate_form.py" line="415"/>
         <source>select the file font which supports the translated language</source>
         <translation>çevrilmiş dili destekleyen dosya yazı tipini seçin</translation>
     </message>
     <message>
-        <location filename="../font_replace_form.py" line="74"/>
+        <location filename="../font_replace_form.py" line="75"/>
         <source>is replacing font...</source>
         <translation>yazı tipini değiştiriyor...</translation>
     </message>
@@ -881,7 +881,17 @@
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../font_replace_form.py" line="98"/>
+        <location filename="../font_replace.ui" line="175"/>
+        <source>Enable RTL (Right To Left)</source>
+        <translation>RTL&apos;yi Etkinleştir (Sağdan Sola)</translation>
+    </message>
+    <message>
+        <location filename="../font_replace.ui" line="188"/>
+        <source>(Fix reversed font problem for some languages like arabic, urdu)</source>
+        <translation>(Arapça, Urduca gibi bazı dillerde ters yazı tipi sorununu düzeltin)</translation>
+    </message>
+    <message>
+        <location filename="../font_replace_form.py" line="99"/>
         <location filename="../font_replace.ui" line="101"/>
         <source>replace font</source>
         <translation>yazı tipini değiştir</translation>
@@ -1533,6 +1543,16 @@
         <location filename="../one_key_translate.ui" line="490"/>
         <source>Unpack all files (if disabled only script files will be unpacked)</source>
         <translation>Tüm dosyaları paketinden çıkarın (devre dışı bırakılırsa yalnızca komut dosyası dosyaları açılır)</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="512"/>
+        <source>Enable RTL (Right To Left)</source>
+        <translation>RTL&apos;yi Etkinleştir (Sağdan Sola)</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="525"/>
+        <source>(Fix reversed font problem for some languages like arabic, urdu)</source>
+        <translation>(Arapça, Urduca gibi bazı dillerde ters yazı tipi sorununu düzeltin)</translation>
     </message>
     <message>
         <location filename="../one_key_translate_form.py" line="575"/>

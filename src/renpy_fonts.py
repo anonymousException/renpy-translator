@@ -142,7 +142,7 @@ def ExtractFontContent(data):
     return data[index:]
 
 
-def GenGuiFontsOriginal(p, tl_name, font_path):
+def GenGuiFontsOriginal(p, tl_name, font_path, is_rtl_enabled):
     if p[len(p) - 1] != '/' and p[len(p) - 1] != '\\':
         p = p + '/'
     guiPath = p + 'tl/' + tl_name + '/gui.rpy'
@@ -182,6 +182,10 @@ def GenGuiFontsOriginal(p, tl_name, font_path):
         f.close()
         template = template.replace('{tl_name}', tl_name)
         template = template.replace('{font_path}', 'fonts/' + font_path)
+        if is_rtl_enabled:
+            template = template.replace('{is_rtl_enabled}', 'True')
+        else:
+            template = template.replace('{is_rtl_enabled}', 'False')
         f = io.open(guiPath, 'w', encoding='utf-8')
         header = template
         # print(header)
@@ -232,7 +236,7 @@ def replace_tl_folder(full_tl_path, font_name):
             f.close()
 
 
-def GenGuiFonts(path, fp):
+def GenGuiFonts(path, fp, is_rtl_enabled):
     index = path.rfind('tl\\')
     if index == -1:
         index = path.rfind('tl/')
@@ -246,7 +250,7 @@ def GenGuiFonts(path, fp):
         log_print(path + ' no tl found2!')
         return
     tl = path[index + 3:index2]
-    GenGuiFontsOriginal(path[:index], tl, fp)
+    GenGuiFontsOriginal(path[:index], tl, fp, is_rtl_enabled)
     font_name = os.path.basename(fp)
     #replace_tl_folder(path[:index] + 'tl/' + tl, font_name)
 

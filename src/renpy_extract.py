@@ -71,6 +71,12 @@ class extractThread(threading.Thread):
             log_print(msg)
 
 
+def is_path_string(str):
+    if ' ' not in str and '.' in str:
+        if '\\' in str or '/' in str:
+            return True
+    return False
+
 def ExtractFromFile(p, is_open_filter, filter_length, is_skip_underline, is_py2):
     e = set()
     f = io.open(p, 'r+', encoding='utf-8')
@@ -126,9 +132,6 @@ def ExtractFromFile(p, is_open_filter, filter_length, is_skip_underline, is_py2)
             if line_content.strip().startswith('default '):
             	continue
         # log_print(line_content)
-
-        suffix_list = ['.ogg', '.webp', '.png', '.ttf', '.otf', '.webm', '.svg', '.gif', '.jpg', '.wav',
-                       '.mp3','.rpyc','.rpy','.db']
         is_add = False
         d = EncodeBracketContent(line_content, '"', '"')
         if 'oriList' in d.keys() and len(d['oriList']) > 0:
@@ -154,12 +157,8 @@ def ExtractFromFile(p, is_open_filter, filter_length, is_skip_underline, is_py2)
                         skip = True
                     # if not line_content.strip().startswith('text ') or line_content.strip().find(i) != 5:
                     #     skip = True
-                    for suffix in suffix_list:
-                        if cmp_i.endswith(suffix) == False:
-                            continue
-                        else:
-                            skip = True
-                            break
+                    if is_path_string(cmp_i):
+                        skip = True
                     if skip:
                         continue
                     i = i[1:-1]
@@ -200,12 +199,8 @@ def ExtractFromFile(p, is_open_filter, filter_length, is_skip_underline, is_py2)
                         skip = True
                     # if not line_content.strip().startswith('text ') or line_content.strip().find(i) != 5:
                     #     skip = True
-                    for suffix in suffix_list:
-                        if cmp_i.endswith(suffix) == False:
-                            continue
-                        else:
-                            skip = True
-                            break
+                    if is_path_string(cmp_i):
+                        skip = True
                     if skip:
                         continue
                     i = i[1:-1]

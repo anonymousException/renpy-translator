@@ -866,18 +866,18 @@
 <context>
     <name>FontReplaceDialog</name>
     <message>
-        <location filename="../font_replace_form.py" line="49"/>
+        <location filename="../font_replace_form.py" line="50"/>
         <source>select the directory you want to extract</source>
         <translation>وہ ڈائریکٹری منتخب کریں جسے آپ نکالنا چاہتے ہیں۔</translation>
     </message>
     <message>
-        <location filename="../font_replace_form.py" line="54"/>
+        <location filename="../font_replace_form.py" line="55"/>
         <location filename="../one_key_translate_form.py" line="415"/>
         <source>select the file font which supports the translated language</source>
         <translation>فائل کا فونٹ منتخب کریں جو ترجمہ شدہ زبان کو سپورٹ کرتا ہے۔</translation>
     </message>
     <message>
-        <location filename="../font_replace_form.py" line="74"/>
+        <location filename="../font_replace_form.py" line="75"/>
         <source>is replacing font...</source>
         <translation>فونٹ بدل رہا ہے...</translation>
     </message>
@@ -904,7 +904,17 @@
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../font_replace_form.py" line="98"/>
+        <location filename="../font_replace.ui" line="175"/>
+        <source>Enable RTL (Right To Left)</source>
+        <translation>RTL کو فعال کریں (دائیں سے بائیں)</translation>
+    </message>
+    <message>
+        <location filename="../font_replace.ui" line="188"/>
+        <source>(Fix reversed font problem for some languages like arabic, urdu)</source>
+        <translation>(کچھ زبانوں جیسے عربی، اردو کے لیے الٹ فونٹ کا مسئلہ حل کریں)</translation>
+    </message>
+    <message>
+        <location filename="../font_replace_form.py" line="99"/>
         <location filename="../font_replace.ui" line="101"/>
         <source>replace font</source>
         <translation>فونٹ تبدیل کریں</translation>
@@ -1644,6 +1654,16 @@
         <location filename="../one_key_translate.ui" line="490"/>
         <source>Unpack all files (if disabled only script files will be unpacked)</source>
         <translation>تمام فائلوں کو کھولیں (اگر غیر فعال ہو تو صرف اسکرپٹ فائلوں کو پیک کیا جائے گا)</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="512"/>
+        <source>Enable RTL (Right To Left)</source>
+        <translation>RTL کو فعال کریں (دائیں سے بائیں)</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="525"/>
+        <source>(Fix reversed font problem for some languages like arabic, urdu)</source>
+        <translation>(کچھ زبانوں جیسے عربی، اردو کے لیے الٹ فونٹ کا مسئلہ حل کریں)</translation>
     </message>
     <message>
         <location filename="../one_key_translate_form.py" line="575"/>

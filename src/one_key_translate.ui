@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1039</width>
-    <height>679</height>
+    <height>762</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -163,7 +163,7 @@
    <property name="geometry">
     <rect>
      <x>520</x>
-     <y>570</y>
+     <y>660</y>
      <width>81</width>
      <height>91</height>
     </rect>
@@ -176,7 +176,7 @@
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>600</y>
+     <y>690</y>
      <width>71</width>
      <height>31</height>
     </rect>
@@ -192,7 +192,7 @@
    <property name="geometry">
     <rect>
      <x>110</x>
-     <y>570</y>
+     <y>660</y>
      <width>411</width>
      <height>91</height>
     </rect>
@@ -351,7 +351,7 @@
      <x>620</x>
      <y>420</y>
      <width>401</width>
-     <height>241</height>
+     <height>331</height>
     </rect>
    </property>
    <property name="text">
@@ -491,6 +491,41 @@
    </property>
    <property name="checked">
     <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="rtlCheckBox">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>570</y>
+     <width>591</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="text">
+    <string>Enable RTL (Right To Left)</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>590</y>
+     <width>591</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>(Fix reversed font problem for some languages like arabic, urdu)</string>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
    </property>
   </widget>
  </widget>

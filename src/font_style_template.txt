@@ -7,6 +7,7 @@ init python early hide:
         return old_load_face(fn, *args)
 
     renpy.text.font.load_face = my_load_face
+    renpy.config.rtl = {is_rtl_enabled}
 
 translate {tl_name} python:
     import os

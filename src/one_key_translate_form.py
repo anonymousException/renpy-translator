@@ -263,7 +263,7 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
                     select_dir = select_dir + '/'
                 font_path = self.selectFontText.toPlainText()
                 font_path = font_path.replace('file:///', '')
-                t = replaceFontThread(select_dir, font_path)
+                t = replaceFontThread(select_dir, font_path, self.rtlCheckBox.isChecked())
                 self.replace_font_thread = t
                 t.start()
                 self.setDisabled(True)
