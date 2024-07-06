@@ -25,7 +25,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1068, 572)
+        MainWindow.resize(1068, 612)
         self.actioncopyright = QAction(MainWindow)
         self.actioncopyright.setObjectName(u"actioncopyright")
         self.proxySettings = QAction(MainWindow)
@@ -161,6 +161,17 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName(u"centralwidget")
         self.gridLayout = QGridLayout(self.centralwidget)
         self.gridLayout.setObjectName(u"gridLayout")
+        self.verticalLayout = QVBoxLayout()
+        self.verticalLayout.setObjectName(u"verticalLayout")
+
+        self.gridLayout.addLayout(self.verticalLayout, 4, 0, 1, 1)
+
+        self.copyrightLabel = QLabel(self.centralwidget)
+        self.copyrightLabel.setObjectName(u"copyrightLabel")
+        self.copyrightLabel.setMaximumSize(QSize(400, 16))
+
+        self.gridLayout.addWidget(self.copyrightLabel, 4, 2, 1, 1)
+
         self.clearLogBtn = QPushButton(self.centralwidget)
         self.clearLogBtn.setObjectName(u"clearLogBtn")
         sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
@@ -172,12 +183,6 @@ class Ui_MainWindow(object):
 
         self.gridLayout.addWidget(self.clearLogBtn, 3, 1, 1, 2)
 
-        self.copyrightLabel = QLabel(self.centralwidget)
-        self.copyrightLabel.setObjectName(u"copyrightLabel")
-        self.copyrightLabel.setMaximumSize(QSize(400, 16))
-
-        self.gridLayout.addWidget(self.copyrightLabel, 4, 2, 1, 1)
-
         self.log_text = QTextEdit(self.centralwidget)
         self.log_text.setObjectName(u"log_text")
         self.log_text.setMinimumSize(QSize(100, 400))
@@ -188,10 +193,10 @@ class Ui_MainWindow(object):
 
         self.widget = QWidget(self.centralwidget)
         self.widget.setObjectName(u"widget")
-        self.widget.setMinimumSize(QSize(600, 480))
+        self.widget.setMinimumSize(QSize(600, 520))
         self.translateBtn = QPushButton(self.widget)
         self.translateBtn.setObjectName(u"translateBtn")
-        self.translateBtn.setGeometry(QRect(0, 450, 571, 24))
+        self.translateBtn.setGeometry(QRect(0, 480, 571, 24))
         self.selectFilesBtn = QPushButton(self.widget)
         self.selectFilesBtn.setObjectName(u"selectFilesBtn")
         self.selectFilesBtn.setGeometry(QRect(490, 25, 81, 81))
@@ -280,29 +285,24 @@ class Ui_MainWindow(object):
         self.frame = QFrame(self.widget)
         self.frame.setObjectName(u"frame")
         self.frame.setEnabled(True)
-        self.frame.setGeometry(QRect(0, 480, 600, 130))
-        self.frame.setMinimumSize(QSize(600, 130))
+        self.frame.setGeometry(QRect(0, 520, 600, 90))
+        self.frame.setMinimumSize(QSize(600, 90))
         self.frame.setMaximumSize(QSize(0, 0))
         self.frame.setFrameShape(QFrame.StyledPanel)
         self.frame.setFrameShadow(QFrame.Raised)
-        self.replaceCheckBox = QCheckBox(self.frame)
-        self.replaceCheckBox.setObjectName(u"replaceCheckBox")
-        self.replaceCheckBox.setGeometry(QRect(20, 20, 561, 20))
-        self.replaceCheckBox.setChecked(True)
         self.radioButton = QRadioButton(self.frame)
         self.radioButton.setObjectName(u"radioButton")
-        self.radioButton.setGeometry(QRect(20, 60, 571, 20))
+        self.radioButton.setGeometry(QRect(0, 20, 571, 20))
         self.radioButton.setChecked(True)
         self.radioButton_2 = QRadioButton(self.frame)
         self.radioButton_2.setObjectName(u"radioButton_2")
-        self.radioButton_2.setGeometry(QRect(20, 100, 571, 20))
+        self.radioButton_2.setGeometry(QRect(0, 60, 571, 20))
+        self.replaceCheckBox = QCheckBox(self.widget)
+        self.replaceCheckBox.setObjectName(u"replaceCheckBox")
+        self.replaceCheckBox.setGeometry(QRect(0, 450, 601, 20))
+        self.replaceCheckBox.setChecked(True)
 
         self.gridLayout.addWidget(self.widget, 0, 0, 3, 1)
-
-        self.verticalLayout = QVBoxLayout()
-        self.verticalLayout.setObjectName(u"verticalLayout")
-
-        self.gridLayout.addLayout(self.verticalLayout, 4, 0, 1, 1)
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
@@ -400,8 +400,8 @@ class Ui_MainWindow(object):
         self.actionofficial_extraction.setText(QCoreApplication.translate("MainWindow", u"official extraction", None))
         self.actionconvert_txt_to_html.setText(QCoreApplication.translate("MainWindow", u"convert txt to html", None))
         self.actionpack_game_files.setText(QCoreApplication.translate("MainWindow", u"pack game files", None))
-        self.clearLogBtn.setText(QCoreApplication.translate("MainWindow", u"clear log", None))
         self.copyrightLabel.setText(QCoreApplication.translate("MainWindow", u"\u00a92024 Last moment,All rights reserved.", None))
+        self.clearLogBtn.setText(QCoreApplication.translate("MainWindow", u"clear log", None))
         self.translateBtn.setText(QCoreApplication.translate("MainWindow", u"translate", None))
         self.selectFilesBtn.setText(QCoreApplication.translate("MainWindow", u"...", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"directory", None))
@@ -425,9 +425,9 @@ class Ui_MainWindow(object):
         self.label_16.setText(QCoreApplication.translate("MainWindow", u"(If disable, translation will continue after the previous file has been translated)", None))
         self.label_14.setText(QCoreApplication.translate("MainWindow", u"filter length less than", None))
         self.filterCheckBox.setText(QCoreApplication.translate("MainWindow", u"Enable filter for translate", None))
-        self.replaceCheckBox.setText(QCoreApplication.translate("MainWindow", u"Enable replace special symbols", None))
         self.radioButton.setText(QCoreApplication.translate("MainWindow", u"Auto open untranslated contents with brower", None))
         self.radioButton_2.setText(QCoreApplication.translate("MainWindow", u"Show exported html file with explorer only", None))
+        self.replaceCheckBox.setText(QCoreApplication.translate("MainWindow", u"Enable replace special symbols", None))
         self.aboutMenu.setTitle(QCoreApplication.translate("MainWindow", u"about", None))
         self.proxyMenu.setTitle(QCoreApplication.translate("MainWindow", u"proxy", None))
         self.translationEngineMenu.setTitle(QCoreApplication.translate("MainWindow", u"translation engine", None))

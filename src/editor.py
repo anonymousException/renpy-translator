@@ -80,11 +80,6 @@ class Ui_EditorDialog(object):
 
         self.gridLayout.addWidget(self.widget, 0, 1, 1, 1)
 
-        self.tableVerticalLayout = QVBoxLayout()
-        self.tableVerticalLayout.setObjectName(u"tableVerticalLayout")
-
-        self.gridLayout.addLayout(self.tableVerticalLayout, 1, 2, 3, 2)
-
         self.widget_2 = QWidget(EditorDialog)
         self.widget_2.setObjectName(u"widget_2")
         self.widget_2.setMinimumSize(QSize(680, 360))
@@ -99,7 +94,7 @@ class Ui_EditorDialog(object):
         self.label_3.setMaximumSize(QSize(16777215, 20))
         self.saveFileButton = QPushButton(self.widget_2)
         self.saveFileButton.setObjectName(u"saveFileButton")
-        self.saveFileButton.setGeometry(QRect(140, 100, 335, 24))
+        self.saveFileButton.setGeometry(QRect(4, 130, 671, 24))
         self.saveFileButton.setMaximumSize(QSize(16777215, 24))
         self.untranslatedCheckBox = QCheckBox(self.widget_2)
         self.untranslatedCheckBox.setObjectName(u"untranslatedCheckBox")
@@ -111,7 +106,7 @@ class Ui_EditorDialog(object):
         self.originalRadioButton.setMaximumSize(QSize(16777215, 20))
         self.label_4 = QLabel(self.widget_2)
         self.label_4.setObjectName(u"label_4")
-        self.label_4.setGeometry(QRect(0, 130, 601, 231))
+        self.label_4.setGeometry(QRect(0, 160, 671, 201))
         self.label_4.setAlignment(Qt.AlignCenter)
         self.label_4.setWordWrap(True)
         self.searchedOnlyCheckBox = QCheckBox(self.widget_2)
@@ -156,6 +151,10 @@ class Ui_EditorDialog(object):
         self.filterCheckBox.setObjectName(u"filterCheckBox")
         self.filterCheckBox.setGeometry(QRect(20, 75, 301, 20))
         self.filterCheckBox.setChecked(True)
+        self.replaceCheckBox = QCheckBox(self.widget_2)
+        self.replaceCheckBox.setObjectName(u"replaceCheckBox")
+        self.replaceCheckBox.setGeometry(QRect(20, 100, 651, 20))
+        self.replaceCheckBox.setChecked(True)
 
         self.gridLayout.addWidget(self.widget_2, 0, 2, 1, 2)
 
@@ -163,6 +162,11 @@ class Ui_EditorDialog(object):
         self.fileVerticalLayout.setObjectName(u"fileVerticalLayout")
 
         self.gridLayout.addLayout(self.fileVerticalLayout, 1, 1, 3, 1)
+
+        self.tableVerticalLayout = QVBoxLayout()
+        self.tableVerticalLayout.setObjectName(u"tableVerticalLayout")
+
+        self.gridLayout.addLayout(self.tableVerticalLayout, 1, 2, 3, 2)
 
 
         self.retranslateUi(EditorDialog)
@@ -203,5 +207,6 @@ class Ui_EditorDialog(object):
         self.autoCopyCheckBox.setText(QCoreApplication.translate("EditorDialog", u"Auto copy to Current after translation", None))
         self.label_14.setText(QCoreApplication.translate("EditorDialog", u"filter length less than", None))
         self.filterCheckBox.setText(QCoreApplication.translate("EditorDialog", u"Enable filter for translate", None))
+        self.replaceCheckBox.setText(QCoreApplication.translate("EditorDialog", u"Enable replace special symbols", None))
     # retranslateUi
 

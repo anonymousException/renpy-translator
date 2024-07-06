@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1068</width>
-    <height>572</height>
+    <height>612</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,6 +15,22 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
+    <item row="4" column="0">
+     <layout class="QVBoxLayout" name="verticalLayout"/>
+    </item>
+    <item row="4" column="2">
+     <widget class="QLabel" name="copyrightLabel">
+      <property name="maximumSize">
+       <size>
+        <width>400</width>
+        <height>16</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>©2024 Last moment,All rights reserved.</string>
+      </property>
+     </widget>
+    </item>
     <item row="3" column="1" colspan="2">
      <widget class="QPushButton" name="clearLogBtn">
       <property name="sizePolicy">
@@ -31,19 +47,6 @@
       </property>
       <property name="text">
        <string>clear log</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="2">
-     <widget class="QLabel" name="copyrightLabel">
-      <property name="maximumSize">
-       <size>
-        <width>400</width>
-        <height>16</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>©2024 Last moment,All rights reserved.</string>
       </property>
      </widget>
     </item>
@@ -71,14 +74,14 @@
       <property name="minimumSize">
        <size>
         <width>600</width>
-        <height>480</height>
+        <height>520</height>
        </size>
       </property>
       <widget class="QPushButton" name="translateBtn">
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>450</y>
+         <y>480</y>
          <width>571</width>
          <height>24</height>
         </rect>
@@ -436,15 +439,15 @@
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>480</y>
+         <y>520</y>
          <width>600</width>
-         <height>130</height>
+         <height>90</height>
         </rect>
        </property>
        <property name="minimumSize">
         <size>
          <width>600</width>
-         <height>130</height>
+         <height>90</height>
         </size>
        </property>
        <property name="maximumSize">
@@ -459,27 +462,11 @@
        <property name="frameShadow">
         <enum>QFrame::Raised</enum>
        </property>
-       <widget class="QCheckBox" name="replaceCheckBox">
-        <property name="geometry">
-         <rect>
-          <x>20</x>
-          <y>20</y>
-          <width>561</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Enable replace special symbols</string>
-        </property>
-        <property name="checked">
-         <bool>true</bool>
-        </property>
-       </widget>
        <widget class="QRadioButton" name="radioButton">
         <property name="geometry">
          <rect>
-          <x>20</x>
-          <y>60</y>
+          <x>0</x>
+          <y>20</y>
           <width>571</width>
           <height>20</height>
          </rect>
@@ -494,8 +481,8 @@
        <widget class="QRadioButton" name="radioButton_2">
         <property name="geometry">
          <rect>
-          <x>20</x>
-          <y>100</y>
+          <x>0</x>
+          <y>60</y>
           <width>571</width>
           <height>20</height>
          </rect>
@@ -505,10 +492,23 @@
         </property>
        </widget>
       </widget>
+      <widget class="QCheckBox" name="replaceCheckBox">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>450</y>
+         <width>601</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Enable replace special symbols</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
      </widget>
-    </item>
-    <item row="4" column="0">
-     <layout class="QVBoxLayout" name="verticalLayout"/>
     </item>
    </layout>
   </widget>

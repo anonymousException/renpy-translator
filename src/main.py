@@ -53,7 +53,7 @@ targetDic = dict()
 sourceDic = dict()
 translator = QTranslator()
 
-VERSION = '2.4.2'
+VERSION = '2.4.3'
 
 
 class MyProxyForm(QDialog, Ui_ProxyDialog):
@@ -499,7 +499,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         targetDic.clear()
         sourceDic.clear()
         self.frame.setFixedSize(0, 0)
-        self.widget.setMinimumSize(600, 480)
+        self.widget.setMinimumSize(600, 520)
         target = 'google.target.rst'
         source = 'google.source.rst'
         customEngineDic = dict()
@@ -514,8 +514,8 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
                     target = engineDic[loaded_data['engine']]['target']
                     source = engineDic[loaded_data['engine']]['source']
                     if loaded_data['engine'] == 'Webbrower(Custom)':
-                        self.frame.setFixedSize(600, 150)
-                        self.widget.setMinimumSize(600, 630)
+                        self.frame.setFixedSize(600, 90)
+                        self.widget.setMinimumSize(600, 610)
                 elif loaded_data['engine'] in customEngineDic:
                     target = customEngineDic[loaded_data['engine']]['target']
                     source = customEngineDic[loaded_data['engine']]['source']
@@ -584,11 +584,11 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
             self.translateBtn.setEnabled(True)
             global rpy_info_dic
             if len(rpy_info_dic) > 0 and self.widget.isVisible() and not self.is_waiting_translated:
+                self.is_waiting_translated = True
                 if self.radioButton.isChecked():
                     webbrowser.open(web_brower_export_name)
                 else:
                     open_directory_and_select_file(web_brower_export_name)
-                self.is_waiting_translated = True
                 translated_form = MyTranslatedForm()
                 translated_form.exec()
                 f = io.open('translated.txt', 'w', encoding='utf-8')

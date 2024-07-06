@@ -124,7 +124,14 @@ class translateThread(threading.Thread):
             if local_glossary is not None and len(local_glossary) > 0:
                 for original, replace in local_glossary.items():
                     target = target.replace(original, replace)
-            d = EncodeBrackets(target)
+            if is_replace_special_symbols:
+                d = EncodeBrackets(target)
+            else:
+                d = dict()
+                d['en_1'] = []
+                d['en_2'] = []
+                d['en_3'] = []
+                d['encoded'] = target
             strip_i = target
             for j in (d['en_1']):
                 strip_i = strip_i.replace(j, '')
@@ -175,7 +182,7 @@ class translateThread(threading.Thread):
             if is_replace_special_symbols:
                 translated = get_translated(trans_dic, d)
             else:
-                translated = target
+                translated = trans_dic[target]
             if translated is None:
                 translated = ''
                 encoded = d['encoded'].strip('"')

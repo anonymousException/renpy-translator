@@ -1055,18 +1055,10 @@ class MyTableView(QTableView):
         local_glossary = self.local_glossary
         transList = []
         client = init_client()
-        is_replace_special_symbols = True
+        is_replace_special_symbols = self.editorForm.replaceCheckBox.isChecked()
         if isinstance(client, str) and client == 'web_brower':
             target_language = None
             source_language = None
-            reply = QMessageBox.question(self,
-                                         'o((>ω< ))o',
-                                         QCoreApplication.translate('EditorDialog',
-                                                                    'Do you want to replace special symbols?',
-                                                                    None),
-                                         QMessageBox.Yes | QMessageBox.No, QMessageBox.Yes)
-            if reply != QMessageBox.Yes:
-                is_replace_special_symbols = False
         else:
             target_language = targetDic[self.editorForm.targetComboBox.currentText()]
             source_language = sourceDic[self.editorForm.sourceComboBox.currentText()]
@@ -1084,7 +1076,14 @@ class MyTableView(QTableView):
             if local_glossary is not None:
                 for original, replace in local_glossary.items():
                     target = target.replace(original, replace)
-            d = EncodeBrackets(target)
+            if is_replace_special_symbols:
+                d = EncodeBrackets(target)
+            else:
+                d = dict()
+                d['en_1'] = []
+                d['en_2'] = []
+                d['en_3'] = []
+                d['encoded'] = target
             strip_i = target
             for j in (d['en_1']):
                 strip_i = strip_i.replace(j, '')
