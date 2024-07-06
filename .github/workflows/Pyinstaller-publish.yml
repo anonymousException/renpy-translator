@@ -31,6 +31,7 @@ jobs:
     - run: cp src/openai_model.txt src/dist/windows/main/openai_model.txt
     - run: cp src/hook_extract.rpy src/dist/windows/main/hook_extract.rpy
     - run: cp src/hook_add_change_language_entrance.rpy src/dist/windows/main/hook_add_change_language_entrance.rpy
+    - run: cp src/default_langauge_template.txt src/dist/windows/main/default_langauge_template.txt
     - run: cp src/rpatool src/dist/windows/main/rpatool
     - run: cp src/font_style_template.txt src/dist/windows/main/font_style_template.txt
     - run: cp -r src/custom_engine src/dist/windows/main

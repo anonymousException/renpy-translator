@@ -37,6 +37,7 @@ from game_unpacker_form import MyGameUnpackerForm
 from extraction_form import MyExtractionForm
 from extract_runtime_form import MyExtractionRuntimeForm
 from add_change_language_entrance_form import MyAddChangeLanguageEntranceForm
+from default_language_form import MyDefaultLanguageForm
 from one_key_translate_form import MyOneKeyTranslateForm
 from pack_game_form import MyPackGameForm
 from renpy_translate import translateThread, translate_threads, engineList, engineDic, language_header, \
@@ -166,6 +167,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.myExtractionOfficialForm = None
         self.myHtmlConverterForm = None
         self.myPackGameForm = None
+        self.myDefaultLanuageForm = None
         self.actioncopyright.triggered.connect(lambda: self.show_copyright_form())
         self.proxySettings.triggered.connect(lambda: self.show_proxy_settings())
         self.engineSettings.triggered.connect(lambda: self.show_engine_settings())
@@ -180,6 +182,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.actionofficial_extraction.triggered.connect(lambda: self.show_extraction_official_form())
         self.actionconvert_txt_to_html.triggered.connect(lambda: self.show_html_converter_form())
         self.actionpack_game_files.triggered.connect(lambda: self.show_pack_game_files_form())
+        self.actiondefault_language_at_startup.triggered.connect(lambda: self.show_default_langauge_form())
         self.actionArabic.triggered.connect(lambda: self.to_language('arabic'))
         self.actionBengali.triggered.connect(lambda: self.to_language('bengali'))
         self.actionChinese.triggered.connect(lambda: self.to_language('chinese'))
@@ -217,6 +220,11 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.actiondark_yellow.triggered.connect(lambda: self.change_theme(self.actiondark_yellow.text()))
 
         _thread.start_new_thread(self.update_log, ())
+
+    def show_default_langauge_form(self):
+        if self.myDefaultLanuageForm is None:
+            self.myDefaultLanuageForm = MyDefaultLanguageForm(parent=self)
+        self.myDefaultLanuageForm.exec()
 
     def on_combobox_changed(self):
         if os.path.isfile('engine.txt'):

@@ -236,6 +236,39 @@
     </message>
 </context>
 <context>
+    <name>DefaultLanguageDialog</name>
+    <message>
+        <location filename="../default_language.ui" line="14"/>
+        <source>set default langauge at startup</source>
+        <translation>시작 시 기본 언어 설정</translation>
+    </message>
+    <message>
+        <location filename="../default_language.ui" line="29"/>
+        <source>Input or choose or drag the game you want to set default language at startup.Example:F:/DemoGame.exe</source>
+        <translation>시작 시 기본 언어를 설정하려는 게임을 입력하거나 선택하거나 드래그합니다. 예:F:/DemoGame.exe</translation>
+    </message>
+    <message>
+        <location filename="../default_language.ui" line="42"/>
+        <source>file</source>
+        <translation>파일</translation>
+    </message>
+    <message>
+        <location filename="../default_language.ui" line="71"/>
+        <source>set default language at startup</source>
+        <translation>시작 시 기본 언어 설정</translation>
+    </message>
+    <message>
+        <location filename="../default_language.ui" line="84"/>
+        <source>tl name</source>
+        <translation>이름</translation>
+    </message>
+    <message>
+        <location filename="../default_language.ui" line="100"/>
+        <source>Input the directory name under game\tl  Example: &apos;japanese&apos; or &apos;chinese&apos;</source>
+        <translation>game\tl 아래에 디렉터리 이름을 입력하세요. 예: &apos;japanese&apos; 또는 &apos;chinese&apos;</translation>
+    </message>
+</context>
+<context>
     <name>EditorDialog</name>
     <message>
         <location filename="../editor_form.py" line="124"/>
@@ -255,7 +288,7 @@
         <location filename="../editor_form.py" line="253"/>
         <location filename="../editor_form.py" line="288"/>
         <location filename="../editor_form.py" line="762"/>
-        <location filename="../editor.ui" line="454"/>
+        <location filename="../editor.ui" line="451"/>
         <source>Translated</source>
         <translation>번역됨</translation>
     </message>
@@ -296,9 +329,9 @@
         <location filename="../editor_form.py" line="286"/>
         <location filename="../editor_form.py" line="598"/>
         <location filename="../editor_form.py" line="760"/>
-        <location filename="../editor_form.py" line="1636"/>
-        <location filename="../editor.ui" line="334"/>
-        <location filename="../editor.ui" line="413"/>
+        <location filename="../editor_form.py" line="1635"/>
+        <location filename="../editor.ui" line="331"/>
+        <location filename="../editor.ui" line="410"/>
         <source>Original</source>
         <translation>원래의</translation>
     </message>
@@ -307,9 +340,9 @@
         <location filename="../editor_form.py" line="287"/>
         <location filename="../editor_form.py" line="599"/>
         <location filename="../editor_form.py" line="761"/>
-        <location filename="../editor_form.py" line="1637"/>
-        <location filename="../editor.ui" line="255"/>
-        <location filename="../editor.ui" line="432"/>
+        <location filename="../editor_form.py" line="1636"/>
+        <location filename="../editor.ui" line="252"/>
+        <location filename="../editor.ui" line="429"/>
         <source>Current</source>
         <translation>현재의</translation>
     </message>
@@ -332,7 +365,6 @@
         <location filename="../editor_form.py" line="510"/>
         <location filename="../editor_form.py" line="560"/>
         <location filename="../editor_form.py" line="976"/>
-        <location filename="../editor_form.py" line="1066"/>
         <source>Do you want to replace special symbols?</source>
         <translation>특수 기호를 바꾸시겠습니까?</translation>
     </message>
@@ -404,12 +436,12 @@
         <translation>전류를 첫 번째 부하로 롤백</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1477"/>
+        <location filename="../editor_form.py" line="1476"/>
         <source>select the directory you want to edit</source>
         <translation>편집하려는 디렉토리를 선택하십시오</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1484"/>
+        <location filename="../editor_form.py" line="1483"/>
         <source>select the file(s) you want to edit</source>
         <translation>편집하고 싶은 파일을 선택하세요</translation>
     </message>
@@ -491,54 +523,59 @@
         <translation>로컬 용어집(특정 단어를 미리 설정된 내용으로 대체)</translation>
     </message>
     <message>
-        <location filename="../editor.ui" line="277"/>
+        <location filename="../editor.ui" line="274"/>
         <source>Translation Source</source>
         <translation>번역 소스</translation>
     </message>
     <message>
-        <location filename="../editor.ui" line="296"/>
+        <location filename="../editor.ui" line="293"/>
         <source>Save to file</source>
         <translation>파일에 저장</translation>
     </message>
     <message>
-        <location filename="../editor.ui" line="315"/>
+        <location filename="../editor.ui" line="312"/>
         <source>Show Untranslated Only</source>
         <translation>번역되지 않은 항목만 표시</translation>
     </message>
     <message>
-        <location filename="../editor.ui" line="347"/>
+        <location filename="../editor.ui" line="344"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Multi-Select is supportable (Hold down the &apos;Ctrl&apos; to Active) &lt;/p&gt;&lt;p&gt;Besides you can use &apos;Shift&apos; to select a continuous line&lt;/p&gt;&lt;p&gt;Select the line(s) you want to operate , right click to show menu&lt;/p&gt;&lt;p&gt;&apos;Ctrl + A&apos; to select all the lines&lt;br/&gt;&apos;Ctrl + F&apos; to search the content&lt;br/&gt;&apos;Ctrl + G&apos; to jump to line&lt;/p&gt;&lt;p&gt;As for save , only the contents in column &apos;Current&apos; will be replaced to the file&lt;/p&gt;&lt;p&gt;At last , you can modify the &apos;Current&apos; and &apos;Translated&apos; column through  Double-Click&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;다중 선택이 지원됩니다(활성화하려면 &apos;Ctrl&apos;을 누르고 계세요) &lt;/p&gt;&lt;p&gt;또한 &apos;Shift&apos;를 사용하여 연속된 선을 선택할 수 있습니다&lt;/p &gt;&lt;p&gt;조작하려는 라인을 선택하고 마우스 오른쪽 버튼을 클릭하면 메뉴가 표시됩니다.&lt;/p&gt;&lt;p&gt;모든 라인을 선택하려면 &apos;Ctrl + A&apos;&lt;br/&gt;내용 검색은 &apos;Ctrl + F&apos; &lt;br/&gt;줄로 이동하려면 &apos;Ctrl + G&apos;&lt;/p&gt;&lt;p&gt;저장의 경우 &apos;현재&apos; 열의 내용만 파일로 대체됩니다.&lt;/p&gt;&lt;p&gt;마지막으로 다음을 수행할 수 있습니다. 더블클릭을 통해 &apos;현재&apos; 및 &apos;번역됨&apos; 열 수정&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../editor.ui" line="372"/>
+        <location filename="../editor.ui" line="369"/>
         <source>Show Searched Only</source>
         <translation>검색된 항목만 표시</translation>
     </message>
     <message>
-        <location filename="../editor.ui" line="391"/>
+        <location filename="../editor.ui" line="388"/>
         <source>Show Log After Search</source>
         <translation>검색 후 로그 표시</translation>
     </message>
     <message>
-        <location filename="../editor.ui" line="470"/>
+        <location filename="../editor.ui" line="467"/>
         <source>Copy selected to clipboard   Copy Source</source>
         <translation>선택 항목을 클립보드에 복사 소스 복사</translation>
     </message>
     <message>
-        <location filename="../editor.ui" line="483"/>
+        <location filename="../editor.ui" line="480"/>
         <source>Auto copy to Current after translation</source>
         <translation>번역 후 Current로 자동 복사</translation>
     </message>
     <message>
-        <location filename="../editor.ui" line="512"/>
+        <location filename="../editor.ui" line="509"/>
         <source>filter length less than</source>
         <translation>필터 길이가 다음보다 작음</translation>
     </message>
     <message>
-        <location filename="../editor.ui" line="528"/>
+        <location filename="../editor.ui" line="525"/>
         <source>Enable filter for translate</source>
         <translation>번역을 위한 필터 활성화</translation>
+    </message>
+    <message>
+        <location filename="../editor.ui" line="541"/>
+        <source>Enable replace special symbols</source>
+        <translation>특수 기호 교체 활성화</translation>
     </message>
 </context>
 <context>
@@ -872,7 +909,7 @@
     </message>
     <message>
         <location filename="../font_replace_form.py" line="55"/>
-        <location filename="../one_key_translate_form.py" line="415"/>
+        <location filename="../one_key_translate_form.py" line="440"/>
         <source>select the file font which supports the translated language</source>
         <translation>번역된 언어를 지원하는 파일 글꼴을 선택하세요</translation>
     </message>
@@ -1026,9 +1063,9 @@
 <context>
     <name>ImportHtmlDialog</name>
     <message>
-        <location filename="../main.py" line="604"/>
-        <location filename="../editor_form.py" line="1524"/>
-        <location filename="../one_key_translate_form.py" line="673"/>
+        <location filename="../main.py" line="612"/>
+        <location filename="../editor_form.py" line="1523"/>
+        <location filename="../one_key_translate_form.py" line="698"/>
         <location filename="../import_html_form.py" line="37"/>
         <source>The html file does not match the translated file , please check the input files</source>
         <translation>HTML 파일이 번역된 파일과 일치하지 않습니다. 입력 파일을 확인하세요</translation>
@@ -1151,57 +1188,57 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../main.py" line="640"/>
+        <location filename="../main.py" line="648"/>
         <location filename="../extraction_official_form.py" line="67"/>
         <source>is extracting...</source>
         <translation>적출...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="580"/>
-        <location filename="../main.py" line="742"/>
+        <location filename="../main.py" line="588"/>
+        <location filename="../main.py" line="750"/>
         <source>is translating...</source>
         <translation>번역하는 중...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="148"/>
-        <location filename="../main.py" line="408"/>
+        <location filename="../main.py" line="149"/>
+        <location filename="../main.py" line="416"/>
         <source>Click to check for update</source>
         <translation>업데이트를 확인하려면 클릭하세요</translation>
     </message>
     <message>
-        <location filename="../main.py" line="244"/>
+        <location filename="../main.py" line="252"/>
         <source>It&apos;s up to date now</source>
         <translation>지금은 최신 상태입니다</translation>
     </message>
     <message>
-        <location filename="../main.py" line="250"/>
+        <location filename="../main.py" line="258"/>
         <source>New version detected</source>
         <translation>새 버전이 감지되었습니다</translation>
     </message>
     <message>
-        <location filename="../main.py" line="252"/>
+        <location filename="../main.py" line="260"/>
         <source>Would you like to open the website to get the latest verison?</source>
         <translation>최신 버전을 다운로드하기 위해 웹사이트를 여시겠습니까?</translation>
     </message>
     <message>
-        <location filename="../main.py" line="583"/>
-        <location filename="../ui.ui" line="87"/>
+        <location filename="../main.py" line="591"/>
+        <location filename="../ui.ui" line="90"/>
         <source>translate</source>
         <translation>번역하다</translation>
     </message>
     <message>
-        <location filename="../main.py" line="644"/>
+        <location filename="../main.py" line="652"/>
         <location filename="../extraction_official_form.py" line="89"/>
         <source>extract</source>
         <translation>발췌</translation>
     </message>
     <message>
-        <location filename="../main.py" line="677"/>
+        <location filename="../main.py" line="685"/>
         <source>select the file(s) you want to translate</source>
         <translation>번역하려는 파일을 선택하세요</translation>
     </message>
     <message>
-        <location filename="../main.py" line="688"/>
+        <location filename="../main.py" line="696"/>
         <source>select the directory you want to translate</source>
         <translation>번역하려는 디렉토리를 선택하십시오</translation>
     </message>
@@ -1211,104 +1248,109 @@
         <translation>렌피 번역기</translation>
     </message>
     <message>
-        <location filename="../main.py" line="147"/>
-        <location filename="../main.py" line="407"/>
+        <location filename="../main.py" line="148"/>
+        <location filename="../main.py" line="415"/>
         <source>Version</source>
         <translation>버전</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="100"/>
-        <location filename="../ui.ui" line="161"/>
+        <location filename="../ui.ui" line="103"/>
+        <location filename="../ui.ui" line="164"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="113"/>
+        <location filename="../ui.ui" line="116"/>
         <source>directory</source>
         <translation>예배 규칙서</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="129"/>
+        <location filename="../ui.ui" line="132"/>
         <source>file(s)</source>
         <translation>파일</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="148"/>
+        <location filename="../ui.ui" line="151"/>
         <source>input or choose or drag the file(s) you want to translate here. Examaple : F:\GameName\game\tl\language\script.rpy</source>
         <translation>여기에 번역하고 싶은 파일을 입력하거나 선택하거나 드래그하세요. 예: F:\GameName\game\tl\언어\script.rpy</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="174"/>
+        <location filename="../ui.ui" line="177"/>
         <source>input or choose or drag the directory you want translate here.  Example:F:\GameName\game\tl\language</source>
         <translation>여기에 번역하려는 디렉토리를 입력하거나 선택하거나 드래그하세요. 예:F:\게임 이름\게임\tl\언어</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="192"/>
+        <location filename="../ui.ui" line="195"/>
         <source>translation</source>
         <translation>번역</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="205"/>
+        <location filename="../ui.ui" line="208"/>
         <source>target</source>
         <translation>표적</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="221"/>
+        <location filename="../ui.ui" line="224"/>
         <source>source</source>
         <translation>원천</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="276"/>
+        <location filename="../ui.ui" line="279"/>
         <source>Generate Backup Files (xxx.rpy.bak)</source>
         <translation>백업 파일 생성(xxx.rpy.bak)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="289"/>
+        <location filename="../ui.ui" line="292"/>
         <source>Local Glossary (replace certain words with preset content)</source>
         <translation>로컬 용어집(특정 단어를 미리 설정된 내용으로 대체)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="308"/>
+        <location filename="../ui.ui" line="311"/>
         <source>Translation Source</source>
         <translation>번역 소스</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="327"/>
+        <location filename="../ui.ui" line="330"/>
         <source>Original</source>
         <translation>원래의</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="346"/>
+        <location filename="../ui.ui" line="349"/>
         <source>Current</source>
         <translation>현재의</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="362"/>
+        <location filename="../ui.ui" line="365"/>
         <source>Skip Translated (Original != Current)</source>
         <translation>번역 건너뛰기(원본 != 현재)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="394"/>
+        <location filename="../ui.ui" line="397"/>
         <source>filter length less than</source>
         <translation>필터 길이가 다음보다 작음</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="410"/>
+        <location filename="../ui.ui" line="413"/>
         <source>Enable filter for translate</source>
         <translation>번역을 위한 필터 활성화</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="472"/>
+        <location filename="../ui.ui" line="505"/>
         <source>Enable replace special symbols</source>
         <translation>특수 기호 교체 활성화</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="488"/>
+        <location filename="../ui.ui" line="857"/>
+        <source>set default language at startup</source>
+        <translation>시작 시 기본 언어 설정</translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="475"/>
         <source>Auto open untranslated contents with brower</source>
         <translation>번역되지 않은 내용을 브라우저로 자동 열기</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="504"/>
+        <location filename="../ui.ui" line="491"/>
         <source>Show exported html file with explorer only</source>
         <translation>내보낸 HTML 파일을 탐색기에서만 표시</translation>
     </message>
@@ -1318,72 +1360,72 @@
         <translation>고급 옵션</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="582"/>
+        <location filename="../ui.ui" line="583"/>
         <source>theme</source>
         <translation>주제</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="701"/>
+        <location filename="../ui.ui" line="702"/>
         <source>unpack game package</source>
         <translation>게임 패키지 풀기</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="801"/>
+        <location filename="../ui.ui" line="802"/>
         <source>extract translation</source>
         <translation>번역 추출</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="806"/>
+        <location filename="../ui.ui" line="807"/>
         <source>runtime extraction</source>
         <translation>런타임 추출</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="821"/>
+        <location filename="../ui.ui" line="822"/>
         <source>add change langauge entrance</source>
         <translation>언어 변경 입구 추가</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="826"/>
+        <location filename="../ui.ui" line="827"/>
         <source>one key translate</source>
         <translation>하나의 키 번역</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="831"/>
+        <location filename="../ui.ui" line="832"/>
         <source>official extraction</source>
         <translation>공식 추출</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="836"/>
+        <location filename="../ui.ui" line="837"/>
         <source>convert txt to html</source>
         <translation>txt를 html로 변환</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="846"/>
+        <location filename="../ui.ui" line="847"/>
         <source>pack game files</source>
         <translation>게임 파일 압축</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="257"/>
+        <location filename="../ui.ui" line="260"/>
         <source>Multi-threaded translation</source>
         <translation>멀티스레드 번역</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="378"/>
+        <location filename="../ui.ui" line="381"/>
         <source>(If disable, translation will continue after the previous file has been translated)</source>
         <translation>(비활성화하면 이전 파일이 번역된 후 번역이 계속됩니다)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="46"/>
+        <location filename="../ui.ui" line="30"/>
         <source>©2024 Last moment,All rights reserved.</source>
         <translation>©2024 마지막 순간, 모든 권리 보유.</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="696"/>
+        <location filename="../ui.ui" line="697"/>
         <source>replace font</source>
         <translation>글꼴 교체</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="33"/>
+        <location filename="../ui.ui" line="49"/>
         <source>clear log</source>
         <translation>로그 지우기</translation>
     </message>
@@ -1403,32 +1445,32 @@
         <translation>번역 엔진</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="561"/>
+        <location filename="../ui.ui" line="562"/>
         <source>language</source>
         <translation>언어</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="613"/>
+        <location filename="../ui.ui" line="614"/>
         <source>copyright</source>
         <translation>저작권</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="618"/>
+        <location filename="../ui.ui" line="619"/>
         <source>proxy settings</source>
         <translation>프록시 설정</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="623"/>
+        <location filename="../ui.ui" line="624"/>
         <source>engine settings</source>
         <translation>엔진 설정</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="628"/>
+        <location filename="../ui.ui" line="629"/>
         <source>custom engine</source>
         <translation>커스텀 엔진</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="633"/>
+        <location filename="../ui.ui" line="634"/>
         <source>edit from rpy</source>
         <translation>rpy에서 편집</translation>
     </message>
@@ -1578,12 +1620,17 @@
         <translation>(아랍어, 우르두어와 같은 일부 언어의 글꼴 반전 문제 수정)</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="575"/>
+        <location filename="../one_key_translate.ui" line="541"/>
+        <source>set default language at startup</source>
+        <translation>시작 시 기본 언어 설정</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate_form.py" line="600"/>
         <source>select the game file</source>
         <translation>게임 파일을 선택하세요</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="706"/>
+        <location filename="../one_key_translate_form.py" line="731"/>
         <source>One Key Translate Complete</source>
         <translation>하나의 키 번역 완료</translation>
     </message>

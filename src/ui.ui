@@ -545,14 +545,15 @@
      <string>advanced options</string>
     </property>
     <addaction name="actionedit"/>
+    <addaction name="actionone_key_translate"/>
+    <addaction name="actionunpack_game"/>
     <addaction name="actionruntime_extraction"/>
     <addaction name="actionofficial_extraction"/>
     <addaction name="actionextract_translation"/>
-    <addaction name="actionadd_change_langauge_entrance"/>
     <addaction name="actionreplace_font"/>
-    <addaction name="actionunpack_game"/>
+    <addaction name="actionadd_change_langauge_entrance"/>
+    <addaction name="actiondefault_language_at_startup"/>
     <addaction name="separator"/>
-    <addaction name="actionone_key_translate"/>
     <addaction name="actionpack_game_files"/>
     <addaction name="actionconvert_txt_to_html"/>
    </widget>
@@ -849,6 +850,11 @@
   <action name="actionGreek">
    <property name="text">
     <string notr="true">Greek</string>
+   </property>
+  </action>
+  <action name="actiondefault_language_at_startup">
+   <property name="text">
+    <string>set default language at startup</string>
    </property>
   </action>
  </widget>

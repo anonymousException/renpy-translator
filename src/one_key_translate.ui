@@ -285,7 +285,7 @@
    <property name="geometry">
     <rect>
      <x>620</x>
-     <y>390</y>
+     <y>450</y>
      <width>411</width>
      <height>20</height>
     </rect>
@@ -349,9 +349,9 @@
    <property name="geometry">
     <rect>
      <x>620</x>
-     <y>420</y>
+     <y>500</y>
      <width>401</width>
-     <height>331</height>
+     <height>251</height>
     </rect>
    </property>
    <property name="text">
@@ -525,6 +525,22 @@
     <string>(Fix reversed font problem for some languages like arabic, urdu)</string>
    </property>
    <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="setDefaultLanguageCheckBox">
+   <property name="geometry">
+    <rect>
+     <x>620</x>
+     <y>390</y>
+     <width>821</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>set default language at startup</string>
+   </property>
+   <property name="checked">
     <bool>true</bool>
    </property>
   </widget>

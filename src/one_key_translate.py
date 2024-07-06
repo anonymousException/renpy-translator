@@ -91,7 +91,7 @@ class Ui_OneKeyTranslateDialog(object):
         self.addEntranceCheckBox.setChecked(True)
         self.translateCheckBox = QCheckBox(OneKeyTranslateDialog)
         self.translateCheckBox.setObjectName(u"translateCheckBox")
-        self.translateCheckBox.setGeometry(QRect(620, 390, 411, 20))
+        self.translateCheckBox.setGeometry(QRect(620, 450, 411, 20))
         self.translateCheckBox.setChecked(True)
         self.filterCheckBox = QCheckBox(OneKeyTranslateDialog)
         self.filterCheckBox.setObjectName(u"filterCheckBox")
@@ -108,7 +108,7 @@ class Ui_OneKeyTranslateDialog(object):
         self.label_14.setAlignment(Qt.AlignCenter)
         self.startButton = QPushButton(OneKeyTranslateDialog)
         self.startButton.setObjectName(u"startButton")
-        self.startButton.setGeometry(QRect(620, 420, 401, 331))
+        self.startButton.setGeometry(QRect(620, 500, 401, 251))
         self.officialExtractionCheckBox = QCheckBox(OneKeyTranslateDialog)
         self.officialExtractionCheckBox.setObjectName(u"officialExtractionCheckBox")
         self.officialExtractionCheckBox.setGeometry(QRect(620, 150, 411, 20))
@@ -153,6 +153,10 @@ class Ui_OneKeyTranslateDialog(object):
         self.label_3.setObjectName(u"label_3")
         self.label_3.setGeometry(QRect(30, 590, 591, 61))
         self.label_3.setWordWrap(True)
+        self.setDefaultLanguageCheckBox = QCheckBox(OneKeyTranslateDialog)
+        self.setDefaultLanguageCheckBox.setObjectName(u"setDefaultLanguageCheckBox")
+        self.setDefaultLanguageCheckBox.setGeometry(QRect(620, 390, 821, 20))
+        self.setDefaultLanguageCheckBox.setChecked(True)
 
         self.retranslateUi(OneKeyTranslateDialog)
 
@@ -196,5 +200,6 @@ class Ui_OneKeyTranslateDialog(object):
 #endif // QT_CONFIG(tooltip)
         self.rtlCheckBox.setText(QCoreApplication.translate("OneKeyTranslateDialog", u"Enable RTL (Right To Left)", None))
         self.label_3.setText(QCoreApplication.translate("OneKeyTranslateDialog", u"(Fix reversed font problem for some languages like arabic, urdu)", None))
+        self.setDefaultLanguageCheckBox.setText(QCoreApplication.translate("OneKeyTranslateDialog", u"set default language at startup", None))
     # retranslateUi
 

@@ -32,6 +32,7 @@ import extraction_official_form
 from font_util import get_default_font_path
 import my_log
 from font_replace_form import replaceFontThread
+import default_language_form
 from translated_form import MyTranslatedForm
 
 
@@ -121,6 +122,9 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
         if self.addEntranceCheckBox.isChecked():
             self.q.put(self.add_entrance)
             self.qDic[self.add_entrance] = (False, False)
+        if self.setDefaultLanguageCheckBox.isChecked():
+            self.q.put(self.set_default_language)
+            self.qDic[self.set_default_language] = (False, False)
         if self.translateCheckBox.isChecked():
             self.q.put(self.translate)
             self.qDic[self.translate] = (False, False)
@@ -128,6 +132,27 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
             self.hide()
             self.parent.showNormal()
             self.parent.raise_()
+
+    def set_default_language(self):
+        tl_name = self.tlNameText.toPlainText()
+        target = self.get_set_default_language_target()
+        default_language_form.set_default_language_at_startup(tl_name, target)
+        is_finished, is_executed = self.qDic[self.set_default_language]
+        is_finished = True
+        self.qDic[self.set_default_language] = is_finished, is_executed
+
+    def get_set_default_language_target(self):
+        path = self.selectFileText.toPlainText()
+        path = path.replace('file:///', '')
+        if os.path.isfile(path):
+            if path.endswith('.exe'):
+                target = os.path.dirname(path)
+                target = target + '/game'
+                if os.path.isdir(target):
+                    target = target + '/' + default_language_form.out_default_lanugage_script_name
+                    return target
+        return None
+
 
     def official_extract(self):
         select_file = self.selectFileText.toPlainText()
