@@ -39,6 +39,8 @@ init python early hide:
 
 screen my_preferences():
     python:
+        global os
+        import os
         def traverse_first_dir(path):
             translator = renpy.game.script.translator
             languages = translator.languages
@@ -59,7 +61,6 @@ screen my_preferences():
         hbox:
             box_wrap True
             vbox:
-                style_prefix "radio"
                 label _("Language")
                 textbutton "Default" action Language(None)
                 $ cnt = 0
