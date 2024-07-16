@@ -15,8 +15,9 @@ from PySide6.QtWidgets import QDialog, QFileDialog
 
 from custom_engine import Ui_CustomDialog
 from custom_translate import CustomTranslate
-from my_log import log_path, log_print
+from my_log import log_path, log_print, MAX_LOG_LINES
 from renpy_translate import language_header, custom_header
+from string_tool import tail
 
 targetDic = dict()
 sourceDic = dict()
@@ -314,9 +315,13 @@ class MyCustomEngineForm(QDialog, Ui_CustomDialog):
             self.wait()
 
         def run(self):
-            f = io.open(log_path, 'r+', encoding='utf-8')
-            self.update_date.emit(f.read())
-            f.close()
+            _lines = tail(log_path, MAX_LOG_LINES)
+            _data = ''
+            for line in _lines:
+                _data += line + '\n'
+            if len(_lines) == MAX_LOG_LINES:
+                _data += f'log is too large, only show last {str(MAX_LOG_LINES)} lines\n'
+            self.update_date.emit(_data)
 
     @staticmethod
     def get_combobox_content(p, d):

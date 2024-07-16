@@ -1040,7 +1040,7 @@
 <context>
     <name>ImportHtmlDialog</name>
     <message>
-        <location filename="../main.py" line="612"/>
+        <location filename="../main.py" line="617"/>
         <location filename="../editor_form.py" line="1523"/>
         <location filename="../one_key_translate_form.py" line="698"/>
         <location filename="../import_html_form.py" line="37"/>
@@ -1165,57 +1165,57 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../main.py" line="648"/>
+        <location filename="../main.py" line="653"/>
         <location filename="../extraction_official_form.py" line="67"/>
         <source>is extracting...</source>
         <translation>çıkartılıyor...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="588"/>
-        <location filename="../main.py" line="750"/>
+        <location filename="../main.py" line="593"/>
+        <location filename="../main.py" line="757"/>
         <source>is translating...</source>
         <translation>Çevriliyor...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="149"/>
-        <location filename="../main.py" line="416"/>
+        <location filename="../main.py" line="150"/>
+        <location filename="../main.py" line="417"/>
         <source>Click to check for update</source>
         <translation>Güncellemeyi kontrol etmek için tıklayın</translation>
     </message>
     <message>
-        <location filename="../main.py" line="252"/>
+        <location filename="../main.py" line="253"/>
         <source>It&apos;s up to date now</source>
         <translation>Artık güncel</translation>
     </message>
     <message>
-        <location filename="../main.py" line="258"/>
+        <location filename="../main.py" line="259"/>
         <source>New version detected</source>
         <translation>Yeni sürüm algılandı</translation>
     </message>
     <message>
-        <location filename="../main.py" line="260"/>
+        <location filename="../main.py" line="261"/>
         <source>Would you like to open the website to get the latest verison?</source>
         <translation>En son sürümü almak için web sitesini açmak ister misiniz?</translation>
     </message>
     <message>
-        <location filename="../main.py" line="591"/>
-        <location filename="../ui.ui" line="90"/>
+        <location filename="../main.py" line="596"/>
+        <location filename="../ui.ui" line="36"/>
         <source>translate</source>
         <translation>Çevir</translation>
     </message>
     <message>
-        <location filename="../main.py" line="652"/>
+        <location filename="../main.py" line="657"/>
         <location filename="../extraction_official_form.py" line="89"/>
         <source>extract</source>
         <translation>çıkar</translation>
     </message>
     <message>
-        <location filename="../main.py" line="685"/>
+        <location filename="../main.py" line="692"/>
         <source>select the file(s) you want to translate</source>
         <translation>çevirmek istediğiniz dosya(lar)ı seçin</translation>
     </message>
     <message>
-        <location filename="../main.py" line="696"/>
+        <location filename="../main.py" line="703"/>
         <source>select the directory you want to translate</source>
         <translation>çevirmek istediğiniz dizini seçin</translation>
     </message>
@@ -1225,229 +1225,234 @@
         <translation>Ren&apos;py Çevirici</translation>
     </message>
     <message>
-        <location filename="../main.py" line="148"/>
-        <location filename="../main.py" line="415"/>
+        <location filename="../main.py" line="149"/>
+        <location filename="../main.py" line="416"/>
         <source>Version</source>
         <translation>Sürüm</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="103"/>
-        <location filename="../ui.ui" line="164"/>
+        <location filename="../ui.ui" line="49"/>
+        <location filename="../ui.ui" line="110"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="116"/>
+        <location filename="../ui.ui" line="62"/>
         <source>directory</source>
         <translation>dizin</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="132"/>
+        <location filename="../ui.ui" line="78"/>
         <source>file(s)</source>
         <translation>dosya(lar)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="151"/>
+        <location filename="../ui.ui" line="97"/>
         <source>input or choose or drag the file(s) you want to translate here. Examaple : F:\GameName\game\tl\language\script.rpy</source>
         <translation>düzenlemek istediğiniz dosyaları buraya girin veya seçin veya sürükleyin. Örnek: F:\GameName\game\tl\language\script.rpy</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="177"/>
+        <location filename="../ui.ui" line="123"/>
         <source>input or choose or drag the directory you want translate here.  Example:F:\GameName\game\tl\language</source>
         <translation>düzenlemek istediğiniz dizini buraya girin veya seçin veya sürükleyin. Örnek: F:\GameName\game\tl\language</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="195"/>
+        <location filename="../ui.ui" line="141"/>
         <source>translation</source>
         <translation>çeviri</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="208"/>
+        <location filename="../ui.ui" line="154"/>
         <source>target</source>
         <translation>hedef</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="224"/>
+        <location filename="../ui.ui" line="170"/>
         <source>source</source>
         <translation>kaynak</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="279"/>
+        <location filename="../ui.ui" line="225"/>
         <source>Generate Backup Files (xxx.rpy.bak)</source>
         <translation>Yedekleme Dosyaları Oluştur (xxx.rpy.bak)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="292"/>
+        <location filename="../ui.ui" line="238"/>
         <source>Local Glossary (replace certain words with preset content)</source>
         <translation>Yerel Sözlük (belirli kelimeleri önceden ayarlanmış içerikle değiştirin)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="311"/>
+        <location filename="../ui.ui" line="257"/>
         <source>Translation Source</source>
         <translation>Çeviri Kaynağı</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="330"/>
+        <location filename="../ui.ui" line="276"/>
         <source>Original</source>
         <translation>Orijinal</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="349"/>
+        <location filename="../ui.ui" line="295"/>
         <source>Current</source>
         <translation>Şimdiki</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="365"/>
+        <location filename="../ui.ui" line="311"/>
         <source>Skip Translated (Original != Current)</source>
         <translation>Çevrileni Atla (Orijinal != Şimdiki)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="397"/>
+        <location filename="../ui.ui" line="343"/>
         <source>filter length less than</source>
         <translation>filtre uzunluğu daha az</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="413"/>
+        <location filename="../ui.ui" line="359"/>
         <source>Enable filter for translate</source>
         <translation>Çeviri için filtreyi etkinleştir</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="505"/>
+        <location filename="../ui.ui" line="451"/>
         <source>Enable replace special symbols</source>
         <translation>Özel simgeleri değiştirmeyi etkinleştir</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="857"/>
+        <location filename="../ui.ui" line="528"/>
+        <source>locate log file with explorer</source>
+        <translation>explorer ile günlük dosyasını bulun</translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="876"/>
         <source>set default language at startup</source>
         <translation>başlangıçta varsayılan dili ayarla</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="475"/>
+        <location filename="../ui.ui" line="421"/>
         <source>Auto open untranslated contents with brower</source>
         <translation>Çevrilmemiş içerikleri tarayıcıyla otomatik aç</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="491"/>
+        <location filename="../ui.ui" line="437"/>
         <source>Show exported html file with explorer only</source>
         <translation>Dışa aktarılan html dosyasını yalnızca Explorer ile göster</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="545"/>
+        <location filename="../ui.ui" line="564"/>
         <source>advanced options</source>
         <translation>gelişmiş ayarlar</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="583"/>
+        <location filename="../ui.ui" line="602"/>
         <source>theme</source>
         <translation>tema</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="702"/>
+        <location filename="../ui.ui" line="721"/>
         <source>unpack game package</source>
         <translation>oyun paketini aç</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="802"/>
+        <location filename="../ui.ui" line="821"/>
         <source>extract translation</source>
         <translation>çeviriyi çıkar</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="807"/>
+        <location filename="../ui.ui" line="826"/>
         <source>runtime extraction</source>
         <translation>çalışma zamanı çıkarma</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="822"/>
+        <location filename="../ui.ui" line="841"/>
         <source>add change langauge entrance</source>
         <translation>değişim dili girişi ekle</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="827"/>
+        <location filename="../ui.ui" line="846"/>
         <source>one key translate</source>
         <translation>bir anahtar çeviri</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="832"/>
+        <location filename="../ui.ui" line="851"/>
         <source>official extraction</source>
         <translation>resmi çıkarma</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="837"/>
+        <location filename="../ui.ui" line="856"/>
         <source>convert txt to html</source>
         <translation>txt&apos;yi html&apos;ye dönüştür</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="847"/>
+        <location filename="../ui.ui" line="866"/>
         <source>pack game files</source>
         <translation>oyun dosyalarını paketle</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="260"/>
+        <location filename="../ui.ui" line="206"/>
         <source>Multi-threaded translation</source>
         <translation>Çok iş parçacıklı çeviri</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="381"/>
+        <location filename="../ui.ui" line="327"/>
         <source>(If disable, translation will continue after the previous file has been translated)</source>
         <translation>(Devre dışı bırakılırsa, önceki dosya çevrildikten sonra çeviri devam edecektir)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="30"/>
+        <location filename="../ui.ui" line="468"/>
         <source>©2024 Last moment,All rights reserved.</source>
         <translation>©2024 Son an,Tüm hakları saklıdır.</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="697"/>
+        <location filename="../ui.ui" line="716"/>
         <source>replace font</source>
         <translation>yazı tipini değiştir</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="49"/>
+        <location filename="../ui.ui" line="506"/>
         <source>clear log</source>
         <translation>Kayıtları temizle</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="526"/>
+        <location filename="../ui.ui" line="545"/>
         <source>about</source>
         <translation>hakkında</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="532"/>
+        <location filename="../ui.ui" line="551"/>
         <source>proxy</source>
         <translation>vekil sunucu</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="538"/>
+        <location filename="../ui.ui" line="557"/>
         <source>translation engine</source>
         <translation>çeviri motoru</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="562"/>
+        <location filename="../ui.ui" line="581"/>
         <source>language</source>
         <translation>dil</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="614"/>
+        <location filename="../ui.ui" line="633"/>
         <source>copyright</source>
         <translation>telif hakkı</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="619"/>
+        <location filename="../ui.ui" line="638"/>
         <source>proxy settings</source>
         <translation>vekil sunucu ayarları</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="624"/>
+        <location filename="../ui.ui" line="643"/>
         <source>engine settings</source>
         <translation>motor ayarları</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="629"/>
+        <location filename="../ui.ui" line="648"/>
         <source>custom engine</source>
         <translation>özel motor</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="634"/>
+        <location filename="../ui.ui" line="653"/>
         <source>edit from rpy</source>
         <translation>rpy&apos;dan düzenle</translation>
     </message>

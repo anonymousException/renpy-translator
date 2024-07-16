@@ -1,5 +1,6 @@
 import re
 import string
+import collections
 
 
 def remove_upprintable_chars(s):
@@ -230,3 +231,10 @@ def replace_unescaped_quotes(text):
     pattern = r'(?<!\\)"'
     replaced_text = re.sub(pattern, r'\\"', text)
     return replaced_text
+
+
+def tail(filename, n):
+    last_lines = []
+    with open(filename, 'r', encoding='utf-8') as file:
+        last_lines = collections.deque(file, maxlen=n)
+    return last_lines

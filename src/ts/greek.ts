@@ -1028,7 +1028,7 @@
 <context>
     <name>ImportHtmlDialog</name>
     <message>
-        <location filename="../main.py" line="612"/>
+        <location filename="../main.py" line="617"/>
         <location filename="../editor_form.py" line="1523"/>
         <location filename="../one_key_translate_form.py" line="698"/>
         <location filename="../import_html_form.py" line="37"/>
@@ -1153,57 +1153,57 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../main.py" line="648"/>
+        <location filename="../main.py" line="653"/>
         <location filename="../extraction_official_form.py" line="67"/>
         <source>is extracting...</source>
         <translation>εξάγει...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="588"/>
-        <location filename="../main.py" line="750"/>
+        <location filename="../main.py" line="593"/>
+        <location filename="../main.py" line="757"/>
         <source>is translating...</source>
         <translation>μεταφράζει...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="149"/>
-        <location filename="../main.py" line="416"/>
+        <location filename="../main.py" line="150"/>
+        <location filename="../main.py" line="417"/>
         <source>Click to check for update</source>
         <translation>Κάντε κλικ για να ελέγξετε για ενημέρωση</translation>
     </message>
     <message>
-        <location filename="../main.py" line="252"/>
+        <location filename="../main.py" line="253"/>
         <source>It&apos;s up to date now</source>
         <translation>Είναι ενημερωμένο τώρα</translation>
     </message>
     <message>
-        <location filename="../main.py" line="258"/>
+        <location filename="../main.py" line="259"/>
         <source>New version detected</source>
         <translation>Εντοπίστηκε νέα έκδοση</translation>
     </message>
     <message>
-        <location filename="../main.py" line="260"/>
+        <location filename="../main.py" line="261"/>
         <source>Would you like to open the website to get the latest verison?</source>
         <translation>Θέλετε να ανοίξετε τον ιστότοπο για να λάβετε την πιο πρόσφατη έκδοση;</translation>
     </message>
     <message>
-        <location filename="../main.py" line="591"/>
-        <location filename="../ui.ui" line="90"/>
+        <location filename="../main.py" line="596"/>
+        <location filename="../ui.ui" line="36"/>
         <source>translate</source>
         <translation>μεταφράζω</translation>
     </message>
     <message>
-        <location filename="../main.py" line="652"/>
+        <location filename="../main.py" line="657"/>
         <location filename="../extraction_official_form.py" line="89"/>
         <source>extract</source>
         <translation>εκχύλισμα</translation>
     </message>
     <message>
-        <location filename="../main.py" line="685"/>
+        <location filename="../main.py" line="692"/>
         <source>select the file(s) you want to translate</source>
         <translation>επιλέξτε τα αρχεία που θέλετε να μεταφράσετε</translation>
     </message>
     <message>
-        <location filename="../main.py" line="696"/>
+        <location filename="../main.py" line="703"/>
         <source>select the directory you want to translate</source>
         <translation>επιλέξτε τον κατάλογο που θέλετε να μεταφράσετε</translation>
     </message>
@@ -1213,229 +1213,234 @@
         <translation>Μεταφραστής Ren&apos;py</translation>
     </message>
     <message>
-        <location filename="../main.py" line="148"/>
-        <location filename="../main.py" line="415"/>
+        <location filename="../main.py" line="149"/>
+        <location filename="../main.py" line="416"/>
         <source>Version</source>
         <translation>Εκδοχή</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="103"/>
-        <location filename="../ui.ui" line="164"/>
+        <location filename="../ui.ui" line="49"/>
+        <location filename="../ui.ui" line="110"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="116"/>
+        <location filename="../ui.ui" line="62"/>
         <source>directory</source>
         <translation>Ευρετήριο</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="132"/>
+        <location filename="../ui.ui" line="78"/>
         <source>file(s)</source>
         <translation>αρχείο(α)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="151"/>
+        <location filename="../ui.ui" line="97"/>
         <source>input or choose or drag the file(s) you want to translate here. Examaple : F:\GameName\game\tl\language\script.rpy</source>
         <translation>εισάγετε ή επιλέξτε ή σύρετε τα αρχεία που θέλετε να μεταφράσετε εδώ. Παράδειγμα : F:\GameName\game\tl\language\script.rpy</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="177"/>
+        <location filename="../ui.ui" line="123"/>
         <source>input or choose or drag the directory you want translate here.  Example:F:\GameName\game\tl\language</source>
         <translation>εισάγετε ή επιλέξτε ή σύρετε τον κατάλογο που θέλετε να μεταφράσετε εδώ.  Παράδειγμα:F:\GameName\game\tl\language</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="195"/>
+        <location filename="../ui.ui" line="141"/>
         <source>translation</source>
         <translation>μετάφραση</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="208"/>
+        <location filename="../ui.ui" line="154"/>
         <source>target</source>
         <translation>στόχος</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="224"/>
+        <location filename="../ui.ui" line="170"/>
         <source>source</source>
         <translation>πηγή</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="279"/>
+        <location filename="../ui.ui" line="225"/>
         <source>Generate Backup Files (xxx.rpy.bak)</source>
         <translation>Δημιουργία αντιγράφων ασφαλείας (xxx.rpy.bak)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="292"/>
+        <location filename="../ui.ui" line="238"/>
         <source>Local Glossary (replace certain words with preset content)</source>
         <translation>Τοπικό Γλωσσάρι (αντικαταστήστε ορισμένες λέξεις με προκαθορισμένο περιεχόμενο)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="311"/>
+        <location filename="../ui.ui" line="257"/>
         <source>Translation Source</source>
         <translation>Πηγή μετάφρασης</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="330"/>
+        <location filename="../ui.ui" line="276"/>
         <source>Original</source>
         <translation>Πρωτότυπο</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="349"/>
+        <location filename="../ui.ui" line="295"/>
         <source>Current</source>
         <translation>Ρεύμα</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="365"/>
+        <location filename="../ui.ui" line="311"/>
         <source>Skip Translated (Original != Current)</source>
         <translation>Παράλειψη μεταφρασμένου (Πρωτότυπο != Τρέχον)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="397"/>
+        <location filename="../ui.ui" line="343"/>
         <source>filter length less than</source>
         <translation>μήκος φίλτρου μικρότερο από</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="413"/>
+        <location filename="../ui.ui" line="359"/>
         <source>Enable filter for translate</source>
         <translation>Ενεργοποίηση φίλτρου για μετάφραση</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="505"/>
+        <location filename="../ui.ui" line="451"/>
         <source>Enable replace special symbols</source>
         <translation>Ενεργοποίηση αντικατάστασης ειδικών συμβόλων</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="857"/>
+        <location filename="../ui.ui" line="528"/>
+        <source>locate log file with explorer</source>
+        <translation>εντοπίστε το αρχείο καταγραφής με τον εξερευνητή</translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="876"/>
         <source>set default language at startup</source>
         <translation>ορίστε την προεπιλεγμένη γλώσσα κατά την εκκίνηση</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="475"/>
+        <location filename="../ui.ui" line="421"/>
         <source>Auto open untranslated contents with brower</source>
         <translation>Αυτόματο άνοιγμα μη μεταφρασμένου περιεχομένου με πρόγραμμα περιήγησης</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="491"/>
+        <location filename="../ui.ui" line="437"/>
         <source>Show exported html file with explorer only</source>
         <translation>Εμφάνιση εξαγόμενου αρχείου html μόνο με τον εξερευνητή</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="545"/>
+        <location filename="../ui.ui" line="564"/>
         <source>advanced options</source>
         <translation>προχωρημένες επιλογές</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="583"/>
+        <location filename="../ui.ui" line="602"/>
         <source>theme</source>
         <translation>θέμα</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="702"/>
+        <location filename="../ui.ui" line="721"/>
         <source>unpack game package</source>
         <translation>αποσυσκευάστε το πακέτο παιχνιδιού</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="802"/>
+        <location filename="../ui.ui" line="821"/>
         <source>extract translation</source>
         <translation>απόσπασμα μετάφρασης</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="807"/>
+        <location filename="../ui.ui" line="826"/>
         <source>runtime extraction</source>
         <translation>εξαγωγή χρόνου εκτέλεσης</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="822"/>
+        <location filename="../ui.ui" line="841"/>
         <source>add change langauge entrance</source>
         <translation>προσθήκη αλλαγής γλώσσας εισόδου</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="827"/>
+        <location filename="../ui.ui" line="846"/>
         <source>one key translate</source>
         <translation>μετάφραση ενός κλειδιού</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="832"/>
+        <location filename="../ui.ui" line="851"/>
         <source>official extraction</source>
         <translation>επίσημη εξαγωγή</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="837"/>
+        <location filename="../ui.ui" line="856"/>
         <source>convert txt to html</source>
         <translation>μετατροπή txt σε html</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="847"/>
+        <location filename="../ui.ui" line="866"/>
         <source>pack game files</source>
         <translation>συσκευάστε αρχεία παιχνιδιών</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="260"/>
+        <location filename="../ui.ui" line="206"/>
         <source>Multi-threaded translation</source>
         <translation>Μετάφραση πολλαπλών νημάτων</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="381"/>
+        <location filename="../ui.ui" line="327"/>
         <source>(If disable, translation will continue after the previous file has been translated)</source>
         <translation>(Εάν απενεργοποιηθεί, η μετάφραση θα συνεχιστεί μετά τη μετάφραση του προηγούμενου αρχείου)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="30"/>
+        <location filename="../ui.ui" line="468"/>
         <source>©2024 Last moment,All rights reserved.</source>
         <translation>©2024 Τελευταία στιγμή, Με την επιφύλαξη παντός δικαιώματος.</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="697"/>
+        <location filename="../ui.ui" line="716"/>
         <source>replace font</source>
         <translation>αντικαταστήστε τη γραμματοσειρά</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="49"/>
+        <location filename="../ui.ui" line="506"/>
         <source>clear log</source>
         <translation>καθαρό ημερολόγιο</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="526"/>
+        <location filename="../ui.ui" line="545"/>
         <source>about</source>
         <translation>σχετικά με</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="532"/>
+        <location filename="../ui.ui" line="551"/>
         <source>proxy</source>
         <translation>πληρεξούσιο</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="538"/>
+        <location filename="../ui.ui" line="557"/>
         <source>translation engine</source>
         <translation>μηχανή μετάφρασης</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="562"/>
+        <location filename="../ui.ui" line="581"/>
         <source>language</source>
         <translation>Γλώσσα</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="614"/>
+        <location filename="../ui.ui" line="633"/>
         <source>copyright</source>
         <translation>πνευματική ιδιοκτησία</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="619"/>
+        <location filename="../ui.ui" line="638"/>
         <source>proxy settings</source>
         <translation>ρυθμίσεις διακομιστή μεσολάβησης</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="624"/>
+        <location filename="../ui.ui" line="643"/>
         <source>engine settings</source>
         <translation>ρυθμίσεις κινητήρα</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="629"/>
+        <location filename="../ui.ui" line="648"/>
         <source>custom engine</source>
         <translation>προσαρμοσμένη μηχανή</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="634"/>
+        <location filename="../ui.ui" line="653"/>
         <source>edit from rpy</source>
         <translation>επεξεργασία από rpy</translation>
     </message>

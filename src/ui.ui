@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1068</width>
-    <height>612</height>
+    <height>642</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,60 +15,6 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="4" column="0">
-     <layout class="QVBoxLayout" name="verticalLayout"/>
-    </item>
-    <item row="4" column="2">
-     <widget class="QLabel" name="copyrightLabel">
-      <property name="maximumSize">
-       <size>
-        <width>400</width>
-        <height>16</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>©2024 Last moment,All rights reserved.</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="1" colspan="2">
-     <widget class="QPushButton" name="clearLogBtn">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>65535</width>
-        <height>24</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>clear log</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="1" rowspan="3" colspan="2">
-     <widget class="QTextEdit" name="log_text">
-      <property name="minimumSize">
-       <size>
-        <width>100</width>
-        <height>400</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>65535</width>
-        <height>65535</height>
-       </size>
-      </property>
-      <property name="readOnly">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
     <item row="0" column="0" rowspan="3">
      <widget class="QWidget" name="widget" native="true">
       <property name="minimumSize">
@@ -508,6 +454,79 @@
         <bool>true</bool>
        </property>
       </widget>
+     </widget>
+    </item>
+    <item row="5" column="2">
+     <widget class="QLabel" name="copyrightLabel">
+      <property name="maximumSize">
+       <size>
+        <width>400</width>
+        <height>16</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>©2024 Last moment,All rights reserved.</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1" rowspan="3" colspan="2">
+     <widget class="QTextEdit" name="log_text">
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>400</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>65535</width>
+        <height>65535</height>
+       </size>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1" colspan="2">
+     <widget class="QPushButton" name="clearLogBtn">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>65535</width>
+        <height>24</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>clear log</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0">
+     <layout class="QVBoxLayout" name="verticalLayout"/>
+    </item>
+    <item row="4" column="1" colspan="2">
+     <widget class="QPushButton" name="locateLogBtn">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>65535</width>
+        <height>24</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>locate log file with explorer</string>
+      </property>
      </widget>
     </item>
    </layout>

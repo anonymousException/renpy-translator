@@ -25,7 +25,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1068, 612)
+        MainWindow.resize(1068, 642)
         self.actioncopyright = QAction(MainWindow)
         self.actioncopyright.setObjectName(u"actioncopyright")
         self.proxySettings = QAction(MainWindow)
@@ -163,36 +163,6 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName(u"centralwidget")
         self.gridLayout = QGridLayout(self.centralwidget)
         self.gridLayout.setObjectName(u"gridLayout")
-        self.verticalLayout = QVBoxLayout()
-        self.verticalLayout.setObjectName(u"verticalLayout")
-
-        self.gridLayout.addLayout(self.verticalLayout, 4, 0, 1, 1)
-
-        self.copyrightLabel = QLabel(self.centralwidget)
-        self.copyrightLabel.setObjectName(u"copyrightLabel")
-        self.copyrightLabel.setMaximumSize(QSize(400, 16))
-
-        self.gridLayout.addWidget(self.copyrightLabel, 4, 2, 1, 1)
-
-        self.clearLogBtn = QPushButton(self.centralwidget)
-        self.clearLogBtn.setObjectName(u"clearLogBtn")
-        sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.clearLogBtn.sizePolicy().hasHeightForWidth())
-        self.clearLogBtn.setSizePolicy(sizePolicy)
-        self.clearLogBtn.setMaximumSize(QSize(65535, 24))
-
-        self.gridLayout.addWidget(self.clearLogBtn, 3, 1, 1, 2)
-
-        self.log_text = QTextEdit(self.centralwidget)
-        self.log_text.setObjectName(u"log_text")
-        self.log_text.setMinimumSize(QSize(100, 400))
-        self.log_text.setMaximumSize(QSize(65535, 65535))
-        self.log_text.setReadOnly(True)
-
-        self.gridLayout.addWidget(self.log_text, 0, 1, 3, 2)
-
         self.widget = QWidget(self.centralwidget)
         self.widget.setObjectName(u"widget")
         self.widget.setMinimumSize(QSize(600, 520))
@@ -306,6 +276,44 @@ class Ui_MainWindow(object):
 
         self.gridLayout.addWidget(self.widget, 0, 0, 3, 1)
 
+        self.copyrightLabel = QLabel(self.centralwidget)
+        self.copyrightLabel.setObjectName(u"copyrightLabel")
+        self.copyrightLabel.setMaximumSize(QSize(400, 16))
+
+        self.gridLayout.addWidget(self.copyrightLabel, 5, 2, 1, 1)
+
+        self.log_text = QTextEdit(self.centralwidget)
+        self.log_text.setObjectName(u"log_text")
+        self.log_text.setMinimumSize(QSize(100, 400))
+        self.log_text.setMaximumSize(QSize(65535, 65535))
+        self.log_text.setReadOnly(True)
+
+        self.gridLayout.addWidget(self.log_text, 0, 1, 3, 2)
+
+        self.clearLogBtn = QPushButton(self.centralwidget)
+        self.clearLogBtn.setObjectName(u"clearLogBtn")
+        sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.clearLogBtn.sizePolicy().hasHeightForWidth())
+        self.clearLogBtn.setSizePolicy(sizePolicy)
+        self.clearLogBtn.setMaximumSize(QSize(65535, 24))
+
+        self.gridLayout.addWidget(self.clearLogBtn, 3, 1, 1, 2)
+
+        self.verticalLayout = QVBoxLayout()
+        self.verticalLayout.setObjectName(u"verticalLayout")
+
+        self.gridLayout.addLayout(self.verticalLayout, 5, 0, 1, 1)
+
+        self.locateLogBtn = QPushButton(self.centralwidget)
+        self.locateLogBtn.setObjectName(u"locateLogBtn")
+        sizePolicy.setHeightForWidth(self.locateLogBtn.sizePolicy().hasHeightForWidth())
+        self.locateLogBtn.setSizePolicy(sizePolicy)
+        self.locateLogBtn.setMaximumSize(QSize(65535, 24))
+
+        self.gridLayout.addWidget(self.locateLogBtn, 4, 1, 1, 2)
+
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
@@ -404,8 +412,6 @@ class Ui_MainWindow(object):
         self.actionconvert_txt_to_html.setText(QCoreApplication.translate("MainWindow", u"convert txt to html", None))
         self.actionpack_game_files.setText(QCoreApplication.translate("MainWindow", u"pack game files", None))
         self.actiondefault_language_at_startup.setText(QCoreApplication.translate("MainWindow", u"set default language at startup", None))
-        self.copyrightLabel.setText(QCoreApplication.translate("MainWindow", u"\u00a92024 Last moment,All rights reserved.", None))
-        self.clearLogBtn.setText(QCoreApplication.translate("MainWindow", u"clear log", None))
         self.translateBtn.setText(QCoreApplication.translate("MainWindow", u"translate", None))
         self.selectFilesBtn.setText(QCoreApplication.translate("MainWindow", u"...", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"directory", None))
@@ -432,6 +438,9 @@ class Ui_MainWindow(object):
         self.radioButton.setText(QCoreApplication.translate("MainWindow", u"Auto open untranslated contents with brower", None))
         self.radioButton_2.setText(QCoreApplication.translate("MainWindow", u"Show exported html file with explorer only", None))
         self.replaceCheckBox.setText(QCoreApplication.translate("MainWindow", u"Enable replace special symbols", None))
+        self.copyrightLabel.setText(QCoreApplication.translate("MainWindow", u"\u00a92024 Last moment,All rights reserved.", None))
+        self.clearLogBtn.setText(QCoreApplication.translate("MainWindow", u"clear log", None))
+        self.locateLogBtn.setText(QCoreApplication.translate("MainWindow", u"locate log file with explorer", None))
         self.aboutMenu.setTitle(QCoreApplication.translate("MainWindow", u"about", None))
         self.proxyMenu.setTitle(QCoreApplication.translate("MainWindow", u"proxy", None))
         self.translationEngineMenu.setTitle(QCoreApplication.translate("MainWindow", u"translation engine", None))

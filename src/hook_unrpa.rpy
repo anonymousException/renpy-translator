@@ -1,5 +1,9 @@
 init python early hide:
     import renpy.loader
+    global threading
+    global io
+    global importlib
+    global inspect
     import threading
     import io
     import importlib
@@ -7,13 +11,15 @@ init python early hide:
     import os
     import re
     from renpy.loader import archives
-
+    global unpack_file_threads
     unpack_file_threads = []
     MAX_UNPACK_THREADS = 12
-    SCRIPT_ONLY = True
+    global SCRIPT_ONLY
+    SCRIPT_ONLY = False
+    global unpack_semaphore
     unpack_semaphore = threading.Semaphore(MAX_UNPACK_THREADS)
     non_ascii_file_list = []
-
+    global check_function_exists
     def check_function_exists(module_name, function_name):
         try:
             module = importlib.import_module(module_name)
@@ -30,10 +36,10 @@ init python early hide:
         except AttributeError:
             #print(f"The function '{function_name}' does not exist in the module '{module_name}'.")
             return False
-
+    global is_ascii
     def is_ascii(string):
         return all(ord(char) < 128 for char in string)
-
+    global write_out_to_file
     def write_out_to_file(semaphore, name, write_path, _write_data):
         with semaphore:
             if is_ascii(name):
@@ -45,6 +51,7 @@ init python early hide:
                 file.write(_write_data)
 
     def my_load_from_archive(name):
+        global io
         load_packed_file_source = None
         if check_function_exists('renpy.loader','load_from_archive'):
             from renpy.loader import load_from_archive as load_packed_file
@@ -83,6 +90,7 @@ init python early hide:
                 os.makedirs(target_dir,exist_ok=True)
             else:
                 os.makedirs(target_dir)
+        global threading
         thread = threading.Thread(target=write_out_to_file, args=([unpack_semaphore, name, path, _read]))
         thread.start()
         unpack_file_threads.append(thread)

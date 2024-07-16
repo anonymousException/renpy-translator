@@ -3,7 +3,7 @@ import sys
 import threading
 import time
 from datetime import datetime
-
+MAX_LOG_LINES = 1000
 timestamp = str(int(time.time()))
 log_path = 'log'+'.txt'
 f=open(log_path,'a+',encoding='utf-8')

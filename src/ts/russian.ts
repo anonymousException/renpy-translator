@@ -1063,7 +1063,7 @@
 <context>
     <name>ImportHtmlDialog</name>
     <message>
-        <location filename="../main.py" line="612"/>
+        <location filename="../main.py" line="617"/>
         <location filename="../editor_form.py" line="1523"/>
         <location filename="../one_key_translate_form.py" line="698"/>
         <location filename="../import_html_form.py" line="37"/>
@@ -1208,46 +1208,46 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../main.py" line="648"/>
+        <location filename="../main.py" line="653"/>
         <location filename="../extraction_official_form.py" line="67"/>
         <source>is extracting...</source>
         <translation>извлечение...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="588"/>
-        <location filename="../main.py" line="750"/>
+        <location filename="../main.py" line="593"/>
+        <location filename="../main.py" line="757"/>
         <source>is translating...</source>
         <translation>Идет перевод...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="149"/>
-        <location filename="../main.py" line="416"/>
+        <location filename="../main.py" line="150"/>
+        <location filename="../main.py" line="417"/>
         <source>Click to check for update</source>
         <translation>Нажмите, чтобы проверить наличие обновлений</translation>
     </message>
     <message>
-        <location filename="../main.py" line="252"/>
+        <location filename="../main.py" line="253"/>
         <source>It&apos;s up to date now</source>
         <translation>Это актуально сейчас</translation>
     </message>
     <message>
-        <location filename="../main.py" line="258"/>
+        <location filename="../main.py" line="259"/>
         <source>New version detected</source>
         <translation>Обнаружена новая версия</translation>
     </message>
     <message>
-        <location filename="../main.py" line="260"/>
+        <location filename="../main.py" line="261"/>
         <source>Would you like to open the website to get the latest verison?</source>
         <translation>Хотите открыть веб-сайт и получить последнюю версию?</translation>
     </message>
     <message>
-        <location filename="../main.py" line="591"/>
-        <location filename="../ui.ui" line="90"/>
+        <location filename="../main.py" line="596"/>
+        <location filename="../ui.ui" line="36"/>
         <source>translate</source>
         <translation>переводить</translation>
     </message>
     <message>
-        <location filename="../main.py" line="652"/>
+        <location filename="../main.py" line="657"/>
         <location filename="../extraction_official_form.py" line="89"/>
         <source>extract</source>
         <translation>извлекать</translation>
@@ -1261,12 +1261,12 @@
         <translation type="vanished">выберите каталог, который вы хотите извлечь</translation>
     </message>
     <message>
-        <location filename="../main.py" line="685"/>
+        <location filename="../main.py" line="692"/>
         <source>select the file(s) you want to translate</source>
         <translation>выберите файл(ы), которые вы хотите перевести</translation>
     </message>
     <message>
-        <location filename="../main.py" line="696"/>
+        <location filename="../main.py" line="703"/>
         <source>select the directory you want to translate</source>
         <translation>выберите каталог, который вы хотите перевести</translation>
     </message>
@@ -1276,169 +1276,174 @@
         <translation>Ренпи Переводчик</translation>
     </message>
     <message>
-        <location filename="../main.py" line="148"/>
-        <location filename="../main.py" line="415"/>
+        <location filename="../main.py" line="149"/>
+        <location filename="../main.py" line="416"/>
         <source>Version</source>
         <translation>Версия</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="103"/>
-        <location filename="../ui.ui" line="164"/>
+        <location filename="../ui.ui" line="49"/>
+        <location filename="../ui.ui" line="110"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="116"/>
+        <location filename="../ui.ui" line="62"/>
         <source>directory</source>
         <translation>каталог</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="132"/>
+        <location filename="../ui.ui" line="78"/>
         <source>file(s)</source>
         <translation>файл(ы)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="151"/>
+        <location filename="../ui.ui" line="97"/>
         <source>input or choose or drag the file(s) you want to translate here. Examaple : F:\GameName\game\tl\language\script.rpy</source>
         <translation>введите или выберите или перетащите сюда файлы, которые вы хотите перевести. Пример: F:\GameName\game\tl\language\script.rpy.</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="177"/>
+        <location filename="../ui.ui" line="123"/>
         <source>input or choose or drag the directory you want translate here.  Example:F:\GameName\game\tl\language</source>
         <translation>введите или выберите или перетащите сюда каталог, который вы хотите перевести. Пример: F:\GameName\game\tl\language.</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="195"/>
+        <location filename="../ui.ui" line="141"/>
         <source>translation</source>
         <translation>перевод</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="208"/>
+        <location filename="../ui.ui" line="154"/>
         <source>target</source>
         <translation>цель</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="224"/>
+        <location filename="../ui.ui" line="170"/>
         <source>source</source>
         <translation>источник</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="279"/>
+        <location filename="../ui.ui" line="225"/>
         <source>Generate Backup Files (xxx.rpy.bak)</source>
         <translation>Создать файлы резервных копий (xxx.rpy.bak)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="292"/>
+        <location filename="../ui.ui" line="238"/>
         <source>Local Glossary (replace certain words with preset content)</source>
         <translation>Локальный глоссарий (замените определенные слова заранее заданным содержимым)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="311"/>
+        <location filename="../ui.ui" line="257"/>
         <source>Translation Source</source>
         <translation>Источник перевода</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="330"/>
+        <location filename="../ui.ui" line="276"/>
         <source>Original</source>
         <translation>Оригинал</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="349"/>
+        <location filename="../ui.ui" line="295"/>
         <source>Current</source>
         <translation>Текущий</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="365"/>
+        <location filename="../ui.ui" line="311"/>
         <source>Skip Translated (Original != Current)</source>
         <translation>Пропустить перевод (Исходный != Текущий)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="413"/>
+        <location filename="../ui.ui" line="359"/>
         <source>Enable filter for translate</source>
         <translation>Включить фильтр для перевода</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="505"/>
+        <location filename="../ui.ui" line="451"/>
         <source>Enable replace special symbols</source>
         <translation>Включить замену специальных символов</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="857"/>
+        <location filename="../ui.ui" line="528"/>
+        <source>locate log file with explorer</source>
+        <translation>найти файл журнала с помощью проводника</translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="876"/>
         <source>set default language at startup</source>
         <translation>установить язык по умолчанию при запуске</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="475"/>
+        <location filename="../ui.ui" line="421"/>
         <source>Auto open untranslated contents with brower</source>
         <translation>Автоматически открывать непереведенное содержимое с помощью браузера</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="491"/>
+        <location filename="../ui.ui" line="437"/>
         <source>Show exported html file with explorer only</source>
         <translation>Показать экспортированный HTML-файл только с помощью проводника</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="545"/>
+        <location filename="../ui.ui" line="564"/>
         <source>advanced options</source>
         <translation>Расширенные опции</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="583"/>
+        <location filename="../ui.ui" line="602"/>
         <source>theme</source>
         <translation>тема</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="702"/>
+        <location filename="../ui.ui" line="721"/>
         <source>unpack game package</source>
         <translation>распаковать пакет игры</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="802"/>
+        <location filename="../ui.ui" line="821"/>
         <source>extract translation</source>
         <translation>извлечь перевод</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="807"/>
+        <location filename="../ui.ui" line="826"/>
         <source>runtime extraction</source>
         <translation>Извлечение во время выполнения</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="822"/>
+        <location filename="../ui.ui" line="841"/>
         <source>add change langauge entrance</source>
         <translation>Добавить вход на смену языка</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="827"/>
+        <location filename="../ui.ui" line="846"/>
         <source>one key translate</source>
         <translation>один ключ, перевод</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="832"/>
+        <location filename="../ui.ui" line="851"/>
         <source>official extraction</source>
         <translation>Официальное извлечение</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="837"/>
+        <location filename="../ui.ui" line="856"/>
         <source>convert txt to html</source>
         <translation>конвертировать txt в html</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="847"/>
+        <location filename="../ui.ui" line="866"/>
         <source>pack game files</source>
         <translation>упаковать файлы игры</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="260"/>
+        <location filename="../ui.ui" line="206"/>
         <source>Multi-threaded translation</source>
         <translation>Многопоточный перевод</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="381"/>
+        <location filename="../ui.ui" line="327"/>
         <source>(If disable, translation will continue after the previous file has been translated)</source>
         <translation>(Если отключить, перевод продолжится после перевода предыдущего файла)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="30"/>
+        <location filename="../ui.ui" line="468"/>
         <source>©2024 Last moment,All rights reserved.</source>
         <translation>©2024 Последний момент,Все права защищены.</translation>
     </message>
@@ -1451,7 +1456,7 @@
         <translation type="vanished">введите или выберите или перетащите шрифт, который поддерживает язык после перевода. Пример: DejaVuSans.ttf (шрифт ren&apos;py по умолчанию)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="697"/>
+        <location filename="../ui.ui" line="716"/>
         <source>replace font</source>
         <translation>заменить шрифт</translation>
     </message>
@@ -1500,7 +1505,7 @@
         <translation type="vanished">Включить фильтр для извлечения</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="397"/>
+        <location filename="../ui.ui" line="343"/>
         <source>filter length less than</source>
         <translation>длина фильтра меньше</translation>
     </message>
@@ -1509,22 +1514,22 @@
         <translation type="vanished">Генерировать пустые строки вместо оригинальных</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="49"/>
+        <location filename="../ui.ui" line="506"/>
         <source>clear log</source>
         <translation>Очистить журнал</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="526"/>
+        <location filename="../ui.ui" line="545"/>
         <source>about</source>
         <translation>о</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="532"/>
+        <location filename="../ui.ui" line="551"/>
         <source>proxy</source>
         <translation>прокси</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="538"/>
+        <location filename="../ui.ui" line="557"/>
         <source>translation engine</source>
         <translation>механизм перевода</translation>
     </message>
@@ -1533,32 +1538,32 @@
         <translation type="vanished">редактор</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="562"/>
+        <location filename="../ui.ui" line="581"/>
         <source>language</source>
         <translation>язык</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="614"/>
+        <location filename="../ui.ui" line="633"/>
         <source>copyright</source>
         <translation>Авторские права</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="619"/>
+        <location filename="../ui.ui" line="638"/>
         <source>proxy settings</source>
         <translation>настройки прокси</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="624"/>
+        <location filename="../ui.ui" line="643"/>
         <source>engine settings</source>
         <translation>настройки двигателя</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="629"/>
+        <location filename="../ui.ui" line="648"/>
         <source>custom engine</source>
         <translation>специальный движок</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="634"/>
+        <location filename="../ui.ui" line="653"/>
         <source>edit from rpy</source>
         <translation>редактировать из rpy</translation>
     </message>

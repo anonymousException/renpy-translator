@@ -22,13 +22,13 @@ from PySide6.QtWidgets import QFileDialog, QListView, QAbstractItemView, QTreeVi
     QVBoxLayout, QMainWindow, QApplication, QButtonGroup, QLabel, QMessageBox
 
 from html_util import open_directory_and_select_file
-from string_tool import EncodeBrackets, isAllPunctuations
+from string_tool import EncodeBrackets, isAllPunctuations, tail
 from translated_form import MyTranslatedForm
 
 os.environ['REQUESTS_CA_BUNDLE'] = os.path.join(os.path.dirname(sys.argv[0]), 'cacert.pem')
 os.environ['NO_PROXY'] = '*'
 from copyright import Ui_CopyrightDialog
-from my_log import log_print, log_path
+from my_log import log_print, log_path, MAX_LOG_LINES
 from extraction_official_form import MyExtractionOfficialForm
 from html_converter_form import MyHtmlConverterForm
 from local_glossary_form import MyLocalGlossaryForm
@@ -54,8 +54,7 @@ targetDic = dict()
 sourceDic = dict()
 translator = QTranslator()
 
-VERSION = '2.4.3'
-
+VERSION = '2.4.4'
 
 class MyProxyForm(QDialog, Ui_ProxyDialog):
     def __init__(self, parent=None):
@@ -127,6 +126,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.selectDirBtn.clicked.connect(self.select_directory)
         self.translateBtn.clicked.connect(self.translate)
         self.clearLogBtn.clicked.connect(self.clear_log)
+        self.locateLogBtn.clicked.connect(self.locate_log)
         self.caller = None
         self.translating = False
         self.extracting = False
@@ -568,6 +568,10 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.sourceComboBox.currentTextChanged.connect(self.on_combobox_changed)
 
     @staticmethod
+    def locate_log():
+        open_directory_and_select_file(os.getcwd()+'/'+log_path)
+
+    @staticmethod
     def clear_log():
         f = io.open(log_path, 'w', encoding='utf-8')
         f.write('')
@@ -662,11 +666,15 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
             self.wait()
 
         def run(self):
-            f = io.open(log_path, 'r+', encoding='utf-8')
             try:
-                self.update_date.emit(f.read())
+                _lines = tail(log_path, MAX_LOG_LINES)
+                _data = ''
+                for line in _lines:
+                    _data += line + '\n'
+                if len(_lines) == MAX_LOG_LINES:
+                    _data += f'log is too large, only show last {str(MAX_LOG_LINES)} lines\n'
+                self.update_date.emit(_data)
             except Exception as e:
-                f.close()
                 shutil.copyfile(log_path, log_path + '.error.txt')
                 f = io.open(log_path, 'w')
                 f.write('Log Format UnicodeEncodeError! Log Cleared')
@@ -675,8 +683,6 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
                 p = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
                                      creationflags=0x08000000, text=True, encoding='utf-8')
                 p.wait()
-                f = io.open(log_path, 'r+', encoding='utf-8')
-            f.close()
 
     def select_file(self):
         files, filetype = QFileDialog.getOpenFileNames(self,

@@ -1,22 +1,17 @@
 init python early hide:
-    old_load_face = renpy.text.font.load_face
+    if 'tl_font_dic' not in globals():
+        global tl_font_dic
+        tl_font_dic = dict()
+        global old_load_face
+        old_load_face = renpy.text.font.load_face
 
-    def my_load_face(fn, *args):
-        if renpy.game.preferences.language == "{tl_name}":
-            fn = "{font_path}"
-            renpy.config.rtl = {is_rtl_enabled}
-        return old_load_face(fn, *args)
-    renpy.text.font.load_face = my_load_face
-
-
-translate {tl_name} python:
-    import os
-    import sys
-    font_path = "{font_path}"
-    gui.text_font = font_path
-    gui.button_text_font = font_path
-    gui.interface_text_font = font_path
-    gui.choice_button_text_font = font_path
-    gui.name_text_font = font_path
-    style.default.font = font_path
-    gui.headline_text_font = font_path
+        def my_load_face(fn, *args):
+            renpy.text.font.free_memory()
+            for key, value in tl_font_dic.items():
+                if renpy.game.preferences.language == key:
+                    fn = value[0]
+                    renpy.config.rtl = value[1]
+            return old_load_face(fn, *args)
+        renpy.text.font.load_face = my_load_face
+    global tl_font_dic
+    tl_font_dic["{tl_name}"] = "{font_path}", {is_rtl_enabled}

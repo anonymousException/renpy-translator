@@ -162,12 +162,9 @@ def GenGuiFontsOriginal(p, tl_name, font_path, is_rtl_enabled):
         _lines = f.readlines()
         f.close()
         for idx,_line in enumerate(_lines):
-            if 'renpy.config.rtl' in _line:
-                index = _line.find('renpy.config.rtl')
-                _original = _line[index:]
-                _is_rtl_enabled = str(is_rtl_enabled)
-                _replaced = 'renpy.config.rtl = ' + _is_rtl_enabled + '\n'
-                _lines[idx] = _line.replace(_original, _replaced)
+            if 'tl_font_dic[' in _line:
+                new_line = f'tl_font_dic["{tl_name}"] = "{font_path}", {str(is_rtl_enabled)}'
+                _lines[idx] = new_line
                 break
         f = io.open(guiPath, 'w', encoding='utf-8')
         f.writelines(_lines)
