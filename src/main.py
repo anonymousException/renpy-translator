@@ -54,7 +54,7 @@ targetDic = dict()
 sourceDic = dict()
 translator = QTranslator()
 
-VERSION = '2.4.4'
+VERSION = '2.4.5'
 
 class MyProxyForm(QDialog, Ui_ProxyDialog):
     def __init__(self, parent=None):

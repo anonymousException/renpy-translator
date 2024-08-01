@@ -1,4 +1,5 @@
 init python early hide:
+    import renpy
     if 'tl_font_dic' not in globals():
         global tl_font_dic
         tl_font_dic = dict()
@@ -15,3 +16,11 @@ init python early hide:
         renpy.text.font.load_face = my_load_face
     global tl_font_dic
     tl_font_dic["{tl_name}"] = "{font_path}", {is_rtl_enabled}
+    old_reload_all = renpy.reload_all
+    def my_reload_all():
+        renpy.text.font.free_memory()
+        renpy.text.font.load_face = old_load_face
+        ret = old_reload_all()
+        renpy.reload_all = old_reload_all
+        return ret
+    renpy.reload_all = my_reload_all
