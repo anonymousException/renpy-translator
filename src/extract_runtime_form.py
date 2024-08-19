@@ -21,13 +21,18 @@ hooked_result = 'extraction_hooked.json'
 extract_finish = 'extract_runtime.finish'
 
 
+def get_line_number(element):
+    return element[3]
+
+
 class extractThread(threading.Thread):
-    def __init__(self, path, tl_name,is_gen_empty, is_show_directory):
+    def __init__(self, path, tl_name, is_gen_empty, is_show_directory):
         threading.Thread.__init__(self)
         self.path = path
         self.tl_name = tl_name
         self.is_gen_empty = is_gen_empty
         self.is_show_directory = is_show_directory
+
     def run(self):
         try:
             if os.path.isfile(extract_finish):
@@ -41,7 +46,7 @@ class extractThread(threading.Thread):
             command = 'start "" /wait /d "' + dir + '"  "' + path + '"'
             self.path = path
             p = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
-                             creationflags=0x08000000, text=True, encoding='utf-8')
+                                 creationflags=0x08000000, text=True, encoding='utf-8')
             p.wait()
 
             target = dir + '/' + hooked_result
@@ -62,6 +67,7 @@ class extractThread(threading.Thread):
                 f.close()
                 os.remove(target)
                 for key, value in dic.items():
+                    value.sort(key=get_line_number)
                     if key.startswith('game/'):
                         target = key[:5] + 'tl/' + tl_name + '/' + key[5:]
                     else:
@@ -169,7 +175,6 @@ class MyExtractionRuntimeForm(QDialog, Ui_ExtractionRuntimeDialog):
                                                      '',
                                                      "Game Files (*.exe)")
         self.selectFileText.setText(file)
-
 
     def update(self):
         thread = self.UpdateThread()

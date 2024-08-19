@@ -145,22 +145,26 @@ class OpenAITranslate(object):
                     source_lang_setup = f'You will receive a piece of {source} text in JSON dictionary format'
                     role_setup = 'You are a translation API that receives dictionary-type data in JSON format and returns dictionary-type results in JSON format'
                     format_requirement = 'do not consider that we are chatting or greeting me and simply reply to me with the translation in the same format as the original'
-                    prompt = f'{role_setup}. {source_lang_setup}, where the key is the line number and the value is the content of the corresponding line. Please translate it into {target} according to the following requirements: \n' + \
+                    prompt_sys  = f'{role_setup}. {source_lang_setup}, where the key is the line number and the value is the content of the corresponding line. Please translate it into {target} according to the following requirements: \n' + \
                              '1. first read through the whole text, determine the type of text content and select the appropriate translation style before starting the translation; \n' + \
                              '2. use the homophonic translation for names of people and places consistently; \n' + \
                              '3. polish translation results to make them accurate and natural; \n' + \
                              '4. do not change or convert punctuation marks; \n' + \
                              f'5. {format_requirement}, which is an example of the format: \n' + \
                              'Me: {"1": "Contents of line 1", "2": "Contents of line 2", "3": "Contents of line 3"} \n' + \
-                             'You: {"1": "Translation result for line 1", "2": "Translation result for line 2", "3": "Translation result for line 3"} \n' + \
-                             f'Next you will receive the text that needs to be translated into {target}. \n' + \
+                             'You: {"1": "Translation result for line 1", "2": "Translation result for line 2", "3": "Translation result for line 3"}'
+                    prompt_user = f'Next you will receive the text that needs to be translated into {target}. \n' + \
                              f'{js}'
                     # prompt = f'You are a meticulous translator who translates any given content.Remember that json:{js} Be faithful or accurate in translation.Make the translation readable or intelligible. Be elegant or natural in translation.Make sure each translated text returned in original order.Translate the content from {source} into {target}.'
                     chat_completion = client.with_options(timeout=self.timeout, max_retries=2).chat.completions.create(
                         messages=[
                             {
+                                "role": "system",
+                                "content": prompt_sys,
+                            },
+                            {
                                 "role": "user",
-                                "content": prompt,
+                                "content": prompt_user,
                             }
                         ],
                         model=self.model,
@@ -170,22 +174,27 @@ class OpenAITranslate(object):
                     source_lang_setup = f'You will receive a piece of text in JSON dictionary format'
                     role_setup = 'You are a translation API that receives dictionary-type data in JSON format and returns dictionary-type results in JSON format'
                     format_requirement = 'do not consider that we are chatting or greeting me and simply reply to me with the translation in the same format as the original'
-                    prompt = f'{role_setup}. {source_lang_setup}, where the key is the line number and the value is the content of the corresponding line. Please translate it into {target} according to the following requirements: \n' + \
+                    prompt_sys = f'{role_setup}. {source_lang_setup}, where the key is the line number and the value is the content of the corresponding line. Please translate it into {target} according to the following requirements: \n' + \
                              '1. first read through the whole text, determine the type of text content and select the appropriate translation style before starting the translation; \n' + \
                              '2. use the homophonic translation for names of people and places consistently; \n' + \
                              '3. polish translation results to make them accurate and natural; \n' + \
                              '4. do not change or convert punctuation marks; \n' + \
                              f'5. {format_requirement}, which is an example of the format: \n' + \
                              'Me: {"1": "Contents of line 1", "2": "Contents of line 2", "3": "Contents of line 3"} \n' + \
-                             'You: {"1": "Translation result for line 1", "2": "Translation result for line 2", "3": "Translation result for line 3"} \n' + \
-                             f'Next you will receive the text that needs to be translated into {target}. \n' + \
+                             'You: {"1": "Translation result for line 1", "2": "Translation result for line 2", "3": "Translation result for line 3"}'
+
+                    prompt_user = f'Next you will receive the text that needs to be translated into {target}. \n' + \
                              f'{js}'
                     # prompt = f'You are a meticulous translator who translates any given content.Remember that json:{js} Be faithful or accurate in translation.Make the translation readable or intelligible. Be elegant or natural in translation.Never merge the translation result.Make sure each translated text returned in original order.Translate the content into {target}.'
                     chat_completion = client.with_options(timeout=self.timeout, max_retries=2).chat.completions.create(
                         messages=[
                             {
+                                "role": "system",
+                                "content": prompt_sys,
+                            },
+                            {
                                 "role": "user",
-                                "content": prompt,
+                                "content": prompt_user,
                             }
                         ],
                         model=self.model,
