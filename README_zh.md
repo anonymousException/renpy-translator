@@ -78,6 +78,8 @@ https://github.com/anonymousException/renpy-translator/assets/157234942/4816245b
 
 ### 借助浏览器翻译
 
+https://github.com/user-attachments/assets/3023cb0a-138e-4951-935c-d9f58d1027d7
+
 https://github.com/anonymousException/renpy-translator/assets/157234942/e0e56ee3-4064-4655-8046-f49309fdfaad
 
 https://github.com/anonymousException/renpy-translator/assets/157234942/06008b44-8e46-4df9-8aa9-c978733dbd7d
@@ -91,6 +93,11 @@ https://github.com/anonymousException/renpy-translator/assets/157234942/dd579d7d
 ### 转换到 HTML
 
 https://github.com/anonymousException/renpy-translator/assets/157234942/30d5bedb-60c2-4369-aea4-de5bc18b0549
+
+### 格式化 Rpy 文件
+支持不包含原始内容的rpy文件格式 格式化后即可翻译内容
+
+https://github.com/user-attachments/assets/00ebd44a-6623-4d65-8562-6e8ec90cca3d
 
 ### 增加入口
 
