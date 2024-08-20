@@ -973,6 +973,42 @@
     </message>
 </context>
 <context>
+    <name>FormatDialog</name>
+    <message>
+        <location filename="../main.py" line="675"/>
+        <source>is formating...</source>
+        <translation>포맷 중입니다...</translation>
+    </message>
+    <message>
+        <location filename="../main.py" line="679"/>
+        <location filename="../format.ui" line="14"/>
+        <location filename="../format.ui" line="91"/>
+        <location filename="../format.ui" line="104"/>
+        <source>format rpy files</source>
+        <translation>rpy 파일 형식 지정</translation>
+    </message>
+    <message>
+        <location filename="../format.ui" line="44"/>
+        <source>input or choose or drag the file(s) you want to format here.    Examaple : F:\GameName\game\tl\language\script.rpy</source>
+        <translation>여기에서 포맷하려는 파일을 입력하거나 선택하거나 드래그하세요. 예 : OF:\게임 이름\game\tl\언어\script.rpy</translation>
+    </message>
+    <message>
+        <location filename="../format.ui" line="57"/>
+        <source>file(s)</source>
+        <translation>파일</translation>
+    </message>
+    <message>
+        <location filename="../format.ui" line="117"/>
+        <source>directory(s)</source>
+        <translation>디렉토리</translation>
+    </message>
+    <message>
+        <location filename="../format.ui" line="136"/>
+        <source>input or choose or drag the directory(s) you want to format here.    Examaple : F:\GameName\game\tl\language\character</source>
+        <translation>여기에 포맷하려는 디렉터리를 입력하거나 선택하거나 드래그하세요. 예 : OF:\게임 이름\게임\tl\언어\문자</translation>
+    </message>
+</context>
+<context>
     <name>GameUnpackerDialog</name>
     <message>
         <location filename="../game_unpacker_form.py" line="149"/>
@@ -1063,7 +1099,7 @@
 <context>
     <name>ImportHtmlDialog</name>
     <message>
-        <location filename="../main.py" line="617"/>
+        <location filename="../main.py" line="629"/>
         <location filename="../editor_form.py" line="1523"/>
         <location filename="../one_key_translate_form.py" line="698"/>
         <location filename="../import_html_form.py" line="37"/>
@@ -1188,57 +1224,57 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../main.py" line="653"/>
+        <location filename="../main.py" line="665"/>
         <location filename="../extraction_official_form.py" line="67"/>
         <source>is extracting...</source>
         <translation>적출...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="593"/>
-        <location filename="../main.py" line="757"/>
+        <location filename="../main.py" line="605"/>
+        <location filename="../main.py" line="779"/>
         <source>is translating...</source>
         <translation>번역하는 중...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="150"/>
-        <location filename="../main.py" line="417"/>
+        <location filename="../main.py" line="151"/>
+        <location filename="../main.py" line="429"/>
         <source>Click to check for update</source>
         <translation>업데이트를 확인하려면 클릭하세요</translation>
     </message>
     <message>
-        <location filename="../main.py" line="253"/>
+        <location filename="../main.py" line="263"/>
         <source>It&apos;s up to date now</source>
         <translation>지금은 최신 상태입니다</translation>
     </message>
     <message>
-        <location filename="../main.py" line="259"/>
+        <location filename="../main.py" line="269"/>
         <source>New version detected</source>
         <translation>새 버전이 감지되었습니다</translation>
     </message>
     <message>
-        <location filename="../main.py" line="261"/>
+        <location filename="../main.py" line="271"/>
         <source>Would you like to open the website to get the latest verison?</source>
         <translation>최신 버전을 다운로드하기 위해 웹사이트를 여시겠습니까?</translation>
     </message>
     <message>
-        <location filename="../main.py" line="596"/>
+        <location filename="../main.py" line="608"/>
         <location filename="../ui.ui" line="36"/>
         <source>translate</source>
         <translation>번역하다</translation>
     </message>
     <message>
-        <location filename="../main.py" line="657"/>
+        <location filename="../main.py" line="669"/>
         <location filename="../extraction_official_form.py" line="89"/>
         <source>extract</source>
         <translation>발췌</translation>
     </message>
     <message>
-        <location filename="../main.py" line="692"/>
+        <location filename="../main.py" line="714"/>
         <source>select the file(s) you want to translate</source>
         <translation>번역하려는 파일을 선택하세요</translation>
     </message>
     <message>
-        <location filename="../main.py" line="703"/>
+        <location filename="../main.py" line="725"/>
         <source>select the directory you want to translate</source>
         <translation>번역하려는 디렉토리를 선택하십시오</translation>
     </message>
@@ -1248,8 +1284,8 @@
         <translation>렌피 번역기</translation>
     </message>
     <message>
-        <location filename="../main.py" line="149"/>
-        <location filename="../main.py" line="416"/>
+        <location filename="../main.py" line="150"/>
+        <location filename="../main.py" line="428"/>
         <source>Version</source>
         <translation>버전</translation>
     </message>
@@ -1345,9 +1381,14 @@
         <translation>탐색기로 로그 파일 찾기</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="876"/>
+        <location filename="../ui.ui" line="877"/>
         <source>set default language at startup</source>
         <translation>시작 시 기본 언어 설정</translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="882"/>
+        <source>format rpy files</source>
+        <translation>rpy 파일 형식 지정</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="421"/>
@@ -1365,47 +1406,47 @@
         <translation>고급 옵션</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="602"/>
+        <location filename="../ui.ui" line="603"/>
         <source>theme</source>
         <translation>주제</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="721"/>
+        <location filename="../ui.ui" line="722"/>
         <source>unpack game package</source>
         <translation>게임 패키지 풀기</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="821"/>
+        <location filename="../ui.ui" line="822"/>
         <source>extract translation</source>
         <translation>번역 추출</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="826"/>
+        <location filename="../ui.ui" line="827"/>
         <source>runtime extraction</source>
         <translation>런타임 추출</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="841"/>
+        <location filename="../ui.ui" line="842"/>
         <source>add change langauge entrance</source>
         <translation>언어 변경 입구 추가</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="846"/>
+        <location filename="../ui.ui" line="847"/>
         <source>one key translate</source>
         <translation>하나의 키 번역</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="851"/>
+        <location filename="../ui.ui" line="852"/>
         <source>official extraction</source>
         <translation>공식 추출</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="856"/>
+        <location filename="../ui.ui" line="857"/>
         <source>convert txt to html</source>
         <translation>txt를 html로 변환</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="866"/>
+        <location filename="../ui.ui" line="867"/>
         <source>pack game files</source>
         <translation>게임 파일 압축</translation>
     </message>
@@ -1425,7 +1466,7 @@
         <translation>©2024 마지막 순간, 모든 권리 보유.</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="716"/>
+        <location filename="../ui.ui" line="717"/>
         <source>replace font</source>
         <translation>글꼴 교체</translation>
     </message>
@@ -1450,32 +1491,32 @@
         <translation>번역 엔진</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="581"/>
+        <location filename="../ui.ui" line="582"/>
         <source>language</source>
         <translation>언어</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="633"/>
+        <location filename="../ui.ui" line="634"/>
         <source>copyright</source>
         <translation>저작권</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="638"/>
+        <location filename="../ui.ui" line="639"/>
         <source>proxy settings</source>
         <translation>프록시 설정</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="643"/>
+        <location filename="../ui.ui" line="644"/>
         <source>engine settings</source>
         <translation>엔진 설정</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="648"/>
+        <location filename="../ui.ui" line="649"/>
         <source>custom engine</source>
         <translation>커스텀 엔진</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="653"/>
+        <location filename="../ui.ui" line="654"/>
         <source>edit from rpy</source>
         <translation>rpy에서 편집</translation>
     </message>

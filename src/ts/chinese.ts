@@ -977,6 +977,42 @@
     </message>
 </context>
 <context>
+    <name>FormatDialog</name>
+    <message>
+        <location filename="../main.py" line="675"/>
+        <source>is formating...</source>
+        <translation>正在格式化...</translation>
+    </message>
+    <message>
+        <location filename="../main.py" line="679"/>
+        <location filename="../format.ui" line="14"/>
+        <location filename="../format.ui" line="91"/>
+        <location filename="../format.ui" line="104"/>
+        <source>format rpy files</source>
+        <translation>格式化 rpy 文件</translation>
+    </message>
+    <message>
+        <location filename="../format.ui" line="44"/>
+        <source>input or choose or drag the file(s) you want to format here.    Examaple : F:\GameName\game\tl\language\script.rpy</source>
+        <translation>在此处输入或选择或拖动要格式化的文件。    示例：F:\GameName\game\tl\language\script.rpy</translation>
+    </message>
+    <message>
+        <location filename="../format.ui" line="57"/>
+        <source>file(s)</source>
+        <translation>文件</translation>
+    </message>
+    <message>
+        <location filename="../format.ui" line="117"/>
+        <source>directory(s)</source>
+        <translation>目录</translation>
+    </message>
+    <message>
+        <location filename="../format.ui" line="136"/>
+        <source>input or choose or drag the directory(s) you want to format here.    Examaple : F:\GameName\game\tl\language\character</source>
+        <translation>在此处输入或选择或拖动要格式化的目录。    示例：F:\GameName\game\tl\language\character</translation>
+    </message>
+</context>
+<context>
     <name>GameUnpackerDialog</name>
     <message>
         <location filename="../game_unpacker_form.py" line="149"/>
@@ -1067,7 +1103,7 @@
 <context>
     <name>ImportHtmlDialog</name>
     <message>
-        <location filename="../main.py" line="617"/>
+        <location filename="../main.py" line="629"/>
         <location filename="../editor_form.py" line="1523"/>
         <location filename="../one_key_translate_form.py" line="698"/>
         <location filename="../import_html_form.py" line="37"/>
@@ -1217,40 +1253,40 @@
         <translation>Ren&apos;py 翻译器</translation>
     </message>
     <message>
-        <location filename="../main.py" line="653"/>
+        <location filename="../main.py" line="665"/>
         <location filename="../extraction_official_form.py" line="67"/>
         <source>is extracting...</source>
         <translation>抽取中...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="593"/>
-        <location filename="../main.py" line="757"/>
+        <location filename="../main.py" line="605"/>
+        <location filename="../main.py" line="779"/>
         <source>is translating...</source>
         <translation>翻译中...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="150"/>
-        <location filename="../main.py" line="417"/>
+        <location filename="../main.py" line="151"/>
+        <location filename="../main.py" line="429"/>
         <source>Click to check for update</source>
         <translation>点击检查更新</translation>
     </message>
     <message>
-        <location filename="../main.py" line="253"/>
+        <location filename="../main.py" line="263"/>
         <source>It&apos;s up to date now</source>
         <translation>现在是最新的</translation>
     </message>
     <message>
-        <location filename="../main.py" line="259"/>
+        <location filename="../main.py" line="269"/>
         <source>New version detected</source>
         <translation>检测到新版本</translation>
     </message>
     <message>
-        <location filename="../main.py" line="261"/>
+        <location filename="../main.py" line="271"/>
         <source>Would you like to open the website to get the latest verison?</source>
         <translation>您是否愿意打开网站获取最新版本？</translation>
     </message>
     <message>
-        <location filename="../main.py" line="596"/>
+        <location filename="../main.py" line="608"/>
         <location filename="../ui.ui" line="36"/>
         <source>translate</source>
         <translation>翻译</translation>
@@ -1264,12 +1300,12 @@
         <translation type="vanished">选择你要解压的目录</translation>
     </message>
     <message>
-        <location filename="../main.py" line="692"/>
+        <location filename="../main.py" line="714"/>
         <source>select the file(s) you want to translate</source>
         <translation>选择您要翻译的文件</translation>
     </message>
     <message>
-        <location filename="../main.py" line="703"/>
+        <location filename="../main.py" line="725"/>
         <source>select the directory you want to translate</source>
         <translation>选择要翻译的目录</translation>
     </message>
@@ -1365,9 +1401,14 @@
         <translation>使用资源管理器查找日志文件</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="876"/>
+        <location filename="../ui.ui" line="877"/>
         <source>set default language at startup</source>
         <translation>设置启动时的默认语言</translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="882"/>
+        <source>format rpy files</source>
+        <translation>格式化 rpy 文件</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="421"/>
@@ -1380,37 +1421,37 @@
         <translation>仅使用资源管理器显示导出的 html 文件</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="821"/>
+        <location filename="../ui.ui" line="822"/>
         <source>extract translation</source>
         <translation>提取翻译</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="826"/>
+        <location filename="../ui.ui" line="827"/>
         <source>runtime extraction</source>
         <translation>运行时提取</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="841"/>
+        <location filename="../ui.ui" line="842"/>
         <source>add change langauge entrance</source>
         <translation>添加更改语言入口</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="846"/>
+        <location filename="../ui.ui" line="847"/>
         <source>one key translate</source>
         <translation>一键翻译</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="851"/>
+        <location filename="../ui.ui" line="852"/>
         <source>official extraction</source>
         <translation>官方提取</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="856"/>
+        <location filename="../ui.ui" line="857"/>
         <source>convert txt to html</source>
         <translation>将 txt 转换为 html</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="866"/>
+        <location filename="../ui.ui" line="867"/>
         <source>pack game files</source>
         <translation>打包游戏文件</translation>
     </message>
@@ -1425,7 +1466,7 @@
         <translation>高级选项</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="721"/>
+        <location filename="../ui.ui" line="722"/>
         <source>unpack game package</source>
         <translation>解压游戏包</translation>
     </message>
@@ -1442,7 +1483,7 @@
         <translation type="vanished">输入或选择或拖动支持翻译后语言的字体。示例：DejaVuSans.ttf（ren&apos;py 的默认字体）</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="716"/>
+        <location filename="../ui.ui" line="717"/>
         <source>replace font</source>
         <translation>替换字体</translation>
     </message>
@@ -1471,7 +1512,7 @@
         <translation type="vanished">在此处输入或选择或拖动要翻译的目录。示例：F:\GameName\game\tl\language</translation>
     </message>
     <message>
-        <location filename="../main.py" line="657"/>
+        <location filename="../main.py" line="669"/>
         <location filename="../extraction_official_form.py" line="89"/>
         <source>extract</source>
         <translation>抽取</translation>
@@ -1516,8 +1557,8 @@
         <translation>清空日志</translation>
     </message>
     <message>
-        <location filename="../main.py" line="149"/>
-        <location filename="../main.py" line="416"/>
+        <location filename="../main.py" line="150"/>
+        <location filename="../main.py" line="428"/>
         <source>Version</source>
         <translation>版本</translation>
     </message>
@@ -1541,37 +1582,37 @@
         <translation type="vanished">编辑器</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="581"/>
+        <location filename="../ui.ui" line="582"/>
         <source>language</source>
         <translation>语言</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="602"/>
+        <location filename="../ui.ui" line="603"/>
         <source>theme</source>
         <translation>主题</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="633"/>
+        <location filename="../ui.ui" line="634"/>
         <source>copyright</source>
         <translation>版权</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="638"/>
+        <location filename="../ui.ui" line="639"/>
         <source>proxy settings</source>
         <translation>代理设置</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="643"/>
+        <location filename="../ui.ui" line="644"/>
         <source>engine settings</source>
         <translation>引擎设置</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="648"/>
+        <location filename="../ui.ui" line="649"/>
         <source>custom engine</source>
         <translation>自定义引擎</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="653"/>
+        <location filename="../ui.ui" line="654"/>
         <source>edit from rpy</source>
         <translation>从 rpy 编辑</translation>
     </message>

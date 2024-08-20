@@ -973,6 +973,42 @@
     </message>
 </context>
 <context>
+    <name>FormatDialog</name>
+    <message>
+        <location filename="../main.py" line="675"/>
+        <source>is formating...</source>
+        <translation>está formateando...</translation>
+    </message>
+    <message>
+        <location filename="../main.py" line="679"/>
+        <location filename="../format.ui" line="14"/>
+        <location filename="../format.ui" line="91"/>
+        <location filename="../format.ui" line="104"/>
+        <source>format rpy files</source>
+        <translation>formatear archivos rpy</translation>
+    </message>
+    <message>
+        <location filename="../format.ui" line="44"/>
+        <source>input or choose or drag the file(s) you want to format here.    Examaple : F:\GameName\game\tl\language\script.rpy</source>
+        <translation>ingrese o elija o arrastre los archivos que desea formatear aquí. Ejemplo: OF:\Nombre del juego\juego\tl\idioma\script.rpy</translation>
+    </message>
+    <message>
+        <location filename="../format.ui" line="57"/>
+        <source>file(s)</source>
+        <translation>archivo(s)</translation>
+    </message>
+    <message>
+        <location filename="../format.ui" line="117"/>
+        <source>directory(s)</source>
+        <translation>directorio(s)</translation>
+    </message>
+    <message>
+        <location filename="../format.ui" line="136"/>
+        <source>input or choose or drag the directory(s) you want to format here.    Examaple : F:\GameName\game\tl\language\character</source>
+        <translation>ingrese o elija o arrastre los directorios que desea formatear aquí. Ejemplo: OF:\Nombre del juego\juego\tl\idioma\personaje</translation>
+    </message>
+</context>
+<context>
     <name>GameUnpackerDialog</name>
     <message>
         <location filename="../game_unpacker_form.py" line="149"/>
@@ -1063,7 +1099,7 @@
 <context>
     <name>ImportHtmlDialog</name>
     <message>
-        <location filename="../main.py" line="617"/>
+        <location filename="../main.py" line="629"/>
         <location filename="../editor_form.py" line="1523"/>
         <location filename="../one_key_translate_form.py" line="698"/>
         <location filename="../import_html_form.py" line="37"/>
@@ -1208,46 +1244,46 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../main.py" line="653"/>
+        <location filename="../main.py" line="665"/>
         <location filename="../extraction_official_form.py" line="67"/>
         <source>is extracting...</source>
         <translation>extrayendo...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="593"/>
-        <location filename="../main.py" line="757"/>
+        <location filename="../main.py" line="605"/>
+        <location filename="../main.py" line="779"/>
         <source>is translating...</source>
         <translation>traductorio...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="150"/>
-        <location filename="../main.py" line="417"/>
+        <location filename="../main.py" line="151"/>
+        <location filename="../main.py" line="429"/>
         <source>Click to check for update</source>
         <translation>Haga clic para buscar actualizaciones</translation>
     </message>
     <message>
-        <location filename="../main.py" line="253"/>
+        <location filename="../main.py" line="263"/>
         <source>It&apos;s up to date now</source>
         <translation>Está actualizado ahora</translation>
     </message>
     <message>
-        <location filename="../main.py" line="259"/>
+        <location filename="../main.py" line="269"/>
         <source>New version detected</source>
         <translation>Nueva versión detectada</translation>
     </message>
     <message>
-        <location filename="../main.py" line="261"/>
+        <location filename="../main.py" line="271"/>
         <source>Would you like to open the website to get the latest verison?</source>
         <translation>¿Le gustaría abrir el sitio web para obtener la última versión?</translation>
     </message>
     <message>
-        <location filename="../main.py" line="596"/>
+        <location filename="../main.py" line="608"/>
         <location filename="../ui.ui" line="36"/>
         <source>translate</source>
         <translation>traducir</translation>
     </message>
     <message>
-        <location filename="../main.py" line="657"/>
+        <location filename="../main.py" line="669"/>
         <location filename="../extraction_official_form.py" line="89"/>
         <source>extract</source>
         <translation>extracto</translation>
@@ -1261,12 +1297,12 @@
         <translation type="vanished">seleccione el directorio que desea extraer</translation>
     </message>
     <message>
-        <location filename="../main.py" line="692"/>
+        <location filename="../main.py" line="714"/>
         <source>select the file(s) you want to translate</source>
         <translation>seleccione el archivo(s) que desea traducir</translation>
     </message>
     <message>
-        <location filename="../main.py" line="703"/>
+        <location filename="../main.py" line="725"/>
         <source>select the directory you want to translate</source>
         <translation>seleccione el directorio que desea traducir</translation>
     </message>
@@ -1276,8 +1312,8 @@
         <translation>Traductor Ren&apos;py</translation>
     </message>
     <message>
-        <location filename="../main.py" line="149"/>
-        <location filename="../main.py" line="416"/>
+        <location filename="../main.py" line="150"/>
+        <location filename="../main.py" line="428"/>
         <source>Version</source>
         <translation>Versión</translation>
     </message>
@@ -1378,9 +1414,14 @@
         <translation>localizar el archivo de registro con el explorador</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="876"/>
+        <location filename="../ui.ui" line="877"/>
         <source>set default language at startup</source>
         <translation>establecer el idioma predeterminado al inicio</translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="882"/>
+        <source>format rpy files</source>
+        <translation>formatear archivos rpy</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="421"/>
@@ -1393,37 +1434,37 @@
         <translation>Mostrar el archivo html exportado solo con el explorador</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="821"/>
+        <location filename="../ui.ui" line="822"/>
         <source>extract translation</source>
         <translation>extraer traducción</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="826"/>
+        <location filename="../ui.ui" line="827"/>
         <source>runtime extraction</source>
         <translation>Extracción en tiempo de ejecución</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="841"/>
+        <location filename="../ui.ui" line="842"/>
         <source>add change langauge entrance</source>
         <translation>Agregar entrada para cambiar idioma</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="846"/>
+        <location filename="../ui.ui" line="847"/>
         <source>one key translate</source>
         <translation>una clave traducir</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="851"/>
+        <location filename="../ui.ui" line="852"/>
         <source>official extraction</source>
         <translation>Extracción Oficial</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="856"/>
+        <location filename="../ui.ui" line="857"/>
         <source>convert txt to html</source>
         <translation>convertir texto a html</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="866"/>
+        <location filename="../ui.ui" line="867"/>
         <source>pack game files</source>
         <translation>empaquetar archivos del juego</translation>
     </message>
@@ -1438,7 +1479,7 @@
         <translation>opciones avanzadas</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="721"/>
+        <location filename="../ui.ui" line="722"/>
         <source>unpack game package</source>
         <translation>desempaquetar el paquete del juego</translation>
     </message>
@@ -1451,7 +1492,7 @@
         <translation type="vanished">ingrese o elija o arrastre la fuente que admite el idioma después de la traducción. Ejemplo: DejaVuSans.ttf (fuente predeterminada de ren&apos;py)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="716"/>
+        <location filename="../ui.ui" line="717"/>
         <source>replace font</source>
         <translation>reemplazar fuente</translation>
     </message>
@@ -1533,37 +1574,37 @@
         <translation type="vanished">editor</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="581"/>
+        <location filename="../ui.ui" line="582"/>
         <source>language</source>
         <translation>idioma</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="602"/>
+        <location filename="../ui.ui" line="603"/>
         <source>theme</source>
         <translation>tema</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="633"/>
+        <location filename="../ui.ui" line="634"/>
         <source>copyright</source>
         <translation>derechos de autor</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="638"/>
+        <location filename="../ui.ui" line="639"/>
         <source>proxy settings</source>
         <translation>configuración de proxy</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="643"/>
+        <location filename="../ui.ui" line="644"/>
         <source>engine settings</source>
         <translation>configuración del motor</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="648"/>
+        <location filename="../ui.ui" line="649"/>
         <source>custom engine</source>
         <translation>motor personalizado</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="653"/>
+        <location filename="../ui.ui" line="654"/>
         <source>edit from rpy</source>
         <translation>editar desde rpy</translation>
     </message>

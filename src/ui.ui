@@ -537,7 +537,7 @@
      <x>0</x>
      <y>0</y>
      <width>1068</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="aboutMenu">
@@ -575,6 +575,7 @@
     <addaction name="separator"/>
     <addaction name="actionpack_game_files"/>
     <addaction name="actionconvert_txt_to_html"/>
+    <addaction name="actionformat_rpy_files"/>
    </widget>
    <widget class="QMenu" name="menulanguage">
     <property name="title">
@@ -874,6 +875,11 @@
   <action name="actiondefault_language_at_startup">
    <property name="text">
     <string>set default language at startup</string>
+   </property>
+  </action>
+  <action name="actionformat_rpy_files">
+   <property name="text">
+    <string>format rpy files</string>
    </property>
   </action>
  </widget>

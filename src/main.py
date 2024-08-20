@@ -40,6 +40,7 @@ from add_change_language_entrance_form import MyAddChangeLanguageEntranceForm
 from default_language_form import MyDefaultLanguageForm
 from one_key_translate_form import MyOneKeyTranslateForm
 from pack_game_form import MyPackGameForm
+from format_form import MyFormationForm
 from renpy_translate import translateThread, translate_threads, engineList, engineDic, language_header, \
     get_translated_dic, web_brower_export_name, get_rpy_info, rpy_info_dic, get_translated, web_brower_translate
 from proxy import Ui_ProxyDialog
@@ -54,7 +55,7 @@ targetDic = dict()
 sourceDic = dict()
 translator = QTranslator()
 
-VERSION = '2.4.6'
+VERSION = '2.4.7'
 
 class MyProxyForm(QDialog, Ui_ProxyDialog):
     def __init__(self, parent=None):
@@ -130,6 +131,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.caller = None
         self.translating = False
         self.extracting = False
+        self.formating = False
         self.local_glossary = None
         self.is_waiting_translated = False
         self.select_files = None
@@ -168,6 +170,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.myHtmlConverterForm = None
         self.myPackGameForm = None
         self.myDefaultLanuageForm = None
+        self.myFormationForm = None
         self.actioncopyright.triggered.connect(lambda: self.show_copyright_form())
         self.proxySettings.triggered.connect(lambda: self.show_proxy_settings())
         self.engineSettings.triggered.connect(lambda: self.show_engine_settings())
@@ -183,6 +186,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.actionconvert_txt_to_html.triggered.connect(lambda: self.show_html_converter_form())
         self.actionpack_game_files.triggered.connect(lambda: self.show_pack_game_files_form())
         self.actiondefault_language_at_startup.triggered.connect(lambda: self.show_default_langauge_form())
+        self.actionformat_rpy_files.triggered.connect(lambda: self.show_formation_form())
         self.actionArabic.triggered.connect(lambda: self.to_language('arabic'))
         self.actionBengali.triggered.connect(lambda: self.to_language('bengali'))
         self.actionChinese.triggered.connect(lambda: self.to_language('chinese'))
@@ -220,6 +224,13 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.actiondark_yellow.triggered.connect(lambda: self.change_theme(self.actiondark_yellow.text()))
 
         _thread.start_new_thread(self.update_log, ())
+
+    def show_formation_form(self):
+        if self.myFormationForm is None:
+            self.myFormationForm = MyFormationForm(parent=self)
+            self.myFormationForm.parent = self
+        self.myFormationForm.exec()
+
 
     def show_default_langauge_form(self):
         if self.myDefaultLanuageForm is None:
@@ -401,6 +412,8 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
             self.myHtmlConverterForm.retranslateUi(self.myHtmlConverterForm)
         if self.myPackGameForm is not None:
             self.myPackGameForm.retranslateUi(self.myPackGameForm)
+        if self.myFormationForm is not None:
+            self.myFormationForm.retranslateUi(self.myFormationForm)
 
     def to_language(self, lan):
         if lan == 'english':
@@ -655,6 +668,16 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
             if self.myExtractionForm is not None:
                 self.myExtractionForm.extractBtn.setText(QCoreApplication.translate('MainWindow', 'extract', None))
                 self.myExtractionForm.extractBtn.setEnabled(True)
+
+        if self.formating:
+            if self.myFormationForm is not None:
+                self.myFormationForm.formatBtn.setText(
+                    QCoreApplication.translate('FormatDialog', 'is formating...', None))
+                self.myFormationForm.formatBtn.setDisabled(True)
+        else:
+            if self.myFormationForm is not None:
+                self.myFormationForm.formatBtn.setText(QCoreApplication.translate('FormatDialog', 'format rpy files', None))
+                self.myFormationForm.formatBtn.setEnabled(True)
 
     class UpdateThread(QThread):
         update_date = Signal(str)
