@@ -676,6 +676,11 @@
         <source>detect network delay</source>
         <translation>নেটওয়ার্ক বিলম্ব সনাক্ত করুন</translation>
     </message>
+    <message>
+        <location filename="../engine.ui" line="391"/>
+        <source>Custom Prompt Template</source>
+        <translation>কাস্টম প্রম্পট টেমপ্লেট</translation>
+    </message>
 </context>
 <context>
     <name>ExportSettingDialog</name>

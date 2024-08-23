@@ -676,6 +676,11 @@
         <source>detect network delay</source>
         <translation>обнаружить задержку сети</translation>
     </message>
+    <message>
+        <location filename="../engine.ui" line="391"/>
+        <source>Custom Prompt Template</source>
+        <translation>Пользовательский шаблон подсказки</translation>
+    </message>
 </context>
 <context>
     <name>ExportSettingDialog</name>

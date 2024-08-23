@@ -676,6 +676,11 @@
         <source>detect network delay</source>
         <translation>Netzwerkverzögerung erkennen</translation>
     </message>
+    <message>
+        <location filename="../engine.ui" line="391"/>
+        <source>Custom Prompt Template</source>
+        <translation>Benutzerdefinierte Eingabeaufforderungsvorlage</translation>
+    </message>
 </context>
 <context>
     <name>ExportSettingDialog</name>

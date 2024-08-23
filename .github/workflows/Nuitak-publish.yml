@@ -43,6 +43,7 @@ jobs:
     - run: copy src\custom.txt dist\windows\custom.txt
     - run: copy src\hook_unrpa.rpy dist\windows\hook_unrpa.rpy
     - run: copy src\openai_model.txt dist\windows\openai_model.txt
+    - run: copy src\openai_template.json dist\windows\openai_template.json
     - run: copy src\hook_extract.rpy dist\windows\hook_extract.rpy
     - run: copy src\hook_add_change_language_entrance.rpy dist\windows\hook_add_change_language_entrance.rpy
     - run: copy src\default_langauge_template.txt dist\windows\default_langauge_template.txt

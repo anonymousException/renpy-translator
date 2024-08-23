@@ -676,6 +676,11 @@
         <source>detect network delay</source>
         <translation>检测网络延迟</translation>
     </message>
+    <message>
+        <location filename="../engine.ui" line="391"/>
+        <source>Custom Prompt Template</source>
+        <translation>自定义提示模板</translation>
+    </message>
 </context>
 <context>
     <name>ExportSettingDialog</name>

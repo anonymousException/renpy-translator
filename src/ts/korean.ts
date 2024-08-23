@@ -676,6 +676,11 @@
         <source>detect network delay</source>
         <translation>네트워크 지연 감지</translation>
     </message>
+    <message>
+        <location filename="../engine.ui" line="391"/>
+        <source>Custom Prompt Template</source>
+        <translation>사용자 정의 프롬프트 템플릿</translation>
+    </message>
 </context>
 <context>
     <name>ExportSettingDialog</name>

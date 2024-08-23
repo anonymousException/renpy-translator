@@ -1,3 +1,4 @@
+import io
 import os
 import threading
 import time
@@ -15,6 +16,7 @@ from string_tool import remove_upprintable_chars, split_strings
 
 # "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"
 limit_time_span_dic = dict()
+openai_template_file = 'openai_template.json'
 
 
 class TranslateResponse:
@@ -141,65 +143,37 @@ class OpenAITranslate(object):
                 return self.translate_limit(data, source, target)
             self.lock.release()
             try:
-                if source is not None and source != 'AUTO':
-                    source_lang_setup = f'You will receive a piece of {source} text in JSON dictionary format'
-                    role_setup = 'You are a translation API that receives dictionary-type data in JSON format and returns dictionary-type results in JSON format'
-                    format_requirement = 'do not consider that we are chatting or greeting me and simply reply to me with the translation in the same format as the original'
-                    prompt_sys  = f'{role_setup}. {source_lang_setup}, where the key is the line number and the value is the content of the corresponding line. Please translate it into {target} according to the following requirements: \n' + \
-                             '1. first read through the whole text, determine the type of text content and select the appropriate translation style before starting the translation; \n' + \
-                             '2. use the homophonic translation for names of people and places consistently; \n' + \
-                             '3. polish translation results to make them accurate and natural; \n' + \
-                             '4. do not change or convert punctuation marks; \n' + \
-                             f'5. {format_requirement}, which is an example of the format: \n' + \
-                             'Me: {"1": "Contents of line 1", "2": "Contents of line 2", "3": "Contents of line 3"} \n' + \
-                             'You: {"1": "Translation result for line 1", "2": "Translation result for line 2", "3": "Translation result for line 3"}'
-                    prompt_user = f'Next you will receive the text that needs to be translated into {target}. \n' + \
-                             f'{js}'
-                    # prompt = f'You are a meticulous translator who translates any given content.Remember that json:{js} Be faithful or accurate in translation.Make the translation readable or intelligible. Be elegant or natural in translation.Make sure each translated text returned in original order.Translate the content from {source} into {target}.'
-                    chat_completion = client.with_options(timeout=self.timeout, max_retries=2).chat.completions.create(
-                        messages=[
-                            {
-                                "role": "system",
-                                "content": prompt_sys,
-                            },
-                            {
-                                "role": "user",
-                                "content": prompt_user,
-                            }
-                        ],
-                        model=self.model,
-                        # response_format={"type": "json_object"},
-                    )
-                else:
-                    source_lang_setup = f'You will receive a piece of text in JSON dictionary format'
-                    role_setup = 'You are a translation API that receives dictionary-type data in JSON format and returns dictionary-type results in JSON format'
-                    format_requirement = 'do not consider that we are chatting or greeting me and simply reply to me with the translation in the same format as the original'
-                    prompt_sys = f'{role_setup}. {source_lang_setup}, where the key is the line number and the value is the content of the corresponding line. Please translate it into {target} according to the following requirements: \n' + \
-                             '1. first read through the whole text, determine the type of text content and select the appropriate translation style before starting the translation; \n' + \
-                             '2. use the homophonic translation for names of people and places consistently; \n' + \
-                             '3. polish translation results to make them accurate and natural; \n' + \
-                             '4. do not change or convert punctuation marks; \n' + \
-                             f'5. {format_requirement}, which is an example of the format: \n' + \
-                             'Me: {"1": "Contents of line 1", "2": "Contents of line 2", "3": "Contents of line 3"} \n' + \
-                             'You: {"1": "Translation result for line 1", "2": "Translation result for line 2", "3": "Translation result for line 3"}'
+                source_template = '#SOURCE_LANGUAGE_ID!@$^#'
+                target_template = '#TARGET_LANGAUGE_ID!@$^#'
+                js_template = '#JSON_DATA_WAITING_FOR_TRANSLATE_ID!@$^#'
+                messages = []
+                if os.path.isfile(openai_template_file):
+                    f = io.open(openai_template_file, 'r', encoding='utf-8')
+                    template = f.read()
+                    f.close()
+                    template = template.replace(source_template, source)
+                    template = template.replace(target_template, target)
+                    try:
+                        messages = json.loads(template)
+                    except:
+                        pass
+                if not messages:
+                    log_print(f'{openai_template_file} is not a valid json template, please check the template file!')
+                    return None
+                for message in messages:
+                    for key, value in message.items():
+                        if js_template in value:
+                            message[key] = value.replace(js_template, js)
 
-                    prompt_user = f'Next you will receive the text that needs to be translated into {target}. \n' + \
-                             f'{js}'
-                    # prompt = f'You are a meticulous translator who translates any given content.Remember that json:{js} Be faithful or accurate in translation.Make the translation readable or intelligible. Be elegant or natural in translation.Never merge the translation result.Make sure each translated text returned in original order.Translate the content into {target}.'
-                    chat_completion = client.with_options(timeout=self.timeout, max_retries=2).chat.completions.create(
-                        messages=[
-                            {
-                                "role": "system",
-                                "content": prompt_sys,
-                            },
-                            {
-                                "role": "user",
-                                "content": prompt_user,
-                            }
-                        ],
-                        model=self.model,
-                        # response_format={"type": "json_object"},
-                    )
+                if source is not None and source != 'AUTO':
+                    pass
+                else:
+                    source = ''
+                chat_completion = client.with_options(timeout=self.timeout, max_retries=2).chat.completions.create(
+                    messages=messages,
+                    model=self.model,
+                    # response_format={"type": "json_object"},
+                )
             except openai.APIConnectionError as e:
                 log_print("The server could not be reached")
                 log_print(e.__cause__)  # an underlying Exception, likely raised within httpx.

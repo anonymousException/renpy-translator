@@ -676,6 +676,11 @@
         <source>detect network delay</source>
         <translation>détecter le retard du réseau</translation>
     </message>
+    <message>
+        <location filename="../engine.ui" line="391"/>
+        <source>Custom Prompt Template</source>
+        <translation>Modèle d&apos;invite personnalisé</translation>
+    </message>
 </context>
 <context>
     <name>ExportSettingDialog</name>

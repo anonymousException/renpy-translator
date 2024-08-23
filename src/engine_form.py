@@ -13,6 +13,7 @@ from ping3 import ping
 from engine import Ui_EngineDialog
 from my_log import log_print
 from renpy_translate import engineDic, engineList
+import openai_translate
 
 
 def get_ping_host(ip):
@@ -90,6 +91,14 @@ class MyEngineForm(QDialog, Ui_EngineDialog):
         self.rpmEdit.setValidator(validator)
         self.maxLengthEdit.setValidator(validator)
         self.detectButton.clicked.connect(self.dect_network)
+        self.customPromptButton.clicked.connect(self.custom_prompt)
+
+    def custom_prompt(self):
+        if os.path.isfile(openai_translate.openai_template_file):
+            command = 'notepad ' + openai_translate.openai_template_file
+            p = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                                 creationflags=0x08000000, text=True, encoding='utf-8')
+            p.wait()
 
     def detect_network_thread(self, engine, url):
         delay = -1

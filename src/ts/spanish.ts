@@ -676,6 +676,11 @@
         <source>detect network delay</source>
         <translation>detectar retraso en la red</translation>
     </message>
+    <message>
+        <location filename="../engine.ui" line="391"/>
+        <source>Custom Prompt Template</source>
+        <translation>Plantilla de aviso personalizada</translation>
+    </message>
 </context>
 <context>
     <name>ExportSettingDialog</name>

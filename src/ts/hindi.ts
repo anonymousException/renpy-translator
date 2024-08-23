@@ -676,6 +676,11 @@
         <source>detect network delay</source>
         <translation>नेटवर्क विलंब का पता लगाना</translation>
     </message>
+    <message>
+        <location filename="../engine.ui" line="391"/>
+        <source>Custom Prompt Template</source>
+        <translation>कस्टम प्रॉम्प्ट टेम्पलेट</translation>
+    </message>
 </context>
 <context>
     <name>ExportSettingDialog</name>

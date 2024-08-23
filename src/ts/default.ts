@@ -676,6 +676,11 @@
         <source>detect network delay</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../engine.ui" line="391"/>
+        <source>Custom Prompt Template</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ExportSettingDialog</name>

@@ -317,10 +317,10 @@
   <widget class="QLineEdit" name="timeoutEdit">
    <property name="geometry">
     <rect>
-     <x>630</x>
+     <x>620</x>
      <y>310</y>
-     <width>371</width>
-     <height>41</height>
+     <width>381</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="text">
@@ -331,7 +331,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>370</y>
+     <y>380</y>
      <width>981</width>
      <height>81</height>
     </rect>
@@ -347,7 +347,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>460</y>
+     <y>465</y>
      <width>981</width>
      <height>31</height>
     </rect>
@@ -373,6 +373,22 @@
    </property>
    <property name="text">
     <string>detect network delay</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="customPromptButton">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>350</y>
+     <width>981</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="text">
+    <string>Custom Prompt Template</string>
    </property>
   </widget>
  </widget>
