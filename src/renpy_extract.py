@@ -19,10 +19,105 @@ extract_threads = []
 lock = threading.Lock()
 
 num = 0
+get_extracted_threads = []
+get_extracted_lock = threading.Lock()
+get_extracted_set_list = []
+
+
+class ExtractTlThread(threading.Thread):
+    def __init__(self, p, is_py2):
+        threading.Thread.__init__(self)
+        self.p = p
+        self.is_py2 = is_py2
+
+    def run(self):
+        extracted = ExtractFromFile(self.p, False, 9999, False, self.is_py2)
+        get_extracted_lock.acquire()
+        get_extracted_set_list.append((self.p, extracted))
+        get_extracted_lock.release()
+
+
+def get_extracted_from_tl(tl_dir, is_py2):
+    p = tl_dir
+    if (p[len(p) - 1] != '/' and p[len(p) - 1] != '\\'):
+        p = p + '/'
+    e = set()
+    paths = os.walk(p, topdown=False)
+    global get_extracted_threads
+    global get_extracted_set_list
+    global get_extracted_lock
+    cnt = 0
+    get_extracted_set_list.clear()
+    for path, dir_lst, file_lst in paths:
+        for file_name in file_lst:
+            i = os.path.join(path, file_name)
+            if (file_name.endswith("rpy") == False):
+                continue
+            t = ExtractTlThread(i, is_py2)
+            get_extracted_threads.append(t)
+            cnt = cnt + 1
+            t.start()
+    while True:
+        threads_len = len(get_extracted_threads)
+        if threads_len > 0:
+            for t in get_extracted_threads:
+                if t.is_alive():
+                    t.join()
+                get_extracted_threads.remove(t)
+        else:
+            break
+    all_extracted = set()
+    for i, get_extracted_set in get_extracted_set_list:
+        both = get_extracted_set & all_extracted
+
+        if len(both) > 0:
+            is_modified = False
+            f = io.open(i, 'r', encoding='utf-8')
+            lines = f.readlines()
+            f.close()
+            for j in both:
+                if not j.startswith('_p("""') and not j.endswith('""")'):
+                    j = '"' + j + '"'
+                for index, line in enumerate(lines):
+                    if line.startswith('    old ' + j):
+                        lines[index] = ''
+                        lines[index + 1] = ''
+                        is_modified = True
+            if is_modified:
+                log_print('Repeated Text Found, Modifying' + i + ' ' + str(list(both)[0:3]) + ' ...')
+                f = io.open(i, 'w', encoding='utf-8')
+                f.writelines(lines)
+                f.close()
+        all_extracted = all_extracted | get_extracted_set
+    return all_extracted
+
+
+def remove_repeat_for_file(p):
+    f = io.open(p, 'r', encoding='utf-8')
+    lines = f.readlines()
+    f.close()
+    exist_set = set()
+    is_removed = False
+    for index, line in enumerate(lines):
+        line = line.rstrip('\n')
+        if len(line) <= 4:
+            continue
+        if line not in exist_set:
+            exist_set.add(line)
+        else:
+            if line.startswith('    old ') or line.startswith('    new '):
+                log_print('Remove Repeat in ' + str(index) + ' : ' + lines[index].rstrip("\n"))
+                lines[index] = ''
+                is_removed = True
+    if is_removed:
+        f = io.open(p, 'w', encoding='utf-8')
+        f.writelines(lines)
+        f.close()
 
 
 class extractThread(threading.Thread):
-    def __init__(self, threadID, p, tl_name, dirs, tl_dir, is_open_filter, filter_length, is_gen_empty, is_skip_underline):
+    def __init__(self, threadID, p, tl_name, dirs, tl_dir, is_open_filter, filter_length, is_gen_empty,
+                 is_skip_underline):
         threading.Thread.__init__(self)
         self.threadID = threadID
         self.p = p
@@ -43,7 +138,8 @@ class extractThread(threading.Thread):
                     ori_tl = os.path.basename(self.tl_dir)
                     self.tl_dir = self.tl_dir[:-len(ori_tl)] + self.tl_name
                 log_print(self.tl_dir + ' begin extract!')
-                ExtractAllFilesInDir(self.tl_dir, self.is_open_filter, self.filter_length, self.is_gen_empty, self.is_skip_underline)
+                ExtractAllFilesInDir(self.tl_dir, self.is_open_filter, self.filter_length, self.is_gen_empty,
+                                     self.is_skip_underline)
             else:
                 if self.p is not None:
                     self.p = self.p.replace('\\', '/')
@@ -77,7 +173,9 @@ def is_path_or_dir_string(_string):
             return True
     return False
 
+
 def ExtractFromFile(p, is_open_filter, filter_length, is_skip_underline, is_py2):
+    remove_repeat_for_file(p)
     e = set()
     f = io.open(p, 'r+', encoding='utf-8')
     _read = f.read()
@@ -88,7 +186,7 @@ def ExtractFromFile(p, is_open_filter, filter_length, is_skip_underline, is_py2)
     is_in__p = False
     p_content = ''
     for index, line_content in enumerate(_read_line):
-        if 'ConditionSwitch('  in line_content:
+        if 'ConditionSwitch(' in line_content:
             if not line_content.strip().endswith(')'):
                 is_in_condition_switch = True
             continue
@@ -118,9 +216,9 @@ def ExtractFromFile(p, is_open_filter, filter_length, is_skip_underline, is_py2)
                 if is_py2:
                     p_content = p_content.strip()[6:-4]
                     p_content = p_content.rstrip('\n').replace('\n', '\\n')
-                #log_print(p_content)
+                # log_print(p_content)
                 if filter_length != 9999:
-                    log_print(f'Found _p() in {p}:{index+1}')
+                    log_print(f'Found _p() in {p}:{index + 1}')
                 e.add(p_content)
                 is_in__p = False
                 p_content = ''
@@ -130,7 +228,7 @@ def ExtractFromFile(p, is_open_filter, filter_length, is_skip_underline, is_py2)
             if cmp_line_content.startswith('label '):
                 continue
             if line_content.strip().startswith('default '):
-            	continue
+                continue
         # log_print(line_content)
         is_add = False
         d = EncodeBracketContent(line_content, '"', '"')
@@ -234,37 +332,6 @@ def CreateEmptyFileIfNotExsit(p):
                 pathlib.Path(targetDir).mkdir(parents=True, exist_ok=True)
             if os.path.isfile(target) == False:
                 open(target, 'w').close()
-
-
-def GetExtractedSet(p, is_skip_underline, is_py2):
-    if (p[len(p) - 1] != '/' and p[len(p) - 1] != '\\'):
-        p = p + '/'
-    e = set()
-    paths = os.walk(p, topdown=False)
-    for path, dir_lst, file_lst in paths:
-        for file_name in file_lst:
-            i = os.path.join(path, file_name)
-            if (file_name.endswith("rpy") == False):
-                continue
-            extracted = ExtractFromFile(i, False, 9999, is_skip_underline, is_py2)
-            both = e & extracted
-            if len(both) > 0:
-                f = io.open(i, 'r', encoding='utf-8')
-                lines = f.readlines()
-                f.close()
-                for j in both:
-                    if not j.startswith('_p("""') and not j.endswith('""")'):
-                        j = '"' + j + '"'
-                    for index, line in enumerate(lines):
-                        if line.startswith('    old ' + j):
-                            lines[index] = '\n'
-                            lines[index + 1] = '\n'
-                f = io.open(i, 'w', encoding='utf-8')
-                f.writelines(lines)
-                f.close()
-
-            e = e | extracted
-    return e
 
 
 def WriteExtracted(p, extractedSet, is_open_filter, filter_length, is_gen_empty, is_skip_underline, is_py2):
@@ -399,6 +466,6 @@ def ExtractWriteFile(p, tl_name, is_open_filter, filter_length, is_gen_empty, gl
 def ExtractAllFilesInDir(dirName, is_open_filter, filter_length, is_gen_empty, is_skip_underline):
     is_py2 = is_python2_from_game_dir(dirName + '/../../../')
     CreateEmptyFileIfNotExsit(dirName)
-    ret = GetExtractedSet(dirName, is_skip_underline, is_py2)
+    ret = get_extracted_from_tl(dirName, is_py2)
     WriteExtracted(dirName, ret, is_open_filter, filter_length, is_gen_empty, is_skip_underline, is_py2)
-    ret = GetExtractedSet(dirName, is_skip_underline, is_py2)
+    ret = get_extracted_from_tl(dirName, is_py2)
