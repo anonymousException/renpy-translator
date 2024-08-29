@@ -37,9 +37,9 @@ class ExtractTlThread(threading.Thread):
         get_extracted_lock.release()
 
 
-def get_extracted_from_tl(tl_dir, is_py2):
+def remove_repeat_extracted_from_tl(tl_dir, is_py2):
     p = tl_dir
-    if (p[len(p) - 1] != '/' and p[len(p) - 1] != '\\'):
+    if p[len(p) - 1] != '/' and p[len(p) - 1] != '\\':
         p = p + '/'
     e = set()
     paths = os.walk(p, topdown=False)
@@ -66,30 +66,73 @@ def get_extracted_from_tl(tl_dir, is_py2):
                 get_extracted_threads.remove(t)
         else:
             break
-    all_extracted = set()
-    for i, get_extracted_set in get_extracted_set_list:
-        both = get_extracted_set & all_extracted
-
-        if len(both) > 0:
-            is_modified = False
-            f = io.open(i, 'r', encoding='utf-8')
-            lines = f.readlines()
-            f.close()
-            for j in both:
-                if not j.startswith('_p("""') and not j.endswith('""")'):
-                    j = '"' + j + '"'
-                for index, line in enumerate(lines):
-                    if line.startswith('    old ' + j):
-                        lines[index] = ''
-                        lines[index + 1] = ''
-                        is_modified = True
-            if is_modified:
-                log_print('Repeated Text Found, Modifying' + i + ' ' + str(list(both)[0:3]) + ' ...')
-                f = io.open(i, 'w', encoding='utf-8')
-                f.writelines(lines)
+    i = 0
+    while i < len(get_extracted_set_list):
+        for k in range(i + 1, len(get_extracted_set_list)):
+            p1, set1 = get_extracted_set_list[i]
+            p2, set2 = get_extracted_set_list[k]
+            both = set1 & set2
+            if len(both) > 0:
+                is_modified1 = False
+                is_modified2 = False
+                dic1 = dict()
+                dic2 = dict()
+                f = io.open(p1, 'r', encoding='utf-8')
+                lines1 = f.readlines()
                 f.close()
-        all_extracted = all_extracted | get_extracted_set
-    return all_extracted
+                f = io.open(p2, 'r', encoding='utf-8')
+                lines2 = f.readlines()
+                f.close()
+                for j in both:
+                    if not j.startswith('_p("""') and not j.endswith('""")'):
+                        j = '"' + j + '"'
+                    _cmp = '    old ' + j + '\n'
+                    if lines1.count(_cmp) > 0 and lines2.count(_cmp) > 0:
+                        _idx1 = lines1.index(_cmp)
+                        _idx2 = lines2.index(_cmp)
+                        _len1 = len(lines1)
+                        _len2 = len(lines2)
+                        if _len1 < _len2:
+                            # log_print(
+                            #     'Repeated Text Found in ' + p1 + ' ' + str(_idx1) + ' : \n' + lines1[_idx1].rstrip(
+                            #         "\n") + '\n' +  lines1[_idx1 + 1].rstrip(
+                            #         "\n"))
+                            lines1[_idx1] = ''
+                            lines1[_idx1 + 1] = ''
+                            is_modified1 = True
+                        else:
+                            # log_print(
+                            #     'Repeated Text Found in ' + p2 + ' ' + str(_idx2) + ' : \n' + lines2[_idx2].rstrip(
+                            #         "\n") + '\n' + lines2[_idx2 + 1].rstrip(
+                            #         "\n"))
+                            lines2[_idx2] = ''
+                            lines2[_idx2 + 1] = ''
+                            is_modified2 = True
+                if is_modified1:
+                    f = io.open(p1, 'w', encoding='utf-8')
+                    lines1 = get_remove_consecutive_empty_lines(lines1)
+                    f.writelines(lines1)
+                    f.close()
+                if is_modified2:
+                    f = io.open(p2, 'w', encoding='utf-8')
+                    lines2 = get_remove_consecutive_empty_lines(lines2)
+                    f.writelines(lines2)
+                    f.close()
+        i = i + 1
+
+
+def get_remove_consecutive_empty_lines(lines):
+    last_line_empty = False
+    new_lines = []
+    for line in lines:
+        if line.strip() == '':
+            if not last_line_empty:
+                new_lines.append(line)
+            last_line_empty = True
+        else:
+            new_lines.append(line)
+            last_line_empty = False
+    return new_lines
 
 
 def remove_repeat_for_file(p):
@@ -105,12 +148,18 @@ def remove_repeat_for_file(p):
         if line not in exist_set:
             exist_set.add(line)
         else:
-            if line.startswith('    old ') or line.startswith('    new '):
-                log_print('Remove Repeat in ' + str(index) + ' : ' + lines[index].rstrip("\n"))
-                lines[index] = ''
-                is_removed = True
+            if line.startswith('    old '):
+                if (index + 1) <= len(lines):
+                    new_line = lines[index + 1]
+                    if new_line.startswith('    new '):
+                        # log_print('Remove Repeat in ' + p + ' ' + str(index) + ' : \n' + lines[index].rstrip(
+                        #     "\n") + '\n' + new_line.rstrip("\n"))
+                        lines[index] = ''
+                        lines[index + 1] = ''
+                        is_removed = True
     if is_removed:
         f = io.open(p, 'w', encoding='utf-8')
+        lines = get_remove_consecutive_empty_lines(lines)
         f.writelines(lines)
         f.close()
 
@@ -466,6 +515,6 @@ def ExtractWriteFile(p, tl_name, is_open_filter, filter_length, is_gen_empty, gl
 def ExtractAllFilesInDir(dirName, is_open_filter, filter_length, is_gen_empty, is_skip_underline):
     is_py2 = is_python2_from_game_dir(dirName + '/../../../')
     CreateEmptyFileIfNotExsit(dirName)
-    ret = get_extracted_from_tl(dirName, is_py2)
-    WriteExtracted(dirName, ret, is_open_filter, filter_length, is_gen_empty, is_skip_underline, is_py2)
-    ret = get_extracted_from_tl(dirName, is_py2)
+    WriteExtracted(dirName, set(), is_open_filter, filter_length, is_gen_empty, is_skip_underline, is_py2)
+    log_print('start removing repeated extraction, please waiting...')
+    remove_repeat_extracted_from_tl(dirName, is_py2)
