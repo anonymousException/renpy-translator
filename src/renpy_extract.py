@@ -113,11 +113,13 @@ def remove_repeat_extracted_from_tl(tl_dir, is_py2):
                     lines1 = get_remove_consecutive_empty_lines(lines1)
                     f.writelines(lines1)
                     f.close()
+                    remove_repeat_for_file(p1)
                 if is_modified2:
                     f = io.open(p2, 'w', encoding='utf-8')
                     lines2 = get_remove_consecutive_empty_lines(lines2)
                     f.writelines(lines2)
                     f.close()
+                    remove_repeat_for_file(p2)
         i = i + 1
 
 
@@ -141,10 +143,24 @@ def remove_repeat_for_file(p):
     f.close()
     exist_set = set()
     is_removed = False
+    is_empty_translate = True
+    start_translate_block_line = -1
     for index, line in enumerate(lines):
         line = line.rstrip('\n')
+        if line.startswith('translate ') and line.endswith('strings:'):
+            if start_translate_block_line != -1:
+                if is_empty_translate:
+                    is_removed = True
+                    for idx in range(start_translate_block_line, index - 1):
+                        lines[idx] = ''
+                is_empty_translate = True
+            start_translate_block_line = index
+            continue
         if len(line) <= 4:
             continue
+        if not line.startswith('    old "old:') and not line.startswith(
+                '    new "new:') and not line.lstrip().startswith('#'):
+            is_empty_translate = False
         if line not in exist_set:
             exist_set.add(line)
         else:
@@ -152,6 +168,8 @@ def remove_repeat_for_file(p):
                 if (index + 1) <= len(lines):
                     new_line = lines[index + 1]
                     if new_line.startswith('    new '):
+                        if line.startswith('    old ') and index > 0 and lines[index - 1].lstrip().startswith('#'):
+                            lines[index - 1] = ''
                         # log_print('Remove Repeat in ' + p + ' ' + str(index) + ' : \n' + lines[index].rstrip(
                         #     "\n") + '\n' + new_line.rstrip("\n"))
                         lines[index] = ''
@@ -195,6 +213,7 @@ class extractThread(threading.Thread):
                     log_print(self.p + ' begin extract!')
                     ExtractWriteFile(self.p, self.tl_name, self.is_open_filter, self.filter_length, self.is_gen_empty,
                                      set(), self.is_skip_underline)
+                    remove_repeat_for_file(self.p)
                 if self.dirs is not None:
                     global_e = set()
                     for _dir in self.dirs:
@@ -209,6 +228,7 @@ class extractThread(threading.Thread):
                                     continue
                                 ret_e = ExtractWriteFile(i, self.tl_name, self.is_open_filter, self.filter_length,
                                                          self.is_gen_empty, global_e, self.is_skip_underline)
+                                remove_repeat_for_file(i)
                                 global_e = global_e | ret_e
 
         except Exception as e:
