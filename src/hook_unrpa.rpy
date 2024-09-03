@@ -16,6 +16,8 @@ init python early hide:
     MAX_UNPACK_THREADS = 12
     global SCRIPT_ONLY
     SCRIPT_ONLY = False
+    global SKIP_IF_EXIST
+    SKIP_IF_EXIST = True
     global unpack_semaphore
     unpack_semaphore = threading.Semaphore(MAX_UNPACK_THREADS)
     non_ascii_file_list = []
@@ -42,6 +44,10 @@ init python early hide:
     global write_out_to_file
     def write_out_to_file(semaphore, name, write_path, _write_data):
         with semaphore:
+            if SKIP_IF_EXIST:
+                if os.path.isfile(write_path[:-1]) or os.path.isfile(write_path):
+                    print(write_path + ' skip due to exist')
+                    return
             if is_ascii(name):
                 print(write_path)
             else:

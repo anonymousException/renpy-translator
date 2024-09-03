@@ -120,6 +120,7 @@ class MyGameUnpackerForm(QDialog, Ui_GameUnpackerDialog):
         f.close()
         max_thread_num = 12
         is_script_only = True
+        is_skip_if_exist = True
         for idx, _line in enumerate(_read_lines):
             if _line.startswith('    MAX_UNPACK_THREADS = '):
                 max_thread_num = _line[len('    MAX_UNPACK_THREADS = '):].strip().strip('\n')
@@ -128,8 +129,13 @@ class MyGameUnpackerForm(QDialog, Ui_GameUnpackerDialog):
             if _line.startswith('    SCRIPT_ONLY = '):
                 is_script_only = _line[len('    SCRIPT_ONLY = '):].strip().strip('\n') == 'True'
                 break
+        for idx, _line in enumerate(_read_lines):
+            if _line.startswith('    SKIP_IF_EXIST = '):
+                is_skip_if_exist = _line[len('    SKIP_IF_EXIST = '):].strip().strip('\n') == 'True'
+                break
         self.maxThreadsLineEdit.setText(str(max_thread_num))
         self.unpackAllCheckBox.setChecked(not is_script_only)
+        self.overwriteCheckBox.setChecked(not is_skip_if_exist)
         _thread.start_new_thread(self.update, ())
 
     def closeEvent(self, event):
@@ -168,6 +174,10 @@ class MyGameUnpackerForm(QDialog, Ui_GameUnpackerDialog):
                 for idx, _line in enumerate(_read_lines):
                     if _line.startswith('    SCRIPT_ONLY = '):
                         _read_lines[idx] = f'    SCRIPT_ONLY = {str(not self.unpackAllCheckBox.isChecked())}\n'
+                        break
+                for idx, _line in enumerate(_read_lines):
+                    if _line.startswith('    SKIP_IF_EXIST = '):
+                        _read_lines[idx] = f'    SKIP_IF_EXIST = {str(not self.overwriteCheckBox.isChecked())}\n'
                         break
 
                 f = io.open(dir + '/game/' + hook_script, mode='w', encoding='utf-8')
