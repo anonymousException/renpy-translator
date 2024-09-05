@@ -223,6 +223,7 @@ class MyTreeView(QTreeView):
             self.tableView.horizontalHeader().setSectionResizeMode(QHeaderView.Interactive)
             self.tableView.file = full_path
             self.tableView.index = self.currentIndex()
+            self.tableView.editorForm.on_checkbox_state_changed()
 
     def on_selection_changed(self, selected, deselected):
         selected_indexes = selected.indexes()
@@ -308,6 +309,7 @@ class MySelectTableView(QTableView):
                     self.tableView.horizontalHeader().setSectionResizeMode(QHeaderView.Interactive)
                     self.tableView.file = select_one
                     self.tableView.index = index
+                    self.tableView.editorForm.on_checkbox_state_changed()
                 self.treeView.hide()
 
     def mousePressEvent(self, event):
@@ -918,7 +920,7 @@ class MyTableView(QTableView):
 
     def import_from_html(self):
         selected_indexes = self.selectionModel().selectedRows()
-        selected_rows = [index.row() for index in selected_indexes]
+        selected_rows = [index.row() for index in selected_indexes if not self.editorForm.tableView.verticalHeader().isSectionHidden(index.row())]
         selected_rows.sort(reverse=False)
         editorForm = self.editorForm
         if editorForm.myImportHtmlForm is None:
@@ -979,7 +981,7 @@ class MyTableView(QTableView):
         if reply != QMessageBox.Yes:
             is_replace_special_symbols = False
         selected_indexes = self.selectionModel().selectedRows()
-        selected_rows = [index.row() for index in selected_indexes]
+        selected_rows = [index.row() for index in selected_indexes if not self.editorForm.tableView.verticalHeader().isSectionHidden(index.row())]
         selected_rows.sort(reverse=False)
         l = []
         ret_l = []
@@ -1026,7 +1028,7 @@ class MyTableView(QTableView):
             ws.cell(row=1, column=1, value=self.model.horizontalHeaderItem(2).text())
             ws.cell(row=1, column=2, value=self.model.horizontalHeaderItem(3).text())
             selected_indexes = self.selectionModel().selectedRows()
-            selected_rows = [index.row() for index in selected_indexes]
+            selected_rows = [index.row() for index in selected_indexes if not self.editorForm.tableView.verticalHeader().isSectionHidden(index.row())]
             selected_rows.sort(reverse=False)
             cnt = 2
             for row in selected_rows:
@@ -1040,7 +1042,7 @@ class MyTableView(QTableView):
 
     def rollback_cur(self):
         selected_indexes = self.selectionModel().selectedRows()
-        selected_rows = [index.row() for index in selected_indexes]
+        selected_rows = [index.row() for index in selected_indexes if not self.editorForm.tableView.verticalHeader().isSectionHidden(index.row())]
         selected_rows.sort(reverse=True)
         for row in selected_rows:
             current = self.model.item(row, 0).data(Qt.UserRole)['current']
@@ -1050,7 +1052,7 @@ class MyTableView(QTableView):
         if os.path.isfile(web_brower_export_name):
             os.remove(web_brower_export_name)
         selected_indexes = self.selectionModel().selectedRows()
-        self.selected_rows = [index.row() for index in selected_indexes]
+        self.selected_rows = [index.row() for index in selected_indexes if not self.editorForm.tableView.verticalHeader().isSectionHidden(index.row())]
         self.selected_rows.sort(reverse=True)
         local_glossary = self.local_glossary
         transList = []
@@ -1129,7 +1131,7 @@ class MyTableView(QTableView):
 
     def copy_translated_to_cur(self):
         selected_indexes = self.selectionModel().selectedRows()
-        selected_rows = [index.row() for index in selected_indexes]
+        selected_rows = [index.row() for index in selected_indexes if not self.editorForm.tableView.verticalHeader().isSectionHidden(index.row())]
         selected_rows.sort(reverse=True)
         for row in selected_rows:
             translated = self.model.item(row, 4).text()
@@ -1137,7 +1139,7 @@ class MyTableView(QTableView):
 
     def copy_ori_to_cur(self):
         selected_indexes = self.selectionModel().selectedRows()
-        selected_rows = [index.row() for index in selected_indexes]
+        selected_rows = [index.row() for index in selected_indexes if not self.editorForm.tableView.verticalHeader().isSectionHidden(index.row())]
         selected_rows.sort(reverse=True)
         for row in selected_rows:
             ori = self.model.item(row, 2).text()
