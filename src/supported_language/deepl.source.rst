@@ -1,4 +1,3 @@
-Auto Detect:AUTO
 Bulgarian:BG
 Czech:CS
 Danish:DA
