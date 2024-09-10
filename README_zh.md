@@ -4,8 +4,7 @@
 
 <div align=center>一款免费开源的ren'py 翻译工具</div>
 
-<div align=center><img src= "https://img.shields.io/badge/python3.8-blue
-"></div>
+<div align=center><img src= "https://img.shields.io/badge/python3.8-blue"></div>
 
 ------
 
