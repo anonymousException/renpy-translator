@@ -1365,7 +1365,7 @@ class MyEditorForm(QDialog, Ui_EditorDialog):
                     target = customEngineDic[loaded_data['engine']]['target']
                     source = customEngineDic[loaded_data['engine']]['source']
                 else:
-                    log_print(loaded_data['engine'] + 'not in dic')
+                    log_print(loaded_data['engine'] + ' not in dic')
             if target is None or source is None:
                 log_print('target or source not found!')
                 return

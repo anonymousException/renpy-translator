@@ -1,4 +1,9 @@
-def tranlate_single(app_key,app_secret,source, target,proxies,text):
+# define the max length for each request
+def get_max_length():
+    return 4800
+
+
+def translate_single(app_key, app_secret, source, target, proxies, text):
     import hashlib
     import traceback
     import urllib
@@ -11,13 +16,15 @@ def tranlate_single(app_key,app_secret,source, target,proxies,text):
     fromLang = source
     toLang = target
     salt = random.randint(32768, 65536)
-    q= text
+    q = text
     sign = app_key + q + str(salt) + secretKey
     sign = hashlib.md5(sign.encode()).hexdigest()
-    myurl = myurl + '?appid=' + appid + '&q=' + urllib.parse.quote(q) + '&from=' + fromLang + '&to=' + toLang + '&salt=' + str(
-    salt) + '&sign=' + sign
+    myurl = myurl + '?appid=' + appid + '&q=' + urllib.parse.quote(
+        q) + '&from=' + fromLang + '&to=' + toLang + '&salt=' + str(
+        salt) + '&sign=' + sign
     try:
-        response = requests.request("GET", 'https://api.fanyi.baidu.com'+myurl , data=None, headers=None, proxies=proxies)
+        response = requests.request("GET", 'https://api.fanyi.baidu.com' + myurl, data=None, headers=None,
+                                    proxies=proxies)
         result = json.loads(response.text)["trans_result"]
         src = result[0]['src']
         dst = result[0]['dst']
@@ -29,6 +36,5 @@ def tranlate_single(app_key,app_secret,source, target,proxies,text):
         print(msg)
         return None
 
-
-# ret = tranlate_single('appid','secretKey','auto','jp',{'http':'http://localhost:10809'},'How are you')
+# ret = translate_single('appid','secretKey','auto','jp',{'http':'http://localhost:10809'},'How are you')
 # print(ret)

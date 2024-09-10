@@ -31,8 +31,8 @@ engineDic = {engineList[0]: {'url': 'https://cloud.google.com/translate/docs/qui
                              'secret_edit': False, 'target': 'google.target.rst', 'source': 'google.source.rst'},
              engineList[12]: {'url': '', 'key_edit': False,
                               'secret_edit': False, 'target': 'empty.rst', 'source': 'empty.rst'},
-             engineList[4]: {'url': 'https://platform.openai.com/api-keys', 'key_edit': True,
-                             'secret_edit': False, 'target': 'openai.target.rst', 'source': 'openai.source.rst'},
+             # engineList[4]: {'url': 'https://platform.openai.com/api-keys', 'key_edit': True,
+             #                 'secret_edit': False, 'target': 'openai.target.rst', 'source': 'openai.source.rst'},
              engineList[10]: {'url': 'https://ai.youdao.com/doc.s#guide', 'key_edit': False,
                               'secret_edit': False, 'target': 'youdao_free.target.rst',
                               'source': 'youdao_free.source.rst'},
@@ -91,6 +91,7 @@ class translateThread(threading.Thread):
                                self.is_translate_current, self.is_skip_translated, self.is_open_filter,
                                self.filter_length, self.is_replace_special_symbols)
         except Exception as e:
+            rpy_info_dic.pop(self.p)
             msg = traceback.format_exc()
             log_print(msg)
             if os.path.isfile('translating'):

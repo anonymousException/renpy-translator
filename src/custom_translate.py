@@ -46,7 +46,14 @@ class CustomTranslate(object):
         self.is_queue = is_queue
 
     def translate(self, q, source, target):
-        result_arrays = split_strings(q, 4800)
+        ret = run_dynamic_code_from_file(self.file_name, 'translate', self.app_key, self.app_secret,
+                                         source, target, self.proxies, q)
+        if ret is not None:
+            return ret
+        max_length = run_dynamic_code_from_file(self.file_name, 'get_max_length')
+        if max_length is None:
+            max_length = 4800
+        result_arrays = split_strings(q, max_length)
         ret_l = []
         to_do = []
         with concurrent.futures.ThreadPoolExecutor() as executor:
@@ -78,7 +85,7 @@ class CustomTranslate(object):
                     # 4.target_language
                     # 5.proxies
                     # 6.untranslatedText
-                    ret = run_dynamic_code_from_file(self.file_name, 'tranlate_single', self.app_key, self.app_secret,
+                    ret = run_dynamic_code_from_file(self.file_name, 'translate_single', self.app_key, self.app_secret,
                                                      source, target, self.proxies, i)
                     if ret is not None:
                         if len(ret) > 0:
@@ -99,7 +106,7 @@ class CustomTranslate(object):
                 # 4.target_language
                 # 5.proxies
                 # 6.untranslatedTextList
-                ret = run_dynamic_code_from_file(self.file_name, 'tranlate_queue', self.app_key, self.app_secret, source,
+                ret = run_dynamic_code_from_file(self.file_name, 'translate_queue', self.app_key, self.app_secret, source,
                                                  target, self.proxies, q)
                 if ret is None:
                     raise Exception('run_dynamic_code_from_file return None , please check your code')
