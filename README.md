@@ -5,8 +5,7 @@
 
 <div align=center>A free and open-source translator for ren'py</div>
 
-<div align=center><img src= "https://img.shields.io/badge/python3.8-blue
-"></div>
+<div align=center><img src= "https://img.shields.io/badge/python3.8-blue"></div>
 
 ------
 
