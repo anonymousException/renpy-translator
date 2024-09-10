@@ -257,7 +257,11 @@ def translate(_app_key, _app_secret, source, target, _proxies, q):
                 os.remove('translating')
 
     global limit_time_span_dic
-    init_openai_param()
+    try:
+        init_openai_param()
+    except Exception as e:
+        print('failed to init openai parameter, please check your config in engine settings for OpenAI')
+        return []
     app_key = _app_key
     result_arrays = split_strings(q, max_length)
     ret_l = []
