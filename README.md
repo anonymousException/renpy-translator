@@ -5,7 +5,8 @@
 
 <div align=center>A free and open-source translator for ren'py</div>
 
-<div align=center><img src= "https://camo.githubusercontent.com/60c21c6ef57c61b0a329f621af32f87c9b4ffe0283eeebe8a453e60de2675c51/68747470733a2f2f696d672e736869656c64732e696f2f707970692f707976657273696f6e732f6c616d612d636c65616e6572"></div>
+<div align=center><img src= "https://img.shields.io/badge/python3.8-blue
+"></div>
 
 ------
 
@@ -40,9 +41,8 @@ https://github.com/anonymousException/renpy-translator/blob/feature/ai-translate
 |           [Alibaba](https://translate.alibaba.com)           |            214            |          Free          |   [damo](https://damo.alibaba.com/about?tab=0&language=zh)   |  China  |  [translators](https://github.com/UlionTse/translators)  |
 |        [ModernMt](https://www.modernmt.com/translate)        |            200            |          Free          | [Modernmt](https://github.com/modernmt) / [Translated](https://translatedlabs.com/welcome) |  Italy  |  [translators](https://github.com/UlionTse/translators)  |
 |           [Bing](https://www.bing.com/Translator)            |            133            |          Free          | [Modernmt](https://github.com/modernmt) / [Translated](https://translatedlabs.com/welcome) |  Italy  |  [translators](https://github.com/UlionTse/translators)  |
-|           [lingvanex](https://lingvanex.com/demo)            |            109            |          Free          |         [Lingvanex](https://lingvanex.com/about-us/)         | Cyprus  |  [translators](https://github.com/UlionTse/translators)  |
 | [CloudTranslation](https://www.cloudtranslation.com/#/translate) |             8             |          Free          | [Xiamen University](http://nlp.xmu.edu.cn/) / [CloudTranslation](https://www.cloudtranslation.com/#/about) |  China  |  [translators](https://github.com/UlionTse/translators)  |
-|            [Caiyun](https://fanyi.caiyunapp.com/)            |             3             |  Free\|Token Required  |         [ColorfulClouds](http://caiyunapp.com/jobs/)         |  China  |  [translators](https://github.com/UlionTse/translators)  |
+|            [Caiyun](https://fanyi.caiyunapp.com/)            |             3             |     Token Required     |         [ColorfulClouds](http://caiyunapp.com/jobs/)         |  China  |                                                          |
 
 ## Usage
 
@@ -742,7 +742,7 @@ It's depend on your network environment , re-translate may do effect
 
 You can write a python script which supports translation api , and import it to this tool
 
-you should write like [caiyun.py](https://github.com/anonymousException/renpy-translator/blob/main/src/custom_engine/caiyun.py)  and [baidu.py](https://github.com/anonymousException/renpy-translator/blob/main/src/custom_engine/baidu.py) (the api name must be tranlate_single or tranlate_queue)
+you should write like [_caiyun.py](https://github.com/anonymousException/renpy-translator/blob/main/src/custom_engine/_caiyun.py)  and [_baidu.py](https://github.com/anonymousException/renpy-translator/blob/main/src/custom_engine/_baidu.py) (the api name must be tranlate_single or tranlate_queue)
 
 besides you should offer two language files for source and target like [caiyun.source.rst](https://github.com/anonymousException/renpy-translator/blob/main/src/supported_language/caiyun.source.rst?plain=1) and  [caiyun.target.rst](https://github.com/anonymousException/renpy-translator/blob/main/src/supported_language/caiyun.target.rst?plain=1) 
 

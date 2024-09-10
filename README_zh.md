@@ -4,7 +4,8 @@
 
 <div align=center>一款免费开源的ren'py 翻译工具</div>
 
-<div align=center><img src= "https://camo.githubusercontent.com/60c21c6ef57c61b0a329f621af32f87c9b4ffe0283eeebe8a453e60de2675c51/68747470733a2f2f696d672e736869656c64732e696f2f707970692f707976657273696f6e732f6c616d612d636c65616e6572"></div>
+<div align=center><img src= "https://img.shields.io/badge/python3.8-blue
+"></div>
 
 ------
 
@@ -37,9 +38,8 @@ https://github.com/anonymousException/renpy-translator/blob/feature/ai-translate
 |           [Alibaba](https://translate.alibaba.com)           |            214            |          Free          |   [damo](https://damo.alibaba.com/about?tab=0&language=zh)   |  China  |  [translators](https://github.com/UlionTse/translators)  |
 |        [ModernMt](https://www.modernmt.com/translate)        |            200            |          Free          | [Modernmt](https://github.com/modernmt) / [Translated](https://translatedlabs.com/welcome) |  Italy  |  [translators](https://github.com/UlionTse/translators)  |
 |           [Bing](https://www.bing.com/Translator)            |            133            |          Free          | [Modernmt](https://github.com/modernmt) / [Translated](https://translatedlabs.com/welcome) |  Italy  |  [translators](https://github.com/UlionTse/translators)  |
-|           [lingvanex](https://lingvanex.com/demo)            |            109            |          Free          |         [Lingvanex](https://lingvanex.com/about-us/)         | Cyprus  |  [translators](https://github.com/UlionTse/translators)  |
 | [CloudTranslation](https://www.cloudtranslation.com/#/translate) |             8             |          Free          | [Xiamen University](http://nlp.xmu.edu.cn/) / [CloudTranslation](https://www.cloudtranslation.com/#/about) |  China  |  [translators](https://github.com/UlionTse/translators)  |
-|            [Caiyun](https://fanyi.caiyunapp.com/)            |             3             |          Free          |         [ColorfulClouds](http://caiyunapp.com/jobs/)         |  China  |  [translators](https://github.com/UlionTse/translators)  |
+|            [Caiyun](https://fanyi.caiyunapp.com/)            |             3             |     Token Required     |         [ColorfulClouds](http://caiyunapp.com/jobs/)         |  China  |                                                          |
 
 ## 用法
 
@@ -738,7 +738,7 @@ Exception: Unterminated string starting at: line 1 column 1613 (char 1612)
 
 你可以写一个提供翻译 api 的 python 脚本，并把它导入到此工具
 
-你应该参照 [caiyun.py](https://github.com/anonymousException/renpy-translator/blob/main/src/custom_engine/caiyun.py) 和  [baidu.py](https://github.com/anonymousException/renpy-translator/blob/main/src/custom_engine/baidu.py)   来写 (api 函数名必须是 tranlate_single 或 tranlate_queue)
+你应该参照 [_caiyun.py](https://github.com/anonymousException/renpy-translator/blob/main/src/custom_engine/_caiyun.py) 和  [_baidu.py](https://github.com/anonymousException/renpy-translator/blob/main/src/custom_engine/_baidu.py)   来写 (api 函数名必须是 tranlate_single 或 tranlate_queue)
 
 除此之外你还应该为 source 和 target 提供 2 个语言文件像 [caiyun.source.rst](https://github.com/anonymousException/renpy-translator/blob/main/src/supported_language/caiyun.source.rst?plain=1) 和 [caiyun.target.rst](https://github.com/anonymousException/renpy-translator/blob/main/src/supported_language/caiyun.target.rst?plain=1) 
 
