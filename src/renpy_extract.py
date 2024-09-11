@@ -25,13 +25,18 @@ get_extracted_set_list = []
 
 
 class ExtractTlThread(threading.Thread):
-    def __init__(self, p, is_py2):
+    def __init__(self, p, is_py2, is_remove_repeat_only = False):
         threading.Thread.__init__(self)
         self.p = p
         self.is_py2 = is_py2
+        self.is_remove_repeat_only = is_remove_repeat_only
 
     def run(self):
-        extracted = ExtractFromFile(self.p, False, 9999, False, self.is_py2)
+        if not self.is_remove_repeat_only:
+            extracted = ExtractFromFile(self.p, False, 9999, False, self.is_py2)
+        else:
+            remove_repeat_for_file(self.p)
+            extracted = None
         get_extracted_lock.acquire()
         get_extracted_set_list.append((self.p, extracted))
         get_extracted_lock.release()
@@ -51,7 +56,7 @@ def remove_repeat_extracted_from_tl(tl_dir, is_py2):
     for path, dir_lst, file_lst in paths:
         for file_name in file_lst:
             i = os.path.join(path, file_name)
-            if (file_name.endswith("rpy") == False):
+            if file_name.endswith("rpy") == False:
                 continue
             t = ExtractTlThread(i, is_py2)
             get_extracted_threads.append(t)
@@ -127,7 +132,28 @@ def remove_repeat_extracted_from_tl(tl_dir, is_py2):
                     f.close()
                     remove_repeat_for_file(p2)
         i = i + 1
-
+    cnt = 0
+    get_extracted_set_list.clear()
+    paths = os.walk(p, topdown=False)
+    for path, dir_lst, file_lst in paths:
+        for file_name in file_lst:
+            i = os.path.join(path, file_name)
+            if file_name.endswith("rpy") == False:
+                continue
+            t = ExtractTlThread(i, is_py2, True)
+            get_extracted_threads.append(t)
+            cnt = cnt + 1
+            t.start()
+    while True:
+        threads_len = len(get_extracted_threads)
+        if threads_len > 0:
+            for t in get_extracted_threads:
+                if t.is_alive():
+                    t.join()
+                get_extracted_threads.remove(t)
+        else:
+            break
+    get_extracted_set_list.clear()
 
 def get_remove_consecutive_empty_lines(lines):
     last_line_empty = False
