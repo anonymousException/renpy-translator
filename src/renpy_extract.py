@@ -92,6 +92,12 @@ def remove_repeat_extracted_from_tl(tl_dir, is_py2):
                         _idx2 = lines2.index(_cmp)
                         _len1 = len(lines1)
                         _len2 = len(lines2)
+                        is_both_old_new_format = False
+                        if _idx1 + 1 < len(lines1) and lines1[_idx1 + 1].startswith('    new ') and _idx2 + 1 < len(
+                                lines2) and lines2[_idx2 + 1].startswith('    new '):
+                            is_both_old_new_format = True
+                        if not is_both_old_new_format:
+                            continue
                         if _len1 < _len2:
                             # log_print(
                             #     'Repeated Text Found in ' + p1 + ' ' + str(_idx1) + ' : \n' + lines1[_idx1].rstrip(
@@ -147,10 +153,12 @@ def remove_repeat_for_file(p):
     start_translate_block_line = -1
     for index, line in enumerate(lines):
         line = line.rstrip('\n')
-        if line.startswith('translate ') and line.endswith('strings:'):
+        if (line.startswith('translate ') and line.endswith('strings:')) or index == len(lines) - 1:
             if start_translate_block_line != -1:
                 if is_empty_translate:
                     is_removed = True
+                    if index == len(lines) - 1:
+                        index = index + 1
                     for idx in range(start_translate_block_line, index - 1):
                         lines[idx] = ''
                 is_empty_translate = True

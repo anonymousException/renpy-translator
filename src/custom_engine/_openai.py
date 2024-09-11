@@ -186,7 +186,7 @@ def translate(_app_key, _app_secret, source, target, _proxies, q):
                 chat_completion = client.with_options(timeout=time_out, max_retries=2).chat.completions.create(
                     messages=messages,
                     model=model,
-                    temperature=1.3
+                    # temperature=1.3
                     # response_format={"type": "json_object"},
                 )
             except openai.APIConnectionError as e:

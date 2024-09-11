@@ -55,7 +55,7 @@ targetDic = dict()
 sourceDic = dict()
 translator = QTranslator()
 
-VERSION = '2.5.5'
+VERSION = '2.5.6'
 
 class MyProxyForm(QDialog, Ui_ProxyDialog):
     def __init__(self, parent=None):
@@ -416,6 +416,13 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
             self.myFormationForm.retranslateUi(self.myFormationForm)
 
     def to_language(self, lan):
+        reply = QMessageBox.question(self, QCoreApplication.translate("MainWindow", u"language", None),
+                                     f"Are you sure to switch to {lan}", QMessageBox.Yes |
+                                     QMessageBox.No, QMessageBox.No)
+
+        if reply != QMessageBox.Yes:
+            return
+
         if lan == 'english':
             app = QCoreApplication.instance()
             if app is not None:
