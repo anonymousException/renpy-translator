@@ -58,7 +58,7 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
         self.filterLengthLineEdit.setValidator(QIntValidator(1, 99, self))
         self.filterLengthLineEdit_2.setValidator(QIntValidator(1, 99, self))
         self.maxRecursionLineEdit.setValidator(QIntValidator(1, 65535, self))
-        self.maxRecursionLineEdit.setText('16')
+        self.maxRecursionLineEdit.setText('32')
         self.local_glossary = None
         self.localGlossaryCheckBox.clicked.connect(self.on_local_glossary_checkbox_state_changed)
         self.selectFontBtn.clicked.connect(self.select_font)
@@ -123,9 +123,6 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
         if self.officialExtractionCheckBox.isChecked():
             self.q.put(self.official_extract)
             self.qDic[self.official_extract] = (False, False)
-        if self.errorRepairCheckBox.isChecked():
-            self.q.put(self.repair)
-            self.qDic[self.repair] = (False, False)
         if self.extractionCheckBox.isChecked():
             self.q.put(self.extract)
             self.qDic[self.extract] = (False, False)
@@ -141,6 +138,9 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
         if self.translateCheckBox.isChecked():
             self.q.put(self.translate)
             self.qDic[self.translate] = (False, False)
+        if self.errorRepairCheckBox.isChecked():
+            self.q.put(self.repair)
+            self.qDic[self.repair] = (False, False)
         if len(self.qDic) > 0:
             self.hide()
             self.parent.showNormal()

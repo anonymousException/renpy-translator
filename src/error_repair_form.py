@@ -37,7 +37,7 @@ class MyErrorRepairForm(QDialog, Ui_ErrorRepairDialog):
         self.selectFileBtn.clicked.connect(self.select_file)
         self.repairBtn.clicked.connect(self.repair)
         self.maxRecursionLineEdit.setValidator(QIntValidator(1, 65535, self))
-        self.maxRecursionLineEdit.setText('16')
+        self.maxRecursionLineEdit.setText('32')
         self.repair_thread = None
         _thread.start_new_thread(self.update, ())
 

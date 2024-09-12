@@ -15,7 +15,8 @@ def get_renpy_cmd(game_path):
     game_dir = os.path.dirname(game_path)
 
     command = '"' + python_path + '"' + ' -O "' + py_path + '" "' + game_dir + '" lint ' + '"' + os.path.dirname(
-        game_path) + '/' + lint_out_path + '"'
+        game_path) + '/' + lint_out_path + '"' + ' >> ' + '"' + os.path.dirname(
+        game_path) + '/' + lint_out_path[:-4] + '.error.txt"'
     return command
 
 
@@ -24,32 +25,34 @@ def exec_renpy_lint(game_path):
     p = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
                          creationflags=0x08000000, text=True, encoding='utf-8')
     p.wait()
-    stdout, stderr = p.communicate()
-    return stdout, stderr
 
 
 def fix_translation_by_lint(game_path):
     target = os.path.dirname(game_path) + '/' + lint_out_path
     if os.path.isfile(target):
         os.remove(target)
-    stdout, stderr = exec_renpy_lint(game_path)
-    log_print('renpy lint finish, start analyzing...')
-    if len(stderr) > 0:
-        log_print(f'call renpy lint error : {stderr}')
-        return False
-    lines = stdout.splitlines()
+    exec_renpy_lint(game_path)
     if os.path.isfile(target):
         os.remove(target)
         return False
+    target = target[:-4] + '.error.txt'
+    if not os.path.isfile(target):
+        return False
+    f = io.open(target, 'r', encoding='utf-8')
+    lines = f.readlines()
+    f.close()
+    os.remove(target)
+    log_print('renpy lint finish, start analyzing...')
     is_fixed = False
     fix_list = []
     for line in lines:
+        line = line.rstrip('\n')
         err_file = ''
         err_line = -1
         if (line.endswith('is not terminated with a newline. (Check strings and parenthesis.)') or line.endswith(
                 'end of line expected.')
-                or line.endswith('expects a non-empty block.') or line.endswith('unknown statement') or line.endswith(
-                    'expected statement.')):
+                or line.endswith('expects a non-empty block.') or line.endswith('unknown statement')
+                or line.endswith('expected statement.')) or line.endswith('Could not parse string.'):
             idx = line.index(', line ')
             err_file = line[line.index(' ') + 1:idx].strip('"')
             err_line = line[idx + len(', line '): line.index(':', idx)].strip()
@@ -116,7 +119,10 @@ def fix_translation_by_lint(game_path):
         elif line.endswith('unknown statement') or line.endswith('expected statement.'):
             _lines[err_line] = '\n'
         else:
-            _lines[err_line] = '    ""\n'
+            if _lines[err_line].startswith('translate'):
+                _lines[err_line] = '\n'
+            else:
+                _lines[err_line] = '    ""\n'
         f = io.open(err_file, 'w', encoding='utf-8')
         _lines = get_remove_consecutive_empty_lines(_lines)
         f.writelines(_lines)
