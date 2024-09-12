@@ -272,64 +272,64 @@
     <name>EditorDialog</name>
     <message>
         <location filename="../editor_form.py" line="124"/>
-        <location filename="../editor_form.py" line="251"/>
+        <location filename="../editor_form.py" line="252"/>
         <source>Path</source>
         <translation>Путь</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="128"/>
-        <location filename="../editor_form.py" line="252"/>
+        <location filename="../editor_form.py" line="253"/>
         <source>Units</source>
         <translation>Единицы</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="132"/>
         <location filename="../editor_form.py" line="201"/>
-        <location filename="../editor_form.py" line="253"/>
-        <location filename="../editor_form.py" line="288"/>
-        <location filename="../editor_form.py" line="762"/>
+        <location filename="../editor_form.py" line="254"/>
+        <location filename="../editor_form.py" line="289"/>
+        <location filename="../editor_form.py" line="764"/>
         <location filename="../editor.ui" line="451"/>
         <source>Translated</source>
         <translation>Переведено</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="181"/>
-        <location filename="../editor_form.py" line="337"/>
-        <location filename="../editor_form.py" line="493"/>
-        <location filename="../editor_form.py" line="541"/>
-        <location filename="../editor_form.py" line="552"/>
-        <location filename="../editor_form.py" line="912"/>
-        <location filename="../editor_form.py" line="966"/>
+        <location filename="../editor_form.py" line="339"/>
+        <location filename="../editor_form.py" line="495"/>
+        <location filename="../editor_form.py" line="543"/>
+        <location filename="../editor_form.py" line="554"/>
+        <location filename="../editor_form.py" line="914"/>
+        <location filename="../editor_form.py" line="968"/>
         <source>Export to html file</source>
         <translation>Экспортировать в html-файл</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="184"/>
-        <location filename="../editor_form.py" line="341"/>
-        <location filename="../editor_form.py" line="914"/>
+        <location filename="../editor_form.py" line="343"/>
+        <location filename="../editor_form.py" line="916"/>
         <source>Import html and relative translated contents</source>
         <translation>Импортируйте HTML и относительный переведенный контент</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="195"/>
-        <location filename="../editor_form.py" line="284"/>
-        <location filename="../editor_form.py" line="758"/>
+        <location filename="../editor_form.py" line="285"/>
+        <location filename="../editor_form.py" line="760"/>
         <source>line</source>
         <translation>линия</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="196"/>
-        <location filename="../editor_form.py" line="285"/>
-        <location filename="../editor_form.py" line="759"/>
+        <location filename="../editor_form.py" line="286"/>
+        <location filename="../editor_form.py" line="761"/>
         <source>refer</source>
         <translation>ссылаться</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="198"/>
-        <location filename="../editor_form.py" line="286"/>
-        <location filename="../editor_form.py" line="598"/>
-        <location filename="../editor_form.py" line="760"/>
-        <location filename="../editor_form.py" line="1635"/>
+        <location filename="../editor_form.py" line="287"/>
+        <location filename="../editor_form.py" line="600"/>
+        <location filename="../editor_form.py" line="762"/>
+        <location filename="../editor_form.py" line="1637"/>
         <location filename="../editor.ui" line="331"/>
         <location filename="../editor.ui" line="410"/>
         <source>Original</source>
@@ -337,122 +337,122 @@
     </message>
     <message>
         <location filename="../editor_form.py" line="199"/>
-        <location filename="../editor_form.py" line="287"/>
-        <location filename="../editor_form.py" line="599"/>
-        <location filename="../editor_form.py" line="761"/>
-        <location filename="../editor_form.py" line="1636"/>
+        <location filename="../editor_form.py" line="288"/>
+        <location filename="../editor_form.py" line="601"/>
+        <location filename="../editor_form.py" line="763"/>
+        <location filename="../editor_form.py" line="1638"/>
         <location filename="../editor.ui" line="252"/>
         <location filename="../editor.ui" line="429"/>
         <source>Current</source>
         <translation>Текущий</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="325"/>
+        <location filename="../editor_form.py" line="327"/>
         <source>Remove</source>
         <translation>Удалять</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="469"/>
+        <location filename="../editor_form.py" line="471"/>
         <source>Import to files</source>
         <translation>Импортировать в файлы</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="472"/>
+        <location filename="../editor_form.py" line="474"/>
         <source>Do you want to make advanced settings (the default setting is to import to all files in the directory)</source>
         <translation>Хотите выполнить расширенные настройки (настройка по умолчанию — импорт во все файлы в каталоге)</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="510"/>
-        <location filename="../editor_form.py" line="560"/>
-        <location filename="../editor_form.py" line="976"/>
+        <location filename="../editor_form.py" line="512"/>
+        <location filename="../editor_form.py" line="562"/>
+        <location filename="../editor_form.py" line="978"/>
         <source>Do you want to replace special symbols?</source>
         <translation>Хотите заменить специальные символы?</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="555"/>
-        <location filename="../editor_form.py" line="626"/>
+        <location filename="../editor_form.py" line="557"/>
+        <location filename="../editor_form.py" line="628"/>
         <source>Do you want to make advanced settings (the default setting is to export all files in the directory)</source>
         <translation>Хотите ли вы выполнить расширенные настройки (настройка по умолчанию — экспортировать все файлы в каталоге)</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="692"/>
+        <location filename="../editor_form.py" line="694"/>
         <source>Case Sensitive</source>
         <translation>С учетом регистра</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="695"/>
+        <location filename="../editor_form.py" line="697"/>
         <source>Search refer column</source>
         <translation>Поиск в столбце ссылки</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="698"/>
+        <location filename="../editor_form.py" line="700"/>
         <source>Search Original column</source>
         <translation>Исходный столбец поиска</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="701"/>
+        <location filename="../editor_form.py" line="703"/>
         <source>Search Current column</source>
         <translation>Поиск в текущем столбце</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="704"/>
+        <location filename="../editor_form.py" line="706"/>
         <source>Search Translated column</source>
         <translation>Поиск Переведенный столбец</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="799"/>
-        <location filename="../editor_form.py" line="811"/>
+        <location filename="../editor_form.py" line="801"/>
+        <location filename="../editor_form.py" line="813"/>
         <source>Input Dialog</source>
         <translation>Диалог ввода</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="801"/>
+        <location filename="../editor_form.py" line="803"/>
         <source>Please Input the line number you want to jump</source>
         <translation>Пожалуйста, введите номер строки, на которую вы хотите перейти.</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="813"/>
+        <location filename="../editor_form.py" line="815"/>
         <source>Please Input the content you want to search</source>
         <translation>Пожалуйста, введите контент, который вы хотите найти</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="900"/>
+        <location filename="../editor_form.py" line="902"/>
         <source>Translate Translation Source to Translated</source>
         <translation>Перевести исходный код перевода в переведенный</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="903"/>
+        <location filename="../editor_form.py" line="905"/>
         <source>Copy Original to Current</source>
         <translation>Копировать оригинал в текущий</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="905"/>
+        <location filename="../editor_form.py" line="907"/>
         <source>Copy Translated to Current</source>
         <translation>Копия переведена в текущий</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="908"/>
+        <location filename="../editor_form.py" line="910"/>
         <source>Rollback Current to First Load</source>
         <translation>Ток отката до первой нагрузки</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1476"/>
+        <location filename="../editor_form.py" line="1478"/>
         <source>select the directory you want to edit</source>
         <translation>выберите каталог, который вы хотите редактировать</translation>
     </message>
     <message>
-        <location filename="../editor_form.py" line="1483"/>
+        <location filename="../editor_form.py" line="1485"/>
         <source>select the file(s) you want to edit</source>
         <translation>выберите файл(ы), которые вы хотите отредактировать</translation>
     </message>
     <message>
         <location filename="../editor_form.py" line="179"/>
-        <location filename="../editor_form.py" line="334"/>
-        <location filename="../editor_form.py" line="585"/>
-        <location filename="../editor_form.py" line="614"/>
-        <location filename="../editor_form.py" line="623"/>
-        <location filename="../editor_form.py" line="910"/>
-        <location filename="../editor_form.py" line="1016"/>
+        <location filename="../editor_form.py" line="336"/>
+        <location filename="../editor_form.py" line="587"/>
+        <location filename="../editor_form.py" line="616"/>
+        <location filename="../editor_form.py" line="625"/>
+        <location filename="../editor_form.py" line="912"/>
+        <location filename="../editor_form.py" line="1018"/>
         <source>Export to xlsx file</source>
         <translation>Экспортировать в файл xlsx</translation>
     </message>
@@ -680,6 +680,35 @@
         <location filename="../engine.ui" line="391"/>
         <source>Custom Prompt Template</source>
         <translation>Пользовательский шаблон подсказки</translation>
+    </message>
+</context>
+<context>
+    <name>ErrorRepairDialog</name>
+    <message>
+        <location filename="../error_repair_form.py" line="52"/>
+        <source>is repairing...</source>
+        <translation>ремонтируется...</translation>
+    </message>
+    <message>
+        <location filename="../error_repair_form.py" line="69"/>
+        <location filename="../error_repair.ui" line="103"/>
+        <source>repair errors</source>
+        <translation>исправление ошибок</translation>
+    </message>
+    <message>
+        <location filename="../error_repair.ui" line="14"/>
+        <source>Error Repair</source>
+        <translation>Исправление ошибок</translation>
+    </message>
+    <message>
+        <location filename="../error_repair.ui" line="39"/>
+        <source>file</source>
+        <translation>файл</translation>
+    </message>
+    <message>
+        <location filename="../error_repair.ui" line="71"/>
+        <source>max repair count</source>
+        <translation>максимальное количество ремонтов</translation>
     </message>
 </context>
 <context>
@@ -914,7 +943,7 @@
     </message>
     <message>
         <location filename="../font_replace_form.py" line="55"/>
-        <location filename="../one_key_translate_form.py" line="440"/>
+        <location filename="../one_key_translate_form.py" line="466"/>
         <source>select the file font which supports the translated language</source>
         <translation>выберите шрифт файла, который поддерживает переведенный язык</translation>
     </message>
@@ -980,12 +1009,12 @@
 <context>
     <name>FormatDialog</name>
     <message>
-        <location filename="../main.py" line="675"/>
+        <location filename="../main.py" line="690"/>
         <source>is formating...</source>
         <translation>форматирует...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="679"/>
+        <location filename="../main.py" line="695"/>
         <location filename="../format.ui" line="14"/>
         <location filename="../format.ui" line="91"/>
         <location filename="../format.ui" line="104"/>
@@ -1016,7 +1045,7 @@
 <context>
     <name>GameUnpackerDialog</name>
     <message>
-        <location filename="../game_unpacker_form.py" line="149"/>
+        <location filename="../game_unpacker_form.py" line="155"/>
         <source>select the game file you want to unpack</source>
         <translation>выберите файл игры, который хотите распаковать</translation>
     </message>
@@ -1104,9 +1133,9 @@
 <context>
     <name>ImportHtmlDialog</name>
     <message>
-        <location filename="../main.py" line="629"/>
-        <location filename="../editor_form.py" line="1523"/>
-        <location filename="../one_key_translate_form.py" line="698"/>
+        <location filename="../main.py" line="644"/>
+        <location filename="../editor_form.py" line="1525"/>
+        <location filename="../one_key_translate_form.py" line="731"/>
         <location filename="../import_html_form.py" line="37"/>
         <source>The html file does not match the translated file , please check the input files</source>
         <translation>HTML-файл не соответствует переведенному файлу, проверьте входные файлы</translation>
@@ -1249,46 +1278,46 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../main.py" line="665"/>
+        <location filename="../main.py" line="680"/>
         <location filename="../extraction_official_form.py" line="67"/>
         <source>is extracting...</source>
         <translation>извлечение...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="605"/>
-        <location filename="../main.py" line="779"/>
+        <location filename="../main.py" line="620"/>
+        <location filename="../main.py" line="795"/>
         <source>is translating...</source>
         <translation>Идет перевод...</translation>
     </message>
     <message>
-        <location filename="../main.py" line="151"/>
-        <location filename="../main.py" line="429"/>
+        <location filename="../main.py" line="153"/>
+        <location filename="../main.py" line="444"/>
         <source>Click to check for update</source>
         <translation>Нажмите, чтобы проверить наличие обновлений</translation>
     </message>
     <message>
-        <location filename="../main.py" line="263"/>
+        <location filename="../main.py" line="271"/>
         <source>It&apos;s up to date now</source>
         <translation>Это актуально сейчас</translation>
     </message>
     <message>
-        <location filename="../main.py" line="269"/>
+        <location filename="../main.py" line="277"/>
         <source>New version detected</source>
         <translation>Обнаружена новая версия</translation>
     </message>
     <message>
-        <location filename="../main.py" line="271"/>
+        <location filename="../main.py" line="279"/>
         <source>Would you like to open the website to get the latest verison?</source>
         <translation>Хотите открыть веб-сайт и получить последнюю версию?</translation>
     </message>
     <message>
-        <location filename="../main.py" line="608"/>
+        <location filename="../main.py" line="623"/>
         <location filename="../ui.ui" line="36"/>
         <source>translate</source>
         <translation>переводить</translation>
     </message>
     <message>
-        <location filename="../main.py" line="669"/>
+        <location filename="../main.py" line="684"/>
         <location filename="../extraction_official_form.py" line="89"/>
         <source>extract</source>
         <translation>извлекать</translation>
@@ -1302,12 +1331,12 @@
         <translation type="vanished">выберите каталог, который вы хотите извлечь</translation>
     </message>
     <message>
-        <location filename="../main.py" line="714"/>
+        <location filename="../main.py" line="730"/>
         <source>select the file(s) you want to translate</source>
         <translation>выберите файл(ы), которые вы хотите перевести</translation>
     </message>
     <message>
-        <location filename="../main.py" line="725"/>
+        <location filename="../main.py" line="741"/>
         <source>select the directory you want to translate</source>
         <translation>выберите каталог, который вы хотите перевести</translation>
     </message>
@@ -1317,8 +1346,8 @@
         <translation>Ренпи Переводчик</translation>
     </message>
     <message>
-        <location filename="../main.py" line="150"/>
-        <location filename="../main.py" line="428"/>
+        <location filename="../main.py" line="152"/>
+        <location filename="../main.py" line="443"/>
         <source>Version</source>
         <translation>Версия</translation>
     </message>
@@ -1409,14 +1438,19 @@
         <translation>найти файл журнала с помощью проводника</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="877"/>
+        <location filename="../ui.ui" line="878"/>
         <source>set default language at startup</source>
         <translation>установить язык по умолчанию при запуске</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="882"/>
+        <location filename="../ui.ui" line="883"/>
         <source>format rpy files</source>
         <translation>форматировать файлы rpy</translation>
+    </message>
+    <message>
+        <location filename="../ui.ui" line="888"/>
+        <source>error repair</source>
+        <translation>Исправление ошибок</translation>
     </message>
     <message>
         <location filename="../ui.ui" line="421"/>
@@ -1434,47 +1468,47 @@
         <translation>Расширенные опции</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="603"/>
+        <location filename="../ui.ui" line="604"/>
         <source>theme</source>
         <translation>тема</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="722"/>
+        <location filename="../ui.ui" line="723"/>
         <source>unpack game package</source>
         <translation>распаковать пакет игры</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="822"/>
+        <location filename="../ui.ui" line="823"/>
         <source>extract translation</source>
         <translation>извлечь перевод</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="827"/>
+        <location filename="../ui.ui" line="828"/>
         <source>runtime extraction</source>
         <translation>Извлечение во время выполнения</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="842"/>
+        <location filename="../ui.ui" line="843"/>
         <source>add change langauge entrance</source>
         <translation>Добавить вход на смену языка</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="847"/>
+        <location filename="../ui.ui" line="848"/>
         <source>one key translate</source>
         <translation>один ключ, перевод</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="852"/>
+        <location filename="../ui.ui" line="853"/>
         <source>official extraction</source>
         <translation>Официальное извлечение</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="857"/>
+        <location filename="../ui.ui" line="858"/>
         <source>convert txt to html</source>
         <translation>конвертировать txt в html</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="867"/>
+        <location filename="../ui.ui" line="868"/>
         <source>pack game files</source>
         <translation>упаковать файлы игры</translation>
     </message>
@@ -1502,7 +1536,7 @@
         <translation type="vanished">введите или выберите или перетащите шрифт, который поддерживает язык после перевода. Пример: DejaVuSans.ttf (шрифт ren&apos;py по умолчанию)</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="717"/>
+        <location filename="../ui.ui" line="718"/>
         <source>replace font</source>
         <translation>заменить шрифт</translation>
     </message>
@@ -1584,32 +1618,32 @@
         <translation type="vanished">редактор</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="582"/>
+        <location filename="../ui.ui" line="583"/>
         <source>language</source>
         <translation>язык</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="634"/>
+        <location filename="../ui.ui" line="635"/>
         <source>copyright</source>
         <translation>Авторские права</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="639"/>
+        <location filename="../ui.ui" line="640"/>
         <source>proxy settings</source>
         <translation>настройки прокси</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="644"/>
+        <location filename="../ui.ui" line="645"/>
         <source>engine settings</source>
         <translation>настройки двигателя</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="649"/>
+        <location filename="../ui.ui" line="650"/>
         <source>custom engine</source>
         <translation>специальный движок</translation>
     </message>
     <message>
-        <location filename="../ui.ui" line="654"/>
+        <location filename="../ui.ui" line="655"/>
         <source>edit from rpy</source>
         <translation>редактировать из rpy</translation>
     </message>
@@ -1764,12 +1798,22 @@
         <translation>установить язык по умолчанию при запуске</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="600"/>
+        <location filename="../one_key_translate.ui" line="557"/>
+        <source>Error Repair</source>
+        <translation>Исправление ошибок</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate.ui" line="589"/>
+        <source>max repair count</source>
+        <translation>максимальное количество ремонтов</translation>
+    </message>
+    <message>
+        <location filename="../one_key_translate_form.py" line="626"/>
         <source>select the game file</source>
         <translation>выберите файл игры</translation>
     </message>
     <message>
-        <location filename="../one_key_translate_form.py" line="731"/>
+        <location filename="../one_key_translate_form.py" line="764"/>
         <source>One Key Translate Complete</source>
         <translation>One Key Translate завершен</translation>
     </message>

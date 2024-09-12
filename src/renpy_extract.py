@@ -36,6 +36,13 @@ class ExtractTlThread(threading.Thread):
             extracted = ExtractFromFile(self.p, False, 9999, False, self.is_py2)
         else:
             remove_repeat_for_file(self.p)
+            f = io.open(self.p, 'r', encoding='utf-8')
+            _lines = f.readlines()
+            f.close()
+            f = io.open(self.p, 'w', encoding='utf-8')
+            _lines = get_remove_consecutive_empty_lines(_lines)
+            f.writelines(_lines)
+            f.close()
             extracted = None
         get_extracted_lock.acquire()
         get_extracted_set_list.append((self.p, extracted))
@@ -132,28 +139,6 @@ def remove_repeat_extracted_from_tl(tl_dir, is_py2):
                     f.close()
                     remove_repeat_for_file(p2)
         i = i + 1
-    cnt = 0
-    get_extracted_set_list.clear()
-    paths = os.walk(p, topdown=False)
-    for path, dir_lst, file_lst in paths:
-        for file_name in file_lst:
-            i = os.path.join(path, file_name)
-            if file_name.endswith("rpy") == False:
-                continue
-            t = ExtractTlThread(i, is_py2, True)
-            get_extracted_threads.append(t)
-            cnt = cnt + 1
-            t.start()
-    while True:
-        threads_len = len(get_extracted_threads)
-        if threads_len > 0:
-            for t in get_extracted_threads:
-                if t.is_alive():
-                    t.join()
-                get_extracted_threads.remove(t)
-        else:
-            break
-    get_extracted_set_list.clear()
 
 def get_remove_consecutive_empty_lines(lines):
     last_line_empty = False
@@ -572,3 +557,28 @@ def ExtractAllFilesInDir(dirName, is_open_filter, filter_length, is_gen_empty, i
     WriteExtracted(dirName, set(), is_open_filter, filter_length, is_gen_empty, is_skip_underline, is_py2)
     log_print('start removing repeated extraction, please waiting...')
     remove_repeat_extracted_from_tl(dirName, is_py2)
+    cnt = 0
+    get_extracted_set_list.clear()
+    p = dirName
+    if p[len(p) - 1] != '/' and p[len(p) - 1] != '\\':
+        p = p + '/'
+    paths = os.walk(p, topdown=False)
+    for path, dir_lst, file_lst in paths:
+        for file_name in file_lst:
+            i = os.path.join(path, file_name)
+            if file_name.endswith("rpy") == False:
+                continue
+            t = ExtractTlThread(i, is_py2, True)
+            get_extracted_threads.append(t)
+            cnt = cnt + 1
+            t.start()
+    while True:
+        threads_len = len(get_extracted_threads)
+        if threads_len > 0:
+            for t in get_extracted_threads:
+                if t.is_alive():
+                    t.join()
+                get_extracted_threads.remove(t)
+        else:
+            break
+    get_extracted_set_list.clear()

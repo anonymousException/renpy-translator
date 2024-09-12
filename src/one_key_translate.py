@@ -108,7 +108,7 @@ class Ui_OneKeyTranslateDialog(object):
         self.label_14.setAlignment(Qt.AlignCenter)
         self.startButton = QPushButton(OneKeyTranslateDialog)
         self.startButton.setObjectName(u"startButton")
-        self.startButton.setGeometry(QRect(620, 500, 401, 251))
+        self.startButton.setGeometry(QRect(620, 620, 401, 131))
         self.officialExtractionCheckBox = QCheckBox(OneKeyTranslateDialog)
         self.officialExtractionCheckBox.setObjectName(u"officialExtractionCheckBox")
         self.officialExtractionCheckBox.setGeometry(QRect(620, 150, 411, 20))
@@ -157,6 +157,19 @@ class Ui_OneKeyTranslateDialog(object):
         self.setDefaultLanguageCheckBox.setObjectName(u"setDefaultLanguageCheckBox")
         self.setDefaultLanguageCheckBox.setGeometry(QRect(620, 390, 821, 20))
         self.setDefaultLanguageCheckBox.setChecked(True)
+        self.errorRepairCheckBox = QCheckBox(OneKeyTranslateDialog)
+        self.errorRepairCheckBox.setObjectName(u"errorRepairCheckBox")
+        self.errorRepairCheckBox.setGeometry(QRect(620, 510, 411, 20))
+        self.errorRepairCheckBox.setChecked(True)
+        self.maxRecursionLineEdit = QLineEdit(OneKeyTranslateDialog)
+        self.maxRecursionLineEdit.setObjectName(u"maxRecursionLineEdit")
+        self.maxRecursionLineEdit.setGeometry(QRect(620, 590, 401, 20))
+        self.maxRecursionLineEdit.setAlignment(Qt.AlignCenter)
+        self.label_5 = QLabel(OneKeyTranslateDialog)
+        self.label_5.setObjectName(u"label_5")
+        self.label_5.setGeometry(QRect(620, 540, 391, 41))
+        self.label_5.setAlignment(Qt.AlignCenter)
+        self.label_5.setWordWrap(True)
 
         self.retranslateUi(OneKeyTranslateDialog)
 
@@ -201,5 +214,8 @@ class Ui_OneKeyTranslateDialog(object):
         self.rtlCheckBox.setText(QCoreApplication.translate("OneKeyTranslateDialog", u"Enable RTL (Right To Left)", None))
         self.label_3.setText(QCoreApplication.translate("OneKeyTranslateDialog", u"(Fix reversed font problem for some languages like arabic, urdu)", None))
         self.setDefaultLanguageCheckBox.setText(QCoreApplication.translate("OneKeyTranslateDialog", u"set default language at startup", None))
+        self.errorRepairCheckBox.setText(QCoreApplication.translate("OneKeyTranslateDialog", u"Error Repair", None))
+        self.maxRecursionLineEdit.setText(QCoreApplication.translate("OneKeyTranslateDialog", u"4", None))
+        self.label_5.setText(QCoreApplication.translate("OneKeyTranslateDialog", u"max repair count", None))
     # retranslateUi
 

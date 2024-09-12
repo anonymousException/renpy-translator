@@ -33,6 +33,7 @@ from font_util import get_default_font_path
 import my_log
 from font_replace_form import replaceFontThread
 import default_language_form
+from error_repair_form import repairThread
 from translated_form import MyTranslatedForm
 
 
@@ -56,12 +57,14 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
         self.changeTranslationEngineButton.clicked.connect(self.show_engine_settings)
         self.filterLengthLineEdit.setValidator(QIntValidator(1, 99, self))
         self.filterLengthLineEdit_2.setValidator(QIntValidator(1, 99, self))
+        self.maxRecursionLineEdit.setValidator(QIntValidator(1, 65535, self))
         self.local_glossary = None
         self.localGlossaryCheckBox.clicked.connect(self.on_local_glossary_checkbox_state_changed)
         self.selectFontBtn.clicked.connect(self.select_font)
         self.startButton.clicked.connect(self.on_start_button_clicked)
         self.path = None
         self.official_extract_thread = None
+        self.repair_thread = None
         self.replace_font_thread = None
         self.is_queue_task_empty = True
         self.q = MyQueue()
@@ -119,6 +122,9 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
         if self.officialExtractionCheckBox.isChecked():
             self.q.put(self.official_extract)
             self.qDic[self.official_extract] = (False, False)
+        if self.errorRepairCheckBox.isChecked():
+            self.q.put(self.repair)
+            self.qDic[self.repair] = (False, False)
         if self.extractionCheckBox.isChecked():
             self.q.put(self.extract)
             self.qDic[self.extract] = (False, False)
@@ -138,6 +144,16 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
             self.hide()
             self.parent.showNormal()
             self.parent.raise_()
+
+    def repair(self):
+        path = self.selectFileText.toPlainText()
+        path = path.replace('file:///', '')
+        if os.path.isfile(path):
+            if path.endswith('.exe'):
+                t = repairThread(path, int(self.maxRecursionLineEdit.text()))
+                self.repair_thread = t
+                t.start()
+                self.setDisabled(True)
 
     def set_default_language(self):
         tl_name = self.tlNameText.toPlainText()
@@ -664,6 +680,13 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
                     is_finished, is_executed = self.qDic[self.official_extract]
                     is_finished = True
                     self.qDic[self.official_extract] = is_finished, is_executed
+
+            if self.repair_thread is not None:
+                if not self.repair_thread.is_alive():
+                    self.repair_thread = None
+                    is_finished, is_executed = self.qDic[self.repair]
+                    is_finished = True
+                    self.qDic[self.repair] = is_finished, is_executed
 
             if self.replace_font_thread is not None:
                 if not self.replace_font_thread.is_alive():

@@ -41,6 +41,7 @@ from default_language_form import MyDefaultLanguageForm
 from one_key_translate_form import MyOneKeyTranslateForm
 from pack_game_form import MyPackGameForm
 from format_form import MyFormationForm
+from error_repair_form import MyErrorRepairForm
 from renpy_translate import translateThread, translate_threads, engineList, engineDic, language_header, \
     get_translated_dic, web_brower_export_name, get_rpy_info, rpy_info_dic, get_translated, web_brower_translate
 from proxy import Ui_ProxyDialog
@@ -55,7 +56,8 @@ targetDic = dict()
 sourceDic = dict()
 translator = QTranslator()
 
-VERSION = '2.5.6'
+VERSION = '2.5.7'
+
 
 class MyProxyForm(QDialog, Ui_ProxyDialog):
     def __init__(self, parent=None):
@@ -171,6 +173,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.myPackGameForm = None
         self.myDefaultLanuageForm = None
         self.myFormationForm = None
+        self.myErrorRepairForm = None
         self.actioncopyright.triggered.connect(lambda: self.show_copyright_form())
         self.proxySettings.triggered.connect(lambda: self.show_proxy_settings())
         self.engineSettings.triggered.connect(lambda: self.show_engine_settings())
@@ -179,6 +182,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.actionextract_translation.triggered.connect(lambda: self.show_extraction_form())
         self.actionruntime_extraction.triggered.connect(lambda: self.show_extraction_runtime_form())
         self.actionreplace_font.triggered.connect(lambda: self.replace_font())
+        self.actionerror_repair.triggered.connect(lambda: self.show_error_repair_form())
         self.actionunpack_game.triggered.connect(lambda: self.unpack_game())
         self.actionadd_change_langauge_entrance.triggered.connect(lambda: self.show_add_entrance_form())
         self.actionone_key_translate.triggered.connect(lambda: self.show_one_key_translate_form())
@@ -225,12 +229,17 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
 
         _thread.start_new_thread(self.update_log, ())
 
+    def show_error_repair_form(self):
+        if self.myErrorRepairForm is None:
+            self.myErrorRepairForm = MyErrorRepairForm(parent=self)
+            self.myErrorRepairForm.parent = self
+        self.myErrorRepairForm.exec()
+
     def show_formation_form(self):
         if self.myFormationForm is None:
             self.myFormationForm = MyFormationForm(parent=self)
             self.myFormationForm.parent = self
         self.myFormationForm.exec()
-
 
     def show_default_langauge_form(self):
         if self.myDefaultLanuageForm is None:
@@ -239,7 +248,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
 
     def on_combobox_changed(self):
         if os.path.isfile('engine.txt'):
-            json_file = open('engine.txt', 'r',encoding='utf-8')
+            json_file = open('engine.txt', 'r', encoding='utf-8')
             ori = json.load(json_file)
             json_file.close()
             current_engine = ori['engine']
@@ -249,7 +258,6 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
             ori[current_engine] = dic
             json_file = open('engine.txt', 'w', encoding='utf-8')
             json.dump(ori, json_file)
-
 
     def on_version_label_clicked(self):
         try:
@@ -589,7 +597,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
 
     @staticmethod
     def locate_log():
-        open_directory_and_select_file(os.getcwd()+'/'+log_path)
+        open_directory_and_select_file(os.getcwd() + '/' + log_path)
 
     @staticmethod
     def clear_log():
@@ -683,7 +691,8 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
                 self.myFormationForm.formatBtn.setDisabled(True)
         else:
             if self.myFormationForm is not None:
-                self.myFormationForm.formatBtn.setText(QCoreApplication.translate('FormatDialog', 'format rpy files', None))
+                self.myFormationForm.formatBtn.setText(
+                    QCoreApplication.translate('FormatDialog', 'format rpy files', None))
                 self.myFormationForm.formatBtn.setEnabled(True)
 
     class UpdateThread(QThread):

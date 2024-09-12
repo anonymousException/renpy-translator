@@ -70,3 +70,11 @@ def get_py_path(game_path):
 def copy_files_under_directory_to_directory(src_dir, desc_dir):
     shutil.copytree(src_dir, desc_dir, dirs_exist_ok=True)
 
+
+def get_game_path_from_game_dir(game_dir):
+    for item in os.listdir(game_dir):
+        full_path = os.path.join(game_dir, item)
+        if os.path.isfile(full_path) and item.lower().endswith('.exe'):
+            if os.path.isfile(full_path[:-len('.exe')] + '.py'):
+                return full_path
+    return None

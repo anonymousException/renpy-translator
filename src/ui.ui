@@ -537,7 +537,7 @@
      <x>0</x>
      <y>0</y>
      <width>1068</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="aboutMenu">
@@ -573,6 +573,7 @@
     <addaction name="actionadd_change_langauge_entrance"/>
     <addaction name="actiondefault_language_at_startup"/>
     <addaction name="separator"/>
+    <addaction name="actionerror_repair"/>
     <addaction name="actionpack_game_files"/>
     <addaction name="actionconvert_txt_to_html"/>
     <addaction name="actionformat_rpy_files"/>
@@ -880,6 +881,11 @@
   <action name="actionformat_rpy_files">
    <property name="text">
     <string>format rpy files</string>
+   </property>
+  </action>
+  <action name="actionerror_repair">
+   <property name="text">
+    <string>error repair</string>
    </property>
   </action>
  </widget>
