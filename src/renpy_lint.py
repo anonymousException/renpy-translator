@@ -4,6 +4,7 @@ import subprocess
 
 from call_game_python import get_python_path_from_game_path, get_py_path
 from my_log import log_print
+from renpy_extract import remove_repeat_for_file, get_remove_consecutive_empty_lines
 
 lint_out_path = 'error_repair.txt'
 
@@ -74,6 +75,8 @@ def fix_translation_by_lint(game_path):
         f = io.open(err_file, 'r', encoding='utf-8')
         _lines = f.readlines()
         f.close()
+        if err_line >= len(_lines):
+            continue
         log_print(
             'remove error line ' + str(err_line) + ' in ' + err_file + ' : "' + _lines[err_line].rstrip('\n') + '"')
         if _lines[err_line - 1].rstrip().endswith('""")'):
@@ -115,6 +118,7 @@ def fix_translation_by_lint(game_path):
         else:
             _lines[err_line] = '    ""\n'
         f = io.open(err_file, 'w', encoding='utf-8')
+        _lines = get_remove_consecutive_empty_lines(_lines)
         f.writelines(_lines)
         f.close()
         is_fixed = True
@@ -134,4 +138,4 @@ def fix_translation_by_lint_recursion(game_path, max_recursion_depth):
         if cnt >= max_recursion_depth:
             break
 
-# fix_translation_by_lint_recursion('F:/Games/RenPy/DemoGame-1.1-dists/DemoGame-1.1-win/DemoGame.exe')
+# fix_translation_by_lint_recursion('F:/Games/RenPy/DemoGame-1.1-dists/DemoGame-1.1-win/DemoGame.exe' , 16)

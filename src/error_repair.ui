@@ -84,7 +84,7 @@
     </rect>
    </property>
    <property name="text">
-    <string notr="true">4</string>
+    <string notr="true"/>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>

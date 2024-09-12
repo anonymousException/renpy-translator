@@ -58,6 +58,7 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
         self.filterLengthLineEdit.setValidator(QIntValidator(1, 99, self))
         self.filterLengthLineEdit_2.setValidator(QIntValidator(1, 99, self))
         self.maxRecursionLineEdit.setValidator(QIntValidator(1, 65535, self))
+        self.maxRecursionLineEdit.setText('16')
         self.local_glossary = None
         self.localGlossaryCheckBox.clicked.connect(self.on_local_glossary_checkbox_state_changed)
         self.selectFontBtn.clicked.connect(self.select_font)

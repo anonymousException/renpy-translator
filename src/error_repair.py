@@ -42,6 +42,7 @@ class Ui_ErrorRepairDialog(object):
         self.maxRecursionLineEdit = QLineEdit(ErrorRepairDialog)
         self.maxRecursionLineEdit.setObjectName(u"maxRecursionLineEdit")
         self.maxRecursionLineEdit.setGeometry(QRect(260, 170, 351, 20))
+        self.maxRecursionLineEdit.setText(u"")
         self.maxRecursionLineEdit.setAlignment(Qt.AlignCenter)
         self.repairBtn = QPushButton(ErrorRepairDialog)
         self.repairBtn.setObjectName(u"repairBtn")
@@ -59,7 +60,6 @@ class Ui_ErrorRepairDialog(object):
         self.selectFileText.setToolTip("")
 #endif // QT_CONFIG(tooltip)
         self.label_2.setText(QCoreApplication.translate("ErrorRepairDialog", u"max repair count", None))
-        self.maxRecursionLineEdit.setText(QCoreApplication.translate("ErrorRepairDialog", u"4", None))
         self.repairBtn.setText(QCoreApplication.translate("ErrorRepairDialog", u"repair errors", None))
     # retranslateUi
 

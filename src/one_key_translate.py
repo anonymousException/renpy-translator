@@ -164,6 +164,7 @@ class Ui_OneKeyTranslateDialog(object):
         self.maxRecursionLineEdit = QLineEdit(OneKeyTranslateDialog)
         self.maxRecursionLineEdit.setObjectName(u"maxRecursionLineEdit")
         self.maxRecursionLineEdit.setGeometry(QRect(620, 590, 401, 20))
+        self.maxRecursionLineEdit.setText(u"")
         self.maxRecursionLineEdit.setAlignment(Qt.AlignCenter)
         self.label_5 = QLabel(OneKeyTranslateDialog)
         self.label_5.setObjectName(u"label_5")
@@ -215,7 +216,6 @@ class Ui_OneKeyTranslateDialog(object):
         self.label_3.setText(QCoreApplication.translate("OneKeyTranslateDialog", u"(Fix reversed font problem for some languages like arabic, urdu)", None))
         self.setDefaultLanguageCheckBox.setText(QCoreApplication.translate("OneKeyTranslateDialog", u"set default language at startup", None))
         self.errorRepairCheckBox.setText(QCoreApplication.translate("OneKeyTranslateDialog", u"Error Repair", None))
-        self.maxRecursionLineEdit.setText(QCoreApplication.translate("OneKeyTranslateDialog", u"4", None))
         self.label_5.setText(QCoreApplication.translate("OneKeyTranslateDialog", u"max repair count", None))
     # retranslateUi
 
