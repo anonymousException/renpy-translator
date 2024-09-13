@@ -34,6 +34,9 @@ def fix_translation_by_lint(game_path):
     exec_renpy_lint(game_path)
     if os.path.isfile(target):
         os.remove(target)
+        target = target[:-4] + '.error.txt'
+        if os.path.isfile(target):
+            os.remove(target)
         return False
     target = target[:-4] + '.error.txt'
     if not os.path.isfile(target):
