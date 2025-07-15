@@ -18,7 +18,7 @@ from one_key_translate import Ui_OneKeyTranslateDialog
 from custom_engine_form import sourceDic, targetDic
 from my_log import log_print
 from renpy_translate import engineDic, language_header, translateThread, translate_threads, get_translated_dic, \
-    web_brower_export_name, rpy_info_dic, get_rpy_info, web_brower_translate, engineList
+    web_brower_export_name, rpy_info_dic, get_rpy_info, web_brower_translate, engineList, translate_file_single
 from engine_form import MyEngineForm
 from game_unpacker_form import finish_flag
 from extract_runtime_form import extract_finish
@@ -36,6 +36,7 @@ import default_language_form
 from error_repair_form import repairThread
 from translated_form import MyTranslatedForm
 
+import concurrent.futures
 
 class MyQueue(queue.Queue):
     def peek(self):
@@ -43,6 +44,31 @@ class MyQueue(queue.Queue):
         with self.mutex:
             return self.queue[0]
 
+# Limit max threads using Thread Pool, default 5
+class MyTranslationPoolWorker(QThread):
+    finished = Signal()
+    progress = Signal(str)
+
+    def __init__(self, tasks, max_workers = 5, parent = None):
+        super().__init__(parent)
+        self.tasks = tasks
+        self.max_workers = max_workers
+
+    def run(self):
+        with concurrent.futures.ThreadPoolExecutor(max_workers=self.max_workers) as executor:
+
+            future_to_task = {executor.submit(translate_file_single, **task_params): task_params for task_params in self.tasks}
+
+            for future in concurrent.futures.as_completed(future_to_task):
+                task_info = future_to_task[future]
+                try:
+                    future.result()
+                    self.progress.emit(f"Successfully processed: {task_info['p']}")
+                except Exception as exc:
+                    self.progress.emit(f"Error processing {task_info['p']}: {exc}")
+        
+        self.finished.emit()
+        
 
 class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
     def __init__(self, parent=None):
@@ -101,6 +127,8 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
         self.unpackAllCheckBox.setChecked(not is_script_only)
         self.overwriteCheckBox.setChecked(not is_skip_if_exist)
         _thread.start_new_thread(self.update, ())
+
+        self.translation_pool_worker = None
 
     def on_tl_path_changed(self):
         if os.path.isfile('engine.txt'):
@@ -226,46 +254,64 @@ class MyOneKeyTranslateForm(QDialog, Ui_OneKeyTranslateDialog):
                     target_language = targetDic[self.targetComboBox.currentText()]
                 if self.sourceComboBox.currentText() != '':
                     source_language = sourceDic[self.sourceComboBox.currentText()]
+
+                # create a local thread list instead of the global one
+                tasks = []
                 for path, dir_lst, file_lst in paths:
                     for file_name in file_lst:
                         i = os.path.join(path, file_name)
                         if not file_name.endswith("rpy"):
                             continue
-                        t = translateThread(cnt, i, target_language, source_language,
-                                            True,
-                                            False, self.local_glossary, True,
-                                            True, self.filterCheckBox_2.isChecked(), self.filterLengthLineEdit_2.text(), True)
-                        translate_threads.append(t)
+
+                        # ------------ pack into params dict -----------------
+                        task_params = {
+                            'p': i,
+                            'lang_target': target_language,
+                            'lang_source': source_language,
+                            'is_gen_bak': False,
+                            'local_glossary': self.local_glossary,
+                            'is_translate_current': True,
+                            'is_skip_translated': True,
+                            'is_open_filter': self.filterCheckBox_2.isChecked(),
+                            'filter_length': int(self.filterLengthLineEdit_2.text()),
+                            'is_replace_special_symbols': True
+                        }
+                        
+                        tasks.append(task_params)
+                    
                         cnt = cnt + 1
-                if len(translate_threads) > 0:
+
+                translate_threads.clear()
+
+                
+                if len(tasks) > 0:
                     is_finished, is_executed = self.qDic[self.translate]
                     is_finished = False
                     self.qDic[self.translate] = is_finished, is_executed
-                    log_print('start translate...')
-                    for t in translate_threads:
-                        t.start()
+                    log_print("Starting translation workers")
+
                     self.setDisabled(True)
-                    _thread.start_new_thread(self.translate_threads_over, ())
+
+                    # UI might need a update for max workers
+                    self.translation_pool_worker = MyTranslationPoolWorker(tasks)
+                    self.translation_pool_worker.finished.connect(self.on_translate_finished)
+                    self.translation_pool_worker.progress.connect(log_print)
+                    self.translation_pool_worker.start()
                 else:
                     is_finished, is_executed = self.qDic[self.translate]
                     is_finished = True
                     self.qDic[self.translate] = is_finished, is_executed
+
+
         else:
             is_finished, is_executed = self.qDic[self.translate]
             is_finished = True
             self.qDic[self.translate] = is_finished, is_executed
 
-    def translate_threads_over(self):
-        while True:
-            threads_len = len(translate_threads)
-            if threads_len > 0:
-                for t in translate_threads:
-                    if t.is_alive():
-                        t.join()
-                    translate_threads.remove(t)
-            else:
-                break
+
+    def on_translate_finished(self):
         log_print('translate all complete!')
+        self.setDisabled(False)
         is_finished, is_executed = self.qDic[self.translate]
         is_finished = True
         self.qDic[self.translate] = is_finished, is_executed
