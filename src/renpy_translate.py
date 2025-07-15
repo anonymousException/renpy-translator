@@ -101,126 +101,22 @@ class translateThread(threading.Thread):
 
     def TranslateFile(self, p, lang_target, lang_source, is_gen_bak, local_glossary, is_translate_current,
                       is_skip_translated, is_open_filter, filter_length, is_replace_special_symbols):
-        global rpy_info_dic
-        client = init_client()
-        if client is None:
-            return
-        transList = []
-        trans_ori_dic = []
-        ret, unmatch_cnt, p = get_rpy_info(p)
-        if len(ret) == 0:
-            log_print(p + ' unable to get translated info')
-            rpy_info_dic.pop(p)
-            return
-        for dic in ret:
-            original = dic['original']
-            current = dic['current']
-            if is_translate_current:
-                target = current
-            else:
-                target = original
-            dic['target'] = target
-            if is_skip_translated and original != current:
-                continue
-            if local_glossary is not None and len(local_glossary) > 0:
-                for original, replace in local_glossary.items():
-                    target = target.replace(original, replace)
-            if is_replace_special_symbols:
-                d = EncodeBrackets(target)
-            else:
-                d = dict()
-                d['en_1'] = []
-                d['en_2'] = []
-                d['en_3'] = []
-                d['encoded'] = target
-            strip_i = target
-            for j in (d['en_1']):
-                strip_i = strip_i.replace(j, '')
-            for j in (d['en_2']):
-                strip_i = strip_i.replace(j, '')
-            for j in (d['en_3']):
-                strip_i = strip_i.replace(j, '')
-            _strip_i = replace_all_blank(strip_i)
-            if is_open_filter:
-                if len(_strip_i) < filter_length:
-                    # log_print(len(strip_i),i)
-                    continue
-            if not isAllPunctuations(d['encoded'].strip('"')):
-                if is_replace_special_symbols:
-                    transList.append(d['encoded'].strip('"'))
-                    dic['d'] = d
-                else:
-                    dic['d'] = None
-                    transList.append(target)
-                trans_ori_dic.append((dic, d['encoded'].strip('"')))
-
-        if client.__class__.__name__ == 'Translate' and local_glossary is not None and len(local_glossary) > 0:
-            fmt = 'html'
-        else:
-            fmt = 'text'
-        if len(transList) == 0:
-            log_print(p + ' translate skip!')
-            rpy_info_dic.pop(p)
-            return
-        if isinstance(client, str) and client == 'web_brower':
-            plain_text_to_html_from_list(transList, web_brower_export_name, is_replace_special_symbols)
-            return
-        trans_dic = TranslateToList(client, transList, lang_target, lang_source, fmt=fmt)
-        f = io.open(p, 'r', encoding='utf-8')
-        _read_lines = f.readlines()
-        f.close()
-        if is_gen_bak:
-            f = io.open(p + '.bak', 'w', encoding='utf-8')
-            f.writelines(_read_lines)
-            f.close()
-        for dic, trans_key in trans_ori_dic:
-            line = dic['line'] - 1
-            ori_line = dic['ori_line'] - 1
-            original = dic['original']
-            current = dic['current']
-            target = dic['target']
-            d = dic['d']
-            if is_replace_special_symbols:
-                translated = get_translated(trans_dic, d)
-            else:
-                translated = trans_dic[target]
-            if translated is None:
-                translated = ''
-                encoded = d['encoded'].strip('"')
-                if encoded in trans_dic:
-                    translated = trans_dic[encoded]
-                log_print(f'{p} Error in line:{str(line)}\n{target}\n{encoded}\n{translated}\nError')
-            else:
-                if target == current:
-                    if _read_lines[line].startswith('    new '):
-                        header = _read_lines[line][:7]
-                        content = _read_lines[line][7:]
-                        _read_lines[line] = header + content.replace(target, translated, 1)
-                    else:
-                        _read_lines[line] = _read_lines[line].replace(target, translated, 1)
-                else:
-                    _read_lines[line] = '    ' + _read_lines[ori_line].replace(target, translated).lstrip().lstrip(
-                        '#').lstrip()
-                    if _read_lines[line].startswith('    old '):
-                        _read_lines[line] = _read_lines[line].replace('    old ', '    new ', 1)
-        f = io.open(p, 'w', encoding='utf-8')
-        f.writelines(_read_lines)
-        f.close()
-        log_print(p + ' translate success!')
-        rpy_info_dic.clear()
+        translate_file_single(p, lang_target, lang_source, is_gen_bak, local_glossary, is_translate_current,
+                      is_skip_translated, is_open_filter, filter_length, is_replace_special_symbols)
 
 
 def TranslateToList(cli, inList, lang_target, lang_source, fmt='text'):
     dic = dict()
+    
     if cli.__class__.__name__ != 'Translate':
         texts = cli.translate(inList, target=lang_target, source=lang_source)
     else:
         texts = cli.translate(inList, target=lang_target, source=lang_source, fmt=fmt)
     if isinstance(texts, list):
         for i, e in enumerate(texts):
-            if cli.__class__.__name__ == 'OpenAITranslate':
-                if hasattr(e, 'untranslatedText'):
-                    dic[e.untranslatedText] = e.translatedText
+            # This should be inside api, otherwise the order will messed up
+            if hasattr(e, 'untranslatedText'):
+                dic[e.untranslatedText] = e.translatedText
             else:
                 dic[inList[i]] = e.translatedText
     else:
@@ -467,14 +363,15 @@ def get_rpy_info(p):
                         dic['is_match'] = is_match
                         infoList.append(dic)
         # sorted(infoList, key=lambda x: x['line'])
-        rpy_info_dic[p] = infoList, unmatch_cnt, p
+        # rpy_info_dic[p] = infoList, unmatch_cnt, p
         return infoList, unmatch_cnt, p
     except:
         f.close()
         msg = traceback.format_exc()
         log_print(msg)
-        rpy_info_dic[p] = infoList, 0, p
-        return infoList, 0, p
+        # rpy_info_dic[p] = infoList, 0, p
+        # return infoList, 0, p 
+        return [], 0, p
 
 
 def get_translated_dic(html_path, translated_path):
@@ -575,3 +472,120 @@ def web_brower_translate(is_open_filter, filter_length, is_current, is_replace_s
     f = io.open(path, 'w', encoding='utf-8')
     f.writelines(_read_lines)
     f.close()
+
+def translate_file_single(p, lang_target, lang_source, is_gen_bak, local_glossary, is_translate_current,
+                      is_skip_translated, is_open_filter, filter_length, is_replace_special_symbols):
+        
+        try:
+            client = init_client()
+            if client is None:
+                return
+            transList = []
+            trans_ori_dic = []
+            ret, unmatch_cnt, p = get_rpy_info(p)
+            if len(ret) == 0:
+                log_print(p + ' unable to get translated info')
+                return
+            
+            for item_dic in ret:
+                original = item_dic['original']
+                current = item_dic['current']
+                
+                target_text = current if is_translate_current else original
+                item_dic['target'] = target_text
+
+                if is_skip_translated and original != current:
+                    continue
+                
+                if local_glossary:
+                    for orig, repl in local_glossary.items():
+                        target_text = target_text.replace(orig, repl)
+
+                encoded_info = None
+                if is_replace_special_symbols:
+                    encoded_info = EncodeBrackets(target_text)
+                    text_to_translate = encoded_info['encoded'].strip('"')
+                    item_dic['d'] = encoded_info
+                else:
+                    text_to_translate = target_text
+                    item_dic['d'] = None
+
+                _strip_i = replace_all_blank(target_text)
+                if is_open_filter and len(_strip_i) < filter_length:
+                    continue
+                if isAllPunctuations(text_to_translate):
+                    continue
+
+                transList.append(text_to_translate)
+                trans_ori_dic.append({'item': item_dic, 'key': text_to_translate})
+
+            if not transList:
+                log_print(f"[{os.path.basename(p)}] No text to translate after filtering.")
+                return
+
+            if client.__class__.__name__ == 'Translate' and local_glossary is not None and len(local_glossary) > 0:
+                fmt = 'html'
+            else:
+                fmt = 'text'
+            if len(transList) == 0:
+                log_print(p + ' translate skip!')
+                # rpy_info_dic.pop(p)
+                return
+            if isinstance(client, str) and client == 'web_brower':
+                plain_text_to_html_from_list(transList, web_brower_export_name, is_replace_special_symbols)
+                return
+            trans_dic = TranslateToList(client, transList, lang_target, lang_source, fmt=fmt)
+            f = io.open(p, 'r', encoding='utf-8')
+            _read_lines = f.readlines()
+            f.close()
+            if is_gen_bak:
+                f = io.open(p + '.bak', 'w', encoding='utf-8')
+                f.writelines(_read_lines)
+                f.close()
+            for task in trans_ori_dic:
+                item_dic = task['item']
+                trans_key = task['key']
+                
+                line = item_dic['line'] - 1
+                ori_line = item_dic['ori_line'] - 1
+                original = item_dic['original']
+                current = item_dic['current']
+                target = item_dic['target']
+                d = item_dic['d']
+
+                if trans_key not in trans_dic:
+                    log_print(f"[{os.path.basename(p)}] Key '{trans_key}' not found in translation results. Line: {line+1}")
+                    continue
+
+                translated_raw = trans_dic[trans_key]
+
+                if is_replace_special_symbols:
+                    translated = get_translated({'': translated_raw}, d) 
+                    translated = get_translated({trans_key: translated_raw}, d)
+                else:
+                    translated = translated_raw
+
+                if translated is None:
+                    log_print(f"[{os.path.basename(p)}] Failed to decode translation. Original: '{target}', Translated: '{translated_raw}'. Line: {line+1}")
+                    continue
+            
+                if target == current:
+                    if _read_lines[line].startswith('    new '):
+                        header = _read_lines[line][:7]
+                        content = _read_lines[line][7:]
+                        _read_lines[line] = header + content.replace(target, translated, 1)
+                    else:
+                        _read_lines[line] = _read_lines[line].replace(target, translated, 1)
+                else:
+                    _read_lines[line] = '    ' + _read_lines[ori_line].replace(target, translated).lstrip().lstrip('#').lstrip()
+                    if _read_lines[line].startswith('    old '):
+                        _read_lines[line] = _read_lines[line].replace('    old ', '    new ', 1)
+
+            with io.open(p, 'w', encoding='utf-8') as f:
+                f.writelines(_read_lines)
+            log_print(p + ' translate success!')
+            rpy_info_dic.clear()
+        except Exception:
+            log_print(f"Error processing {p}:\n{traceback.format_exc()}")
+
+            
